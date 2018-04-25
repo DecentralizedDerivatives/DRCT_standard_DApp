@@ -9,7 +9,7 @@ import Dialog, { DialogContent } from 'material-ui/Dialog';
 import { DatePicker } from 'material-ui-pickers';
 import styles from './styles';
 import Dropdown from '../Dropdown';
-import factory from '../../ethereum/factory';
+import {factory, web3} from '../../ethereum';
 
 class CreateContract extends Component {
   static propTypes = {
@@ -44,7 +44,10 @@ class CreateContract extends Component {
   }
 
   createContract = async () => {
-    // deploy contract & create
+    const contract = await factory.deployed();
+    const accounts = await web3.eth.getAccounts();
+
+    console.log(contract, accounts)
   }
 
   render() {

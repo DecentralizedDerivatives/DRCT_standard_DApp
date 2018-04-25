@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Main from './components/Main';
-import registerServiceWorker from './registerServiceWorker';
 
 import 'normalize.css';
 
@@ -13,5 +12,3 @@ ReactDOM.render(
   </Router>,
   document.getElementById('root')
 )
-
-registerServiceWorker();
