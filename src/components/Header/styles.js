@@ -16,6 +16,7 @@ export default theme => ({
   appBar: {
     backgroundColor: theme.colors.blue,
     height: '90px',
+    minWidth: '832px',
   },
   link: {
     ...text(theme),

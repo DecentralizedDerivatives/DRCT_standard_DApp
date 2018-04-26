@@ -62,7 +62,7 @@ class Header extends Component {
     const { classes } = this.props;
 
     return (
-      <AppBar className={classes.appBar}>
+      <AppBar className={classes.appBar} position="static">
         <Grid container className={classes.container} direction='row' alignItems='stretch' justify='space-between'>
 
           <Grid item>

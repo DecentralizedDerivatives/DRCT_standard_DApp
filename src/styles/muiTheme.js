@@ -9,6 +9,9 @@ const theme = createMuiTheme({
       },
     },
   },
+  typography: {
+    fontFamily: 'IBM Plex Sans'
+  },
   fonts: {
     size: {
       header: '16px',
@@ -17,7 +20,8 @@ const theme = createMuiTheme({
     weight: {
       light: 300,
       medium: 400,
-      bold: 500
+      bold: 500,
+      veryBold: 600,
     },
   },
   colors,

@@ -47,7 +47,12 @@ class CreateContract extends Component {
     const contract = await factory.deployed();
     const accounts = await web3.eth.getAccounts();
 
-    console.log(contract, accounts)
+    var date = Number((new Date(this.state.selectedDate).getTime() / 1000).toFixed(0));
+
+    date = date - date % 86400;
+
+    const txId = await contract.deployContract(date,{from: accounts[0],gas:4000000});
+    console.log(txId);
   }
 
   render() {
