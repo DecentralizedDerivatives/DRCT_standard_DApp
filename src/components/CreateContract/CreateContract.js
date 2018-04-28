@@ -7,6 +7,7 @@ import Grid from 'material-ui/Grid';
 import Typography from 'material-ui/Typography';
 import Dialog, { DialogContent } from 'material-ui/Dialog';
 import { DatePicker } from 'material-ui-pickers';
+import { CircularProgress } from 'material-ui/Progress';
 import styles from './styles';
 import Dropdown from '../Dropdown';
 import {factory, web3} from '../../ethereum';
@@ -27,6 +28,9 @@ class CreateContract extends Component {
     currency: '',
     amount: 0.1,
     selectedDate: new Date(),
+    loading: false,
+    disabled: false,
+    created: false,
   }
 
   handleChange = event => {
@@ -47,12 +51,35 @@ class CreateContract extends Component {
     const contract = await factory.deployed();
     const accounts = await web3.eth.getAccounts();
 
-    var date = Number((new Date(this.state.selectedDate).getTime() / 1000).toFixed(0));
+    let date = Number((new Date(this.state.selectedDate).getTime() / 1000).toFixed(0));
 
     date = date - date % 86400;
 
-    const txId = await contract.deployContract(date,{from: accounts[0],gas:4000000});
-    console.log(txId);
+    let txId, error;
+
+    this.setState({ loading: true, disabled: true, showAddress: true });
+
+    try {
+      txId = await contract.deployContract(date,{from: accounts[0],gas:4000000});
+    } catch(err) {
+      error = err;
+    }
+
+    this.setState({ loading: false });
+
+    console.log(txId, error, error.tx, error.message, error.toString());
+
+    if (error) {
+      // Need error handling / message
+      this.setState({ txId: error.tx, error: true });
+      return;
+    }
+
+    this.setState({ showSendFunds: true });
+  }
+
+  sendFunds = () => {
+
   }
 
   render() {
@@ -136,12 +163,61 @@ class CreateContract extends Component {
               />
             </div>
 
-            <Button className={classes.button} onClick={this.createContract}>
+            <Button 
+              className={this.state.disabled ? classes.buttonDisabled : classes.button} 
+              disabled={this.state.disabled} 
+              onClick={this.createContract}
+            >
               <Typography className={classes.buttonText}>
                 Create Contract
               </Typography>
             </Button>
           </DialogContent>
+
+          {this.state.showAddress && <div className={classes.line} />}
+          {this.state.showAddress && 
+            <DialogContent className={classes.addressResultContainer}>
+              <div className={classes.inputContainer}>
+                <Grid container direction='row' alignItems='stretch' justify='space-between'>
+                  <Grid item>
+                    <Typography className={classes.title}>
+                      Address Result 
+                      
+                    </Typography>
+                  </Grid>
+
+                  <Grid item>
+                    {this.state.loading &&
+                      <Grid container direction='row' alignItems='stretch'>
+                        <Grid item>
+                          <Typography className={classes.waiting}>
+                            Waiting for confirmation...
+                          </Typography>
+                        </Grid>
+
+                        <Grid item>
+                          <CircularProgress className={classes.progress} size={12} thickness={5} />
+                        </Grid>
+                      </Grid>
+                    }
+                  </Grid>
+              </Grid>
+
+                 {this.state.txId && <Typography className={classes.txId}>
+                  {this.state.txId}                  
+                </Typography>}
+              </div>
+            </DialogContent>}
+
+          {this.state.showSendFunds && <div className={classes.line} />}
+          {this.state.showSendFunds &&  
+            <DialogContent className={classes.sendFundsContainer}>
+              <Button className={classes.button} onClick={this.sendFunds}>
+                <Typography className={classes.buttonText}>
+                  Send Funds
+                </Typography>
+              </Button>
+            </DialogContent>}
         </Dialog>
       </div>
     );

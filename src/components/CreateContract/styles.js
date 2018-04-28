@@ -1,3 +1,5 @@
+const width = '325px';
+
 export default theme => ({
   paper: {
     borderRadius: '5px',
@@ -6,8 +8,20 @@ export default theme => ({
     outline: 'none',
   },
   dialogContent: {
-    width: '325px',
+    width,
     padding: '30px',
+  },
+  addressResultContainer: {
+    width,
+    paddingBottom: '5px'
+  },
+  sendFundsContainer: {
+    width,
+    padding: '15px 30px 30px 30px',
+  },
+  line: {
+    border: `0.5px solid ${theme.colors.lightGray}`,
+    marginBottom: '15px',
   },
   inputContainer: {
     marginBottom: '15px',
@@ -25,6 +39,9 @@ export default theme => ({
   fullWidth: {
     width: '100%',
   },
+  txId: {
+    fontSize: '16px',
+  },
   button: {
     width: '100%',
     backgroundColor: theme.colors.blue,
@@ -32,7 +49,22 @@ export default theme => ({
       backgroundColor: theme.colors.lightBlue,
     }
   },
+  buttonDisabled: {
+    width: '100%',
+    backgroundColor: theme.colors.lightBlue,
+  },
   buttonText: {
     color: theme.colors.white,
   },
+  waiting: {
+    fontWeight: theme.fonts.weight.light,
+    fontSize: theme.fonts.size.inputTitle,
+    color: theme.colors.gray,
+    position: 'relative',
+    float: 'right',
+  },
+  progress: {
+    marginLeft: '10px',
+    color: theme.colors.gray,
+  }
 });
