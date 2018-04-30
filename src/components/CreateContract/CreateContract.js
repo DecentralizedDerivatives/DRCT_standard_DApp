@@ -10,7 +10,7 @@ import { DatePicker } from 'material-ui-pickers';
 import { CircularProgress } from 'material-ui/Progress';
 import styles from './styles';
 import Dropdown from '../Dropdown';
-import {factory, web3} from '../../ethereum';
+import {factory, tokenToTokenSwap, token, web3} from '../../ethereum';
 
 class CreateContract extends Component {
   static propTypes = {
@@ -55,31 +55,47 @@ class CreateContract extends Component {
 
     date = date - date % 86400;
 
-    let txId, error;
+    let response, error;
 
     this.setState({ loading: true, disabled: true, showAddress: true });
 
     try {
-      txId = await contract.deployContract(date,{from: accounts[0],gas:4000000});
+      response = await contract.deployContract(date,{from: accounts[0],gas:4000000});
     } catch(err) {
       error = err;
     }
 
     this.setState({ loading: false });
 
-    console.log(txId, error, error.tx, error.message, error.toString());
-
     if (error) {
-      // Need error handling / message
-      this.setState({ txId: error.tx, error: true });
+      // Add error handling
+      this.setState({ txId: error.tx, error: true, disabled: false });
       return;
     }
 
-    this.setState({ showSendFunds: true });
+    this.setState({ 
+      showSendFunds: true, 
+      txId: response.tx, 
+      contractAddress: response.logs[0].args._created,
+    });
   }
 
-  sendFunds = () => {
+  sendFunds = async () => {
+    let response, error;
 
+    // try {
+    //   const swap = await TokenToTokenSwap.at(this.state.contractAddress);
+    //   await userContract.Initiate(this.state.contractAddress, ,{value: web3.toWei(20,'ether')});
+    // } catch (err) {
+    //   error = err;
+    // }
+
+    // if (error) return;
+
+    // swap_add = receipt.logs[0].args._created;
+    // swap = await TokenToTokenSwap.at(swap_add);
+    // console.log('My Swap',swap_add);
+    // await userContract.Initiate(swap_add,10000000000000000000,{value: web3.toWei(20,'ether')});
   }
 
   render() {
