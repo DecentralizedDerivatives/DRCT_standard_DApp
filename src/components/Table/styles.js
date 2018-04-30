@@ -5,7 +5,7 @@ export default theme => ({
   },
   table: {
     backgroundColor: '#EEF2F5',
-  }, 
+  },
   title: {
     color: theme.colors.black,
   },
@@ -14,5 +14,3 @@ export default theme => ({
     fontWeight: theme.fonts.weight.veryBold,
   },
 });
-
-

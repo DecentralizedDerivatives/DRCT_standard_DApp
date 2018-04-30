@@ -13,7 +13,7 @@ export default theme => ({
   },
   addressResultContainer: {
     width,
-    paddingBottom: '5px'
+    paddingBottom: '5px',
   },
   sendFundsContainer: {
     width,
@@ -47,7 +47,7 @@ export default theme => ({
     backgroundColor: theme.colors.blue,
     '&:hover': {
       backgroundColor: theme.colors.lightBlue,
-    }
+    },
   },
   buttonDisabled: {
     width: '100%',
@@ -66,5 +66,5 @@ export default theme => ({
   progress: {
     marginLeft: '10px',
     color: theme.colors.gray,
-  }
+  },
 });

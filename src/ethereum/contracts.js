@@ -7,7 +7,7 @@ const factory = contract(factoryArtifact);
 const tokenToTokenSwapArtifact = require('./build/contracts/TokenToTokenSwap.json');
 const tokenToTokenSwap = contract(tokenToTokenSwapArtifact);
 
-if ((typeof window !== 'undefined') && (typeof window.web3 !== 'undefined')) {
+if (typeof window !== 'undefined' && typeof window.web3 !== 'undefined') {
   factory.setProvider(web3.currentProvider);
   tokenToTokenSwap.setProvider(web3.currentProvider);
 
@@ -17,4 +17,4 @@ if ((typeof window !== 'undefined') && (typeof window.web3 !== 'undefined')) {
 module.exports = {
   factory,
   tokenToTokenSwap,
-}
+};

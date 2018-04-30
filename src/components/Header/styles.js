@@ -5,7 +5,7 @@ const button = {
   borderRadius: '0px',
 };
 
-const text = (theme) => ({
+const text = theme => ({
   color: theme.colors.white,
   fontSize: theme.fonts.size.header,
   fontWeight: theme.fonts.weight.medium,
@@ -18,10 +18,10 @@ export default theme => ({
     height: '90px',
     minWidth: '832px',
   },
-  link: {
+  linkText: {
     ...text(theme),
   },
-  linkActive: {
+  linkTextActive: {
     ...text(theme),
     color: theme.colors.blue,
   },
@@ -34,7 +34,7 @@ export default theme => ({
     backgroundColor: theme.colors.white,
     '&:hover': {
       backgroundColor: theme.colors.white,
-    }
+    },
   },
   container: {
     height: '100%',
@@ -53,5 +53,8 @@ export default theme => ({
   },
   logo: {
     width: '60px',
-  }
+  },
+  link: {
+    textDecoration: 'none',
+  },
 });

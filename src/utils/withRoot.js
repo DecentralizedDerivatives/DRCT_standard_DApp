@@ -1,5 +1,5 @@
 import React from 'react';
-import { MuiThemeProvider } from 'material-ui/styles';
+import {MuiThemeProvider} from 'material-ui/styles';
 import MuiPickersUtilsProvider from 'material-ui-pickers/utils/MuiPickersUtilsProvider';
 import DateFnsUtils from 'material-ui-pickers/utils/date-fns-utils';
 import theme from '../styles/muiTheme';
@@ -13,7 +13,7 @@ function withRoot(Component) {
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
           {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
           <Component {...props} />
-          </MuiPickersUtilsProvider>
+        </MuiPickersUtilsProvider>
       </MuiThemeProvider>
     );
   }

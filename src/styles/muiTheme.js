@@ -1,5 +1,5 @@
-import { createMuiTheme } from 'material-ui/styles';
-import { colors } from './global';
+import {createMuiTheme} from 'material-ui/styles';
+import {colors} from './global';
 
 const theme = createMuiTheme({
   overrides: {
@@ -10,7 +10,7 @@ const theme = createMuiTheme({
     },
   },
   typography: {
-    fontFamily: 'IBM Plex Sans'
+    fontFamily: 'IBM Plex Sans',
   },
   fonts: {
     size: {
