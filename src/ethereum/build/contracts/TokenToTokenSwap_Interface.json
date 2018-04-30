@@ -1,0 +1,282 @@
+{
+  "contractName": "TokenToTokenSwap_Interface",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_amount",
+          "type": "uint256"
+        },
+        {
+          "name": "_senderAdd",
+          "type": "address"
+        }
+      ],
+      "name": "CreateSwap",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity ^0.4.17;\n\n//Swap interface- descriptions can be found in TokenToTokenSwap.sol\ninterface TokenToTokenSwap_Interface {\n  function CreateSwap(uint _amount, address _senderAdd) external;\n}\n",
+  "sourcePath": "/Users/daniel/Desktop/drct/DRCT_standard/contracts/interfaces/TokenToTokenSwap_Interface.sol",
+  "ast": {
+    "absolutePath": "/Users/daniel/Desktop/drct/DRCT_standard/contracts/interfaces/TokenToTokenSwap_Interface.sol",
+    "exportedSymbols": {
+      "TokenToTokenSwap_Interface": [
+        4161
+      ]
+    },
+    "id": 4162,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 4153,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".17"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:16"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 4161,
+        "linearizedBaseContracts": [
+          4161
+        ],
+        "name": "TokenToTokenSwap_Interface",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": null,
+            "id": 4160,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "CreateSwap",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4158,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4155,
+                  "name": "_amount",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4160,
+                  "src": "155:12:16",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4154,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "155:4:16",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 4157,
+                  "name": "_senderAdd",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4160,
+                  "src": "169:18:16",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 4156,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "169:7:16",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "154:34:16"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 4159,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "197:0:16"
+            },
+            "scope": 4161,
+            "src": "135:63:16",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "scope": 4162,
+        "src": "94:106:16"
+      }
+    ],
+    "src": "0:201:16"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/daniel/Desktop/drct/DRCT_standard/contracts/interfaces/TokenToTokenSwap_Interface.sol",
+    "exportedSymbols": {
+      "TokenToTokenSwap_Interface": [
+        4161
+      ]
+    },
+    "id": 4162,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 4153,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".17"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:16"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 4161,
+        "linearizedBaseContracts": [
+          4161
+        ],
+        "name": "TokenToTokenSwap_Interface",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": null,
+            "id": 4160,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "CreateSwap",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4158,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4155,
+                  "name": "_amount",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4160,
+                  "src": "155:12:16",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4154,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "155:4:16",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 4157,
+                  "name": "_senderAdd",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4160,
+                  "src": "169:18:16",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 4156,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "169:7:16",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "154:34:16"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 4159,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "197:0:16"
+            },
+            "scope": 4161,
+            "src": "135:63:16",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "scope": 4162,
+        "src": "94:106:16"
+      }
+    ],
+    "src": "0:201:16"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.21+commit.dfe3193c.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "2.0.0",
+  "updatedAt": "2018-04-30T01:35:49.112Z"
+}

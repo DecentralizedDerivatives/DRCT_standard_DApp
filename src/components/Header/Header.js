@@ -9,6 +9,7 @@ import Button from 'material-ui/Button';
 import Lens from '@material-ui/icons/Lens';
 import styles from './styles';
 import CreateContract from '../CreateContract';
+import {web3, factory} from '../../ethereum';
 
 class Header extends Component {
   static propTypes = {
@@ -19,7 +20,16 @@ class Header extends Component {
     previousActive: '',
     active: '',
     open: false,
+    web3: false,
   };
+
+  componentDidMount() {
+    if (!web3) {
+      return this.setState({ web3: false });
+    }
+
+    this.setState({ web3: true });
+  }
 
   onClick = link => {
     if (link === 'Create Contract') {
@@ -108,7 +118,6 @@ class Header extends Component {
           </Grid>
 
           <Grid item>
-            {/* Need to make dynamic / Add errors */}
             <Grid
               container
               className={classes.connectedContainer}
@@ -120,7 +129,7 @@ class Header extends Component {
               </Grid>
 
               <Grid item>
-                <Lens className={classes.lens} />
+                <Lens className={this.state.web3 ? classes.lens : classes.lensOff} />
               </Grid>
             </Grid>
           </Grid>

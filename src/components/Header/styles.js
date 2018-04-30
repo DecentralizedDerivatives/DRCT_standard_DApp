@@ -12,6 +12,14 @@ const text = theme => ({
   letterSpacing: '1px',
 });
 
+const lens = {
+  position: 'relative',
+  marginLeft: '6px',
+  top: '2px',
+  height: '13px',
+  width: '13px',
+};
+
 export default theme => ({
   appBar: {
     backgroundColor: theme.colors.blue,
@@ -40,12 +48,12 @@ export default theme => ({
     height: '100%',
   },
   lens: {
-    position: 'relative',
-    marginLeft: '6px',
-    top: '1px',
-    height: '13px',
-    width: '13px',
+    ...lens,
     fill: theme.colors.green,
+  },
+  lensOff: {
+    ...lens,
+    fill: theme.colors.red,
   },
   connectedContainer: {
     marginRight: '20px',
