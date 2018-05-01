@@ -2,19 +2,19 @@ const web3 = require('./web3');
 const contract = require('truffle-contract');
 
 const factoryArtifact = require('./build/contracts/Factory.json');
-const factory = contract(factoryArtifact);
+const Factory = contract(factoryArtifact);
 
-const tokenToTokenSwapArtifact = require('./build/contracts/TokenToTokenSwap.json');
-const tokenToTokenSwap = contract(tokenToTokenSwapArtifact);
+const exchangeArtifact = require('./build/contracts/Exchange.json');
+const Exchange = contract(exchangeArtifact);
 
 if (typeof window !== 'undefined' && typeof window.web3 !== 'undefined') {
-  factory.setProvider(web3.currentProvider);
-  tokenToTokenSwap.setProvider(web3.currentProvider);
-
-  factory.at('0x57ebd3609d60f7e3ed3d93b42a3ae0b95e55b544');
+  [Factory, Exchange].forEach(Contract =>
+    Contract.setProvider(web3.currentProvider)
+  );
+  // Factory.at('0xf0836623ef02e8ac937be2d4d3b86386e2e226ef');
 }
 
 module.exports = {
-  factory,
-  tokenToTokenSwap,
+  Factory,
+  Exchange,
 };

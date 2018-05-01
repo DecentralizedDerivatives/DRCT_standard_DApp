@@ -25,10 +25,10 @@ class Header extends Component {
 
   componentDidMount() {
     if (!web3) {
-      return this.setState({ web3: false });
+      return this.setState({web3: false});
     }
 
-    this.setState({ web3: true });
+    this.setState({web3: true});
   }
 
   onClick = link => {
@@ -129,7 +129,9 @@ class Header extends Component {
               </Grid>
 
               <Grid item>
-                <Lens className={this.state.web3 ? classes.lens : classes.lensOff} />
+                <Lens
+                  className={this.state.web3 ? classes.lens : classes.lensOff}
+                />
               </Grid>
             </Grid>
           </Grid>

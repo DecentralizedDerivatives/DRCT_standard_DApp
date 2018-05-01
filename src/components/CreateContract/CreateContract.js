@@ -10,7 +10,7 @@ import {DatePicker} from 'material-ui-pickers';
 import {CircularProgress} from 'material-ui/Progress';
 import styles from './styles';
 import Dropdown from '../Dropdown';
-import {factory, tokenToTokenSwap, token, web3} from '../../ethereum';
+import {Factory, token, web3} from '../../ethereum';
 
 class CreateContract extends Component {
   static propTypes = {
@@ -48,7 +48,7 @@ class CreateContract extends Component {
   };
 
   createContract = async () => {
-    const contract = await factory.deployed();
+    const factory = await Factory.deployed();
     const accounts = await web3.eth.getAccounts();
 
     let date = Number(
@@ -62,7 +62,7 @@ class CreateContract extends Component {
     this.setState({loading: true, disabled: true, showAddress: true});
 
     try {
-      response = await contract.deployContract(date, {
+      response = await factory.deployContract(date, {
         from: accounts[0],
         gas: 4000000,
       });

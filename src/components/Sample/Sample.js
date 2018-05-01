@@ -4,11 +4,57 @@ import withStyles from 'material-ui/styles/withStyles';
 import Grid from 'material-ui/Grid';
 import styles from './styles';
 import Table from '../Table';
+import {Factory, Exchange, web3} from '../../ethereum';
 
 class Sample extends Component {
   state = {};
 
   fetchData = () => {};
+
+  componentDidMount() {
+    this.getOrderBook();
+  }
+
+
+  //This is the base data structure for an order (the maker of the order and the price)
+  // struct Order {
+  //     address maker;// the placer of the order
+  //     uint price;// The price in wei
+  //     uint amount;
+  //     address asset;
+  // }
+  getOrderBook = async () => {
+    const factory = await Factory.deployed();
+    const numDates = await factory.getDateCount();
+
+    var openDates = [];
+
+    for (let i = 0; i < numDates; i++) {
+      openDates.push(await factory.startDates.call(i));
+    }
+
+    //orderbook
+
+    // first get number of open books (tokens with open orders):
+    let exchange = await Exchange.deployed();
+    let numBooks = await exchange.getBookCount();
+
+    // get orders for that book:
+    let orderbook = [];
+
+    let order;
+    for (let i = 0; i < numBooks; i++) {
+      let book = await exchange.openBooks(i);
+      let orders = await exchange.getOrders(book);
+
+      for(let i in orders) {
+        order = await exchange.getOrder(i);
+        orderbook.push(order);
+      }
+    }
+
+    console.log(orderbook);
+  };
 
   render() {
     const {classes} = this.props;
