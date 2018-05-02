@@ -4,6 +4,7 @@ import withStyles from 'material-ui/styles/withStyles';
 import Grid from 'material-ui/Grid';
 import styles from './styles';
 import Table from '../Table';
+import PriceChart from '../PriceChart';
 import {Factory, Exchange, web3} from '../../ethereum';
 
 class Sample extends Component {
@@ -14,7 +15,6 @@ class Sample extends Component {
   componentDidMount() {
     this.getOrderBook();
   }
-
 
   //This is the base data structure for an order (the maker of the order and the price)
   // struct Order {
@@ -47,7 +47,7 @@ class Sample extends Component {
       let book = await exchange.openBooks(i);
       let orders = await exchange.getOrders(book);
 
-      for(let i in orders) {
+      for (let i in orders) {
         order = await exchange.getOrder(i);
         orderbook.push(order);
       }
@@ -67,6 +67,9 @@ class Sample extends Component {
         alignItems="stretch"
         justify="center"
       >
+        <Grid item className={classes.item}>
+          <PriceChart />
+        </Grid>
         <Grid item className={classes.item}>
           <Table
             titles={[
