@@ -51,10 +51,6 @@ class PriceChart extends Component {
     });
   };
 
-  onClick = () => {
-    this.setState({display: !this.state.display});
-  };
-
   handleChange = event => {
     this.setState({[event.target.name]: event.target.value});
     this.fetchData(event.target.value.toLowerCase());

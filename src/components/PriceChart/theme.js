@@ -1,12 +1,3 @@
-/**
- * (c) 2010-2017 Torstein Honsi
- *
- * License: www.highcharts.com/license
- *
- * Dark theme for Highcharts JS
- * @author Torstein Honsi
- */
-
 export default {
   rangeSelector: {
     inputEnabled: false,
