@@ -68,9 +68,6 @@ class Sample extends Component {
         justify="center"
       >
         <Grid item className={classes.item}>
-          <PriceChart />
-        </Grid>
-        <Grid item className={classes.item}>
           <Table
             titles={[
               'Order Book',
@@ -106,6 +103,7 @@ class Sample extends Component {
                 '6/2/2018',
               ],
             ]}
+            tableWidth="950px"
           />
         </Grid>
 
@@ -117,10 +115,12 @@ class Sample extends Component {
               ['One-week BTC/USD', 'Trade/Buy', '5 Ether', '5/30/2018'],
               ['DRCT Exchange', 'Trade/Buy', '.3 Ether', '5/28/2018'],
             ]}
-            tableWidth="650px"
+            tableWidth="950px"
           />
         </Grid>
-
+        <Grid item className={classes.item}>
+          <PriceChart />
+        </Grid>
         <Grid item className={classes.item}>
           <Table
             titles={['Recent Trades', 'Volume', 'Price']}

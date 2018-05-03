@@ -8,6 +8,7 @@ import Exchange from '../Exchange';
 import CashOut from '../CashOut';
 import withRoot from '../../utils/withRoot';
 import Sample from '../Sample';
+import HowTo from '../HowTo';
 
 const Main = props => (
   <div className="main">
@@ -16,6 +17,7 @@ const Main = props => (
       <Route path="/portfolio" component={MyPortfolio} />
       <Route path="/exchange" component={Exchange} />
       <Route path="/cash_out" component={CashOut} />
+      <Route path="/howto" component={HowTo} />
     </Switch>
 
     <Sample />

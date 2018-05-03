@@ -1,9 +1,9 @@
 export default theme => ({
   item: {
     width: '1000px',
-    marginTop: '50px',
+    marginTop: '25px',
   },
   container: {
-    marginBottom: '50px',
+    marginBottom: '25px',
   },
 });
