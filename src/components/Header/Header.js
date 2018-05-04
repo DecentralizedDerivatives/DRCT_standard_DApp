@@ -52,8 +52,8 @@ class Header extends Component {
 
   renderHeaderLinks = () => {
     const {classes} = this.props;
-    const urls = ['portfolio', 'exchange', '', 'cash_out'];
-    return ['My Portfolio', 'Exchange', 'Create Contract', 'Cash Out', 'How To'].map(
+    const urls = ['/', 'portfolio', 'exchange', '', 'cash_out', 'how_to'];
+    return ['Logo', 'My Portfolio', 'Exchange', 'Create Contract', 'Cash Out', 'How To'].map(
       (link, i) => {
         const component = (
           <Grid className={classes.gridItem} key={link} item>
@@ -79,7 +79,19 @@ class Header extends Component {
           </Grid>
         );
 
-        if (i !== 2) {
+		if (i == 0) {
+			return (
+				<div className="row">
+					<div className="logo">
+						<a href="/">
+							<img src="dda-logo.png" width="70" height="70" className={classes.link} style={{ marginTop : '10%' }} />
+						</a>
+					</div>
+				</div>
+			);
+		}
+
+        if (i !== 3) {
           return (
             <Link className={classes.link} to={`/${urls[i]}`} key={link}>
               {component}

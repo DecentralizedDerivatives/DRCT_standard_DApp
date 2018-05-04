@@ -8,6 +8,7 @@ import Exchange from '../Exchange';
 import CashOut from '../CashOut';
 import withRoot from '../../utils/withRoot';
 import Sample from '../Sample';
+//scott
 import HowTo from '../HowTo';
 
 const Main = props => (
