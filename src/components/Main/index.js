@@ -15,7 +15,6 @@ const Main = props => (
     <Switch>
       <Route path="/portfolio" component={MyPortfolio} />
       <Route path="/exchange" component={Exchange} />
-      <Route path="/cash_out" component={CashOut} />
       <Route path="/how_to" component={HowTo} />
     </Switch>
   </div>
