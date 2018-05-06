@@ -1,4 +1,4 @@
 import web3 from './web3';
-import {Factory, Exchange} from './contracts';
+import {Factory, Exchange, Swap, Wrapped, DRCT} from './contracts';
 
-export {Factory, Exchange, web3};
+export {Factory, Exchange, Swap, Wrapped, DRCT, web3};
