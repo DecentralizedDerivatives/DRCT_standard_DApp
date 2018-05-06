@@ -69,8 +69,8 @@ class Header extends Component {
 
   renderHeaderLinks = () => {
     const {classes} = this.props;
-    const urls = ['portfolio', 'portfolio', 'exchange', '', '', 'how_to'];
-    return ['Logo', 'My Portfolio', 'Exchange', 'Create Contract', 'Cash Out', 'How To'].map(
+    const urls = ['portfolio', 'portfolio', 'bulletin', '', '', 'how_to'];
+    return ['Logo', 'My Portfolio', 'Bulletin', 'Create Contract', 'Cash Out', 'How To'].map(
       (link, i) => {
         const component = (
           <Grid className={classes.gridItem} key={link} item>
