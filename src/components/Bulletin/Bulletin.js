@@ -4,11 +4,16 @@ import withStyles from 'material-ui/styles/withStyles';
 import Grid from 'material-ui/Grid';
 import styles from './styles';
 import Table from '../Table';
+import ContractDetails from '../ContractDetails';
 import PriceChart from '../PriceChart';
 import {Factory, Exchange, web3} from '../../ethereum';
 
 class Bulletin extends Component {
-  state = {};
+  state = {
+    previousActive: '',
+    active: '',
+    open: false
+  };
 
   fetchData = () => {};
 
@@ -23,6 +28,24 @@ class Bulletin extends Component {
   //     uint amount;
   //     address asset;
   // }
+
+      onClickRow = link => {
+    this.openContractDetails();
+    this.setState({active: link});
+  };
+
+
+    openContractDetails = () => {
+    this.setState({open: true, previousActive: this.state.active});
+  };
+
+  closeContractDetails = () => {
+    this.setState({
+      open: false,
+      active: this.state.previousActive,
+    });
+  };
+
   getOrderBook = async () => {
     const factory = await Factory.deployed();
     const numDates = await factory.getDateCount();
@@ -104,6 +127,7 @@ class Bulletin extends Component {
               ],
             ]}
             tableWidth="950px"
+            clickFunction = {this.onClickRow}
           />
         </Grid>
         <Grid item className={classes.item}>
@@ -122,8 +146,13 @@ class Bulletin extends Component {
             tableWidth="400px"
             cellHeight="15px"
             fontSize="12px"
+            clickFunction = {this.onClickRow}
           />
         </Grid>
+                 <ContractDetails
+          open={this.state.open}
+          toggle={this.closeContractDetails}
+      />
       </Grid>
     );
   }

@@ -5,12 +5,34 @@ import Grid from 'material-ui/Grid';
 import styles from './styles';
 import Table from '../Table';
 import PriceChart from '../PriceChart';
+import ContractDetails from '../ContractDetails';
 import {Factory, Exchange, web3} from '../../ethereum';
 
 class MyPortfolio extends Component {
-  state = {};
+    state = {
+    previousActive: '',
+    active: '',
+    open: false
+  };
 
   fetchData = () => {};
+
+    onClickRow = link => {
+    this.openContractDetails();
+    this.setState({active: link});
+  };
+
+
+    openContractDetails = () => {
+    this.setState({open: true, previousActive: this.state.active});
+  };
+
+  closeContractDetails = () => {
+    this.setState({
+      open: false,
+      active: this.state.previousActive,
+    });
+  };
 
   render() {
     const {classes} = this.props;
@@ -32,10 +54,11 @@ class MyPortfolio extends Component {
               ['DRCT Exchange', 'Trade/Buy', '.3 Ether', '5/28/2018'],
             ]}
             tableWidth="950px"
+            clickFunction = {this.onClickRow}
           />
         </Grid>
         <Grid item className={classes.item}>
-          <Table
+          <Table 
             titles={['Recent Trades', 'Volume', 'Price']}
             rows={[
               ['17:51:27', '0.00287487', '8,932,000'],
@@ -47,9 +70,15 @@ class MyPortfolio extends Component {
             tableWidth="400px"
             cellHeight="15px"
             fontSize="12px"
+            clickFunction = {this.onClickRow}
           />
         </Grid>
+         <ContractDetails
+          open={this.state.open}
+          toggle={this.closeContractDetails}
+      />
       </Grid>
+
     );
   }
 }

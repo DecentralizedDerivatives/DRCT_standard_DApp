@@ -10,6 +10,8 @@ import {colors} from '../../styles/global';
 const currencies = ['BTC', 'KRW'];
 
 function Table({classes, titles, rows, tableWidth, ...props}) {
+  console.log(props);
+  console.log(props.clickFunction);
   // Cells: Last elements are right aligned
 
   // Set first title with black font
@@ -55,7 +57,7 @@ function Table({classes, titles, rows, tableWidth, ...props}) {
       });
 
       return (
-        <TableRow className={classes.row} key={i}>
+        <TableRow hover onClick={props.clickFunction} className={classes.row} key={i}>
           {tableCells}
         </TableRow>
       );
@@ -79,6 +81,7 @@ Table.propTypes = {
   rows: PropTypes.array.isRequired,
   tableWidth: PropTypes.string,
   cellHeight: PropTypes.string,
+  clickFunction: PropTypes.func.isRequired
 };
 
 export default withStyles(styles)(Table);

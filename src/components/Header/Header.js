@@ -98,13 +98,11 @@ class Header extends Component {
 
 		if (i == 0) {
 			return (
-				<div className="row">
+				<Link className={classes.link} to={`/${urls[i]}`} key={link}>
 					<div className="logo">
-						<a href="/">
 							<img src="dda-logo.png" width="70" height="70" className={classes.link} style={{ marginTop : '10%' }} />
-						</a>
 					</div>
-				</div>
+				</Link>
 			);
 		}
 
