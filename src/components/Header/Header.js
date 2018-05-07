@@ -10,7 +10,7 @@ import Lens from '@material-ui/icons/Lens';
 import styles from './styles';
 import CreateContract from '../CreateContract';
 import CashOut from '../CashOut';
-import {web3, factory} from '../../ethereum';
+import {web3} from '../../ethereum';
 
 class Header extends Component {
   static propTypes = {
@@ -69,8 +69,8 @@ class Header extends Component {
 
   renderHeaderLinks = () => {
     const {classes} = this.props;
-    const urls = ['portfolio', 'portfolio', 'exchange', '', '', 'how_to'];
-    return ['Logo', 'My Portfolio', 'Exchange', 'Create Contract', 'Cash Out', 'How To'].map(
+    const urls = ['portfolio', 'portfolio', 'bulletin', '', '', 'how_to'];
+    return ['Logo', 'My Portfolio', 'Bulletin', 'Create Contract', 'Cash Out', 'How To'].map(
       (link, i) => {
         const component = (
           <Grid className={classes.gridItem} key={link} item>
@@ -96,15 +96,13 @@ class Header extends Component {
           </Grid>
         );
 
-		if (i == 0) {
+		if (i === 0) {
 			return (
-				<div className="row">
+				<Link className={classes.link} to={`/${urls[i]}`} key={link}>
 					<div className="logo">
-						<a href="/">
 							<img src="dda-logo.png" width="70" height="70" className={classes.link} style={{ marginTop : '10%' }} />
-						</a>
 					</div>
-				</div>
+				</Link>
 			);
 		}
 

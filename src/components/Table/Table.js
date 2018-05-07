@@ -55,7 +55,7 @@ function Table({classes, titles, rows, tableWidth, ...props}) {
       });
 
       return (
-        <TableRow className={classes.row} key={i}>
+        <TableRow hover onClick={props.clickFunction} className={classes.row} key={i}>
           {tableCells}
         </TableRow>
       );
@@ -79,6 +79,7 @@ Table.propTypes = {
   rows: PropTypes.array.isRequired,
   tableWidth: PropTypes.string,
   cellHeight: PropTypes.string,
+  clickFunction: PropTypes.func.isRequired
 };
 
 export default withStyles(styles)(Table);
