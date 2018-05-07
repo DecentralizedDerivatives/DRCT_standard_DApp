@@ -10,7 +10,7 @@ import Lens from '@material-ui/icons/Lens';
 import styles from './styles';
 import CreateContract from '../CreateContract';
 import CashOut from '../CashOut';
-import {web3, factory} from '../../ethereum';
+import {web3} from '../../ethereum';
 
 class Header extends Component {
   static propTypes = {
@@ -96,7 +96,7 @@ class Header extends Component {
           </Grid>
         );
 
-		if (i == 0) {
+		if (i === 0) {
 			return (
 				<Link className={classes.link} to={`/${urls[i]}`} key={link}>
 					<div className="logo">

@@ -10,8 +10,6 @@ import {colors} from '../../styles/global';
 const currencies = ['BTC', 'KRW'];
 
 function Table({classes, titles, rows, tableWidth, ...props}) {
-  console.log(props);
-  console.log(props.clickFunction);
   // Cells: Last elements are right aligned
 
   // Set first title with black font

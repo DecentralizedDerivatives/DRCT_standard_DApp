@@ -10,6 +10,7 @@ import {Factory, Exchange, web3} from '../../ethereum';
 
 class Bulletin extends Component {
   state = {
+    orderbook: [["loading...","loading...","loading...","loading..."]],
     previousActive: '',
     active: '',
     open: false
@@ -18,8 +19,13 @@ class Bulletin extends Component {
   fetchData = () => {};
 
   componentDidMount() {
-    this.getOrderBook();
-  }
+    console.log('did mount');
+    this.getOrderBook().then((result)=>{
+      this.setState({orderbook:result});
+      console.log('result',result);
+    });
+    
+      }
 
   //This is the base data structure for an order (the maker of the order and the price)
   // struct Order {
@@ -29,7 +35,7 @@ class Bulletin extends Component {
   //     address asset;
   // }
 
-      onClickRow = link => {
+  onClickRow = link => {
     this.openContractDetails();
     this.setState({active: link});
   };
@@ -63,7 +69,8 @@ class Bulletin extends Component {
     let numBooks = await exchange.getBookCount();
 
     // get orders for that book:
-    let orderbook = [];
+    let o_row = [];
+    let allrows = []
 
     let order;
     for (let i = 0; i < numBooks; i++) {
@@ -71,12 +78,18 @@ class Bulletin extends Component {
       let orders = await exchange.getOrders(book);
 
       for (let i in orders) {
-        order = await exchange.getOrder(i);
-        orderbook.push(order);
+        if(i > 0){
+          order = await exchange.getOrder(i);
+          var _date = new Date(openDates[i].c[0]*1000);
+          var _date = _date.getMonth() + '/' + _date.getDate() + '/' + _date.getFullYear() 
+          o_row = [order[3],order[1].c[0].toString(),order[2].c[0].toString(),_date.toString()];
+          allrows.push(o_row);
+        }
+
       }
     }
-
-    console.log(orderbook);
+    console.log('arows',allrows);
+    return allrows;
   };
 
   render() {
@@ -95,37 +108,10 @@ class Bulletin extends Component {
             titles={[
               'Order Book',
               'Amount',
-              'Sum',
-              'Size',
               'Bid',
-              'Expiration',
+              'Start Date',
             ]}
-            rows={[
-              [
-                'One-week BTC/USD',
-                '5 Ether',
-                '1.9304619BTC',
-                '1.9304619BTC',
-                '8,930,500KRW',
-                '5/28/2018',
-              ],
-              [
-                'One-week BTC/USD',
-                '5 Ether',
-                '1.9304619BTC',
-                '1.9304619BTC',
-                '8,930,500KRW',
-                '5/30/2018',
-              ],
-              [
-                'One-week BTC/USD',
-                '5 Ether',
-                '1.9304619BTC',
-                '1.9304619BTC',
-                '8,930,500KRW',
-                '6/2/2018',
-              ],
-            ]}
+            rows={this.state.orderbook}
             tableWidth="950px"
             clickFunction = {this.onClickRow}
           />
