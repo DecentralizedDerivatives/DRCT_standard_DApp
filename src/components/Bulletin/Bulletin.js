@@ -12,6 +12,7 @@ class Bulletin extends Component {
   state = {
     orderbook: [["loading...","loading...","loading...","loading..."]],
     previousActive: '',
+    recentTrades:[["loading...","loading...","loading..."]],
     active: '',
     open: false
   };
@@ -22,6 +23,8 @@ class Bulletin extends Component {
     console.log('did mount');
     this.getOrderBook().then((result)=>{
       this.setState({orderbook:result});
+    });
+    this.getRecentTrades().then((result)=>{
       console.log('result',result);
     });
     
@@ -52,6 +55,26 @@ class Bulletin extends Component {
     });
   };
 
+  getRecentTrades = async () => {
+    const exchange = await Exchange.deployed();
+    let _trades = [];
+
+    let transferEvent = await exchange.Sale({}, {fromBlock:0, toBlock: 'latest'});
+    
+    await transferEvent.get((error, logs) => {
+      console.log(logs.length);
+            for(let i = logs.length-1; i >= Math.max(logs.length-10,0); i--){
+                _trades.push(logs[i]);
+            }
+            if(logs.length == 0){
+              console.log("setting")
+              _trades = [["No Recent Trades","...","..."]]
+            }
+            this.setState({recentTrades:_trades});
+          });
+    return _trades;
+  }
+
   getOrderBook = async () => {
     const factory = await Factory.deployed();
     const numDates = await factory.getDateCount();
@@ -81,7 +104,7 @@ class Bulletin extends Component {
         if(i > 0){
           order = await exchange.getOrder(i);
           var _date = new Date(openDates[i].c[0]*1000);
-          var _date = _date.getMonth() + '/' + _date.getDate() + '/' + _date.getFullYear() 
+          var _date = (_date.getMonth()+1) + '/' + _date.getDate() + '/' + _date.getFullYear() 
           o_row = [order[3],order[1].c[0].toString(),order[2].c[0].toString(),_date.toString()];
           allrows.push(o_row);
         }
@@ -122,13 +145,7 @@ class Bulletin extends Component {
         <Grid item className={classes.item}>
           <Table
             titles={['Recent Trades', 'Volume', 'Price']}
-            rows={[
-              ['17:51:27', '0.00287487', '8,932,000'],
-              ['17:51:27', '0.00287487', '8,932,000'],
-              ['17:51:27', '0.00287487', '8,932,000'],
-              ['17:51:27', '0.00287487', '8,932,000'],
-              ['17:51:27', '0.00287487', '8,932,000'],
-            ]}
+            rows={this.state.recentTrades}
             tableWidth="400px"
             cellHeight="15px"
             fontSize="12px"
