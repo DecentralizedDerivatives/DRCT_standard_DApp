@@ -1,5 +1,5 @@
 const button = {
-  height: '90px',
+  height: '80px',
   borderRight: '1px solid #27597E',
   padding: '0px 30px',
   borderRadius: '0px',
@@ -23,7 +23,7 @@ const lens = {
 export default theme => ({
   appBar: {
     backgroundColor: theme.colors.blue,
-    height: '90px',
+    height: '80px',
     minWidth: '832px',
   },
   linkText: {
@@ -60,7 +60,7 @@ export default theme => ({
     height: '100%',
   },
   logo: {
-    width: '60px',
+    width: '20px',
   },
   link: {
     textDecoration: 'none',
