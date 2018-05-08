@@ -16,6 +16,7 @@ const Main = props => (
       <Route path="/portfolio" component={MyPortfolio} />
       <Route path="/bulletin" component={Bulletin} />
       <Route path="/how_to" component={HowTo} />
+       <Route component={ MyPortfolio } />
     </Switch>
   </div>
 );
