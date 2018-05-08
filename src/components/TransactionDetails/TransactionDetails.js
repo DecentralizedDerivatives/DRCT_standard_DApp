@@ -9,9 +9,10 @@ import Dialog, {DialogContent} from 'material-ui/Dialog';
 import {DatePicker} from 'material-ui-pickers';
 import {CircularProgress} from 'material-ui/Progress';
 import styles from './styles';
+import Dropdown from '../Dropdown';
 import {Factory, token, web3} from '../../ethereum';
 
-class CashOut extends Component {
+class TransactionDetails extends Component {
   static propTypes = {
     classes: PropTypes.object.isRequired,
     open: PropTypes.bool.isRequired,
@@ -96,19 +97,7 @@ class CashOut extends Component {
         >
           <DialogContent className={classes.dialogContent}>
             <div className={classes.inputContainer}>
-              <Typography className={classes.title}>Cash Out</Typography>
-            </div>
-
-            <div className={classes.inputContainer}>
-              <Typography className={classes.title}>Start Date</Typography>
-
-              <DatePicker
-                value={this.state.selectedDate}
-                onChange={this.handleDateChange}
-                animateYearScrolling={false}
-                className={classes.fullWidth}
-                format={'MMMM D YYYY'}
-              />
+              <Typography className={classes.title}>Transaction Details</Typography>
             </div>
 
             <div className={classes.inputContainer}>
@@ -212,4 +201,4 @@ class CashOut extends Component {
   }
 }
 
-export default withStyles(styles)(CashOut);
+export default withStyles(styles)(TransactionDetails);

@@ -9,7 +9,8 @@ import Button from 'material-ui/Button';
 import Lens from '@material-ui/icons/Lens';
 import styles from './styles';
 import CreateContract from '../CreateContract';
-import {web3, factory} from '../../ethereum';
+import CashOut from '../CashOut';
+import {web3} from '../../ethereum';
 
 class Header extends Component {
   static propTypes = {
@@ -19,7 +20,8 @@ class Header extends Component {
   state = {
     previousActive: '',
     active: '',
-    open: false,
+    openCash: false,
+    openCreate:false,
     web3: false,
   };
 
@@ -35,25 +37,40 @@ class Header extends Component {
     if (link === 'Create Contract') {
       this.openCreateContract();
     }
+    else if (link === 'Cash Out'){
+      this.openCashOut();
+    }
 
     this.setState({active: link});
   };
 
   openCreateContract = () => {
-    this.setState({open: true, previousActive: this.state.active});
+    this.setState({openCreate: true, previousActive: this.state.active});
   };
 
   closeCreateContract = () => {
     this.setState({
-      open: false,
+      openCreate: false,
+      active: this.state.previousActive,
+    });
+  };
+
+
+  openCashOut = () => {
+    this.setState({openCash: true, previousActive: this.state.active});
+  };
+
+  closeCashOut= () => {
+    this.setState({
+      openCash: false,
       active: this.state.previousActive,
     });
   };
 
   renderHeaderLinks = () => {
     const {classes} = this.props;
-    const urls = ['/', 'portfolio', 'exchange', '', 'cash_out', 'how_to'];
-    return ['Logo', 'My Portfolio', 'Exchange', 'Create Contract', 'Cash Out', 'How To'].map(
+    const urls = ['portfolio', 'portfolio', 'bulletin', '', '', 'how_to'];
+    return ['Logo', 'My Portfolio', 'Bulletin', 'Create Contract', 'Cash Out', 'How To'].map(
       (link, i) => {
         const component = (
           <Grid className={classes.gridItem} key={link} item>
@@ -79,15 +96,15 @@ class Header extends Component {
           </Grid>
         );
 
-		if (i == 0) {
+		if (i === 0) {
 			return (
-				<div className="row">
+				<Link className={classes.link} to={`/${urls[i]}`} key={link}>
 					<div className="logo">
 						<a href="/">
 							<img src="dda-logo.png" width="70" height="70" className={classes.link} style={{ marginTop : '7%', marginRight: '20%' }} />
 						</a>
 					</div>
-				</div>
+				</Link>
 			);
 		}
 
@@ -149,8 +166,12 @@ class Header extends Component {
         </Grid>
 
         <CreateContract
-          open={this.state.open}
+          open={this.state.openCreate}
           toggle={this.closeCreateContract}
+        />
+        <CashOut
+          open={this.state.openCash}
+          toggle={this.closeCashOut}
         />
       </AppBar>
     );

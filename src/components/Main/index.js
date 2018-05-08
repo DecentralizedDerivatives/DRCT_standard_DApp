@@ -4,7 +4,7 @@ import withStyles from 'material-ui/styles/withStyles';
 import styles from './styles';
 import Header from '../Header';
 import MyPortfolio from '../MyPortfolio';
-import Exchange from '../Exchange';
+import Bulletin from '../Bulletin';
 import CashOut from '../CashOut';
 import withRoot from '../../utils/withRoot';
 import HowTo from '../HowTo';
@@ -14,9 +14,9 @@ const Main = props => (
     <Header />
     <Switch>
       <Route path="/portfolio" component={MyPortfolio} />
-      <Route path="/exchange" component={Exchange} />
-      <Route path="/cash_out" component={CashOut} />
+      <Route path="/bulletin" component={Bulletin} />
       <Route path="/how_to" component={HowTo} />
+       <Route component={ MyPortfolio } />
     </Switch>
   </div>
 );

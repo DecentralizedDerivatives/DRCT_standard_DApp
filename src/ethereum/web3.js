@@ -9,4 +9,6 @@ if (typeof window !== 'undefined' && typeof window.web3 !== 'undefined') {
   console.log('Web3 Error: Check web3.js');
 }
 
+
+
 module.exports = web3;
