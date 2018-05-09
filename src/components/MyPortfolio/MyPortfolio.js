@@ -22,14 +22,14 @@ class MyPortfolio extends Component {
   fetchData = () => {};
 
     componentDidMount() {
-    web3.eth.getAccounts((error, accounts) => {
-        this.setState({ myAccount: accounts[0]});
+      web3.eth.getAccounts((error, accounts) => {
+      this.setState({ myAccount: accounts[0]});
     }) 
-    this.getMyPositions().then((result)=>{
-      this.setState({myPositions:result});
-      console.log(result);
-    });
-    this.getmyTransactions();   
+      this.getMyPositions().then((result)=>{
+        this.setState({myPositions:result});
+        console.log(result);
+      });
+      this.getmyTransactions();   
     }
 
     onClickRow = link => {

@@ -1,11 +1,16 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import withStyles from 'material-ui/styles/withStyles';
+import Button from 'material-ui/Button';
+import Typography from 'material-ui/Typography';
 import Grid from 'material-ui/Grid';
 import styles from './styles';
 import Table from '../Table';
 import ContractDetails from '../ContractDetails';
 import PriceChart from '../PriceChart';
+import List from '../List';
+import Unlist from '../Unlist';
+import Buy from '../Buy';
 import {Factory, Exchange, web3} from '../../ethereum';
 
 class Bulletin extends Component {
@@ -14,7 +19,10 @@ class Bulletin extends Component {
     previousActive: '',
     recentTrades:[["loading...","loading...","loading..."]],
     active: '',
-    open: false
+    open: false,
+    openU: false,
+    openL: false,
+    openB: false
   };
 
   fetchData = () => {};
@@ -44,7 +52,7 @@ class Bulletin extends Component {
   };
 
 
-    openContractDetails = () => {
+  openContractDetails = () => {
     this.setState({open: true, previousActive: this.state.active});
   };
 
@@ -54,6 +62,48 @@ class Bulletin extends Component {
       active: this.state.previousActive,
     });
   };
+
+
+  openBuy = () => {
+    this.setState({openB: true, previousActive: this.state.active});
+  };
+
+  closeBuy = () => {
+    this.setState({
+      openB: false,
+      active: this.state.previousActive,
+    });
+  };
+
+
+  openList = () => {
+    this.setState({openL: true, previousActive: this.state.active});
+  };
+
+  closeList = () => {
+    this.setState({
+      openL: false,
+      active: this.state.previousActive,
+    });
+  };
+
+
+  openUnlist = () => {
+    this.setState({openU: true, previousActive: this.state.active});
+  };
+
+  closeUnlist = () => {
+    this.setState({
+      openU: false,
+      active: this.state.previousActive,
+    });
+  };
+
+
+
+  buyOrder = () => {
+  };
+
 
   getRecentTrades = async () => {
     const exchange = await Exchange.deployed();
@@ -136,7 +186,7 @@ class Bulletin extends Component {
             ]}
             rows={this.state.orderbook}
             tableWidth="950px"
-            clickFunction = {this.onClickRow}
+            clickFunction = {this.openBuy}
           />
         </Grid>
         <Grid item className={classes.item}>
@@ -152,9 +202,45 @@ class Bulletin extends Component {
             clickFunction = {this.onClickRow}
           />
         </Grid>
-                 <ContractDetails
+
+         <Grid item className={classes.item}>
+            <Button
+              className={classes.button}
+              onClick={this.openList}
+            >
+              <Typography className={classes.buttonText}>
+                List Order
+              </Typography>
+            </Button>
+           </Grid>
+
+
+           <Grid item className={classes.item}>
+            <Button
+              className={classes.button}
+              onClick={this.openUnlist}
+            >
+              <Typography className={classes.buttonText}>
+                Unlist Order
+              </Typography>
+            </Button>
+             </Grid>
+
+      <ContractDetails
           open={this.state.open}
           toggle={this.closeContractDetails}
+      />
+     <List
+          open={this.state.openL}
+          toggle={this.closeList}
+      />
+           <Buy
+          open={this.state.openB}
+          toggle={this.closeBuy}
+      />
+      <Unlist
+          open={this.state.openU}
+          toggle={this.closeUnlist}
       />
       </Grid>
     );

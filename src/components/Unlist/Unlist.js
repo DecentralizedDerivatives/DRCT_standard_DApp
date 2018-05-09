@@ -10,9 +10,9 @@ import {DatePicker} from 'material-ui-pickers';
 import {CircularProgress} from 'material-ui/Progress';
 import styles from './styles';
 import Dropdown from '../Dropdown';
-import {Factory, UserContract, token, web3} from '../../ethereum';
+import {Factory,Exchange, token, web3} from '../../ethereum';
 
-class CreateContract extends Component {
+class Unlist extends Component {
   static propTypes = {
     classes: PropTypes.object.isRequired,
     open: PropTypes.bool.isRequired,
@@ -27,8 +27,6 @@ class CreateContract extends Component {
     duration: '',
     currency: '',
     amount: 0.1,
-    contractAddress:'',
-    txId:'',
     selectedDate: new Date(),
     loading: false,
     disabled: false,
@@ -49,7 +47,7 @@ class CreateContract extends Component {
     });
   };
 
-  createContract = async () => {
+  CashOut = async () => {
     const factory = await Factory.deployed();
     const accounts = await web3.eth.getAccounts();
 
@@ -87,34 +85,6 @@ class CreateContract extends Component {
     });
   };
 
-  sendFunds = async () => {
-    const userContract = await UserContract.deployed();
-    const accounts = await web3.eth.getAccounts();
-    console.log(this.state.contractAddress)
-    console.log(accounts[0])
-
-    let _value = 1e18 * this.state.amount * 2;
-    console.log(_value);
-    let response, error;
-    try {
-      await userContract.Initiate(this.state.contractAddress,_value,{
-        from: accounts[0],
-        gas: 4000000,
-        value: _value
-      });
-    } catch (err) {
-      error = err;
-    }
-
-    if (error) {
-      // Add error handling
-      console.log(error);
-      this.setState({txId: error.tx, error: true, disabled: false});
-      return;
-    }
-    {this.props.toggle}
-  };
-
   render() {
     const {classes} = this.props;
 
@@ -127,88 +97,21 @@ class CreateContract extends Component {
         >
           <DialogContent className={classes.dialogContent}>
             <div className={classes.inputContainer}>
-              <Typography className={classes.title}>Contract Type</Typography>
-              <Grid container justify="space-between">
-                <Grid item>
-                  <Dropdown
-                    menuItems={CreateContract.durations}
-                    value={this.state.duration}
-                    name="duration"
-                    onChange={this.handleChange}
-                    className={classes.duration}
-                  />
-                </Grid>
-                <Grid item>
-                  <Dropdown
-                    menuItems={CreateContract.currency}
-                    value={this.state.currency}
-                    name="currency"
-                    onChange={this.handleChange}
-                    className={classes.currency}
-                  />
-                </Grid>
-              </Grid>
+              <Typography className={classes.title}>Unlist Order</Typography>
             </div>
 
-            <div className={classes.inputContainer}>
-              <Typography className={classes.title}>Start Date</Typography>
-
-              <DatePicker
-                value={this.state.selectedDate}
-                onChange={this.handleDateChange}
-                animateYearScrolling={false}
-                className={classes.fullWidth}
-                format={'MMMM D YYYY'}
-              />
-            </div>
-
-            <div className={classes.inputContainer}>
-              <Typography className={classes.title}>Amount of Ether</Typography>
-
-              <TextField
-                id="amount"
-                value={Number(this.state.amount)}
-                type="number"
-                onChange={this.handleTextfieldChange('amount')}
-                className={classes.fullWidth}
-                helperText="Must be at least 0.1"
-              />
-            </div>
-
-            <div className={classes.inputContainer}>
-              <Typography className={classes.title}>Contract Address</Typography>
-
-              <TextField
-                id="amount"
-                value={this.state.contractAddress}
-                type="text"
-                onChange={this.handleTextfieldChange('contractAddress')}
-                className={classes.fullWidth}
-                helperText="Manually Send Funds"
-              />
-            </div>
 
             <Button
               className={
                 this.state.disabled ? classes.buttonDisabled : classes.button
               }
               disabled={this.state.disabled}
-              onClick={this.createContract}
+              onClick={this.CashOut}
             >
               <Typography className={classes.buttonText}>
-                Create Contract
+                Unlist Order
               </Typography>
             </Button>
-
-            <Button
-              className={classes.button}
-              onClick={this.sendFunds}
-            >
-              <Typography className={classes.buttonText}>
-                Send Funds
-              </Typography>
-            </Button>
-
           </DialogContent>
 
           {this.state.showAddress && <div className={classes.line} />}
@@ -248,9 +151,9 @@ class CreateContract extends Component {
                   </Grid>
                 </Grid>
 
-                {this.state.contractAddress && (
-                  <Typography className={classes.contractAddress}>
-                    {this.state.contractAddress}
+                {this.state.txId && (
+                  <Typography className={classes.txId}>
+                    {this.state.txId}
                   </Typography>
                 )}
               </div>
@@ -273,4 +176,4 @@ class CreateContract extends Component {
   }
 }
 
-export default withStyles(styles)(CreateContract);
+export default withStyles(styles)(Unlist);
