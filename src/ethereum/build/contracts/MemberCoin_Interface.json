@@ -1,0 +1,285 @@
+{
+  "contractName": "MemberCoin_Interface",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_member",
+          "type": "address"
+        }
+      ],
+      "name": "getMemberType",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity ^0.4.21;\r\n\r\ninterface MemberCoin_Interface {\r\n    function getMemberType(address _member) external constant returns(uint);\r\n}\r\n",
+  "sourcePath": "C:\\company\\code\\drct_standard\\contracts\\interfaces\\MemberCoin_Interface.sol",
+  "ast": {
+    "absolutePath": "/C/company/code/drct_standard/contracts/interfaces/MemberCoin_Interface.sol",
+    "exportedSymbols": {
+      "MemberCoin_Interface": [
+        2655
+      ]
+    },
+    "id": 2656,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 2647,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".21"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:15"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 2655,
+        "linearizedBaseContracts": [
+          2655
+        ],
+        "name": "MemberCoin_Interface",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": null,
+            "id": 2654,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getMemberType",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2650,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2649,
+                  "name": "_member",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2654,
+                  "src": "89:15:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2648,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "89:7:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "88:17:15"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 2653,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2652,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2654,
+                  "src": "132:4:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2651,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "132:4:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "131:6:15"
+            },
+            "scope": 2655,
+            "src": "66:72:15",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "scope": 2656,
+        "src": "28:113:15"
+      }
+    ],
+    "src": "0:143:15"
+  },
+  "legacyAST": {
+    "absolutePath": "/C/company/code/drct_standard/contracts/interfaces/MemberCoin_Interface.sol",
+    "exportedSymbols": {
+      "MemberCoin_Interface": [
+        2655
+      ]
+    },
+    "id": 2656,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 2647,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".21"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:15"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 2655,
+        "linearizedBaseContracts": [
+          2655
+        ],
+        "name": "MemberCoin_Interface",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": null,
+            "id": 2654,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getMemberType",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2650,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2649,
+                  "name": "_member",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2654,
+                  "src": "89:15:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2648,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "89:7:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "88:17:15"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 2653,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2652,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2654,
+                  "src": "132:4:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2651,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "132:4:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "131:6:15"
+            },
+            "scope": 2655,
+            "src": "66:72:15",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "scope": 2656,
+        "src": "28:113:15"
+      }
+    ],
+    "src": "0:143:15"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.21+commit.dfe3193c.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "2.0.0",
+  "updatedAt": "2018-05-11T20:14:39.211Z"
+}

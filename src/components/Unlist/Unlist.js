@@ -47,44 +47,28 @@ class Unlist extends Component {
     });
   };
 
-  CashOut = async () => {
-    const factory = await Factory.deployed();
+  buyOrder= async () => {
+    const exchange = await Exchange.deployed();
     const accounts = await web3.eth.getAccounts();
-
-    let date = Number(
-      (new Date(this.state.selectedDate).getTime() / 1000).toFixed(0)
-    );
-
-    date = date - date % 86400;
 
     let response, error;
 
-    this.setState({loading: true, disabled: true, showAddress: true});
-
     try {
-      response = await factory.deployContract(date, {
+      response = await exchange.unlist(this.props.orderID, {
         from: accounts[0],
         gas: 4000000,
       });
     } catch (err) {
       error = err;
     }
-
-    this.setState({loading: false});
-
     if (error) {
       // Add error handling
       this.setState({txId: error.tx, error: true, disabled: false});
       return;
     }
 
-    this.setState({
-      showSendFunds: true,
-      txId: response.tx,
-      contractAddress: response.logs[0].args._created,
-    });
+    {this.props.toggle}
   };
-
   render() {
     const {classes} = this.props;
 
@@ -99,7 +83,15 @@ class Unlist extends Component {
             <div className={classes.inputContainer}>
               <Typography className={classes.title}>Unlist Order</Typography>
             </div>
-
+            <div className={classes.inputContainer}>
+              <TextField
+                id="amount"
+                value={this.props.orderID}
+                type="text"
+                className={classes.fullWidth}
+                helperText="Please verify the correct Order Id"
+              />
+            </div>
 
             <Button
               className={
@@ -113,63 +105,6 @@ class Unlist extends Component {
               </Typography>
             </Button>
           </DialogContent>
-
-          {this.state.showAddress && <div className={classes.line} />}
-          {this.state.showAddress && (
-            <DialogContent className={classes.addressResultContainer}>
-              <div className={classes.inputContainer}>
-                <Grid
-                  container
-                  direction="row"
-                  alignItems="stretch"
-                  justify="space-between"
-                >
-                  <Grid item>
-                    <Typography className={classes.title}>
-                      Address Result
-                    </Typography>
-                  </Grid>
-
-                  <Grid item>
-                    {this.state.loading && (
-                      <Grid container direction="row" alignItems="stretch">
-                        <Grid item>
-                          <Typography className={classes.waiting}>
-                            Waiting for confirmation...
-                          </Typography>
-                        </Grid>
-
-                        <Grid item>
-                          <CircularProgress
-                            className={classes.progress}
-                            size={12}
-                            thickness={5}
-                          />
-                        </Grid>
-                      </Grid>
-                    )}
-                  </Grid>
-                </Grid>
-
-                {this.state.txId && (
-                  <Typography className={classes.txId}>
-                    {this.state.txId}
-                  </Typography>
-                )}
-              </div>
-            </DialogContent>
-          )}
-
-          {this.state.showSendFunds && <div className={classes.line} />}
-          {this.state.showSendFunds && (
-            <DialogContent className={classes.sendFundsContainer}>
-              <Button className={classes.button} onClick={this.sendFunds}>
-                <Typography className={classes.buttonText}>
-                  Send Funds
-                </Typography>
-              </Button>
-            </DialogContent>
-          )}
         </Dialog>
       </div>
     );

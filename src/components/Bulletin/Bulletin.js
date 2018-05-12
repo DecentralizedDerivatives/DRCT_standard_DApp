@@ -22,7 +22,8 @@ class Bulletin extends Component {
     open: false,
     openU: false,
     openL: false,
-    openB: false
+    openB: false,
+    orderID: "0x"
   };
 
   fetchData = () => {};
@@ -64,7 +65,9 @@ class Bulletin extends Component {
   };
 
 
-  openBuy = () => {
+  openBuy = (link) => {
+     console.log('Link',link.index);
+    this.setState({orderID:link})
     this.setState({openB: true, previousActive: this.state.active});
   };
 
@@ -127,14 +130,6 @@ class Bulletin extends Component {
 
   getOrderBook = async () => {
     const factory = await Factory.deployed();
-    const numDates = await factory.getDateCount();
-
-    var openDates = [];
-
-    for (let i = 0; i < numDates; i++) {
-      openDates.push(await factory.startDates.call(i));
-    }
-
     //orderbook
 
     // first get number of open books (tokens with open orders):
@@ -150,12 +145,14 @@ class Bulletin extends Component {
       let book = await exchange.openBooks(i);
       let orders = await exchange.getOrders(book);
 
-      for (let i in orders) {
-        if(i > 0){
-          order = await exchange.getOrder(i);
-          var _date = new Date(openDates[i].c[0]*1000);
-          var _date = (_date.getMonth()+1) + '/' + _date.getDate() + '/' + _date.getFullYear() 
-          o_row = [order[3],order[1].c[0].toString(),order[2].c[0].toString(),_date.toString()];
+      for (let j in orders) {
+        if(j > 0){
+          order = await exchange.getOrder(j);
+          var _date = await factory.token_dates.call(book);
+          console.log(_date);
+          _date = new Date(_date * 1000);
+          _date = (_date.getMonth()+1) + '/' + _date.getDate() + '/' + _date.getFullYear() 
+          o_row = [j,order[3],order[1].c[0].toString(),order[2].c[0].toString(),_date.toString()];
           allrows.push(o_row);
         }
 
@@ -179,6 +176,7 @@ class Bulletin extends Component {
         <Grid item className={classes.item}>
           <Table
             titles={[
+              'Order ID',
               'Order Book',
               'Amount',
               'Bid',
@@ -234,7 +232,8 @@ class Bulletin extends Component {
           open={this.state.openL}
           toggle={this.closeList}
       />
-           <Buy
+      <Buy
+          orderID = {this.state.orderID}
           open={this.state.openB}
           toggle={this.closeBuy}
       />

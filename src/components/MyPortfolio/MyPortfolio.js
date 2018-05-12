@@ -33,6 +33,7 @@ class MyPortfolio extends Component {
     }
 
     onClickRow = link => {
+      console.log('Link',link.index);
     this.openContractDetails();
     this.setState({active: link});
   };

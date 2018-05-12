@@ -100,7 +100,7 @@ class Header extends Component {
 			return (
 				<Link className={classes.link} to={`/${urls[i]}`} key={link}>
 					<div className="logo">
-							<img src="dda-logo.png" width="70" height="70" className={classes.link} style={{ marginTop : '7%', marginRight: '20%' }} />
+							<img src="dda-logo.png" width="70" height="70" alt="Home" className={classes.link} style={{ marginTop : '7%', marginRight: '20%' }} />
 					</div>
 				</Link>
 			);

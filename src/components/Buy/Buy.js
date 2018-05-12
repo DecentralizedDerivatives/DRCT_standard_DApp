@@ -3,11 +3,8 @@ import PropTypes from 'prop-types';
 import withStyles from 'material-ui/styles/withStyles';
 import Button from 'material-ui/Button';
 import TextField from 'material-ui/TextField';
-import Grid from 'material-ui/Grid';
 import Typography from 'material-ui/Typography';
 import Dialog, {DialogContent} from 'material-ui/Dialog';
-import {DatePicker} from 'material-ui-pickers';
-import {CircularProgress} from 'material-ui/Progress';
 import styles from './styles';
 import Dropdown from '../Dropdown';
 import {Factory, token, web3, Exchange} from '../../ethereum';
@@ -24,6 +21,7 @@ class Buy extends Component {
 
   state = {
     open: false,
+    orderID:'',
     duration: '',
     currency: '',
     amount: 0.1,
@@ -47,47 +45,34 @@ class Buy extends Component {
     });
   };
 
-  CashOut = async () => {
-    const factory = await Factory.deployed();
+  buyOrder= async () => {
+    const exchange = await Exchange.deployed();
     const accounts = await web3.eth.getAccounts();
 
-    let date = Number(
-      (new Date(this.state.selectedDate).getTime() / 1000).toFixed(0)
-    );
+    let response, error,_value;
 
-    date = date - date % 86400;
-
-    let response, error;
-
-    this.setState({loading: true, disabled: true, showAddress: true});
+    _value = this.props.amount;
 
     try {
-      response = await factory.deployContract(date, {
+      response = await exchange.buy(this.props.orderID, {
         from: accounts[0],
         gas: 4000000,
+        value: _value,
       });
     } catch (err) {
       error = err;
     }
-
-    this.setState({loading: false});
-
     if (error) {
       // Add error handling
       this.setState({txId: error.tx, error: true, disabled: false});
       return;
     }
 
-    this.setState({
-      showSendFunds: true,
-      txId: response.tx,
-      contractAddress: response.logs[0].args._created,
-    });
+    {this.props.toggle}
   };
 
   render() {
     const {classes} = this.props;
-
     return (
       <div>
         <Dialog
@@ -101,15 +86,12 @@ class Buy extends Component {
             </div>
 
             <div className={classes.inputContainer}>
-              <Typography className={classes.title}>Amount of Ether</Typography>
-
               <TextField
                 id="amount"
-                value={Number(this.state.amount)}
-                type="number"
-                onChange={this.handleTextfieldChange('amount')}
+                value={this.props.orderID}
+                type="text"
                 className={classes.fullWidth}
-                helperText="Must be at least 0.1"
+                helperText="Please verify the correct Order Id"
               />
             </div>
 
@@ -118,74 +100,23 @@ class Buy extends Component {
                 this.state.disabled ? classes.buttonDisabled : classes.button
               }
               disabled={this.state.disabled}
-              onClick={this.CashOut}
+              onClick={this.buyOrder}
             >
               <Typography className={classes.buttonText}>
                 Submit
               </Typography>
             </Button>
           </DialogContent>
-
-          {this.state.showAddress && <div className={classes.line} />}
-          {this.state.showAddress && (
-            <DialogContent className={classes.addressResultContainer}>
-              <div className={classes.inputContainer}>
-                <Grid
-                  container
-                  direction="row"
-                  alignItems="stretch"
-                  justify="space-between"
-                >
-                  <Grid item>
-                    <Typography className={classes.title}>
-                      Address Result
-                    </Typography>
-                  </Grid>
-
-                  <Grid item>
-                    {this.state.loading && (
-                      <Grid container direction="row" alignItems="stretch">
-                        <Grid item>
-                          <Typography className={classes.waiting}>
-                            Waiting for confirmation...
-                          </Typography>
-                        </Grid>
-
-                        <Grid item>
-                          <CircularProgress
-                            className={classes.progress}
-                            size={12}
-                            thickness={5}
-                          />
-                        </Grid>
-                      </Grid>
-                    )}
-                  </Grid>
-                </Grid>
-
-                {this.state.txId && (
-                  <Typography className={classes.txId}>
-                    {this.state.txId}
-                  </Typography>
-                )}
-              </div>
-            </DialogContent>
-          )}
-
-          {this.state.showSendFunds && <div className={classes.line} />}
-          {this.state.showSendFunds && (
-            <DialogContent className={classes.sendFundsContainer}>
-              <Button className={classes.button} onClick={this.sendFunds}>
-                <Typography className={classes.buttonText}>
-                  Send Funds
-                </Typography>
-              </Button>
-            </DialogContent>
-          )}
         </Dialog>
       </div>
     );
   }
 }
+
+Buy.propTypes = {
+  orderID: PropTypes.string.isRequired,
+};
+
+
 
 export default withStyles(styles)(Buy);
