@@ -5,7 +5,6 @@ var button = {
   borderRadius: '0px',
 };
 
-
 export default theme => ({
   item: {
     width: '1000px',

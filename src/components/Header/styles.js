@@ -20,11 +20,38 @@ const lens = {
   width: '13px',
 };
 
+const onMobileTheme = (theme, css) => ({
+  [theme.breakpoints.down('sm')]: {
+    ...css,
+  },
+});
+
+const hideSmall = theme => ({
+  ...onMobileTheme(theme, {display: 'none'}),
+});
+
 export default theme => ({
   appBar: {
     backgroundColor: theme.colors.blue,
     height: '80px',
-    minWidth: '832px',
+    minWidth: '800px',
+    ...onMobileTheme(theme, {minWidth: '400px'}),
+  },
+  menuContainer: {
+    [theme.breakpoints.up('md')]: {
+      display: 'none',
+    },
+    display: 'flex',
+    height: '80px',
+  },
+  menuButton: {
+    display: 'flex',
+    alignSelf: 'center',
+    marginLeft: '10px',
+  },
+  menuIcon: {
+    width: '30px',
+    height: '30px',
   },
   linkText: {
     ...text(theme),
@@ -36,9 +63,13 @@ export default theme => ({
   connected: {
     ...text(theme),
   },
-  button,
+  button: {
+    ...button,
+    ...hideSmall(theme),
+  },
   buttonActive: {
     ...button,
+    ...hideSmall(theme),
     backgroundColor: theme.colors.white,
     '&:hover': {
       backgroundColor: theme.colors.white,
@@ -56,13 +87,11 @@ export default theme => ({
     fill: theme.colors.red,
   },
   connectedContainer: {
+    height: '80px',
     marginRight: '20px',
-    height: '100%',
-  },
-  logo: {
-    width: '20px',
   },
   link: {
     textDecoration: 'none',
+    ...hideSmall(theme),
   },
 });

@@ -97,7 +97,9 @@ class ContractDetails extends Component {
         >
           <DialogContent className={classes.dialogContent}>
             <div className={classes.inputContainer}>
-              <Typography className={classes.title}>Contract Details</Typography>
+              <Typography className={classes.title}>
+                Contract Details
+              </Typography>
             </div>
 
             <div className={classes.inputContainer}>

@@ -10,7 +10,7 @@ import {DatePicker} from 'material-ui-pickers';
 import {CircularProgress} from 'material-ui/Progress';
 import styles from './styles';
 import Dropdown from '../Dropdown';
-import {Factory, UserContract, token, web3} from '../../ethereum';
+import {Factory, UserContract, web3} from '../../ethereum';
 
 class CreateContract extends Component {
   static propTypes = {
@@ -27,8 +27,8 @@ class CreateContract extends Component {
     duration: '',
     currency: '',
     amount: 0.1,
-    contractAddress:'',
-    txId:'',
+    contractAddress: '',
+    txId: '',
     selectedDate: new Date(),
     loading: false,
     disabled: false,
@@ -90,17 +90,17 @@ class CreateContract extends Component {
   sendFunds = async () => {
     const userContract = await UserContract.deployed();
     const accounts = await web3.eth.getAccounts();
-    console.log(this.state.contractAddress)
-    console.log(accounts[0])
+    console.log(this.state.contractAddress);
+    console.log(accounts[0]);
 
     let _value = 1e18 * this.state.amount * 2;
     console.log(_value);
-    let response, error;
+    let error;
     try {
-      await userContract.Initiate(this.state.contractAddress,_value,{
+      await userContract.Initiate(this.state.contractAddress, _value, {
         from: accounts[0],
         gas: 4000000,
-        value: _value
+        value: _value,
       });
     } catch (err) {
       error = err;
@@ -112,7 +112,8 @@ class CreateContract extends Component {
       this.setState({txId: error.tx, error: true, disabled: false});
       return;
     }
-    {this.props.toggle}
+
+    this.props.toggle;
   };
 
   render() {
@@ -176,7 +177,9 @@ class CreateContract extends Component {
             </div>
 
             <div className={classes.inputContainer}>
-              <Typography className={classes.title}>Contract Address</Typography>
+              <Typography className={classes.title}>
+                Contract Address
+              </Typography>
 
               <TextField
                 id="amount"
@@ -200,15 +203,9 @@ class CreateContract extends Component {
               </Typography>
             </Button>
 
-            <Button
-              className={classes.button}
-              onClick={this.sendFunds}
-            >
-              <Typography className={classes.buttonText}>
-                Send Funds
-              </Typography>
+            <Button className={classes.button} onClick={this.sendFunds}>
+              <Typography className={classes.buttonText}>Send Funds</Typography>
             </Button>
-
           </DialogContent>
 
           {this.state.showAddress && <div className={classes.line} />}
