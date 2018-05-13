@@ -45,7 +45,7 @@ export default {
     tickWidth: 0,
     lineWidth: 0,
     labels: {
-      enabled: false
+      enabled: false,
     },
   },
   yAxis: {
@@ -58,6 +58,6 @@ export default {
     },
   },
   scrollbar: {
-    enabled: false
+    enabled: false,
   },
 };

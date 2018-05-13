@@ -11,7 +11,8 @@ import {
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem } from 'reactstrap';
+  DropdownItem,
+} from 'reactstrap';
 
 const navbar = {backgroundColor: 'grey'};
 
@@ -21,12 +22,12 @@ export default class Example extends React.Component {
 
     this.toggle = this.toggle.bind(this);
     this.state = {
-      isOpen: false
+      isOpen: false,
     };
   }
   toggle() {
     this.setState({
-      isOpen: !this.state.isOpen
+      isOpen: !this.state.isOpen,
     });
   }
   render() {
@@ -41,21 +42,30 @@ export default class Example extends React.Component {
                 <NavLink href="/components/">Exchange</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="https://github.com/DecentralizedDerivatives">Create Contract</NavLink>
+                <NavLink href="https://github.com/DecentralizedDerivatives">
+                  Create Contract
+                </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="https://github.com/DecentralizedDerivatives">My Portfolio</NavLink>
+                <NavLink href="https://github.com/DecentralizedDerivatives">
+                  My Portfolio
+                </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="https://www.decentralizedderivatives.org/about">About</NavLink>
-              </NavItem>              
+                <NavLink href="https://www.decentralizedderivatives.org/about">
+                  About
+                </NavLink>
+              </NavItem>
               <NavItem>
-                <NavLink href="https://www.decentralizedderivatives.org/contact">Contact Us</NavLink>
+                <NavLink href="https://www.decentralizedderivatives.org/contact">
+                  Contact Us
+                </NavLink>
               </NavItem>
-              <NavItem>  
-                <NavLink href="https://github.com/DecentralizedDerivatives">Connected</NavLink>                
+              <NavItem>
+                <NavLink href="https://github.com/DecentralizedDerivatives">
+                  Connected
+                </NavLink>
               </NavItem>
-              
             </Nav>
           </Collapse>
         </Navbar>

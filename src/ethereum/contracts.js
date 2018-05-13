@@ -21,10 +21,9 @@ const drctArtifact = require('./build/contracts/DRCT_Token.json');
 const DRCT = contract(drctArtifact);
 
 if (typeof window !== 'undefined' && typeof window.web3 !== 'undefined') {
-  [Factory,Exchange,Swap,Wrapped,DRCT,UserContract].forEach(Contract =>
+  [Factory, Exchange, Swap, Wrapped, DRCT, UserContract].forEach(Contract =>
     Contract.setProvider(web3.currentProvider)
   );
-  // Factory.at('0xf0836623ef02e8ac937be2d4d3b86386e2e226ef');
 }
 
 module.exports = {
@@ -33,5 +32,5 @@ module.exports = {
   Swap,
   Wrapped,
   DRCT,
-  UserContract
+  UserContract,
 };

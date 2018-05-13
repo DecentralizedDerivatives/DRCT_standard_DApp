@@ -10,7 +10,7 @@ import {DatePicker} from 'material-ui-pickers';
 import {CircularProgress} from 'material-ui/Progress';
 import styles from './styles';
 import Dropdown from '../Dropdown';
-import {Factory,Exchange, token, web3} from '../../ethereum';
+import {Factory, Exchange, token, web3} from '../../ethereum';
 
 class Unlist extends Component {
   static propTypes = {
@@ -99,7 +99,6 @@ class Unlist extends Component {
             <div className={classes.inputContainer}>
               <Typography className={classes.title}>Unlist Order</Typography>
             </div>
-
 
             <Button
               className={

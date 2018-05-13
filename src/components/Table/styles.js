@@ -13,11 +13,15 @@ export default theme => ({
     fontSize: 10,
     fontWeight: theme.fonts.weight.veryBold,
   },
-  button : {
-    float:'left', /* Float the buttons side by side */
-    background:'none',
-    border:'none', 
-    padding:0,
+  button: {
+    float: 'left' /* Float the buttons side by side */,
+    background: 'none',
+    border: 'none',
+    padding: 0,
     cursor: 'pointer',
+  },
+  link: {
+    colors: theme.colors.blue,
+    textDecoration: 'none',
   },
 });

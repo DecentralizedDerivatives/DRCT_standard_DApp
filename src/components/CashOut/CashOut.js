@@ -9,7 +9,7 @@ import Dialog, {DialogContent} from 'material-ui/Dialog';
 import {DatePicker} from 'material-ui-pickers';
 import {CircularProgress} from 'material-ui/Progress';
 import styles from './styles';
-import {Factory, token, web3} from '../../ethereum';
+import {Factory, web3} from '../../ethereum';
 
 class CashOut extends Component {
   static propTypes = {
