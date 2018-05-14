@@ -20,13 +20,12 @@
     "truffle-contract": "^3.0.5",
     "web3": "^1.0.0-beta.34",
     "react-grid-system": "^3.2.3"
-
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "prettier": "./node_modules/.bin/prettier --single-quote --trailing-comma es5 --print-width 80 --write --no-bracket-spacing"
+    "prettier": "./node_modules/.bin/prettier --single-quote --trailing-comma es5 --print-width 80 --write --no-bracket-spacing src/**/**/**/**/*.js"
   }
 }
