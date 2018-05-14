@@ -30,14 +30,14 @@
     "absolutePath": "/C/company/code/drct_standard/contracts/interfaces/TokenToTokenSwap_Interface.sol",
     "exportedSymbols": {
       "TokenToTokenSwap_Interface": [
-        2685
+        2697
       ]
     },
-    "id": 2686,
+    "id": 2698,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2677,
+        "id": 2689,
         "literals": [
           "solidity",
           "^",
@@ -53,9 +53,9 @@
         "contractKind": "interface",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 2685,
+        "id": 2697,
         "linearizedBaseContracts": [
-          2685
+          2697
         ],
         "name": "TokenToTokenSwap_Interface",
         "nodeType": "ContractDefinition",
@@ -63,7 +63,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 2684,
+            "id": 2696,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -71,15 +71,15 @@
             "name": "createSwap",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2682,
+              "id": 2694,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2679,
+                  "id": 2691,
                   "name": "_amount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2684,
+                  "scope": 2696,
                   "src": "159:12:17",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -88,7 +88,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2678,
+                    "id": 2690,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "159:4:17",
@@ -102,10 +102,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 2681,
+                  "id": 2693,
                   "name": "_senderAdd",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2684,
+                  "scope": 2696,
                   "src": "173:18:17",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -114,7 +114,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2680,
+                    "id": 2692,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "173:7:17",
@@ -131,19 +131,19 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 2683,
+              "id": 2695,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "201:0:17"
             },
-            "scope": 2685,
+            "scope": 2697,
             "src": "139:63:17",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "external"
           }
         ],
-        "scope": 2686,
+        "scope": 2698,
         "src": "97:108:17"
       }
     ],
@@ -153,14 +153,14 @@
     "absolutePath": "/C/company/code/drct_standard/contracts/interfaces/TokenToTokenSwap_Interface.sol",
     "exportedSymbols": {
       "TokenToTokenSwap_Interface": [
-        2685
+        2697
       ]
     },
-    "id": 2686,
+    "id": 2698,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2677,
+        "id": 2689,
         "literals": [
           "solidity",
           "^",
@@ -176,9 +176,9 @@
         "contractKind": "interface",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 2685,
+        "id": 2697,
         "linearizedBaseContracts": [
-          2685
+          2697
         ],
         "name": "TokenToTokenSwap_Interface",
         "nodeType": "ContractDefinition",
@@ -186,7 +186,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 2684,
+            "id": 2696,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -194,15 +194,15 @@
             "name": "createSwap",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2682,
+              "id": 2694,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2679,
+                  "id": 2691,
                   "name": "_amount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2684,
+                  "scope": 2696,
                   "src": "159:12:17",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -211,7 +211,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2678,
+                    "id": 2690,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "159:4:17",
@@ -225,10 +225,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 2681,
+                  "id": 2693,
                   "name": "_senderAdd",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2684,
+                  "scope": 2696,
                   "src": "173:18:17",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -237,7 +237,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2680,
+                    "id": 2692,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "173:7:17",
@@ -254,19 +254,19 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 2683,
+              "id": 2695,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "201:0:17"
             },
-            "scope": 2685,
+            "scope": 2697,
             "src": "139:63:17",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "external"
           }
         ],
-        "scope": 2686,
+        "scope": 2698,
         "src": "97:108:17"
       }
     ],
@@ -278,5 +278,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-05-11T20:14:39.211Z"
+  "updatedAt": "2018-05-13T19:08:53.786Z"
 }

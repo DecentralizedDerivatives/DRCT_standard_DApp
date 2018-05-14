@@ -190,14 +190,14 @@
     "absolutePath": "/C/company/code/drct_standard/contracts/TokenToTokenSwap.sol",
     "exportedSymbols": {
       "TokenToTokenSwap": [
-        2031
+        2043
       ]
     },
-    "id": 2032,
+    "id": 2044,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1938,
+        "id": 1950,
         "literals": [
           "solidity",
           "^",
@@ -210,10 +210,10 @@
       {
         "absolutePath": "/C/company/code/drct_standard/contracts/libraries/TokenLibrary.sol",
         "file": "./libraries/TokenLibrary.sol",
-        "id": 1939,
+        "id": 1951,
         "nodeType": "ImportDirective",
-        "scope": 2032,
-        "sourceUnit": 5013,
+        "scope": 2044,
+        "sourceUnit": 5025,
         "src": "28:38:8",
         "symbolAliases": [],
         "unitAlias": ""
@@ -224,24 +224,24 @@
         "contractKind": "contract",
         "documentation": "his contract is the specific DRCT base contract that holds the funds of the contract and\r\nedistributes them based upon the change in the underlying values\r",
         "fullyImplemented": true,
-        "id": 2031,
+        "id": 2043,
         "linearizedBaseContracts": [
-          2031
+          2043
         ],
         "name": "TokenToTokenSwap",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
-            "id": 1942,
+            "id": 1954,
             "libraryName": {
               "contractScope": null,
-              "id": 1940,
+              "id": 1952,
               "name": "TokenLibrary",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 5012,
+              "referencedDeclaration": 5024,
               "src": "280:12:8",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_TokenLibrary_$5012",
+                "typeIdentifier": "t_contract$_TokenLibrary_$5024",
                 "typeString": "library TokenLibrary"
               }
             },
@@ -249,39 +249,39 @@
             "src": "274:48:8",
             "typeName": {
               "contractScope": null,
-              "id": 1941,
+              "id": 1953,
               "name": "TokenLibrary.SwapStorage",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 4072,
+              "referencedDeclaration": 4084,
               "src": "297:24:8",
               "typeDescriptions": {
-                "typeIdentifier": "t_struct$_SwapStorage_$4072_storage_ptr",
+                "typeIdentifier": "t_struct$_SwapStorage_$4084_storage_ptr",
                 "typeString": "struct TokenLibrary.SwapStorage storage pointer"
               }
             }
           },
           {
             "constant": false,
-            "id": 1944,
+            "id": 1956,
             "name": "swap",
             "nodeType": "VariableDeclaration",
-            "scope": 2031,
+            "scope": 2043,
             "src": "330:36:8",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_struct$_SwapStorage_$4072_storage",
+              "typeIdentifier": "t_struct$_SwapStorage_$4084_storage",
               "typeString": "struct TokenLibrary.SwapStorage storage ref"
             },
             "typeName": {
               "contractScope": null,
-              "id": 1943,
+              "id": 1955,
               "name": "TokenLibrary.SwapStorage",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 4072,
+              "referencedDeclaration": 4084,
               "src": "330:24:8",
               "typeDescriptions": {
-                "typeIdentifier": "t_struct$_SwapStorage_$4072_storage_ptr",
+                "typeIdentifier": "t_struct$_SwapStorage_$4084_storage_ptr",
                 "typeString": "struct TokenLibrary.SwapStorage storage pointer"
               }
             },
@@ -290,7 +290,7 @@
           },
           {
             "body": {
-              "id": 1964,
+              "id": 1976,
               "nodeType": "Block",
               "src": "902:86:8",
               "statements": [
@@ -300,11 +300,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 1958,
+                        "id": 1970,
                         "name": "_factory_address",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1946,
+                        "referencedDeclaration": 1958,
                         "src": "928:16:8",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -313,11 +313,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 1959,
+                        "id": 1971,
                         "name": "_creator",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1948,
+                        "referencedDeclaration": 1960,
                         "src": "945:8:8",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -326,11 +326,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 1960,
+                        "id": 1972,
                         "name": "_userContract",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1950,
+                        "referencedDeclaration": 1962,
                         "src": "954:13:8",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -339,11 +339,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 1961,
+                        "id": 1973,
                         "name": "_start_date",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1952,
+                        "referencedDeclaration": 1964,
                         "src": "968:11:8",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -372,32 +372,32 @@
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 1955,
+                        "id": 1967,
                         "name": "swap",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1944,
+                        "referencedDeclaration": 1956,
                         "src": "913:4:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_SwapStorage_$4072_storage",
+                          "typeIdentifier": "t_struct$_SwapStorage_$4084_storage",
                           "typeString": "struct TokenLibrary.SwapStorage storage ref"
                         }
                       },
-                      "id": 1957,
+                      "id": 1969,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "startSwap",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 4135,
+                      "referencedDeclaration": 4147,
                       "src": "913:14:8",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_internal_nonpayable$_t_struct$_SwapStorage_$4072_storage_ptr_$_t_address_$_t_address_$_t_address_$_t_uint256_$returns$__$bound_to$_t_struct$_SwapStorage_$4072_storage_ptr_$",
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_struct$_SwapStorage_$4084_storage_ptr_$_t_address_$_t_address_$_t_address_$_t_uint256_$returns$__$bound_to$_t_struct$_SwapStorage_$4084_storage_ptr_$",
                         "typeString": "function (struct TokenLibrary.SwapStorage storage pointer,address,address,address,uint256)"
                       }
                     },
-                    "id": 1962,
+                    "id": 1974,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -411,14 +411,14 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1963,
+                  "id": 1975,
                   "nodeType": "ExpressionStatement",
                   "src": "913:67:8"
                 }
               ]
             },
             "documentation": "dev Constructor - Run by the factory at contract creation\r\nparam _factory_address address of the factory that created this contract\r\nparam _creator address of the person who created the contract\r\nparam _userContract address of the _userContract that is authorized to interact with this contract\r\nparam _start_date start date of the contract\r",
-            "id": 1965,
+            "id": 1977,
             "implemented": true,
             "isConstructor": true,
             "isDeclaredConst": false,
@@ -426,15 +426,15 @@
             "name": "TokenToTokenSwap",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1953,
+              "id": 1965,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1946,
+                  "id": 1958,
                   "name": "_factory_address",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1965,
+                  "scope": 1977,
                   "src": "810:24:8",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -443,7 +443,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1945,
+                    "id": 1957,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "810:7:8",
@@ -457,10 +457,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 1948,
+                  "id": 1960,
                   "name": "_creator",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1965,
+                  "scope": 1977,
                   "src": "836:16:8",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -469,7 +469,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1947,
+                    "id": 1959,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "836:7:8",
@@ -483,10 +483,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 1950,
+                  "id": 1962,
                   "name": "_userContract",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1965,
+                  "scope": 1977,
                   "src": "854:21:8",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -495,7 +495,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1949,
+                    "id": 1961,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "854:7:8",
@@ -509,10 +509,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 1952,
+                  "id": 1964,
                   "name": "_start_date",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1965,
+                  "scope": 1977,
                   "src": "877:16:8",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -521,7 +521,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1951,
+                    "id": 1963,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "877:4:8",
@@ -538,12 +538,12 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 1954,
+              "id": 1966,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "902:0:8"
             },
-            "scope": 2031,
+            "scope": 2043,
             "src": "783:205:8",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -551,7 +551,7 @@
           },
           {
             "body": {
-              "id": 1986,
+              "id": 1998,
               "nodeType": "Block",
               "src": "1190:48:8",
               "statements": [
@@ -563,32 +563,32 @@
                       "argumentTypes": [],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 1982,
+                        "id": 1994,
                         "name": "swap",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1944,
+                        "referencedDeclaration": 1956,
                         "src": "1208:4:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_SwapStorage_$4072_storage",
+                          "typeIdentifier": "t_struct$_SwapStorage_$4084_storage",
                           "typeString": "struct TokenLibrary.SwapStorage storage ref"
                         }
                       },
-                      "id": 1983,
+                      "id": 1995,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "showPrivateVars",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 4186,
+                      "referencedDeclaration": 4198,
                       "src": "1208:20:8",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_internal_view$_t_struct$_SwapStorage_$4072_storage_ptr_$returns$_t_array$_t_address_$5_memory_ptr_$_t_uint256_$_t_uint256_$_t_uint256_$_t_uint256_$_t_uint256_$bound_to$_t_struct$_SwapStorage_$4072_storage_ptr_$",
+                        "typeIdentifier": "t_function_internal_view$_t_struct$_SwapStorage_$4084_storage_ptr_$returns$_t_array$_t_address_$5_memory_ptr_$_t_uint256_$_t_uint256_$_t_uint256_$_t_uint256_$_t_uint256_$bound_to$_t_struct$_SwapStorage_$4084_storage_ptr_$",
                         "typeString": "function (struct TokenLibrary.SwapStorage storage pointer) view returns (address[5] memory,uint256,uint256,uint256,uint256,uint256)"
                       }
                     },
-                    "id": 1984,
+                    "id": 1996,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -602,15 +602,15 @@
                       "typeString": "tuple(address[5] memory,uint256,uint256,uint256,uint256,uint256)"
                     }
                   },
-                  "functionReturnParameters": 1981,
-                  "id": 1985,
+                  "functionReturnParameters": 1993,
+                  "id": 1997,
                   "nodeType": "Return",
                   "src": "1201:29:8"
                 }
               ]
             },
             "documentation": null,
-            "id": 1987,
+            "id": 1999,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -618,22 +618,22 @@
             "name": "showPrivateVars",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1966,
+              "id": 1978,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1126:2:8"
             },
             "payable": false,
             "returnParameters": {
-              "id": 1981,
+              "id": 1993,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1970,
+                  "id": 1982,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1987,
+                  "scope": 1999,
                   "src": "1150:10:8",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -643,7 +643,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 1967,
+                      "id": 1979,
                       "name": "address",
                       "nodeType": "ElementaryTypeName",
                       "src": "1150:7:8",
@@ -652,11 +652,11 @@
                         "typeString": "address"
                       }
                     },
-                    "id": 1969,
+                    "id": 1981,
                     "length": {
                       "argumentTypes": null,
                       "hexValue": "35",
-                      "id": 1968,
+                      "id": 1980,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -683,10 +683,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 1972,
+                  "id": 1984,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1987,
+                  "scope": 1999,
                   "src": "1161:4:8",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -695,7 +695,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1971,
+                    "id": 1983,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "1161:4:8",
@@ -709,10 +709,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 1974,
+                  "id": 1986,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1987,
+                  "scope": 1999,
                   "src": "1167:4:8",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -721,7 +721,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1973,
+                    "id": 1985,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "1167:4:8",
@@ -735,10 +735,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 1976,
+                  "id": 1988,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1987,
+                  "scope": 1999,
                   "src": "1173:4:8",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -747,7 +747,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1975,
+                    "id": 1987,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "1173:4:8",
@@ -761,10 +761,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 1978,
+                  "id": 1990,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1987,
+                  "scope": 1999,
                   "src": "1179:4:8",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -773,7 +773,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1977,
+                    "id": 1989,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "1179:4:8",
@@ -787,10 +787,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 1980,
+                  "id": 1992,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1987,
+                  "scope": 1999,
                   "src": "1185:4:8",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -799,7 +799,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1979,
+                    "id": 1991,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "1185:4:8",
@@ -814,7 +814,7 @@
               ],
               "src": "1149:41:8"
             },
-            "scope": 2031,
+            "scope": 2043,
             "src": "1102:136:8",
             "stateMutability": "view",
             "superFunction": null,
@@ -822,7 +822,7 @@
           },
           {
             "body": {
-              "id": 1996,
+              "id": 2008,
               "nodeType": "Block",
               "src": "1402:49:8",
               "statements": [
@@ -834,32 +834,32 @@
                       "argumentTypes": [],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 1992,
+                        "id": 2004,
                         "name": "swap",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1944,
+                        "referencedDeclaration": 1956,
                         "src": "1420:4:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_SwapStorage_$4072_storage",
+                          "typeIdentifier": "t_struct$_SwapStorage_$4084_storage",
                           "typeString": "struct TokenLibrary.SwapStorage storage ref"
                         }
                       },
-                      "id": 1993,
+                      "id": 2005,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "showCurrentState",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 5011,
+                      "referencedDeclaration": 5023,
                       "src": "1420:21:8",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_internal_view$_t_struct$_SwapStorage_$4072_storage_ptr_$returns$_t_uint256_$bound_to$_t_struct$_SwapStorage_$4072_storage_ptr_$",
+                        "typeIdentifier": "t_function_internal_view$_t_struct$_SwapStorage_$4084_storage_ptr_$returns$_t_uint256_$bound_to$_t_struct$_SwapStorage_$4084_storage_ptr_$",
                         "typeString": "function (struct TokenLibrary.SwapStorage storage pointer) view returns (uint256)"
                       }
                     },
-                    "id": 1994,
+                    "id": 2006,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -873,15 +873,15 @@
                       "typeString": "uint256"
                     }
                   },
-                  "functionReturnParameters": 1991,
-                  "id": 1995,
+                  "functionReturnParameters": 2003,
+                  "id": 2007,
                   "nodeType": "Return",
                   "src": "1413:30:8"
                 }
               ]
             },
             "documentation": null,
-            "id": 1997,
+            "id": 2009,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -889,22 +889,22 @@
             "name": "currentState",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1988,
+              "id": 2000,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1374:2:8"
             },
             "payable": false,
             "returnParameters": {
-              "id": 1991,
+              "id": 2003,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1990,
+                  "id": 2002,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1997,
+                  "scope": 2009,
                   "src": "1397:4:8",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -913,7 +913,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1989,
+                    "id": 2001,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "1397:4:8",
@@ -928,7 +928,7 @@
               ],
               "src": "1396:6:8"
             },
-            "scope": 2031,
+            "scope": 2043,
             "src": "1353:98:8",
             "stateMutability": "view",
             "superFunction": null,
@@ -936,7 +936,7 @@
           },
           {
             "body": {
-              "id": 2011,
+              "id": 2023,
               "nodeType": "Block",
               "src": "1781:54:8",
               "statements": [
@@ -946,11 +946,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 2007,
+                        "id": 2019,
                         "name": "_amount",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1999,
+                        "referencedDeclaration": 2011,
                         "src": "1808:7:8",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -959,11 +959,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 2008,
+                        "id": 2020,
                         "name": "_senderAdd",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2001,
+                        "referencedDeclaration": 2013,
                         "src": "1816:10:8",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -984,32 +984,32 @@
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 2004,
+                        "id": 2016,
                         "name": "swap",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1944,
+                        "referencedDeclaration": 1956,
                         "src": "1792:4:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_SwapStorage_$4072_storage",
+                          "typeIdentifier": "t_struct$_SwapStorage_$4084_storage",
                           "typeString": "struct TokenLibrary.SwapStorage storage ref"
                         }
                       },
-                      "id": 2006,
+                      "id": 2018,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "createSwap",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 4385,
+                      "referencedDeclaration": 4397,
                       "src": "1792:15:8",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_internal_nonpayable$_t_struct$_SwapStorage_$4072_storage_ptr_$_t_uint256_$_t_address_$returns$__$bound_to$_t_struct$_SwapStorage_$4072_storage_ptr_$",
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_struct$_SwapStorage_$4084_storage_ptr_$_t_uint256_$_t_address_$returns$__$bound_to$_t_struct$_SwapStorage_$4084_storage_ptr_$",
                         "typeString": "function (struct TokenLibrary.SwapStorage storage pointer,uint256,address)"
                       }
                     },
-                    "id": 2009,
+                    "id": 2021,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1023,14 +1023,14 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 2010,
+                  "id": 2022,
                   "nodeType": "ExpressionStatement",
                   "src": "1792:35:8"
                 }
               ]
             },
             "documentation": "dev Allows the sender to create the terms for the swap\r\nparam _amount Amount of Token that should be deposited for the notional\r\nparam _senderAdd States the owner of this side of the contract (does not have to be msg.sender)\r",
-            "id": 2012,
+            "id": 2024,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -1038,15 +1038,15 @@
             "name": "createSwap",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2002,
+              "id": 2014,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1999,
+                  "id": 2011,
                   "name": "_amount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2012,
+                  "scope": 2024,
                   "src": "1740:12:8",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1055,7 +1055,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1998,
+                    "id": 2010,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "1740:4:8",
@@ -1069,10 +1069,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 2001,
+                  "id": 2013,
                   "name": "_senderAdd",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2012,
+                  "scope": 2024,
                   "src": "1754:18:8",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1081,7 +1081,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2000,
+                    "id": 2012,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1754:7:8",
@@ -1098,12 +1098,12 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 2003,
+              "id": 2015,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1781:0:8"
             },
-            "scope": 2031,
+            "scope": 2043,
             "src": "1720:115:8",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1111,7 +1111,7 @@
           },
           {
             "body": {
-              "id": 2029,
+              "id": 2041,
               "nodeType": "Block",
               "src": "2255:46:8",
               "statements": [
@@ -1124,11 +1124,11 @@
                         "components": [
                           {
                             "argumentTypes": null,
-                            "id": 2024,
+                            "id": 2036,
                             "name": "_begin",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 2014,
+                            "referencedDeclaration": 2026,
                             "src": "2280:6:8",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
@@ -1137,11 +1137,11 @@
                           },
                           {
                             "argumentTypes": null,
-                            "id": 2025,
+                            "id": 2037,
                             "name": "_end",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 2016,
+                            "referencedDeclaration": 2028,
                             "src": "2287:4:8",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
@@ -1149,7 +1149,7 @@
                             }
                           }
                         ],
-                        "id": 2026,
+                        "id": 2038,
                         "isConstant": false,
                         "isInlineArray": true,
                         "isLValue": false,
@@ -1172,32 +1172,32 @@
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 2021,
+                        "id": 2033,
                         "name": "swap",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1944,
+                        "referencedDeclaration": 1956,
                         "src": "2265:4:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_SwapStorage_$4072_storage",
+                          "typeIdentifier": "t_struct$_SwapStorage_$4084_storage",
                           "typeString": "struct TokenLibrary.SwapStorage storage ref"
                         }
                       },
-                      "id": 2023,
+                      "id": 2035,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "forcePay",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 4924,
+                      "referencedDeclaration": 4936,
                       "src": "2265:13:8",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_internal_nonpayable$_t_struct$_SwapStorage_$4072_storage_ptr_$_t_array$_t_uint256_$2_memory_ptr_$returns$_t_bool_$bound_to$_t_struct$_SwapStorage_$4072_storage_ptr_$",
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_struct$_SwapStorage_$4084_storage_ptr_$_t_array$_t_uint256_$2_memory_ptr_$returns$_t_bool_$bound_to$_t_struct$_SwapStorage_$4084_storage_ptr_$",
                         "typeString": "function (struct TokenLibrary.SwapStorage storage pointer,uint256[2] memory) returns (bool)"
                       }
                     },
-                    "id": 2027,
+                    "id": 2039,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1211,14 +1211,14 @@
                       "typeString": "bool"
                     }
                   },
-                  "id": 2028,
+                  "id": 2040,
                   "nodeType": "ExpressionStatement",
                   "src": "2265:28:8"
                 }
               ]
             },
             "documentation": null,
-            "id": 2030,
+            "id": 2042,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -1226,15 +1226,15 @@
             "name": "forcePay",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2017,
+              "id": 2029,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2014,
+                  "id": 2026,
                   "name": "_begin",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2030,
+                  "scope": 2042,
                   "src": "2209:11:8",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1243,7 +1243,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2013,
+                    "id": 2025,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "2209:4:8",
@@ -1257,10 +1257,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 2016,
+                  "id": 2028,
                   "name": "_end",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2030,
+                  "scope": 2042,
                   "src": "2222:9:8",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1269,7 +1269,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2015,
+                    "id": 2027,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "2222:4:8",
@@ -1286,15 +1286,15 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 2020,
+              "id": 2032,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2019,
+                  "id": 2031,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2030,
+                  "scope": 2042,
                   "src": "2249:4:8",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1303,7 +1303,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 2018,
+                    "id": 2030,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "2249:4:8",
@@ -1318,14 +1318,14 @@
               ],
               "src": "2248:6:8"
             },
-            "scope": 2031,
+            "scope": 2043,
             "src": "2191:110:8",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 2032,
+        "scope": 2044,
         "src": "239:2065:8"
       }
     ],
@@ -1335,14 +1335,14 @@
     "absolutePath": "/C/company/code/drct_standard/contracts/TokenToTokenSwap.sol",
     "exportedSymbols": {
       "TokenToTokenSwap": [
-        2031
+        2043
       ]
     },
-    "id": 2032,
+    "id": 2044,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1938,
+        "id": 1950,
         "literals": [
           "solidity",
           "^",
@@ -1355,10 +1355,10 @@
       {
         "absolutePath": "/C/company/code/drct_standard/contracts/libraries/TokenLibrary.sol",
         "file": "./libraries/TokenLibrary.sol",
-        "id": 1939,
+        "id": 1951,
         "nodeType": "ImportDirective",
-        "scope": 2032,
-        "sourceUnit": 5013,
+        "scope": 2044,
+        "sourceUnit": 5025,
         "src": "28:38:8",
         "symbolAliases": [],
         "unitAlias": ""
@@ -1369,24 +1369,24 @@
         "contractKind": "contract",
         "documentation": "his contract is the specific DRCT base contract that holds the funds of the contract and\r\nedistributes them based upon the change in the underlying values\r",
         "fullyImplemented": true,
-        "id": 2031,
+        "id": 2043,
         "linearizedBaseContracts": [
-          2031
+          2043
         ],
         "name": "TokenToTokenSwap",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
-            "id": 1942,
+            "id": 1954,
             "libraryName": {
               "contractScope": null,
-              "id": 1940,
+              "id": 1952,
               "name": "TokenLibrary",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 5012,
+              "referencedDeclaration": 5024,
               "src": "280:12:8",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_TokenLibrary_$5012",
+                "typeIdentifier": "t_contract$_TokenLibrary_$5024",
                 "typeString": "library TokenLibrary"
               }
             },
@@ -1394,39 +1394,39 @@
             "src": "274:48:8",
             "typeName": {
               "contractScope": null,
-              "id": 1941,
+              "id": 1953,
               "name": "TokenLibrary.SwapStorage",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 4072,
+              "referencedDeclaration": 4084,
               "src": "297:24:8",
               "typeDescriptions": {
-                "typeIdentifier": "t_struct$_SwapStorage_$4072_storage_ptr",
+                "typeIdentifier": "t_struct$_SwapStorage_$4084_storage_ptr",
                 "typeString": "struct TokenLibrary.SwapStorage storage pointer"
               }
             }
           },
           {
             "constant": false,
-            "id": 1944,
+            "id": 1956,
             "name": "swap",
             "nodeType": "VariableDeclaration",
-            "scope": 2031,
+            "scope": 2043,
             "src": "330:36:8",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_struct$_SwapStorage_$4072_storage",
+              "typeIdentifier": "t_struct$_SwapStorage_$4084_storage",
               "typeString": "struct TokenLibrary.SwapStorage storage ref"
             },
             "typeName": {
               "contractScope": null,
-              "id": 1943,
+              "id": 1955,
               "name": "TokenLibrary.SwapStorage",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 4072,
+              "referencedDeclaration": 4084,
               "src": "330:24:8",
               "typeDescriptions": {
-                "typeIdentifier": "t_struct$_SwapStorage_$4072_storage_ptr",
+                "typeIdentifier": "t_struct$_SwapStorage_$4084_storage_ptr",
                 "typeString": "struct TokenLibrary.SwapStorage storage pointer"
               }
             },
@@ -1435,7 +1435,7 @@
           },
           {
             "body": {
-              "id": 1964,
+              "id": 1976,
               "nodeType": "Block",
               "src": "902:86:8",
               "statements": [
@@ -1445,11 +1445,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 1958,
+                        "id": 1970,
                         "name": "_factory_address",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1946,
+                        "referencedDeclaration": 1958,
                         "src": "928:16:8",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -1458,11 +1458,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 1959,
+                        "id": 1971,
                         "name": "_creator",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1948,
+                        "referencedDeclaration": 1960,
                         "src": "945:8:8",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -1471,11 +1471,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 1960,
+                        "id": 1972,
                         "name": "_userContract",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1950,
+                        "referencedDeclaration": 1962,
                         "src": "954:13:8",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -1484,11 +1484,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 1961,
+                        "id": 1973,
                         "name": "_start_date",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1952,
+                        "referencedDeclaration": 1964,
                         "src": "968:11:8",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -1517,32 +1517,32 @@
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 1955,
+                        "id": 1967,
                         "name": "swap",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1944,
+                        "referencedDeclaration": 1956,
                         "src": "913:4:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_SwapStorage_$4072_storage",
+                          "typeIdentifier": "t_struct$_SwapStorage_$4084_storage",
                           "typeString": "struct TokenLibrary.SwapStorage storage ref"
                         }
                       },
-                      "id": 1957,
+                      "id": 1969,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "startSwap",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 4135,
+                      "referencedDeclaration": 4147,
                       "src": "913:14:8",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_internal_nonpayable$_t_struct$_SwapStorage_$4072_storage_ptr_$_t_address_$_t_address_$_t_address_$_t_uint256_$returns$__$bound_to$_t_struct$_SwapStorage_$4072_storage_ptr_$",
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_struct$_SwapStorage_$4084_storage_ptr_$_t_address_$_t_address_$_t_address_$_t_uint256_$returns$__$bound_to$_t_struct$_SwapStorage_$4084_storage_ptr_$",
                         "typeString": "function (struct TokenLibrary.SwapStorage storage pointer,address,address,address,uint256)"
                       }
                     },
-                    "id": 1962,
+                    "id": 1974,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1556,14 +1556,14 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1963,
+                  "id": 1975,
                   "nodeType": "ExpressionStatement",
                   "src": "913:67:8"
                 }
               ]
             },
             "documentation": "dev Constructor - Run by the factory at contract creation\r\nparam _factory_address address of the factory that created this contract\r\nparam _creator address of the person who created the contract\r\nparam _userContract address of the _userContract that is authorized to interact with this contract\r\nparam _start_date start date of the contract\r",
-            "id": 1965,
+            "id": 1977,
             "implemented": true,
             "isConstructor": true,
             "isDeclaredConst": false,
@@ -1571,15 +1571,15 @@
             "name": "TokenToTokenSwap",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1953,
+              "id": 1965,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1946,
+                  "id": 1958,
                   "name": "_factory_address",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1965,
+                  "scope": 1977,
                   "src": "810:24:8",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1588,7 +1588,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1945,
+                    "id": 1957,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "810:7:8",
@@ -1602,10 +1602,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 1948,
+                  "id": 1960,
                   "name": "_creator",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1965,
+                  "scope": 1977,
                   "src": "836:16:8",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1614,7 +1614,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1947,
+                    "id": 1959,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "836:7:8",
@@ -1628,10 +1628,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 1950,
+                  "id": 1962,
                   "name": "_userContract",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1965,
+                  "scope": 1977,
                   "src": "854:21:8",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1640,7 +1640,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1949,
+                    "id": 1961,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "854:7:8",
@@ -1654,10 +1654,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 1952,
+                  "id": 1964,
                   "name": "_start_date",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1965,
+                  "scope": 1977,
                   "src": "877:16:8",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1666,7 +1666,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1951,
+                    "id": 1963,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "877:4:8",
@@ -1683,12 +1683,12 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 1954,
+              "id": 1966,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "902:0:8"
             },
-            "scope": 2031,
+            "scope": 2043,
             "src": "783:205:8",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1696,7 +1696,7 @@
           },
           {
             "body": {
-              "id": 1986,
+              "id": 1998,
               "nodeType": "Block",
               "src": "1190:48:8",
               "statements": [
@@ -1708,32 +1708,32 @@
                       "argumentTypes": [],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 1982,
+                        "id": 1994,
                         "name": "swap",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1944,
+                        "referencedDeclaration": 1956,
                         "src": "1208:4:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_SwapStorage_$4072_storage",
+                          "typeIdentifier": "t_struct$_SwapStorage_$4084_storage",
                           "typeString": "struct TokenLibrary.SwapStorage storage ref"
                         }
                       },
-                      "id": 1983,
+                      "id": 1995,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "showPrivateVars",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 4186,
+                      "referencedDeclaration": 4198,
                       "src": "1208:20:8",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_internal_view$_t_struct$_SwapStorage_$4072_storage_ptr_$returns$_t_array$_t_address_$5_memory_ptr_$_t_uint256_$_t_uint256_$_t_uint256_$_t_uint256_$_t_uint256_$bound_to$_t_struct$_SwapStorage_$4072_storage_ptr_$",
+                        "typeIdentifier": "t_function_internal_view$_t_struct$_SwapStorage_$4084_storage_ptr_$returns$_t_array$_t_address_$5_memory_ptr_$_t_uint256_$_t_uint256_$_t_uint256_$_t_uint256_$_t_uint256_$bound_to$_t_struct$_SwapStorage_$4084_storage_ptr_$",
                         "typeString": "function (struct TokenLibrary.SwapStorage storage pointer) view returns (address[5] memory,uint256,uint256,uint256,uint256,uint256)"
                       }
                     },
-                    "id": 1984,
+                    "id": 1996,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1747,15 +1747,15 @@
                       "typeString": "tuple(address[5] memory,uint256,uint256,uint256,uint256,uint256)"
                     }
                   },
-                  "functionReturnParameters": 1981,
-                  "id": 1985,
+                  "functionReturnParameters": 1993,
+                  "id": 1997,
                   "nodeType": "Return",
                   "src": "1201:29:8"
                 }
               ]
             },
             "documentation": null,
-            "id": 1987,
+            "id": 1999,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -1763,22 +1763,22 @@
             "name": "showPrivateVars",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1966,
+              "id": 1978,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1126:2:8"
             },
             "payable": false,
             "returnParameters": {
-              "id": 1981,
+              "id": 1993,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1970,
+                  "id": 1982,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1987,
+                  "scope": 1999,
                   "src": "1150:10:8",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1788,7 +1788,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 1967,
+                      "id": 1979,
                       "name": "address",
                       "nodeType": "ElementaryTypeName",
                       "src": "1150:7:8",
@@ -1797,11 +1797,11 @@
                         "typeString": "address"
                       }
                     },
-                    "id": 1969,
+                    "id": 1981,
                     "length": {
                       "argumentTypes": null,
                       "hexValue": "35",
-                      "id": 1968,
+                      "id": 1980,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1828,10 +1828,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 1972,
+                  "id": 1984,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1987,
+                  "scope": 1999,
                   "src": "1161:4:8",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1840,7 +1840,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1971,
+                    "id": 1983,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "1161:4:8",
@@ -1854,10 +1854,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 1974,
+                  "id": 1986,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1987,
+                  "scope": 1999,
                   "src": "1167:4:8",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1866,7 +1866,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1973,
+                    "id": 1985,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "1167:4:8",
@@ -1880,10 +1880,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 1976,
+                  "id": 1988,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1987,
+                  "scope": 1999,
                   "src": "1173:4:8",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1892,7 +1892,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1975,
+                    "id": 1987,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "1173:4:8",
@@ -1906,10 +1906,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 1978,
+                  "id": 1990,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1987,
+                  "scope": 1999,
                   "src": "1179:4:8",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1918,7 +1918,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1977,
+                    "id": 1989,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "1179:4:8",
@@ -1932,10 +1932,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 1980,
+                  "id": 1992,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1987,
+                  "scope": 1999,
                   "src": "1185:4:8",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1944,7 +1944,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1979,
+                    "id": 1991,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "1185:4:8",
@@ -1959,7 +1959,7 @@
               ],
               "src": "1149:41:8"
             },
-            "scope": 2031,
+            "scope": 2043,
             "src": "1102:136:8",
             "stateMutability": "view",
             "superFunction": null,
@@ -1967,7 +1967,7 @@
           },
           {
             "body": {
-              "id": 1996,
+              "id": 2008,
               "nodeType": "Block",
               "src": "1402:49:8",
               "statements": [
@@ -1979,32 +1979,32 @@
                       "argumentTypes": [],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 1992,
+                        "id": 2004,
                         "name": "swap",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1944,
+                        "referencedDeclaration": 1956,
                         "src": "1420:4:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_SwapStorage_$4072_storage",
+                          "typeIdentifier": "t_struct$_SwapStorage_$4084_storage",
                           "typeString": "struct TokenLibrary.SwapStorage storage ref"
                         }
                       },
-                      "id": 1993,
+                      "id": 2005,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "showCurrentState",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 5011,
+                      "referencedDeclaration": 5023,
                       "src": "1420:21:8",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_internal_view$_t_struct$_SwapStorage_$4072_storage_ptr_$returns$_t_uint256_$bound_to$_t_struct$_SwapStorage_$4072_storage_ptr_$",
+                        "typeIdentifier": "t_function_internal_view$_t_struct$_SwapStorage_$4084_storage_ptr_$returns$_t_uint256_$bound_to$_t_struct$_SwapStorage_$4084_storage_ptr_$",
                         "typeString": "function (struct TokenLibrary.SwapStorage storage pointer) view returns (uint256)"
                       }
                     },
-                    "id": 1994,
+                    "id": 2006,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2018,15 +2018,15 @@
                       "typeString": "uint256"
                     }
                   },
-                  "functionReturnParameters": 1991,
-                  "id": 1995,
+                  "functionReturnParameters": 2003,
+                  "id": 2007,
                   "nodeType": "Return",
                   "src": "1413:30:8"
                 }
               ]
             },
             "documentation": null,
-            "id": 1997,
+            "id": 2009,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -2034,22 +2034,22 @@
             "name": "currentState",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1988,
+              "id": 2000,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1374:2:8"
             },
             "payable": false,
             "returnParameters": {
-              "id": 1991,
+              "id": 2003,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1990,
+                  "id": 2002,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1997,
+                  "scope": 2009,
                   "src": "1397:4:8",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2058,7 +2058,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1989,
+                    "id": 2001,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "1397:4:8",
@@ -2073,7 +2073,7 @@
               ],
               "src": "1396:6:8"
             },
-            "scope": 2031,
+            "scope": 2043,
             "src": "1353:98:8",
             "stateMutability": "view",
             "superFunction": null,
@@ -2081,7 +2081,7 @@
           },
           {
             "body": {
-              "id": 2011,
+              "id": 2023,
               "nodeType": "Block",
               "src": "1781:54:8",
               "statements": [
@@ -2091,11 +2091,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 2007,
+                        "id": 2019,
                         "name": "_amount",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1999,
+                        "referencedDeclaration": 2011,
                         "src": "1808:7:8",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -2104,11 +2104,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 2008,
+                        "id": 2020,
                         "name": "_senderAdd",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2001,
+                        "referencedDeclaration": 2013,
                         "src": "1816:10:8",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -2129,32 +2129,32 @@
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 2004,
+                        "id": 2016,
                         "name": "swap",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1944,
+                        "referencedDeclaration": 1956,
                         "src": "1792:4:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_SwapStorage_$4072_storage",
+                          "typeIdentifier": "t_struct$_SwapStorage_$4084_storage",
                           "typeString": "struct TokenLibrary.SwapStorage storage ref"
                         }
                       },
-                      "id": 2006,
+                      "id": 2018,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "createSwap",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 4385,
+                      "referencedDeclaration": 4397,
                       "src": "1792:15:8",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_internal_nonpayable$_t_struct$_SwapStorage_$4072_storage_ptr_$_t_uint256_$_t_address_$returns$__$bound_to$_t_struct$_SwapStorage_$4072_storage_ptr_$",
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_struct$_SwapStorage_$4084_storage_ptr_$_t_uint256_$_t_address_$returns$__$bound_to$_t_struct$_SwapStorage_$4084_storage_ptr_$",
                         "typeString": "function (struct TokenLibrary.SwapStorage storage pointer,uint256,address)"
                       }
                     },
-                    "id": 2009,
+                    "id": 2021,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2168,14 +2168,14 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 2010,
+                  "id": 2022,
                   "nodeType": "ExpressionStatement",
                   "src": "1792:35:8"
                 }
               ]
             },
             "documentation": "dev Allows the sender to create the terms for the swap\r\nparam _amount Amount of Token that should be deposited for the notional\r\nparam _senderAdd States the owner of this side of the contract (does not have to be msg.sender)\r",
-            "id": 2012,
+            "id": 2024,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -2183,15 +2183,15 @@
             "name": "createSwap",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2002,
+              "id": 2014,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1999,
+                  "id": 2011,
                   "name": "_amount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2012,
+                  "scope": 2024,
                   "src": "1740:12:8",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2200,7 +2200,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1998,
+                    "id": 2010,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "1740:4:8",
@@ -2214,10 +2214,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 2001,
+                  "id": 2013,
                   "name": "_senderAdd",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2012,
+                  "scope": 2024,
                   "src": "1754:18:8",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2226,7 +2226,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2000,
+                    "id": 2012,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1754:7:8",
@@ -2243,12 +2243,12 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 2003,
+              "id": 2015,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1781:0:8"
             },
-            "scope": 2031,
+            "scope": 2043,
             "src": "1720:115:8",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -2256,7 +2256,7 @@
           },
           {
             "body": {
-              "id": 2029,
+              "id": 2041,
               "nodeType": "Block",
               "src": "2255:46:8",
               "statements": [
@@ -2269,11 +2269,11 @@
                         "components": [
                           {
                             "argumentTypes": null,
-                            "id": 2024,
+                            "id": 2036,
                             "name": "_begin",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 2014,
+                            "referencedDeclaration": 2026,
                             "src": "2280:6:8",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
@@ -2282,11 +2282,11 @@
                           },
                           {
                             "argumentTypes": null,
-                            "id": 2025,
+                            "id": 2037,
                             "name": "_end",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 2016,
+                            "referencedDeclaration": 2028,
                             "src": "2287:4:8",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
@@ -2294,7 +2294,7 @@
                             }
                           }
                         ],
-                        "id": 2026,
+                        "id": 2038,
                         "isConstant": false,
                         "isInlineArray": true,
                         "isLValue": false,
@@ -2317,32 +2317,32 @@
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 2021,
+                        "id": 2033,
                         "name": "swap",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1944,
+                        "referencedDeclaration": 1956,
                         "src": "2265:4:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_SwapStorage_$4072_storage",
+                          "typeIdentifier": "t_struct$_SwapStorage_$4084_storage",
                           "typeString": "struct TokenLibrary.SwapStorage storage ref"
                         }
                       },
-                      "id": 2023,
+                      "id": 2035,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "forcePay",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 4924,
+                      "referencedDeclaration": 4936,
                       "src": "2265:13:8",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_internal_nonpayable$_t_struct$_SwapStorage_$4072_storage_ptr_$_t_array$_t_uint256_$2_memory_ptr_$returns$_t_bool_$bound_to$_t_struct$_SwapStorage_$4072_storage_ptr_$",
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_struct$_SwapStorage_$4084_storage_ptr_$_t_array$_t_uint256_$2_memory_ptr_$returns$_t_bool_$bound_to$_t_struct$_SwapStorage_$4084_storage_ptr_$",
                         "typeString": "function (struct TokenLibrary.SwapStorage storage pointer,uint256[2] memory) returns (bool)"
                       }
                     },
-                    "id": 2027,
+                    "id": 2039,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2356,14 +2356,14 @@
                       "typeString": "bool"
                     }
                   },
-                  "id": 2028,
+                  "id": 2040,
                   "nodeType": "ExpressionStatement",
                   "src": "2265:28:8"
                 }
               ]
             },
             "documentation": null,
-            "id": 2030,
+            "id": 2042,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -2371,15 +2371,15 @@
             "name": "forcePay",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2017,
+              "id": 2029,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2014,
+                  "id": 2026,
                   "name": "_begin",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2030,
+                  "scope": 2042,
                   "src": "2209:11:8",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2388,7 +2388,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2013,
+                    "id": 2025,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "2209:4:8",
@@ -2402,10 +2402,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 2016,
+                  "id": 2028,
                   "name": "_end",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2030,
+                  "scope": 2042,
                   "src": "2222:9:8",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2414,7 +2414,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2015,
+                    "id": 2027,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "2222:4:8",
@@ -2431,15 +2431,15 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 2020,
+              "id": 2032,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2019,
+                  "id": 2031,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2030,
+                  "scope": 2042,
                   "src": "2249:4:8",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2448,7 +2448,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 2018,
+                    "id": 2030,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "2249:4:8",
@@ -2463,14 +2463,14 @@
               ],
               "src": "2248:6:8"
             },
-            "scope": 2031,
+            "scope": 2043,
             "src": "2191:110:8",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 2032,
+        "scope": 2044,
         "src": "239:2065:8"
       }
     ],
@@ -2482,5 +2482,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-05-11T20:14:39.211Z"
+  "updatedAt": "2018-05-13T19:08:53.782Z"
 }

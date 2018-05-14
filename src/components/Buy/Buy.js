@@ -21,23 +21,22 @@ class Buy extends Component {
 
   state = {
     open: false,
-    orderID:'',
-    duration: '',
-    currency: '',
-    amount: 0.1,
-    selectedDate: new Date(),
+    selectedToken: '',
     loading: false,
     disabled: false,
     created: false,
+    orderID: ''
   };
+
+
+        componentDidMount() {
+      this.getOrderDetails();
+    }
 
   handleChange = event => {
     this.setState({[event.target.name]: event.target.value});
   };
 
-  handleDateChange = date => {
-    this.setState({selectedDate: date});
-  };
 
   handleTextfieldChange = name => event => {
     this.setState({
@@ -45,14 +44,38 @@ class Buy extends Component {
     });
   };
 
+  getOrderDetails = async () =>{
+    const exchange= await Exchange.deployed();
+    const factory = await Factory.deployed();
+    const accounts = await web3.eth.getAccounts();
+    let books = await exchange.userOrders.call(accounts[0]);
+
+    // get orders for that book:
+    let o_row = [];
+    let _allrows = []
+
+    let order;
+    var j = this.props.orderID;
+          order = await exchange.getOrder(j);
+          var _date = await factory.token_dates.call(order[3]);
+          console.log(_date);
+          _date = new Date(_date * 1000);
+          _date = (_date.getMonth()+1) + '/' + _date.getDate() + '/' + _date.getFullYear() 
+          o_row = j + '('+order[3],order[1].c[0].toString() + '/'+order[2].c[0].toString() + '/'+_date.toString() + ')';
+          _allrows.push(o_row);
+          this.setState({myOrders: _allrows});
+                    if(_allrows.length == 1){
+                        this.setState({selectedToken: order[3]});
+                    }
+  }
+
+
+
   buyOrder= async () => {
     const exchange = await Exchange.deployed();
     const accounts = await web3.eth.getAccounts();
 
     let response, error,_value;
-
-    _value = this.props.amount;
-
     try {
       response = await exchange.buy(this.props.orderID, {
         from: accounts[0],
