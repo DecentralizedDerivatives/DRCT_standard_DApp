@@ -25,11 +25,15 @@ class Unlist extends Component {
     loading: false,
     disabled: false,
     created: false,
-    myOrders:[]
+    myOrders:[],
+    myAccount:""
   };
 
-      componentDidMount() {
-      this.getMyOrders();
+  componentDidMount() {
+    web3.eth.getAccounts((error, accounts) => {
+      this.setState({myAccount: accounts[0]})
+    });
+
     }
 
 
@@ -47,16 +51,16 @@ class Unlist extends Component {
   getMyOrders = async () =>{
     const exchange= await Exchange.deployed();
     const factory = await Factory.deployed();
-    const accounts = await web3.eth.getAccounts();
-    let books = await exchange.userOrders.call(accounts[0]);
-
+    console.log(this.state.myAccount);
+    var books = await exchange.userOrders.call(this.state.myAccount);
+    console.log('t')
     // get orders for that book:
     let o_row = [];
     let _allrows = []
 
     let order;
     for (var j in books) {
-        if(j > 0){
+      console.log(j)
           order = await exchange.getOrder(j);
           var _date = await factory.token_dates.call(order[3]);
           console.log(_date);
@@ -65,7 +69,6 @@ class Unlist extends Component {
           o_row = j + '('+order[3],order[1].c[0].toString() + '/'+order[2].c[0].toString() + '/'+_date.toString() + ')';
           _allrows.push(o_row);
           this.setState({myOrders: _allrows});
-        }
       }
 
   }

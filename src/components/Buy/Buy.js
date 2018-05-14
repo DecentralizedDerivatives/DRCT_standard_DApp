@@ -29,10 +29,6 @@ class Buy extends Component {
   };
 
 
-        componentDidMount() {
-      this.getOrderDetails();
-    }
-
   handleChange = event => {
     this.setState({[event.target.name]: event.target.value});
   };
@@ -55,8 +51,10 @@ class Buy extends Component {
     let _allrows = []
 
     let order;
+    console.log('oID',this.props.orderID)
     var j = this.props.orderID;
           order = await exchange.getOrder(j);
+          console.log('o3',order[3])
           var _date = await factory.token_dates.call(order[3]);
           console.log(_date);
           _date = new Date(_date * 1000);

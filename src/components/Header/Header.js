@@ -161,7 +161,6 @@ class Header extends Component {
 
   render() {
     const {classes} = this.props;
-    console.log(this.state);
     return (
       <AppBar className={classes.appBar} position="static">
         <Grid

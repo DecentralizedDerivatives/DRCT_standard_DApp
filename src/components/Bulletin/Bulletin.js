@@ -66,6 +66,7 @@ class Bulletin extends Component {
   openBuy = (link) => {
      console.log('Link',link.index);
     this.setState({orderID:link})
+    this.Buy.getOrderDetails();
     this.setState({openB: true, previousActive: this.state.active});
   };
 
@@ -88,6 +89,7 @@ class Bulletin extends Component {
   };
 
   openUnlist = () => {
+    this.Buy.getMyOrders();
     this.setState({openU: true, previousActive: this.state.active});
   };
 
@@ -130,6 +132,7 @@ class Bulletin extends Component {
     // first get number of open books (tokens with open orders):
     let exchange = await Exchange.deployed();
     let numBooks = await exchange.getBookCount();
+    console.log('numbooks',numBooks);
 
     // get orders for that book:
     let o_row = [];
@@ -139,6 +142,7 @@ class Bulletin extends Component {
     for (let i = 0; i < numBooks; i++) {
       let book = await exchange.openBooks(i);
       let orders = await exchange.getOrders(book);
+      console.log('orders',orders);
 
       for (let j in orders) {
         if(j > 0){
