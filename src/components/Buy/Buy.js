@@ -48,15 +48,13 @@ class Buy extends Component {
     const exchange= await Exchange.deployed();
     const factory = await Factory.deployed();
     const accounts = await web3.eth.getAccounts();
-    let books = await exchange.userOrders.call(accounts[0]);
 
     // get orders for that book:
     let o_row = [];
     let _allrows = []
 
     let order;
-    console.log('oID',this.props.orderID)
-    var j = this.props.orderID;
+    var j = 4;//this.props.orderID
           order = await exchange.getOrder(j);
           console.log('o3',order[3])
           var _date = await factory.token_dates.call(order[3]);
@@ -78,8 +76,12 @@ class Buy extends Component {
     const accounts = await web3.eth.getAccounts();
 
     let response, error,_value;
+      let oId = 4; //this.props.orderID
+    let order = await exchange.getOrder(oId);
+    _value = order[1];
+      console.log(oId,_value);
     try {
-      response = await exchange.buy(this.props.orderID, {
+      response = await exchange.buy(oId, {
         from: accounts[0],
         gas: 4000000,
         value: _value,
@@ -89,7 +91,7 @@ class Buy extends Component {
     }
     if (error) {
       // Add error handling
-      this.setState({txId: error.tx, error: true, disabled: false});
+      console.log(error);
       return;
     }
 

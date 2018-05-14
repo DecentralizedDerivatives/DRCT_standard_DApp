@@ -96,7 +96,7 @@ Table.propTypes = {
   rows: PropTypes.array.isRequired,
   tableWidth: PropTypes.string,
   cellHeight: PropTypes.string,
-  clickFunction: PropTypes.func.isRequired,
+  clickFunction: PropTypes.func.isRequired
 };
 
 export default withStyles(styles)(Table);

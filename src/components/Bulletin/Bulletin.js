@@ -23,7 +23,8 @@ class Bulletin extends Component {
     openU: false,
     openL: false,
     openB: false,
-    orderID: "0x"
+    orderID: "xxx",
+    myAccount:"xxx"
 
   };
 
@@ -31,13 +32,15 @@ class Bulletin extends Component {
 
   componentDidMount() {
     console.log('did mount');
+    web3.eth.getAccounts((error, accounts) => {
+      this.setState({myAccount: accounts[0]});
+      console.log(accounts[0])
+    });
     this.getOrderBook().then(result => {
       this.setState({orderbook: result});
-      console.log('result',result);
     });
     this.getRecentTrades().then(result => {
     });
-                console.log('ORderbook',this.state.orderbook)
   }
 
   //This is the base data structure for an order (the maker of the order and the price)
@@ -54,7 +57,7 @@ class Bulletin extends Component {
   };
 
   onHover = link => {
-    console.log(link.target);
+    console.log(link);
   }
 
   openContractDetails = () => {
@@ -79,6 +82,8 @@ class Bulletin extends Component {
       openB: false,
       active: this.state.previousActive,
     });
+    this.getOrderBook();
+    this.getRecentTrades();
   };
 
   openList = () => {
@@ -90,10 +95,11 @@ class Bulletin extends Component {
       openL: false,
       active: this.state.previousActive,
     });
+    this.getOrderBook();
+    this.getRecentTrades();
   };
 
   openUnlist = () => {
-    this.Buy.getMyOrders();
     this.setState({openU: true, previousActive: this.state.active});
   };
 
@@ -102,6 +108,8 @@ class Bulletin extends Component {
       openU: false,
       active: this.state.previousActive,
     });
+    this.getOrderBook();
+    this.getRecentTrades();
   };
 
   buyOrder = () => {};
@@ -168,7 +176,7 @@ class Bulletin extends Component {
             _date.getFullYear();
           o_row = [x.toString(),
             order[3],
-            order[1].c[0].toString(),
+            (order[1].c[0]/10000).toString(),
             order[2].c[0].toString(),
             _date.toString(),
           ];
@@ -195,9 +203,9 @@ class Bulletin extends Component {
           <Table
             titles={[
               'Order ID',
-              'Order Book',
-              'Amount',
-              'Bid',
+              'Token',
+              'Price (ETH)',
+              'Quantity',
               'Start Date',
             ]}
             rows={this.state.orderbook}
@@ -240,15 +248,19 @@ class Bulletin extends Component {
           open={this.state.openL}
           toggle={this.closeList}
       />
+      { this.state.myAccount ?       
+        <Unlist
+          myAccount ={this.state.myAccount}
+          open={this.state.openU}
+          toggle={this.closeUnlist}
+      />: null }
+
       <Buy
           orderID = {this.state.orderID}
           open={this.state.openB}
           toggle={this.closeBuy}
       />
-      <Unlist
-          open={this.state.openU}
-          toggle={this.closeUnlist}
-      />
+
 
       </Grid>
     );

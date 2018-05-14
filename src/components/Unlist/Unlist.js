@@ -19,9 +19,15 @@ class Unlist extends Component {
     toggle: PropTypes.func.isRequired,
   };
 
+  constructor(props) {
+    super(props)
+  }
+
+
+
   state = {
     open: false,
-    selectedToken: '',
+    selectedToken: 'xxx',
     loading: false,
     disabled: false,
     created: false,
@@ -31,8 +37,9 @@ class Unlist extends Component {
 
   componentDidMount() {
     web3.eth.getAccounts((error, accounts) => {
-      this.setState({myAccount: accounts[0]})
+      this.setState({myAccount: accounts[0]});
     });
+    this.getMyOrders();
 
     }
 
@@ -51,27 +58,33 @@ class Unlist extends Component {
   getMyOrders = async () =>{
     const exchange= await Exchange.deployed();
     const factory = await Factory.deployed();
-    console.log(this.state.myAccount);
-    var books = await exchange.userOrders.call(this.state.myAccount);
-    console.log('t')
-    // get orders for that book:
-    let o_row = [];
-    let _allrows = []
+    console.log(this.props.myAccount);
+    try {
+      var books = await exchange.userOrders.call(this.props.myAccount);
+      console.log('t')
+      // get orders for that book:
+      let o_row = [];
+      let _allrows = []
 
-    let order;
-    for (var j in books) {
-      console.log(j)
-          order = await exchange.getOrder(j);
-          var _date = await factory.token_dates.call(order[3]);
-          console.log(_date);
-          _date = new Date(_date * 1000);
-          _date = (_date.getMonth()+1) + '/' + _date.getDate() + '/' + _date.getFullYear() 
-          o_row = j + '('+order[3],order[1].c[0].toString() + '/'+order[2].c[0].toString() + '/'+_date.toString() + ')';
-          _allrows.push(o_row);
-          this.setState({myOrders: _allrows});
-      }
+      let order;
+      for (var j in books) {
+        console.log(j)
+            order = await exchange.getOrder(j);
+            var _date = await factory.token_dates.call(order[3]);
+            console.log(_date);
+            _date = new Date(_date * 1000);
+            _date = (_date.getMonth()+1) + '/' + _date.getDate() + '/' + _date.getFullYear() 
+            o_row = j.toString() + '('+order[3],order[1].c[0].toString() + '/'+order[2].c[0].toString() + '/'+_date.toString() + ')';
+            _allrows.push(o_row);
+            this.setState({myOrders: _allrows});
+        }
+
+          } catch (err) {
+      console.log('err',err);
+    }
 
   }
+
 
 
   unlistOrder= async () => {
@@ -84,7 +97,7 @@ class Unlist extends Component {
     let response, error;
     console.log('INPUTS',tokenSel[0].replace(/['"]+/g, ''));
     try {
-      response = await exchange.list(tokenSel[0].replace(/['"]+/g, ''),{
+      response = await exchange.unlist(tokenSel[0].replace(/['"]+/g, ''),{
         from: accounts[0],
         gas: 4000000,
       });
@@ -95,6 +108,7 @@ class Unlist extends Component {
       console.log(error);
     }
   };
+
 
 
   render() {
