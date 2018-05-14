@@ -19,27 +19,24 @@ class Unlist extends Component {
     toggle: PropTypes.func.isRequired,
   };
 
-  static durations = ['One weeks', 'Two weeks'];
-  static currency = ['BTC/USD', 'ETH/USD'];
-
   state = {
     open: false,
-    duration: '',
-    currency: '',
-    amount: 0.1,
-    selectedDate: new Date(),
+    selectedToken: '',
     loading: false,
     disabled: false,
     created: false,
+    myOrders:[]
   };
+
+      componentDidMount() {
+      this.getMyOrders();
+    }
+
 
   handleChange = event => {
     this.setState({[event.target.name]: event.target.value});
   };
 
-  handleDateChange = date => {
-    this.setState({selectedDate: date});
-  };
 
   handleTextfieldChange = name => event => {
     this.setState({
@@ -47,48 +44,60 @@ class Unlist extends Component {
     });
   };
 
-  CashOut = async () => {
+  getMyOrders = async () =>{
+    const exchange= await Exchange.deployed();
     const factory = await Factory.deployed();
     const accounts = await web3.eth.getAccounts();
+    let books = await exchange.userOrders.call(accounts[0]);
 
-    let date = Number(
-      (new Date(this.state.selectedDate).getTime() / 1000).toFixed(0)
-    );
+    // get orders for that book:
+    let o_row = [];
+    let _allrows = []
 
-    date = date - date % 86400;
+    let order;
+    for (var j in books) {
+        if(j > 0){
+          order = await exchange.getOrder(j);
+          var _date = await factory.token_dates.call(order[3]);
+          console.log(_date);
+          _date = new Date(_date * 1000);
+          _date = (_date.getMonth()+1) + '/' + _date.getDate() + '/' + _date.getFullYear() 
+          o_row = j + '('+order[3],order[1].c[0].toString() + '/'+order[2].c[0].toString() + '/'+_date.toString() + ')';
+          _allrows.push(o_row);
+          this.setState({myOrders: _allrows});
+        }
+      }
+
+  }
+
+
+  unlistOrder= async () => {
+    const exchange = await Exchange.deployed();
+    const accounts = await web3.eth.getAccounts();
+    var string = this.state.selectedToken;
+    var tokenSel = string.split('(');
+
 
     let response, error;
-
-    this.setState({loading: true, disabled: true, showAddress: true});
-
+    console.log('INPUTS',tokenSel[0].replace(/['"]+/g, ''));
     try {
-      response = await factory.deployContract(date, {
+      response = await exchange.list(tokenSel[0].replace(/['"]+/g, ''),{
         from: accounts[0],
         gas: 4000000,
       });
     } catch (err) {
       error = err;
     }
-
-    this.setState({loading: false});
-
     if (error) {
-      // Add error handling
-      this.setState({txId: error.tx, error: true, disabled: false});
-      return;
+      console.log(error);
     }
-
-    this.setState({
-      showSendFunds: true,
-      txId: response.tx,
-      contractAddress: response.logs[0].args._created,
-    });
   };
+
 
   render() {
     const {classes} = this.props;
 
-    return (
+return (
       <div>
         <Dialog
           open={this.props.open}
@@ -98,6 +107,15 @@ class Unlist extends Component {
           <DialogContent className={classes.dialogContent}>
             <div className={classes.inputContainer}>
               <Typography className={classes.title}>Unlist Order</Typography>
+                <Grid item>
+                  <Dropdown
+                    menuItems={this.state.myOrders}
+                    value={this.state.selectedToken}
+                    name="selectedToken"
+                    onChange={this.handleChange}
+                    className={classes.selectedToken}
+                  />
+                </Grid>
             </div>
 
             <Button
@@ -105,70 +123,13 @@ class Unlist extends Component {
                 this.state.disabled ? classes.buttonDisabled : classes.button
               }
               disabled={this.state.disabled}
-              onClick={this.CashOut}
+              onClick={this.unlistOrder}
             >
               <Typography className={classes.buttonText}>
-                Unlist Order
+                Submit
               </Typography>
             </Button>
           </DialogContent>
-
-          {this.state.showAddress && <div className={classes.line} />}
-          {this.state.showAddress && (
-            <DialogContent className={classes.addressResultContainer}>
-              <div className={classes.inputContainer}>
-                <Grid
-                  container
-                  direction="row"
-                  alignItems="stretch"
-                  justify="space-between"
-                >
-                  <Grid item>
-                    <Typography className={classes.title}>
-                      Address Result
-                    </Typography>
-                  </Grid>
-
-                  <Grid item>
-                    {this.state.loading && (
-                      <Grid container direction="row" alignItems="stretch">
-                        <Grid item>
-                          <Typography className={classes.waiting}>
-                            Waiting for confirmation...
-                          </Typography>
-                        </Grid>
-
-                        <Grid item>
-                          <CircularProgress
-                            className={classes.progress}
-                            size={12}
-                            thickness={5}
-                          />
-                        </Grid>
-                      </Grid>
-                    )}
-                  </Grid>
-                </Grid>
-
-                {this.state.txId && (
-                  <Typography className={classes.txId}>
-                    {this.state.txId}
-                  </Typography>
-                )}
-              </div>
-            </DialogContent>
-          )}
-
-          {this.state.showSendFunds && <div className={classes.line} />}
-          {this.state.showSendFunds && (
-            <DialogContent className={classes.sendFundsContainer}>
-              <Button className={classes.button} onClick={this.sendFunds}>
-                <Typography className={classes.buttonText}>
-                  Send Funds
-                </Typography>
-              </Button>
-            </DialogContent>
-          )}
         </Dialog>
       </div>
     );

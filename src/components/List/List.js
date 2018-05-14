@@ -10,7 +10,7 @@ import {DatePicker} from 'material-ui-pickers';
 import {CircularProgress} from 'material-ui/Progress';
 import styles from './styles';
 import Dropdown from '../Dropdown';
-import {Factory, token, web3, Exchange} from '../../ethereum';
+import {Factory, token,DRCT, web3, Exchange} from '../../ethereum';
 
 class List extends Component {
   static propTypes = {
@@ -19,26 +19,24 @@ class List extends Component {
     toggle: PropTypes.func.isRequired,
   };
 
-  static durations = ['One weeks', 'Two weeks'];
-  static currency = ['BTC/USD', 'ETH/USD'];
-
   state = {
     open: false,
-    duration: '',
-    currency: '',
-    amount: 0.1,
-    selectedDate: new Date(),
+    selectedToken: '',
+    amount:"",
+    price:"",
     loading: false,
     disabled: false,
     created: false,
+    myTokens:[]
   };
+
+    componentDidMount() {
+      this.getMyPositions();
+    }
+
 
   handleChange = event => {
     this.setState({[event.target.name]: event.target.value});
-  };
-
-  handleDateChange = date => {
-    this.setState({selectedDate: date});
   };
 
   handleTextfieldChange = name => event => {
@@ -47,44 +45,61 @@ class List extends Component {
     });
   };
 
-  CashOut = async () => {
+  getMyPositions = async () =>{
     const factory = await Factory.deployed();
     const accounts = await web3.eth.getAccounts();
+    let _row;
+    var _allrows = [];
+    var openDates = [];
+    const numDates = await factory.getDateCount();
+    console.log('numDates',numDates);
+          for(let i=0;i<numDates;i++){
+              let _date = await factory.startDates.call(i);
+              _date = _date.c[0]; 
+              let _token_addresses = await factory.getTokens(_date);
+                var _date = new Date(_date*1000);
+                var _date = (_date.getMonth() + 1) + '/' + _date.getDate() + '/' + _date.getFullYear() 
+              for(let j=0;j<2;j++){
+                  let drct = await DRCT.at(_token_addresses[j]);
+                  let _balance = await drct.balanceOf(accounts[0]);
+                  if(_balance.c[0]>0){
+                    _row = _token_addresses[j] + '('+_balance.c[0].toString()+'/'+_date.toString()+')';
+                    _allrows.push(_row)
+                    this.setState({myTokens: _allrows});
+                    if(_allrows.length == 1){
+                        this.setState({selectedToken:_token_addresses[j]});
+                    }
+                  }
+              }
+       }
+        if(this.state.myTokens.length == 0){
+              this.setState({myTokens: ["No Current Positions"]});
+        }
 
-    let date = Number(
-      (new Date(this.state.selectedDate).getTime() / 1000).toFixed(0)
-    );
+  }
 
-    date = date - date % 86400;
+  listOrder= async () => {
+    const exchange = await Exchange.deployed();
+    const accounts = await web3.eth.getAccounts();
+    var string = this.state.selectedToken;
+    var tokenSel = string.split('(');
+
 
     let response, error;
-
-    this.setState({loading: true, disabled: true, showAddress: true});
-
+    console.log(this.state.price);
+    console.log('INPUTS',tokenSel[0].replace(/['"]+/g, ''),this.state.amount,this.state.price*1e18);
     try {
-      response = await factory.deployContract(date, {
+      response = await exchange.list(tokenSel[0].replace(/['"]+/g, ''),this.state.amount,this.state.price*1e18,{
         from: accounts[0],
         gas: 4000000,
       });
     } catch (err) {
       error = err;
     }
-
-    this.setState({loading: false});
-
     if (error) {
-      // Add error handling
-      this.setState({txId: error.tx, error: true, disabled: false});
-      return;
+      console.log(error);
     }
-
-    this.setState({
-      showSendFunds: true,
-      txId: response.tx,
-      contractAddress: response.logs[0].args._created,
-    });
   };
-
   render() {
     const {classes} = this.props;
 
@@ -98,10 +113,33 @@ class List extends Component {
           <DialogContent className={classes.dialogContent}>
             <div className={classes.inputContainer}>
               <Typography className={classes.title}>Place Order</Typography>
+                <Grid item>
+                  <Dropdown
+                    menuItems={this.state.myTokens}
+                    value={this.state.selectedToken}
+                    name="selectedToken"
+                    onChange={this.handleChange}
+                    className={classes.selectedToken}
+                  />
+                </Grid>
             </div>
 
             <div className={classes.inputContainer}>
-              <Typography className={classes.title}>Amount of Ether</Typography>
+              <Typography className={classes.title}>Price (in Ether)</Typography>
+
+              <TextField
+                id="price"
+                value={Number(this.state.price)}
+                type="number"
+                onChange={this.handleTextfieldChange('price')}
+                className={classes.fullWidth}
+                helperText="Enter the price in Ether (e.g. 0.1)"
+              />
+            </div>
+
+
+            <div className={classes.inputContainer}>
+              <Typography className={classes.title}>Amount</Typography>
 
               <TextField
                 id="amount"
@@ -109,20 +147,7 @@ class List extends Component {
                 type="number"
                 onChange={this.handleTextfieldChange('amount')}
                 className={classes.fullWidth}
-                helperText="Must be at least 0.1"
-              />
-            </div>
-
-            <div className={classes.inputContainer}>
-              <Typography className={classes.title}>Premium</Typography>
-
-              <TextField
-                id="premium"
-                value={this.state.premium}
-                type="number"
-                onChange={this.handleTextfieldChange('premium')}
-                className={classes.fullWidth}
-                helperText="Recommended 0.1"
+                helperText="Enter the amount of the token to sell"
               />
             </div>
 
@@ -131,70 +156,13 @@ class List extends Component {
                 this.state.disabled ? classes.buttonDisabled : classes.button
               }
               disabled={this.state.disabled}
-              onClick={this.CashOut}
+              onClick={this.listOrder}
             >
               <Typography className={classes.buttonText}>
-                Create Contract
+                Submit
               </Typography>
             </Button>
           </DialogContent>
-
-          {this.state.showAddress && <div className={classes.line} />}
-          {this.state.showAddress && (
-            <DialogContent className={classes.addressResultContainer}>
-              <div className={classes.inputContainer}>
-                <Grid
-                  container
-                  direction="row"
-                  alignItems="stretch"
-                  justify="space-between"
-                >
-                  <Grid item>
-                    <Typography className={classes.title}>
-                      Address Result
-                    </Typography>
-                  </Grid>
-
-                  <Grid item>
-                    {this.state.loading && (
-                      <Grid container direction="row" alignItems="stretch">
-                        <Grid item>
-                          <Typography className={classes.waiting}>
-                            Waiting for confirmation...
-                          </Typography>
-                        </Grid>
-
-                        <Grid item>
-                          <CircularProgress
-                            className={classes.progress}
-                            size={12}
-                            thickness={5}
-                          />
-                        </Grid>
-                      </Grid>
-                    )}
-                  </Grid>
-                </Grid>
-
-                {this.state.txId && (
-                  <Typography className={classes.txId}>
-                    {this.state.txId}
-                  </Typography>
-                )}
-              </div>
-            </DialogContent>
-          )}
-
-          {this.state.showSendFunds && <div className={classes.line} />}
-          {this.state.showSendFunds && (
-            <DialogContent className={classes.sendFundsContainer}>
-              <Button className={classes.button} onClick={this.sendFunds}>
-                <Typography className={classes.buttonText}>
-                  Send Funds
-                </Typography>
-              </Button>
-            </DialogContent>
-          )}
         </Dialog>
       </div>
     );

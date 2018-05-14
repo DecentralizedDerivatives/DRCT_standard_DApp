@@ -1,6 +1,5 @@
 import React from 'react';
-import Sample from '../Sample';
-import {Row, Col} from 'react-grid-system';
+import { Row, Col } from 'react-grid-system';
 
 const HowTo = () => (
   <Row>

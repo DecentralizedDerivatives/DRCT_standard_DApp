@@ -93,27 +93,20 @@ class CreateContract extends Component {
     console.log(this.state.contractAddress);
     console.log(accounts[0]);
 
-    let _value = 1e18 * this.state.amount * 2;
-    console.log(_value);
-    let error;
-    try {
-      await userContract.Initiate(this.state.contractAddress, _value, {
+    let _value = 1e18 * this.state.amount;
+    console.log(this.state.contractAddress,_value,_value*2);
+    let response, error;
+    userContract.Initiate(this.state.contractAddress,_value,{
         from: accounts[0],
         gas: 4000000,
-        value: _value,
-      });
-    } catch (err) {
-      error = err;
-    }
-
-    if (error) {
-      // Add error handling
-      console.log(error);
-      this.setState({txId: error.tx, error: true, disabled: false});
-      return;
-    }
-
-    this.props.toggle;
+        value: _value*2
+      }).then((res,err) =>{
+        if(err){
+          console.log('Error Message:', err);
+        }
+        else(console.log('Succesful Initiation of Contract!: ',res));
+      })
+    this.props.toggle
   };
 
   render() {
@@ -175,22 +168,6 @@ class CreateContract extends Component {
                 helperText="Must be at least 0.1"
               />
             </div>
-
-            <div className={classes.inputContainer}>
-              <Typography className={classes.title}>
-                Contract Address
-              </Typography>
-
-              <TextField
-                id="amount"
-                value={this.state.contractAddress}
-                type="text"
-                onChange={this.handleTextfieldChange('contractAddress')}
-                className={classes.fullWidth}
-                helperText="Manually Send Funds"
-              />
-            </div>
-
             <Button
               className={
                 this.state.disabled ? classes.buttonDisabled : classes.button
@@ -201,10 +178,6 @@ class CreateContract extends Component {
               <Typography className={classes.buttonText}>
                 Create Contract
               </Typography>
-            </Button>
-
-            <Button className={classes.button} onClick={this.sendFunds}>
-              <Typography className={classes.buttonText}>Send Funds</Typography>
             </Button>
           </DialogContent>
 

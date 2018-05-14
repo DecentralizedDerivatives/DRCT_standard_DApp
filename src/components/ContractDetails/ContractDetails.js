@@ -25,47 +25,23 @@ class ContractDetails extends Component {
   state = {
     open: false,
     duration: '',
+    multiplier:0,
+    oracleAddress:'',
     currency: '',
     amount: 0.1,
     selectedDate: new Date(),
-    loading: false,
-    disabled: false,
-    created: false,
   };
 
-  handleChange = event => {
-    this.setState({[event.target.name]: event.target.value});
-  };
+    componentDidMount() {
+      this.getDetails();
+    }
 
-  handleDateChange = date => {
-    this.setState({selectedDate: date});
-  };
 
-  handleTextfieldChange = name => event => {
-    this.setState({
-      [name]: event.target.value,
-    });
-  };
-
-  CashOut = async () => {
+  getDetails = async () => {
     const factory = await Factory.deployed();
-    const accounts = await web3.eth.getAccounts();
-
-    let date = Number(
-      (new Date(this.state.selectedDate).getTime() / 1000).toFixed(0)
-    );
-
-    date = date - date % 86400;
-
     let response, error;
-
-    this.setState({loading: true, disabled: true, showAddress: true});
-
     try {
-      response = await factory.deployContract(date, {
-        from: accounts[0],
-        gas: 4000000,
-      });
+      response = await factory.getVariables();
     } catch (err) {
       error = err;
     }
@@ -73,15 +49,14 @@ class ContractDetails extends Component {
     this.setState({loading: false});
 
     if (error) {
-      // Add error handling
-      this.setState({txId: error.tx, error: true, disabled: false});
+      console.log(error);
       return;
     }
 
     this.setState({
-      showSendFunds: true,
-      txId: response.tx,
-      contractAddress: response.logs[0].args._created,
+      duration: response[0],
+      multiplier: response[1],
+      oracleAddress: response[2],
     });
   };
 
@@ -96,107 +71,31 @@ class ContractDetails extends Component {
           PaperProps={{className: classes.paper}}
         >
           <DialogContent className={classes.dialogContent}>
-            <div className={classes.inputContainer}>
-              <Typography className={classes.title}>
-                Contract Details
-              </Typography>
-            </div>
 
             <div className={classes.inputContainer}>
-              <Typography className={classes.title}>Amount of Ether</Typography>
+              <Typography className={classes.title}>Factory Contract</Typography>
 
               <TextField
-                id="amount"
-                value={Number(this.state.amount)}
-                type="number"
-                onChange={this.handleTextfieldChange('amount')}
-                className={classes.fullWidth}
-                helperText="Must be at least 0.1"
+                helperText="Address: "
               />
             </div>
 
             <div className={classes.inputContainer}>
-              <Typography className={classes.title}>Premium</Typography>
-
-              <TextField
-                id="premium"
-                value={this.state.premium}
-                type="number"
-                onChange={this.handleTextfieldChange('premium')}
-                className={classes.fullWidth}
-                helperText="Recommended 0.1"
-              />
+              <Typography className={classes.title}>Duration: {this.state.duration}</Typography>
             </div>
 
-            <Button
-              className={
-                this.state.disabled ? classes.buttonDisabled : classes.button
-              }
-              disabled={this.state.disabled}
-              onClick={this.CashOut}
-            >
-              <Typography className={classes.buttonText}>
-                Create Contract
-              </Typography>
-            </Button>
+            <div className={classes.inputContainer}>
+              <Typography className={classes.title}>Multiplier: {this.state.multiplier}</Typography>
+            </div>
+
+            <div className={classes.inputContainer}>
+              <Typography className={classes.title}>Oracle: {this.state.currency}</Typography>
+
+              <TextField
+                helperText="Oracle Address: "
+              />
+            </div>
           </DialogContent>
-
-          {this.state.showAddress && <div className={classes.line} />}
-          {this.state.showAddress && (
-            <DialogContent className={classes.addressResultContainer}>
-              <div className={classes.inputContainer}>
-                <Grid
-                  container
-                  direction="row"
-                  alignItems="stretch"
-                  justify="space-between"
-                >
-                  <Grid item>
-                    <Typography className={classes.title}>
-                      Address Result
-                    </Typography>
-                  </Grid>
-
-                  <Grid item>
-                    {this.state.loading && (
-                      <Grid container direction="row" alignItems="stretch">
-                        <Grid item>
-                          <Typography className={classes.waiting}>
-                            Waiting for confirmation...
-                          </Typography>
-                        </Grid>
-
-                        <Grid item>
-                          <CircularProgress
-                            className={classes.progress}
-                            size={12}
-                            thickness={5}
-                          />
-                        </Grid>
-                      </Grid>
-                    )}
-                  </Grid>
-                </Grid>
-
-                {this.state.txId && (
-                  <Typography className={classes.txId}>
-                    {this.state.txId}
-                  </Typography>
-                )}
-              </div>
-            </DialogContent>
-          )}
-
-          {this.state.showSendFunds && <div className={classes.line} />}
-          {this.state.showSendFunds && (
-            <DialogContent className={classes.sendFundsContainer}>
-              <Button className={classes.button} onClick={this.sendFunds}>
-                <Typography className={classes.buttonText}>
-                  Send Funds
-                </Typography>
-              </Button>
-            </DialogContent>
-          )}
         </Dialog>
       </div>
     );
