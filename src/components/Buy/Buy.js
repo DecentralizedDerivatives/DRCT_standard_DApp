@@ -29,6 +29,10 @@ class Buy extends Component {
   };
 
 
+  componentDidMount() {
+    this.getOrderDetails();
+
+    }
   handleChange = event => {
     this.setState({[event.target.name]: event.target.value});
   };
@@ -59,7 +63,7 @@ class Buy extends Component {
           console.log(_date);
           _date = new Date(_date * 1000);
           _date = (_date.getMonth()+1) + '/' + _date.getDate() + '/' + _date.getFullYear() 
-          o_row = j + '('+order[3],order[1].c[0].toString() + '/'+order[2].c[0].toString() + '/'+_date.toString() + ')';
+          o_row = j.toString() + '('+order[3],order[1].c[0].toString() + '/'+order[2].c[0].toString() + '/'+_date.toString() + ')';
           _allrows.push(o_row);
           this.setState({myOrders: _allrows});
                     if(_allrows.length == 1){

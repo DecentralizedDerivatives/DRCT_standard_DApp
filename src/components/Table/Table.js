@@ -69,6 +69,7 @@ function Table({classes, titles, rows, tableWidth, ...props}) {
         <TableRow
           hover
           onClick={props.clickFunction}
+          onMouseOver={props.onHover}
           className={classes.row}
           key={i}
         >

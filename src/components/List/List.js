@@ -56,6 +56,7 @@ class List extends Component {
           for(let i=0;i<numDates;i++){
               let _date = await factory.startDates.call(i);
               _date = _date.c[0]; 
+              console.log(_date)
               let _token_addresses = await factory.getTokens(_date);
                 var _date = new Date(_date*1000);
                 var _date = (_date.getMonth() + 1) + '/' + _date.getDate() + '/' + _date.getFullYear() 

@@ -33,10 +33,11 @@ class Bulletin extends Component {
     console.log('did mount');
     this.getOrderBook().then(result => {
       this.setState({orderbook: result});
+      console.log('result',result);
     });
     this.getRecentTrades().then(result => {
-      console.log('result', result);
     });
+                console.log('ORderbook',this.state.orderbook)
   }
 
   //This is the base data structure for an order (the maker of the order and the price)
@@ -52,6 +53,10 @@ class Bulletin extends Component {
     this.setState({active: link});
   };
 
+  onHover = link => {
+    console.log(link.target);
+  }
+
   openContractDetails = () => {
     this.setState({open: true, previousActive: this.state.active});
   };
@@ -64,9 +69,8 @@ class Bulletin extends Component {
   };
 
   openBuy = (link) => {
-     console.log('Link',link.index);
+     console.log('Link',link);
     this.setState({orderID:link})
-    this.Buy.getOrderDetails();
     this.setState({openB: true, previousActive: this.state.active});
   };
 
@@ -125,14 +129,21 @@ class Bulletin extends Component {
     return _trades;
   };
 
-  getOrderBook = async () => {
+     getOrderBook = async () => {
     const factory = await Factory.deployed();
+    const numDates = await factory.getDateCount();
+
+    var openDates = [];
+
+    for (let i = 0; i < numDates; i++) {
+      openDates.push(await factory.startDates.call(i));
+    }
+
     //orderbook
 
     // first get number of open books (tokens with open orders):
     let exchange = await Exchange.deployed();
     let numBooks = await exchange.getBookCount();
-    console.log('numbooks',numBooks);
 
     // get orders for that book:
     let o_row = [];
@@ -142,16 +153,25 @@ class Bulletin extends Component {
     for (let i = 0; i < numBooks; i++) {
       let book = await exchange.openBooks(i);
       let orders = await exchange.getOrders(book);
-      console.log('orders',orders);
 
-      for (let j in orders) {
-        if(j > 0){
-          order = await exchange.getOrder(j);
-          var _date = await factory.token_dates.call(book);
-          console.log(_date);
-          _date = new Date(_date * 1000);
-          _date = (_date.getMonth()+1) + '/' + _date.getDate() + '/' + _date.getFullYear() 
-          o_row = [j,order[3],order[1].c[0].toString(),order[2].c[0].toString(),_date.toString()];
+      for (var j = 0; j < orders.length; j ++) {
+        var x = orders[j].c[0]
+        if (x> 0) {
+          order = await exchange.getOrder(x);
+          var _date = new Date(openDates[i].c[0] * 1000);
+          var _date =
+            _date.getMonth() +
+            1 +
+            '/' +
+            _date.getDate() +
+            '/' +
+            _date.getFullYear();
+          o_row = [x.toString(),
+            order[3],
+            order[1].c[0].toString(),
+            order[2].c[0].toString(),
+            _date.toString(),
+          ];
           allrows.push(o_row);
         }
       }
@@ -183,6 +203,7 @@ class Bulletin extends Component {
             rows={this.state.orderbook}
             tableWidth="950px"
             clickFunction={this.openBuy}
+            onHover = {this.onHover}
           />
         </Grid>
         <Grid item className={classes.item}>
