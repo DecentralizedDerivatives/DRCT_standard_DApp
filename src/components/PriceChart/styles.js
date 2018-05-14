@@ -11,7 +11,7 @@ export default theme => ({
     zIndex: 10,
     position: 'relative',
     top: '35px',
-    right: '45px'
+    right: '45px',
   },
   dropdown: {
     fontSize: '12px',
@@ -19,5 +19,5 @@ export default theme => ({
   menuItem: {
     padding: '3px',
     fontSize: '11px',
-  }
+  },
 });

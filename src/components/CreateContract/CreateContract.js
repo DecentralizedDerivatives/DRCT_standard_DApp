@@ -27,8 +27,8 @@ class CreateContract extends Component {
     duration: '',
     currency: '',
     amount: 0.1,
-    contractAddress:'',
-    txId:'',
+    contractAddress: '',
+    txId: '',
     selectedDate: new Date(),
     loading: false,
     disabled: false,
@@ -90,8 +90,8 @@ class CreateContract extends Component {
   sendFunds = async () => {
     const userContract = await UserContract.deployed();
     const accounts = await web3.eth.getAccounts();
-    console.log(this.state.contractAddress)
-    console.log(accounts[0])
+    console.log(this.state.contractAddress);
+    console.log(accounts[0]);
 
     let _value = 1e18 * this.state.amount;
     console.log(this.state.contractAddress,_value,_value*2);
@@ -106,7 +106,7 @@ class CreateContract extends Component {
         }
         else(console.log('Succesful Initiation of Contract!: ',res));
       })
-    {this.props.toggle}
+    this.props.toggle
   };
 
   render() {
@@ -168,7 +168,6 @@ class CreateContract extends Component {
                 helperText="Must be at least 0.1"
               />
             </div>
-
             <Button
               className={
                 this.state.disabled ? classes.buttonDisabled : classes.button
@@ -180,8 +179,6 @@ class CreateContract extends Component {
                 Create Contract
               </Typography>
             </Button>
-
-
           </DialogContent>
 
           {this.state.showAddress && <div className={classes.line} />}

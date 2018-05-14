@@ -4,7 +4,16 @@ import {MenuItem} from 'material-ui/Menu';
 import {FormControl} from 'material-ui/Form';
 import Select from 'material-ui/Select';
 
-const Dropdown = ({menuItems, onChange, value, name, className, menuItemClass, disableUnderline, selectBackground}) => {
+const Dropdown = ({
+  menuItems,
+  onChange,
+  value,
+  name,
+  className,
+  menuItemClass,
+  disableUnderline,
+  selectBackground,
+}) => {
   const options = menuItems.map(item => (
     <MenuItem className={menuItemClass} value={item} key={item}>
       {item}
@@ -17,7 +26,7 @@ const Dropdown = ({menuItems, onChange, value, name, className, menuItemClass, d
         value={value || menuItems[0]}
         onChange={onChange}
         className={className}
-        SelectDisplayProps={{ style: { background: selectBackground }}}
+        SelectDisplayProps={{style: {background: selectBackground}}}
         disableUnderline={disableUnderline}
         inputProps={{
           name,

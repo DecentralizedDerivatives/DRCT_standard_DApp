@@ -105,7 +105,9 @@ class Buy extends Component {
         >
           <DialogContent className={classes.dialogContent}>
             <div className={classes.inputContainer}>
-              <Typography className={classes.title}>Order Confirmation</Typography>
+              <Typography className={classes.title}>
+                Order Confirmation
+              </Typography>
             </div>
 
             <div className={classes.inputContainer}>
@@ -125,9 +127,7 @@ class Buy extends Component {
               disabled={this.state.disabled}
               onClick={this.buyOrder}
             >
-              <Typography className={classes.buttonText}>
-                Submit
-              </Typography>
+              <Typography className={classes.buttonText}>Submit</Typography>
             </Button>
           </DialogContent>
         </Dialog>

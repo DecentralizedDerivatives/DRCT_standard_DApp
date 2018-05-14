@@ -33,7 +33,18 @@ function Table({classes, titles, rows, tableWidth, ...props}) {
 
         let cell = (
           <Cell numeric={numeric} props={props} key={key}>
-            {value}
+            {value.includes('0x') ? (
+              <a
+                className={classes.link}
+                href={value.length > 50 ? `https://ropsten.etherscan.io/tx/${value}` : `https://ropsten.etherscan.io/address/${value}`}
+                target="_blank"
+                onClick={(event) => event.stopPropagation()}
+              >
+                {value.substring(0, 14)}...
+              </a>
+            ) : (
+              value
+            )}
           </Cell>
         );
 
@@ -55,7 +66,12 @@ function Table({classes, titles, rows, tableWidth, ...props}) {
       });
 
       return (
-        <TableRow hover onClick={props.clickFunction} className={classes.row} key={i}>
+        <TableRow
+          hover
+          onClick={props.clickFunction}
+          className={classes.row}
+          key={i}
+        >
           {tableCells}
         </TableRow>
       );
@@ -79,7 +95,7 @@ Table.propTypes = {
   rows: PropTypes.array.isRequired,
   tableWidth: PropTypes.string,
   cellHeight: PropTypes.string,
-  clickFunction: PropTypes.func.isRequired
+  clickFunction: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(Table);

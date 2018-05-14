@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {withRouter} from 'react-router';
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import AppBar from 'material-ui/AppBar';
@@ -7,37 +8,44 @@ import Grid from 'material-ui/Grid';
 import withStyles from 'material-ui/styles/withStyles';
 import Button from 'material-ui/Button';
 import Lens from '@material-ui/icons/Lens';
+import IconButton from 'material-ui/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
 import styles from './styles';
 import CreateContract from '../CreateContract';
 import CashOut from '../CashOut';
 import {web3} from '../../ethereum';
+import NavDrawer from '../NavDrawer';
 
 class Header extends Component {
   static propTypes = {
     classes: PropTypes.object.isRequired,
+    connected: PropTypes.bool.isRequired,
   };
 
   state = {
     previousActive: '',
     active: '',
     openCash: false,
-    openCreate:false,
-    web3: false,
+    openCreate: false,
+    connected: true,
+    drawerOpen: false,
   };
 
-  componentDidMount() {
-    if (!web3) {
-      return this.setState({web3: false});
-    }
+  static getDerivedStateFromProps(nextProps, prevState) {
+    const url = nextProps.location.pathname.replace('/', '');
 
-    this.setState({web3: true});
+    return {
+      ...prevState,
+      ...nextProps,
+      active: url,
+    };
   }
 
   onClick = link => {
-    if (link === 'Create Contract') {
+    link = link.toLowerCase();
+    if (link === 'create_contract') {
       this.openCreateContract();
-    }
-    else if (link === 'Cash Out'){
+    } else if (link === 'cash_out') {
       this.openCashOut();
     }
 
@@ -55,46 +63,76 @@ class Header extends Component {
     });
   };
 
-
   openCashOut = () => {
     this.setState({openCash: true, previousActive: this.state.active});
   };
 
-  closeCashOut= () => {
+  closeCashOut = () => {
     this.setState({
       openCash: false,
       active: this.state.previousActive,
     });
   };
 
+  toggleMetamaskModal = () => this.setState({metamask: !this.state.metamask});
+
   renderHeaderLinks = () => {
     const {classes} = this.props;
-    const urls = ['portfolio', 'portfolio', 'bulletin', '', '', 'how_to'];
-    return ['Logo', 'My Portfolio', 'Bulletin', 'Create Contract', 'Cash Out', 'How To'].map(
-      (link, i) => {
-        const component = (
-          <Grid className={classes.gridItem} key={link} item>
-            <Button
+    const urls = [
+      'portfolio',
+      'portfolio',
+      'bulletin',
+      'create_contract',
+      'cash_out',
+      'how_to',
+    ];
+    return [
+      'Logo',
+      'My Portfolio',
+      'Bulletin',
+      'Create Contract',
+      'Cash Out',
+      'How To',
+    ].map((link, i) => {
+      const component = (
+        <Grid key={link} item>
+          <Button
+            className={
+              this.state.active === urls[i]
+                ? classes.buttonActive
+                : classes.button
+            }
+            onClick={() => this.onClick(urls[i])}
+          >
+            <Typography
+              key={link}
               className={
-                this.state.active === link
-                  ? classes.buttonActive
-                  : classes.button
+                this.state.active === urls[i]
+                  ? classes.linkTextActive
+                  : classes.linkText
               }
-              onClick={() => this.onClick(link)}
             >
-              <Typography
-                key={link}
-                className={
-                  this.state.active === link
-                    ? classes.linkTextActive
-                    : classes.linkText
-                }
-              >
-                {link}
-              </Typography>
-            </Button>
-          </Grid>
+              {link}
+            </Typography>
+          </Button>
+        </Grid>
+      );
+
+      if (i === 0) {
+        return (
+          <Link className={classes.link} to={`/${urls[i]}`} key={link}>
+            <div className="logo">
+              <img
+                src="dda-logo.png"
+                width="70"
+                height="70"
+                className={classes.link}
+                style={{marginTop: '7%', marginRight: '20%'}}
+              />
+            </div>
+          </Link>
         );
+      }
 
 		if (i === 0) {
 			return (
@@ -119,9 +157,11 @@ class Header extends Component {
     );
   };
 
+  handleDrawer = () => this.setState({drawerOpen: !this.state.drawerOpen});
+
   render() {
     const {classes} = this.props;
-
+    console.log(this.state);
     return (
       <AppBar className={classes.appBar} position="static">
         <Grid
@@ -138,7 +178,16 @@ class Header extends Component {
               alignItems="stretch"
               direction="row"
             >
-              <Grid className={classes.logo} item />
+              <Grid className={classes.menuContainer} item>
+                <IconButton
+                  className={classes.menuButton}
+                  color="inherit"
+                  aria-label="Menu"
+                  onClick={this.handleDrawer}
+                >
+                  <MenuIcon className={classes.menuIcon} />
+                </IconButton>
+              </Grid>
               {this.renderHeaderLinks()}
             </Grid>
           </Grid>
@@ -156,24 +205,29 @@ class Header extends Component {
 
               <Grid item>
                 <Lens
-                  className={this.state.web3 ? classes.lens : classes.lensOff}
+                  className={
+                    this.state.connected ? classes.lens : classes.lensOff
+                  }
                 />
               </Grid>
             </Grid>
           </Grid>
         </Grid>
 
+        <NavDrawer
+          open={this.state.drawerOpen}
+          handleDrawer={this.handleDrawer}
+          onClick={this.onClick}
+        />
+
         <CreateContract
           open={this.state.openCreate}
           toggle={this.closeCreateContract}
         />
-        <CashOut
-          open={this.state.openCash}
-          toggle={this.closeCashOut}
-        />
+        <CashOut open={this.state.openCash} toggle={this.closeCashOut} />
       </AppBar>
     );
   }
 }
 
-export default withStyles(styles)(Header);
+export default withRouter(withStyles(styles)(Header));

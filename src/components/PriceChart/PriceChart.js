@@ -37,7 +37,7 @@ class PriceChart extends Component {
     });
   };
 
-  createChart = (type) => {
+  createChart = type => {
     Highcharts.stockChart('container', {
       series: [
         {
@@ -77,7 +77,7 @@ class PriceChart extends Component {
               className={classes.dropdown}
               menuItemClass={classes.menuItem}
               disableUnderline={true}
-              selectBackground='none'
+              selectBackground="none"
             />
           </Grid>
           <Grid item>

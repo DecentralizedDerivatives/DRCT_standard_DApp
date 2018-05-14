@@ -72,7 +72,6 @@ class ContractDetails extends Component {
         >
           <DialogContent className={classes.dialogContent}>
 
-
             <div className={classes.inputContainer}>
               <Typography className={classes.title}>Factory Contract</Typography>
 
