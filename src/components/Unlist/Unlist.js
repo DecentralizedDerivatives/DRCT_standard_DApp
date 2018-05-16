@@ -52,10 +52,8 @@ class Unlist extends Component {
   getMyOrders = async () =>{
     const exchange= await Exchange.deployed();
     const factory = await Factory.deployed();
-    console.log(this.props.myAccount);
     try {
       var books = await exchange.userOrders.call(this.props.myAccount);
-      console.log('t')
       // get orders for that book:
       let o_row = [];
       let _allrows = []
@@ -74,7 +72,7 @@ class Unlist extends Component {
         }
 
           } catch (err) {
-      console.log('err',err);
+      console.log('err');
     }
 
   }

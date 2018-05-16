@@ -4,8 +4,6 @@ import withStyles from 'material-ui/styles/withStyles';
 import Grid from 'material-ui/Grid';
 import styles from './styles';
 import Table from '../Table';
-import PriceChart from '../PriceChart';
-import TransactionDetails from '../TransactionDetails';
 import ContractDetails from '../ContractDetails';
 import {Factory, Exchange, web3, DRCT} from '../../ethereum';
 
@@ -90,7 +88,7 @@ class MyPortfolio extends Component {
         }
       }
     }
-    if (_allrows.length == 0) {
+    if (_allrows.length === 0) {
       console.log('setting');
       _allrows = [['No Current Positions', '...', '...']];
     }
@@ -132,7 +130,7 @@ class MyPortfolio extends Component {
             this.setState({myTransactions: _trades});
           }
         }
-        if (_trades.length == 0) {
+        if (_trades.length === 0) {
           _trades = [['No Recent Events', '...']];
         }
       });
