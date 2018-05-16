@@ -49,7 +49,6 @@ class Main extends Component {
         <Switch>
           <Route path="/portfolio" component={this.isWeb3Active(MyPortfolio)} />
           <Route path="/bulletin" component={this.isWeb3Active(Bulletin)} />
-          <Route path="/how_to" component={this.isWeb3Active(HowTo)} />
           <Redirect to="/portfolio" />
         </Switch>
 

@@ -15,7 +15,7 @@ import {Factory, Exchange, web3} from '../../ethereum';
 
 class Bulletin extends Component {
   state = {
-    orderbook: [['loading...', 'loading...', 'loading...', 'loading...']],
+    orderbook: [['loading...', 'loading...', 'loading...', 'loading...','...']],
     previousActive: '',
     recentTrades: [['loading...', 'loading...', 'loading...']],
     active: '',
@@ -31,15 +31,14 @@ class Bulletin extends Component {
   fetchData = () => {};
 
   componentDidMount() {
-    console.log('did mount');
     web3.eth.getAccounts((error, accounts) => {
       this.setState({myAccount: accounts[0]});
-      console.log(accounts[0])
     });
     this.getOrderBook().then(result => {
       this.setState({orderbook: result});
     });
-    this.getRecentTrades().then(result => {
+    this.getRecentTrades().then(res => {
+            this.setState({recentTrades: res});
     });
   }
 
@@ -56,7 +55,7 @@ class Bulletin extends Component {
     this.setState({active: link});
   };
 
-  onHover = link => {
+  onBuyClick = link => {
     console.log(link);
   }
 
@@ -116,7 +115,7 @@ class Bulletin extends Component {
 
   getRecentTrades = async () => {
     const exchange = await Exchange.deployed();
-    let _trades = [];
+    var _trades = [];
 
     let transferEvent = await exchange.Sale(
       {},
@@ -126,27 +125,18 @@ class Bulletin extends Component {
     await transferEvent.get((error, logs) => {
       console.log(logs.length);
       for (let i = logs.length - 1; i >= Math.max(logs.length - 10, 0); i--) {
-        _trades.push(logs[i]);
+        _trades.push([logs[i].args['_token'].toString(),logs[i].args['_amount'].toString(),logs[i].args['_price'].toString()]);
       }
-      if (logs.length == 0) {
+      if (logs.length === 0) {
         console.log('setting');
         _trades = [['No Recent Trades', '...', '...']];
       }
-      this.setState({recentTrades: _trades});
     });
-    return _trades;
+            return _trades;
   };
 
-     getOrderBook = async () => {
+  getOrderBook = async () => {
     const factory = await Factory.deployed();
-    const numDates = await factory.getDateCount();
-
-    var openDates = [];
-
-    for (let i = 0; i < numDates; i++) {
-      openDates.push(await factory.startDates.call(i));
-    }
-
     //orderbook
 
     // first get number of open books (tokens with open orders):
@@ -162,24 +152,13 @@ class Bulletin extends Component {
       let book = await exchange.openBooks(i);
       let orders = await exchange.getOrders(book);
 
-      for (var j = 0; j < orders.length; j ++) {
-        var x = orders[j].c[0]
-        if (x> 0) {
-          order = await exchange.getOrder(x);
-          var _date = new Date(openDates[i].c[0] * 1000);
-          var _date =
-            _date.getMonth() +
-            1 +
-            '/' +
-            _date.getDate() +
-            '/' +
-            _date.getFullYear();
-          o_row = [x.toString(),
-            order[3],
-            (order[1].c[0]/10000).toString(),
-            order[2].c[0].toString(),
-            _date.toString(),
-          ];
+      for (let j=0; j<orders.length;j++) {
+        if(orders[j].c[0] > 0){
+          order = await exchange.getOrder(orders[j].c[0]);
+          var _date = await factory.token_dates.call(book);
+          _date = new Date(_date * 1000);
+          _date = (_date.getMonth()+1) + '/' + _date.getDate() + '/' + _date.getFullYear() 
+          o_row = [orders[j].c[0].toString(),order[3],(order[1].c[0]/10000).toString(),order[2].c[0].toString(),_date.toString()];
           allrows.push(o_row);
         }
       }
@@ -210,8 +189,7 @@ class Bulletin extends Component {
             ]}
             rows={this.state.orderbook}
             tableWidth="950px"
-            clickFunction={this.openBuy}
-            onHover = {this.onHover}
+            clickFunction={this.openContractDetails}
           />
         </Grid>
         <Grid item className={classes.item}>
@@ -224,7 +202,7 @@ class Bulletin extends Component {
             tableWidth="400px"
             cellHeight="15px"
             fontSize="12px"
-            clickFunction={this.onClickRow}
+            clickFunction={this.onBuyClick}
           />
         </Grid>
 
@@ -233,7 +211,11 @@ class Bulletin extends Component {
             <Typography className={classes.buttonText}>List Order</Typography>
           </Button>
         </Grid>
-
+        <Grid item className={classes.item}>
+          <Button className={classes.button} onClick={this.openBuy}>
+            <Typography className={classes.buttonText}>Buy Order</Typography>
+          </Button>
+        </Grid>
         <Grid item className={classes.item}>
           <Button className={classes.button} onClick={this.openUnlist}>
             <Typography className={classes.buttonText}>Unlist Order</Typography>
@@ -247,13 +229,12 @@ class Bulletin extends Component {
      <List
           open={this.state.openL}
           toggle={this.closeList}
-      />
-      { this.state.myAccount ?       
+      />      
         <Unlist
           myAccount ={this.state.myAccount}
           open={this.state.openU}
           toggle={this.closeUnlist}
-      />: null }
+      />
 
       <Buy
           orderID = {this.state.orderID}

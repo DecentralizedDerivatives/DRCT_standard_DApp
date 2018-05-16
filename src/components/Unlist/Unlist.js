@@ -6,24 +6,17 @@ import TextField from 'material-ui/TextField';
 import Grid from 'material-ui/Grid';
 import Typography from 'material-ui/Typography';
 import Dialog, {DialogContent} from 'material-ui/Dialog';
-import {DatePicker} from 'material-ui-pickers';
-import {CircularProgress} from 'material-ui/Progress';
 import styles from './styles';
 import Dropdown from '../Dropdown';
-import {Factory, Exchange, token, web3} from '../../ethereum';
+import {Factory, Exchange, web3} from '../../ethereum';
 
 class Unlist extends Component {
   static propTypes = {
     classes: PropTypes.object.isRequired,
     open: PropTypes.bool.isRequired,
     toggle: PropTypes.func.isRequired,
+    myAccount:PropTypes.string
   };
-
-  constructor(props) {
-    super(props)
-  }
-
-
 
   state = {
     open: false,
@@ -32,10 +25,11 @@ class Unlist extends Component {
     disabled: false,
     created: false,
     myOrders:[],
-    myAccount:""
+    myAccount:"",
+    orderID:""
   };
 
-  componentDidMount() {
+  componentWillMount() {
     web3.eth.getAccounts((error, accounts) => {
       this.setState({myAccount: accounts[0]});
     });
@@ -90,16 +84,13 @@ class Unlist extends Component {
   unlistOrder= async () => {
     const exchange = await Exchange.deployed();
     const accounts = await web3.eth.getAccounts();
-    var string = this.state.selectedToken;
-    var tokenSel = string.split('(');
-
-
     let response, error;
-    console.log('INPUTS',tokenSel[0].replace(/['"]+/g, ''));
+    console.log(this.state.orderID);
+    console.log(accounts[0])
     try {
-      response = await exchange.unlist(tokenSel[0].replace(/['"]+/g, ''),{
+      await exchange.unlist(this.state.orderID,{
         from: accounts[0],
-        gas: 4000000,
+        gas: 4000000
       });
     } catch (err) {
       error = err;
@@ -120,19 +111,19 @@ return (
           open={this.props.open}
           onClose={this.props.toggle}
           PaperProps={{className: classes.paper}}
-        >
-          <DialogContent className={classes.dialogContent}>
+        >          
+        <DialogContent className={classes.dialogContent}>
             <div className={classes.inputContainer}>
-              <Typography className={classes.title}>Unlist Order</Typography>
-                <Grid item>
-                  <Dropdown
-                    menuItems={this.state.myOrders}
-                    value={this.state.selectedToken}
-                    name="selectedToken"
-                    onChange={this.handleChange}
-                    className={classes.selectedToken}
-                  />
-                </Grid>
+              <Typography className={classes.title}>Unlist Order ID:</Typography>
+
+              <TextField
+                id="orderID"
+                value={Number(this.state.orderID)}
+                type="number"
+                onChange={this.handleTextfieldChange('orderID')}
+                className={classes.fullWidth}
+                helperText="Enter the orderID"
+              />
             </div>
 
             <Button

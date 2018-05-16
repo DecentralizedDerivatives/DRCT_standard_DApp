@@ -56,9 +56,7 @@ class Buy extends Component {
     let order;
     var j = 4;//this.props.orderID
           order = await exchange.getOrder(j);
-          console.log('o3',order[3])
           var _date = await factory.token_dates.call(order[3]);
-          console.log(_date);
           _date = new Date(_date * 1000);
           _date = (_date.getMonth()+1) + '/' + _date.getDate() + '/' + _date.getFullYear() 
           o_row = j.toString() + '('+order[3],order[1].c[0].toString() + '/'+order[2].c[0].toString() + '/'+_date.toString() + ')';
@@ -76,8 +74,8 @@ class Buy extends Component {
     const accounts = await web3.eth.getAccounts();
 
     let response, error,_value;
-      let oId = 4; //this.props.orderID
-    let order = await exchange.getOrder(oId);
+      let oId = this.state.orderID; //this.props.orderID
+    let order = await exchange.getOrder(this.state.orderID);
     _value = order[1];
       console.log(oId,_value);
     try {
@@ -113,14 +111,16 @@ class Buy extends Component {
                 Order Confirmation
               </Typography>
             </div>
-
             <div className={classes.inputContainer}>
+              <Typography className={classes.title}>Buy Order ID:</Typography>
+
               <TextField
-                id="amount"
-                value={this.props.orderID}
-                type="text"
+                id="orderID"
+                value={Number(this.state.orderID)}
+                type="number"
+                onChange={this.handleTextfieldChange('orderID')}
                 className={classes.fullWidth}
-                helperText="Please verify the correct Order Id"
+                helperText="Enter the orderID"
               />
             </div>
 
