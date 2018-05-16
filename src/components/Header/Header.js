@@ -13,7 +13,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import styles from './styles';
 import CreateContract from '../CreateContract';
 import CashOut from '../CashOut';
-import {web3} from '../../ethereum';
+import HowTo from '../HowTo';
 import NavDrawer from '../NavDrawer';
 
 class Header extends Component {
@@ -27,6 +27,7 @@ class Header extends Component {
     active: '',
     openCash: false,
     openCreate: false,
+    openHow:false,
     connected: true,
     drawerOpen: false,
   };
@@ -47,7 +48,10 @@ class Header extends Component {
       this.openCreateContract();
     } else if (link === 'cash_out') {
       this.openCashOut();
+    }else if (link === 'how_to') {
+      this.openHowTo();
     }
+
 
     this.setState({active: link});
   };
@@ -70,6 +74,17 @@ class Header extends Component {
   closeCashOut = () => {
     this.setState({
       openCash: false,
+      active: this.state.previousActive,
+    });
+  };
+
+  openHowTo = () => {
+    this.setState({openHow: true, previousActive: this.state.active});
+  };
+
+  closeHowTo = () => {
+    this.setState({
+      openHow: false,
       active: this.state.previousActive,
     });
   };
@@ -125,6 +140,7 @@ class Header extends Component {
               <img
                 src="dda-logo.png"
                 width="70"
+                alt="Logo" 
                 height="70"
                 className={classes.link}
                 style={{marginTop: '7%', marginRight: '20%'}}
@@ -222,6 +238,10 @@ class Header extends Component {
         <CreateContract
           open={this.state.openCreate}
           toggle={this.closeCreateContract}
+        />
+        <HowTo
+          open={this.state.openHow}
+          toggle={this.closeHowTo}
         />
         <CashOut open={this.state.openCash} toggle={this.closeCashOut} />
       </AppBar>

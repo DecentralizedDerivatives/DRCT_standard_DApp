@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Switch, Route} from 'react-router-dom';
+import {Switch, Route, Redirect} from 'react-router-dom';
 import withStyles from 'material-ui/styles/withStyles';
 import styles from './styles';
 import ErrorModal from '../ErrorModal';
@@ -49,7 +49,7 @@ class Main extends Component {
         <Switch>
           <Route path="/portfolio" component={this.isWeb3Active(MyPortfolio)} />
           <Route path="/bulletin" component={this.isWeb3Active(Bulletin)} />
-          <Route path="/how_to" component={this.isWeb3Active(HowTo)} />
+          <Redirect to="/portfolio" />
         </Switch>
 
         <ErrorModal

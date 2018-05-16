@@ -6,33 +6,34 @@ import TextField from 'material-ui/TextField';
 import Grid from 'material-ui/Grid';
 import Typography from 'material-ui/Typography';
 import Dialog, {DialogContent} from 'material-ui/Dialog';
-import {DatePicker} from 'material-ui-pickers';
-import {CircularProgress} from 'material-ui/Progress';
 import styles from './styles';
 import Dropdown from '../Dropdown';
-import {Factory, Exchange, token, web3} from '../../ethereum';
+import {Factory, Exchange, web3} from '../../ethereum';
 
 class Unlist extends Component {
   static propTypes = {
     classes: PropTypes.object.isRequired,
     open: PropTypes.bool.isRequired,
     toggle: PropTypes.func.isRequired,
+    myAccount:PropTypes.string
   };
 
   state = {
     open: false,
-    selectedToken: '',
+    selectedToken: 'xxx',
     loading: false,
     disabled: false,
     created: false,
     myOrders:[],
-    myAccount:""
+    myAccount:"",
+    orderID:""
   };
 
-  componentDidMount() {
+  componentWillMount() {
     web3.eth.getAccounts((error, accounts) => {
-      this.setState({myAccount: accounts[0]})
+      this.setState({myAccount: accounts[0]});
     });
+    this.getMyOrders();
 
     }
 
@@ -51,42 +52,43 @@ class Unlist extends Component {
   getMyOrders = async () =>{
     const exchange= await Exchange.deployed();
     const factory = await Factory.deployed();
-    console.log(this.state.myAccount);
-    var books = await exchange.userOrders.call(this.state.myAccount);
-    console.log('t')
-    // get orders for that book:
-    let o_row = [];
-    let _allrows = []
+    try {
+      var books = await exchange.userOrders.call(this.props.myAccount);
+      // get orders for that book:
+      let o_row = [];
+      let _allrows = []
 
-    let order;
-    for (var j in books) {
-      console.log(j)
-          order = await exchange.getOrder(j);
-          var _date = await factory.token_dates.call(order[3]);
-          console.log(_date);
-          _date = new Date(_date * 1000);
-          _date = (_date.getMonth()+1) + '/' + _date.getDate() + '/' + _date.getFullYear() 
-          o_row = j + '('+order[3],order[1].c[0].toString() + '/'+order[2].c[0].toString() + '/'+_date.toString() + ')';
-          _allrows.push(o_row);
-          this.setState({myOrders: _allrows});
-      }
+      let order;
+      for (var j in books) {
+        console.log(j)
+            order = await exchange.getOrder(j);
+            var _date = await factory.token_dates.call(order[3]);
+            console.log(_date);
+            _date = new Date(_date * 1000);
+            _date = (_date.getMonth()+1) + '/' + _date.getDate() + '/' + _date.getFullYear() 
+            o_row = j.toString() + '('+order[3],order[1].c[0].toString() + '/'+order[2].c[0].toString() + '/'+_date.toString() + ')';
+            _allrows.push(o_row);
+            this.setState({myOrders: _allrows});
+        }
+
+          } catch (err) {
+      console.log('err');
+    }
 
   }
+
 
 
   unlistOrder= async () => {
     const exchange = await Exchange.deployed();
     const accounts = await web3.eth.getAccounts();
-    var string = this.state.selectedToken;
-    var tokenSel = string.split('(');
-
-
     let response, error;
-    console.log('INPUTS',tokenSel[0].replace(/['"]+/g, ''));
+    console.log(this.state.orderID);
+    console.log(accounts[0])
     try {
-      response = await exchange.list(tokenSel[0].replace(/['"]+/g, ''),{
+      await exchange.unlist(this.state.orderID,{
         from: accounts[0],
-        gas: 4000000,
+        gas: 4000000
       });
     } catch (err) {
       error = err;
@@ -95,6 +97,7 @@ class Unlist extends Component {
       console.log(error);
     }
   };
+
 
 
   render() {
@@ -106,19 +109,19 @@ return (
           open={this.props.open}
           onClose={this.props.toggle}
           PaperProps={{className: classes.paper}}
-        >
-          <DialogContent className={classes.dialogContent}>
+        >          
+        <DialogContent className={classes.dialogContent}>
             <div className={classes.inputContainer}>
-              <Typography className={classes.title}>Unlist Order</Typography>
-                <Grid item>
-                  <Dropdown
-                    menuItems={this.state.myOrders}
-                    value={this.state.selectedToken}
-                    name="selectedToken"
-                    onChange={this.handleChange}
-                    className={classes.selectedToken}
-                  />
-                </Grid>
+              <Typography className={classes.title}>Unlist Order ID:</Typography>
+
+              <TextField
+                id="orderID"
+                value={Number(this.state.orderID)}
+                type="number"
+                onChange={this.handleTextfieldChange('orderID')}
+                className={classes.fullWidth}
+                helperText="Enter the orderID"
+              />
             </div>
 
             <Button

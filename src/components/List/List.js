@@ -52,7 +52,6 @@ class List extends Component {
     var _allrows = [];
     var openDates = [];
     const numDates = await factory.getDateCount();
-    console.log('numDates',numDates);
           for(let i=0;i<numDates;i++){
               let _date = await factory.startDates.call(i);
               _date = _date.c[0]; 

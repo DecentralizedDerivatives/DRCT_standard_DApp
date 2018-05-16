@@ -15,7 +15,7 @@ import {Factory, Exchange, web3} from '../../ethereum';
 
 class Bulletin extends Component {
   state = {
-    orderbook: [['loading...', 'loading...', 'loading...', 'loading...']],
+    orderbook: [['loading...', 'loading...', 'loading...', 'loading...','...']],
     previousActive: '',
     recentTrades: [['loading...', 'loading...', 'loading...']],
     active: '',
@@ -23,19 +23,22 @@ class Bulletin extends Component {
     openU: false,
     openL: false,
     openB: false,
-    orderID: "0x"
+    orderID: "xxx",
+    myAccount:"xxx"
 
   };
 
   fetchData = () => {};
 
   componentDidMount() {
-    console.log('did mount');
+    web3.eth.getAccounts((error, accounts) => {
+      this.setState({myAccount: accounts[0]});
+    });
     this.getOrderBook().then(result => {
       this.setState({orderbook: result});
     });
-    this.getRecentTrades().then(result => {
-      console.log('result', result);
+    this.getRecentTrades().then(res => {
+            this.setState({recentTrades: res});
     });
   }
 
@@ -52,6 +55,10 @@ class Bulletin extends Component {
     this.setState({active: link});
   };
 
+  onBuyClick = link => {
+    console.log(link);
+  }
+
   openContractDetails = () => {
     this.setState({open: true, previousActive: this.state.active});
   };
@@ -64,9 +71,8 @@ class Bulletin extends Component {
   };
 
   openBuy = (link) => {
-     console.log('Link',link.index);
+     console.log('Link',link);
     this.setState({orderID:link})
-    this.Buy.getOrderDetails();
     this.setState({openB: true, previousActive: this.state.active});
   };
 
@@ -75,6 +81,8 @@ class Bulletin extends Component {
       openB: false,
       active: this.state.previousActive,
     });
+    this.getOrderBook();
+    this.getRecentTrades();
   };
 
   openList = () => {
@@ -86,10 +94,11 @@ class Bulletin extends Component {
       openL: false,
       active: this.state.previousActive,
     });
+    this.getOrderBook();
+    this.getRecentTrades();
   };
 
   openUnlist = () => {
-    this.Buy.getMyOrders();
     this.setState({openU: true, previousActive: this.state.active});
   };
 
@@ -98,13 +107,15 @@ class Bulletin extends Component {
       openU: false,
       active: this.state.previousActive,
     });
+    this.getOrderBook();
+    this.getRecentTrades();
   };
 
   buyOrder = () => {};
 
   getRecentTrades = async () => {
     const exchange = await Exchange.deployed();
-    let _trades = [];
+    var _trades = [];
 
     let transferEvent = await exchange.Sale(
       {},
@@ -114,15 +125,14 @@ class Bulletin extends Component {
     await transferEvent.get((error, logs) => {
       console.log(logs.length);
       for (let i = logs.length - 1; i >= Math.max(logs.length - 10, 0); i--) {
-        _trades.push(logs[i]);
+        _trades.push([logs[i].args['_token'].toString(),logs[i].args['_amount'].toString(),logs[i].args['_price'].toString()]);
       }
-      if (logs.length == 0) {
+      if (logs.length === 0) {
         console.log('setting');
         _trades = [['No Recent Trades', '...', '...']];
       }
-      this.setState({recentTrades: _trades});
     });
-    return _trades;
+            return _trades;
   };
 
   getOrderBook = async () => {
@@ -132,7 +142,6 @@ class Bulletin extends Component {
     // first get number of open books (tokens with open orders):
     let exchange = await Exchange.deployed();
     let numBooks = await exchange.getBookCount();
-    console.log('numbooks',numBooks);
 
     // get orders for that book:
     let o_row = [];
@@ -142,16 +151,14 @@ class Bulletin extends Component {
     for (let i = 0; i < numBooks; i++) {
       let book = await exchange.openBooks(i);
       let orders = await exchange.getOrders(book);
-      console.log('orders',orders);
 
-      for (let j in orders) {
-        if(j > 0){
-          order = await exchange.getOrder(j);
+      for (let j=0; j<orders.length;j++) {
+        if(orders[j].c[0] > 0){
+          order = await exchange.getOrder(orders[j].c[0]);
           var _date = await factory.token_dates.call(book);
-          console.log(_date);
           _date = new Date(_date * 1000);
           _date = (_date.getMonth()+1) + '/' + _date.getDate() + '/' + _date.getFullYear() 
-          o_row = [j,order[3],order[1].c[0].toString(),order[2].c[0].toString(),_date.toString()];
+          o_row = [orders[j].c[0].toString(),order[3],(order[1].c[0]/10000).toString(),order[2].c[0].toString(),_date.toString()];
           allrows.push(o_row);
         }
       }
@@ -175,14 +182,14 @@ class Bulletin extends Component {
           <Table
             titles={[
               'Order ID',
-              'Order Book',
-              'Amount',
-              'Bid',
+              'Token',
+              'Price (ETH)',
+              'Quantity',
               'Start Date',
             ]}
             rows={this.state.orderbook}
             tableWidth="950px"
-            clickFunction={this.openBuy}
+            clickFunction={this.openContractDetails}
           />
         </Grid>
         <Grid item className={classes.item}>
@@ -195,7 +202,7 @@ class Bulletin extends Component {
             tableWidth="400px"
             cellHeight="15px"
             fontSize="12px"
-            clickFunction={this.onClickRow}
+            clickFunction={this.onBuyClick}
           />
         </Grid>
 
@@ -204,7 +211,11 @@ class Bulletin extends Component {
             <Typography className={classes.buttonText}>List Order</Typography>
           </Button>
         </Grid>
-
+        <Grid item className={classes.item}>
+          <Button className={classes.button} onClick={this.openBuy}>
+            <Typography className={classes.buttonText}>Buy Order</Typography>
+          </Button>
+        </Grid>
         <Grid item className={classes.item}>
           <Button className={classes.button} onClick={this.openUnlist}>
             <Typography className={classes.buttonText}>Unlist Order</Typography>
@@ -218,16 +229,19 @@ class Bulletin extends Component {
      <List
           open={this.state.openL}
           toggle={this.closeList}
+      />      
+        <Unlist
+          myAccount ={this.state.myAccount}
+          open={this.state.openU}
+          toggle={this.closeUnlist}
       />
+
       <Buy
           orderID = {this.state.orderID}
           open={this.state.openB}
           toggle={this.closeBuy}
       />
-      <Unlist
-          open={this.state.openU}
-          toggle={this.closeUnlist}
-      />
+
 
       </Grid>
     );

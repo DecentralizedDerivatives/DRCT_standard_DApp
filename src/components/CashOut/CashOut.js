@@ -2,14 +2,10 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import withStyles from 'material-ui/styles/withStyles';
 import Button from 'material-ui/Button';
-import TextField from 'material-ui/TextField';
-import Grid from 'material-ui/Grid';
 import Typography from 'material-ui/Typography';
 import Dialog, {DialogContent} from 'material-ui/Dialog';
-import {DatePicker} from 'material-ui-pickers';
-import {CircularProgress} from 'material-ui/Progress';
 import styles from './styles';
-import {Factory, web3} from '../../ethereum';
+import {Wrapped, web3} from '../../ethereum';
 
 class CashOut extends Component {
   static propTypes = {
@@ -30,6 +26,7 @@ class CashOut extends Component {
     loading: false,
     disabled: false,
     created: false,
+    myBalance:"0"
   };
 
   handleChange = event => {
@@ -46,42 +43,34 @@ class CashOut extends Component {
     });
   };
 
-  CashOut = async () => {
-    const factory = await Factory.deployed();
+  componentWillMount() {
+    this.getMyBalance().then((result)=>{
+      console.log('res',result);
+    });
+  }
+
+  getMyBalance= async () =>{
+    const wrapped = await Wrapped.deployed();
     const accounts = await web3.eth.getAccounts();
+    var _res = await wrapped.balanceOf(accounts[0]);
+    return _res.c[0];
+  }
 
-    let date = Number(
-      (new Date(this.state.selectedDate).getTime() / 1000).toFixed(0)
-    );
-
-    date = date - date % 86400;
-
+  cashOut= async () => {
+    const wrapped = await Wrapped.deployed();
+    const accounts = await web3.eth.getAccounts();
     let response, error;
-
-    this.setState({loading: true, disabled: true, showAddress: true});
-
     try {
-      response = await factory.deployContract(date, {
+      await wrapped.withdraw(this.state.myBalance,{
         from: accounts[0],
-        gas: 4000000,
+        gas: 4000000
       });
     } catch (err) {
       error = err;
     }
-
-    this.setState({loading: false});
-
     if (error) {
-      // Add error handling
-      this.setState({txId: error.tx, error: true, disabled: false});
-      return;
+      console.log(error);
     }
-
-    this.setState({
-      showSendFunds: true,
-      txId: response.tx,
-      contractAddress: response.logs[0].args._created,
-    });
   };
 
   render() {
@@ -100,112 +89,17 @@ class CashOut extends Component {
             </div>
 
             <div className={classes.inputContainer}>
-              <Typography className={classes.title}>Start Date</Typography>
-
-              <DatePicker
-                value={this.state.selectedDate}
-                onChange={this.handleDateChange}
-                animateYearScrolling={false}
-                className={classes.fullWidth}
-                format={'MMMM D YYYY'}
-              />
+              <Typography className={classes.title}>Amount to withdraw: {this.state.myBalance}</Typography>
             </div>
 
-            <div className={classes.inputContainer}>
-              <Typography className={classes.title}>Amount of Ether</Typography>
-
-              <TextField
-                id="amount"
-                value={Number(this.state.amount)}
-                type="number"
-                onChange={this.handleTextfieldChange('amount')}
-                className={classes.fullWidth}
-                helperText="Must be at least 0.1"
-              />
-            </div>
-
-            <div className={classes.inputContainer}>
-              <Typography className={classes.title}>Premium</Typography>
-
-              <TextField
-                id="premium"
-                value={this.state.premium}
-                type="number"
-                onChange={this.handleTextfieldChange('premium')}
-                className={classes.fullWidth}
-                helperText="Recommended 0.1"
-              />
-            </div>
 
             <Button
-              className={
-                this.state.disabled ? classes.buttonDisabled : classes.button
-              }
-              disabled={this.state.disabled}
-              onClick={this.CashOut}
+              className={classes.button}
+              onClick={this.cashOut}
             >
-              <Typography className={classes.buttonText}>
-                Create Contract
-              </Typography>
+              <Typography className={classes.buttonText}>Submit</Typography>
             </Button>
-          </DialogContent>
-
-          {this.state.showAddress && <div className={classes.line} />}
-          {this.state.showAddress && (
-            <DialogContent className={classes.addressResultContainer}>
-              <div className={classes.inputContainer}>
-                <Grid
-                  container
-                  direction="row"
-                  alignItems="stretch"
-                  justify="space-between"
-                >
-                  <Grid item>
-                    <Typography className={classes.title}>
-                      Address Result
-                    </Typography>
-                  </Grid>
-
-                  <Grid item>
-                    {this.state.loading && (
-                      <Grid container direction="row" alignItems="stretch">
-                        <Grid item>
-                          <Typography className={classes.waiting}>
-                            Waiting for confirmation...
-                          </Typography>
-                        </Grid>
-
-                        <Grid item>
-                          <CircularProgress
-                            className={classes.progress}
-                            size={12}
-                            thickness={5}
-                          />
-                        </Grid>
-                      </Grid>
-                    )}
-                  </Grid>
-                </Grid>
-
-                {this.state.txId && (
-                  <Typography className={classes.txId}>
-                    {this.state.txId}
-                  </Typography>
-                )}
-              </div>
             </DialogContent>
-          )}
-
-          {this.state.showSendFunds && <div className={classes.line} />}
-          {this.state.showSendFunds && (
-            <DialogContent className={classes.sendFundsContainer}>
-              <Button className={classes.button} onClick={this.sendFunds}>
-                <Typography className={classes.buttonText}>
-                  Send Funds
-                </Typography>
-              </Button>
-            </DialogContent>
-          )}
         </Dialog>
       </div>
     );
