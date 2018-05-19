@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import withStyles from 'material-ui/styles/withStyles';
 import Highcharts from 'highcharts/highstock';
@@ -19,24 +19,23 @@ class PriceChart extends Component {
   static propTypes = {
     classes: PropTypes.object.isRequired,
   };
-
+  constructor() {
+    super();
+    this.state = {
+      currency: 'BTC',
+    };
+  }
   static currencies = ['BTC', 'ETH'];
-
-  state = {
-    currency: 'BTC',
-  };
 
   componentDidMount() {
     this.fetchData('btc');
   }
-
   fetchData = async type => {
     const data = await api[type].get();
-    this.setState({data}, () => {
+    this.setState({ data }, () => {
       this.createChart();
     });
   };
-
   createChart = type => {
     Highcharts.stockChart('container', {
       series: [
@@ -52,12 +51,12 @@ class PriceChart extends Component {
   };
 
   handleChange = event => {
-    this.setState({[event.target.name]: event.target.value});
+    this.setState({ [event.target.name]: event.target.value });
     this.fetchData(event.target.value.toLowerCase());
   };
 
   render() {
-    const {classes} = this.props;
+    const { classes } = this.props;
 
     return (
       <Paper className={classes.container}>

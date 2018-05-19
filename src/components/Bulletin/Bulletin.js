@@ -14,22 +14,22 @@ import Buy from '../Buy';
 import {Factory, Exchange, web3} from '../../ethereum';
 
 class Bulletin extends Component {
-  state = {
-    orderbook: [['loading...', 'loading...', 'loading...', 'loading...','...']],
-    previousActive: '',
-    recentTrades: [['loading...', 'loading...', 'loading...']],
-    active: '',
-    open: false,
-    openU: false,
-    openL: false,
-    openB: false,
-    orderID: "xxx",
-    myAccount:"xxx"
-
-  };
-
+  constructor(){
+    super();
+    this.state = {
+      orderbook: [['loading...', 'loading...', 'loading...', 'loading...','...']],
+      previousActive: '',
+      recentTrades: [['loading...', 'loading...', 'loading...']],
+      active: '',
+      open: false,
+      openU: false,
+      openL: false,
+      openB: false,
+      orderID: "xxx",
+      myAccount:"xxx"
+    };
+  }
   fetchData = () => {};
-
   componentDidMount() {
     web3.eth.getAccounts((error, accounts) => {
       this.setState({myAccount: accounts[0]});

@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
-import {withRouter} from 'react-router';
-import {Link} from 'react-router-dom';
+import React, { Component } from 'react';
+import { withRouter } from 'react-router';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import AppBar from 'material-ui/AppBar';
 import Typography from 'material-ui/Typography';
@@ -21,17 +21,18 @@ class Header extends Component {
     classes: PropTypes.object.isRequired,
     connected: PropTypes.bool.isRequired,
   };
-
-  state = {
-    previousActive: '',
-    active: '',
-    openCash: false,
-    openCreate: false,
-    openHow:false,
-    connected: true,
-    drawerOpen: false,
-  };
-
+  constructor() {
+    super();
+    this.state = {
+      previousActive: '',
+      active: '',
+      openCash: false,
+      openCreate: false,
+      openHow: false,
+      connected: true,
+      drawerOpen: false,
+    };
+  }
   static getDerivedStateFromProps(nextProps, prevState) {
     const url = nextProps.location.pathname.replace('/', '');
 
@@ -48,16 +49,14 @@ class Header extends Component {
       this.openCreateContract();
     } else if (link === 'cash_out') {
       this.openCashOut();
-    }else if (link === 'how_to') {
+    } else if (link === 'how_to') {
       this.openHowTo();
     }
-
-
-    this.setState({active: link});
+    this.setState({ active: link });
   };
 
   openCreateContract = () => {
-    this.setState({openCreate: true, previousActive: this.state.active});
+    this.setState({ openCreate: true, previousActive: this.state.active });
   };
 
   closeCreateContract = () => {
@@ -68,7 +67,7 @@ class Header extends Component {
   };
 
   openCashOut = () => {
-    this.setState({openCash: true, previousActive: this.state.active});
+    this.setState({ openCash: true, previousActive: this.state.active });
   };
 
   closeCashOut = () => {
@@ -79,7 +78,7 @@ class Header extends Component {
   };
 
   openHowTo = () => {
-    this.setState({openHow: true, previousActive: this.state.active});
+    this.setState({ openHow: true, previousActive: this.state.active });
   };
 
   closeHowTo = () => {
@@ -89,10 +88,10 @@ class Header extends Component {
     });
   };
 
-  toggleMetamaskModal = () => this.setState({metamask: !this.state.metamask});
+  toggleMetamaskModal = () => this.setState({ metamask: !this.state.metamask });
 
   renderHeaderLinks = () => {
-    const {classes} = this.props;
+    const { classes } = this.props;
     const urls = [
       'portfolio',
       'portfolio',
@@ -140,43 +139,43 @@ class Header extends Component {
               <img
                 src="dda-logo.png"
                 width="70"
-                alt="Logo" 
+                alt="Logo"
                 height="70"
                 className={classes.link}
-                style={{marginTop: '7%', marginRight: '20%'}}
+                style={{ marginTop: '7%', marginRight: '20%' }}
               />
             </div>
           </Link>
         );
       }
 
-		if (i === 0) {
-			return (
-				<Link className={classes.link} to={`/${urls[i]}`} key={link}>
-					<div className="logo">
-							<img src="dda-logo.png" width="70" height="70" alt="Home" className={classes.link} style={{ marginTop : '7%', marginRight: '20%' }} />
-					</div>
-				</Link>
-			);
-		}
-
-        if (i !== 3) {
-          return (
-            <Link className={classes.link} to={`/${urls[i]}`} key={link}>
-              {component}
-            </Link>
-          );
-        }
-
-        return component;
+      if (i === 0) {
+        return (
+          <Link className={classes.link} to={`/${urls[i]}`} key={link}>
+            <div className="logo">
+              <img src="dda-logo.png" width="70" height="70" alt="Home" className={classes.link} style={{ marginTop: '7%', marginRight: '20%' }} />
+            </div>
+          </Link>
+        );
       }
+
+      if (i !== 3) {
+        return (
+          <Link className={classes.link} to={`/${urls[i]}`} key={link}>
+            {component}
+          </Link>
+        );
+      }
+
+      return component;
+    }
     );
   };
 
-  handleDrawer = () => this.setState({drawerOpen: !this.state.drawerOpen});
+  handleDrawer = () => this.setState({ drawerOpen: !this.state.drawerOpen });
 
   render() {
-    const {classes} = this.props;
+    const { classes } = this.props;
     return (
       <AppBar className={classes.appBar} position="static">
         <Grid

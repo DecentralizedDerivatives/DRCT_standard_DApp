@@ -8,8 +8,10 @@ import PriceChart from '../PriceChart';
 import {Factory, Exchange, web3} from '../../ethereum';
 
 class Sample extends Component {
-  state = {};
-
+  constructor(){
+    super();
+    this.state = {};
+  }
   fetchData = () => {};
 
   componentDidMount() {

@@ -18,20 +18,21 @@ class TransactionDetails extends Component {
     open: PropTypes.bool.isRequired,
     toggle: PropTypes.func.isRequired,
   };
-
+  constructor(){
+    super();
+    this.state = {
+      open: false,
+      duration: '',
+      currency: '',
+      amount: 0.1,
+      selectedDate: new Date(),
+      loading: false,
+      disabled: false,
+      created: false,
+    };
+  }
   static durations = ['One weeks', 'Two weeks'];
   static currency = ['BTC/USD', 'ETH/USD'];
-
-  state = {
-    open: false,
-    duration: '',
-    currency: '',
-    amount: 0.1,
-    selectedDate: new Date(),
-    loading: false,
-    disabled: false,
-    created: false,
-  };
 
   handleChange = event => {
     this.setState({[event.target.name]: event.target.value});
