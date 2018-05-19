@@ -8,15 +8,17 @@ import ContractDetails from '../ContractDetails';
 import {Factory, Exchange, web3, DRCT} from '../../ethereum';
 
 class MyPortfolio extends Component {
-  state = {
-    previousActive: '',
-    active: '',
-    open: false,
-    myPositions: [['loading...', 'loading...', 'loading...']],
-    myTransactions: [['loading...', 'loading...']],
-    myAccount: '',
-  };
-
+  constructor(){
+    super();
+    this.state = {
+      previousActive: '',
+      active: '',
+      open: false,
+      myPositions: [['loading...', 'loading...', 'loading...']],
+      myTransactions: [['loading...', 'loading...']],
+      myAccount: '',
+    };
+  }
   fetchData = () => {};
 
   componentDidMount() {

@@ -1,13 +1,13 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import withStyles from 'material-ui/styles/withStyles';
 import Button from 'material-ui/Button';
 import TextField from 'material-ui/TextField';
 import Typography from 'material-ui/Typography';
-import Dialog, {DialogContent} from 'material-ui/Dialog';
+import Dialog, { DialogContent } from 'material-ui/Dialog';
 import styles from './styles';
 import Dropdown from '../Dropdown';
-import {Factory, token, web3, Exchange} from '../../ethereum';
+import { Factory, token, web3, Exchange } from '../../ethereum';
 
 class Buy extends Component {
   static propTypes = {
@@ -15,26 +15,26 @@ class Buy extends Component {
     open: PropTypes.bool.isRequired,
     toggle: PropTypes.func.isRequired,
   };
-
+  constructor() {
+    super();
+    this.state = {
+      open: false,
+      selectedToken: '',
+      loading: false,
+      disabled: false,
+      created: false,
+      orderID: ''
+    };
+  }
   static durations = ['One weeks', 'Two weeks'];
   static currency = ['BTC/USD', 'ETH/USD'];
-
-  state = {
-    open: false,
-    selectedToken: '',
-    loading: false,
-    disabled: false,
-    created: false,
-    orderID: ''
-  };
-
 
   componentDidMount() {
     this.getOrderDetails();
 
-    }
+  }
   handleChange = event => {
-    this.setState({[event.target.name]: event.target.value});
+    this.setState({ [event.target.name]: event.target.value });
   };
 
 
@@ -44,8 +44,8 @@ class Buy extends Component {
     });
   };
 
-  getOrderDetails = async () =>{
-    const exchange= await Exchange.deployed();
+  getOrderDetails = async () => {
+    const exchange = await Exchange.deployed();
     const factory = await Factory.deployed();
     const accounts = await web3.eth.getAccounts();
 
@@ -55,29 +55,29 @@ class Buy extends Component {
 
     let order;
     var j = 4;//this.props.orderID
-          order = await exchange.getOrder(j);
-          var _date = await factory.token_dates.call(order[3]);
-          _date = new Date(_date * 1000);
-          _date = (_date.getMonth()+1) + '/' + _date.getDate() + '/' + _date.getFullYear() 
-          o_row = j.toString() + '('+order[3],order[1].c[0].toString() + '/'+order[2].c[0].toString() + '/'+_date.toString() + ')';
-          _allrows.push(o_row);
-          this.setState({myOrders: _allrows});
-                    if(_allrows.length == 1){
-                        this.setState({selectedToken: order[3]});
-                    }
+    order = await exchange.getOrder(j);
+    var _date = await factory.token_dates.call(order[3]);
+    _date = new Date(_date * 1000);
+    _date = (_date.getMonth() + 1) + '/' + _date.getDate() + '/' + _date.getFullYear()
+    o_row = j.toString() + '(' + order[3], order[1].c[0].toString() + '/' + order[2].c[0].toString() + '/' + _date.toString() + ')';
+    _allrows.push(o_row);
+    this.setState({ myOrders: _allrows });
+    if (_allrows.length == 1) {
+      this.setState({ selectedToken: order[3] });
+    }
   }
 
 
 
-  buyOrder= async () => {
+  buyOrder = async () => {
     const exchange = await Exchange.deployed();
     const accounts = await web3.eth.getAccounts();
 
-    let response, error,_value;
-      let oId = this.state.orderID; //this.props.orderID
+    let response, error, _value;
+    let oId = this.state.orderID; //this.props.orderID
     let order = await exchange.getOrder(this.state.orderID);
     _value = order[1];
-      console.log(oId,_value);
+    console.log(oId, _value);
     try {
       response = await exchange.buy(oId, {
         from: accounts[0],
@@ -93,17 +93,17 @@ class Buy extends Component {
       return;
     }
 
-    {this.props.toggle}
+    { this.props.toggle }
   };
 
   render() {
-    const {classes} = this.props;
+    const { classes } = this.props;
     return (
       <div>
         <Dialog
           open={this.props.open}
           onClose={this.props.toggle}
-          PaperProps={{className: classes.paper}}
+          PaperProps={{ className: classes.paper }}
         >
           <DialogContent className={classes.dialogContent}>
             <div className={classes.inputContainer}>

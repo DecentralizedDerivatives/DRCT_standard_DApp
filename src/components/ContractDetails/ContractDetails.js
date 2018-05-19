@@ -1,12 +1,12 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import withStyles from 'material-ui/styles/withStyles';
 import TextField from 'material-ui/TextField';
 import Typography from 'material-ui/Typography';
-import Dialog, {DialogContent} from 'material-ui/Dialog';
+import Dialog, { DialogContent } from 'material-ui/Dialog';
 import styles from './styles';
 import Dropdown from '../Dropdown';
-import {Factory} from '../../ethereum';
+import { Factory } from '../../ethereum';
 
 class ContractDetails extends Component {
   static propTypes = {
@@ -14,23 +14,25 @@ class ContractDetails extends Component {
     open: PropTypes.bool.isRequired,
     toggle: PropTypes.func.isRequired,
   };
+  constructor(){
+    super();
+    this.state = {
+      open: false,
+      duration: '',
+      multiplier:0,
+      oracleAddress:'',
+      currency: '',
+      amount: 0.1,
+      selectedDate: new Date(),
+    };
+  }
 
   static durations = ['One weeks', 'Two weeks'];
   static currency = ['BTC/USD', 'ETH/USD'];
 
-  state = {
-    open: false,
-    duration: '',
-    multiplier:0,
-    oracleAddress:'',
-    currency: '',
-    amount: 0.1,
-    selectedDate: new Date(),
-  };
-
-    componentDidMount() {
-      this.getDetails();
-    }
+  componentDidMount() {
+    this.getDetails();
+  }
 
 
   getDetails = async () => {
@@ -42,7 +44,7 @@ class ContractDetails extends Component {
       error = err;
     }
 
-    this.setState({loading: false});
+    this.setState({ loading: false });
 
     if (error) {
       console.log(error);
@@ -57,14 +59,14 @@ class ContractDetails extends Component {
   };
 
   render() {
-    const {classes} = this.props;
+    const { classes } = this.props;
 
     return (
       <div>
         <Dialog
           open={this.props.open}
           onClose={this.props.toggle}
-          PaperProps={{className: classes.paper}}
+          PaperProps={{ className: classes.paper }}
         >
           <DialogContent className={classes.dialogContent}>
 
