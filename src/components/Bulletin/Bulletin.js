@@ -26,7 +26,11 @@ class Bulletin extends Component {
       openL: false,
       openB: false,
       orderID: "xxx",
-      myAccount:"xxx"
+      myAccount:"xxx",
+      contractAddress: "",
+      contractDuration:"",
+      contractMultiplier:"",
+      oracleAddress:"",
     };
   }
   fetchData = () => {};
@@ -40,6 +44,8 @@ class Bulletin extends Component {
     this.getRecentTrades().then(res => {
             this.setState({recentTrades: res});
     });
+    //Gettings contract details one time when its parent gets mounted
+    this.getContractDetails();
   }
 
   //This is the base data structure for an order (the maker of the order and the price)
@@ -60,7 +66,29 @@ class Bulletin extends Component {
   }
 
   openContractDetails = () => {
-    this.setState({open: true, previousActive: this.state.active});
+    this.setState({
+      open: true, 
+      previousActive: this.state.active,
+    });
+  };
+  getContractDetails = async () => {
+    const factory = await Factory.deployed();
+    let response, error;
+    try {
+      response = await factory.getVariables();
+    } catch (err) {
+      error = err;
+    }
+    if (error) {
+      console.log(error);
+      return;
+    }
+    this.setState({
+      contractAddress: response[0],
+      contractDuration: response[1].c[0],
+      contractMultiplier: response[2].c[0],
+      oracleAddress: response[3],
+    });
   };
 
   closeContractDetails = () => {
@@ -225,6 +253,10 @@ class Bulletin extends Component {
         <ContractDetails
           open={this.state.open}
           toggle={this.closeContractDetails}
+          contractAddress={this.state.contractAddress}
+          contractDuration={this.state.contractDuration}
+          contractMultiplier={this.state.contractMultiplier}
+          oracleAddress={this.state.oracleAddress}
       />
      <List
           open={this.state.openL}
