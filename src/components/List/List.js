@@ -53,8 +53,8 @@ class List extends Component {
       let _date = await factory.startDates.call(i);
       _date = _date.c[0];
       let _token_addresses = await factory.getTokens(_date);
-      var _date = new Date(_date * 1000);
-      var _date = (_date.getMonth() + 1) + '/' + _date.getDate() + '/' + _date.getFullYear()
+      _date = new Date(_date * 1000);
+      _date = (_date.getMonth() + 1) + '/' + _date.getDate() + '/' + _date.getFullYear()
       for (let j = 0; j < 2; j++) {
         let drct = await DRCT.at(_token_addresses[j]);
         let _balance = await drct.balanceOf(accounts[0]);

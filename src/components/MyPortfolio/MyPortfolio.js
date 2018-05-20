@@ -1,14 +1,14 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import withStyles from 'material-ui/styles/withStyles';
 import Grid from 'material-ui/Grid';
 import styles from './styles';
 import Table from '../Table';
 import ContractDetails from '../ContractDetails';
-import {Factory, Exchange, web3, DRCT} from '../../ethereum';
+import { Factory, Exchange, web3, DRCT } from '../../ethereum';
 
 class MyPortfolio extends Component {
-  constructor(){
+  constructor() {
     super();
     this.state = {
       previousActive: '',
@@ -19,28 +19,48 @@ class MyPortfolio extends Component {
       myAccount: '',
     };
   }
-  fetchData = () => {};
+  fetchData = () => { };
 
   componentDidMount() {
     web3.eth.getAccounts((error, accounts) => {
-      this.setState({myAccount: accounts[0]});
+      this.setState({ myAccount: accounts[0] });
     });
     this.getMyPositions().then(result => {
-      this.setState({myPositions: result});
+      this.setState({ myPositions: result });
       console.log(result);
     });
     this.getmyTransactions();
+    //Getting contract details one time when its parent gets mounted
+    this.getContractDetails();
   }
 
   onClickRow = link => {
     this.openContractDetails();
-    this.setState({active: link});
+    this.setState({ active: link });
   };
 
   openContractDetails = () => {
-    this.setState({open: true, previousActive: this.state.active});
+    this.setState({ open: true, previousActive: this.state.active });
   };
-
+  getContractDetails = async () => {
+    const factory = await Factory.deployed();
+    let response, error;
+    try {
+      response = await factory.getVariables();
+    } catch (err) {
+      error = err;
+    }
+    if (error) {
+      console.log(error);
+      return;
+    }
+    this.setState({
+      contractAddress: response[0],
+      contractDuration: response[1].c[0],
+      contractMultiplier: response[2].c[0],
+      oracleAddress: response[3],
+    });
+  };
   closeContractDetails = () => {
     this.setState({
       open: false,
@@ -49,7 +69,7 @@ class MyPortfolio extends Component {
   };
 
   openContractDetails = () => {
-    this.setState({open: true, previousActive: this.state.active});
+    this.setState({ open: true, previousActive: this.state.active });
   };
 
   closeContractDetails = () => {
@@ -110,7 +130,7 @@ class MyPortfolio extends Component {
         //OrderRemoved: await exchange.OrderRemoved({}, {fromBlock:0, toBlock: 'latest'}),
         ContractCreation: await factory.ContractCreation(
           {},
-          {fromBlock: 0, toBlock: 'latest'}
+          { fromBlock: 0, toBlock: 'latest' }
         ),
         //Transfer: await drct.Transfer({}, {fromBlock:0, toBlock: 'latest'}),
         //Approval: await drct.Approval({}, {fromBlock:0, toBlock: 'latest'})
@@ -120,7 +140,7 @@ class MyPortfolio extends Component {
     for (let i = 0; i < titles.length; i++) {
       let transferEvent = await factory.ContractCreation(
         {},
-        {fromBlock: 0, toBlock: 'latest'}
+        { fromBlock: 0, toBlock: 'latest' }
       );
       await transferEvent.get((error, logs) => {
         for (let j = logs.length - 1; j >= Math.max(logs.length - 10, 0); j--) {
@@ -129,7 +149,7 @@ class MyPortfolio extends Component {
             this.state.myAccount.toUpperCase()
           ) {
             _trades.push([titles[i], logs[j].transactionHash]);
-            this.setState({myTransactions: _trades});
+            this.setState({ myTransactions: _trades });
           }
         }
         if (_trades.length === 0) {
@@ -140,7 +160,7 @@ class MyPortfolio extends Component {
   };
 
   render() {
-    const {classes} = this.props;
+    const { classes } = this.props;
 
     return (
       <Grid
@@ -171,6 +191,10 @@ class MyPortfolio extends Component {
         <ContractDetails
           open={this.state.open}
           toggle={this.closeContractDetails}
+          contractAddress={this.state.contractAddress}
+          contractDuration={this.state.contractDuration}
+          contractMultiplier={this.state.contractMultiplier}
+          oracleAddress={this.state.oracleAddress}
         />
       </Grid>
     );

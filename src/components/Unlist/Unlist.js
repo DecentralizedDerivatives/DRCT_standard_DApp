@@ -48,7 +48,7 @@ class Unlist extends Component {
     const exchange = await Exchange.deployed();
     const factory = await Factory.deployed();
     try {
-      const books = await exchange.userOrders.call(this.state.myAccount);
+      const books = await exchange.getUserOrders.call(this.state.myAccount);
       // get orders for that book:
       let o_row = [];
       let _allrows = [];
@@ -64,6 +64,7 @@ class Unlist extends Component {
         _allrows.push(o_row);
         this.setState({ myOrders: _allrows });
       }
+      console.log("ders",this.state.myOrders);
     } catch (err) {
       console.log('Error getting orders', err);
     }
