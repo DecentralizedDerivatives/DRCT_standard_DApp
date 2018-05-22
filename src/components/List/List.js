@@ -28,7 +28,10 @@ class List extends Component {
       loading: false,
       disabled: false,
       created: false,
-      myTokens: []
+      myTokens: [],
+      showList:false,
+      txId:"",
+      approval:""
     };
   }
   componentDidMount() {
@@ -72,26 +75,62 @@ class List extends Component {
       this.setState({ myTokens: ["No Current Positions"] });
     }
   }
-  listOrder = async () => {
-    const exchange = await Exchange.deployed();
+
+  approveOrder = async () => {
     const accounts = await web3.eth.getAccounts();
+  const exchange = await Exchange.deployed();
     var string = this.state.selectedToken;
     var tokenSel = string.split('(');
     let response, error;
-    console.log(this.state.price);
-    console.log('INPUTS', tokenSel[0].replace(/['"]+/g, ''), this.state.amount, this.state.price * 1e18);
+    var _token = tokenSel[0].replace(/['"]+/g, '');
+    let drct = await DRCT.at(_token);
+    this.setState({loading: true, disabled: true, showApproval: true});
+    console.log('inputs',exchange.address,this.state.amount)
     try {
-      response = await exchange.list(tokenSel[0].replace(/['"]+/g, ''), this.state.amount, this.state.price * 1e18, {
+      response = await drct.approve(exchange.address,this.state.amount, {
         from: accounts[0],
         gas: 4000000,
       });
     } catch (err) {
       error = err;
     }
+
+    this.setState({loading: false});
+
     if (error) {
-      console.log(error);
+      // Add error handling
+      this.setState({txId: error.tx, error: true, disabled: false});
+      return;
     }
+
+    this.setState({
+      showList: true,
+      txId: response.tx,
+      approval: "Order approval confirmed",
+    });
   };
+
+  listOrder = async () => {
+    const exchange = await Exchange.deployed();
+    const accounts = await web3.eth.getAccounts();
+    var string = this.state.selectedToken;
+    var tokenSel = string.split('(');
+    let response, error;
+    var _token = tokenSel[0].replace(/['"]+/g, '');
+    exchange.list(_token, this.state.amount, this.state.price * 1e18, {
+        from: accounts[0],
+        gas: 4000000,
+      }).then((res,err) =>{
+        if(err){
+          console.log('Error Message:', err);
+        }
+    })
+    this.props.toggle
+  };
+
+
+
+
   render() {
     const { classes } = this.props;
     return (
@@ -147,13 +186,70 @@ class List extends Component {
                 this.state.disabled ? classes.buttonDisabled : classes.button
               }
               disabled={this.state.disabled}
-              onClick={this.listOrder}
+              onClick={this.approveOrder}
             >
               <Typography className={classes.buttonText}>
-                Submit
+                Submit for Approval
               </Typography>
             </Button>
           </DialogContent>
+
+                    {this.state.showApproval && <div className={classes.line} />}
+          {this.state.showApproval && (
+            <DialogContent className={classes.approvalContainer}>
+              <div className={classes.inputContainer}>
+                <Grid
+                  container
+                  direction="row"
+                  alignItems="stretch"
+                  justify="space-between"
+                >
+                  <Grid item>
+                    <Typography className={classes.title}>
+                      Approval
+                    </Typography>
+                  </Grid>
+
+                  <Grid item>
+                    {this.state.loading && (
+                      <Grid container direction="row" alignItems="stretch">
+                        <Grid item>
+                          <Typography className={classes.waiting}>
+                            Waiting for confirmation...
+                          </Typography>
+                        </Grid>
+
+                        <Grid item>
+                          <CircularProgress
+                            className={classes.progress}
+                            size={12}
+                            thickness={5}
+                          />
+                        </Grid>
+                      </Grid>
+                    )}
+                  </Grid>
+                </Grid>
+
+                {this.state.approval && (
+                  <Typography className={classes.approval}>
+                    {this.state.approval}
+                  </Typography>
+                )}
+              </div>
+            </DialogContent>
+          )}
+
+          {this.state.showList && <div className={classes.line} />}
+          {this.state.showList && (
+            <DialogContent className={classes.listContainer}>
+              <Button className={classes.button} onClick={this.listOrder}>
+                <Typography className={classes.buttonText}>
+                  List Order
+                </Typography>
+              </Button>
+            </DialogContent>
+          )}
         </Dialog>
       </div>
     );
