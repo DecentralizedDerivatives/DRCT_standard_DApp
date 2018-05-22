@@ -38,14 +38,14 @@ class Unlist extends Component {
     this.getMyOrders();
   }
   handleChange = event => {
-    this.state.orderLabels.forEach((label,index)=>{
-      if(label===event.target.value){
+    this.state.orderLabels.forEach((label, index) => {
+      if (label === event.target.value) {
         this.setState({
-          selectedToken:event.target.value,
-          orderID: this.state.myOrders[index].id
+          selectedToken: event.target.value,
+          orderID: this.state.myOrders[index].id,
         });
       }
-    })
+    });
   };
   handleTextfieldChange = name => event => {
     this.setState({
@@ -59,10 +59,10 @@ class Unlist extends Component {
       const books = await exchange.getUserOrders.call(this.state.myAccount); //Gets all listed order ids
       const allOrders = []; //Contains all information for each order
       const allOrderLabels = []; //Contains only what's going to be displayed in dropdown
-      books.forEach(async (orderId)=>{
+      for (let i = 0; i < books.length; i++) {
         //Getting all info for orders in book and storing them in an object
         const order = {};
-        order.id = orderId.c[0];
+        order.id = books[i].c[0];
         order.info = await exchange.getOrder(order.id);//Getting order info by order Id (returns array);
         order.owner = order.info[0];
         order.price = order.info[1].c[0] / 10000; //divided by 10000 to fix offset 
@@ -74,15 +74,14 @@ class Unlist extends Component {
         order.row = order.address + '(' + order.owned + '/' + order.date + ')';
         allOrders.push(order);
         allOrderLabels.push(order.row);
-      });
-      allOrderLabels.length?
-      this.setState({selectedToken:"No orders listed"}):
-      this.setState({ 
+      }
+      allOrderLabels.length ?
+        this.setState({
           orderLabels: allOrderLabels,
           selectedToken: allOrderLabels[0],
-          myOrders:allOrders,
-      });
-      console.log("myOrders :",this.state.myOrders);
+          myOrders: allOrders,
+          orderID: allOrders[0].id,
+        }) : this.setState({ selectedToken: "No orders listed" });
     } catch (err) {
       console.log('Error getting listed orders', err);
     }
@@ -116,12 +115,12 @@ class Unlist extends Component {
           PaperProps={{ className: classes.paper }}
         >
           <DialogContent className={classes.dialogContent}>
-          <div className={classes.inputContainer}>
+            <div className={classes.inputContainer}>
               <Typography className={classes.title}>Select order from dropdown :</Typography>
               <Grid item>
                 <Dropdown
                   menuItems={this.state.orderLabels}
-                  value={this.state.selectedToken || "Select an order"}
+                  value={this.state.selectedToken}
                   name="selectedToken"
                   onChange={this.handleChange}
                   className={classes.selectedToken}
@@ -129,7 +128,7 @@ class Unlist extends Component {
               </Grid>
             </div>
             <div className={classes.inputContainer}>
-              <Typography className={classes.title}>Or enter the order ID:</Typography>
+              <Typography className={classes.title}>Or enter order ID:</Typography>
               <TextField
                 id="orderID"
                 value={Number(this.state.orderID)}
