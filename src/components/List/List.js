@@ -67,7 +67,7 @@ class List extends Component {
     _allrows.length?
     this.setState({
       myTokens: _allrows,
-      selectedToken: _allrows[0].split('(')[0].replace(/['"]+/g, ''),
+      selectedToken: _allrows[0],
     })
     :this.setState({ myTokens: ["No Current Positions"] });
   }
@@ -137,7 +137,7 @@ class List extends Component {
               <Grid item>
                 <Dropdown
                   menuItems={this.state.myTokens}
-                  value={this.state.selectedToken || "Select Token"}
+                  value={this.state.selectedToken || "Select a Token"}
                   name="selectedToken"
                   onChange={this.handleChange}
                   className={classes.selectedToken}
