@@ -49,22 +49,23 @@ class Unlist extends Component {
     const factory = await Factory.deployed();
     try {
       const books = await exchange.getUserOrders.call(this.state.myAccount);
+      console.log("exchange",exchange);
+      console.log("books",books);
+      console.log("act",this.state.myAccount);
       // get orders for that book:
       let o_row = [];
       let _allrows = [];
       let order;
       for (let j in books) {
-        console.log(j);
         order = await exchange.getOrder(j);
         let _date = await factory.token_dates.call(order[3]);
-        console.log(_date);
         _date = new Date(_date * 1000);
         _date = ((_date.getMonth() + 1) + '/' + _date.getDate() + '/' + _date.getFullYear());
         o_row = (j.toString() + '(' + order[3], order[1].c[0].toString() + '/' + order[2].c[0].toString() + '/' + _date.toString() + ')');
         _allrows.push(o_row);
-        this.setState({ myOrders: _allrows });
       }
-      console.log("ders",this.state.myOrders);
+      this.setState({ myOrders: _allrows });
+      console.log("orders",this.state.myOrders);
     } catch (err) {
       console.log('Error getting orders', err);
     }
