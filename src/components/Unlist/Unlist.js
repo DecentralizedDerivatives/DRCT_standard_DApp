@@ -48,26 +48,27 @@ class Unlist extends Component {
     const exchange = await Exchange.deployed();
     const factory = await Factory.deployed();
     try {
-      const books = await exchange.getUserOrders.call(this.state.myAccount);
-      console.log("exchange",exchange);
-      console.log("books",books);
-      console.log("act",this.state.myAccount);
-      // get orders for that book:
-      let o_row = [];
-      let _allrows = [];
-      let order;
-      for (let j in books) {
-        order = await exchange.getOrder(j);
-        let _date = await factory.token_dates.call(order[3]);
-        _date = new Date(_date * 1000);
-        _date = ((_date.getMonth() + 1) + '/' + _date.getDate() + '/' + _date.getFullYear());
-        o_row = (j.toString() + '(' + order[3], order[1].c[0].toString() + '/' + order[2].c[0].toString() + '/' + _date.toString() + ')');
-        _allrows.push(o_row);
-      }
-      this.setState({ myOrders: _allrows });
-      console.log("orders",this.state.myOrders);
+      const books = await exchange.getUserOrders.call(this.state.myAccount); //Gets all listed order ids
+      const allOrders = [];
+      books.forEach(async (orderId)=>{
+        //Getting all info for orders in book and storing them in an object
+        orderId = orderId.c[0];
+        const order = {};
+        order.info = await exchange.getOrder(orderId);//Getting order info by order Id (returns array);
+        order.owner = order.info[0];
+        order.price = order.info[1].c[0];
+        order.owned = order.info[2].c[0];
+        order.address = order.info[3];
+        order.date = await factory.token_dates.call(order.address);
+        order.date = new Date(order.date * 1000);
+        order.date = ((order.date.getMonth() + 1) + '/' + order.date.getDate() + '/' + order.date.getFullYear());
+        allOrders.push(order);
+      });
+      //setting state to allOrders (array) that contains individual orders (object)
+      this.setState({ myOrders: allOrders });
+      console.log("myOrders :",this.state.myOrders);
     } catch (err) {
-      console.log('Error getting orders', err);
+      console.log('Error getting listed orders', err);
     }
   }
   unlistOrder = async () => {
