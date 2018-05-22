@@ -137,7 +137,7 @@ class List extends Component {
               <Grid item>
                 <Dropdown
                   menuItems={this.state.myTokens}
-                  value={this.state.selectedToken}
+                  value={this.state.selectedToken || "Select Token"}
                   name="selectedToken"
                   onChange={this.handleChange}
                   className={classes.selectedToken}
