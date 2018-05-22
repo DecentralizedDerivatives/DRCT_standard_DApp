@@ -1,6 +1,13 @@
+const onMobileTheme = (theme, css) => ({
+  [theme.breakpoints.down('sm')]: {
+    ...css,
+  },
+});
+
 export default theme => ({
   main: {
     height: '100vh',
-    width: '100vw',
+    ...onMobileTheme(theme, {maxWidth: '800px'}),
+    border: '1px solid black',
   },
 });

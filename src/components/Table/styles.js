@@ -1,7 +1,14 @@
+const onMobileTheme = (theme, css) => ({
+  [theme.breakpoints.down('sm')]: {
+    ...css,
+  },
+});
+
 export default theme => ({
   root: {
     width: '100%',
     overflowX: 'auto',
+    ...onMobileTheme(theme, {width: '100% !important'}),
   },
   table: {
     backgroundColor: '#EEF2F5',

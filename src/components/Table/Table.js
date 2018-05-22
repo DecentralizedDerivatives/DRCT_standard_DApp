@@ -80,7 +80,7 @@ function Table({classes, titles, rows, tableWidth, ...props}) {
   return (
     <Paper className={classes.root} style={{width: tableWidth}}>
       <MaterialTable className={classes.table}>
-        <TableHead className={classes.row}>
+        <TableHead>
           <TableRow>{createTitles()}</TableRow>
         </TableHead>
         <TableBody>{createRows()}</TableBody>
