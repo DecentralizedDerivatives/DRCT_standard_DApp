@@ -11,11 +11,11 @@ export default theme => ({
     width,
     padding: '30px',
   },
-  addressResultContainer: {
+  approvalContainer: {
     width,
     paddingBottom: '5px',
   },
-  sendFundsContainer: {
+  listContainer: {
     width,
     padding: '15px 30px 30px 30px',
   },
