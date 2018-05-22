@@ -19,11 +19,11 @@ const Dropdown = ({
       {item}
     </MenuItem>
   ));
-
+console.log("VALUE",value);
   return (
     <FormControl>
       <Select
-        value={value || menuItems[0]}
+        value={value || menuItems[0] || ""}
         onChange={onChange}
         className={className}
         SelectDisplayProps={{style: {background: selectBackground}}}

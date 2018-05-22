@@ -22,7 +22,7 @@ class List extends Component {
     super();
     this.state = {
       open: false,
-      selectedToken: '',
+      selectedToken: "",
       amount: "",
       price: "",
       loading: false,
@@ -92,7 +92,6 @@ class List extends Component {
         approval: "Order approval confirmed",
         loading:false,
       });
-      console.log("order success");
     } catch (error) {
       /*Handle error here*/
       this.setState({
@@ -100,8 +99,8 @@ class List extends Component {
         error: true, 
         disabled: false,
         loading: false,
+        approval: "Error approving order",
       });
-      console.warn("error approving order");
     }
   };
 
@@ -112,10 +111,12 @@ class List extends Component {
     let response, error;
     exchange.list(tokenSel, this.state.amount, this.state.price * 1e18, {
         from: accounts[0],
-        gas: 4000000,
+        gas: 4000000
       }).then((res,err) =>{
         if(err){
           console.log('Error Message:', err);
+        }else{
+          console.log("RESPONSE",res);
         }
     })
     this.props.toggle
