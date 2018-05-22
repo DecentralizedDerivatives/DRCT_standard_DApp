@@ -26,6 +26,7 @@ class Unlist extends Component {
       disabled: false,
       created: false,
       myOrders: [],
+      orderLabels: [],
       myAccount: "",
       orderID: "",
     }
@@ -37,7 +38,14 @@ class Unlist extends Component {
     this.getMyOrders();
   }
   handleChange = event => {
-    this.setState({ [event.target.name]: event.target.value });
+    this.state.orderLabels.forEach((label,index)=>{
+      if(label===event.target.value){
+        this.setState({
+          selectedToken:event.target.value,
+          orderID: this.state.myOrders[index].id
+        });
+      }
+    })
   };
   handleTextfieldChange = name => event => {
     this.setState({
@@ -49,23 +57,31 @@ class Unlist extends Component {
     const factory = await Factory.deployed();
     try {
       const books = await exchange.getUserOrders.call(this.state.myAccount); //Gets all listed order ids
-      const allOrders = [];
+      const allOrders = []; //Contains all information for each order
+      const allOrderLabels = []; //Contains only what's going to be displayed in dropdown
       books.forEach(async (orderId)=>{
         //Getting all info for orders in book and storing them in an object
-        orderId = orderId.c[0];
         const order = {};
-        order.info = await exchange.getOrder(orderId);//Getting order info by order Id (returns array);
+        order.id = orderId.c[0];
+        order.info = await exchange.getOrder(order.id);//Getting order info by order Id (returns array);
         order.owner = order.info[0];
-        order.price = order.info[1].c[0];
+        order.price = order.info[1].c[0] / 10000; //divided by 10000 to fix offset 
         order.owned = order.info[2].c[0];
         order.address = order.info[3];
         order.date = await factory.token_dates.call(order.address);
         order.date = new Date(order.date * 1000);
         order.date = ((order.date.getMonth() + 1) + '/' + order.date.getDate() + '/' + order.date.getFullYear());
+        order.row = order.address + '(' + order.owned + '/' + order.date + ')';
         allOrders.push(order);
+        allOrderLabels.push(order.row);
       });
-      //setting state to allOrders (array) that contains individual orders (object)
-      this.setState({ myOrders: allOrders });
+      allOrderLabels.length?
+      this.setState({selectedToken:"No orders listed"}):
+      this.setState({ 
+          orderLabels: allOrderLabels,
+          selectedToken: allOrderLabels[0],
+          myOrders:allOrders,
+      });
       console.log("myOrders :",this.state.myOrders);
     } catch (err) {
       console.log('Error getting listed orders', err);
@@ -76,7 +92,7 @@ class Unlist extends Component {
     const accounts = await web3.eth.getAccounts();
     let response, error;
     console.log(this.state.orderID);
-    console.log(accounts[0])
+    console.log(accounts[0]);
     try {
       await exchange.unlist(this.state.orderID, {
         from: accounts[0],
@@ -100,8 +116,20 @@ class Unlist extends Component {
           PaperProps={{ className: classes.paper }}
         >
           <DialogContent className={classes.dialogContent}>
+          <div className={classes.inputContainer}>
+              <Typography className={classes.title}>Select order from dropdown :</Typography>
+              <Grid item>
+                <Dropdown
+                  menuItems={this.state.orderLabels}
+                  value={this.state.selectedToken || "Select an order"}
+                  name="selectedToken"
+                  onChange={this.handleChange}
+                  className={classes.selectedToken}
+                />
+              </Grid>
+            </div>
             <div className={classes.inputContainer}>
-              <Typography className={classes.title}>Unlist Order ID:</Typography>
+              <Typography className={classes.title}>Or enter the order ID:</Typography>
               <TextField
                 id="orderID"
                 value={Number(this.state.orderID)}
