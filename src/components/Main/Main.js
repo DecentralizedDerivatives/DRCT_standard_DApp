@@ -10,6 +10,7 @@ import CashOut from '../CashOut';
 import withRoot from '../../utils/withRoot';
 import HowTo from '../HowTo';
 import { web3 } from '../../ethereum';
+import Sample from '../Sample';
 
 class Main extends Component {
   constructor() {

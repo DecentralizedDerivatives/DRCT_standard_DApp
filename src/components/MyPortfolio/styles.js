@@ -1,6 +1,6 @@
 export default theme => ({
   item: {
-    width: '1000px',
+    width: '90%',
     marginTop: '25px',
   },
   container: {
