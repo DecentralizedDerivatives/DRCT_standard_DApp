@@ -34,7 +34,7 @@ class List extends Component {
       approval:""
     };
   }
-  componentDidMount() {
+  componentWillMount() {
     this.getMyPositions();
   }
   handleChange = event => {
@@ -48,42 +48,36 @@ class List extends Component {
   getMyPositions = async () => {
     const factory = await Factory.deployed();
     const accounts = await web3.eth.getAccounts();
-    let _row;
-    var _allrows = [];
-    var openDates = [];
     const numDates = await factory.getDateCount();
+    let _allrows = [];
+    let openDates = [];
     for (let i = 0; i < numDates; i++) {
-      let _date = await factory.startDates.call(i);
-      _date = _date.c[0];
-      let _token_addresses = await factory.getTokens(_date);
-      _date = new Date(_date * 1000);
-      _date = (_date.getMonth() + 1) + '/' + _date.getDate() + '/' + _date.getFullYear()
-      for (let j = 0; j < 2; j++) {
-        let drct = await DRCT.at(_token_addresses[j]);
-        let _balance = await drct.balanceOf(accounts[0]);
-        if (_balance.c[0] > 0) {
-          _row = _token_addresses[j] + '(' + _balance.c[0].toString() + '/' + _date.toString() + ')';
-          _allrows.push(_row)
-          this.setState({ myTokens: _allrows });
-          if (_allrows.length == 1) {
-            this.setState({ selectedToken: _token_addresses[j] });
-          }
+      const startDates = (await factory.startDates.call(i)).c[0];
+      const _token_addresses = await factory.getTokens(startDates);
+      let _date = new Date(startDates * 1000);
+      _date = (_date.getMonth() + 1) + '/' + _date.getDate() + '/' + _date.getFullYear();
+      for(let j=0;j<_token_addresses.length;j++){
+        const drct = await DRCT.at(_token_addresses[j]);//Getting contract
+        const _balance = (await drct.balanceOf(accounts[0])).c[0];//Getting balance of token
+        if (_balance > 0) {
+          _allrows.push(_token_addresses[j] + '(' + _balance + '/' + _date + ')'); //Pushing token address + balance/date
         }
       }
     }
-    if (this.state.myTokens.length == 0) {
-      this.setState({ myTokens: ["No Current Positions"] });
-    }
+    _allrows.length?
+    this.setState({
+      myTokens: _allrows,
+      selectedToken: _allrows[0].split('(')[0].replace(/['"]+/g, ''),
+    })
+    :this.setState({ myTokens: ["No Current Positions"] });
   }
 
   approveOrder = async () => {
     const accounts = await web3.eth.getAccounts();
-  const exchange = await Exchange.deployed();
-    var string = this.state.selectedToken;
-    var tokenSel = string.split('(');
+    const exchange = await Exchange.deployed();
+    const tokenSel = this.state.selectedToken.split('(')[0].replace(/['"]+/g, '');
+    const drct = await DRCT.at(tokenSel);
     let response, error;
-    var _token = tokenSel[0].replace(/['"]+/g, '');
-    let drct = await DRCT.at(_token);
     this.setState({loading: true, disabled: true, showApproval: true});
     console.log('inputs',exchange.address,this.state.amount)
     try {
@@ -91,33 +85,32 @@ class List extends Component {
         from: accounts[0],
         gas: 4000000,
       });
-    } catch (err) {
-      error = err;
+      /*Handle Success Here*/
+      this.setState({
+        showList: true,
+        txId: response.tx,
+        approval: "Order approval confirmed",
+        loading:false,
+      });
+      console.log("order success");
+    } catch (error) {
+      /*Handle error here*/
+      this.setState({
+        txId: error.tx, 
+        error: true, 
+        disabled: false,
+        loading: false,
+      });
+      console.warn("error approving order");
     }
-
-    this.setState({loading: false});
-
-    if (error) {
-      // Add error handling
-      this.setState({txId: error.tx, error: true, disabled: false});
-      return;
-    }
-
-    this.setState({
-      showList: true,
-      txId: response.tx,
-      approval: "Order approval confirmed",
-    });
   };
 
   listOrder = async () => {
     const exchange = await Exchange.deployed();
     const accounts = await web3.eth.getAccounts();
-    var string = this.state.selectedToken;
-    var tokenSel = string.split('(');
+    const tokenSel = this.state.selectedToken.split('(')[0].replace(/['"]+/g, '');
     let response, error;
-    var _token = tokenSel[0].replace(/['"]+/g, '');
-    exchange.list(_token, this.state.amount, this.state.price * 1e18, {
+    exchange.list(tokenSel, this.state.amount, this.state.price * 1e18, {
         from: accounts[0],
         gas: 4000000,
       }).then((res,err) =>{
@@ -127,9 +120,6 @@ class List extends Component {
     })
     this.props.toggle
   };
-
-
-
 
   render() {
     const { classes } = this.props;
