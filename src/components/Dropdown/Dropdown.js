@@ -37,7 +37,7 @@ class Dropdown extends Component {
     return (
       <FormControl>
         <Select
-          value={this.state.value || this.state.menuItems[0]}
+          value={this.props.value || this.state.menuItems[0]}
           onChange={this.state.onChange}
           className={this.state.className}
           SelectDisplayProps={{ style: { background: this.state.selectBackground } }}

@@ -64,6 +64,7 @@ class List extends Component {
         }
       }
     }
+    console.log("mytokens",_allrows);
     _allrows.length?
     this.setState({
       myTokens: _allrows,
