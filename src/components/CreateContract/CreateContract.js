@@ -154,6 +154,7 @@ class CreateContract extends Component {
                 animateYearScrolling={false}
                 className={classes.fullWidth}
                 format={'MMMM D YYYY'}
+                minDate={new Date().toLocaleDateString()}
               />
             </div>
 
