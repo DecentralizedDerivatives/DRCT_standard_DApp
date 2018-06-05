@@ -2,7 +2,7 @@
 
 ![Wormhole](./public/readme.png)
 
-Code for drct.decentralizedderivatives.org
+Code for dapp.ddacoop.org
 
 
     Requirements:
@@ -55,5 +55,5 @@ In metamask:
 Now you should have 4 tokens, some tokens for sale, and some transactions
 
 
-This webpage builds the DApp at drct.decentralizedderivatives.org 
+This webpage builds the DApp at dapp.ddacoop.org
 

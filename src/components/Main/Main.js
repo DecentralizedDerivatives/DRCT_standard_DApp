@@ -25,7 +25,7 @@ class Main extends Component {
   async componentDidMount() {
     const accounts = await web3.eth.getAccounts();
     const network = await web3.eth.net.getId();
-    if (!accounts.length || network !== 3) {
+    if (!accounts.length || network !== 4) {
       this.setState({ modal: true, connected: false });
     }
     this.setState({ accounts, network });
@@ -33,7 +33,7 @@ class Main extends Component {
   onModalPress = () => this.setState({ modal: !this.state.modal });
   isWeb3Active = component => {
     const { accounts, network } = this.state;
-    if (network !== 3 || !accounts.length) {
+    if (network !== 4 || !accounts.length) {
       return null;
     }
     return component;
@@ -53,7 +53,7 @@ class Main extends Component {
           onClick={this.onModalPress}
           content={
             <span>
-              Are you sure you're connected to the Ethereum Ropsten Testnet?
+              Are you sure you're connected to the Ethereum Rinkeby Testnet?
             </span>
           }
           title="Unable to detect network"
