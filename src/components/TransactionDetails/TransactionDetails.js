@@ -49,7 +49,7 @@ class TransactionDetails extends Component {
   };
 
   CashOut = async () => {
-    const factory = await Factory.deployed();
+    const factory = await Factory.at("0xa2eb63e0f0e7f2ead726f5d1d6cf06dc8b5e87b5");
     const accounts = await web3.eth.getAccounts();
 
     let date = Number(

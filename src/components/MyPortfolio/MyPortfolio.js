@@ -80,7 +80,7 @@ class MyPortfolio extends Component {
   };
 
   getMyPositions = async () => {
-    const factory = await Factory.deployed();
+    const factory = await Factory.at("0xa2eb63e0f0e7f2ead726f5d1d6cf06dc8b5e87b5");
     var _row = [];
     var _allrows = [];
     var openDates = [];
@@ -167,7 +167,8 @@ class MyPortfolio extends Component {
         container
         className={classes.container}
         direction="row"
-        alignItems="stretch"
+        alignItems="center"
+        align="center"
         justify="center"
       >
         <Grid item className={classes.item}>
@@ -182,7 +183,7 @@ class MyPortfolio extends Component {
           <Table
             titles={['My Transactions', 'Transaction Hash']}
             rows={this.state.myTransactions}
-            tableWidth="400px"
+            tableWidth="950px"
             cellHeight="15px"
             fontSize="12px"
             clickFunction={this.onClickRow}

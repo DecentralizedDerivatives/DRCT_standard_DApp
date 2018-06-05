@@ -26,7 +26,7 @@ class Sample extends Component {
   //     address asset;
   // }
   getOrderBook = async () => {
-    const factory = await Factory.deployed();
+    const factory = await Factory.at("0xa2eb63e0f0e7f2ead726f5d1d6cf06dc8b5e87b5");
     const numDates = await factory.getDateCount();
 
     var openDates = [];
