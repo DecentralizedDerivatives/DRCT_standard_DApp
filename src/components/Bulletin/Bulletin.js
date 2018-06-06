@@ -72,7 +72,7 @@ class Bulletin extends Component {
     });
   };
   getContractDetails = async () => {
-    const factory = await Factory.at("0xa2eb63e0f0e7f2ead726f5d1d6cf06dc8b5e87b5");
+    const factory = await Factory.at("0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642");
     let response, error;
     try {
       response = await factory.getVariables();
@@ -163,7 +163,7 @@ class Bulletin extends Component {
   };
 
   getOrderBook = async () => {
-    const factory = await Factory.at("0xa2eb63e0f0e7f2ead726f5d1d6cf06dc8b5e87b5");
+    const factory = await Factory.at("0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642");
     //orderbook
 
     // first get number of open books (tokens with open orders):

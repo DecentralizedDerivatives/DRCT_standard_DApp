@@ -43,7 +43,7 @@ class MyPortfolio extends Component {
     this.setState({ open: true, previousActive: this.state.active });
   };
   getContractDetails = async () => {
-    const factory = await Factory.deployed();
+    const factory = await Factory.at("0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642");
     let response, error;
     try {
       response = await factory.getVariables();
@@ -80,7 +80,7 @@ class MyPortfolio extends Component {
   };
 
   getMyPositions = async () => {
-    const factory = await Factory.at("0xa2eb63e0f0e7f2ead726f5d1d6cf06dc8b5e87b5");
+    const factory = await Factory.at("0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642");
     var _row = [];
     var _allrows = [];
     var openDates = [];
@@ -119,7 +119,7 @@ class MyPortfolio extends Component {
 
   getmyTransactions = async () => {
     const exchange = await Exchange.deployed();
-    const factory = await Factory.deployed();
+    const factory = await Factory.at("0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642")
     let drct;
     let _trades = [];
     var titles = ['ContractCreation']; //Add other ATS when redeployed
