@@ -57,7 +57,7 @@ class PriceChart extends Component {
 
   render() {
     const { classes } = this.props;
-
+    console.log("PROPS",this.props)
     return (
       <Paper className={classes.container}>
         <Grid
