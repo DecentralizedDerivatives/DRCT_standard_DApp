@@ -46,7 +46,7 @@ class List extends Component {
     });
   };
   getMyPositions = async () => {
-    const factory = await Factory.at("0xa2eb63e0f0e7f2ead726f5d1d6cf06dc8b5e87b5");
+    const factory = await Factory.at("0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642");
     const accounts = await web3.eth.getAccounts();
     const numDates = await factory.getDateCount();
     let _allrows = [];

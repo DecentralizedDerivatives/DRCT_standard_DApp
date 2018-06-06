@@ -43,7 +43,7 @@ class Unlist extends Component {
         this.setState({
           selectedToken: event.target.value,
           orderID: this.state.myOrders[index].id,
-        });
+        });0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642
       }
     });
   };
@@ -54,7 +54,7 @@ class Unlist extends Component {
   };
   getMyOrders = async () => {
     const exchange = await Exchange.deployed();
-    const factory = await Factory.deployed();
+    const factory = await Factory.at("0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642");
     try {
       const books = await exchange.getUserOrders.call(this.state.myAccount); //Gets all listed order ids
       const allOrders = []; //Contains all information for each order
