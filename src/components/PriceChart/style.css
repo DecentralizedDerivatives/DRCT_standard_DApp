@@ -11,9 +11,6 @@
     top: 0;
     left: 0;
 }
-.price-chart-nav{
-    width:100%;
-}
 .price-chart-dropdown{
     position: absolute;
     right: 3em;
