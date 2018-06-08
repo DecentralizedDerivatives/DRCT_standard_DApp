@@ -1,4 +1,6 @@
 import React from 'react';
+import "./style.css";
+/*React Components*/
 import PropTypes from 'prop-types';
 import {withStyles} from 'material-ui/styles';
 import MaterialTable, {TableBody, TableHead, TableRow} from 'material-ui/Table';
@@ -78,7 +80,7 @@ function Table({classes, titles, rows, tableWidth, ...props}) {
     });
 
   return (
-    <Paper className={classes.root} style={{width: tableWidth}}>
+    <Paper className="table-wrapper">
       <MaterialTable className={classes.table}>
         <TableHead>
           <TableRow>{createTitles()}</TableRow>
