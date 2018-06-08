@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
+import "./style.css";
+/*React Components*/
 import PropTypes from 'prop-types';
 import withStyles from 'material-ui/styles/withStyles';
 import Highcharts from 'highcharts/highstock';
-import Grid from 'material-ui/Grid';
-import Paper from 'material-ui/Paper';
-import Dropdown from '../Dropdown';
-import theme from './theme';
-import styles from './styles';
 import api from '../../api';
-
+import theme from "./theme.js";
 require('highcharts/modules/exporting')(Highcharts);
 
 // Apply the theme
@@ -56,36 +53,23 @@ class PriceChart extends Component {
   };
 
   render() {
-    const { classes } = this.props;
-    console.log("PROPS",this.props)
     return (
-      <Paper className={classes.container}>
-        <Grid
-          container
-          direction="row"
-          alignItems="flex-end"
-          justify="flex-end"
-          className={classes.grid}
-        >
-          <Grid item className={classes.item}>
-            <Dropdown
-              menuItems={PriceChart.currencies}
-              value={this.state.currency}
-              name="currency"
-              onChange={this.handleChange}
-              className={classes.dropdown}
-              menuItemClass={classes.menuItem}
-              disableUnderline={true}
-              selectBackground="none"
-            />
-          </Grid>
-          <Grid item>
-            <div className={classes.container} id="container" />
-          </Grid>
-        </Grid>
-      </Paper>
+      <div className="price-chart">
+        <div className="price-chart-item">
+          <div className="price-chart-nav">
+            <select onChange={this.handleChange} className="price-chart-dropdown">
+              {PriceChart.currencies.map((item)=>{
+                return <option className="price-chart-dropdown-item" name={item} value={item}>{item}</option> 
+              })}
+            </select>
+          </div>
+          <div className="price-chart-item">
+            <div className="price-chart-item" id="container" />
+          </div>
+        </div>
+      </div>
     );
   }
 }
 
-export default withStyles(styles)(PriceChart);
+export default PriceChart;

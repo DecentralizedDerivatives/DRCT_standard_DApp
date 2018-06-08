@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import "./style.css";
+/*React Components*/
 import PropTypes from 'prop-types';
 import withStyles from 'material-ui/styles/withStyles';
 import Button from 'material-ui/Button';
 import Typography from 'material-ui/Typography';
-import Grid from 'material-ui/Grid';
 import styles from './styles';
 import Table from '../Table';
 import ContractDetails from '../ContractDetails';
@@ -11,6 +12,7 @@ import PriceChart from '../PriceChart';
 import List from '../List';
 import Unlist from '../Unlist';
 import Buy from '../Buy';
+
 import { Factory, Exchange, web3 } from '../../ethereum';
 
 class Bulletin extends Component {
@@ -196,16 +198,11 @@ class Bulletin extends Component {
 
   render() {
     const { classes } = this.props;
-
+    console.log("BULLITEN",this.props);
+    console.log("ORDER BOOK",this.state.orderbook);
     return (
-      <Grid
-        container
-        className={classes.container}
-        direction="row"
-        alignItems="stretch"
-        justify="center"
-      >
-        <Grid item className={classes.item}>
+      <section id="bulletin">
+        <div item className="bulletin-item">
           <Table
             titles={[
               'Order ID',
@@ -218,11 +215,11 @@ class Bulletin extends Component {
             tableWidth="950px"
             clickFunction={this.openContractDetails}
           />
-        </Grid>
-        <Grid item className={classes.item}>
+        </div>
+        <div item className="bulletin-item">
           <PriceChart />
-        </Grid>
-        <Grid item className={classes.item}>
+        </div>
+        <div item className="bulletin-item">
           <Table
             titles={['Recent Trades', 'Volume', 'Price']}
             rows={this.state.recentTrades}
@@ -231,23 +228,23 @@ class Bulletin extends Component {
             fontSize="12px"
             clickFunction={this.onBuyClick}
           />
-        </Grid>
+        </div>
 
-        <Grid item className={classes.item}>
+        <div item className="bulletin-item">
           <Button className={classes.button} onClick={this.openList}>
             <Typography className={classes.buttonText}>List Order</Typography>
           </Button>
-        </Grid>
-        <Grid item className={classes.item}>
+        </div>
+        <div item className="bulletin-item">
           <Button className={classes.button} onClick={this.openBuy}>
             <Typography className={classes.buttonText}>Buy Order</Typography>
           </Button>
-        </Grid>
-        <Grid item className={classes.item}>
+        </div>
+        <div item className="bulletin-item">
           <Button className={classes.button} onClick={this.openUnlist}>
             <Typography className={classes.buttonText}>Unlist Order</Typography>
           </Button>
-        </Grid>
+        </div>
 
         <ContractDetails
           open={this.state.open}
@@ -273,8 +270,7 @@ class Bulletin extends Component {
           toggle={this.closeBuy}
         />
 
-
-      </Grid>
+      </section>
     );
   }
 }
