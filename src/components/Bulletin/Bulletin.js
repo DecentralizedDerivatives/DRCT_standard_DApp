@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import withStyles from 'material-ui/styles/withStyles';
 import Button from 'material-ui/Button';
 import Typography from 'material-ui/Typography';
-import styles from './styles';
 import Table from '../Table';
 import ContractDetails from '../ContractDetails';
 import PriceChart from '../PriceChart';
@@ -14,7 +13,6 @@ import Unlist from '../Unlist';
 import Buy from '../Buy';
 
 import { Factory, Exchange, web3 } from '../../ethereum';
-import { light } from 'material-ui/styles/createPalette';
 
 class Bulletin extends Component {
   constructor() {
@@ -198,9 +196,6 @@ class Bulletin extends Component {
   };
 
   render() {
-    const { classes } = this.props;
-    console.log("BULLITEN", this.props);
-    console.log("ORDER BOOK", this.state.orderbook);
     return (
       <section id="bulletin">
         <div className="bulletin-item bulletin-item-left">
@@ -218,20 +213,20 @@ class Bulletin extends Component {
           />
         </div>
         <div className="bulletin-item bulletin-item-right">
-          <ul className="bulletin-item bulletin-order-btns">
+          <ul className="bulletin-item bulletin-order-btns-wrapper">
             <li>
-              <Button className={classes.button} onClick={this.openList}>
-                <Typography className={classes.buttonText}>List Order</Typography>
+              <Button className="bulletin-order-btn" onClick={this.openList}>
+                <Typography className="bulletin-order-btn-txt">List Order</Typography>
               </Button>
             </li>
             <li>
-              <Button className={classes.button} onClick={this.openBuy}>
-                <Typography className={classes.buttonText}>Buy Order</Typography>
+              <Button className="bulletin-order-btn" onClick={this.openBuy}>
+                <Typography className="bulletin-order-btn-txt">Buy Order</Typography>
               </Button>
             </li>
             <li>
-              <Button className={classes.button} onClick={this.openUnlist}>
-                <Typography className={classes.buttonText}>Unlist Order</Typography>
+              <Button className="bulletin-order-btn" onClick={this.openUnlist}>
+                <Typography className="bulletin-order-btn-txt">Unlist Order</Typography>
               </Button>
             </li>
           </ul>
@@ -279,4 +274,4 @@ class Bulletin extends Component {
 Bulletin.propTypes = {
   classes: PropTypes.object.isRequired,
 };
-export default withStyles(styles)(Bulletin);
+export default Bulletin;

@@ -21,14 +21,28 @@
     width:30vw;
     text-align: center;
 }
-.bulletin-order-btns{
+.bulletin-order-btns-wrapper{
     list-style:none;
     margin:0;
     padding:0;
     width:90%;
     display:inline-block;
 }
-.bulletin-order-btns li,.bulletin-order-btns li button{
+.bulletin-order-btns li{
     width:100%;
+}
+.bulletin-order-btn{
+    background-color:transparent;
+    color: white;
+    width: 300px;
+    height: 45px;
+    border-bottom: 1px solid #27597E!important;
+    border-radius: 5px;
 
+}
+.bulletin-order-btn-txt{
+    color: black;
+    font-size:18px;
+    font-weight:500;
+    letter-spacing: 1px;
 }
