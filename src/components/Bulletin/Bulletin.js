@@ -14,6 +14,7 @@ import Unlist from '../Unlist';
 import Buy from '../Buy';
 
 import { Factory, Exchange, web3 } from '../../ethereum';
+import { light } from 'material-ui/styles/createPalette';
 
 class Bulletin extends Component {
   constructor() {
@@ -198,11 +199,11 @@ class Bulletin extends Component {
 
   render() {
     const { classes } = this.props;
-    console.log("BULLITEN",this.props);
-    console.log("ORDER BOOK",this.state.orderbook);
+    console.log("BULLITEN", this.props);
+    console.log("ORDER BOOK", this.state.orderbook);
     return (
       <section id="bulletin">
-        <div item className="bulletin-item">
+        <div className="bulletin-item bulletin-item-left">
           <Table
             titles={[
               'Order ID',
@@ -216,36 +217,38 @@ class Bulletin extends Component {
             clickFunction={this.openContractDetails}
           />
         </div>
-        <div item className="bulletin-item">
+        <div className="bulletin-item bulletin-item-right">
+          <ul className="bulletin-item bulletin-order-btns">
+            <li>
+              <Button className={classes.button} onClick={this.openList}>
+                <Typography className={classes.buttonText}>List Order</Typography>
+              </Button>
+            </li>
+            <li>
+              <Button className={classes.button} onClick={this.openBuy}>
+                <Typography className={classes.buttonText}>Buy Order</Typography>
+              </Button>
+            </li>
+            <li>
+              <Button className={classes.button} onClick={this.openUnlist}>
+                <Typography className={classes.buttonText}>Unlist Order</Typography>
+              </Button>
+            </li>
+          </ul>
+          <div className="bulletin-item">
+            <Table
+              titles={['Recent Trades', 'Volume', 'Price']}
+              rows={this.state.recentTrades}
+              tableWidth="400px"
+              cellHeight="15px"
+              fontSize="12px"
+              clickFunction={this.onBuyClick}
+            />
+          </div>
+        </div>
+        <div className="bulletin-item bulletin-item-left bulletin-pricechart">
           <PriceChart />
         </div>
-        <div item className="bulletin-item">
-          <Table
-            titles={['Recent Trades', 'Volume', 'Price']}
-            rows={this.state.recentTrades}
-            tableWidth="400px"
-            cellHeight="15px"
-            fontSize="12px"
-            clickFunction={this.onBuyClick}
-          />
-        </div>
-
-        <div item className="bulletin-item">
-          <Button className={classes.button} onClick={this.openList}>
-            <Typography className={classes.buttonText}>List Order</Typography>
-          </Button>
-        </div>
-        <div item className="bulletin-item">
-          <Button className={classes.button} onClick={this.openBuy}>
-            <Typography className={classes.buttonText}>Buy Order</Typography>
-          </Button>
-        </div>
-        <div item className="bulletin-item">
-          <Button className={classes.button} onClick={this.openUnlist}>
-            <Typography className={classes.buttonText}>Unlist Order</Typography>
-          </Button>
-        </div>
-
         <ContractDetails
           open={this.state.open}
           toggle={this.closeContractDetails}
@@ -263,13 +266,11 @@ class Bulletin extends Component {
           open={this.state.openU}
           toggle={this.closeUnlist}
         />
-
         <Buy
           orderID={this.state.orderID}
           open={this.state.openB}
           toggle={this.closeBuy}
         />
-
       </section>
     );
   }

@@ -1,7 +1,34 @@
 #bulletin{
     text-align: center;
+    vertical-align: top;
 }
 .bulletin-item{
-    width: 90%;
-    margin-top: 25px;
+    margin:25px 0;
+}
+.bulletin-item-left{
+    display: inline-block;
+    width: 55vw;
+    float:left;
+    margin-left: 3em;
+}
+.bulletin-item-left .Table-root-301{
+    width:100%;
+}
+.bulletin-item-right{
+    display:inline-block;
+    margin-right: 3em;
+    float:right;
+    width:30vw;
+    text-align: center;
+}
+.bulletin-order-btns{
+    list-style:none;
+    margin:0;
+    padding:0;
+    width:90%;
+    display:inline-block;
+}
+.bulletin-order-btns li,.bulletin-order-btns li button{
+    width:100%;
+
 }
