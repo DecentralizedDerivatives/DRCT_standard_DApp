@@ -38,7 +38,7 @@
     height: 45px;
     border-bottom: 1px solid #27597E!important;
     border-radius: 5px;
-
+    width:100%;
 }
 .bulletin-order-btn-txt{
     color: black;
