@@ -38,7 +38,7 @@ function Table({classes, titles, rows, tableWidth, ...props}) {
             {value.includes('0x') ? (
               <a
                 className={classes.link}
-                href={value.length > 50 ? `https://ropsten.etherscan.io/tx/${value}` : `https://ropsten.etherscan.io/address/${value}`}
+                href={value.length > 50 ? `https://rinkeby.etherscan.io/tx/${value}` : `https://rinkeby.etherscan.io/address/${value}`}
                 target="_blank"
                 onClick={(event) => event.stopPropagation()}
               >

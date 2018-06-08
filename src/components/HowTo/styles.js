@@ -1,4 +1,4 @@
-const width = '600px';
+const width = '700px';
 
 export default theme => ({
   paper: {
@@ -8,9 +8,12 @@ export default theme => ({
     outline: 'none',
   },
   dialogContent: {
-    width,
     padding: '30px',
   },
+ dialogPaper: {
+        minHeight: '80vh',
+        maxHeight: '80vh',
+    },
   addressResultContainer: {
     width,
     paddingBottom: '5px',
@@ -25,6 +28,10 @@ export default theme => ({
   },
   inputContainer: {
     marginBottom: '15px',
+  },
+  list:{
+    fontSize: '16px',
+    borderBottom: `0.5px solid ${theme.colors.lightGray}`,
   },
   title: {
     fontWeight: theme.fonts.weight.bold,
@@ -46,6 +53,9 @@ export default theme => ({
   },
   txId: {
     fontSize: '16px',
+  },
+  avatar: {
+    height:30, width:30,
   },
   button: {
     width: '100%',
@@ -71,5 +81,8 @@ export default theme => ({
   progress: {
     marginLeft: '10px',
     color: theme.colors.gray,
+  },
+    root: {
+    backgroundColor: theme.palette.background.paper,
   },
 });
