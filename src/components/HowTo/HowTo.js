@@ -54,7 +54,7 @@ class HowTo extends Component {
                 <ListItem><Avatar style={{padding:5,padding:5,height:20, width:20}} alt="EThLogo" src="eth_transparent.png" />
                  <Typography className={classes.title}>Sometimes the contracts use multipliers too (e.g. 10x)  </Typography></ListItem>
                 <ListItem><Avatar style={{padding:5,height:20, width:20}} alt="EThLogo" src="eth_transparent.png" />
-                 <Typography className={classes.title}>All Contracts are fully collateralized (the smart contract holds the Ether and the contracts are capped (so a 10x multiplier means that a 10% move is all you can gain or lose from)) </Typography> </ListItem>
+                 <Typography className={classes.title}>All Contracts are fully collateralized. The smart contract holds the Ether and the contracts are capped (so a 10x multiplier means that a 10% move is all you can gain or lose from)</Typography> </ListItem>
                 <ListItem><Avatar style={{padding:5,height:20, width:20}} alt="EThLogo" src="eth_transparent.png" />
                  <Typography className={classes.title}>Contracts start by a market maker creating a contract by funding both sides (long and short) </Typography> </ListItem>
                 <ListItem><Avatar style={{padding:5,height:20, width:20}} alt="EThLogo" src="eth_transparent.png" />
@@ -123,11 +123,11 @@ class HowTo extends Component {
                 <ListItem><Avatar style={{padding:5,height:20, width:20}} alt="EThLogo" src="eth_transparent.png" />
                  <Typography className={classes.title}>Contracts for the dapp, although you send them Ether, actually use wrapped (or tokenized Ether) to make things easier on us </Typography></ListItem>
                 <ListItem><Avatar style={{padding:5,height:20, width:20}} alt="EThLogo" src="eth_transparent.png" />
-                 <Typography className={classes.title}>This however means that you'll have 'unwrap' your Ether after the contract expires and pays out </Typography></ListItem>
+                 <Typography className={classes.title}>This however means that you'll have to 'unwrap' your Ether after the contract expires and pays out </Typography></ListItem>
                  <ListItem><Avatar style={{padding:5,height:20, width:20}} alt="EThLogo" src="eth_transparent.png" />
                  <Typography className={classes.title}>To do this, just click 'Cash Out </Typography>'</ListItem>
                 <ListItem><Avatar style={{padding:5,height:20, width:20}} alt="EThLogo" src="eth_transparent.png" />
-                <Typography className={classes.title}> If you have a balance there, it means that you can click withdraw and unwrap all your Ether </Typography></ListItem>
+                <Typography className={classes.title}> If you have a balance there, you will be able to click withdraw and unwrap all your Ether </Typography></ListItem>
                 <ListItem><Avatar style={{padding:5,height:20, width:20}} alt="EThLogo" src="eth_transparent.png" />
                 <Typography className={classes.title}> Remember that some contracts may take a day to close out, so don't panic if your Eth isn't there on the expiration date  </Typography></ListItem>
              </List>
