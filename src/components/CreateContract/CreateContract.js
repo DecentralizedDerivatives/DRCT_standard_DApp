@@ -27,14 +27,23 @@ class CreateContract extends Component {
       amount: 0.1,
       contractAddress: '',
       txId: '',
-      selectedDate: new Date(),
+      selectedDate: "",
       loading: false,
       disabled: false,
       created: false,
+      openDates:[],
     };
   }
   static durations = ['One weeks', 'Two weeks'];
   static currency = ['BTC/USD', 'ETH/USD'];
+
+  componentWillMount(){
+    this.getOpenDates().then((res)=>{
+      this.setState({
+        openDates:res,
+      });
+    });
+  }
 
   handleChange = event => {
     this.setState({[event.target.name]: event.target.value});
@@ -49,7 +58,18 @@ class CreateContract extends Component {
       [name]: event.target.value,
     });
   };
-
+  getOpenDates = async () =>{
+      const factory = await Factory.at("0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642");
+      let openDates = [];
+      const numDates = await factory.getDateCount();
+      for (let i = 0; i < numDates; i++) {
+        const startDates = (await factory.startDates.call(i)).c[0];
+        let _date = new Date(startDates * 1000);
+        _date = (_date.getMonth() + 1) + '/' + _date.getDate() + '/' + _date.getFullYear();
+        openDates.push(_date);
+      }
+      return openDates;
+  }
   createContract = async () => {
     const factory = await Factory.at("0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642");
     const accounts = await web3.eth.getAccounts();
@@ -111,11 +131,11 @@ class CreateContract extends Component {
       })
     this.props.toggle
   };
-
+  handleDropdownChange = e => {
+    this.setState({ selectedDate: e.target.value });
+  };
   render() {
     const {classes} = this.props;
-    const factory = Factory.at("0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642");
-    factory.getDateCount().then(console.log);
     return (
       <div>
         <Dialog
@@ -151,14 +171,21 @@ class CreateContract extends Component {
             <div className={classes.inputContainer}>
               <Typography className={classes.title}>Start Date</Typography>
 
-              <DatePicker
+              {/* <DatePicker
                 value={this.state.selectedDate}
                 onChange={this.handleDateChange}
                 animateYearScrolling={false}
                 className={classes.fullWidth}
                 format={'MMMM D YYYY'}
                 minDate={new Date().toLocaleDateString()}
-              />
+              /> */}
+                  <Dropdown
+                    menuItems={this.state.openDates}
+                    value={this.state.selectedDate}
+                    name="selectedDate"
+                    onChange={this.handleChange}
+                    className={classes.fullWidth}
+                  />
             </div>
 
             <div className={classes.inputContainer}>
