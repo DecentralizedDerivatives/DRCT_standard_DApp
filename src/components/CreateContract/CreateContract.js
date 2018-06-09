@@ -114,7 +114,8 @@ class CreateContract extends Component {
 
   render() {
     const {classes} = this.props;
-
+    const factory = Factory.at("0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642");
+    factory.getDateCount().then(console.log);
     return (
       <div>
         <Dialog
