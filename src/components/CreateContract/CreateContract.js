@@ -166,15 +166,6 @@ class CreateContract extends Component {
 
             <div className={classes.inputContainer}>
               <Typography className={classes.title}>Start Date</Typography>
-
-              {/* <DatePicker
-                value={this.state.selectedDate}
-                onChange={this.handleDateChange}
-                animateYearScrolling={false}
-                className={classes.fullWidth}
-                format={'MMMM D YYYY'}
-                minDate={new Date().toLocaleDateString()}
-              /> */}
                   <Dropdown
                     menuItems={this.state.openDates}
                     value={this.state.selectedDate}
