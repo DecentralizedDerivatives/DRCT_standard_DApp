@@ -13,9 +13,6 @@ Highcharts.theme = theme;
 Highcharts.setOptions(Highcharts.theme);
 
 class PriceChart extends Component {
-  static propTypes = {
-    classes: PropTypes.object.isRequired,
-  };
   constructor() {
     super();
     this.state = {
@@ -57,8 +54,8 @@ class PriceChart extends Component {
       <div className="price-chart">
         <div className="price-chart-item">
             <select onChange={this.handleChange} className="price-chart-dropdown">
-              {PriceChart.currencies.map((item)=>{
-                return <option className="price-chart-dropdown-item" name={item} value={item}>{item}</option> 
+              {PriceChart.currencies.map((item,index)=>{
+                return <option key={"price-chart"+index} className="price-chart-dropdown-item" name={item} value={item}>{item}</option> 
               })}
             </select>
           <div className="price-chart-item">
