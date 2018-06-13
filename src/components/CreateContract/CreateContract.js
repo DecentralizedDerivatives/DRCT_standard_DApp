@@ -27,14 +27,23 @@ class CreateContract extends Component {
       amount: 0.1,
       contractAddress: '',
       txId: '',
-      selectedDate: new Date(),
+      selectedDate: "",
       loading: false,
       disabled: false,
       created: false,
+      openDates:[],
     };
   }
   static durations = ['One weeks', 'Two weeks'];
   static currency = ['BTC/USD', 'ETH/USD'];
+
+  componentWillMount(){
+    this.getOpenDates().then((res)=>{
+      this.setState({
+        openDates:res,
+      });
+    });
+  }
 
   handleChange = event => {
     this.setState({[event.target.name]: event.target.value});
@@ -49,17 +58,24 @@ class CreateContract extends Component {
       [name]: event.target.value,
     });
   };
-
+  getOpenDates = async () =>{
+      const factory = await Factory.at("0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642");
+      const openDates = [];
+      const numDates = await factory.getDateCount();
+      for (let i = 0; i < numDates; i++) {
+        const startDates = (await factory.startDates.call(i)).c[0];
+        let _date = new Date(startDates * 1000);
+        _date = _date.toUTCString();
+        openDates.push(_date);
+      }
+      return openDates;
+  }
   createContract = async () => {
     const factory = await Factory.at("0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642");
     const accounts = await web3.eth.getAccounts();
 
-    let date = Number(
-      (new Date(this.state.selectedDate).getTime() / 1000).toFixed(0)
-    );
-
+    let date = Math.floor((new Date(this.state.selectedDate)).getTime() / 1000);
     date = date - date % 86400;
-
     let response, error;
 
     this.setState({loading: true, disabled: true, showAddress: true});
@@ -111,10 +127,11 @@ class CreateContract extends Component {
       })
     this.props.toggle
   };
-
+  handleDropdownChange = e => {
+    this.setState({ selectedDate: e.target.value });
+  };
   render() {
     const {classes} = this.props;
-
     return (
       <div>
         <Dialog
@@ -149,15 +166,13 @@ class CreateContract extends Component {
 
             <div className={classes.inputContainer}>
               <Typography className={classes.title}>Start Date</Typography>
-
-              <DatePicker
-                value={this.state.selectedDate}
-                onChange={this.handleDateChange}
-                animateYearScrolling={false}
-                className={classes.fullWidth}
-                format={'MMMM D YYYY'}
-                minDate={new Date().toLocaleDateString()}
-              />
+                  <Dropdown
+                    menuItems={this.state.openDates}
+                    value={this.state.selectedDate}
+                    name="selectedDate"
+                    onChange={this.handleChange}
+                    className={classes.fullWidth}
+                  />
             </div>
 
             <div className={classes.inputContainer}>

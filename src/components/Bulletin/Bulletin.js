@@ -270,8 +270,4 @@ class Bulletin extends Component {
     );
   }
 }
-
-Bulletin.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
 export default Bulletin;

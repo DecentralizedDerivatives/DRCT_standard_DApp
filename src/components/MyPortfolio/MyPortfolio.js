@@ -81,32 +81,24 @@ class MyPortfolio extends Component {
 
   getMyPositions = async () => {
     const factory = await Factory.at("0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642");
-    var _row = [];
-    var _allrows = [];
-    var openDates = [];
+    let _allrows = [];
+    let openDates = [];
     const numDates = await factory.getDateCount();
     for (let i = 0; i < numDates; i++) {
-      let _date = await factory.startDates.call(i);
-      _date = _date.c[0];
-      let _token_addresses = await factory.getTokens(_date);
-      var _date = new Date(_date * 1000);
-      var _date =
-        _date.getMonth() +
-        1 +
-        '/' +
-        _date.getDate() +
-        '/' +
-        _date.getFullYear();
-      for (let j = 0; j < 2; j++) {
+      const startDates = (await factory.startDates.call(i)).c[0];
+      const _token_addresses = await factory.getTokens(startDates);
+      let _date = new Date(startDates * 1000);
+      _date = (_date.getMonth() + 1) + '/' + _date.getDate() + '/' + _date.getFullYear();
+      openDates.push(_date);
+      for (let j = 0; j < _token_addresses.length; j++) {
         let drct = await DRCT.at(_token_addresses[j]);
         let _balance = await drct.balanceOf(this.state.myAccount);
         if (_balance.c[0] > 0) {
-          _row = [
+          _allrows.push([
             _token_addresses[j],
             _balance.c[0].toString(),
             _date.toString(),
-          ];
-          _allrows.push(_row);
+          ]);
         }
       }
     }
