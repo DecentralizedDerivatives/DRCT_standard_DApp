@@ -60,12 +60,12 @@ class CreateContract extends Component {
   };
   getOpenDates = async () =>{
       const factory = await Factory.at("0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642");
-      let openDates = [];
+      const openDates = [];
       const numDates = await factory.getDateCount();
       for (let i = 0; i < numDates; i++) {
         const startDates = (await factory.startDates.call(i)).c[0];
         let _date = new Date(startDates * 1000);
-        _date = (_date.getMonth() + 1) + '/' + _date.getDate() + '/' + _date.getFullYear();
+        _date = _date.toUTCString();
         openDates.push(_date);
       }
       return openDates;
@@ -74,12 +74,8 @@ class CreateContract extends Component {
     const factory = await Factory.at("0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642");
     const accounts = await web3.eth.getAccounts();
 
-    let date = Number(
-      (new Date(this.state.selectedDate).getTime() / 1000).toFixed(0)
-    );
-
+    let date = Math.floor((new Date(this.state.selectedDate)).getTime() / 1000);
     date = date - date % 86400;
-
     let response, error;
 
     this.setState({loading: true, disabled: true, showAddress: true});
