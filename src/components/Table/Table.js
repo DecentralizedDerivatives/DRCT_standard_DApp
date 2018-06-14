@@ -37,10 +37,11 @@ function Table({classes, titles, rows, tableWidth, ...props}) {
           <Cell numeric={numeric} props={props} key={key}>
             {value.includes('0x') ? (
               <a
-                className={classes.link}
+                className={`${classes.link} token-address-link`}
                 href={value.length > 50 ? `https://rinkeby.etherscan.io/tx/${value}` : `https://rinkeby.etherscan.io/address/${value}`}
                 target="_blank"
                 onClick={(event) => event.stopPropagation()}
+                data-token-address={value}
               >
                 {value.substring(0, 14)}...
               </a>
