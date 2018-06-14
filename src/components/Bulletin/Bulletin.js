@@ -151,7 +151,7 @@ class Bulletin extends Component {
     await transferEvent.get((error, logs) => {
       console.log(logs.length);
       for (let i = logs.length - 1; i >= Math.max(logs.length - 10, 0); i--) {
-        _trades.push([logs[i].args['_token'].toString(), logs[i].args['_amount'].toString(), logs[i].args['_price'].toString()]);
+        _trades.push([logs[i].args['_token'].toString(), logs[i].args['_amount'].toString(), (logs[i].args['_price']/1e18).toString()]);
       }
       if (logs.length === 0) {
         console.log('setting');
@@ -183,7 +183,7 @@ class Bulletin extends Component {
           order = await exchange.getOrder(orders[j].c[0]);
           var _date = await factory.token_dates.call(book);
           _date = new Date(_date * 1000);
-          _date = (_date.getMonth() + 1) + '/' + _date.getDate() + '/' + _date.getFullYear()
+          _date = (_date.getMonth() + 1) + '/' + (_date.getDate()+1) + '/' + _date.getFullYear()
           o_row = [orders[j].c[0].toString(), order[3], (order[1].c[0] / 10000).toString(), order[2].c[0].toString(), _date.toString()];
           allrows.push(o_row);
         }
@@ -223,7 +223,7 @@ class Bulletin extends Component {
               </li>
             </ul>
             <Table
-              titles={['Recent Trades', 'Volume', 'Price']}
+              titles={['Recent Trades', 'Volume', 'Price (ETH)']}
               rows={this.state.recentTrades}
               cellHeight="15px"
               fontSize="12px"
