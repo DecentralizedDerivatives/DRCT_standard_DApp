@@ -34,8 +34,8 @@ class CreateContract extends Component {
       openDates:[],
     };
   }
-  static durations = ['One weeks', 'Two weeks'];
-  static currency = ['BTC/USD', 'ETH/USD'];
+  static durations = ['One week'];
+  static currency = ['BTC/USD'];
 
   componentWillMount(){
     this.getOpenDates().then((res)=>{
@@ -65,7 +65,7 @@ class CreateContract extends Component {
       for (let i = 0; i < numDates; i++) {
         const startDates = (await factory.startDates.call(i)).c[0];
         let _date = new Date(startDates * 1000);
-        _date = _date.toUTCString();
+        _date = (_date.getMonth() + 1) + '/' + (_date.getDate()+1) + '/' + _date.getFullYear()
         openDates.push(_date);
       }
       return openDates;

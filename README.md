@@ -12,48 +12,18 @@ Code for dapp.ddacoop.org
 
 
 
-To clone on local machine:
+To clone on local machine and use contracts on Rinkeby network:
 
 
-    Download most recent drct_standard and drct_standard_dapp from github
+    git clone https://www.github.com/DecentralizedDerivatives/drct_standard_dapp
 
-Now:
+    cd drct_standard_dapp
 
-    In drct_standard folder, delete ‘build’ folder
+    npm install
 
-Open 3 command terminals (ct):
-
-CT1:
-
-    ganache-cli
-
-CT2:
-
-    Cd …./drct_standard (cd to your location)
-    Truffle compile
-    Truffle migrate
-
---Now copy and overwrite the ‘./build/contracts’ from drct_standard to the ‘./imports/contracts’ folder in drct_standard_dapp
-
-CT2 cont”
-
-    Truffle exec scripts/setup.js
-    Truffle exec scripts/contract_setup.js
-    Truffle exec scripts/new_contract.js
-    Truffle exec scripts/scenario.js
-
-
-Ct3:
-
-    Cd …./drct_standard_dapp (cd to your location)
     npm start
 
-In metamask:
-
-    Import the account with private key (account[0] in your ganache-cli)
-
-Now you should have 4 tokens, some tokens for sale, and some transactions
-
+Full documentation of the contracts at: [https://www.github.com/DecentralizedDerivatives/DRCT_standard](https://www.github.com/DecentralizedDerivatives/DRCT_standard)
 
 This webpage builds the DApp at dapp.ddacoop.org
 
