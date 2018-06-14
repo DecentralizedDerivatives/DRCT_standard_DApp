@@ -87,7 +87,7 @@ class MyPortfolio extends Component {
       const startDates = (await factory.startDates.call(i)).c[0];
       const _token_addresses = await factory.getTokens(startDates);
       let _date = new Date(startDates * 1000);
-      _date = (_date.getMonth() + 1) + '/' + _date.getDate() + '/' + _date.getFullYear();
+      _date = (_date.getMonth() + 1) + '/' + (_date.getDate()+1) + '/' + _date.getFullYear();
       openDates.push(_date);
       console.log(_token_addresses);
       for (let j = 0; j < _token_addresses.length; j++) {

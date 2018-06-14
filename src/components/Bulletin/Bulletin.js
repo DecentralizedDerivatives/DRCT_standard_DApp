@@ -1,8 +1,4 @@
 import React, { Component } from 'react';
-import "./style.css";
-/*React Components*/
-import PropTypes from 'prop-types';
-import withStyles from 'material-ui/styles/withStyles';
 import Button from 'material-ui/Button';
 import Typography from 'material-ui/Typography';
 import Table from '../Table';
@@ -11,6 +7,8 @@ import PriceChart from '../PriceChart';
 import List from '../List';
 import Unlist from '../Unlist';
 import Buy from '../Buy';
+
+import './style.css'
 
 import { Factory, Exchange, web3 } from '../../ethereum';
 
@@ -153,7 +151,7 @@ class Bulletin extends Component {
     await transferEvent.get((error, logs) => {
       console.log(logs.length);
       for (let i = logs.length - 1; i >= Math.max(logs.length - 10, 0); i--) {
-        _trades.push([logs[i].args['_token'].toString(), logs[i].args['_amount'].toString(), logs[i].args['_price'].toString()]);
+        _trades.push([logs[i].args['_token'].toString(), logs[i].args['_amount'].toString(), (logs[i].args['_price']/1e18).toString()]);
       }
       if (logs.length === 0) {
         console.log('setting');
@@ -185,7 +183,7 @@ class Bulletin extends Component {
           order = await exchange.getOrder(orders[j].c[0]);
           var _date = await factory.token_dates.call(book);
           _date = new Date(_date * 1000);
-          _date = (_date.getMonth() + 1) + '/' + _date.getDate() + '/' + _date.getFullYear()
+          _date = (_date.getMonth() + 1) + '/' + (_date.getDate()+1) + '/' + _date.getFullYear()
           o_row = [orders[j].c[0].toString(), order[3], (order[1].c[0] / 10000).toString(), order[2].c[0].toString(), _date.toString()];
           allrows.push(o_row);
         }
@@ -197,52 +195,43 @@ class Bulletin extends Component {
 
   render() {
     return (
-      <section id="bulletin">
-        <div className="bulletin-item bulletin-item-left">
-          <Table
-            titles={[
-              'Order ID',
-              'Token',
-              'Price (ETH)',
-              'Quantity',
-              'Start Date',
-            ]}
-            rows={this.state.orderbook}
-            tableWidth="950px"
-            clickFunction={this.openContractDetails}
-          />
-        </div>
-        <div className="bulletin-item bulletin-item-right">
-          <ul className="bulletin-item bulletin-order-btns-wrapper">
-            <li>
-              <Button className="bulletin-order-btn" onClick={this.openList}>
-                <Typography className="bulletin-order-btn-txt">List Order</Typography>
-              </Button>
-            </li>
-            <li>
-              <Button className="bulletin-order-btn" onClick={this.openBuy}>
-                <Typography className="bulletin-order-btn-txt">Buy Order</Typography>
-              </Button>
-            </li>
-            <li>
-              <Button className="bulletin-order-btn" onClick={this.openUnlist}>
-                <Typography className="bulletin-order-btn-txt">Unlist Order</Typography>
-              </Button>
-            </li>
-          </ul>
-          <div className="bulletin-item">
+      <div>
+        <div className='wrapper'>
+          <div className='order-book'>
             <Table
-              titles={['Recent Trades', 'Volume', 'Price']}
-              rows={this.state.recentTrades}
-              tableWidth="400px"
-              cellHeight="15px"
-              fontSize="12px"
-              clickFunction={this.onBuyClick}
+              titles={['Order ID','Token','Price (ETH)','Quantity','Start Date']}
+              rows={this.state.orderbook}
+              clickFunction={this.openContractDetails}
             />
           </div>
-        </div>
-        <div className="bulletin-item bulletin-item-left bulletin-pricechart">
-          <PriceChart />
+          <div className='order-buttons'>
+            <ul className="bulletin-order-btns-wrapper">
+              <li>
+                <Button className="bulletin-order-btn" onClick={this.openList}>
+                  <Typography className="bulletin-order-btn-txt">List Order</Typography>
+                </Button>
+              </li>
+              <li>
+                <Button className="bulletin-order-btn" onClick={this.openBuy}>
+                  <Typography className="bulletin-order-btn-txt">Buy Order</Typography>
+                </Button>
+              </li>
+              <li>
+                <Button className="bulletin-order-btn" onClick={this.openUnlist}>
+                  <Typography className="bulletin-order-btn-txt">Unlist Order</Typography>
+                </Button>
+              </li>
+            </ul>
+            <Table
+              titles={['Recent Trades', 'Volume', 'Price (ETH)']}
+              rows={this.state.recentTrades}
+              cellHeight="15px"
+              fontSize="12px"
+              clickFunction={this.onBuyClick} />
+          </div>
+          <div className='price-chart'>
+            <PriceChart />
+          </div>
         </div>
         <ContractDetails
           open={this.state.open}
@@ -266,7 +255,7 @@ class Bulletin extends Component {
           open={this.state.openB}
           toggle={this.closeBuy}
         />
-      </section>
+      </div>
     );
   }
 }
