@@ -30,7 +30,7 @@ class ContractDetails extends Component {
   render() {
     const { classes } = this.props;
 
-    return this.props.tokenAddress.length?
+    return typeof this.props.tokenAddress !== "undefined" && this.props.tokenAddress.length?
     (
       <div>
         <Dialog
