@@ -30,6 +30,7 @@ class Bulletin extends Component {
       contractDuration: "",
       contractMultiplier: "",
       oracleAddress: "",
+      selectedTokenAddress:"",
     };
   }
   fetchData = () => { };
@@ -56,19 +57,23 @@ class Bulletin extends Component {
   // }
 
   onClickRow = link => {
-    this.openContractDetails();
-    this.setState({ active: link });
+    let addressEl =  link.currentTarget.getElementsByClassName("token-address-link")[0];
+    console.log("address el ", addressEl);
+    if(typeof addressEl !== "undefined"){
+      this.openContractDetails(link,addressEl.getAttribute("data-token-address"));
+    }
   };
 
   onBuyClick = link => {
     console.log(link);
   }
 
-  openContractDetails = () => {
-    this.setState({
-      open: true,
-      previousActive: this.state.active,
-    });
+  openContractDetails = (newActive,token_address=false) => {
+    if(token_address){
+      this.setState({ active:newActive, open: true, previousActive: this.state.active,selectedTokenAddress:token_address });
+    }else{
+      this.setState({ active:newActive, open: true, previousActive: this.state.active});
+    }
   };
   getContractDetails = async () => {
     const factory = await Factory.at("0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642");
@@ -177,7 +182,6 @@ class Bulletin extends Component {
     for (let i = 0; i < numBooks; i++) {
       let book = await exchange.openBooks(i);
       let orders = await exchange.getOrders(book);
-
       for (let j = 0; j < orders.length; j++) {
         if (orders[j].c[0] > 0) {
           order = await exchange.getOrder(orders[j].c[0]);
@@ -201,7 +205,7 @@ class Bulletin extends Component {
             <Table
               titles={['Order ID','Token','Price (ETH)','Quantity','Start Date']}
               rows={this.state.orderbook}
-              clickFunction={this.openContractDetails}
+              clickFunction={this.onClickRow}
             />
           </div>
           <div className='order-buttons'>
@@ -240,6 +244,7 @@ class Bulletin extends Component {
           contractDuration={this.state.contractDuration}
           contractMultiplier={this.state.contractMultiplier}
           oracleAddress={this.state.oracleAddress}
+          tokenAddress={this.state.selectedTokenAddress}
         />
         <List
           open={this.state.openL}
