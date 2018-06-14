@@ -30,7 +30,38 @@ class ContractDetails extends Component {
   render() {
     const { classes } = this.props;
 
-    return (
+    return this.props.tokenAddress.length?
+    (
+      <div>
+        <Dialog
+          open={this.props.open}
+          onClose={this.props.toggle}
+          PaperProps={{ className: classes.paper }}
+        >
+          <DialogContent className={classes.dialogContent}>
+            <div className={classes.inputContainer}>
+              <Typography className={classes.title}>Factory Contract</Typography>
+            </div>
+            <div className={classes.inputContainer}>
+              <Typography className={classes.title}>Address: {this.props.contractAddress}</Typography>
+            </div>
+            <div className={classes.inputContainer}>
+              <Typography className={classes.title}>Duration: {this.props.contractDuration}</Typography>
+            </div>
+            <div className={classes.inputContainer}>
+              <Typography className={classes.title}>Multiplier: {this.props.contractMultiplier}</Typography>
+            </div>
+            <div className={classes.inputContainer}>
+              <Typography className={classes.title}>Oracle Address: {this.props.oracleAddress}</Typography>
+            </div>
+            <div className={classes.inputContainer}>
+              <Typography className={classes.title}>Token Address:  <a href={`https://rinkeby.etherscan.io/address/${this.props.tokenAddress}`} target="_blank" >{this.props.tokenAddress}</a></Typography>
+            </div>
+          </DialogContent>
+        </Dialog>
+      </div>
+    )
+    :(
       <div>
         <Dialog
           open={this.props.open}

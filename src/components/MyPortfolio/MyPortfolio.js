@@ -17,6 +17,7 @@ class MyPortfolio extends Component {
       myPositions: [['loading...', 'loading...', 'loading...']],
       myTransactions: [['loading...', 'loading...']],
       myAccount: '',
+      selectedTokenAddress:'',
     };
   }
   fetchData = () => { };
@@ -27,7 +28,6 @@ class MyPortfolio extends Component {
     });
     this.getMyPositions().then(result => {
       this.setState({ myPositions: result });
-      console.log(result);
     });
     this.getmyTransactions();
     //Getting contract details one time when its parent gets mounted
@@ -37,24 +37,27 @@ class MyPortfolio extends Component {
   onClickRow = link => {
     let addressEl =  link.currentTarget.getElementsByClassName("token-address-link")[0];
     if(typeof addressEl !== "undefined"){
-      this.openContractDetails(link);
+      this.openContractDetails(link,addressEl.getAttribute("data-token-address"));
     }
   };
 
-  openContractDetails = (newActive) => {
-    this.setState({ active:newActive, open: true, previousActive: this.state.active });
+  openContractDetails = (newActive,token_address=false) => {
+    if(token_address){
+      this.setState({ active:newActive, open: true, previousActive: this.state.active,selectedTokenAddress:token_address });
+    }else{
+      this.setState({ active:newActive, open: true, previousActive: this.state.active});
+    }
   };
   getContractDetails = async () => {
     const factory = await Factory.at("0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642");
     let response, error;
     try {
       response = await factory.getVariables();
-      console.log("RESPONSE",response);
     } catch (err) {
       error = err;
     }
     if (error) {
-      console.log(error);
+      console.error("Error getting contract details",error);
       return;
     }
     this.setState({
@@ -87,12 +90,10 @@ class MyPortfolio extends Component {
       const startDates = (await factory.startDates.call(i)).c[0];
       const _token_addresses = await factory.getTokens(startDates);
       let _date = new Date(startDates * 1000);
-      _date = (_date.getMonth() + 1) + '/' + (_date.getDate()+1) + '/' + _date.getFullYear();
+      _date = (_date.getUTCMonth() + 1) + '/' + (_date.getUTCDate()) + '/' + _date.getUTCFullYear();
       openDates.push(_date);
-      console.log(_token_addresses);
       for (let j = 0; j < _token_addresses.length; j++) {
         let drct = await DRCT.at(_token_addresses[j]);
-        console.log("DRCT",drct);
         let _balance = await drct.balanceOf(this.state.myAccount);
         if (_balance.c[0] > 0) {
           _allrows.push([
@@ -186,6 +187,7 @@ class MyPortfolio extends Component {
           contractDuration={this.state.contractDuration}
           contractMultiplier={this.state.contractMultiplier}
           oracleAddress={this.state.oracleAddress}
+          tokenAddress={this.state.selectedTokenAddress}
         />
       </Grid>
     );
