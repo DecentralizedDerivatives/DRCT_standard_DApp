@@ -18,6 +18,7 @@ function Cell({style, cellHeight, children, color, fontSize, numeric}) {
     root: {
       paddingTop: cellHeight || '25px',
       paddingBottom: cellHeight || '25px',
+      textAlign:"center",
     },
   }))(TableCell);
 

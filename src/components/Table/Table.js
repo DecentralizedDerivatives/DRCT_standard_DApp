@@ -2,16 +2,16 @@ import React from 'react';
 import "./style.css";
 /*React Components*/
 import PropTypes from 'prop-types';
-import {withStyles} from 'material-ui/styles';
-import MaterialTable, {TableBody, TableHead, TableRow} from 'material-ui/Table';
+import { withStyles } from 'material-ui/styles';
+import MaterialTable, { TableBody, TableHead, TableRow } from 'material-ui/Table';
 import Paper from 'material-ui/Paper';
 import Cell from './Cell';
 import styles from './styles';
-import {colors} from '../../styles/global';
+import { colors } from '../../styles/global';
 
 const currencies = ['BTC', 'KRW'];
 
-function Table({classes, titles, rows, tableWidth, ...props}) {
+function Table({ classes, titles, rows, tableWidth, ...props }) {
   // Cells: Last elements are right aligned
 
   // Set first title with black font
@@ -28,46 +28,71 @@ function Table({classes, titles, rows, tableWidth, ...props}) {
     ));
 
   const createRows = () =>
-    rows.map((row, i) => {
-      const tableCells = row.map((value, j) => {
-        const key = `${value}-${i}-${j}`;
-        const numeric = j === row.length - 1;
-
-        let cell = (
-          <Cell numeric={numeric} props={props} key={key}>
-            {value.includes('0x') ? (
+    rows.map((obj, i) => {
+      let tableCells;
+      if (typeof obj.address !== "undefined" && typeof obj.symbol !== "undefined") {
+        tableCells = [
+          (
+            <Cell props={props}>
               <a
                 className={`${classes.link} token-address-link`}
-                href={value.length > 50 ? `https://rinkeby.etherscan.io/tx/${value}` : `https://rinkeby.etherscan.io/address/${value}`}
-                target="_blank"
                 onClick={(event) => event.stopPropagation()}
-                data-token-address={value}
+                data-token-address={obj.address}
               >
-                {value.substring(0, 14)}...
+                {obj.symbol} - {obj.contractDuration} Days - {obj.contractMultiplier}X
               </a>
-            ) : (
-              value
-            )}
-          </Cell>
-        );
+            </Cell>
+          ),
+          (
+            <Cell props={props}>
+              {obj.balance}
+            </Cell>
+          ),
+          (
+            <Cell props={props}>
+              {obj.date}
+            </Cell>
+          )
+        ];
+      } else {
+        tableCells = obj.map((value, j) => {
+          const key = `${value}-${i}-${j}`;
+          const numeric = j === obj.length - 1;
 
-        // Check for currency types
-        if (j > 1) {
-          const currency = currencies.filter(type => value.includes(type));
+          let cell = (
+            <Cell numeric={numeric} props={props} key={key}>
+              {value.includes('0x') ? (
+                <a
+                  className={`${classes.link} token-address-link`}
+                  href={value.length > 50 ? `https://rinkeby.etherscan.io/tx/${value}` : `https://rinkeby.etherscan.io/address/${value}`}
+                  target="_blank"
+                  onClick={(event) => event.stopPropagation()}
+                  data-token-address={value}
+                >
+                  {value.substring(0, 14)}...
+              </a>
+              ) : (
+                  value
+                )}
+            </Cell>
+          );
+          // Check for currency types
+          if (j > 1) {
+            const currency = currencies.filter(type => value.includes(type));
 
-          if (currency.length) {
-            cell = (
-              <Cell numeric={numeric} props={props} key={key}>
-                {value.replace(currency, '')}
-                <span className={classes.currency}>{currency[0]}</span>
-              </Cell>
-            );
+            if (currency.length) {
+              cell = (
+                <Cell numeric={numeric} props={props} key={key}>
+                  {value.replace(currency, '')}
+                  <span className={classes.currency}>{currency[0]}</span>
+                </Cell>
+              );
+            }
           }
-        }
 
-        return cell;
-      });
-
+          return cell;
+        });
+      }
       return (
         <TableRow
           hover

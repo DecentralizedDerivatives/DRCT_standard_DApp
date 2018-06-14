@@ -58,7 +58,6 @@ class Bulletin extends Component {
 
   onClickRow = link => {
     let addressEl =  link.currentTarget.getElementsByClassName("token-address-link")[0];
-    console.log("address el ", addressEl);
     if(typeof addressEl !== "undefined"){
       this.openContractDetails(link,addressEl.getAttribute("data-token-address"));
     }

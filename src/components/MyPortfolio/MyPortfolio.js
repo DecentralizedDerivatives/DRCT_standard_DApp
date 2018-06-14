@@ -18,20 +18,22 @@ class MyPortfolio extends Component {
       myTransactions: [['loading...', 'loading...']],
       myAccount: '',
       selectedTokenAddress:'',
+      contractAddress: "",
+      contractDuration: "",
+      contractMultiplier: "",
+      oracleAddress: "",
     };
   }
-  fetchData = () => { };
-
   componentDidMount() {
     web3.eth.getAccounts((error, accounts) => {
       this.setState({ myAccount: accounts[0] });
-    });
+    });    
+    //Getting contract details one time when its parent gets mounted
+    this.getContractDetails();
     this.getMyPositions().then(result => {
       this.setState({ myPositions: result });
     });
     this.getmyTransactions();
-    //Getting contract details one time when its parent gets mounted
-    this.getContractDetails();
   }
 
   onClickRow = link => {
@@ -89,15 +91,20 @@ class MyPortfolio extends Component {
         let drct = await DRCT.at(_token_addresses[j]);
         let _balance = await drct.balanceOf(this.state.myAccount);
         if (_balance.c[0] > 0) {
-          _allrows.push([
-            _token_addresses[j],
-            _balance.c[0].toString(),
-            _date.toString(),
-          ]);
+          _allrows.push({
+            address:_token_addresses[j],
+            balance:_balance.c[0].toString(),
+            date:_date.toString(),
+            symbol:"ETH/USD", /*CURRENTLY USING STATIC SYMBOL NEED TO FIX*/
+            contractAddress:this.state.contractAddress,
+            contractDuration:this.state.contractDuration,
+            contractMultiplier:this.state.contractMultiplier,
+            oracleAddress:this.state.oracleAddress,
+          });
         }
       }
     }
-    if (_allrows.length === 0) _allrows.push(['No Current Positions', '...', '...']);
+    if (_allrows.length === 0) _allrows.push({address:'No Current Positions', balance:'...', date:'...',symbol:"..."});
     return _allrows;
   };
 
@@ -157,7 +164,7 @@ class MyPortfolio extends Component {
       >
         <Grid item className={classes.item}>
           <Table
-            titles={['My Tokens', 'Balance', 'Start Date']}
+            titles={['Asset', 'Balance', 'Start Date']}
             rows={this.state.myPositions}
             tableWidth="950px"
             clickFunction={this.onClickRow}
@@ -167,6 +174,7 @@ class MyPortfolio extends Component {
           <Table
             titles={['My Transactions', 'Transaction Hash']}
             rows={this.state.myTransactions}
+            tokenInfo={this.state.tokenInfo}
             tableWidth="950px"
             cellHeight="15px"
             fontSize="12px"
