@@ -188,7 +188,7 @@ class Bulletin extends Component {
           order = await exchange.getOrder(orders[j].c[0]);
           let _date = await factory.token_dates.call(book);
           _date = new Date(_date * 1000);
-          _date = (_date.getMonth() + 1) + '/' + (_date.getDate()+1) + '/' + _date.getFullYear()
+          _date = (_date.getUTCMonth() + 1) + '/' + (_date.getUTCDate()) + '/' + _date.getUTCFullYear();
           allrows.push({
             orderId:orders[j].c[0].toString(),
             address: order[3],
