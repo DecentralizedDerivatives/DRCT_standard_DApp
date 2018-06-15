@@ -102,7 +102,7 @@ class MyPortfolio extends Component {
         }
       }
     }
-    if (_allrows.length === 0) _allrows.push({address:'No Current Positions', balance:'...', date:'...',symbol:"..."});
+    if (_allrows.length === 0) _allrows.push(['No Current Positions', '...', '...']);
     return _allrows;
   };
 

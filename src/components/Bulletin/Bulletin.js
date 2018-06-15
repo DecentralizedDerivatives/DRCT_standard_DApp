@@ -152,7 +152,6 @@ class Bulletin extends Component {
     );
 
     await transferEvent.get((error, logs) => {
-      console.log(logs.length);
       for (let i = logs.length - 1; i >= Math.max(logs.length - 10, 0); i--) {
         _trades.push({
           address:logs[i].args['_token'].toString(), 
@@ -164,7 +163,6 @@ class Bulletin extends Component {
         });
       }
       if (logs.length === 0) {
-        console.log('setting');
         _trades = [['No Recent Trades', '...', '...']];
       }
     });
@@ -213,7 +211,7 @@ class Bulletin extends Component {
         <div className='wrapper'>
           <div className='order-book'>
             <Table
-              titles={['Order ID','Token','Price (ETH)','Quantity','Start Date']}
+              titles={['Order ID','Asset','Price (ETH)','Quantity','Start Date']}
               rows={this.state.orderbook}
               clickFunction={this.onClickRow}
             />

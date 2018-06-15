@@ -34,10 +34,12 @@ function Table({ classes, titles, rows, tableWidth, ...props }) {
         /*Handles object format*/
         Object.keys(obj).forEach((key) => {
           switch (key) {
+            /*Data to be skipped*/
             case "symbol":
             case "contractDuration":
             case "contractMultiplier":
               break;
+            /*Data to be displayed*/
             case "address":
               tableCells.push(
                 <Cell props={props}>
@@ -51,12 +53,12 @@ function Table({ classes, titles, rows, tableWidth, ...props }) {
                 </Cell>
               );
               break;
-              default:
-                tableCells.push(
-                  <Cell props={props}>
-                    {obj[key]}
-                  </Cell>
-                )
+            default:
+              tableCells.push(
+                <Cell props={props}>
+                  {obj[key]}
+                </Cell>
+              )
               break;
           }
         });
