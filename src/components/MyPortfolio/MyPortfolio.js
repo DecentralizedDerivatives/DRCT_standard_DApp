@@ -95,11 +95,9 @@ class MyPortfolio extends Component {
             address:_token_addresses[j],
             balance:_balance.c[0].toString(),
             date:_date.toString(),
-            symbol:"ETH/USD", /*CURRENTLY USING STATIC SYMBOL NEED TO FIX*/
-            contractAddress:this.state.contractAddress,
+            symbol:"BTC/USD", /*CURRENTLY USING STATIC SYMBOL NEED TO FIX*/
             contractDuration:this.state.contractDuration,
             contractMultiplier:this.state.contractMultiplier,
-            oracleAddress:this.state.oracleAddress,
           });
         }
       }

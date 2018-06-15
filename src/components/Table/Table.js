@@ -29,32 +29,39 @@ function Table({ classes, titles, rows, tableWidth, ...props }) {
 
   const createRows = () =>
     rows.map((obj, i) => {
-      let tableCells;
+      let tableCells = [];
       if (typeof obj.address !== "undefined" && typeof obj.symbol !== "undefined") {
-        tableCells = [
-          (
-            <Cell props={props}>
-              <a
-                className={`${classes.link} token-address-link`}
-                onClick={(event) => event.stopPropagation()}
-                data-token-address={obj.address}
-              >
-                {obj.symbol} - {obj.contractDuration} Days - {obj.contractMultiplier}X
-              </a>
-            </Cell>
-          ),
-          (
-            <Cell props={props}>
-              {obj.balance}
-            </Cell>
-          ),
-          (
-            <Cell props={props}>
-              {obj.date}
-            </Cell>
-          )
-        ];
+        /*Handles object format*/
+        Object.keys(obj).forEach((key) => {
+          switch (key) {
+            case "symbol":
+            case "contractDuration":
+            case "contractMultiplier":
+              break;
+            case "address":
+              tableCells.push(
+                <Cell props={props}>
+                  <a
+                    className={`${classes.link} token-address-link`}
+                    onClick={(event) => event.stopPropagation()}
+                    data-token-address={obj.address}
+                  >
+                    {obj.symbol} - {obj.contractDuration} Days - {obj.contractMultiplier}X
+                  </a>
+                </Cell>
+              );
+              break;
+              default:
+                tableCells.push(
+                  <Cell props={props}>
+                    {obj[key]}
+                  </Cell>
+                )
+              break;
+          }
+        });
       } else {
+        /*Handles array format*/
         tableCells = obj.map((value, j) => {
           const key = `${value}-${i}-${j}`;
           const numeric = j === obj.length - 1;
