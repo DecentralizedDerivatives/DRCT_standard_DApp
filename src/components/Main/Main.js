@@ -26,9 +26,10 @@ class Main extends Component {
     const accounts = await web3.eth.getAccounts();
     const network = await web3.eth.net.getId();
     if (!accounts.length || network !== 4) {
-      this.setState({ modal: true, connected: false });
+      this.setState({ modal: true, connected: false, accounts, network  });
+    }else{
+      this.setState({ accounts, network });
     }
-    this.setState({ accounts, network });
   }
   onModalPress = () => this.setState({ modal: !this.state.modal });
   isWeb3Active = component => {

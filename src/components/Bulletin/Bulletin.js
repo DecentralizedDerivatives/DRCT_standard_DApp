@@ -30,6 +30,7 @@ class Bulletin extends Component {
       contractDuration: "",
       contractMultiplier: "",
       oracleAddress: "",
+      selectedTokenAddress:"",
     };
   }
   fetchData = () => { };
@@ -56,19 +57,22 @@ class Bulletin extends Component {
   // }
 
   onClickRow = link => {
-    this.openContractDetails();
-    this.setState({ active: link });
+    let addressEl =  link.currentTarget.getElementsByClassName("token-address-link")[0];
+    if(typeof addressEl !== "undefined"){
+      this.openContractDetails(link,addressEl.getAttribute("data-token-address"));
+    }
   };
 
   onBuyClick = link => {
     console.log(link);
   }
 
-  openContractDetails = () => {
-    this.setState({
-      open: true,
-      previousActive: this.state.active,
-    });
+  openContractDetails = (newActive,token_address=false) => {
+    if(token_address){
+      this.setState({ active:newActive, open: true, previousActive: this.state.active,selectedTokenAddress:token_address });
+    }else{
+      this.setState({ active:newActive, open: true, previousActive: this.state.active});
+    }
   };
   getContractDetails = async () => {
     const factory = await Factory.at("0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642");
@@ -97,7 +101,6 @@ class Bulletin extends Component {
   };
 
   openBuy = (link) => {
-    console.log('Link', link);
     this.setState({ orderID: link })
     this.setState({ openB: true, previousActive: this.state.active });
   };
@@ -149,12 +152,17 @@ class Bulletin extends Component {
     );
 
     await transferEvent.get((error, logs) => {
-      console.log(logs.length);
       for (let i = logs.length - 1; i >= Math.max(logs.length - 10, 0); i--) {
-        _trades.push([logs[i].args['_token'].toString(), logs[i].args['_amount'].toString(), (logs[i].args['_price']/1e18).toString()]);
+        _trades.push({
+          address:logs[i].args['_token'].toString(), 
+          volume:logs[i].args['_amount'].toString(),
+          price:(logs[i].args['_price']/1e18).toString(),
+          contractDuration:this.state.contractDuration,
+          contractMultiplier:this.state.contractMultiplier,
+          symbol:"BTC/USD",/*CURRENTLY USING STATIC SYMBOL NEED TO FIX*/
+        });
       }
       if (logs.length === 0) {
-        console.log('setting');
         _trades = [['No Recent Trades', '...', '...']];
       }
     });
@@ -170,26 +178,30 @@ class Bulletin extends Component {
     let numBooks = await exchange.getBookCount();
 
     // get orders for that book:
-    let o_row = [];
     let allrows = [];
-
     let order;
     for (let i = 0; i < numBooks; i++) {
       let book = await exchange.openBooks(i);
       let orders = await exchange.getOrders(book);
-
       for (let j = 0; j < orders.length; j++) {
         if (orders[j].c[0] > 0) {
           order = await exchange.getOrder(orders[j].c[0]);
-          var _date = await factory.token_dates.call(book);
+          let _date = await factory.token_dates.call(book);
           _date = new Date(_date * 1000);
-          _date = (_date.getMonth() + 1) + '/' + (_date.getDate()+1) + '/' + _date.getFullYear()
-          o_row = [orders[j].c[0].toString(), order[3], (order[1].c[0] / 10000).toString(), order[2].c[0].toString(), _date.toString()];
-          allrows.push(o_row);
+          _date = (_date.getUTCMonth() + 1) + '/' + (_date.getUTCDate()) + '/' + _date.getUTCFullYear();
+          allrows.push({
+            orderId:orders[j].c[0].toString(),
+            address: order[3],
+            price:(order[1].c[0] / 10000).toString(),
+            quantity:order[2].c[0].toString(),
+            date:_date.toString(),
+            contractDuration:this.state.contractDuration,
+            contractMultiplier:this.state.contractMultiplier,
+            symbol:"BTC/USD", /*CURRENTLY USING STATIC SYMBOL NEED TO FIX*/
+          });
         }
       }
     }
-    console.log('arows', allrows);
     return allrows;
   };
 
@@ -199,9 +211,9 @@ class Bulletin extends Component {
         <div className='wrapper'>
           <div className='order-book'>
             <Table
-              titles={['Order ID','Token','Price (ETH)','Quantity','Start Date']}
+              titles={['Order ID','Asset','Price (ETH)','Quantity','Start Date']}
               rows={this.state.orderbook}
-              clickFunction={this.openContractDetails}
+              clickFunction={this.onClickRow}
             />
           </div>
           <div className='order-buttons'>
@@ -240,6 +252,7 @@ class Bulletin extends Component {
           contractDuration={this.state.contractDuration}
           contractMultiplier={this.state.contractMultiplier}
           oracleAddress={this.state.oracleAddress}
+          tokenAddress={this.state.selectedTokenAddress}
         />
         <List
           open={this.state.openL}

@@ -17,30 +17,38 @@ class MyPortfolio extends Component {
       myPositions: [['loading...', 'loading...', 'loading...']],
       myTransactions: [['loading...', 'loading...']],
       myAccount: '',
+      selectedTokenAddress:'',
+      contractAddress: "",
+      contractDuration: "",
+      contractMultiplier: "",
+      oracleAddress: "",
     };
   }
-  fetchData = () => { };
-
   componentDidMount() {
     web3.eth.getAccounts((error, accounts) => {
       this.setState({ myAccount: accounts[0] });
-    });
-    this.getMyPositions().then(result => {
-      this.setState({ myPositions: result });
-      console.log(result);
-    });
-    this.getmyTransactions();
+    });    
     //Getting contract details one time when its parent gets mounted
     this.getContractDetails();
+    this.getMyPositions().then(result => {
+      this.setState({ myPositions: result });
+    });
+    this.getmyTransactions();
   }
 
   onClickRow = link => {
-    this.openContractDetails();
-    this.setState({ active: link });
+    let addressEl =  link.currentTarget.getElementsByClassName("token-address-link")[0];
+    if(typeof addressEl !== "undefined"){
+      this.openContractDetails(link,addressEl.getAttribute("data-token-address"));
+    }
   };
 
-  openContractDetails = () => {
-    this.setState({ open: true, previousActive: this.state.active });
+  openContractDetails = (newActive,token_address=false) => {
+    if(token_address){
+      this.setState({ active:newActive, open: true, previousActive: this.state.active,selectedTokenAddress:token_address });
+    }else{
+      this.setState({ active:newActive, open: true, previousActive: this.state.active});
+    }
   };
   getContractDetails = async () => {
     const factory = await Factory.at("0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642");
@@ -51,7 +59,7 @@ class MyPortfolio extends Component {
       error = err;
     }
     if (error) {
-      console.log(error);
+      console.error("Error getting contract details",error);
       return;
     }
     this.setState({
@@ -68,44 +76,33 @@ class MyPortfolio extends Component {
     });
   };
 
-  openContractDetails = () => {
-    this.setState({ open: true, previousActive: this.state.active });
-  };
-
-  closeContractDetails = () => {
-    this.setState({
-      open: false,
-      active: this.state.previousActive,
-    });
-  };
-
   getMyPositions = async () => {
     const factory = await Factory.at("0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642");
-    let _allrows = [];
-    let openDates = [];
+    const _allrows = [];
+    const openDates = [];
     const numDates = await factory.getDateCount();
     for (let i = 0; i < numDates; i++) {
       const startDates = (await factory.startDates.call(i)).c[0];
       const _token_addresses = await factory.getTokens(startDates);
       let _date = new Date(startDates * 1000);
-      _date = (_date.getMonth() + 1) + '/' + (_date.getDate()+1) + '/' + _date.getFullYear();
+      _date = (_date.getUTCMonth() + 1) + '/' + (_date.getUTCDate()) + '/' + _date.getUTCFullYear();
       openDates.push(_date);
       for (let j = 0; j < _token_addresses.length; j++) {
         let drct = await DRCT.at(_token_addresses[j]);
         let _balance = await drct.balanceOf(this.state.myAccount);
         if (_balance.c[0] > 0) {
-          _allrows.push([
-            _token_addresses[j],
-            _balance.c[0].toString(),
-            _date.toString(),
-          ]);
+          _allrows.push({
+            address:_token_addresses[j],
+            balance:_balance.c[0].toString(),
+            date:_date.toString(),
+            symbol:"BTC/USD", /*CURRENTLY USING STATIC SYMBOL NEED TO FIX*/
+            contractDuration:this.state.contractDuration,
+            contractMultiplier:this.state.contractMultiplier,
+          });
         }
       }
     }
-    if (_allrows.length === 0) {
-      console.log('setting');
-      _allrows = [['No Current Positions', '...', '...']];
-    }
+    if (_allrows.length === 0) _allrows.push(['No Current Positions', '...', '...']);
     return _allrows;
   };
 
@@ -165,7 +162,7 @@ class MyPortfolio extends Component {
       >
         <Grid item className={classes.item}>
           <Table
-            titles={['My Tokens', 'Balance', 'Start Date']}
+            titles={['Asset', 'Balance', 'Start Date']}
             rows={this.state.myPositions}
             tableWidth="950px"
             clickFunction={this.onClickRow}
@@ -175,6 +172,7 @@ class MyPortfolio extends Component {
           <Table
             titles={['My Transactions', 'Transaction Hash']}
             rows={this.state.myTransactions}
+            tokenInfo={this.state.tokenInfo}
             tableWidth="950px"
             cellHeight="15px"
             fontSize="12px"
@@ -188,6 +186,7 @@ class MyPortfolio extends Component {
           contractDuration={this.state.contractDuration}
           contractMultiplier={this.state.contractMultiplier}
           oracleAddress={this.state.oracleAddress}
+          tokenAddress={this.state.selectedTokenAddress}
         />
       </Grid>
     );

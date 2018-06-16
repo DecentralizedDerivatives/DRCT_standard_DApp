@@ -6,7 +6,6 @@ import TextField from 'material-ui/TextField';
 import Grid from 'material-ui/Grid';
 import Typography from 'material-ui/Typography';
 import Dialog, {DialogContent} from 'material-ui/Dialog';
-import {DatePicker} from 'material-ui-pickers';
 import {CircularProgress} from 'material-ui/Progress';
 import styles from './styles';
 import Dropdown from '../Dropdown';
@@ -65,7 +64,7 @@ class CreateContract extends Component {
       for (let i = 0; i < numDates; i++) {
         const startDates = (await factory.startDates.call(i)).c[0];
         let _date = new Date(startDates * 1000);
-        _date = (_date.getMonth() + 1) + '/' + (_date.getDate()+1) + '/' + _date.getFullYear()
+        _date = (_date.getUTCMonth() + 1) + '/' + (_date.getUTCDate()) + '/' + _date.getUTCFullYear();
         openDates.push(_date);
       }
       return openDates;
