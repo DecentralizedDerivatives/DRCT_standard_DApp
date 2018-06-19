@@ -10,6 +10,7 @@
     "highcharts": "^6.1.0",
     "material-ui": "^1.0.0-beta.42",
     "material-ui-pickers": "^1.0.0-rc.6",
+    "materialize-css": "^0.100.2",
     "normalize": "^0.3.1",
     "normalize.css": "^8.0.0",
     "react": "^16.3.2",
@@ -28,6 +29,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "prettier": "./node_modules/.bin/prettier --single-quote --trailing-comma es5 --print-width 80 --write --no-bracket-spacing src/**/**/**/**/*.js"
+    "prettier":
+      "./node_modules/.bin/prettier --single-quote --trailing-comma es5 --print-width 80 --write --no-bracket-spacing src/**/**/**/**/*.js"
   }
 }
