@@ -5,7 +5,7 @@ import TextField from '../TextField';
 import Grid from 'material-ui/Grid';
 import Dialog, { DialogContent } from 'material-ui/Dialog';
 import { DatePicker } from 'material-ui-pickers';
-import { CircularProgress } from 'material-ui/Progress';
+import CircularProgress from '../CircularProgress';
 import styles from './styles';
 import './listStyles.css';
 import Dropdown from '../Dropdown';
@@ -218,11 +218,7 @@ class List extends Component {
                         </Grid>
 
                         <Grid item>
-                          <CircularProgress
-                            className={classes.progress}
-                            size={12}
-                            thickness={5}
-                          />
+                          <CircularProgress />
                         </Grid>
                       </Grid>
                     )}
