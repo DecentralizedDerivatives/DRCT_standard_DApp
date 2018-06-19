@@ -1,0 +1,9 @@
+.table-wrapper {
+  width: 100%;
+  overflow-x: scroll;
+}
+
+.paper {
+  border-radius: 2;
+  z-index: 2;
+}

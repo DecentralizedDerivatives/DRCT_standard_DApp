@@ -1,10 +1,13 @@
 import React from 'react';
-import "./style.css";
+import './style.css';
 /*React Components*/
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
-import MaterialTable, { TableBody, TableHead, TableRow } from 'material-ui/Table';
-import Paper from 'material-ui/Paper';
+import MaterialTable, {
+  TableBody,
+  TableHead,
+  TableRow
+} from 'material-ui/Table';
 import Cell from './Cell';
 import styles from './styles';
 import { colors } from '../../styles/global';
@@ -30,35 +33,35 @@ function Table({ classes, titles, rows, tableWidth, ...props }) {
   const createRows = () =>
     rows.map((obj, i) => {
       let tableCells = [];
-      if (typeof obj.address !== "undefined" && typeof obj.symbol !== "undefined") {
+      if (
+        typeof obj.address !== 'undefined' &&
+        typeof obj.symbol !== 'undefined'
+      ) {
         /*Handles object format*/
-        Object.keys(obj).forEach((key) => {
+        Object.keys(obj).forEach(key => {
           switch (key) {
             /*Data to be skipped*/
-            case "symbol":
-            case "contractDuration":
-            case "contractMultiplier":
+            case 'symbol':
+            case 'contractDuration':
+            case 'contractMultiplier':
               break;
             /*Data to be displayed*/
-            case "address":
+            case 'address':
               tableCells.push(
                 <Cell props={props}>
                   <a
                     className={`${classes.link} token-address-link`}
-                    onClick={(event) => event.stopPropagation()}
+                    onClick={event => event.stopPropagation()}
                     data-token-address={obj.address}
                   >
-                    {obj.symbol} - {obj.contractDuration} Days - {obj.contractMultiplier}X
+                    {obj.symbol} - {obj.contractDuration} Days -{' '}
+                    {obj.contractMultiplier}X
                   </a>
                 </Cell>
               );
               break;
             default:
-              tableCells.push(
-                <Cell props={props}>
-                  {obj[key]}
-                </Cell>
-              )
+              tableCells.push(<Cell props={props}>{obj[key]}</Cell>);
               break;
           }
         });
@@ -73,16 +76,20 @@ function Table({ classes, titles, rows, tableWidth, ...props }) {
               {value.includes('0x') ? (
                 <a
                   className={`${classes.link} token-address-link`}
-                  href={value.length > 50 ? `https://rinkeby.etherscan.io/tx/${value}` : `https://rinkeby.etherscan.io/address/${value}`}
+                  href={
+                    value.length > 50
+                      ? `https://rinkeby.etherscan.io/tx/${value}`
+                      : `https://rinkeby.etherscan.io/address/${value}`
+                  }
                   target="_blank"
-                  onClick={(event) => event.stopPropagation()}
+                  onClick={event => event.stopPropagation()}
                   data-token-address={value}
                 >
                   {value.substring(0, 14)}...
-              </a>
+                </a>
               ) : (
-                  value
-                )}
+                value
+              )}
             </Cell>
           );
           // Check for currency types
@@ -115,14 +122,14 @@ function Table({ classes, titles, rows, tableWidth, ...props }) {
     });
 
   return (
-    <Paper className="table-wrapper">
+    <div className="table-wrapper paper">
       <MaterialTable className={classes.table}>
         <TableHead>
           <TableRow>{createTitles()}</TableRow>
         </TableHead>
         <TableBody>{createRows()}</TableBody>
       </MaterialTable>
-    </Paper>
+    </div>
   );
 }
 
