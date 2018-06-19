@@ -1,0 +1,132 @@
+COMPONENT STRUCTURE
+* = non material-ui component
+
+Main* 
+  Header*
+    AppBar 
+      Grid 
+        IconButton
+          MenuIcon
+      Grid 
+        Lens 
+      Grid
+        Typography
+        
+      NavDrawer*
+        Drawer 
+          IconButton
+          Divider 
+          List
+            ListItem 
+              ListItemText
+              
+      CreateContract* 
+        Dialog
+          DialogContent
+            Typography 
+            Grid
+             
+              Dropdown*
+                FormControl
+                  Select 
+                    menuItem
+
+            TextField 
+            Button 
+              Typography 
+          DialogContent
+            Grid 
+              Typography 
+            Grid 
+              CircularProgress 
+              
+      HowTo* 
+        Dialog
+          DialogContent
+            Typography
+            List 
+              ListItem
+                Avatar 
+                Typography 
+                
+      CashOut* 
+        Dialog
+          DialogContent
+            Typography      
+      
+  MyPortfolio*
+    Grid
+      Table 
+    Grid 
+      ContractDetails* 
+      
+  Bulletin*
+    Table*
+      Paper 
+        MaterialTable
+          TableHead
+            TableRow
+          TableBody 
+            TableRow
+    Button 
+      Typography 
+    Table 
+    PriceChart*
+    
+    ContractDetails* 
+      Dialog 
+        DialogContent
+          Typography 
+          
+    List* 
+      Dialog 
+        DialogContent
+          Typography
+          Grid
+            Dropdown
+          Typography 
+          TextField 
+          Button   
+            Typography
+    
+        DialogContent 
+          Grid 
+            Grid 
+              Typography 
+            Grid
+              Grid
+                Typography 
+              Grid 
+                CircularProgress
+    
+    Unlist* 
+      Dialog 
+        DialogContent
+          Typography
+          Grid
+            Dropdown
+          Typography 
+          TextField 
+          Button   
+            Typography
+  
+    Buy* 
+      Dialog 
+        DialogContent
+          Typography
+          Grid
+            Dropdown
+          Typography 
+          TextField 
+          Button   
+            Typography    
+    
+  ErrorModal*  
+    Dialog
+      DialogTitle
+      DialogContent
+        DialogContentText
+      DialogActions
+        Button 
+          
+      
