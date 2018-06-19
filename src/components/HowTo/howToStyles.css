@@ -1,0 +1,14 @@
+.container {
+  marginbottom: 15px;
+}
+
+.main-title {
+  font-weight: 500;
+  font-size: 35px;
+  border-bottom: 0.5px solid #e5e5e5;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 13px;
+}
