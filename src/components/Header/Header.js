@@ -3,14 +3,10 @@ import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import AppBar from 'material-ui/AppBar';
-import Typography from 'material-ui/Typography';
 import Grid from 'material-ui/Grid';
 import withStyles from 'material-ui/styles/withStyles';
-import Button from 'material-ui/Button';
-import Lens from '@material-ui/icons/Lens';
-import IconButton from 'material-ui/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
 import styles from './styles';
+import './headerStyles.css';
 import CreateContract from '../CreateContract';
 import CashOut from '../CashOut';
 import HowTo from '../HowTo';
@@ -19,7 +15,7 @@ import NavDrawer from '../NavDrawer';
 class Header extends Component {
   static propTypes = {
     classes: PropTypes.object.isRequired,
-    connected: PropTypes.bool.isRequired,
+    connected: PropTypes.bool.isRequired
   };
   constructor() {
     super();
@@ -30,7 +26,7 @@ class Header extends Component {
       openCreate: false,
       openHow: false,
       connected: true,
-      drawerOpen: false,
+      drawerOpen: false
     };
   }
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -39,7 +35,7 @@ class Header extends Component {
     return {
       ...prevState,
       ...nextProps,
-      active: url,
+      active: url
     };
   }
 
@@ -62,7 +58,7 @@ class Header extends Component {
   closeCreateContract = () => {
     this.setState({
       openCreate: false,
-      active: this.state.previousActive,
+      active: this.state.previousActive
     });
   };
 
@@ -73,7 +69,7 @@ class Header extends Component {
   closeCashOut = () => {
     this.setState({
       openCash: false,
-      active: this.state.previousActive,
+      active: this.state.previousActive
     });
   };
 
@@ -84,7 +80,7 @@ class Header extends Component {
   closeHowTo = () => {
     this.setState({
       openHow: false,
-      active: this.state.previousActive,
+      active: this.state.previousActive
     });
   };
 
@@ -98,7 +94,7 @@ class Header extends Component {
       'bulletin',
       'create_contract',
       'cash_out',
-      'how_to',
+      'how_to'
     ];
     return [
       'Logo',
@@ -106,42 +102,38 @@ class Header extends Component {
       'Bulletin',
       'Create Contract',
       'Cash Out',
-      'How To',
+      'How To'
     ].map((link, i) => {
       const component = (
         <Grid key={link} item>
-          <Button
+          <button
             className={
-              this.state.active === urls[i]
-                ? classes.buttonActive
-                : classes.button
+              this.state.active === urls[i] ? 'button-active' : 'button'
             }
             onClick={() => this.onClick(urls[i])}
           >
-            <Typography
+            <span
               key={link}
               className={
-                this.state.active === urls[i]
-                  ? classes.linkTextActive
-                  : classes.linkText
+                this.state.active === urls[i] ? 'link-text-active' : 'link-text'
               }
             >
               {link}
-            </Typography>
-          </Button>
+            </span>
+          </button>
         </Grid>
       );
 
       if (i === 0) {
         return (
-          <Link className={classes.link} to={`/${urls[i]}`} key={link}>
+          <Link className="header-link" to={`/${urls[i]}`} key={link}>
             <div className="logo">
               <img
                 src="dda-logo.png"
                 width="70"
                 alt="Logo"
                 height="70"
-                className={classes.link}
+                className="header-link"
                 style={{ marginTop: '7%', marginRight: '20%' }}
               />
             </div>
@@ -151,9 +143,16 @@ class Header extends Component {
 
       if (i === 0) {
         return (
-          <Link className={classes.link} to={`/${urls[i]}`} key={link}>
+          <Link className="header-link" to={`/${urls[i]}`} key={link}>
             <div className="logo">
-              <img src="dda-logo.png" width="70" height="70" alt="Home" className={classes.link} style={{ marginTop: '7%', marginRight: '20%' }} />
+              <img
+                src="dda-logo.png"
+                width="70"
+                height="70"
+                alt="Home"
+                className="header-link"
+                style={{ marginTop: '7%', marginRight: '20%' }}
+              />
             </div>
           </Link>
         );
@@ -161,15 +160,14 @@ class Header extends Component {
 
       if (i !== 3) {
         return (
-          <Link className={classes.link} to={`/${urls[i]}`} key={link}>
+          <Link className="header-link" to={`/${urls[i]}`} key={link}>
             {component}
           </Link>
         );
       }
 
       return component;
-    }
-    );
+    });
   };
 
   handleDrawer = () => this.setState({ drawerOpen: !this.state.drawerOpen });
@@ -193,14 +191,13 @@ class Header extends Component {
               direction="row"
             >
               <Grid className={classes.menuContainer} item>
-                <IconButton
-                  className={classes.menuButton}
-                  color="inherit"
+                <button
+                  className="menu-button"
                   aria-label="Menu"
                   onClick={this.handleDrawer}
                 >
-                  <MenuIcon className={classes.menuIcon} />
-                </IconButton>
+                  <i className="material-icons menu-icon">menu</i>
+                </button>
               </Grid>
               {this.renderHeaderLinks()}
             </Grid>
@@ -214,15 +211,19 @@ class Header extends Component {
               alignItems="center"
             >
               <Grid item>
-                <Typography className={classes.connected}>Connected</Typography>
+                <p className="connected">Connected</p>
               </Grid>
 
               <Grid item>
-                <Lens
+                <i
                   className={
-                    this.state.connected ? classes.lens : classes.lensOff
+                    this.state.connected
+                      ? 'material-icons lens-icon lens-on'
+                      : 'material-icons lens-icon lens-off'
                   }
-                />
+                >
+                  lens
+                </i>
               </Grid>
             </Grid>
           </Grid>
@@ -238,10 +239,7 @@ class Header extends Component {
           open={this.state.openCreate}
           toggle={this.closeCreateContract}
         />
-        <HowTo
-          open={this.state.openHow}
-          toggle={this.closeHowTo}
-        />
+        <HowTo open={this.state.openHow} toggle={this.closeHowTo} />
         <CashOut open={this.state.openCash} toggle={this.closeCashOut} />
       </AppBar>
     );

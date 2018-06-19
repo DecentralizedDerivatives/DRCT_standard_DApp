@@ -1,23 +1,22 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import withStyles from 'material-ui/styles/withStyles';
-import Button from 'material-ui/Button';
-import TextField from 'material-ui/TextField';
+import TextField from '../TextField';
 import Grid from 'material-ui/Grid';
-import Typography from 'material-ui/Typography';
-import Dialog, {DialogContent} from 'material-ui/Dialog';
-import {CircularProgress} from 'material-ui/Progress';
+import Dialog, { DialogContent } from 'material-ui/Dialog';
+import { CircularProgress } from 'material-ui/Progress';
 import styles from './styles';
+import './createContractStyles.css';
 import Dropdown from '../Dropdown';
-import {Factory, UserContract, web3} from '../../ethereum';
+import { Factory, UserContract, web3 } from '../../ethereum';
 
 class CreateContract extends Component {
   static propTypes = {
     classes: PropTypes.object.isRequired,
     open: PropTypes.bool.isRequired,
-    toggle: PropTypes.func.isRequired,
+    toggle: PropTypes.func.isRequired
   };
-  constructor(){
+  constructor() {
     super();
     this.state = {
       open: false,
@@ -26,121 +25,134 @@ class CreateContract extends Component {
       amount: 0.1,
       contractAddress: '',
       txId: '',
-      selectedDate: "",
+      selectedDate: '',
       loading: false,
       disabled: false,
       created: false,
-      openDates:[],
+      openDates: []
     };
   }
   static durations = ['One week'];
   static currency = ['BTC/USD'];
 
-  componentWillMount(){
-    this.getOpenDates().then((res)=>{
+  componentWillMount() {
+    this.getOpenDates().then(res => {
       this.setState({
-        openDates:res,
+        openDates: res
       });
     });
   }
 
   handleChange = event => {
-    this.setState({[event.target.name]: event.target.value});
+    this.setState({ [event.target.name]: event.target.value });
   };
 
   handleDateChange = date => {
-    this.setState({selectedDate: date});
+    this.setState({ selectedDate: date });
   };
 
   handleTextfieldChange = name => event => {
     this.setState({
-      [name]: event.target.value,
+      [name]: event.target.value
     });
   };
-  getOpenDates = async () =>{
-      const factory = await Factory.at("0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642");
-      const openDates = [];
-      const numDates = await factory.getDateCount();
-      for (let i = 0; i < numDates; i++) {
-        const startDates = (await factory.startDates.call(i)).c[0];
-        let _date = new Date(startDates * 1000);
-        _date = (_date.getUTCMonth() + 1) + '/' + (_date.getUTCDate()) + '/' + _date.getUTCFullYear();
-        openDates.push(_date);
-      }
-      return openDates;
-  }
+  getOpenDates = async () => {
+    const factory = await Factory.at(
+      '0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642'
+    );
+    const openDates = [];
+    const numDates = await factory.getDateCount();
+    for (let i = 0; i < numDates; i++) {
+      const startDates = (await factory.startDates.call(i)).c[0];
+      let _date = new Date(startDates * 1000);
+      _date =
+        _date.getUTCMonth() +
+        1 +
+        '/' +
+        _date.getUTCDate() +
+        '/' +
+        _date.getUTCFullYear();
+      openDates.push(_date);
+    }
+    return openDates;
+  };
   createContract = async () => {
-    const factory = await Factory.at("0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642");
+    const factory = await Factory.at(
+      '0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642'
+    );
     const accounts = await web3.eth.getAccounts();
 
-    let date = Math.floor((new Date(this.state.selectedDate)).getTime() / 1000);
+    let date = Math.floor(new Date(this.state.selectedDate).getTime() / 1000);
     date = date - date % 86400;
     let response, error;
 
-    this.setState({loading: true, disabled: true, showAddress: true});
+    this.setState({ loading: true, disabled: true, showAddress: true });
 
     try {
       response = await factory.deployContract(date, {
         from: accounts[0],
-        gas: 4000000,
+        gas: 4000000
       });
     } catch (err) {
       error = err;
     }
 
-    this.setState({loading: false});
+    this.setState({ loading: false });
 
     if (error) {
       // Add error handling
-      this.setState({txId: error.tx, error: true, disabled: false});
+      this.setState({ txId: error.tx, error: true, disabled: false });
       return;
     }
 
     this.setState({
       showSendFunds: true,
       txId: response.tx,
-      contractAddress: response.logs[0].args._created,
+      contractAddress: response.logs[0].args._created
     });
   };
 
   sendFunds = async () => {
-    const factory = await Factory.at("0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642");
-    var uc_add = await factory.user_contract.call();
+    const factory = await Factory.at(
+      '0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642'
+    );
+    let uc_add = await factory.user_contract.call();
     const userContract = await UserContract.at(uc_add);
     const accounts = await web3.eth.getAccounts();
     console.log(this.state.contractAddress);
     console.log(accounts[0]);
 
     let _value = 1e18 * this.state.amount;
-    console.log(this.state.contractAddress,_value,_value*2);
+    console.log(this.state.contractAddress, _value, _value * 2);
     let response, error;
-    userContract.Initiate(this.state.contractAddress,_value,{
+    userContract
+      .Initiate(this.state.contractAddress, _value, {
         from: accounts[0],
         gas: 4000000,
-        value: _value*2
-      }).then((res,err) =>{
-        if(err){
-          console.log('Error Message:', err);
-        }
-        else(console.log('Succesful Initiation of Contract!: ',res));
+        value: _value * 2
       })
-    this.props.toggle
+      .then((res, err) => {
+        if (err) {
+          console.log('Error Message:', err);
+        } else console.log('Succesful Initiation of Contract!: ', res);
+      });
+    this.props.toggle;
   };
   handleDropdownChange = e => {
     this.setState({ selectedDate: e.target.value });
   };
   render() {
-    const {classes} = this.props;
+    const { classes } = this.props;
     return (
       <div>
         <Dialog
           open={this.props.open}
           onClose={this.props.toggle}
-          PaperProps={{className: classes.paper}}
+          PaperProps={{ className: classes.paper }}
         >
           <DialogContent className={classes.dialogContent}>
-            <div className={classes.inputContainer}>
-              <Typography className={classes.title}>Contract Type</Typography>
+            <div className="input-container">
+              <p className="input-title">Contract Type</p>
               <Grid container justify="space-between">
                 <Grid item>
                   <Dropdown
@@ -163,46 +175,42 @@ class CreateContract extends Component {
               </Grid>
             </div>
 
-            <div className={classes.inputContainer}>
-              <Typography className={classes.title}>Start Date</Typography>
-                  <Dropdown
-                    menuItems={this.state.openDates}
-                    value={this.state.selectedDate}
-                    name="selectedDate"
-                    onChange={this.handleChange}
-                    className={classes.fullWidth}
-                  />
+            <div className="input-container">
+              <p className="input-title">Start Date</p>
+              <Dropdown
+                menuItems={this.state.openDates}
+                value={this.state.selectedDate}
+                name="selectedDate"
+                onChange={this.handleChange}
+                className={classes.fullWidth}
+              />
             </div>
 
-            <div className={classes.inputContainer}>
-              <Typography className={classes.title}>Amount of Ether</Typography>
+            <div className="input-container">
+              <p className="input-title">Amount of Ether</p>
 
               <TextField
                 id="amount"
                 value={Number(this.state.amount)}
                 type="number"
                 onChange={this.handleTextfieldChange('amount')}
-                className={classes.fullWidth}
+                className="full-width"
                 helperText="Must be at least 0.1"
               />
             </div>
-            <Button
-              className={
-                this.state.disabled ? classes.buttonDisabled : classes.button
-              }
+            <button
+              className={this.state.disabled ? 'button-disabled' : 'button'}
               disabled={this.state.disabled}
               onClick={this.createContract}
             >
-              <Typography className={classes.buttonText}>
-                Create Contract
-              </Typography>
-            </Button>
+              <span className="button-text">Create Contract</span>
+            </button>
           </DialogContent>
 
           {this.state.showAddress && <div className={classes.line} />}
           {this.state.showAddress && (
             <DialogContent className={classes.addressResultContainer}>
-              <div className={classes.inputContainer}>
+              <div className="input-container">
                 <Grid
                   container
                   direction="row"
@@ -210,18 +218,14 @@ class CreateContract extends Component {
                   justify="space-between"
                 >
                   <Grid item>
-                    <Typography className={classes.title}>
-                      Address Result
-                    </Typography>
+                    <p className="input-title">Address Result</p>
                   </Grid>
 
                   <Grid item>
                     {this.state.loading && (
                       <Grid container direction="row" alignItems="stretch">
                         <Grid item>
-                          <Typography className={classes.waiting}>
-                            Waiting for confirmation...
-                          </Typography>
+                          <p className="waiting">Waiting for confirmation...</p>
                         </Grid>
 
                         <Grid item>
@@ -237,9 +241,9 @@ class CreateContract extends Component {
                 </Grid>
 
                 {this.state.contractAddress && (
-                  <Typography className={classes.contractAddress}>
+                  <p className="contract-address">
                     {this.state.contractAddress}
-                  </Typography>
+                  </p>
                 )}
               </div>
             </DialogContent>
@@ -248,11 +252,9 @@ class CreateContract extends Component {
           {this.state.showSendFunds && <div className={classes.line} />}
           {this.state.showSendFunds && (
             <DialogContent className={classes.sendFundsContainer}>
-              <Button className={classes.button} onClick={this.sendFunds}>
-                <Typography className={classes.buttonText}>
-                  Send Funds
-                </Typography>
-              </Button>
+              <button className="button" onClick={this.sendFunds}>
+                <span className="button-text">Send Funds</span>
+              </button>
             </DialogContent>
           )}
         </Dialog>

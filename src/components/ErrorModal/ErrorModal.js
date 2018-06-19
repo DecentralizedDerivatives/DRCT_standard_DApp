@@ -1,17 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from 'material-ui/Button';
 import Dialog, {
   DialogActions,
   DialogContent,
   DialogContentText,
-  DialogTitle,
+  DialogTitle
 } from 'material-ui/Dialog';
 import withStyles from 'material-ui/styles/withStyles';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styles from './styles';
+import './errorModalstyles';
 
-const ErrorModal = ({open, onClick, content, title, buttonText, classes}) => (
+const ErrorModal = ({ open, onClick, content, title, buttonText, classes }) => (
   <Dialog
     open={open}
     onClose={onClick}
@@ -25,16 +25,16 @@ const ErrorModal = ({open, onClick, content, title, buttonText, classes}) => (
       </DialogContentText>
     </DialogContent>
     <DialogActions>
-      <Button color="primary" autoFocus onClick={onClick}>
-        <Link className={classes.link} to="/">
+      <button className="button" autofocus onClick={onClick}>
+        <Link className="button-link" to="/">
           Homepage
         </Link>
-      </Button>
-      <Button color="primary" autoFocus>
-        <a className={classes.link} href="https://metamask.io/" target="_blank">
+      </button>
+      <button className="button" autofocus>
+        <a className="button-link" href="https://metamask.io/" target="_blank">
           Get Metamask
         </a>
-      </Button>
+      </button>
     </DialogActions>
   </Dialog>
 );
@@ -45,7 +45,7 @@ ErrorModal.propTypes = {
   onClick: PropTypes.func.isRequired,
   content: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
     .isRequired,
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(ErrorModal);

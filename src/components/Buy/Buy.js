@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import withStyles from 'material-ui/styles/withStyles';
-import Button from 'material-ui/Button';
-import TextField from 'material-ui/TextField';
-import Typography from 'material-ui/Typography';
+import TextField from '../TextField';
 import Dialog, { DialogContent } from 'material-ui/Dialog';
 import styles from './styles';
+import './buyStyles.css';
 import Dropdown from '../Dropdown';
 import { Factory, token, web3, Exchange } from '../../ethereum';
 
@@ -13,7 +12,7 @@ class Buy extends Component {
   static propTypes = {
     classes: PropTypes.object.isRequired,
     open: PropTypes.bool.isRequired,
-    toggle: PropTypes.func.isRequired,
+    toggle: PropTypes.func.isRequired
   };
   constructor() {
     super();
@@ -31,43 +30,48 @@ class Buy extends Component {
 
   componentDidMount() {
     this.getOrderDetails();
-
   }
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-
   handleTextfieldChange = name => event => {
     this.setState({
-      [name]: event.target.value,
+      [name]: event.target.value
     });
   };
 
   getOrderDetails = async () => {
     const exchange = await Exchange.deployed();
-    const factory = await Factory.at("0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642");
+    const factory = await Factory.at(
+      '0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642'
+    );
     const accounts = await web3.eth.getAccounts();
 
     // get orders for that book:
     let o_row = [];
-    let _allrows = []
+    let _allrows = [];
 
     let order;
-    var j = 4;//this.props.orderID
+    let j = 4; //this.props.orderID
     order = await exchange.getOrder(j);
-    var _date = await factory.token_dates.call(order[3]);
+    let _date = await factory.token_dates.call(order[3]);
     _date = new Date(_date * 1000);
-    _date = (_date.getMonth() + 1) + '/' + _date.getDate() + '/' + _date.getFullYear()
-    o_row = j.toString() + '(' + order[3], order[1].c[0].toString() + '/' + order[2].c[0].toString() + '/' + _date.toString() + ')';
+    _date =
+      _date.getMonth() + 1 + '/' + _date.getDate() + '/' + _date.getFullYear();
+    (o_row = j.toString() + '(' + order[3]),
+      order[1].c[0].toString() +
+        '/' +
+        order[2].c[0].toString() +
+        '/' +
+        _date.toString() +
+        ')';
     _allrows.push(o_row);
     this.setState({ myOrders: _allrows });
     if (_allrows.length == 1) {
       this.setState({ selectedToken: order[3] });
     }
-  }
-
-
+  };
 
   buyOrder = async () => {
     const exchange = await Exchange.deployed();
@@ -82,7 +86,7 @@ class Buy extends Component {
       response = await exchange.buy(oId, {
         from: accounts[0],
         gas: 4000000,
-        value: _value,
+        value: _value
       });
     } catch (err) {
       error = err;
@@ -93,7 +97,9 @@ class Buy extends Component {
       return;
     }
 
-    { this.props.toggle }
+    {
+      this.props.toggle;
+    }
   };
 
   render() {
@@ -107,32 +113,29 @@ class Buy extends Component {
         >
           <DialogContent className={classes.dialogContent}>
             <div className={classes.inputContainer}>
-              <Typography className={classes.title}>
-                Order Confirmation
-              </Typography>
+              <p className="input-title">Order Confirmation</p>
             </div>
             <div className={classes.inputContainer}>
-              <Typography className={classes.title}>Buy Order ID:</Typography>
+              <p className="input-title">Buy Order ID:</p>
 
               <TextField
                 id="orderID"
                 value={Number(this.state.orderID)}
                 type="number"
                 onChange={this.handleTextfieldChange('orderID')}
-                className={classes.fullWidth}
+                className="full-width"
                 helperText="Enter the orderID"
               />
             </div>
 
-            <Button
-              className={
-                this.state.disabled ? classes.buttonDisabled : classes.button
-              }
+            <button
+              type="button"
+              className={this.state.disabled ? 'button-disabled' : 'button'}
               disabled={this.state.disabled}
               onClick={this.buyOrder}
             >
-              <Typography className={classes.buttonText}>Submit</Typography>
-            </Button>
+              <span className="button-text">Submit</span>
+            </button>
           </DialogContent>
         </Dialog>
       </div>
@@ -141,9 +144,7 @@ class Buy extends Component {
 }
 
 Buy.propTypes = {
-  orderID: PropTypes.string.isRequired,
+  orderID: PropTypes.string.isRequired
 };
-
-
 
 export default withStyles(styles)(Buy);

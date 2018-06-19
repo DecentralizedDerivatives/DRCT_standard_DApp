@@ -1,24 +1,23 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import withStyles from 'material-ui/styles/withStyles';
-import Button from 'material-ui/Button';
-import TextField from 'material-ui/TextField';
+import TextField from '../TextField';
 import Grid from 'material-ui/Grid';
-import Typography from 'material-ui/Typography';
-import Dialog, {DialogContent} from 'material-ui/Dialog';
-import {DatePicker} from 'material-ui-pickers';
-import {CircularProgress} from 'material-ui/Progress';
+import Dialog, { DialogContent } from 'material-ui/Dialog';
+import { DatePicker } from 'material-ui-pickers';
+import { CircularProgress } from 'material-ui/Progress';
 import styles from './styles';
+import './transactionDetailsStyles.css';
 import Dropdown from '../Dropdown';
-import {Factory, token, web3} from '../../ethereum';
+import { Factory, token, web3 } from '../../ethereum';
 
 class TransactionDetails extends Component {
   static propTypes = {
     classes: PropTypes.object.isRequired,
     open: PropTypes.bool.isRequired,
-    toggle: PropTypes.func.isRequired,
+    toggle: PropTypes.func.isRequired
   };
-  constructor(){
+  constructor() {
     super();
     this.state = {
       open: false,
@@ -28,28 +27,30 @@ class TransactionDetails extends Component {
       selectedDate: new Date(),
       loading: false,
       disabled: false,
-      created: false,
+      created: false
     };
   }
   static durations = ['One weeks', 'Two weeks'];
   static currency = ['BTC/USD', 'ETH/USD'];
 
   handleChange = event => {
-    this.setState({[event.target.name]: event.target.value});
+    this.setState({ [event.target.name]: event.target.value });
   };
 
   handleDateChange = date => {
-    this.setState({selectedDate: date});
+    this.setState({ selectedDate: date });
   };
 
   handleTextfieldChange = name => event => {
     this.setState({
-      [name]: event.target.value,
+      [name]: event.target.value
     });
   };
 
   CashOut = async () => {
-    const factory = await Factory.at("0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642");
+    const factory = await Factory.at(
+      '0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642'
+    );
     const accounts = await web3.eth.getAccounts();
 
     let date = Number(
@@ -60,92 +61,86 @@ class TransactionDetails extends Component {
 
     let response, error;
 
-    this.setState({loading: true, disabled: true, showAddress: true});
+    this.setState({ loading: true, disabled: true, showAddress: true });
 
     try {
       response = await factory.deployContract(date, {
         from: accounts[0],
-        gas: 4000000,
+        gas: 4000000
       });
     } catch (err) {
       error = err;
     }
 
-    this.setState({loading: false});
+    this.setState({ loading: false });
 
     if (error) {
       // Add error handling
-      this.setState({txId: error.tx, error: true, disabled: false});
+      this.setState({ txId: error.tx, error: true, disabled: false });
       return;
     }
 
     this.setState({
       showSendFunds: true,
       txId: response.tx,
-      contractAddress: response.logs[0].args._created,
+      contractAddress: response.logs[0].args._created
     });
   };
 
   render() {
-    const {classes} = this.props;
+    const { classes } = this.props;
 
     return (
       <div>
         <Dialog
           open={this.props.open}
           onClose={this.props.toggle}
-          PaperProps={{className: classes.paper}}
+          PaperProps={{ className: classes.paper }}
         >
           <DialogContent className={classes.dialogContent}>
-            <div className={classes.inputContainer}>
-              <Typography className={classes.title}>
-                Transaction Details
-              </Typography>
+            <div className="input-container">
+              <p className="input-container">Transaction Details</p>
             </div>
 
-            <div className={classes.inputContainer}>
-              <Typography className={classes.title}>Amount of Ether</Typography>
+            <div className="input-container">
+              <p className="input-container">Amount of Ether</p>
 
               <TextField
                 id="amount"
                 value={Number(this.state.amount)}
                 type="number"
                 onChange={this.handleTextfieldChange('amount')}
-                className={classes.fullWidth}
+                className="full-width"
                 helperText="Must be at least 0.1"
               />
             </div>
 
-            <div className={classes.inputContainer}>
-              <Typography className={classes.title}>Premium</Typography>
+            <div className="input-container">
+              <p className="input-container">Premium</p>
 
               <TextField
                 id="premium"
                 value={this.state.premium}
                 type="number"
                 onChange={this.handleTextfieldChange('premium')}
-                className={classes.fullWidth}
+                className="full-width"
                 helperText="Recommended 0.1"
               />
             </div>
 
-            <Button
-              className={
-                this.state.disabled ? classes.buttonDisabled : classes.button
-              }
+            <button
+              className={this.state.disabled ? 'button-disabled' : 'button'}
               disabled={this.state.disabled}
               onClick={this.CashOut}
             >
-              <Typography className={classes.buttonText}>
-                Create Contract
-              </Typography>
-            </Button>
+              <span className="button-text">Create Contract</span>
+            </button>
           </DialogContent>
 
           {this.state.showAddress && <div className={classes.line} />}
           {this.state.showAddress && (
             <DialogContent className={classes.addressResultContainer}>
-              <div className={classes.inputContainer}>
+              <div className="input-container">
                 <Grid
                   container
                   direction="row"
@@ -153,18 +148,14 @@ class TransactionDetails extends Component {
                   justify="space-between"
                 >
                   <Grid item>
-                    <Typography className={classes.title}>
-                      Address Result
-                    </Typography>
+                    <p className="input-container">Address Result</p>
                   </Grid>
 
                   <Grid item>
                     {this.state.loading && (
                       <Grid container direction="row" alignItems="stretch">
                         <Grid item>
-                          <Typography className={classes.waiting}>
-                            Waiting for confirmation...
-                          </Typography>
+                          <p className="waiting">Waiting for confirmation...</p>
                         </Grid>
 
                         <Grid item>
@@ -179,11 +170,7 @@ class TransactionDetails extends Component {
                   </Grid>
                 </Grid>
 
-                {this.state.txId && (
-                  <Typography className={classes.txId}>
-                    {this.state.txId}
-                  </Typography>
-                )}
+                {this.state.txId && <p className="tx-id">{this.state.txId}</p>}
               </div>
             </DialogContent>
           )}
@@ -191,11 +178,9 @@ class TransactionDetails extends Component {
           {this.state.showSendFunds && <div className={classes.line} />}
           {this.state.showSendFunds && (
             <DialogContent className={classes.sendFundsContainer}>
-              <Button className={classes.button} onClick={this.sendFunds}>
-                <Typography className={classes.buttonText}>
-                  Send Funds
-                </Typography>
-              </Button>
+              <button className="button" onClick={this.sendFunds}>
+                <span className="button-text">Send Funds</span>
+              </button>
             </DialogContent>
           )}
         </Dialog>

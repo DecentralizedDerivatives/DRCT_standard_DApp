@@ -1,37 +1,34 @@
-import React, {Component} from 'react';
-import {withRouter} from 'react-router';
-import {Link} from 'react-router-dom';
+import React, { Component } from 'react';
+import { withRouter } from 'react-router';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import withStyles from 'material-ui/styles/withStyles';
-import Button from 'material-ui/Button';
-import IconButton from 'material-ui/IconButton';
 import Drawer from 'material-ui/Drawer';
-import Divider from 'material-ui/Divider';
-import List, {ListItem, ListItemIcon, ListItemText} from 'material-ui/List';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
 import styles from './styles';
+import './navDrawerStyles.css';
 
 class NavDrawer extends Component {
   static propTypes = {
     open: PropTypes.bool.isRequired,
-    handleDrawer: PropTypes.func.isRequired,
+    handleDrawer: PropTypes.func.isRequired
   };
 
   renderNavLinks = () => {
-    const {classes} = this.props;
+    const { classes } = this.props;
     const urls = [
       'portfolio',
       'bulletin',
       'create_contract',
       'cash_out',
-      'how_to',
+      'how_to'
     ];
     return [
       'My Portfolio',
       'Bulletin',
       'Create Contract',
       'Cash Out',
-      'How To',
+      'How To'
     ].map((link, i) => {
       if (i === 2 || i === 3) {
         return (
@@ -40,7 +37,7 @@ class NavDrawer extends Component {
             key={link}
             onClick={() => this.props.onClick(urls[i])}
           >
-            <div className={classes.link}>
+            <div className="drawer-link">
               <ListItemText primary={link} />
             </div>
           </ListItem>
@@ -48,7 +45,7 @@ class NavDrawer extends Component {
       }
 
       return (
-        <Link className={classes.link} to={`/${urls[i]}`} key={link}>
+        <Link className="drawer-link" to={`/${urls[i]}`} key={link}>
           <ListItem button>
             <ListItemText primary={link} />
           </ListItem>
@@ -58,7 +55,7 @@ class NavDrawer extends Component {
   };
 
   render() {
-    const {classes, handleDrawer, open} = this.props;
+    const { classes, handleDrawer, open } = this.props;
 
     return (
       <Drawer
@@ -66,13 +63,19 @@ class NavDrawer extends Component {
         anchor={'left'}
         open={open}
         classes={{
-          paper: classes.drawerPaper,
+          paper: classes.drawerPaper
         }}
       >
         <div className={classes.drawerHeader}>
-          <IconButton onClick={handleDrawer}>{<ChevronLeftIcon />}</IconButton>
+          <button
+            className="drawer-button"
+            aria-label="Close Menu"
+            onClick={handleDrawer}
+          >
+            <i className="material-icons drawer-icon">chevron_left</i>
+          </button>
         </div>
-        <Divider />
+        <hr className="divider" />
         <List>{this.renderNavLinks()}</List>
       </Drawer>
     );

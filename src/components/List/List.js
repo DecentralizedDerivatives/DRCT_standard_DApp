@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import withStyles from 'material-ui/styles/withStyles';
-import Button from 'material-ui/Button';
-import TextField from 'material-ui/TextField';
+import TextField from '../TextField';
 import Grid from 'material-ui/Grid';
-import Typography from 'material-ui/Typography';
 import Dialog, { DialogContent } from 'material-ui/Dialog';
 import { DatePicker } from 'material-ui-pickers';
 import { CircularProgress } from 'material-ui/Progress';
 import styles from './styles';
+import './listStyles.css';
 import Dropdown from '../Dropdown';
 import { Factory, token, DRCT, web3, Exchange } from '../../ethereum';
 
@@ -16,22 +15,22 @@ class List extends Component {
   static propTypes = {
     classes: PropTypes.object.isRequired,
     open: PropTypes.bool.isRequired,
-    toggle: PropTypes.func.isRequired,
+    toggle: PropTypes.func.isRequired
   };
   constructor() {
     super();
     this.state = {
       open: false,
-      selectedToken: "",
-      amount: "",
-      price: "",
+      selectedToken: '',
+      amount: '',
+      price: '',
       loading: false,
       disabled: false,
       created: false,
       myTokens: [],
-      showList:false,
-      txId:"",
-      approval:""
+      showList: false,
+      txId: '',
+      approval: ''
     };
   }
   componentWillMount() {
@@ -42,11 +41,13 @@ class List extends Component {
   };
   handleTextfieldChange = name => event => {
     this.setState({
-      [name]: event.target.value,
+      [name]: event.target.value
     });
   };
   getMyPositions = async () => {
-    const factory = await Factory.at("0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642");
+    const factory = await Factory.at(
+      '0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642'
+    );
     const accounts = await web3.eth.getAccounts();
     const numDates = await factory.getDateCount();
     let _allrows = [];
@@ -55,52 +56,62 @@ class List extends Component {
       const startDates = (await factory.startDates.call(i)).c[0];
       const _token_addresses = await factory.getTokens(startDates);
       let _date = new Date(startDates * 1000);
-      _date = (_date.getMonth() + 1) + '/' + _date.getDate() + '/' + _date.getFullYear();
-      for(let j=0;j<_token_addresses.length;j++){
-        const drct = await DRCT.at(_token_addresses[j]);//Getting contract
-        const _balance = (await drct.balanceOf(accounts[0])).c[0];//Getting balance of token
+      _date =
+        _date.getMonth() +
+        1 +
+        '/' +
+        _date.getDate() +
+        '/' +
+        _date.getFullYear();
+      for (let j = 0; j < _token_addresses.length; j++) {
+        const drct = await DRCT.at(_token_addresses[j]); //Getting contract
+        const _balance = (await drct.balanceOf(accounts[0])).c[0]; //Getting balance of token
         if (_balance > 0) {
-          _allrows.push(_token_addresses[j] + '(' + _balance + '/' + _date + ')'); //Pushing token address + balance/date
+          _allrows.push(
+            _token_addresses[j] + '(' + _balance + '/' + _date + ')'
+          ); //Pushing token address + balance/date
         }
       }
     }
-    console.log("mytokens",_allrows);
-    _allrows.length?
-    this.setState({
-      myTokens: _allrows,
-      selectedToken: _allrows[0],
-    })
-    :this.setState({ myTokens: ["No Current Positions"] });
-  }
+    console.log('mytokens', _allrows);
+    _allrows.length
+      ? this.setState({
+          myTokens: _allrows,
+          selectedToken: _allrows[0]
+        })
+      : this.setState({ myTokens: ['No Current Positions'] });
+  };
 
   approveOrder = async () => {
     const accounts = await web3.eth.getAccounts();
     const exchange = await Exchange.deployed();
-    const tokenSel = this.state.selectedToken.split('(')[0].replace(/['"]+/g, '');
+    const tokenSel = this.state.selectedToken
+      .split('(')[0]
+      .replace(/['"]+/g, '');
     const drct = await DRCT.at(tokenSel);
     let response, error;
-    this.setState({loading: true, disabled: true, showApproval: true});
-    console.log('inputs',exchange.address,this.state.amount)
+    this.setState({ loading: true, disabled: true, showApproval: true });
+    console.log('inputs', exchange.address, this.state.amount);
     try {
-      response = await drct.approve(exchange.address,this.state.amount, {
+      response = await drct.approve(exchange.address, this.state.amount, {
         from: accounts[0],
-        gas: 4000000,
+        gas: 4000000
       });
       /*Handle Success Here*/
       this.setState({
         showList: true,
         txId: response.tx,
-        approval: "Order approval confirmed",
-        loading:false,
+        approval: 'Order approval confirmed',
+        loading: false
       });
     } catch (error) {
       /*Handle error here*/
       this.setState({
-        txId: error.tx, 
-        error: true, 
+        txId: error.tx,
+        error: true,
         disabled: false,
         loading: false,
-        approval: "Error approving order",
+        approval: 'Error approving order'
       });
     }
   };
@@ -108,19 +119,23 @@ class List extends Component {
   listOrder = async () => {
     const exchange = await Exchange.deployed();
     const accounts = await web3.eth.getAccounts();
-    const tokenSel = this.state.selectedToken.split('(')[0].replace(/['"]+/g, '');
+    const tokenSel = this.state.selectedToken
+      .split('(')[0]
+      .replace(/['"]+/g, '');
     let response, error;
-    exchange.list(tokenSel, this.state.amount, this.state.price * 1e18, {
+    exchange
+      .list(tokenSel, this.state.amount, this.state.price * 1e18, {
         from: accounts[0],
         gas: 4000000
-      }).then((res,err) =>{
-        if(err){
+      })
+      .then((res, err) => {
+        if (err) {
           console.log('Error Message:', err);
-        }else{
-          console.log("RESPONSE",res);
+        } else {
+          console.log('RESPONSE', res);
         }
-    })
-    this.props.toggle
+      });
+    this.props.toggle;
   };
 
   render() {
@@ -133,12 +148,12 @@ class List extends Component {
           PaperProps={{ className: classes.paper }}
         >
           <DialogContent className={classes.dialogContent}>
-            <div className={classes.inputContainer}>
-              <Typography className={classes.title}>Place Order</Typography>
+            <div className="input-container">
+              <p className="input-title">Place Order</p>
               <Grid item>
                 <Dropdown
                   menuItems={this.state.myTokens}
-                  value={this.state.selectedToken || "Select a Token"}
+                  value={this.state.selectedToken || 'Select a Token'}
                   name="selectedToken"
                   onChange={this.handleChange}
                   className={classes.selectedToken}
@@ -146,50 +161,45 @@ class List extends Component {
               </Grid>
             </div>
 
-            <div className={classes.inputContainer}>
-              <Typography className={classes.title}>Price (in Ether)</Typography>
+            <div className="input-container">
+              <p className="input-title">Price (in Ether)</p>
 
               <TextField
                 id="price"
                 value={Number(this.state.price)}
                 type="number"
                 onChange={this.handleTextfieldChange('price')}
-                className={classes.fullWidth}
+                className="full-width"
                 helperText="Enter the price in Ether (e.g. 0.1)"
               />
             </div>
 
-
-            <div className={classes.inputContainer}>
-              <Typography className={classes.title}>Amount</Typography>
+            <div className="input-container">
+              <p className="input-title">Amount</p>
 
               <TextField
                 id="amount"
                 value={Number(this.state.amount)}
                 type="number"
                 onChange={this.handleTextfieldChange('amount')}
-                className={classes.fullWidth}
+                className="full-width"
                 helperText="Enter the amount of the token to sell"
               />
             </div>
 
-            <Button
-              className={
-                this.state.disabled ? classes.buttonDisabled : classes.button
-              }
+            <button
+              className={this.state.disabled ? 'button-disabled' : 'button'}
               disabled={this.state.disabled}
               onClick={this.approveOrder}
             >
-              <Typography className={classes.buttonText}>
-                Submit for Approval
-              </Typography>
-            </Button>
+              <span className="button-text">Submit for Approval</span>
+            </button>
           </DialogContent>
 
-                    {this.state.showApproval && <div className={classes.line} />}
+          {this.state.showApproval && <div className={classes.line} />}
           {this.state.showApproval && (
             <DialogContent className={classes.approvalContainer}>
-              <div className={classes.inputContainer}>
+              <div className="input-container">
                 <Grid
                   container
                   direction="row"
@@ -197,18 +207,14 @@ class List extends Component {
                   justify="space-between"
                 >
                   <Grid item>
-                    <Typography className={classes.title}>
-                      Approval
-                    </Typography>
+                    <p className="input-title">Approval</p>
                   </Grid>
 
                   <Grid item>
                     {this.state.loading && (
                       <Grid container direction="row" alignItems="stretch">
                         <Grid item>
-                          <Typography className={classes.waiting}>
-                            Waiting for confirmation...
-                          </Typography>
+                          <p className="waiting">Waiting for confirmation...</p>
                         </Grid>
 
                         <Grid item>
@@ -224,9 +230,7 @@ class List extends Component {
                 </Grid>
 
                 {this.state.approval && (
-                  <Typography className={classes.approval}>
-                    {this.state.approval}
-                  </Typography>
+                  <p className="approval input-text">{this.state.approval}</p>
                 )}
               </div>
             </DialogContent>
@@ -235,11 +239,9 @@ class List extends Component {
           {this.state.showList && <div className={classes.line} />}
           {this.state.showList && (
             <DialogContent className={classes.listContainer}>
-              <Button className={classes.button} onClick={this.listOrder}>
-                <Typography className={classes.buttonText}>
-                  List Order
-                </Typography>
-              </Button>
+              <button className="button" onClick={this.listOrder}>
+                <span className="button-text">List Order</span>
+              </button>
             </DialogContent>
           )}
         </Dialog>

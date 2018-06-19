@@ -1,23 +1,23 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import withStyles from 'material-ui/styles/withStyles';
-import Typography from 'material-ui/Typography';
 import Dialog, { DialogContent } from 'material-ui/Dialog';
 import styles from './styles';
+import './contractDetailsStyles.css';
 
 class ContractDetails extends Component {
   static propTypes = {
     classes: PropTypes.object.isRequired,
     open: PropTypes.bool.isRequired,
-    toggle: PropTypes.func.isRequired,
+    toggle: PropTypes.func.isRequired
   };
-  constructor(){
+  constructor() {
     super();
     this.state = {
       open: false,
       currency: '',
       amount: 0.1,
-      selectedDate: new Date(),
+      selectedDate: new Date()
     };
   }
 
@@ -27,8 +27,8 @@ class ContractDetails extends Component {
   render() {
     const { classes } = this.props;
 
-    return typeof this.props.tokenAddress !== "undefined" && this.props.tokenAddress.length?
-    (
+    return typeof this.props.tokenAddress !== 'undefined' &&
+      this.props.tokenAddress.length ? (
       <div>
         <Dialog
           open={this.props.open}
@@ -36,29 +36,62 @@ class ContractDetails extends Component {
           PaperProps={{ className: classes.paper }}
         >
           <DialogContent className={classes.dialogContent}>
-            <div className={classes.inputContainer}>
-              <Typography className={classes.title}>Factory Contract</Typography>
+            <div className="input-container">
+              <p className="input-title">Factory Contract</p>
             </div>
-            <div className={classes.inputContainer}>
-              <Typography className={classes.title}>Address: <a href={`https://rinkeby.etherscan.io/address/${this.props.contractAddress}`} target="_blank" >{this.props.contractAddress}</a></Typography>
+            <div className="input-container">
+              <p className="input-title">
+                Address:{' '}
+                <a
+                  href={`https://rinkeby.etherscan.io/address/${
+                    this.props.contractAddress
+                  }`}
+                  target="_blank"
+                >
+                  {this.props.contractAddress}
+                </a>
+              </p>
             </div>
-            <div className={classes.inputContainer}>
-              <Typography className={classes.title}>Duration: {this.props.contractDuration}</Typography>
+            <div className="input-container">
+              <p className="input-title">
+                Duration: {this.props.contractDuration}
+              </p>
             </div>
-            <div className={classes.inputContainer}>
-              <Typography className={classes.title}>Multiplier: {this.props.contractMultiplier}</Typography>
+            <div className="input-container">
+              <p className="input-title">
+                Multiplier: {this.props.contractMultiplier}
+              </p>
             </div>
-            <div className={classes.inputContainer}>
-              <Typography className={classes.title}>Oracle Address: <a href={`https://rinkeby.etherscan.io/address/${this.props.oracleAddress}`} target="_blank" >{this.props.oracleAddress}</a></Typography>
+            <div className="input-container">
+              <p className="input-title">
+                Oracle Address:{' '}
+                <a
+                  href={`https://rinkeby.etherscan.io/address/${
+                    this.props.oracleAddress
+                  }`}
+                  target="_blank"
+                >
+                  {this.props.oracleAddress}
+                </a>
+              </p>
             </div>
-            <div className={classes.inputContainer}>
-              <Typography className={classes.title}>Token Address:  <a href={`https://rinkeby.etherscan.io/address/${this.props.tokenAddress}`} target="_blank" >{this.props.tokenAddress}</a></Typography>
+            <div className="input-container">
+              <p className="input-title">
+                Token Address:{' '}
+                <a
+                  href={`https://rinkeby.etherscan.io/address/${
+                    this.props.tokenAddress
+                  }`}
+                  target="_blank"
+                >
+                  {this.props.tokenAddress}
+                </a>
+              </p>
             </div>
           </DialogContent>
         </Dialog>
       </div>
-    )
-    :( 
+    ) : (
       <div>
         <Dialog
           open={this.props.open}
@@ -66,21 +99,44 @@ class ContractDetails extends Component {
           PaperProps={{ className: classes.paper }}
         >
           <DialogContent className={classes.dialogContent}>
-
-            <div className={classes.inputContainer}>
-              <Typography className={classes.title}>Factory Contract</Typography>
+            <div className="input-container">
+              <p className="input-title">Factory Contract</p>
             </div>
-            <div className={classes.inputContainer}>
-              <Typography className={classes.title}>Address: <a href={`https://rinkeby.etherscan.io/address/${this.props.contractAddress}`} target="_blank" >{this.props.contractAddress}</a></Typography>
+            <div className="input-container">
+              <p className="input-title">
+                Address:{' '}
+                <a
+                  href={`https://rinkeby.etherscan.io/address/${
+                    this.props.contractAddress
+                  }`}
+                  target="_blank"
+                >
+                  {this.props.contractAddress}
+                </a>
+              </p>
             </div>
-            <div className={classes.inputContainer}>
-              <Typography className={classes.title}>Duration: {this.props.contractDuration}</Typography>
+            <div className="input-container">
+              <p className="input-title">
+                Duration: {this.props.contractDuration}
+              </p>
             </div>
-            <div className={classes.inputContainer}>
-              <Typography className={classes.title}>Multiplier: {this.props.contractMultiplier}</Typography>
+            <div className="input-container">
+              <p className="input-title">
+                Multiplier: {this.props.contractMultiplier}
+              </p>
             </div>
-            <div className={classes.inputContainer}>
-              <Typography className={classes.title}>Oracle Address: <a href={`https://rinkeby.etherscan.io/address/${this.props.oracleAddress}`} target="_blank" >{this.props.oracleAddress}</a></Typography>
+            <div className="input-container">
+              <p className="input-title">
+                Oracle Address:{' '}
+                <a
+                  href={`https://rinkeby.etherscan.io/address/${
+                    this.props.oracleAddress
+                  }`}
+                  target="_blank"
+                >
+                  {this.props.oracleAddress}
+                </a>
+              </p>
             </div>
           </DialogContent>
         </Dialog>

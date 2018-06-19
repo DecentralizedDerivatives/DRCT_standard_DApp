@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import Button from 'material-ui/Button';
-import Typography from 'material-ui/Typography';
 import Table from '../Table';
 import ContractDetails from '../ContractDetails';
 import PriceChart from '../PriceChart';
@@ -8,7 +6,7 @@ import List from '../List';
 import Unlist from '../Unlist';
 import Buy from '../Buy';
 
-import './style.css'
+import './style.css';
 
 import { Factory, Exchange, web3 } from '../../ethereum';
 
@@ -16,7 +14,9 @@ class Bulletin extends Component {
   constructor() {
     super();
     this.state = {
-      orderbook: [['loading...', 'loading...', 'loading...', 'loading...', '...']],
+      orderbook: [
+        ['loading...', 'loading...', 'loading...', 'loading...', '...']
+      ],
       previousActive: '',
       recentTrades: [['loading...', 'loading...', 'loading...']],
       active: '',
@@ -24,16 +24,16 @@ class Bulletin extends Component {
       openU: false,
       openL: false,
       openB: false,
-      orderID: "xxx",
-      myAccount: "xxx",
-      contractAddress: "",
-      contractDuration: "",
-      contractMultiplier: "",
-      oracleAddress: "",
-      selectedTokenAddress:"",
+      orderID: 'xxx',
+      myAccount: 'xxx',
+      contractAddress: '',
+      contractDuration: '',
+      contractMultiplier: '',
+      oracleAddress: '',
+      selectedTokenAddress: ''
     };
   }
-  fetchData = () => { };
+  fetchData = () => {};
   componentDidMount() {
     web3.eth.getAccounts((error, accounts) => {
       this.setState({ myAccount: accounts[0] });
@@ -57,25 +57,41 @@ class Bulletin extends Component {
   // }
 
   onClickRow = link => {
-    let addressEl =  link.currentTarget.getElementsByClassName("token-address-link")[0];
-    if(typeof addressEl !== "undefined"){
-      this.openContractDetails(link,addressEl.getAttribute("data-token-address"));
+    let addressEl = link.currentTarget.getElementsByClassName(
+      'token-address-link'
+    )[0];
+    if (typeof addressEl !== 'undefined') {
+      this.openContractDetails(
+        link,
+        addressEl.getAttribute('data-token-address')
+      );
     }
   };
 
   onBuyClick = link => {
     console.log(link);
-  }
+  };
 
-  openContractDetails = (newActive,token_address=false) => {
-    if(token_address){
-      this.setState({ active:newActive, open: true, previousActive: this.state.active,selectedTokenAddress:token_address });
-    }else{
-      this.setState({ active:newActive, open: true, previousActive: this.state.active});
+  openContractDetails = (newActive, token_address = false) => {
+    if (token_address) {
+      this.setState({
+        active: newActive,
+        open: true,
+        previousActive: this.state.active,
+        selectedTokenAddress: token_address
+      });
+    } else {
+      this.setState({
+        active: newActive,
+        open: true,
+        previousActive: this.state.active
+      });
     }
   };
   getContractDetails = async () => {
-    const factory = await Factory.at("0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642");
+    const factory = await Factory.at(
+      '0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642'
+    );
     let response, error;
     try {
       response = await factory.getVariables();
@@ -90,25 +106,25 @@ class Bulletin extends Component {
       contractAddress: response[0],
       contractDuration: response[1].c[0],
       contractMultiplier: response[2].c[0],
-      oracleAddress: response[3],
+      oracleAddress: response[3]
     });
   };
   closeContractDetails = () => {
     this.setState({
       open: false,
-      active: this.state.previousActive,
+      active: this.state.previousActive
     });
   };
 
-  openBuy = (link) => {
-    this.setState({ orderID: link })
+  openBuy = link => {
+    this.setState({ orderID: link });
     this.setState({ openB: true, previousActive: this.state.active });
   };
 
   closeBuy = () => {
     this.setState({
       openB: false,
-      active: this.state.previousActive,
+      active: this.state.previousActive
     });
     this.getOrderBook();
     this.getRecentTrades();
@@ -121,7 +137,7 @@ class Bulletin extends Component {
   closeList = () => {
     this.setState({
       openL: false,
-      active: this.state.previousActive,
+      active: this.state.previousActive
     });
     this.getOrderBook();
     this.getRecentTrades();
@@ -134,13 +150,13 @@ class Bulletin extends Component {
   closeUnlist = () => {
     this.setState({
       openU: false,
-      active: this.state.previousActive,
+      active: this.state.previousActive
     });
     this.getOrderBook();
     this.getRecentTrades();
   };
 
-  buyOrder = () => { };
+  buyOrder = () => {};
 
   getRecentTrades = async () => {
     const exchange = await Exchange.deployed();
@@ -154,12 +170,12 @@ class Bulletin extends Component {
     await transferEvent.get((error, logs) => {
       for (let i = logs.length - 1; i >= Math.max(logs.length - 10, 0); i--) {
         _trades.push({
-          address:logs[i].args['_token'].toString(), 
-          volume:logs[i].args['_amount'].toString(),
-          price:(logs[i].args['_price']/1e18).toString(),
-          contractDuration:this.state.contractDuration,
-          contractMultiplier:this.state.contractMultiplier,
-          symbol:"BTC/USD",/*CURRENTLY USING STATIC SYMBOL NEED TO FIX*/
+          address: logs[i].args['_token'].toString(),
+          volume: logs[i].args['_amount'].toString(),
+          price: (logs[i].args['_price'] / 1e18).toString(),
+          contractDuration: this.state.contractDuration,
+          contractMultiplier: this.state.contractMultiplier,
+          symbol: 'BTC/USD' /*CURRENTLY USING STATIC SYMBOL NEED TO FIX*/
         });
       }
       if (logs.length === 0) {
@@ -170,7 +186,9 @@ class Bulletin extends Component {
   };
 
   getOrderBook = async () => {
-    const factory = await Factory.at("0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642");
+    const factory = await Factory.at(
+      '0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642'
+    );
     //orderbook
 
     // first get number of open books (tokens with open orders):
@@ -188,16 +206,22 @@ class Bulletin extends Component {
           order = await exchange.getOrder(orders[j].c[0]);
           let _date = await factory.token_dates.call(book);
           _date = new Date(_date * 1000);
-          _date = (_date.getUTCMonth() + 1) + '/' + (_date.getUTCDate()) + '/' + _date.getUTCFullYear();
+          _date =
+            _date.getUTCMonth() +
+            1 +
+            '/' +
+            _date.getUTCDate() +
+            '/' +
+            _date.getUTCFullYear();
           allrows.push({
-            orderId:orders[j].c[0].toString(),
+            orderId: orders[j].c[0].toString(),
             address: order[3],
-            price:(order[1].c[0] / 10000).toString(),
-            quantity:order[2].c[0].toString(),
-            date:_date.toString(),
-            contractDuration:this.state.contractDuration,
-            contractMultiplier:this.state.contractMultiplier,
-            symbol:"BTC/USD", /*CURRENTLY USING STATIC SYMBOL NEED TO FIX*/
+            price: (order[1].c[0] / 10000).toString(),
+            quantity: order[2].c[0].toString(),
+            date: _date.toString(),
+            contractDuration: this.state.contractDuration,
+            contractMultiplier: this.state.contractMultiplier,
+            symbol: 'BTC/USD' /*CURRENTLY USING STATIC SYMBOL NEED TO FIX*/
           });
         }
       }
@@ -208,30 +232,39 @@ class Bulletin extends Component {
   render() {
     return (
       <div>
-        <div className='wrapper'>
-          <div className='order-book'>
+        <div className="wrapper">
+          <div className="order-book">
             <Table
-              titles={['Order ID','Asset','Price (ETH)','Quantity','Start Date']}
+              titles={[
+                'Order ID',
+                'Asset',
+                'Price (ETH)',
+                'Quantity',
+                'Start Date'
+              ]}
               rows={this.state.orderbook}
               clickFunction={this.onClickRow}
             />
           </div>
-          <div className='order-buttons'>
+          <div className="order-buttons">
             <ul className="bulletin-order-btns-wrapper">
               <li>
-                <Button className="bulletin-order-btn" onClick={this.openList}>
-                  <Typography className="bulletin-order-btn-txt">List Order</Typography>
-                </Button>
+                <button className="bulletin-order-btn" onClick={this.openList}>
+                  <span className="bulletin-order-btn-txt">List Order</span>
+                </button>
               </li>
               <li>
-                <Button className="bulletin-order-btn" onClick={this.openBuy}>
-                  <Typography className="bulletin-order-btn-txt">Buy Order</Typography>
-                </Button>
+                <button className="bulletin-order-btn" onClick={this.openBuy}>
+                  <span className="bulletin-order-btn-txt">Buy Order</span>
+                </button>
               </li>
               <li>
-                <Button className="bulletin-order-btn" onClick={this.openUnlist}>
-                  <Typography className="bulletin-order-btn-txt">Unlist Order</Typography>
-                </Button>
+                <button
+                  className="bulletin-order-btn"
+                  onClick={this.openUnlist}
+                >
+                  <span className="bulletin-order-btn-txt">Unlist Order</span>
+                </button>
               </li>
             </ul>
             <Table
@@ -239,9 +272,10 @@ class Bulletin extends Component {
               rows={this.state.recentTrades}
               cellHeight="15px"
               fontSize="12px"
-              clickFunction={this.onBuyClick} />
+              clickFunction={this.onBuyClick}
+            />
           </div>
-          <div className='price-chart'>
+          <div className="price-chart">
             <PriceChart />
           </div>
         </div>
@@ -254,10 +288,7 @@ class Bulletin extends Component {
           oracleAddress={this.state.oracleAddress}
           tokenAddress={this.state.selectedTokenAddress}
         />
-        <List
-          open={this.state.openL}
-          toggle={this.closeList}
-        />
+        <List open={this.state.openL} toggle={this.closeList} />
         <Unlist
           myAccount={this.state.myAccount}
           open={this.state.openU}
@@ -272,4 +303,5 @@ class Bulletin extends Component {
     );
   }
 }
+
 export default Bulletin;
