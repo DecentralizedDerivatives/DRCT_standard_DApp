@@ -1,22 +1,18 @@
 import React, { Component } from 'react';
-import "./style.css";
-/*React Components*/
 import PropTypes from 'prop-types';
-import withStyles from 'material-ui/styles/withStyles';
 import Highcharts from 'highcharts/highstock';
-import api from '../../api';
-import theme from "./theme.js";
+import api from '../api';
 require('highcharts/modules/exporting')(Highcharts);
+import highchartsOptions from './highcharts.options';
+import '../styles/pricechart.css';
 
-// Apply the theme
-Highcharts.theme = theme;
-Highcharts.setOptions(Highcharts.theme);
+Highcharts.setOptions(highchartsOptions);
 
 class PriceChart extends Component {
   constructor() {
     super();
     this.state = {
-      currency: 'BTC',
+      currency: 'BTC'
     };
   }
   static currencies = ['BTC', 'ETH'];
@@ -36,11 +32,11 @@ class PriceChart extends Component {
         {
           data: this.state.data,
           tooltip: {
-            valueDecimals: 2,
+            valueDecimals: 2
           },
-          enableMouseTracking: false,
-        },
-      ],
+          enableMouseTracking: false
+        }
+      ]
     });
   };
 
@@ -53,11 +49,20 @@ class PriceChart extends Component {
     return (
       <div className="price-chart">
         <div className="price-chart-item">
-            <select onChange={this.handleChange} className="price-chart-dropdown">
-              {PriceChart.currencies.map((item,index)=>{
-                return <option key={"price-chart"+index} className="price-chart-dropdown-item" name={item} value={item}>{item}</option> 
-              })}
-            </select>
+          <select onChange={this.handleChange} className="price-chart-dropdown">
+            {PriceChart.currencies.map((item, index) => {
+              return (
+                <option
+                  key={'price-chart' + index}
+                  className="price-chart-dropdown-item"
+                  name={item}
+                  value={item}
+                >
+                  {item}
+                </option>
+              );
+            })}
+          </select>
           <div className="price-chart-item">
             <div className="price-chart-item" id="container" />
           </div>
