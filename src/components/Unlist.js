@@ -1,17 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import withStyles from 'material-ui/styles/withStyles';
-import TextField from '../TextField';
-import Grid from 'material-ui/Grid';
-import Dialog, { DialogContent } from 'material-ui/Dialog';
-import styles from './styles';
-import './unlistStyles.css';
-import Dropdown from '../Dropdown';
-import { Factory, Exchange, web3 } from '../../ethereum';
+import TextField from './TextField';
+import Dropdown from './Dropdown';
+import { Factory, Exchange, web3 } from '../ethereum';
+import '../styles/unlist.css';
 
 class Unlist extends Component {
   static propTypes = {
-    classes: PropTypes.object.isRequired,
     open: PropTypes.bool.isRequired,
     toggle: PropTypes.func.isRequired,
     myAccount: PropTypes.string
@@ -115,29 +110,24 @@ class Unlist extends Component {
   };
 
   render() {
-    const { classes } = this.props;
     return (
       <div>
-        <Dialog
-          open={this.props.open}
-          onClose={this.props.toggle}
-          PaperProps={{ className: classes.paper }}
-        >
-          <DialogContent className={classes.dialogContent}>
+        <div className="container unlist-form">
+          <div className="dialog-container">
             <div className="input-container">
-              <p className="input-title">Select order from dropdown :</p>
-              <Grid item>
+              <p className="input">Select order from dropdown :</p>
+              <div className="flex-container">
                 <Dropdown
-                  menuItems={this.state.orderLabels}
+                  options={this.state.orderLabels}
                   value={this.state.selectedToken}
                   name="selectedToken"
                   onChange={this.handleChange}
-                  className={classes.selectedToken}
+                  className="dropdown-selectedToken"
                 />
-              </Grid>
+              </div>
             </div>
             <div className="input-container">
-              <p className="input-title">Or enter order ID:</p>
+              <p className="input">Or enter order ID:</p>
               <TextField
                 id="orderID"
                 value={Number(this.state.orderID)}
@@ -154,11 +144,11 @@ class Unlist extends Component {
             >
               <span className="button-text">Submit</span>
             </button>
-          </DialogContent>
-        </Dialog>
+          </div>
+        </div>
       </div>
     );
   }
 }
 
-export default withStyles(styles)(Unlist);
+export default Unlist;
