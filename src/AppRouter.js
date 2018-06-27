@@ -1,18 +1,16 @@
 import React, { Component } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import withStyles from 'material-ui/styles/withStyles';
-import styles from './styles';
-import ErrorModal from '../ErrorModal';
-import Header from '../Header';
-import MyPortfolio from '../MyPortfolio';
-import Bulletin from '../Bulletin';
-import CashOut from '../CashOut';
-import withRoot from '../../utils/withRoot';
-import HowTo from '../HowTo';
-import { web3 } from '../../ethereum';
-import Sample from '../Sample';
+import ErrorModal from './components/ErrorModal';
+import Header from './components/Header';
+import Landing from './components/Landing';
+import MyPortfolio from './components/MyPortfolio';
+import Bulletin from './components/Bulletin';
+import CashOut from './components/CashOut';
+import HowTo from './components/HowTo';
+import { web3 } from '../ethereum';
+import '../styles/main.css';
 
-class Main extends Component {
+class AppRouter extends Component {
   constructor() {
     super();
     this.state = {
@@ -32,6 +30,8 @@ class Main extends Component {
     }
   }
   onModalPress = () => this.setState({ modal: !this.state.modal });
+
+  // Convert to middleware
   isWeb3Active = component => {
     const { accounts, network } = this.state;
     if (network !== 4 || !accounts.length) {
@@ -39,30 +39,23 @@ class Main extends Component {
     }
     return component;
   };
+
   render() {
     return (
-      <div className="main">
+      <div className="app">
         <Header connected={this.state.connected} />
+        <Route exact path="/" component={Landing} />
         <Switch>
           <Route path="/portfolio" component={this.isWeb3Active(MyPortfolio)} />
           <Route path="/bulletin" component={this.isWeb3Active(Bulletin)} />
-          <Redirect to="/portfolio" />
+          <Route path="/how-to" component={HowTo} />
+          <Redirect to="/" />
         </Switch>
 
-        <ErrorModal
-          open={this.state.modal}
-          onClick={this.onModalPress}
-          content={
-            <span>
-              Are you sure you're connected to the Ethereum Rinkeby Testnet?
-            </span>
-          }
-          title="Unable to detect network"
-          buttonText="Go to Homepage"
-        />
+        <ErrorModal open={this.state.modal} onClick={this.onModalPress} />
       </div>
     );
   }
 }
 
-export default withRoot(withStyles(styles)(Main));
+export default AppRouter;
