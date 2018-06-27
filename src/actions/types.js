@@ -1,0 +1,2 @@
+export const GET_ERRORS = 'GET_ERRORS';
+export const SET_USER_CONNECTED = 'SET_USER_CONNECTED';
