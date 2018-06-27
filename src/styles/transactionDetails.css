@@ -1,0 +1,59 @@
+.input-container {
+  marginbottom: '15px';
+}
+
+.input-title {
+  font-weight: 500;
+  font-size: '13px';
+}
+
+.button-text {
+  color: #fff;
+}
+
+.button {
+  width: 100%;
+  background-color: #114770;
+}
+
+.button:hover {
+  background-color: #9fb5c5;
+}
+
+.button-disabled: {
+  width: 100%;
+  background-color: #9fb5c5;
+}
+
+.tx-id {
+  font-weight: 500;
+  font-size: '16px';
+}
+
+.waiting {
+  font-weight: 300;
+  font-size: '13px';
+  color: 'rgba(0, 0, 0, 0.54)';
+  position: 'relative';
+  float: 'right';
+}
+
+.flex-container-stretch {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+.dialog-container {
+  padding-bottom: 30px;
+}
+
+.address-result-container {
+  padding-bottom: 5px;
+}
+
+.line {
+  border: 0.5px solid #e5e5e5;
+  margin-bottom: 15px;
+}

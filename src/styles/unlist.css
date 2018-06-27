@@ -1,0 +1,35 @@
+.input-title {
+  font-weight: 500;
+  font-size: '13px';
+}
+
+.button-text {
+  color: #fff;
+}
+
+.button {
+  width: 100%;
+  background-color: #114770;
+}
+
+.button:hover {
+  background-color: #9fb5c5;
+}
+
+.button-disabled: {
+  width: 100%;
+  background-color: #9fb5c5;
+}
+
+.dialog-container {
+  padding-bottom: 30px;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dropdown-selectedToken {
+  width: 150px;
+}
