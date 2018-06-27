@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-import Main from './components/Main';
-import 'normalize.css';
-import 'materialize-css/dist/css/materialize.min.css';
+import App from './App';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './styles/global.css';
 
 ReactDOM.render(
   <BrowserRouter>
-    <Main />
+    <App />
   </BrowserRouter>,
   document.getElementById('root')
 );
