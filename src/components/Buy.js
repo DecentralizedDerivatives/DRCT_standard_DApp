@@ -1,16 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import withStyles from 'material-ui/styles/withStyles';
-import TextField from '../TextField';
-import Dialog, { DialogContent } from 'material-ui/Dialog';
-import styles from './styles';
-import './buyStyles.css';
-import Dropdown from '../Dropdown';
-import { Factory, token, web3, Exchange } from '../../ethereum';
+import TextField from './TextField';
+import { Factory, token, web3, Exchange } from '../ethereum';
+import '../styles/buy.css';
 
 class Buy extends Component {
   static propTypes = {
-    classes: PropTypes.object.isRequired,
     open: PropTypes.bool.isRequired,
     toggle: PropTypes.func.isRequired
   };
@@ -89,55 +84,46 @@ class Buy extends Component {
         value: _value
       });
     } catch (err) {
-      error = err;
-    }
-    if (error) {
-      // Add error handling
-      console.log(error);
-      return;
+      console.log(err);
+      return err;
     }
 
-    {
-      this.props.toggle;
-    }
+    // TODO - show success or error message
+    // On success, redirect to portfolio
+    // {
+    //   this.props.toggle;
+    // }
   };
 
   render() {
-    const { classes } = this.props;
     return (
-      <div>
-        <Dialog
-          open={this.props.open}
-          onClose={this.props.toggle}
-          PaperProps={{ className: classes.paper }}
-        >
-          <DialogContent className={classes.dialogContent}>
-            <div className={classes.inputContainer}>
-              <p className="input-title">Order Confirmation</p>
-            </div>
-            <div className={classes.inputContainer}>
-              <p className="input-title">Buy Order ID:</p>
+      <div className="container buy-form">
+        <div className="dialog-container">
+          <div className="input-container">
+            <p className="input">Order Confirmation</p>
+          </div>
+          <div className="input-container">
+            <p className="input">Buy Order ID:</p>
 
-              <TextField
-                id="orderID"
-                value={Number(this.state.orderID)}
-                type="number"
-                onChange={this.handleTextfieldChange('orderID')}
-                className="full-width"
-                helperText="Enter the orderID"
-              />
-            </div>
+            <TextField
+              id="orderID"
+              value={Number(this.state.orderID)}
+              type="number"
+              onChange={this.handleTextfieldChange('orderID')}
+              className="full-width"
+              helperText="Enter the orderID"
+            />
+          </div>
 
-            <button
-              type="button"
-              className={this.state.disabled ? 'button-disabled' : 'button'}
-              disabled={this.state.disabled}
-              onClick={this.buyOrder}
-            >
-              <span className="button-text">Submit</span>
-            </button>
-          </DialogContent>
-        </Dialog>
+          <button
+            type="button"
+            className={this.state.disabled ? 'button-disabled' : 'button'}
+            disabled={this.state.disabled}
+            onClick={this.buyOrder}
+          >
+            <span className="button-text">Submit</span>
+          </button>
+        </div>
       </div>
     );
   }
@@ -147,4 +133,4 @@ Buy.propTypes = {
   orderID: PropTypes.string.isRequired
 };
 
-export default withStyles(styles)(Buy);
+export default Buy;
