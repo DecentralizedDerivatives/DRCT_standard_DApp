@@ -1,19 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import withStyles from 'material-ui/styles/withStyles';
-import TextField from '../TextField';
-import Grid from 'material-ui/Grid';
-import Dialog, { DialogContent } from 'material-ui/Dialog';
-import { DatePicker } from 'material-ui-pickers';
-import CircularProgress from '../CircularProgress';
-import styles from './styles';
-import './listStyles.css';
-import Dropdown from '../Dropdown';
-import { Factory, token, DRCT, web3, Exchange } from '../../ethereum';
+import TextField from './TextField';
+import CircularProgress from './CircularProgress';
+import Dropdown from './Dropdown';
+import { Factory, token, DRCT, web3, Exchange } from '../ethereum';
+import '../styles/list.css';
 
 class List extends Component {
   static propTypes = {
-    classes: PropTypes.object.isRequired,
     open: PropTypes.bool.isRequired,
     toggle: PropTypes.func.isRequired
   };
@@ -142,27 +136,23 @@ class List extends Component {
     const { classes } = this.props;
     return (
       <div>
-        <Dialog
-          open={this.props.open}
-          onClose={this.props.toggle}
-          PaperProps={{ className: classes.paper }}
-        >
-          <DialogContent className={classes.dialogContent}>
+        <div className="container list-form">
+          <div className="dialog-container">
             <div className="input-container">
-              <p className="input-title">Place Order</p>
-              <Grid item>
+              <p className="input">Place Order</p>
+              <div className="flex-container">
                 <Dropdown
-                  menuItems={this.state.myTokens}
+                  options={this.state.myTokens}
                   value={this.state.selectedToken || 'Select a Token'}
                   name="selectedToken"
                   onChange={this.handleChange}
-                  className={classes.selectedToken}
+                  className="dropdown-selectedToken"
                 />
-              </Grid>
+              </div>
             </div>
 
             <div className="input-container">
-              <p className="input-title">Price (in Ether)</p>
+              <p className="input">Price (in Ether)</p>
 
               <TextField
                 id="price"
@@ -175,7 +165,7 @@ class List extends Component {
             </div>
 
             <div className="input-container">
-              <p className="input-title">Amount</p>
+              <p className="input">Amount</p>
 
               <TextField
                 id="amount"
@@ -194,56 +184,51 @@ class List extends Component {
             >
               <span className="button-text">Submit for Approval</span>
             </button>
-          </DialogContent>
+          </div>
 
           {this.state.showApproval && <div className={classes.line} />}
           {this.state.showApproval && (
-            <DialogContent className={classes.approvalContainer}>
+            <div className="approval-container">
               <div className="input-container">
-                <Grid
-                  container
-                  direction="row"
-                  alignItems="stretch"
-                  justify="space-between"
-                >
-                  <Grid item>
-                    <p className="input-title">Approval</p>
-                  </Grid>
+                <div className="flex-container-stretch">
+                  <div>
+                    <p className="input">Approval</p>
+                  </div>
 
-                  <Grid item>
+                  <div>
                     {this.state.loading && (
-                      <Grid container direction="row" alignItems="stretch">
-                        <Grid item>
+                      <div className="flex-container-stretch">
+                        <div>
                           <p className="waiting">Waiting for confirmation...</p>
-                        </Grid>
+                        </div>
 
-                        <Grid item>
+                        <div>
                           <CircularProgress />
-                        </Grid>
-                      </Grid>
+                        </div>
+                      </div>
                     )}
-                  </Grid>
-                </Grid>
+                  </div>
+                </div>
 
                 {this.state.approval && (
                   <p className="approval input-text">{this.state.approval}</p>
                 )}
               </div>
-            </DialogContent>
+            </div>
           )}
 
-          {this.state.showList && <div className={classes.line} />}
+          {this.state.showList && <div className="line" />}
           {this.state.showList && (
-            <DialogContent className={classes.listContainer}>
+            <div className="list-container">
               <button className="button" onClick={this.listOrder}>
                 <span className="button-text">List Order</span>
               </button>
-            </DialogContent>
+            </div>
           )}
-        </Dialog>
+        </div>
       </div>
     );
   }
 }
 
-export default withStyles(styles)(List);
+export default List;
