@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import Table from '../Table';
-import ContractDetails from '../ContractDetails';
-import PriceChart from '../PriceChart';
-import List from '../List';
-import Unlist from '../Unlist';
-import Buy from '../Buy';
-
-import './style.css';
+import OrderBook from './OrderBook';
+import RecentTrades from './RecentTrades';
+import ContractDetails from './ContractDetails';
+import PriceChart from './PriceChart';
+import List from './List';
+import Unlist from './Unlist';
+import Buy from './Buy';
+import '../styles/bulletin.css';
 
 import { Factory, Exchange, web3 } from '../../ethereum';
 
@@ -14,9 +14,6 @@ class Bulletin extends Component {
   constructor() {
     super();
     this.state = {
-      orderbook: [
-        ['loading...', 'loading...', 'loading...', 'loading...', '...']
-      ],
       previousActive: '',
       recentTrades: [['loading...', 'loading...', 'loading...']],
       active: '',
@@ -38,12 +35,7 @@ class Bulletin extends Component {
     web3.eth.getAccounts((error, accounts) => {
       this.setState({ myAccount: accounts[0] });
     });
-    this.getOrderBook().then(result => {
-      this.setState({ orderbook: result });
-    });
-    this.getRecentTrades().then(res => {
-      this.setState({ recentTrades: res });
-    });
+
     //Getting contract details one time when its parent gets mounted
     this.getContractDetails();
   }
@@ -88,27 +80,7 @@ class Bulletin extends Component {
       });
     }
   };
-  getContractDetails = async () => {
-    const factory = await Factory.at(
-      '0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642'
-    );
-    let response, error;
-    try {
-      response = await factory.getVariables();
-    } catch (err) {
-      error = err;
-    }
-    if (error) {
-      console.log(error);
-      return;
-    }
-    this.setState({
-      contractAddress: response[0],
-      contractDuration: response[1].c[0],
-      contractMultiplier: response[2].c[0],
-      oracleAddress: response[3]
-    });
-  };
+
   closeContractDetails = () => {
     this.setState({
       open: false,
@@ -158,94 +130,12 @@ class Bulletin extends Component {
 
   buyOrder = () => {};
 
-  getRecentTrades = async () => {
-    const exchange = await Exchange.deployed();
-    var _trades = [];
-
-    let transferEvent = await exchange.Sale(
-      {},
-      { fromBlock: 0, toBlock: 'latest' }
-    );
-
-    await transferEvent.get((error, logs) => {
-      for (let i = logs.length - 1; i >= Math.max(logs.length - 10, 0); i--) {
-        _trades.push({
-          address: logs[i].args['_token'].toString(),
-          volume: logs[i].args['_amount'].toString(),
-          price: (logs[i].args['_price'] / 1e18).toString(),
-          contractDuration: this.state.contractDuration,
-          contractMultiplier: this.state.contractMultiplier,
-          symbol: 'BTC/USD' /*CURRENTLY USING STATIC SYMBOL NEED TO FIX*/
-        });
-      }
-      if (logs.length === 0) {
-        _trades = [['No Recent Trades', '...', '...']];
-      }
-    });
-    return _trades;
-  };
-
-  getOrderBook = async () => {
-    const factory = await Factory.at(
-      '0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642'
-    );
-    //orderbook
-
-    // first get number of open books (tokens with open orders):
-    let exchange = await Exchange.deployed();
-    let numBooks = await exchange.getBookCount();
-
-    // get orders for that book:
-    let allrows = [];
-    let order;
-    for (let i = 0; i < numBooks; i++) {
-      let book = await exchange.openBooks(i);
-      let orders = await exchange.getOrders(book);
-      for (let j = 0; j < orders.length; j++) {
-        if (orders[j].c[0] > 0) {
-          order = await exchange.getOrder(orders[j].c[0]);
-          let _date = await factory.token_dates.call(book);
-          _date = new Date(_date * 1000);
-          _date =
-            _date.getUTCMonth() +
-            1 +
-            '/' +
-            _date.getUTCDate() +
-            '/' +
-            _date.getUTCFullYear();
-          allrows.push({
-            orderId: orders[j].c[0].toString(),
-            address: order[3],
-            price: (order[1].c[0] / 10000).toString(),
-            quantity: order[2].c[0].toString(),
-            date: _date.toString(),
-            contractDuration: this.state.contractDuration,
-            contractMultiplier: this.state.contractMultiplier,
-            symbol: 'BTC/USD' /*CURRENTLY USING STATIC SYMBOL NEED TO FIX*/
-          });
-        }
-      }
-    }
-    return allrows;
-  };
-
   render() {
     return (
       <div>
         <div className="wrapper">
-          <div className="order-book">
-            <Table
-              titles={[
-                'Order ID',
-                'Asset',
-                'Price (ETH)',
-                'Quantity',
-                'Start Date'
-              ]}
-              rows={this.state.orderbook}
-              clickFunction={this.onClickRow}
-            />
-          </div>
+          <OrderBook />
+
           <div className="order-buttons">
             <ul className="bulletin-order-btns-wrapper">
               <li>
@@ -267,18 +157,15 @@ class Bulletin extends Component {
                 </button>
               </li>
             </ul>
-            <Table
-              titles={['Recent Trades', 'Volume', 'Price (ETH)']}
-              rows={this.state.recentTrades}
-              cellHeight="15px"
-              fontSize="12px"
-              clickFunction={this.onBuyClick}
-            />
           </div>
+
+          <RecentTrades />
+
           <div className="price-chart">
             <PriceChart />
           </div>
         </div>
+
         <ContractDetails
           open={this.state.open}
           toggle={this.closeContractDetails}
@@ -288,6 +175,7 @@ class Bulletin extends Component {
           oracleAddress={this.state.oracleAddress}
           tokenAddress={this.state.selectedTokenAddress}
         />
+
         <List open={this.state.openL} toggle={this.closeList} />
         <Unlist
           myAccount={this.state.myAccount}
