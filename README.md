@@ -1,19 +1,14 @@
 # DRCT Decentralized Application
 
-![Wormhole](./public/readme.png)
+![Wormhole](./src/imgs/readme.png)
 
 Code for dapp.ddacoop.org
-
 
     Requirements:
         Node.js
         Metamask
- 
-
-
 
 To clone on local machine and use contracts on Rinkeby network:
-
 
     git clone https://www.github.com/DecentralizedDerivatives/drct_standard_dapp
 
@@ -26,4 +21,3 @@ To clone on local machine and use contracts on Rinkeby network:
 Full documentation of the contracts at: [https://www.github.com/DecentralizedDerivatives/DRCT_standard](https://www.github.com/DecentralizedDerivatives/DRCT_standard)
 
 This webpage builds the DApp at dapp.ddacoop.org
-
