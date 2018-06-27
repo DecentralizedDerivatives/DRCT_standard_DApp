@@ -1,19 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import withStyles from 'material-ui/styles/withStyles';
-import TextField from '../TextField';
-import Grid from 'material-ui/Grid';
-import Dialog, { DialogContent } from 'material-ui/Dialog';
-import { DatePicker } from 'material-ui-pickers';
-import CircularProgress from '../CircularProgress';
-import styles from './styles';
-import './transactionDetailsStyles.css';
-import Dropdown from '../Dropdown';
-import { Factory, token, web3 } from '../../ethereum';
+import TextField from './TextField';
+import CircularProgress from './CircularProgress';
+import { Factory, token, web3 } from '../ethereum';
+import '../styles/transactionDetails.css';
 
 class TransactionDetails extends Component {
   static propTypes = {
-    classes: PropTypes.object.isRequired,
     open: PropTypes.bool.isRequired,
     toggle: PropTypes.func.isRequired
   };
@@ -57,7 +50,7 @@ class TransactionDetails extends Component {
       (new Date(this.state.selectedDate).getTime() / 1000).toFixed(0)
     );
 
-    date = date - date % 86400;
+    date = date - (date % 86400);
 
     let response, error;
 
@@ -88,16 +81,10 @@ class TransactionDetails extends Component {
   };
 
   render() {
-    const { classes } = this.props;
-
     return (
       <div>
-        <Dialog
-          open={this.props.open}
-          onClose={this.props.toggle}
-          PaperProps={{ className: classes.paper }}
-        >
-          <DialogContent className={classes.dialogContent}>
+        <div className="container transaction-details-form">
+          <div className="dialog-container">
             <div className="input-container">
               <p className="input-container">Transaction Details</p>
             </div>
@@ -135,54 +122,48 @@ class TransactionDetails extends Component {
             >
               <span className="button-text">Create Contract</span>
             </button>
-          </DialogContent>
+          </div>
 
-          {this.state.showAddress && <div className={classes.line} />}
+          {this.state.showAddress && <div className="line" />}
           {this.state.showAddress && (
-            <DialogContent className={classes.addressResultContainer}>
+            <div className="address-result-container">
               <div className="input-container">
-                <Grid
-                  container
-                  direction="row"
-                  alignItems="stretch"
-                  justify="space-between"
-                >
-                  <Grid item>
+                <div className="flex-container-stretch">
+                  <div className="flex-item">
                     <p className="input-container">Address Result</p>
-                  </Grid>
-
-                  <Grid item>
+                  </div>
+                  <div className="flex-item">
                     {this.state.loading && (
-                      <Grid container direction="row" alignItems="stretch">
-                        <Grid item>
+                      <div className="flex-container-stretch">
+                        <div className="flex-item">
                           <p className="waiting">Waiting for confirmation...</p>
-                        </Grid>
+                        </div>
 
-                        <Grid item>
+                        <div className="flex-item">
                           <CircularProgress />
-                        </Grid>
-                      </Grid>
+                        </div>
+                      </div>
                     )}
-                  </Grid>
-                </Grid>
+                  </div>
+                </div>
 
                 {this.state.txId && <p className="tx-id">{this.state.txId}</p>}
               </div>
-            </DialogContent>
+            </div>
           )}
 
           {this.state.showSendFunds && <div className={classes.line} />}
           {this.state.showSendFunds && (
-            <DialogContent className={classes.sendFundsContainer}>
+            <div className={classes.sendFundsContainer}>
               <button className="button" onClick={this.sendFunds}>
                 <span className="button-text">Send Funds</span>
               </button>
-            </DialogContent>
+            </div>
           )}
-        </Dialog>
+        </div>
       </div>
     );
   }
 }
 
-export default withStyles(styles)(TransactionDetails);
+export default TransactionDetails;
