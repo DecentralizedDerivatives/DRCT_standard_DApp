@@ -30,6 +30,10 @@ class MyPositions extends Component {
     });
   }
 
+  /**
+   * METHOD FOR ACTION CONVERSION
+   *
+   */
   getMyPositions = async () => {
     const factory = await Factory.at(
       '0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642'

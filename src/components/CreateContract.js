@@ -51,6 +51,11 @@ class CreateContract extends Component {
       [name]: event.target.value
     });
   };
+
+  /**
+   * METHOD FOR ACTION CONVERSION
+   *
+   */
   getOpenDates = async () => {
     const factory = await Factory.at(
       '0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642'
@@ -71,6 +76,11 @@ class CreateContract extends Component {
     }
     return openDates;
   };
+
+  /**
+   * METHOD FOR ACTION CONVERSION
+   *
+   */
   createContract = async () => {
     const factory = await Factory.at(
       '0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642'
@@ -106,6 +116,11 @@ class CreateContract extends Component {
       contractAddress: response.logs[0].args._created
     });
   };
+
+  /**
+   * METHOD FOR ACTION CONVERSION
+   *
+   */
 
   sendFunds = async () => {
     const factory = await Factory.at(

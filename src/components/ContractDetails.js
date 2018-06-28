@@ -26,6 +26,10 @@ class ContractDetails extends Component {
     this.getContractDetails();
   }
 
+  /**
+   * METHOD FOR ACTION CONVERSION
+   *
+   */
   getContractDetails = async () => {
     const factory = await Factory.at(
       '0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642'

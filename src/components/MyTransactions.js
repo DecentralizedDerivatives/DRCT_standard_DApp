@@ -26,6 +26,10 @@ class MyTransactions extends Component {
     this.getMyTransactions();
   }
 
+  /**
+   * METHOD FOR ACTION CONVERSION
+   *
+   */
   getmyTransactions = async () => {
     const exchange = await Exchange.deployed();
     const factory = await Factory.at(
@@ -70,6 +74,7 @@ class MyTransactions extends Component {
     }
   };
 
+  // Shouldn't this call a function to open TransactionDetails?
   onClickRow = link => {
     let addressEl = link.currentTarget.getElementsByClassName(
       'token-address-link'

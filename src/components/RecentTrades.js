@@ -30,6 +30,10 @@ class RecentTrades extends Component {
     });
   }
 
+  /**
+   * METHOD FOR ACTION CONVERSION
+   *
+   */
   getRecentTrades = async () => {
     const exchange = await Exchange.deployed();
     var _trades = [];
