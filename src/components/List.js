@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import TextField from './TextField';
-import CircularProgress from './CircularProgress';
+import BlockProgress from './BlockProgress';
 import Dropdown from './Dropdown';
 import { Factory, token, DRCT, web3, Exchange } from '../ethereum';
 import '../styles/list.css';
@@ -30,14 +30,21 @@ class List extends Component {
   componentWillMount() {
     this.getMyPositions();
   }
-  handleChange = event => {
-    this.setState({ [event.target.name]: event.target.value });
-  };
-  handleTextfieldChange = name => event => {
-    this.setState({
-      [name]: event.target.value
-    });
-  };
+
+  // handleChange = e => {
+  //   this.setState({ [e.target.name]: e.target.value });
+  // };
+  //
+  // handleFieldChange = name => e => {
+  //   this.setState({
+  //     [name]: e.target.value
+  //   });
+  // };
+
+  /**
+   * METHOD FOR ACTION CONVERSION
+   *
+   */
   getMyPositions = async () => {
     const factory = await Factory.at(
       '0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642'
@@ -76,6 +83,10 @@ class List extends Component {
       : this.setState({ myTokens: ['No Current Positions'] });
   };
 
+  /**
+   * METHOD FOR ACTION CONVERSION
+   *
+   */
   approveOrder = async () => {
     const accounts = await web3.eth.getAccounts();
     const exchange = await Exchange.deployed();
@@ -110,6 +121,10 @@ class List extends Component {
     }
   };
 
+  /**
+   * METHOD FOR ACTION CONVERSION
+   *
+   */
   listOrder = async () => {
     const exchange = await Exchange.deployed();
     const accounts = await web3.eth.getAccounts();
@@ -133,102 +148,122 @@ class List extends Component {
   };
 
   render() {
-    const { classes } = this.props;
     return (
-      <div>
-        <div className="container list-form">
-          <div className="dialog-container">
-            <div className="input-container">
-              <p className="input">Place Order</p>
-              <div className="flex-container">
-                <Dropdown
-                  options={this.state.myTokens}
-                  value={this.state.selectedToken || 'Select a Token'}
-                  name="selectedToken"
-                  onChange={this.handleChange}
-                  className="dropdown-selectedToken"
-                />
-              </div>
-            </div>
-
-            <div className="input-container">
-              <p className="input">Price (in Ether)</p>
-
-              <TextField
-                id="price"
-                value={Number(this.state.price)}
-                type="number"
-                onChange={this.handleTextfieldChange('price')}
-                className="full-width"
-                helperText="Enter the price in Ether (e.g. 0.1)"
-              />
-            </div>
-
-            <div className="input-container">
-              <p className="input">Amount</p>
-
-              <TextField
-                id="amount"
-                value={Number(this.state.amount)}
-                type="number"
-                onChange={this.handleTextfieldChange('amount')}
-                className="full-width"
-                helperText="Enter the amount of the token to sell"
-              />
-            </div>
-
-            <button
-              className={this.state.disabled ? 'button-disabled' : 'button'}
-              disabled={this.state.disabled}
-              onClick={this.approveOrder}
-            >
-              <span className="button-text">Submit for Approval</span>
-            </button>
-          </div>
-
-          {this.state.showApproval && <div className={classes.line} />}
-          {this.state.showApproval && (
-            <div className="approval-container">
-              <div className="input-container">
-                <div className="flex-container-stretch">
-                  <div>
-                    <p className="input">Approval</p>
-                  </div>
-
-                  <div>
-                    {this.state.loading && (
-                      <div className="flex-container-stretch">
-                        <div>
-                          <p className="waiting">Waiting for confirmation...</p>
-                        </div>
-
-                        <div>
-                          <CircularProgress />
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                </div>
-
-                {this.state.approval && (
-                  <p className="approval input-text">{this.state.approval}</p>
-                )}
-              </div>
-            </div>
-          )}
-
-          {this.state.showList && <div className="line" />}
-          {this.state.showList && (
-            <div className="list-container">
-              <button className="button" onClick={this.listOrder}>
-                <span className="button-text">List Order</span>
-              </button>
-            </div>
-          )}
+      <div className="container">
+        <div id="list-button">
+          <button onClick={this.toggleFormVisibility}>List Order</button>
         </div>
+
+        <Collapse isOpen={this.state.collapse}>
+          <div id="list-form">
+            <h4 className="center-text">Place Order</h4>
+            <ListForm
+              name="listOrderID"
+              onSubmit={this.listOrder}
+              dropdownData={this.state.myTokens}
+            />
+          </div>
+        </Collapse>
       </div>
     );
   }
+
+  //   const { classes } = this.props;
+  //   return (
+  //     <div>
+  //       <div className="container list-form">
+  //         <div className="dialog-container">
+  //           <div className="input-container">
+  //             <p className="input">Place Order</p>
+  //             <div className="flex-container">
+  //               <Dropdown
+  //                 options={this.state.myTokens}
+  //                 value={this.state.selectedToken || 'Select a Token'}
+  //                 name="selectedToken"
+  //                 onChange={this.handleChange}
+  //                 className="dropdown-selectedToken"
+  //               />
+  //             </div>
+  //           </div>
+  //
+  //           <div className="input-container">
+  //             <p className="input">Price (in Ether)</p>
+  //
+  //             <TextField
+  //               id="price"
+  //               value={Number(this.state.price)}
+  //               type="number"
+  //               onChange={this.handleTextfieldChange('price')}
+  //               className="full-width"
+  //               helperText="Enter the price in Ether (e.g. 0.1)"
+  //             />
+  //           </div>
+  //
+  //           <div className="input-container">
+  //             <p className="input">Amount</p>
+  //
+  //             <TextField
+  //               id="amount"
+  //               value={Number(this.state.amount)}
+  //               type="number"
+  //               onChange={this.handleTextfieldChange('amount')}
+  //               className="full-width"
+  //               helperText="Enter the amount of the token to sell"
+  //             />
+  //           </div>
+  //
+  //           <button
+  //             className={this.state.disabled ? 'button-disabled' : 'button'}
+  //             disabled={this.state.disabled}
+  //             onClick={this.approveOrder}
+  //           >
+  //             <span className="button-text">Submit for Approval</span>
+  //           </button>
+  //         </div>
+  //
+  //         {this.state.showApproval && <div className={classes.line} />}
+  //         {this.state.showApproval && (
+  //           <div className="approval-container">
+  //             <div className="input-container">
+  //               <div className="flex-container-stretch">
+  //                 <div>
+  //                   <p className="input">Approval</p>
+  //                 </div>
+  //
+  //                 <div>
+  //                   {this.state.loading && (
+  //                     <div className="flex-container-stretch">
+  //                       <div>
+  //                         <p className="waiting">Waiting for confirmation...</p>
+  //                       </div>
+  //
+  //                       <div>
+  //                         <BlockProgress />
+  //                       </div>
+  //                     </div>
+  //                   )}
+  //                 </div>
+  //               </div>
+  //
+  //               {this.state.approval && (
+  //                 <p className="approval input-text">{this.state.approval}</p>
+  //               )}
+  //             </div>
+  //           </div>
+  //         )}
+  //
+  //         {this.state.showList && <div className="line" />}
+  //         {this.state.showList && (
+  //           <div className="list-container">
+  //             <button className="button" onClick={this.listOrder}>
+  //               <span className="button-text">List Order</span>
+  //             </button>
+  //           </div>
+  //         )}
+  //       </div>
+  //     </div>
+  //   );
+  // }
 }
 
 export default List;
