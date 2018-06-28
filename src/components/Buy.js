@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import TextField from './TextField';
+import { Collapse } from 'reactstrap';
+import BuyForm from './BuyForm';
 import { Factory, token, web3, Exchange } from '../ethereum';
 import '../styles/buy.css';
 
 class Buy extends Component {
-  static propTypes = {
-    open: PropTypes.bool.isRequired,
-    toggle: PropTypes.func.isRequired
-  };
   constructor() {
     super();
     this.state = {
@@ -17,25 +14,30 @@ class Buy extends Component {
       loading: false,
       disabled: false,
       created: false,
-      orderID: ''
+      orderID: '',
+      collapse: false
     };
+
+    this.toggleFormVisibility = this.toggleFormVisibility.bind(this);
   }
+
   static durations = ['One weeks', 'Two weeks'];
   static currency = ['BTC/USD', 'ETH/USD'];
 
   componentDidMount() {
     this.getOrderDetails();
   }
-  handleChange = event => {
-    this.setState({ [event.target.name]: event.target.value });
-  };
 
-  handleTextfieldChange = name => event => {
-    this.setState({
-      [name]: event.target.value
-    });
-  };
+  // handleChange = e => {
+  //   this.setState({
+  //     [e.target.name]: e.target.value
+  //   });
+  // };
 
+  /**
+   * METHOD FOR ACTION CONVERSION
+   *
+   */
   getOrderDetails = async () => {
     const exchange = await Exchange.deployed();
     const factory = await Factory.at(
@@ -68,6 +70,10 @@ class Buy extends Component {
     }
   };
 
+  /**
+   * METHOD FOR ACTION CONVERSION
+   *
+   */
   buyOrder = async () => {
     const exchange = await Exchange.deployed();
     const accounts = await web3.eth.getAccounts();
@@ -95,35 +101,29 @@ class Buy extends Component {
     // }
   };
 
+  toggleFormVisibility() {
+    this.setState({
+      collapse: !this.state.collapse
+    });
+  }
+
   render() {
     return (
-      <div className="container buy-form">
-        <div className="dialog-container">
-          <div className="input-container">
-            <p className="input">Order Confirmation</p>
-          </div>
-          <div className="input-container">
-            <p className="input">Buy Order ID:</p>
+      <div className="container">
+        <div id="buy-button">
+          <button onClick={this.toggleFormVisibility}>Buy Order</button>
+        </div>
 
-            <TextField
-              id="orderID"
-              value={Number(this.state.orderID)}
-              type="number"
-              onChange={this.handleTextfieldChange('orderID')}
-              className="full-width"
-              helperText="Enter the orderID"
+        <Collapse isOpen={this.state.collapse}>
+          <div id="buy-form">
+            <h4 className="center-text"> Buy Order</h4>
+            <BuyForm
+              onSubmit={this.buyOrder}
+              value={Number(this.state.orderId)}
+              onChange={this.handleChange}
             />
           </div>
-
-          <button
-            type="button"
-            className={this.state.disabled ? 'button-disabled' : 'button'}
-            disabled={this.state.disabled}
-            onClick={this.buyOrder}
-          >
-            <span className="button-text">Submit</span>
-          </button>
-        </div>
+        </Collapse>
       </div>
     );
   }
