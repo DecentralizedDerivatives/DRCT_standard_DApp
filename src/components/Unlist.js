@@ -6,11 +6,6 @@ import { Factory, Exchange, web3 } from '../ethereum';
 import '../styles/unlist.css';
 
 class Unlist extends Component {
-  static propTypes = {
-    open: PropTypes.bool.isRequired,
-    toggle: PropTypes.func.isRequired,
-    myAccount: PropTypes.string
-  };
   constructor() {
     super();
     this.state = {
@@ -25,28 +20,37 @@ class Unlist extends Component {
       orderID: ''
     };
   }
+
   componentWillMount() {
     web3.eth.getAccounts((error, accounts) => {
       this.setState({ myAccount: accounts[0] });
     });
     this.getMyOrders();
   }
-  handleChange = event => {
-    this.state.orderLabels.forEach((label, index) => {
-      if (label === event.target.value) {
-        this.setState({
-          selectedToken: event.target.value,
-          orderID: this.state.myOrders[index].id
-        });
-        0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642;
-      }
-    });
-  };
-  handleTextfieldChange = name => event => {
-    this.setState({
-      [name]: event.target.value
-    });
-  };
+
+  // handleDropdownChange = event => {
+  //   this.state.orderLabels.forEach((label, index) => {
+  //     if (label === event.target.value) {
+  //       this.setState({
+  //         selectedToken: event.target.value,
+  //         orderID: this.state.myOrders[index].id
+  //       });
+  //       0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642;
+  //     }
+  //   });
+  // };
+  //
+  // handleFieldChange = e => {
+  //   this.setState({
+  //     orderID: e.target.value
+  //   });
+  // };
+
+  /**
+   * METHOD FOR ACTION CONVERSION
+   *
+   */
+
   getMyOrders = async () => {
     const exchange = await Exchange.deployed();
     const factory = await Factory.at(
@@ -90,6 +94,11 @@ class Unlist extends Component {
       console.log('Error getting listed orders', err);
     }
   };
+
+  /**
+   * METHOD FOR ACTION CONVERSION
+   *
+   */
   unlistOrder = async () => {
     const exchange = await Exchange.deployed();
     const accounts = await web3.eth.getAccounts();
@@ -109,46 +118,40 @@ class Unlist extends Component {
     }
   };
 
+  toggleFormVisibility() {
+    this.setState({
+      collapse: !this.state.collapse
+    });
+  }
+
   render() {
     return (
-      <div>
-        <div className="container unlist-form">
-          <div className="dialog-container">
-            <div className="input-container">
-              <p className="input">Select order from dropdown :</p>
-              <div className="flex-container">
-                <Dropdown
-                  options={this.state.orderLabels}
-                  value={this.state.selectedToken}
-                  name="selectedToken"
-                  onChange={this.handleChange}
-                  className="dropdown-selectedToken"
-                />
-              </div>
-            </div>
-            <div className="input-container">
-              <p className="input">Or enter order ID:</p>
-              <TextField
-                id="orderID"
-                value={Number(this.state.orderID)}
-                type="number"
-                onChange={this.handleTextfieldChange('orderID')}
-                className="full-width"
-                helperText="Enter the orderID"
-              />
-            </div>
-            <button
-              className={this.state.disabled ? 'button-disabled' : 'button'}
-              disabled={this.state.disabled}
-              onClick={this.unlistOrder}
-            >
-              <span className="button-text">Submit</span>
-            </button>
-          </div>
+      <div className="container">
+        <div id="buy-button">
+          <button onClick={this.toggleFormVisibility}>Unlist Order</button>
         </div>
+
+        <Collapse isOpen={this.state.collapse}>
+          <div id="unlist-form">
+            <h4 className="center-text">Unlist Confirmation</h4>
+            <UnlistForm
+              name="unlistOrderID"
+              onSubmit={this.unlistOrder}
+              dropdownValue={this.state.selectedToken}
+              dropdownData={this.state.orderLabels}
+              onDropdownChange={this.handleChange}
+              inputValue={Number(this.state.orderID)}
+              onInputChange={this.handleFieldChange}
+            />
+          </div>
+        </Collapse>
       </div>
     );
   }
 }
+
+Unlist.propTypes = {
+  myAccount: PropTypes.string
+};
 
 export default Unlist;
