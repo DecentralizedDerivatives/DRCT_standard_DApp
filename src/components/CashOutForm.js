@@ -2,12 +2,8 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { InputGroup, InputGroupAddon } from 'reactstrap';
 
-const CashOutForm = props => {
+let CashOutForm = props => {
   const { handleSubmit, pristine, reset, submitting } = props;
-
-  const closeForm = e => {
-    e.preventDefault();
-  };
 
   return (
     <form onSubmit={handleSubmit}>
@@ -24,8 +20,16 @@ const CashOutForm = props => {
           <InputGroupAddon addonType="append">ETH</InputGroupAddon>
         </InputGroup>
         <div>
-          <button onClick={this.closeForm}>Cancel</button>
-          <button type="submit">Submit</button>
+          <button type="submit" disabled={submitting}>
+            Submit
+          </button>
+          <button
+            type="button"
+            disabled={pristine || submitting}
+            onClick={reset}
+          >
+            Reset Values
+          </button>
         </div>
       </div>
     </form>

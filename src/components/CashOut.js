@@ -1,41 +1,36 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Collapse } from 'reactstrap';
 import CashOutForm from './CashOutForm';
 import { Wrapped, web3 } from '../ethereum';
 import '../styles/cashOut.css';
 
 class CashOut extends Component {
-  static propTypes = {
-    open: PropTypes.bool.isRequired,
-    toggle: PropTypes.func.isRequired
-  };
   constructor() {
     super();
     this.state = {
-      myBalance: '0'
+      myBalance: '0',
+      collapse: false
     };
   }
 
-  // handleChange = event => {
-  //   this.setState({ [event.target.name]: event.target.value });
-  // };
-  //
-  // handleDateChange = date => {
-  //   this.setState({ selectedDate: date });
-  // };
-  //
-  // handleTextfieldChange = name => event => {
-  //   this.setState({
-  //     [name]: event.target.value
-  //   });
-  // };
-
   componentWillMount() {
+    // ????
     this.getMyBalance().then(result => {
       console.log('res', result);
     });
   }
 
+  // handleChange = e => {
+  //   this.setState({
+  //     myBalance: e.target.value
+  //   });
+  // };
+
+  /**
+   * METHOD FOR ACTION CONVERSION
+   *
+   */
   getMyBalance = async () => {
     const wrapped = await Wrapped.deployed();
     const accounts = await web3.eth.getAccounts();
@@ -43,7 +38,10 @@ class CashOut extends Component {
     return _res.c[0];
   };
 
-  // Move into action
+  /**
+   * METHOD FOR ACTION CONVERSION
+   *
+   */
   cashOut = async () => {
     const wrapped = await Wrapped.deployed();
     const accounts = await web3.eth.getAccounts();
@@ -71,12 +69,11 @@ class CashOut extends Component {
   };
 
   // Toggle form visibility on button click
-  toggleFormVisibility = e => {
-    const cashoutFrm = document.getElementById('cashout-form');
-
-    cashoutFrm.style.display =
-      cashoutFrm.style.display === 'none' ? 'block' : 'none';
-  };
+  toggleFormVisibility() {
+    this.setState({
+      collapse: !this.state.collapse
+    });
+  }
 
   render() {
     return (
@@ -84,11 +81,12 @@ class CashOut extends Component {
         <div id="cashout-button">
           <button onClick={this.toggleFormVisibility}>Cash Out</button>
         </div>
-
-        <div id="cashout-form">
-          <h4 className="center-text">Cash Out Request</h4>
-          <CashOutForm onSubmit={this.onSubmit} />
-        </div>
+        <Collapse isOpen={this.state.collapse}>
+          <div id="cashout-form">
+            <h4 className="center-text">Cash Out Request</h4>
+            <CashOutForm onSubmit={this.cashOut} value={this.state.myBalance} />
+          </div>
+        </Collapse>
       </div>
     );
   }
