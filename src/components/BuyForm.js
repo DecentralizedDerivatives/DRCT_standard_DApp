@@ -1,22 +1,23 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { InputGroup } from 'reactstrap';
+import InputNumber from './InputNumber';
 
 let BuyForm = props => {
-  const { handleSubmit, pristine, reset, submitting, onChange, value } = props;
+  const { handleSubmit, pristine, reset, submitting } = props;
+
+  const validateNotEmpty = value => (!value ? 'Must enter a value' : null);
 
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label>Buy Order ID</label>
         <InputGroup>
           <Field
+            label="Buy Order ID "
             name="orderId"
-            component="input"
+            component={InputNumber}
             type="number"
-            value={value}
-            placeholder="Enter the Order ID"
-            onChange={onChange}
+            validate={validateNotEmpty}
           />
         </InputGroup>
         <div>
@@ -37,7 +38,10 @@ let BuyForm = props => {
 };
 
 BuyForm = reduxForm({
-  form: 'buy'
+  form: 'buy',
+  intialValues: {
+    orderId: ''
+  }
 })(BuyForm);
 
 export default BuyForm;

@@ -2,6 +2,7 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import DropdownList from 'react-widgets/lib/DropdownList';
 import { InputGroup } from 'reactstrap';
+import InputNumber from './InputNumber';
 import 'react-widgets/dist/css/react-widgets.css';
 
 let UnlistForm = props => {
@@ -44,13 +45,11 @@ let UnlistForm = props => {
         <br />
 
         <InputGroup>
-          <label>Or enter Order ID:</label>
           <Field
+            label="Or enter Order ID:"
             name="unlistOrderID"
-            component="input"
+            component={InputNumber}
             type="number"
-            value={value}
-            placeholder="Enter the orderID"
             onChange={onChange}
           />
         </InputGroup>
@@ -73,7 +72,10 @@ let UnlistForm = props => {
 };
 
 UnlistForm = reduxForm({
-  form: 'unlist'
+  form: 'unlist',
+  initialValues: {
+    unlistOrderID: ''
+  }
 })(UnlistForm);
 
 export default UnlistForm;

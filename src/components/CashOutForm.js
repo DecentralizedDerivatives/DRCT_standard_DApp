@@ -1,21 +1,24 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { InputGroup, InputGroupAddon } from 'reactstrap';
+import InputNumber from './InputNumber';
 
 let CashOutForm = props => {
   const { handleSubmit, pristine, reset, submitting } = props;
 
+  const validateNotEmpty = value => (!value ? 'Must enter a value' : null);
+
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label>Amount to Withdraw</label>
         <InputGroup>
           <Field
+            label="Amount to Withdraw"
             name="withdrawAmount"
-            component="input"
+            component={InputNumber}
             type="number"
-            placeholder="Amount to withdraw"
             step="0.01"
+            validate={validateNotEmpty}
           />
           <InputGroupAddon addonType="append">ETH</InputGroupAddon>
         </InputGroup>
@@ -37,7 +40,10 @@ let CashOutForm = props => {
 };
 
 CashOutForm = reduxForm({
-  form: 'cashout'
+  form: 'cashout',
+  initialValues: {
+    withdrawAmount: 0
+  }
 })(CashOutForm);
 
 export default CashOutForm;

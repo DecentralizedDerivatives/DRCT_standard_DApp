@@ -2,6 +2,7 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import DropdownList from 'react-widgets/lib/DropdownList';
 import { InputGroup } from 'reactstrap';
+import InputNumber from './InputNumber';
 import 'react-widgets/dist/css/react-widgets.css';
 
 let ListForm = props => {
@@ -23,6 +24,16 @@ let ListForm = props => {
     />
   );
 
+  const validateListOrderPrice = value => {
+    if (!value) {
+      return 'Must enter a value';
+    } else if (value < 0.1) {
+      return 'Must be at least 0.1';
+    } else return null;
+  };
+
+  const validateNotEmpty = value => (!value ? 'Must enter a value' : null);
+
   return (
     <form onSubmit={handleSubmit}>
       <div>
@@ -39,13 +50,13 @@ let ListForm = props => {
 
         <br />
         <InputGroup>
-          <label>Enter the price in ETH, e.g. '0.1'</label>
           <Field
+            label="Enter price in ETH"
             name="listOrderPrice"
-            component="input"
+            component={InputNumber}
             type="number"
-            placeholder="list price"
             step="0.01"
+            validate={validateListOrderPrice}
           />
           <InputGroupAddon addonType="append">ETH</InputGroupAddon>
         </InputGroup>
@@ -53,10 +64,11 @@ let ListForm = props => {
         <InputGroup>
           <label>Amount of Token</label>
           <Field
+            label="Amount of Token"
             name="listTokenAmt"
-            component="input"
+            component={InputNumber}
             type="number"
-            placeholder="amount of token to sell"
+            validate={validateNotEmpty}
           />
         </InputGroup>
 
@@ -78,7 +90,11 @@ let ListForm = props => {
 };
 
 ListForm = reduxForm({
-  form: 'list'
+  form: 'list',
+  initialValues: {
+    listOrderPrice: 0.1,
+    listTokenAmt: 0
+  }
 })(ListForm);
 
 export default ListForm;
