@@ -95,7 +95,7 @@ class OrderBook extends Component {
           <td>{orderId}</td>
           <td>
             <a
-              className="token-address-link"
+              className="link__token-address"
               onClick={e => e.stopPropagation()}
               data-token-address={address}
             >

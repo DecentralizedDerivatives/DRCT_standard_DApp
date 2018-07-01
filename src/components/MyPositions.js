@@ -32,7 +32,7 @@ class MyPositions extends Component {
 
   onClickRow = link => {
     let addressEl = link.currentTarget.getElementsByClassName(
-      'token-address-link'
+      'link__token-address'
     )[0];
     if (typeof addressEl !== 'undefined') {
       this.openContractDetails(
@@ -57,7 +57,7 @@ class MyPositions extends Component {
         <tr>
           <td>
             <a
-              className="token-address-link"
+              className="link__token-address"
               onClick={event => event.stopPropagation()}
               data-token-address={address}
             >
@@ -73,8 +73,8 @@ class MyPositions extends Component {
 
   render() {
     return (
-      <div className="flex-container-center">
-        <div className="flex-item">
+      <div className="container">
+        <div className="row">
           <Table className="positions-table" onClick={this.onClickRow}>
             <thead>
               <tr>

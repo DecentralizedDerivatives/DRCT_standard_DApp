@@ -27,7 +27,7 @@ class MyTransactions extends Component {
   // Shouldn't this call a function to open TransactionDetails?
   onClickRow = link => {
     let addressEl = link.currentTarget.getElementsByClassName(
-      'token-address-link'
+      'link__token-address'
     )[0];
     if (typeof addressEl !== 'undefined') {
       this.openContractDetails(
@@ -49,7 +49,7 @@ class MyTransactions extends Component {
           <td>{tradeTitle}</td>
           <td>
             <a
-              className="token-address-link"
+              className="link__token-address"
               href={
                 tradeHash.length > 50
                   ? `https://rinkeby.etherscan.io/tx/${tradeHash}`
@@ -69,7 +69,7 @@ class MyTransactions extends Component {
 
   render() {
     return (
-      <div className="flex-item">
+      <div className="row">
         <Table className="transactions-table" onClick={this.onClickRow}>
           <thead>
             <tr>

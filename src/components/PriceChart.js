@@ -113,14 +113,14 @@ class PriceChart extends Component {
 
   render() {
     return (
-      <div className="price-chart">
-        <div className="price-chart-item">
-          <select onChange={this.handleChange} className="price-chart-dropdown">
+      <div className="pricechart__chart">
+        <div className="pricechart__item">
+          <select onChange={this.handleChange} className="pricechart__dropdown">
             {PriceChart.currencies.map((item, index) => {
               return (
                 <option
                   key={'price-chart' + index}
-                  className="price-chart-dropdown-item"
+                  className="pricechart__dropdown-item"
                   name={item}
                   value={item}
                 >
@@ -129,8 +129,8 @@ class PriceChart extends Component {
               );
             })}
           </select>
-          <div className="price-chart-item">
-            <div className="price-chart-item" id="container" />
+          <div className="pricechart__item">
+            <div className="pricechart__item" id="container" />
           </div>
         </div>
       </div>

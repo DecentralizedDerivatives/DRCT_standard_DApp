@@ -106,7 +106,7 @@ class RecentTrades extends Component {
     const { Body, Header, HeaderCell, Row } = Table;
 
     return (
-      <div className="flex-item">
+      <div className="row">
         <Table className="recent-trades-table" onClick={this.onRowClick}>
           <thead>
             <tr>

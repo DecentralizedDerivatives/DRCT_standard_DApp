@@ -76,9 +76,9 @@ class Header extends Component {
                 <span>
                   Connected
                   <i
-                    className={classnames('fa-circle', {
-                      fas: this.props.connected,
-                      far: !this.props.connected
+                    className={classnames('far fa-circle', {
+                      'connect__icon--green': this.props.connected,
+                      'connect__icon--red': !this.props.connected
                     })}
                   />
                 </span>

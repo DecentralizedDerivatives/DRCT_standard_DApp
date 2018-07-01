@@ -77,7 +77,7 @@ const HowTo = () => {
           </Media>
         </Media>
         <Media body>
-          <Media center className="infograph">
+          <Media center className="howTo__infograph">
             <Media
               object
               data-src="../imgs/infograph-transparent.png"

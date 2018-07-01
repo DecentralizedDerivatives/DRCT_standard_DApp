@@ -9,7 +9,7 @@ const Dropdown = ({ options, name, value, onChange, className }) => {
   ));
 
   return (
-    <div className="input">
+    <div className="input-group-item">
       <select
         className={className}
         name={name}
