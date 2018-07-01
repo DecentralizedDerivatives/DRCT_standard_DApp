@@ -4,7 +4,6 @@ import TextField from './TextField';
 import BlockProgress from './BlockProgress';
 import Dropdown from './Dropdown';
 import { Factory, token, DRCT, web3, Exchange } from '../ethereum';
-import '../styles/list.css';
 
 class List extends Component {
   static propTypes = {
@@ -146,6 +145,12 @@ class List extends Component {
       });
     this.props.toggle;
   };
+
+  toggleFormVisibility() {
+    this.setState({
+      collapse: !this.state.collapse
+    });
+  }
 
   render() {
     return (

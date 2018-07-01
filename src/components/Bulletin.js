@@ -6,7 +6,7 @@ import PriceChart from './PriceChart';
 import List from './List';
 import Unlist from './Unlist';
 import Buy from './Buy';
-import '../styles/bulletin.css';
+import '../styles/Bulletin.css';
 
 import { Factory, Exchange, web3 } from '../../ethereum';
 
@@ -48,6 +48,8 @@ class Bulletin extends Component {
   //     address asset;
   // }
 
+  // Q: getContractDetails to show order from Orderbook and show trade from RecentTrades?
+  // Need to copy this method in orderbook and recenttrades
   onClickRow = link => {
     let addressEl = link.currentTarget.getElementsByClassName(
       'token-address-link'

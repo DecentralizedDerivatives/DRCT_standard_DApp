@@ -4,7 +4,7 @@ import Highcharts from 'highcharts/highstock';
 import api from '../api';
 require('highcharts/modules/exporting')(Highcharts);
 import highchartsOptions from './highcharts.options';
-import '../styles/pricechart.css';
+import '../styles/PriceChart.css';
 
 Highcharts.setOptions({
   rangeSelector: {

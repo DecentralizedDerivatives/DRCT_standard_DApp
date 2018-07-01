@@ -5,47 +5,10 @@
   letter-spacing: 1px;
 }
 
-.link-text {
-  color: #fff;
-  font-size: 16px;
-  font-weight: 400;
-  letter-spacing: 1px;
-}
-
-.link-text-active {
-  color: #114770;
-  font-size: 16px;
-  font-weight: 400;
-  letter-spacing: 1px;
-}
-
-.header-link {
-  text-decoration: none;
-}
-
-.lens-icon {
-  position: relative;
-  margin-left: 6px;
-  top: 2px;
-  height: 13px;
-  width: 13px;
-}
-
-.lens-on {
+.connected__icon--green {
   fill: #30ad63;
 }
 
-.lens-off {
+.connected__icon--red {
   fill: #ff4136;
-}
-
-.menu-icon: {
-  width: 30px;
-  height: 30px;
-}
-
-.menu-button {
-  display: flex;
-  align-self: center;
-  margin-left: 10px;
 }

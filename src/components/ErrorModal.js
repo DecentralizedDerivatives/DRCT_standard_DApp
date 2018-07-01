@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import '../styles/errorModal.css';
+import '../styles/ErrorModal.css';
 
 // Refactor as class component
 class ErrorModal extends Component {

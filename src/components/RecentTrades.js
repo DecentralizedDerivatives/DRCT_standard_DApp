@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Table } from 'reactstrap';
 import { Factory, Exchange, web3, DRCT } from '../ethereum';
-import '../styles/recentTrades.css';
 
 class RecentTrades extends Component {
   constructor() {

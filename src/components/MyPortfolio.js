@@ -4,7 +4,6 @@ import MyPositions from './MyPositions';
 import MyTransactions from './MyTransactions';
 import ContractDetails from './ContractDetails';
 import { Factory, Exchange, web3, DRCT } from '../ethereum';
-import '../styles/myPortfolio.css';
 
 class MyPortfolio extends Component {
   constructor() {
@@ -13,19 +12,12 @@ class MyPortfolio extends Component {
       previousActive: '',
       active: '',
       open: false,
-      myAccount: '',
-      selectedTokenAddress: '',
-      contractAddress: '',
-      contractDuration: '',
-      contractMultiplier: '',
-      oracleAddress: ''
+      selectedTokenAddress: ''
     };
   }
 
-  componentDidMount() {
-    web3.eth.getAccounts((error, accounts) => {
-      this.setState({ myAccount: accounts[0] });
-    });
+  async componentDidMount() {
+    await this.props.getUserAccount;
   }
 
   openContractDetails = (newActive, token_address = false) => {

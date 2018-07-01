@@ -1,4 +1,4 @@
-import { SET_CONTRACT_DETAILS, SET_PROCESSING_ERROR } from './types';
+import { SET_CONTRACT_DETAILS } from './types';
 
 const initialState = {
   contractAddress: '',
@@ -22,11 +22,6 @@ export default function(state = initialState, action) {
         contractDuration,
         contractMultiplier,
         oracleAddress
-      };
-    case TX_PROCESSING:
-      return {
-        ...state,
-        txProcessing: true
       };
     default:
       return state;

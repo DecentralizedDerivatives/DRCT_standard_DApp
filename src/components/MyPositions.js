@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Table } from 'reactstrap';
 import { Factory, Exchange, web3, DRCT } from '../ethereum';
-import '../styles/myPositions.css';
+import '../styles/MyPositions.css';
 
 class MyPositions extends Component {
   constructor() {

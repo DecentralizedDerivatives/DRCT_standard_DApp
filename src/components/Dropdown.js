@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../styles/dropdown.css';
 
 const Dropdown = ({ options, name, value, onChange, className }) => {
   const selectOptions = options.map(option => (

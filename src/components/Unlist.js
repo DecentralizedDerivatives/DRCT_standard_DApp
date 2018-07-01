@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import TextField from './TextField';
 import Dropdown from './Dropdown';
 import { Factory, Exchange, web3 } from '../ethereum';
-import '../styles/unlist.css';
 
 class Unlist extends Component {
   constructor() {
@@ -139,9 +138,6 @@ class Unlist extends Component {
               onSubmit={this.unlistOrder}
               dropdownValue={this.state.selectedToken}
               dropdownData={this.state.orderLabels}
-              onDropdownChange={this.handleChange}
-              inputValue={Number(this.state.orderID)}
-              onInputChange={this.handleFieldChange}
             />
           </div>
         </Collapse>

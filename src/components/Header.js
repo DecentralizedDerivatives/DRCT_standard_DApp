@@ -13,7 +13,7 @@ import {
   DropdownMenu,
   DropdownItem
 } from 'reactstrap';
-import '../styles/header.css';
+import '../styles/Header.css';
 
 class Header extends Component {
   constructor(props) {

@@ -1,71 +1,26 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Collapse } from 'reactstrap';
 import CashOutForm from './CashOutForm';
 import { Wrapped, web3 } from '../ethereum';
-import '../styles/cashOut.css';
 
 class CashOut extends Component {
   constructor() {
     super();
     this.state = {
-      myBalance: '0',
       collapse: false
     };
   }
 
-  componentWillMount() {
-    // ????
-    this.getMyBalance().then(result => {
-      console.log('res', result);
-    });
+  async componentWillMount() {
+    await this.props.getUserBalance();
   }
 
-  // handleChange = e => {
-  //   this.setState({
-  //     myBalance: e.target.value
-  //   });
-  // };
+  handleSubmit = e => {
+    e.preventDefault();
 
-  /**
-   * METHOD FOR ACTION CONVERSION
-   *
-   */
-  getMyBalance = async () => {
-    const wrapped = await Wrapped.deployed();
-    const accounts = await web3.eth.getAccounts();
-    var _res = await wrapped.balanceOf(accounts[0]);
-    return _res.c[0];
-  };
-
-  /**
-   * METHOD FOR ACTION CONVERSION
-   *
-   */
-  cashOut = async () => {
-    const wrapped = await Wrapped.deployed();
-    const accounts = await web3.eth.getAccounts();
-    let response, error;
-    try {
-      await wrapped.withdraw(this.state.myBalance, {
-        from: accounts[0],
-        gas: 4000000
-      });
-    } catch (err) {
-      console.log(err);
-      return err;
-    }
-
-    // TODO - show success or error message
-    // On success, redirect to portfolio
-    // {
-    //   this.props.toggle;
-    // }
-  };
-
-  onSubmit = value => {
-    // call action available thru mapDispatchToProps
-    this.props.cashOut();
+    this.props.sendCashOutRequest();
   };
 
   // Toggle form visibility on button click
@@ -78,18 +33,41 @@ class CashOut extends Component {
   render() {
     return (
       <div className="container">
+        <div className="user-balance">
+          Your Balance: {this.props.userBalance}
+        </div>
         <div id="cashout-button">
           <button onClick={this.toggleFormVisibility}>Cash Out</button>
         </div>
         <Collapse isOpen={this.state.collapse}>
           <div id="cashout-form">
             <h4 className="center-text">Cash Out Request</h4>
-            <CashOutForm onSubmit={this.cashOut} value={this.state.myBalance} />
+            <CashOutForm onSubmit={this.handleSubmit} />
           </div>
         </Collapse>
+        {/* Todo - show "Processing" or "Transaction successful" */}
       </div>
     );
   }
 }
 
-export default CashOut;
+CashOut.propTypes = {
+  getUserBalance: PropTypes.func.isRequired,
+  sendCashOutRequest: PropTypes.func.isRequired,
+  userBalance: PropTypes.number.isRequired,
+  withdrawAmount: PropTypes.number.isRequired,
+  txProcessing: PropTypes.bool.isRequired,
+  txReceipt: PropTypes.string
+};
+
+const mapStateToProps = state => ({
+  userBalance: state.account.userBalance,
+  withdrawAmount: state.form.cashout.withdrawAmount,
+  txProcessing: state.status.txProcessing,
+  txReceipt: state.status.txReceipt
+});
+
+export default connect(
+  mapStateToProps,
+  { getUserBalance, sendCashOutRequest }
+)(CashOut);

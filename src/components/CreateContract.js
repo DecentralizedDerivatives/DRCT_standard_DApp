@@ -1,34 +1,18 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Factory, UserContract, web3 } from '../ethereum';
+import { Collapse } from 'reactstrap';
 import TextField from './TextField';
 import BlockProgress from './BlockProgress';
-import Dropdown from './Dropdown';
-import { Factory, UserContract, web3 } from '../ethereum';
-import '../styles/createContract.css';
+import CreateContractForm from './CreateContractForm';
 
 class CreateContract extends Component {
-  static propTypes = {
-    open: PropTypes.bool.isRequired,
-    toggle: PropTypes.func.isRequired
-  };
   constructor() {
     super();
     this.state = {
-      open: false,
-      duration: '',
-      currency: '',
-      amount: 0.1,
-      contractAddress: '',
-      txId: '',
-      selectedDate: '',
-      loading: false,
-      disabled: false,
-      created: false,
-      openDates: []
+      collapse: false
     };
   }
-  static durations = ['One week'];
-  static currency = ['BTC/USD'];
 
   componentWillMount() {
     this.getOpenDates().then(res => {
@@ -38,20 +22,6 @@ class CreateContract extends Component {
     });
   }
 
-  handleChange = event => {
-    this.setState({ [event.target.name]: event.target.value });
-  };
-
-  handleDateChange = date => {
-    this.setState({ selectedDate: date });
-  };
-
-  handleTextfieldChange = name => event => {
-    this.setState({
-      [name]: event.target.value
-    });
-  };
-
   /**
    * METHOD FOR ACTION CONVERSION
    *
@@ -60,7 +30,7 @@ class CreateContract extends Component {
     const factory = await Factory.at(
       '0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642'
     );
-    const openDates = [];
+    let openDates = [];
     const numDates = await factory.getDateCount();
     for (let i = 0; i < numDates; i++) {
       const startDates = (await factory.startDates.call(i)).c[0];
@@ -148,116 +118,141 @@ class CreateContract extends Component {
       });
     this.props.toggle;
   };
-  handleDropdownChange = e => {
-    this.setState({ selectedDate: e.target.value });
-  };
+
+  toggleFormVisibility() {
+    this.setState({
+      collapse: !this.state.collapse
+    });
+  }
+
   render() {
-    const { classes } = this.props;
     return (
-      <div>
-        <div className="container" open={this.props.open}>
-          <div className={classes.dialogContent}>
-            <div className="input-container">
-              <p className="input">Contract Type</p>
-              <div className="flex-container">
-                <div>
-                  <Dropdown
-                    options={CreateContract.durations}
-                    value={this.state.duration}
-                    name="duration"
-                    onChange={this.handleChange}
-                    className="dropdown-duration"
-                  />
-                </div>
-                <div>
-                  <Dropdown
-                    options={CreateContract.currency}
-                    value={this.state.currency}
-                    name="currency"
-                    onChange={this.handleChange}
-                    className="dropdown-currency"
-                  />
-                </div>
-              </div>
-            </div>
-
-            <div className="input-container">
-              <p className="input">Start Date</p>
-              <Dropdown
-                menuItems={this.state.openDates}
-                value={this.state.selectedDate}
-                name="selectedDate"
-                onChange={this.handleChange}
-                className="dropdown-date"
-              />
-            </div>
-
-            <div className="input-container">
-              <p className="input">Amount of Ether</p>
-
-              <TextField
-                id="amount"
-                value={Number(this.state.amount)}
-                type="number"
-                onChange={this.handleTextfieldChange('amount')}
-                className="full-width"
-                helperText="Must be at least 0.1"
-              />
-            </div>
-            <button
-              className={this.state.disabled ? 'button-disabled' : 'button'}
-              disabled={this.state.disabled}
-              onClick={this.createContract}
-            >
-              <span className="button-text">Create Contract</span>
-            </button>
-          </div>
-
-          {this.state.showAddress && <div className={classes.line} />}
-          {this.state.showAddress && (
-            <div className="address-result-container">
-              <div className="input-container">
-                <div className="flex-container-stretch">
-                  <div>
-                    <p className="input">Address Result</p>
-                  </div>
-
-                  <div>
-                    {this.state.loading && (
-                      <div className="flex-container-stretch">
-                        <div>
-                          <p className="waiting">Waiting for confirmation...</p>
-                        </div>
-
-                        <div>
-                          <BlockProgress />
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                </div>
-
-                {this.state.contractAddress && (
-                  <p className="contract-address">
-                    {this.state.contractAddress}
-                  </p>
-                )}
-              </div>
-            </div>
-          )}
-
-          {this.state.showSendFunds && <div className={classes.line} />}
-          {this.state.showSendFunds && (
-            <div className="send-funds-container">
-              <button className="button" onClick={this.sendFunds}>
-                <span className="button-text">Send Funds</span>
-              </button>
-            </div>
-          )}
+      <div className="container">
+        <div id="create-contract-button">
+          <button onClick={this.toggleFormVisibility}>Create Contract</button>
         </div>
+
+        <Collapse isOpen={this.state.collapse}>
+          <div id="create-contract-form">
+            <h4 className="center-text">Create Contract</h4>
+            <CreateContractForm
+              name="createContractForm"
+              onSubmit={this.createContract}
+            />
+          </div>
+        </Collapse>
       </div>
     );
   }
 }
+
+// render() {
+//   const { classes } = this.props;
+//   return (
+//     <div>
+//       <div className="container" open={this.props.open}>
+//         <div className={classes.dialogContent}>
+//           <div className="input-container">
+//             <p className="input">Contract Type</p>
+//             <div className="flex-container">
+//               <div>
+//                 <Dropdown
+//                   options={CreateContract.durations}
+//                   value={this.state.duration}
+//                   name="duration"
+//                   onChange={this.handleChange}
+//                   className="dropdown-duration"
+//                 />
+//               </div>
+//               <div>
+//                 <Dropdown
+//                   options={CreateContract.currency}
+//                   value={this.state.currency}
+//                   name="currency"
+//                   onChange={this.handleChange}
+//                   className="dropdown-currency"
+//                 />
+//               </div>
+//             </div>
+//           </div>
+//
+//           <div className="input-container">
+//             <p className="input">Start Date</p>
+//             <Dropdown
+//               menuItems={this.state.openDates}
+//               value={this.state.selectedDate}
+//               name="selectedDate"
+//               onChange={this.handleChange}
+//               className="dropdown-date"
+//             />
+//           </div>
+//
+//           <div className="input-container">
+//             <p className="input">Amount of Ether</p>
+//
+//             <TextField
+//               id="amount"
+//               value={Number(this.state.amount)}
+//               type="number"
+//               onChange={this.handleTextfieldChange('amount')}
+//               className="full-width"
+//               helperText="Must be at least 0.1"
+//             />
+//           </div>
+//           <button
+//             className={this.state.disabled ? 'button-disabled' : 'button'}
+//             disabled={this.state.disabled}
+//             onClick={this.createContract}
+//           >
+//             <span className="button-text">Create Contract</span>
+//           </button>
+//         </div>
+//
+//         {this.state.showAddress && <div className={classes.line} />}
+//         {this.state.showAddress && (
+//           <div className="address-result-container">
+//             <div className="input-container">
+//               <div className="flex-container-stretch">
+//                 <div>
+//                   <p className="input">Address Result</p>
+//                 </div>
+//
+//                 <div>
+//                   {this.state.loading && (
+//                     <div className="flex-container-stretch">
+//                       <div>
+//                         <p className="waiting">Waiting for confirmation...</p>
+//                       </div>
+//
+//                       <div>
+//                         <BlockProgress />
+//                       </div>
+//                     </div>
+//                   )}
+//                 </div>
+//               </div>
+//
+//               {this.state.contractAddress && (
+//                 <p className="contract-address">
+//                   {this.state.contractAddress}
+//                 </p>
+//               )}
+//             </div>
+//           </div>
+//         )}
+//
+//         {this.state.showSendFunds && <div className={classes.line} />}
+//         {this.state.showSendFunds && (
+//           <div className="send-funds-container">
+//             <button className="button" onClick={this.sendFunds}>
+//               <span className="button-text">Send Funds</span>
+//             </button>
+//           </div>
+//         )}
+//       </div>
+//     </div>
+//   );
+// }
+// }
 
 export default CreateContract;
