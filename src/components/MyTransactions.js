@@ -8,70 +8,20 @@ class MyTransactions extends Component {
   constructor() {
     super();
     this.state = {
-      previousActive: '',
-      active: '',
-      myAccount: '',
       contractAddress: '',
       contractDuration: '',
-      contractMultiplier: '',
-      myTransactions: [['loading...', 'loading...']]
+      contractMultiplier: ''
     };
   }
 
-  componentDidMount() {
-    web3.eth.getAccounts((error, accounts) => {
-      this.setState({ myAccount: accounts[0] });
-    });
+  async componentDidMount() {
+    await this.props.getUserAccount();
 
-    this.getMyTransactions();
+    await this.getMyTransactions();
   }
 
-  /**
-   * METHOD FOR ACTION CONVERSION
-   *
-   */
-  getmyTransactions = async () => {
-    const exchange = await Exchange.deployed();
-    const factory = await Factory.at(
-      '0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642'
-    );
-    let drct;
-    let _trades = [];
-    let titles = ['ContractCreation']; //Add other ATS when redeployed
-    let ats = [
-      {
-        //Sale: await exchange.Sale({}, {fromBlock:0, toBlock: 'latest'}),
-        //OrderPlaced: await exchange.OrderPlaced({}, {fromBlock:0, toBlock: 'latest'}),
-        //OrderRemoved: await exchange.OrderRemoved({}, {fromBlock:0, toBlock: 'latest'}),
-        ContractCreation: await factory.ContractCreation(
-          {},
-          { fromBlock: 0, toBlock: 'latest' }
-        )
-        //Transfer: await drct.Transfer({}, {fromBlock:0, toBlock: 'latest'}),
-        //Approval: await drct.Approval({}, {fromBlock:0, toBlock: 'latest'})
-      }
-    ];
-
-    for (let i = 0; i < titles.length; i++) {
-      let transferEvent = await factory.ContractCreation(
-        {},
-        { fromBlock: 0, toBlock: 'latest' }
-      );
-      await transferEvent.get((error, logs) => {
-        for (let j = logs.length - 1; j >= Math.max(logs.length - 10, 0); j--) {
-          if (
-            logs[i].args['_sender'].toUpperCase() ==
-            this.state.myAccount.toUpperCase()
-          ) {
-            _trades.push([titles[i], logs[j].transactionHash]);
-            this.setState({ myTransactions: _trades });
-          }
-        }
-        if (_trades.length === 0) {
-          _trades = [['No Recent Events', '...']];
-        }
-      });
-    }
+  getmyTransactions = myAccount => {
+    this.props.getUserTransactions(myAccount);
   };
 
   // Shouldn't this call a function to open TransactionDetails?
@@ -90,7 +40,7 @@ class MyTransactions extends Component {
   renderRows() {
     const { tokenInfo } = this.state;
 
-    this.state.myTransactions.map(trade => {
+    this.props.myTransactions.map(trade => {
       const tradeTitle = trade[0];
       const tradeHash = trade[1];
 
@@ -137,4 +87,19 @@ class MyTransactions extends Component {
   }
 }
 
-export default MyTransactions;
+MyTransactions.propTypes = {
+  getUserAccount: PropTypes.func.isRequired,
+  getUserTransactions: PropTypes.func.isRequired,
+  myAccount: PropTypes.string.isRequired,
+  myTransactions: PropTypes.array
+};
+
+const mapStateToProps = state => ({
+  myAccount: state.userAccount,
+  myTransactions: state.userTransactions
+});
+
+export default connect(
+  mapStateToProps,
+  { getUserAccount, getUserTransactions }
+)(MyTransactions);

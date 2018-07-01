@@ -20,57 +20,14 @@ class MyPositions extends Component {
     };
   }
 
-  componentDidMount() {
-    web3.eth.getAccounts((error, accounts) => {
-      this.setState({ myAccount: accounts[0] });
-    });
+  async componentDidMount() {
+    await this.props.getUserAccount;
 
-    this.getMyPositions().then(result => {
-      this.setState({ myPositions: result });
-    });
+    await this.getMyPositions();
   }
 
-  /**
-   * METHOD FOR ACTION CONVERSION
-   *
-   */
-  getMyPositions = async () => {
-    const factory = await Factory.at(
-      '0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642'
-    );
-    const _allrows = [];
-    const openDates = [];
-    const numDates = await factory.getDateCount();
-    for (let i = 0; i < numDates; i++) {
-      const startDates = (await factory.startDates.call(i)).c[0];
-      const _token_addresses = await factory.getTokens(startDates);
-      let _date = new Date(startDates * 1000);
-      _date =
-        _date.getUTCMonth() +
-        1 +
-        '/' +
-        _date.getUTCDate() +
-        '/' +
-        _date.getUTCFullYear();
-      openDates.push(_date);
-      for (let j = 0; j < _token_addresses.length; j++) {
-        let drct = await DRCT.at(_token_addresses[j]);
-        let _balance = await drct.balanceOf(this.state.myAccount);
-        if (_balance.c[0] > 0) {
-          _allrows.push({
-            address: _token_addresses[j],
-            balance: _balance.c[0].toString(),
-            date: _date.toString(),
-            symbol: 'BTC/USD' /*CURRENTLY USING STATIC SYMBOL NEED TO FIX*/,
-            contractDuration: this.state.contractDuration,
-            contractMultiplier: this.state.contractMultiplier
-          });
-        }
-      }
-    }
-    if (_allrows.length === 0)
-      _allrows.push(['No Current Positions', '...', '...']);
-    return _allrows;
+  getMyPositions = myAccount => {
+    this.props.getUserPositions(myAccount);
   };
 
   onClickRow = link => {
@@ -137,4 +94,19 @@ class MyPositions extends Component {
   }
 }
 
-export default MyPositions;
+MyPositions.propTypes = {
+  getUserAccount: PropTypes.func.isRequired,
+  getUserPositions: PropTypes.func.isRequired,
+  myAccount: PropTypes.string.isRequired,
+  myPositions: PropTypes.array
+};
+
+const mapStateToProps = state => ({
+  myAccount: state.userAccount,
+  myPositions: state.userPositions
+});
+
+export default connect(
+  mapStateToProps,
+  { getUserAccount, getUserPositions }
+)(MyPositions);
