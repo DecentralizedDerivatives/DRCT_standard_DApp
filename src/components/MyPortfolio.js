@@ -3,7 +3,15 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import MyPositions from './MyPositions';
 import MyTransactions from './MyTransactions';
+import CreateContract from './CreateContract';
 import ContractDetails from './ContractDetails';
+import {
+  getUserAccount,
+  getUserPositions,
+  getUserTransactions
+} from '../actions/userActions';
+import { getContractDetails } from '../actions/contractActions';
+import requireConnection from './requireConnection';
 import { Factory, Exchange, web3, DRCT } from '../ethereum';
 
 // Use named export for unconnected component for testing
@@ -23,7 +31,6 @@ export class MyPortfolio extends Component {
   }
 
   async componentDidUpdate() {
-    await this.props.getUserAccount();
     await this.props.getUserPositions(this.props.userAccount);
     await this.props.getUserTransactions(this.props.userAccount);
   }
@@ -62,6 +69,8 @@ export class MyPortfolio extends Component {
         <MyPositions onRowClick={this.handleRowClick.bind(this)} />
         <MyTransactions onRowClick={this.handleRowClick.bind(this)} />
 
+        <CreateContract />
+
         <Collapse isOpen={this.state.detailsOpen}>
           <ContractDetails onClick={this.closeContractDetails.bind(this)} />
         </Collapse>
@@ -85,4 +94,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { getUserAccount, getUserPositions, getUserTransactions }
-)(MyPortfolio);
+)(requireConnection(MyPortfolio));

@@ -2,12 +2,11 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
-import { connect } from 'react-redux';
 import '../styles/Landing.css';
 
 class Landing extends Component {
   componentDidMount() {
-    if (this.props.connected) {
+    if (this.props.isConnectedMetamask && this.props.isConnectedNetwork) {
       this.props.history.push('/portfolio');
     }
   }
@@ -51,11 +50,13 @@ class Landing extends Component {
 }
 
 Landing.propTypes = {
-  connected: PropTypes.bool.isRequired
+  isConnectedMetamask: PropTypes.bool.isRequired,
+  isConnectedNetwork: PropTypes.bool.isRequired
 };
 
 const mapStateToProps = state => ({
-  connected: state.connected
+  isConnectedMetamask: state.status.isConnectedMetamask,
+  isConnectedNetwork: state.status.isConnectedNetwork
 });
 
 export default connect(mapStateToProps)(Landing);

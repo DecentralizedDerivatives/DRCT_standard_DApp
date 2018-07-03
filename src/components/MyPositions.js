@@ -8,17 +8,11 @@ import '../styles/MyPositions.css';
 
 // Use named export for unconnected component for testing
 export class MyPositions extends Component {
-  handleRowClick = e => {
-    e.preventDefault();
+  constructor(props) {
+    super(props);
 
-    let addressEl = e.target.getElementsByClassName('link__token-address')[0];
-    if (typeof addressEl !== 'undefined') {
-      this.openContractDetails(
-        link,
-        addressEl.getAttribute('data-token-address')
-      );
-    }
-  };
+    const { handleRowClick } = this.props;
+  }
 
   renderRows() {
     this.props.userPositions.map(position => {
@@ -53,10 +47,10 @@ export class MyPositions extends Component {
     return (
       <div className="container">
         <div className="row">
-          <Table className="positions-table" onClick={this.onClickRow}>
+          <Table className="positions-table">
             <thead>
               <tr>
-                <th>My Positions</th>
+                <th>My Tokens</th>
               </tr>
               <tr>
                 <th>Asset</th>
@@ -73,6 +67,7 @@ export class MyPositions extends Component {
 }
 
 MyPositions.propTypes = {
+  handleRowClick: PropTypes.func.isRequired,
   userAccount: PropTypes.string.isRequired,
   userPositions: PropTypes.array
 };

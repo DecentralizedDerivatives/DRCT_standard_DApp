@@ -48,7 +48,7 @@ export class OrderBook extends Component {
     return (
       <div className="container">
         <div className="order-book">
-          <Table className="positions-table" onClick={this.onClickRow}>
+          <Table className="positions-table">
             <thead>
               <tr>
                 <th>Order Book</th>

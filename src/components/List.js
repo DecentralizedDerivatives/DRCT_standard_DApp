@@ -6,6 +6,7 @@ import BlockProgress from './BlockProgress';
 import Dropdown from './Dropdown';
 import { Factory, token, DRCT, web3, Exchange } from '../ethereum';
 import { getUserTokenPositions } from '../actions/userActions';
+import { sendListOrder, sendApproveOrder } from '../actions/orderActions';
 
 // Use named export for unconnected component for testing
 export class List extends Component {
@@ -13,7 +14,8 @@ export class List extends Component {
     super();
     this.state = {
       formOpen: false,
-      approvalOpen: false
+      approvalOpen: false,
+      resultsMessage: ''
     };
   }
   async componentWillMount() {
@@ -29,14 +31,19 @@ export class List extends Component {
 
     await this.props.sendListOrder(orderDetails, this.props.userAccount);
 
-    // Check list order tx results
-    // On error, show error in results-message div
-    // On success, trigger approval process
-    // Show approval button
-    this.setState({
-      approvalOpen: true,
-      formOpen: false
-    });
+    if (this.props.listOrderError) {
+      this.setState({
+        resultsMessage: `Error: ${this.props.listOrderError}`,
+        approvalOpen: false,
+        formOpen: false
+      });
+    } else {
+      this.setState({
+        resultsMessage: `Address result ${this.props.newContractAddress}`,
+        approvalOpen: true,
+        formOpen: false
+      });
+    }
   };
 
   handleApproveClick = async e => {
@@ -47,8 +54,19 @@ export class List extends Component {
 
     await this.props.sendApproveOrder(approveDetails, this.props.userAccount);
 
-    // check results, display success or error
-    // on success
+    if (this.props.listOrderApproveError) {
+      this.setState({
+        resultsMessage: `Error: ${this.props.listOrderApproveError}`,
+        sendFundsOpen: false,
+        formOpen: false
+      });
+    } else {
+      this.setState({
+        resultsMessage: `Order approval confirmed`,
+        sendFundsOpen: false,
+        formOpen: false
+      });
+    }
   };
 
   toggleFormVisibility() {
@@ -82,9 +100,11 @@ export class List extends Component {
           </div>
         </Collapse>
 
-        <div id="results-message" className="hidden">
-          {this.props.resultsMessage}
-        </div>
+        {this.state.resultsMessage && (
+          <div id="results-message" className="text-center">
+            {this.state.resultsMessage}
+          </div>
+        )}
       </div>
     );
   }
@@ -98,7 +118,11 @@ List.propTypes = {
   userTokens: PropTypes.array.isRequired,
   selectedToken: PropTypes.string.isRequired,
   tokenAmt: PropTypes.number.isRequired,
-  tokenPrice: PropTypes.number.isRequired
+  tokenPrice: PropTypes.number.isRequired,
+  listOrderTx: PropTypes.string.isRequired,
+  listOrderError: PropTypes.string,
+  listOrderApproved: PropTypes.string.isRequired,
+  listOrderApproveError: PropTypes.string
 };
 
 const mapStateToProps = state => ({
@@ -106,7 +130,11 @@ const mapStateToProps = state => ({
   userTokens: state.user.userTokens,
   selectedToken: state.form.list.listOrderToken,
   tokenAmt: state.form.list.listTokenAmt,
-  tokenPrice: state.form.list.listOrderPrice
+  tokenPrice: state.form.list.listOrderPrice,
+  listOrderTx: state.contract.listOrderTx,
+  listOrderError: state.contract.listOrderError,
+  listOrderApproved: state.contract.listOrderApproved,
+  listOrderApproveError: state.contract.listOrderFundsError
 });
 
 export default connect(

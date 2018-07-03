@@ -13,23 +13,41 @@ export class Unlist extends Component {
     super(props);
 
     this.state = {
-      collapse: false
+      formOpen: false,
+      resultsMessage: ''
     };
+
+    this.toggleFormVisibility = this.toggleFormVisibility.bind(this);
   }
 
   async componentWillMount() {
     await this.props.getUserOrders(this.props.userAccount);
   }
 
-  handleSubmit = e => {
+  handleSubmit = async e => {
     e.preventDefault();
 
-    this.props.sendUnlistOrder(this.props.orderID, this.props.userAccount);
+    await this.props.sendUnlistOrder(
+      this.props.orderID,
+      this.props.userAccount
+    );
+
+    if (this.props.unlistOrderError) {
+      this.setState({
+        resultsMessage: `Error: ${this.props.unlistOrderError}`,
+        formOpen: false
+      });
+    } else {
+      this.setState({
+        resultsMessage: `Tx receipt: ${this.props.unlistOrderTx}`,
+        formOpen: false
+      });
+    }
   };
 
   toggleFormVisibility() {
     this.setState({
-      collapse: !this.state.collapse
+      formOpen: !this.state.formOpen
     });
   }
 
@@ -38,11 +56,16 @@ export class Unlist extends Component {
 
     return (
       <div className="container">
-        <div id="buy-button">
-          <button onClick={this.toggleFormVisibility}>Unlist Order</button>
+        <div id="unlist-button">
+          <button
+            className="btn btn-primary"
+            onClick={this.toggleFormVisibility}
+          >
+            Unlist Order
+          </button>
         </div>
 
-        <Collapse isOpen={this.state.collapse}>
+        <Collapse isOpen={this.state.formOpen}>
           <div id="unlist-form">
             <h4 className="center-text">Unlist Confirmation</h4>
             <UnlistForm
@@ -53,6 +76,12 @@ export class Unlist extends Component {
             />
           </div>
         </Collapse>
+
+        {this.state.resultsMessage && (
+          <div id="results-message" className="text-center">
+            {this.state.resultsMessage}
+          </div>
+        )}
       </div>
     );
   }
@@ -64,14 +93,18 @@ Unlist.propTypes = {
   userAccount: PropTypes.string.isRequired,
   orderID: PropTypes.string.isRequired,
   selectedToken: PropTypes.string.isRequired,
-  orderLabels: PropTypes.array.isRequired
+  orderLabels: PropTypes.array.isRequired,
+  unlistOrderTx: PropTypes.string.isRequired,
+  unlistOrderError: PropTypes.string.isRequired
 };
 
 const mapStateToProps = state => ({
   userAccount: state.account.userAccount,
   orderID: state.form.unlist.unlistOrderID,
   selectedToken: state.current.selectedToken,
-  orderLabels: state.account.userOrderLabels
+  orderLabels: state.account.userOrderLabels,
+  unlistOrderTx: state.order.unlistOrderID,
+  unlistOrderError: state.order.unlistOrderError
 });
 
 export default connect(

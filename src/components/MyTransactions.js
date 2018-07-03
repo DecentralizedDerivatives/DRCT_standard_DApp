@@ -15,9 +15,6 @@ export class MyTransactions extends Component {
   }
 
   renderRows() {
-    // What used for?
-    // const { tokenInfo } = this.state;
-
     this.props.userTransactions.map(trade => {
       const tradeTitle = trade[0];
       const tradeHash = trade[1];

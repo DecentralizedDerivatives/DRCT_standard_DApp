@@ -11,7 +11,8 @@ export class CashOut extends Component {
   constructor() {
     super();
     this.state = {
-      collapse: false
+      formOpen: false,
+      resultsMessage: ''
     };
   }
 
@@ -19,10 +20,22 @@ export class CashOut extends Component {
     await this.props.getUserBalance();
   }
 
-  handleSubmit = e => {
+  handleSubmit = async e => {
     e.preventDefault();
 
-    this.props.sendCashOutRequest();
+    await this.props.sendCashOutRequest();
+
+    if (this.props.cashOutError) {
+      this.setState({
+        resultsMessage: `Error: ${this.props.cashOutError}`,
+        formOpen: false
+      });
+    } else {
+      this.setState({
+        resultsMessage: `Tx receipt: ${this.props.cashOutTx}`,
+        formOpen: false
+      });
+    }
   };
 
   // Toggle form visibility on button click
@@ -47,7 +60,12 @@ export class CashOut extends Component {
             <CashOutForm onSubmit={this.handleSubmit} />
           </div>
         </Collapse>
-        {/* Todo - show "Processing" or "Transaction successful" */}
+
+        {this.state.resultsMessage && (
+          <div id="results-message" className="text-center">
+            {this.state.resultsMessage}
+          </div>
+        )}
       </div>
     );
   }
@@ -58,15 +76,15 @@ CashOut.propTypes = {
   sendCashOutRequest: PropTypes.func.isRequired,
   userBalance: PropTypes.number.isRequired,
   withdrawAmount: PropTypes.number.isRequired,
-  txProcessing: PropTypes.bool.isRequired,
-  txReceipt: PropTypes.string
+  cashOutTx: PropTypes.string.isRequired,
+  cashOutError: PropTypes.string.isRequired
 };
 
 const mapStateToProps = state => ({
   userBalance: state.user.userBalance,
   withdrawAmount: state.form.cashout.withdrawAmount,
-  txProcessing: state.status.txProcessing,
-  txReceipt: state.status.txReceipt
+  cashOutTx: state.user.cashOutTx,
+  cashOutError: state.user.cashOutError
 });
 
 export default connect(

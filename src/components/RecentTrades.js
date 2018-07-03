@@ -43,7 +43,7 @@ export class RecentTrades extends Component {
 
     return (
       <div className="row">
-        <Table className="recent-trades-table" onClick={this.onRowClick}>
+        <Table className="recent-trades-table">
           <thead>
             <tr>
               <th>Recent Trades</th>

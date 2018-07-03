@@ -8,10 +8,12 @@ import { Factory, token, web3, Exchange } from '../ethereum';
 
 // Use named export for unconnected component for testing
 export class Buy extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+
     this.state = {
-      collapse: false
+      formOpen: false,
+      resultsMessage: ''
     };
 
     this.toggleFormVisibility = this.toggleFormVisibility.bind(this);
@@ -24,15 +26,27 @@ export class Buy extends Component {
     await this.getOrderDetails(this.props.orderID);
   }
 
-  handleSubmit = e => {
+  handleSubmit = async e => {
     e.preventDefault();
 
-    this.sendBuyOrder(this.props.orderID, this.props.userAccount);
+    await this.sendBuyOrder(this.props.orderID, this.props.userAccount);
+
+    if (this.props.buyOrderError) {
+      this.setState({
+        resultsMessage: `Error: ${this.props.buyOrderError}`,
+        formOpen: false
+      });
+    } else {
+      this.setState({
+        resultsMessage: `Tx receipt: ${this.props.buyOrderTx}`,
+        formOpen: false
+      });
+    }
   };
 
   toggleFormVisibility() {
     this.setState({
-      collapse: !this.state.collapse
+      formOpen: !this.state.formOpen
     });
   }
 
@@ -43,12 +57,18 @@ export class Buy extends Component {
           <button onClick={this.toggleFormVisibility}>Buy Order</button>
         </div>
 
-        <Collapse isOpen={this.state.collapse}>
+        <Collapse isOpen={this.state.formOpen}>
           <div id="buy-form">
-            <h4 className="center-text"> Buy Order</h4>
+            <h4 className="center-text">Buy Order</h4>
             <BuyForm onSubmit={this.handleSubmit} />
           </div>
         </Collapse>
+
+        {this.state.resultsMessage && (
+          <div id="results-message" className="text-center">
+            {this.state.resultsMessage}
+          </div>
+        )}
       </div>
     );
   }
@@ -58,12 +78,16 @@ Buy.propTypes = {
   getOrderDetails: PropTypes.func.isRequired,
   sendBuyOrder: PropTypes.func.isRequired,
   orderID: PropTypes.string.isRequired,
-  userAccount: PropTypes.string.isRequired
+  userAccount: PropTypes.string.isRequired,
+  buyOrderTx: PropTypes.string.isRequired,
+  buyOrderError: PropTypes.string.isRequired
 };
 
 const mapStateToProps = state => ({
   orderID: state.form.buy.orderID,
-  userAccount: state.user.userAccount
+  userAccount: state.user.userAccount,
+  buyOrderTx: state.order.buyOrderTx,
+  buyOrderError: state.order.buyOrderError
 });
 
 export default connect(

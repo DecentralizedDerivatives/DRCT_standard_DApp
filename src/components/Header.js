@@ -8,13 +8,15 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem
+  NavLink
+  // UncontrolledDropdown,
+  // DropdownToggle,
+  // DropdownMenu,
+  // DropdownItem
 } from 'reactstrap';
 import '../styles/Header.css';
+
+// Dropdown disabled pending separate routes for dropdown items
 
 // Use named export for unconnected component for testing
 export class Header extends Component {
@@ -54,7 +56,7 @@ export class Header extends Component {
               <NavItem>
                 <NavLink href="/how-to/">How To</NavLink>
               </NavItem>
-              <UncontrolledDropdown nav inNavbar>
+              {/* <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
                   More
                 </DropdownToggle>
@@ -73,7 +75,7 @@ export class Header extends Component {
                     <NavLink href="/create-contract/">Create Contract</NavLink>
                   </DropdownItem>
                 </DropdownMenu>
-              </UncontrolledDropdown>
+              </UncontrolledDropdown> */}
               <NavItem>
                 <span>
                   Connected
