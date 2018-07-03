@@ -1,8 +1,7 @@
-import { SET_ORDER_DETAILS, SET_SELECTED_TOKEN } from './types';
+import { SET_ORDER_DETAILS } from './types';
 
 const initialState = {
-  orderDetails: '',
-  selectedToken: ''
+  orderDetails: ''
 };
 
 export default function(state = initialState, action) {
@@ -11,11 +10,6 @@ export default function(state = initialState, action) {
       return {
         ...state,
         orderDetails: action.payload
-      };
-    case SET_SELECTED_TOKEN:
-      return {
-        ...state,
-        selectedToken: action.payload
       };
     default:
       return state;

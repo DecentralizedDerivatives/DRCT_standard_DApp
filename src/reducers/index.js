@@ -1,13 +1,15 @@
 import { combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux';
-import accountReducer from './accountReducer';
+import userReducer from './userReducer';
 import contractReducer from './contractReducer';
+import selectedReducer from './selectedReducer';
 import orderReducer from './orderReducer';
 import statusReducer from './statusReducer';
 
 export default combineReducers({
-  account: accountReducer,
+  user: userReducer,
   contract: contractReducer,
+  selected: selectedReducer,
   order: orderReducer,
   status: statusReducer,
   form: formReducer

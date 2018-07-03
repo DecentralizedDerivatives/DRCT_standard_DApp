@@ -1,10 +1,16 @@
-import { SET_CONTRACT_DETAILS } from './types';
+import {
+  SET_CONTRACT_DETAILS,
+  SET_ORDERBOOK,
+  SET_RECENT_TRADES
+} from './types';
 
 const initialState = {
   contractAddress: '',
   contractDuration: '',
   contractMultiplier: '',
-  oracleAddress: ''
+  oracleAddress: '',
+  orderbook: ['loading...', 'loading...', 'loading...', 'loading...', '...'],
+  recentTrades: [['No Recent Trades', '...', '...']]
 };
 
 export default function(state = initialState, action) {
@@ -22,6 +28,16 @@ export default function(state = initialState, action) {
         contractDuration,
         contractMultiplier,
         oracleAddress
+      };
+    case SET_ORDERBOOK:
+      return {
+        ...state,
+        orderbook: action.payload
+      };
+    case SET_RECENT_TRADES:
+      return {
+        ...state,
+        recentTrades: action.payload
       };
     default:
       return state;

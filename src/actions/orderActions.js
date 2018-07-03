@@ -53,26 +53,98 @@ export const getOrderDetails = orderID => async dispatch => {
   }
 };
 
-export const sendBuyOrder = (orderID) => async dispatch => {
+export const sendBuyOrder = (orderID, account) => async dispatch => {
   dispatch(resetTxState());
   dispatch(setTxProcessing());
 
   try {
     const exchange = await Exchange.deployed();
-    const accounts = await web3.eth.getAccounts();
+    const order = await exchange.getOrder(orderID);
+    const _value = order[1];
+    const response = await exchange.buy(order, {
+      from: account,
+      gas: 4000000,
+      value: _value
+    });
 
-    let response, error, _value;
-    let oId = this.state.orderID; //this.props.orderID
-    let order = await exchange.getOrder(this.state.orderID);
-    _value = order[1];
-    console.log(oId, _value);
-    try {
-      response = await exchange.buy(oId, {
-        from: accounts[0],
-        gas: 4000000,
-        value: _value
-      });
+    dispatch({
+      type: SET_TX_RECEIPT,
+      payload: response.tx
+    });
+  } catch (err) {
+    dispatch({
+      type: SET_PROCESSING_ERROR,
+      payload: err.message.split('\n')[0]
+    });
+  }
+};
 
+export const sendUnlistOrder = (orderID, account) => async dispatch => {
+  dispatch(resetTxState());
+  dispatch(setTxProcessing());
+
+  try {
+    const exchange = await Exchange.deployed();
+    const response = await exchange.unlist(orderID, {
+      from: account,
+      gas: 4000000
+    });
+
+    dispatch({
+      type: SET_TX_RECEIPT,
+      payload: response.tx
+    });
+  } catch (err) {
+    dispatch({
+      type: SET_PROCESSING_ERROR,
+      payload: err.message.split('\n')[0]
+    });
+  }
+};
+
+export const sendListOrder = (orderDetails, account) => async dispatch => {
+  dispatch(resetTxState());
+  dispatch(setTxProcessing());
+
+  let { selectedToken, amount, price } = orderDetails;
+
+  try {
+    const exchange = await Exchange.deployed();
+
+    const response = await exchange.list(selectedToken, amount, price * 1e18, {
+      from: account,
+      gas: 4000000
+    });
+
+    dispatch({
+      type: SET_TX_RECEIPT,
+      payload: response.tx
+    });
+  } catch (err) {
+    dispatch({
+      type: SET_PROCESSING_ERROR,
+      payload: err.message.split('\n')[0]
+    });
+  }
+};
+
+export const sendApproveOrder = (approveDetails, account) => async dispatch => {
+  dispatch(resetTxState());
+  dispatch(setTxProcessing());
+
+  let { selectedToken, amount } = approveDetails;
+
+  try {
+    const exchange = await Exchange.deployed();
+
+    selectedToken = selectedToken.split('(')[0].replace(/['"]+/g, '');
+
+    const drct = await DRCT.at(selectedToken);
+
+    const response = await drct.approve(exchange.address, amount, {
+      from: account,
+      gas: 4000000
+    });
 
     dispatch({
       type: SET_TX_RECEIPT,
@@ -97,4 +169,3 @@ export const resetTxState = () => {
     type: RESET_TX_STATE
   };
 };
-
