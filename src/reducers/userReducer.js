@@ -2,14 +2,16 @@ import {
   SET_USER_ACCOUNT,
   SET_USER_BALANCE,
   SET_USER_TRANSACTIONS,
-  SET_USER_POSITIONS
+  SET_USER_POSITIONS,
+  SET_USER_ORDERS
 } from './types';
 
 const initialState = {
   userAccount: '',
   userBalance: 0,
   userTransactions: [['loading...', 'loading...']],
-  userPositions: [['loading...', 'loading...', 'loading...']]
+  userPositions: [['loading...', 'loading...', 'loading...']],
+  userOrders: ''
 };
 
 export default function(state = initialState, action) {
@@ -33,6 +35,13 @@ export default function(state = initialState, action) {
       return {
         ...state,
         userPositions: action.payload
+      };
+    case SET_USER_ORDERS:
+      const { userOrderLabels, userOrders } = action.payload;
+      return {
+        ...state,
+        userOrderLabels,
+        userOrders
       };
 
     default:

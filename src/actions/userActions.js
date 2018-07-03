@@ -4,6 +4,11 @@ import {
   SET_USER_BALANCE,
   SET_USER_TRANSACTIONS,
   SET_USER_POSITIONS,
+  SET_USER_TOKENS,
+  SET_SELECTED_TOKEN,
+  SET_USER_ORDERS,
+  SET_USER_ORDER_LABELS,
+  SET_CURRENT,
   SET_PROCESSING_ERROR,
   TX_PROCESSING,
   RESET_TX_STATE,
@@ -144,6 +149,127 @@ export const getUserPositions = userAccount => async dispatch => {
       type: SET_USER_POSITIONS,
       payload: _allrows
     });
+  } catch (err) {
+    dispatch({
+      type: SET_PROCESSING_ERROR,
+      payload: err.message.split('\n')[0]
+    });
+  }
+};
+
+export const getUserTokenPositions = userAccount => async dispatch => {
+  try {
+    const factory = await Factory.at(
+      '0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642'
+    );
+    const numDates = await factory.getDateCount();
+    let _allrows = [];
+    let openDates = [];
+    for (let i = 0; i < numDates; i++) {
+      const startDates = (await factory.startDates.call(i)).c[0];
+      const _token_addresses = await factory.getTokens(startDates);
+      let _date = new Date(startDates * 1000);
+      _date =
+        _date.getMonth() +
+        1 +
+        '/' +
+        _date.getDate() +
+        '/' +
+        _date.getFullYear();
+
+      for (let j = 0; j < _token_addresses.length; j++) {
+        const drct = await DRCT.at(_token_addresses[j]); //Getting contract
+        const _balance = (await drct.balanceOf(userAccount)).c[0]; //Getting balance of token
+        if (_balance > 0) {
+          _allrows.push(`${_token_addresses[j]}(${_balance}/${_date})`); //Pushing token address + balance/date
+        }
+      }
+    }
+
+    const _userTokens = _allrows ? _allrows : ['No Current Positions'];
+
+    if (_allrows) {
+      dispatch({
+        type: SET_SELECTED_TOKEN,
+        payload: {
+          selectedToken: _allrows[0]
+        }
+      });
+    }
+
+    dispatch({
+      type: SET_USER_TOKENS,
+      payload: {
+        userTokens: _userTokens
+      }
+    });
+  } catch (err) {
+    dispatch({
+      type: SET_PROCESSING_ERROR,
+      payload: err.message.split('\n')[0]
+    });
+  }
+};
+
+export const getUserOrders = userAccount => async dispatch => {
+  try {
+    const exchange = await Exchange.deployed();
+    const factory = await Factory.at(
+      '0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642'
+    );
+
+    const books = await exchange.getUserOrders.call(userAccount); //Gets all listed order ids
+    const allOrders = []; //Contains all information for each order
+    const allOrderLabels = []; //Contains only what's going to be displayed in dropdown
+
+    for (let i = 0; i < books.length; i++) {
+      //Getting all info for orders in book and storing them in an object
+      const order = {};
+      order.id = books[i].c[0];
+      order.info = await exchange.getOrder(order.id); //Getting order info by order Id (returns array);
+      order.owner = order.info[0];
+      order.price = order.info[1].c[0] / 10000; //divided by 10000 to fix offset
+      order.owned = order.info[2].c[0];
+      order.address = order.info[3];
+      order.date = await factory.token_dates.call(order.address);
+      order.date = new Date(order.date * 1000);
+      order.date =
+        order.date.getMonth() +
+        1 +
+        '/' +
+        order.date.getDate() +
+        '/' +
+        order.date.getFullYear();
+      order.row = `${order.address}(${order.owned}/${order.date})`;
+      allOrders.push(order);
+      allOrderLabels.push(order.row);
+    }
+
+    if (allOrderLabels.length) {
+      dispatch({
+        type: SET_USER_ORDERS,
+        payload: {
+          userOrderLabels: allOrderLabels,
+          userOrders: allOrders
+        }
+      });
+
+      dispatch({
+        type: SET_CURRENT,
+        payload: {
+          selectedToken: allOrderLabels[0],
+          selectedOrderID: allOrders[0].id
+        }
+      });
+    } else {
+      dispatch({
+        type: SET_CURRENT,
+        payload: {
+          selectedToken: 'No orders listed',
+          selectedOrderID: ''
+        }
+      });
+    }
   } catch (err) {
     dispatch({
       type: SET_PROCESSING_ERROR,
