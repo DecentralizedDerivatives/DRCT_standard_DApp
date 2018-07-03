@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Collapse } from 'reactstrap';
 import BuyForm from './BuyForm';
+import { getOrderDetails, sendBuyOrder } from '../actions/orderActions';
 import { Factory, token, web3, Exchange } from '../ethereum';
 
 class Buy extends Component {
@@ -25,7 +26,7 @@ class Buy extends Component {
   handleSubmit = e => {
     e.preventDefault();
 
-    this.sendBuyOrder(this.props.orderID);
+    this.sendBuyOrder(this.props.orderID, this.props.userAccount);
   };
 
   toggleFormVisibility() {
@@ -44,11 +45,7 @@ class Buy extends Component {
         <Collapse isOpen={this.state.collapse}>
           <div id="buy-form">
             <h4 className="center-text"> Buy Order</h4>
-            <BuyForm
-              onSubmit={this.props.handleSubmit}
-              value={Number(this.props.orderId)}
-              onChange={this.handleChange}
-            />
+            <BuyForm onSubmit={this.handleSubmit} />
           </div>
         </Collapse>
       </div>
@@ -59,11 +56,13 @@ class Buy extends Component {
 Buy.propTypes = {
   getOrderDetails: PropTypes.func.isRequired,
   sendBuyOrder: PropTypes.func.isRequired,
-  orderID: PropTypes.string.isRequired
+  orderID: PropTypes.string.isRequired,
+  userAccount: PropTypes.string.isRequired
 };
 
 const mapStateToProps = state => ({
-  orderID: state.form.buy.orderID
+  orderID: state.form.buy.orderID,
+  userAccount: state.user.userAccount
 });
 
 export default connect(

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Collapse } from 'reactstrap';
 import CashOutForm from './CashOutForm';
+import { getUserBalance, sendCashOutRequest } from '../actions/userActions';
 import { Wrapped, web3 } from '../ethereum';
 
 class CashOut extends Component {
@@ -61,7 +62,7 @@ CashOut.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  userBalance: state.account.userBalance,
+  userBalance: state.user.userBalance,
   withdrawAmount: state.form.cashout.withdrawAmount,
   txProcessing: state.status.txProcessing,
   txReceipt: state.status.txReceipt

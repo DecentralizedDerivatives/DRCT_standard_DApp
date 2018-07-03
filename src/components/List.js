@@ -4,151 +4,104 @@ import TextField from './TextField';
 import BlockProgress from './BlockProgress';
 import Dropdown from './Dropdown';
 import { Factory, token, DRCT, web3, Exchange } from '../ethereum';
+import { getUserTokenPositions } from '../actions/userActions';
 
 class List extends Component {
-  static propTypes = {
-    open: PropTypes.bool.isRequired,
-    toggle: PropTypes.func.isRequired
-  };
   constructor() {
     super();
     this.state = {
-      open: false,
-      selectedToken: '',
-      amount: '',
-      price: '',
-      loading: false,
-      disabled: false,
-      created: false,
-      myTokens: [],
-      showList: false,
-      txId: '',
-      approval: ''
+      formOpen: false,
+      approvalOpen: false
+
+      // open: false,
+      // selectedToken: '',
+      // amount: '',
+      // price: '',
+      // loading: false,
+      // disabled: false,
+      // created: false,
+      // myTokens: [],
+      // showList: false,
+      // txId: '',
+      // approval: ''
     };
   }
-  componentWillMount() {
-    this.getMyPositions();
+  async componentWillMount() {
+    await this.props.getUserTokenPositions(this.props.userAccount);
   }
 
-  // handleChange = e => {
-  //   this.setState({ [e.target.name]: e.target.value });
-  // };
-  //
-  // handleFieldChange = name => e => {
-  //   this.setState({
-  //     [name]: e.target.value
-  //   });
-  // };
-
   /**
    * METHOD FOR ACTION CONVERSION
    *
    */
-  getMyPositions = async () => {
-    const factory = await Factory.at(
-      '0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642'
-    );
-    const accounts = await web3.eth.getAccounts();
-    const numDates = await factory.getDateCount();
-    let _allrows = [];
-    let openDates = [];
-    for (let i = 0; i < numDates; i++) {
-      const startDates = (await factory.startDates.call(i)).c[0];
-      const _token_addresses = await factory.getTokens(startDates);
-      let _date = new Date(startDates * 1000);
-      _date =
-        _date.getMonth() +
-        1 +
-        '/' +
-        _date.getDate() +
-        '/' +
-        _date.getFullYear();
-      for (let j = 0; j < _token_addresses.length; j++) {
-        const drct = await DRCT.at(_token_addresses[j]); //Getting contract
-        const _balance = (await drct.balanceOf(accounts[0])).c[0]; //Getting balance of token
-        if (_balance > 0) {
-          _allrows.push(
-            _token_addresses[j] + '(' + _balance + '/' + _date + ')'
-          ); //Pushing token address + balance/date
-        }
-      }
-    }
-    console.log('mytokens', _allrows);
-    _allrows.length
-      ? this.setState({
-          myTokens: _allrows,
-          selectedToken: _allrows[0]
-        })
-      : this.setState({ myTokens: ['No Current Positions'] });
+  // approveOrder = async () => {
+  //   const accounts = await web3.eth.getAccounts();
+  //   const exchange = await Exchange.deployed();
+  //   const tokenSel = this.state.selectedToken
+  //     .split('(')[0]
+  //     .replace(/['"]+/g, '');
+  //   const drct = await DRCT.at(tokenSel);
+  //   let response, error;
+  //   this.setState({ loading: true, disabled: true, showApproval: true });
+  //   console.log('inputs', exchange.address, this.state.amount);
+  //   try {
+  //     response = await drct.approve(exchange.address, this.state.amount, {
+  //       from: accounts[0],
+  //       gas: 4000000
+  //     });
+  //     /*Handle Success Here*/
+  //     this.setState({
+  //       showList: true,
+  //       txId: response.tx,
+  //       approval: 'Order approval confirmed',
+  //       loading: false
+  //     });
+  //   } catch (error) {
+  //     /*Handle error here*/
+  //     this.setState({
+  //       txId: error.tx,
+  //       error: true,
+  //       disabled: false,
+  //       loading: false,
+  //       approval: 'Error approving order'
+  //     });
+  //   }
+  // };
+
+  handleListClick = async e => {
+    const orderDetails = {
+      selectedToken: this.props.selectedToken,
+      amount: this.props.tokenAmt,
+      price: this.props.tokenPrice
+    };
+
+    await this.props.sendListOrder(orderDetails, this.props.userAccount);
+
+    // Check list order tx results
+    // On error, show error in results-message div
+    // On success, trigger approval process
+    // Show approval button
+    this.setState({
+      approvalOpen: true,
+      formOpen: false
+    });
   };
 
-  /**
-   * METHOD FOR ACTION CONVERSION
-   *
-   */
-  approveOrder = async () => {
-    const accounts = await web3.eth.getAccounts();
-    const exchange = await Exchange.deployed();
-    const tokenSel = this.state.selectedToken
-      .split('(')[0]
-      .replace(/['"]+/g, '');
-    const drct = await DRCT.at(tokenSel);
-    let response, error;
-    this.setState({ loading: true, disabled: true, showApproval: true });
-    console.log('inputs', exchange.address, this.state.amount);
-    try {
-      response = await drct.approve(exchange.address, this.state.amount, {
-        from: accounts[0],
-        gas: 4000000
-      });
-      /*Handle Success Here*/
-      this.setState({
-        showList: true,
-        txId: response.tx,
-        approval: 'Order approval confirmed',
-        loading: false
-      });
-    } catch (error) {
-      /*Handle error here*/
-      this.setState({
-        txId: error.tx,
-        error: true,
-        disabled: false,
-        loading: false,
-        approval: 'Error approving order'
-      });
-    }
-  };
+  handleApproveClick = async e => {
+    const approveDetails = {
+      selectedToken: this.props.selectedToken,
+      amount: this.props.tokenAmt
+    };
 
-  /**
-   * METHOD FOR ACTION CONVERSION
-   *
-   */
-  listOrder = async () => {
-    const exchange = await Exchange.deployed();
-    const accounts = await web3.eth.getAccounts();
-    const tokenSel = this.state.selectedToken
-      .split('(')[0]
-      .replace(/['"]+/g, '');
-    let response, error;
-    exchange
-      .list(tokenSel, this.state.amount, this.state.price * 1e18, {
-        from: accounts[0],
-        gas: 4000000
-      })
-      .then((res, err) => {
-        if (err) {
-          console.log('Error Message:', err);
-        } else {
-          console.log('RESPONSE', res);
-        }
-      });
-    this.props.toggle;
+    await this.props.sendApproveOrder(approveDetails, this.props.userAccount);
+
+    // check results, display success or error
+    // on success
   };
 
   toggleFormVisibility() {
     this.setState({
-      collapse: !this.state.collapse
+      formOpen: !this.state.formOpen
     });
   }
 
@@ -159,116 +112,52 @@ class List extends Component {
           <button onClick={this.toggleFormVisibility}>List Order</button>
         </div>
 
-        <Collapse isOpen={this.state.collapse}>
+        <Collapse isOpen={this.state.formOpen}>
           <div id="list-form">
             <h4 className="center-text">Place Order</h4>
             <ListForm
               name="listOrderID"
-              onSubmit={this.listOrder}
-              dropdownData={this.state.myTokens}
+              onSubmit={this.handleListClick}
+              dropdownData={this.props.userTokens}
             />
           </div>
         </Collapse>
+
+        <Collapse isOpen={this.state.approvalOpen}>
+          <div id="approval">
+            <h4 className="center-text">Order Placed</h4>
+            <button onClick={this.handleApproveClick}>Approve Order</button>
+          </div>
+        </Collapse>
+
+        <div id="results-message" className="hidden">
+          {this.props.resultsMessage}
+        </div>
       </div>
     );
   }
-
-  //   const { classes } = this.props;
-  //   return (
-  //     <div>
-  //       <div className="container list-form">
-  //         <div className="dialog-container">
-  //           <div className="input-container">
-  //             <p className="input">Place Order</p>
-  //             <div className="flex-container">
-  //               <Dropdown
-  //                 options={this.state.myTokens}
-  //                 value={this.state.selectedToken || 'Select a Token'}
-  //                 name="selectedToken"
-  //                 onChange={this.handleChange}
-  //                 className="dropdown-selectedToken"
-  //               />
-  //             </div>
-  //           </div>
-  //
-  //           <div className="input-container">
-  //             <p className="input">Price (in Ether)</p>
-  //
-  //             <TextField
-  //               id="price"
-  //               value={Number(this.state.price)}
-  //               type="number"
-  //               onChange={this.handleTextfieldChange('price')}
-  //               className="full-width"
-  //               helperText="Enter the price in Ether (e.g. 0.1)"
-  //             />
-  //           </div>
-  //
-  //           <div className="input-container">
-  //             <p className="input">Amount</p>
-  //
-  //             <TextField
-  //               id="amount"
-  //               value={Number(this.state.amount)}
-  //               type="number"
-  //               onChange={this.handleTextfieldChange('amount')}
-  //               className="full-width"
-  //               helperText="Enter the amount of the token to sell"
-  //             />
-  //           </div>
-  //
-  //           <button
-  //             className={this.state.disabled ? 'button-disabled' : 'button'}
-  //             disabled={this.state.disabled}
-  //             onClick={this.approveOrder}
-  //           >
-  //             <span className="button-text">Submit for Approval</span>
-  //           </button>
-  //         </div>
-  //
-  //         {this.state.showApproval && <div className={classes.line} />}
-  //         {this.state.showApproval && (
-  //           <div className="approval-container">
-  //             <div className="input-container">
-  //               <div className="flex-container-stretch">
-  //                 <div>
-  //                   <p className="input">Approval</p>
-  //                 </div>
-  //
-  //                 <div>
-  //                   {this.state.loading && (
-  //                     <div className="flex-container-stretch">
-  //                       <div>
-  //                         <p className="waiting">Waiting for confirmation...</p>
-  //                       </div>
-  //
-  //                       <div>
-  //                         <BlockProgress />
-  //                       </div>
-  //                     </div>
-  //                   )}
-  //                 </div>
-  //               </div>
-  //
-  //               {this.state.approval && (
-  //                 <p className="approval input-text">{this.state.approval}</p>
-  //               )}
-  //             </div>
-  //           </div>
-  //         )}
-  //
-  //         {this.state.showList && <div className="line" />}
-  //         {this.state.showList && (
-  //           <div className="list-container">
-  //             <button className="button" onClick={this.listOrder}>
-  //               <span className="button-text">List Order</span>
-  //             </button>
-  //           </div>
-  //         )}
-  //       </div>
-  //     </div>
-  //   );
-  // }
 }
+List.propTypes = {
+  getUserTokenPositions: PropTypes.func.isRequired,
+  sendListOrder: PropTypes.func.isRequired,
+  sendApproveOrder: PropTypes.func.isRequired,
+  orderID: PropTypes.string.isRequired,
+  userAccount: PropTypes.string.isRequired,
+  userTokens: PropTypes.array.isRequired,
+  selectedToken: PropTypes.string.isRequired,
+  tokenAmt: PropTypes.number.isRequired,
+  tokenPrice: PropTypes.number.isRequired
+};
 
-export default List;
+const mapStateToProps = state => ({
+  userAccount: state.user.userAccount,
+  userTokens: state.user.userTokens,
+  selectedToken: state.form.list.listOrderToken,
+  tokenAmt: state.form.list.listTokenAmt,
+  tokenPrice: state.form.list.listOrderPrice
+});
+
+export default connect(
+  mapStateToProps,
+  { getUserTokenPositions, sendListOrder, sendApproveOrder }
+)(List);
