@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import TextField from './TextField';
 import BlockProgress from './BlockProgress';
@@ -6,67 +7,18 @@ import Dropdown from './Dropdown';
 import { Factory, token, DRCT, web3, Exchange } from '../ethereum';
 import { getUserTokenPositions } from '../actions/userActions';
 
-class List extends Component {
+// Use named export for unconnected component for testing
+export class List extends Component {
   constructor() {
     super();
     this.state = {
       formOpen: false,
       approvalOpen: false
-
-      // open: false,
-      // selectedToken: '',
-      // amount: '',
-      // price: '',
-      // loading: false,
-      // disabled: false,
-      // created: false,
-      // myTokens: [],
-      // showList: false,
-      // txId: '',
-      // approval: ''
     };
   }
   async componentWillMount() {
     await this.props.getUserTokenPositions(this.props.userAccount);
   }
-
-  /**
-   * METHOD FOR ACTION CONVERSION
-   *
-   */
-  // approveOrder = async () => {
-  //   const accounts = await web3.eth.getAccounts();
-  //   const exchange = await Exchange.deployed();
-  //   const tokenSel = this.state.selectedToken
-  //     .split('(')[0]
-  //     .replace(/['"]+/g, '');
-  //   const drct = await DRCT.at(tokenSel);
-  //   let response, error;
-  //   this.setState({ loading: true, disabled: true, showApproval: true });
-  //   console.log('inputs', exchange.address, this.state.amount);
-  //   try {
-  //     response = await drct.approve(exchange.address, this.state.amount, {
-  //       from: accounts[0],
-  //       gas: 4000000
-  //     });
-  //     /*Handle Success Here*/
-  //     this.setState({
-  //       showList: true,
-  //       txId: response.tx,
-  //       approval: 'Order approval confirmed',
-  //       loading: false
-  //     });
-  //   } catch (error) {
-  //     /*Handle error here*/
-  //     this.setState({
-  //       txId: error.tx,
-  //       error: true,
-  //       disabled: false,
-  //       loading: false,
-  //       approval: 'Error approving order'
-  //     });
-  //   }
-  // };
 
   handleListClick = async e => {
     const orderDetails = {

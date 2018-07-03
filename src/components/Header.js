@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import {
   Collapse,
@@ -15,7 +16,8 @@ import {
 } from 'reactstrap';
 import '../styles/Header.css';
 
-class Header extends Component {
+// Use named export for unconnected component for testing
+export class Header extends Component {
   constructor(props) {
     super(props);
 
@@ -77,8 +79,8 @@ class Header extends Component {
                   Connected
                   <i
                     className={classnames('far fa-circle', {
-                      'connect__icon--green': this.props.connected,
-                      'connect__icon--red': !this.props.connected
+                      'connect__icon--green': this.props.isConnected,
+                      'connect__icon--red': !this.props.isConnected
                     })}
                   />
                 </span>
@@ -103,4 +105,8 @@ Navbar.propTypes = {
   expand: PropTypes.string
 };
 
-export default Header;
+const mapStateToProps = state => ({
+  isConnected: state.status.isConnected
+});
+
+export default connect(mapStateToProps)(Header);

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
 import '../styles/Landing.css';
@@ -20,8 +21,7 @@ class Landing extends Component {
               <div className="col-md-12 text-center">
                 <h1 className="display-3 mb-4">DRCT DApp</h1>
                 <p className="lead">
-                  You must have the MetaMask extension installed to use this
-                  application
+                  Please log into your MetaMask extension to access this site.
                 </p>
                 <hr />
                 <a
@@ -30,7 +30,7 @@ class Landing extends Component {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Get Metamask
+                  Need MetaMask?
                 </a>
 
                 <a
@@ -39,7 +39,7 @@ class Landing extends Component {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Learn More
+                  Learn More About DRCT DApp
                 </a>
               </div>
             </div>

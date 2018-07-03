@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Factory, Exchange, web3 } from '../../ethereum';
 import OrderBook from './OrderBook';
 import RecentTrades from './RecentTrades';
 import ContractDetails from './ContractDetails';
@@ -15,9 +17,18 @@ import {
 import { setSelectedToken } from '../actions/selectedActions';
 import '../styles/Bulletin.css';
 
-import { Factory, Exchange, web3 } from '../../ethereum';
+// Use named export for unconnected component for testing
+export class Bulletin extends Component {
+  constructor(props) {
+    super(props);
 
-class Bulletin extends Component {
+    this.state = {
+      detailsOpen: false
+    };
+
+    const { handleRowClick } = this.props;
+  }
+
   async componentDidMount() {
     await this.props.getUserAccount();
     await this.props.getOrderBook();
@@ -62,7 +73,7 @@ class Bulletin extends Component {
     return (
       <div>
         <div className="wrapper">
-          <OrderBook />
+          <OrderBook onRowClick={this.handleRowClick.bind(this)} />
 
           <div className="order-buttons">
             <Buy />
@@ -70,10 +81,10 @@ class Bulletin extends Component {
             <Unlist />
           </div>
 
-          <RecentTrades />
+          <RecentTrades onRowClick={this.handleRowClick.bind(this)} />
 
           <Collapse isOpen={this.state.detailsOpen}>
-            <ContractDetails onClick={this.closeContractDetails} />
+            <ContractDetails onClick={this.closeContractDetails.bind(this)} />
           </Collapse>
 
           <div className="price-chart">

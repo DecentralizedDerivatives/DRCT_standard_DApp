@@ -6,7 +6,8 @@ import TextField from './TextField';
 import BlockProgress from './BlockProgress';
 import CreateContractForm from './CreateContractForm';
 
-class CreateContract extends Component {
+// Use named export for unconnected component for testing
+export class CreateContract extends Component {
   constructor() {
     super();
     this.state = {

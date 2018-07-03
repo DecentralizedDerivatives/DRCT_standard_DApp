@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Table } from 'reactstrap';
 import { Factory, Exchange, web3, DRCT } from '../ethereum';
 import { getContractDetails } from '../actions/userActions';
 import '../styles/MyPositions.css';
 
-class MyPositions extends Component {
+// Use named export for unconnected component for testing
+export class MyPositions extends Component {
   handleRowClick = e => {
     e.preventDefault();
 

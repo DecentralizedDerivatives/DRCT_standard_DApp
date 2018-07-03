@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import MyPositions from './MyPositions';
 import MyTransactions from './MyTransactions';
 import ContractDetails from './ContractDetails';
 import { Factory, Exchange, web3, DRCT } from '../ethereum';
 
-class MyPortfolio extends Component {
+// Use named export for unconnected component for testing
+export class MyPortfolio extends Component {
   constructor() {
     super();
+
     this.state = {
-      previousActive: '',
-      active: '',
-      open: false,
-      selectedTokenAddress: ''
+      detailsOpen: false
     };
   }
 
@@ -22,41 +22,49 @@ class MyPortfolio extends Component {
     await this.props.getUserTransactions(this.props.userAccount);
   }
 
-  openContractDetails = (newActive, token_address = false) => {
-    if (token_address) {
-      this.setState({
-        active: newActive,
-        open: true,
-        previousActive: this.state.active,
-        selectedTokenAddress: token_address
-      });
-    } else {
-      this.setState({
-        active: newActive,
-        open: true,
-        previousActive: this.state.active
-      });
+  async componentDidUpdate() {
+    await this.props.getUserAccount();
+    await this.props.getUserPositions(this.props.userAccount);
+    await this.props.getUserTransactions(this.props.userAccount);
+  }
+
+  handleRowClick = async e => {
+    e.preventDefault();
+
+    let addressEl = e.target.getElementsByClassName('link__token-address')[0];
+
+    if (typeof addressEl !== 'undefined') {
+      const token_address = addressEl.getAttribute('data-token-address');
+
+      await this.props.setSelectedToken(token_address);
+
+      this.openContractDetails(link, token_address);
     }
+  };
+
+  openContractDetails = async (link, token_address = false) => {
+    await this.props.getContractDetails(link);
+
+    this.setState({
+      detailsOpen: true
+    });
   };
 
   closeContractDetails = () => {
     this.setState({
-      open: false,
-      active: this.state.previousActive
+      detailsOpen: false
     });
   };
 
   render() {
     return (
       <div>
-        <MyPositions />
-        <MyTransactions />
+        <MyPositions onRowClick={this.handleRowClick.bind(this)} />
+        <MyTransactions onRowClick={this.handleRowClick.bind(this)} />
 
-        <ContractDetails
-          open={this.state.open}
-          toggle={this.closeContractDetails}
-          tokenAddress={this.state.selectedTokenAddress}
-        />
+        <Collapse isOpen={this.state.detailsOpen}>
+          <ContractDetails onClick={this.closeContractDetails.bind(this)} />
+        </Collapse>
       </div>
     );
   }

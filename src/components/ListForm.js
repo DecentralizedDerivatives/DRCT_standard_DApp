@@ -5,7 +5,8 @@ import { InputGroup } from 'reactstrap';
 import InputNumber from './InputNumber';
 import 'react-widgets/dist/css/react-widgets.css';
 
-let ListForm = props => {
+// Use named export for unconnected component for testing
+export let ListForm = props => {
   const {
     handleSubmit,
     pristine,

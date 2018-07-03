@@ -1,29 +1,22 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Table } from 'reactstrap';
 import { Factory, Exchange, web3, DRCT } from '../ethereum';
 import { getUserTransactions } from '../actions/userActions';
 import '../styles/MyTransactions.css';
 
-class MyTransactions extends Component {
-  handleRowClick = e => {
-    e.preventDefault();
+// Use named export for unconnected component for testing
+export class MyTransactions extends Component {
+  constructor(props) {
+    super(props);
 
-    let addressEl = e.target.getElementsByClassName('link__token-address')[0];
-    if (typeof addressEl !== 'undefined') {
-      this.openContractDetails(
-        link,
-        addressEl.getAttribute('data-token-address')
-      );
-    }
-  };
+    const { handleRowClick } = this.props;
+  }
 
   renderRows() {
-    /**
-     ******************************************
-     */
-    // Where is this from?
-    const { tokenInfo } = this.state;
+    // What used for?
+    // const { tokenInfo } = this.state;
 
     this.props.userTransactions.map(trade => {
       const tradeTitle = trade[0];
@@ -41,7 +34,7 @@ class MyTransactions extends Component {
                   : `https://rinkeby.etherscan.io/address/${tradeHash}`
               }
               target="_blank"
-              onClick={this.handleRowClick}
+              onClick={handleRowClick}
               data-token-address={tradeHash}
             >
               {tradeHash.substring(0, 14)}...
@@ -55,7 +48,7 @@ class MyTransactions extends Component {
   render() {
     return (
       <div className="row">
-        <Table className="transactions-table" onClick={this.onClickRow}>
+        <Table className="transactions-table">
           <thead>
             <tr>
               <th>My Transactions</th>
@@ -73,6 +66,7 @@ class MyTransactions extends Component {
 }
 
 MyTransactions.propTypes = {
+  handleRowClick: PropTypes.func.isRequired,
   userAccount: PropTypes.string.isRequired,
   userTransactions: PropTypes.array
 };

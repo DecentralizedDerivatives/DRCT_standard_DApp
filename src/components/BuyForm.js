@@ -3,7 +3,8 @@ import { Field, reduxForm } from 'redux-form';
 import { InputGroup } from 'reactstrap';
 import InputNumber from './InputNumber';
 
-let BuyForm = props => {
+// Use named export for unconnected component for testing
+export let BuyForm = props => {
   const { handleSubmit, pristine, reset, submitting } = props;
 
   const validateNotEmpty = value => (!value ? 'Must enter a value' : null);

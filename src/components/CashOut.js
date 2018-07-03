@@ -6,7 +6,8 @@ import CashOutForm from './CashOutForm';
 import { getUserBalance, sendCashOutRequest } from '../actions/userActions';
 import { Wrapped, web3 } from '../ethereum';
 
-class CashOut extends Component {
+// Use named export for unconnected component for testing
+export class CashOut extends Component {
   constructor() {
     super();
     this.state = {

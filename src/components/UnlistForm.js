@@ -5,7 +5,8 @@ import { InputGroup } from 'reactstrap';
 import InputNumber from './InputNumber';
 import 'react-widgets/dist/css/react-widgets.css';
 
-let UnlistForm = props => {
+// Use named export for unconnected component for testing
+export let UnlistForm = props => {
   const {
     handleSubmit,
     pristine,

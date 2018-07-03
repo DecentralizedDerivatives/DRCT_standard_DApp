@@ -6,7 +6,8 @@ import BuyForm from './BuyForm';
 import { getOrderDetails, sendBuyOrder } from '../actions/orderActions';
 import { Factory, token, web3, Exchange } from '../ethereum';
 
-class Buy extends Component {
+// Use named export for unconnected component for testing
+export class Buy extends Component {
   constructor() {
     super();
     this.state = {

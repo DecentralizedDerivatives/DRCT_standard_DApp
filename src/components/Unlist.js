@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import TextField from './TextField';
 import Dropdown from './Dropdown';
@@ -6,7 +7,8 @@ import { getUserOrders } from '../actions/accountActions';
 import { sendUnlistOrder } from '../actions/orderActions';
 import { Factory, Exchange, web3 } from '../ethereum';
 
-class Unlist extends Component {
+// Use named export for unconnected component for testing
+export class Unlist extends Component {
   constructor(props) {
     super(props);
 

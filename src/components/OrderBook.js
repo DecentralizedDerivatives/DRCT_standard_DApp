@@ -1,21 +1,17 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Table } from 'reactstrap';
 import { Factory, Exchange, web3, DRCT } from '../ethereum';
 import { getOrderBook } from '../actions/contractActions';
 
-class OrderBook extends Component {
-  handleClickRow = link => {
-    let addressEl = link.currentTarget.getElementsByClassName(
-      'token-address-link'
-    )[0];
-    if (typeof addressEl !== 'undefined') {
-      this.openContractDetails(
-        link,
-        addressEl.getAttribute('data-token-address')
-      );
-    }
-  };
+// Use named export for unconnected component for testing
+export class OrderBook extends Component {
+  constructor(props) {
+    super(props);
+
+    const { handleRowClick } = this.props;
+  }
 
   renderRows() {
     this.state.orderbook.map(order => {
@@ -29,7 +25,7 @@ class OrderBook extends Component {
           <td>
             <a
               className="link__token-address"
-              onClick={this.handleRowClick}
+              onClick={handleRowClick}
               data-token-address={address}
             >
               <span>
@@ -74,6 +70,7 @@ class OrderBook extends Component {
 }
 
 OrderBook.propTypes = {
+  handleRowClick: PropTypes.func.isRequired,
   orderbook: PropTypes.array.isRequired,
   contractDuration: PropTypes.string.isRequired,
   contractMultiplier: PropTypes.number.isRequired

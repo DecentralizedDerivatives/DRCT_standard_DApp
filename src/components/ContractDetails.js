@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import {
   Button,
@@ -11,7 +12,8 @@ import {
 import { Factory, Exchange, web3, DRCT } from '../ethereum';
 import { getContractDetails } from '../actions/contractActions';
 
-class ContractDetails extends Component {
+// Use named export for unconnected component for testing
+export class ContractDetails extends Component {
   constructor(props) {
     super(props);
 

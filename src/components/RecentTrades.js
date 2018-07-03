@@ -1,23 +1,17 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Table } from 'reactstrap';
 import { Factory, Exchange, web3, DRCT } from '../ethereum';
 import { getRecentTrades } from '../actions/contractActions';
 
-class RecentTrades extends Component {
-  handleRowClick = e => {
-    e.preventDefault();
+// Use named export for unconnected component for testing
+export class RecentTrades extends Component {
+  constructor(props) {
+    super(props);
 
-    let addressEl = link.currentTarget.getElementsByClassName(
-      'token-address-link'
-    )[0];
-    if (typeof addressEl !== 'undefined') {
-      this.openContractDetails(
-        link,
-        addressEl.getAttribute('data-token-address')
-      );
-    }
-  };
+    const { handleRowClick } = this.props;
+  }
 
   renderRows() {
     this.state.recentTrades.map(trade => {
@@ -30,7 +24,7 @@ class RecentTrades extends Component {
           <td>
             <a
               className="token-address-link"
-              onClick={this.handleRowClick}
+              onClick={handleRowClick}
               data-token-address={address}
             >
               {symbol} - {this.props.contractDuration} Days -{' '}
@@ -68,6 +62,7 @@ class RecentTrades extends Component {
 }
 
 RecentTrades.propTypes = {
+  handleRowClick: PropTypes.func.isRequired,
   recentTrades: PropTypes.array.isRequired,
   contractDuration: PropTypes.string.isRequired,
   contractMultiplier: PropTypes.number.isRequired
