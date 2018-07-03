@@ -6,131 +6,57 @@ import PriceChart from './PriceChart';
 import List from './List';
 import Unlist from './Unlist';
 import Buy from './Buy';
+import { getUserAccount } from '../actions/userActions';
+import {
+  getOrderBook,
+  getRecentTrades,
+  getContractDetails
+} from '../actions/contractActions';
+import { setSelectedToken } from '../actions/selectedActions';
 import '../styles/Bulletin.css';
 
 import { Factory, Exchange, web3 } from '../../ethereum';
 
 class Bulletin extends Component {
-  constructor() {
-    super();
-    this.state = {
-      previousActive: '',
-      recentTrades: [['loading...', 'loading...', 'loading...']],
-      active: '',
-      open: false,
-      openU: false,
-      openL: false,
-      openB: false,
-      orderID: 'xxx',
-      myAccount: 'xxx',
-      contractAddress: '',
-      contractDuration: '',
-      contractMultiplier: '',
-      oracleAddress: '',
-      selectedTokenAddress: ''
-    };
-  }
-  fetchData = () => {};
-  componentDidMount() {
-    web3.eth.getAccounts((error, accounts) => {
-      this.setState({ myAccount: accounts[0] });
-    });
-
-    //Getting contract details one time when its parent gets mounted
-    this.getContractDetails();
+  async componentDidMount() {
+    await this.props.getUserAccount();
+    await this.props.getOrderBook();
+    await this.props.getRecentTrades();
   }
 
-  //This is the base data structure for an order (the maker of the order and the price)
-  // struct Order {
-  //     address maker;// the placer of the order
-  //     uint price;// The price in wei
-  //     uint amount;
-  //     address asset;
-  // }
+  async componentDidUpdate() {
+    await this.props.getUserAccount();
+    await this.props.getOrderBook();
+    await this.props.getRecentTrades();
+  }
 
-  // Q: getContractDetails to show order from Orderbook and show trade from RecentTrades?
-  // Need to copy this method in orderbook and recenttrades
-  onClickRow = link => {
-    let addressEl = link.currentTarget.getElementsByClassName(
-      'token-address-link'
-    )[0];
+  handleRowClick = async e => {
+    e.preventDefault();
+
+    let addressEl = e.target.getElementsByClassName('link__token-address')[0];
+
     if (typeof addressEl !== 'undefined') {
-      this.openContractDetails(
-        link,
-        addressEl.getAttribute('data-token-address')
-      );
+      const token_address = addressEl.getAttribute('data-token-address');
+
+      await this.props.setSelectedToken(token_address);
+
+      this.openContractDetails(link, token_address);
     }
   };
 
-  onBuyClick = link => {
-    console.log(link);
-  };
+  openContractDetails = async (link, token_address = false) => {
+    await this.props.getContractDetails(link);
 
-  openContractDetails = (newActive, token_address = false) => {
-    if (token_address) {
-      this.setState({
-        active: newActive,
-        open: true,
-        previousActive: this.state.active,
-        selectedTokenAddress: token_address
-      });
-    } else {
-      this.setState({
-        active: newActive,
-        open: true,
-        previousActive: this.state.active
-      });
-    }
+    this.setState({
+      detailsOpen: true
+    });
   };
 
   closeContractDetails = () => {
     this.setState({
-      open: false,
-      active: this.state.previousActive
+      detailsOpen: false
     });
   };
-
-  openBuy = link => {
-    this.setState({ orderID: link });
-    this.setState({ openB: true, previousActive: this.state.active });
-  };
-
-  closeBuy = () => {
-    this.setState({
-      openB: false,
-      active: this.state.previousActive
-    });
-    this.getOrderBook();
-    this.getRecentTrades();
-  };
-
-  openList = () => {
-    this.setState({ openL: true, previousActive: this.state.active });
-  };
-
-  closeList = () => {
-    this.setState({
-      openL: false,
-      active: this.state.previousActive
-    });
-    this.getOrderBook();
-    this.getRecentTrades();
-  };
-
-  openUnlist = () => {
-    this.setState({ openU: true, previousActive: this.state.active });
-  };
-
-  closeUnlist = () => {
-    this.setState({
-      openU: false,
-      active: this.state.previousActive
-    });
-    this.getOrderBook();
-    this.getRecentTrades();
-  };
-
-  buyOrder = () => {};
 
   render() {
     return (
@@ -139,59 +65,46 @@ class Bulletin extends Component {
           <OrderBook />
 
           <div className="order-buttons">
-            <ul className="bulletin-order-btns-wrapper">
-              <li>
-                <button className="bulletin-order-btn" onClick={this.openList}>
-                  <span className="bulletin-order-btn-txt">List Order</span>
-                </button>
-              </li>
-              <li>
-                <button className="bulletin-order-btn" onClick={this.openBuy}>
-                  <span className="bulletin-order-btn-txt">Buy Order</span>
-                </button>
-              </li>
-              <li>
-                <button
-                  className="bulletin-order-btn"
-                  onClick={this.openUnlist}
-                >
-                  <span className="bulletin-order-btn-txt">Unlist Order</span>
-                </button>
-              </li>
-            </ul>
+            <Buy />
+            <List />
+            <Unlist />
           </div>
 
           <RecentTrades />
+
+          <Collapse isOpen={this.state.detailsOpen}>
+            <ContractDetails onClick={this.closeContractDetails} />
+          </Collapse>
 
           <div className="price-chart">
             <PriceChart />
           </div>
         </div>
-
-        <ContractDetails
-          open={this.state.open}
-          toggle={this.closeContractDetails}
-          contractAddress={this.state.contractAddress}
-          contractDuration={this.state.contractDuration}
-          contractMultiplier={this.state.contractMultiplier}
-          oracleAddress={this.state.oracleAddress}
-          tokenAddress={this.state.selectedTokenAddress}
-        />
-
-        <List open={this.state.openL} toggle={this.closeList} />
-        <Unlist
-          myAccount={this.state.myAccount}
-          open={this.state.openU}
-          toggle={this.closeUnlist}
-        />
-        <Buy
-          orderID={this.state.orderID}
-          open={this.state.openB}
-          toggle={this.closeBuy}
-        />
       </div>
     );
   }
 }
+Bulletin.propTypes = {
+  getUserAccount: PropTypes.func.isRequired,
+  getOrderBook: PropTypes.func.isRequired,
+  getRecentTrades: PropTypes.func.isRequired,
+  getContractDetails: PropTypes.func.isRequired,
+  setSelectedToken: PropTypes.func.isRequired,
+  orderID: PropTypes.string.isRequired,
+  userAccount: PropTypes.string.isRequired
+};
 
-export default Bulletin;
+const mapStateToProps = state => ({
+  userAccount: state.user.userAccount
+});
+
+export default connect(
+  mapStateToProps,
+  {
+    getUserAccount,
+    getOrderBook,
+    getRecentTrades,
+    setSelectedToken,
+    getContractDetails
+  }
+)(Bulletin);

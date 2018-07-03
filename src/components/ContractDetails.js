@@ -1,89 +1,104 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import {
+  Button,
+  Card,
+  CardBody,
+  CardTitle,
+  CardSubtitle,
+  CardLink
+} from 'reactstrap';
 import { Factory, Exchange, web3, DRCT } from '../ethereum';
+import { getContractDetails } from '../actions/contractActions';
 
 class ContractDetails extends Component {
   constructor(props) {
     super(props);
+
+    const {
+      tokenAddress,
+      contractAddress,
+      contractDuration,
+      contractMultiplier,
+      oracleAddress,
+      handleDetailsClick
+    } = this.props;
   }
 
-  componentDidMount() {
-    this.props.getContractDetails(this.props.tokenAddress);
+  async componentDidMount() {
+    await this.props.getContractDetails(tokenAddress);
+  }
+
+  renderCardBody() {
+    const cardBody =
+      typeof tokenAddress !== 'undefined' && tokenAddress.length ? (
+        <CardBody>
+          <CardTitle>Factory Contract</CardTitle>
+          <CardSubtitle>Address</CardSubtitle>
+          <CardLink
+            href={`https://rinkeby.etherscan.io/address/${contractAddress}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {contractAddress}
+          </CardLink>
+          <CardSubtitle>Duration</CardSubtitle>
+          <CardText>{contractDuration}</CardText>
+          <CardSubtitle>Multiplier</CardSubtitle>
+          <CardText>{contractMultiplier}</CardText>
+          <CardSubtitle>Oracle Address</CardSubtitle>
+          <CardLink
+            href={`https://rinkeby.etherscan.io/address/${oracleAddress}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {oracleAddress}
+          </CardLink>
+          <CardSubtitle>Token Address</CardSubtitle>
+          <CardLink
+            href={`https://rinkeby.etherscan.io/address/${tokenAddress}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {tokenAddress}
+          </CardLink>
+        </CardBody>
+      ) : (
+        <CardBody>
+          <CardTitle>Factory Contract</CardTitle>
+          <CardSubtitle>Address</CardSubtitle>
+          <CardLink
+            href={`https://rinkeby.etherscan.io/address/${contractAddress}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {contractAddress}
+          </CardLink>
+          <CardSubtitle>Duration</CardSubtitle>
+          <CardText>{contractDuration}</CardText>
+          <CardSubtitle>Multiplier</CardSubtitle>
+          <CardText>{contractMultiplier}</CardText>
+          <CardSubtitle>Oracle Address</CardSubtitle>
+          <CardLink
+            href={`https://rinkeby.etherscan.io/address/${oracleAddress}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {oracleAddress}
+          </CardLink>
+        </CardBody>
+      );
+
+    return cardBody;
   }
 
   render() {
-    return typeof this.props.tokenAddress !== 'undefined' &&
-      this.props.tokenAddress.length ? (
-      <div>
+    return (
+      <div id="contract-details">
         <Card>
+          {this.renderCardBody()}
           <CardBody>
-            <CardTitle>Factory Contract</CardTitle>
-            <CardSubtitle>Address</CardSubtitle>
-            <CardLink
-              href={`https://rinkeby.etherscan.io/address/${
-                this.props.contractAddress
-              }`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {this.props.contractAddress}
-            </CardLink>
-            <CardSubtitle>Duration</CardSubtitle>
-            <CardText>{this.props.contractDuration}</CardText>
-            <CardSubtitle>Multiplier</CardSubtitle>
-            <CardText>{this.props.contractMultiplier}</CardText>
-            <CardSubtitle>Oracle Address</CardSubtitle>
-            <CardLink
-              href={`https://rinkeby.etherscan.io/address/${
-                this.props.oracleAddress
-              }`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {this.props.oracleAddress}
-            </CardLink>
-            <CardSubtitle>Token Address</CardSubtitle>
-            <CardLink
-              href={`https://rinkeby.etherscan.io/address/${
-                this.props.tokenAddress
-              }`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {this.props.tokenAddress}
-            </CardLink>
-          </CardBody>
-        </Card>
-      </div>
-    ) : (
-      <div>
-        <Card>
-          <CardBody>
-            <CardTitle>Factory Contract</CardTitle>
-            <CardSubtitle>Address</CardSubtitle>
-            <CardLink
-              href={`https://rinkeby.etherscan.io/address/${
-                this.props.contractAddress
-              }`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {this.props.contractAddress}
-            </CardLink>
-            <CardSubtitle>Duration</CardSubtitle>
-            <CardText>{this.props.contractDuration}</CardText>
-            <CardSubtitle>Multiplier</CardSubtitle>
-            <CardText>{this.props.contractMultiplier}</CardText>
-            <CardSubtitle>Oracle Address</CardSubtitle>
-            <CardLink
-              href={`https://rinkeby.etherscan.io/address/${
-                this.props.oracleAddress
-              }`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {this.props.oracleAddress}
-            </CardLink>
+            <Button onClick={handleDetailsClick} />
           </CardBody>
         </Card>
       </div>
@@ -100,10 +115,11 @@ ContractDetails.propTypes = {
 };
 
 const mapStateToProps = (state = {
-  contractAddress: state.contractAddress,
-  contractDuration: state.contractDuration,
-  contractMultiplier: state.contractMultiplier,
-  oracledAddress: state.oracleAddress
+  contractAddress: state.contract.contractAddress,
+  contractDuration: state.contract.contractDuration,
+  contractMultiplier: state.contract.contractMultiplier,
+  oracledAddress: state.contract.oracleAddress,
+  tokenAddress: state.selected.selectedTokenAddress
 });
 
 export default connect(

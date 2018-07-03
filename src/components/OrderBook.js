@@ -2,93 +2,26 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Table } from 'reactstrap';
 import { Factory, Exchange, web3, DRCT } from '../ethereum';
+import { getOrderBook } from '../actions/contractActions';
 
 class OrderBook extends Component {
-  constructor() {
-    super();
-    this.state = {
-      previousActive: '',
-      active: '',
-      orderbook: [
-        ['loading...', 'loading...', 'loading...', 'loading...', '...']
-      ],
-      myAccount: '',
-      contractAddress: '',
-      contractDuration: '',
-      contractMultiplier: ''
-    };
-  }
-
-  componentDidMount() {
-    web3.eth.getAccounts((error, accounts) => {
-      this.setState({ myAccount: accounts[0] });
-    });
-
-    this.getOrderBook().then(result => {
-      this.setState({ orderbook: result });
-    });
-  }
-
-  /**
-   * METHOD FOR ACTION CONVERSION
-   *
-   */
-  getOrderBook = async () => {
-    const factory = await Factory.at(
-      '0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642'
-    );
-    //orderbook
-
-    // first get number of open books (tokens with open orders):
-    let exchange = await Exchange.deployed();
-    let numBooks = await exchange.getBookCount();
-
-    // get orders for that book:
-    let allrows = [];
-    let order;
-    for (let i = 0; i < numBooks; i++) {
-      let book = await exchange.openBooks(i);
-      let orders = await exchange.getOrders(book);
-      for (let j = 0; j < orders.length; j++) {
-        if (orders[j].c[0] > 0) {
-          order = await exchange.getOrder(orders[j].c[0]);
-          let _date = await factory.token_dates.call(book);
-          _date = new Date(_date * 1000);
-          _date =
-            _date.getUTCMonth() +
-            1 +
-            '/' +
-            _date.getUTCDate() +
-            '/' +
-            _date.getUTCFullYear();
-          allrows.push({
-            orderId: orders[j].c[0].toString(),
-            address: order[3],
-            price: (order[1].c[0] / 10000).toString(),
-            quantity: order[2].c[0].toString(),
-            date: _date.toString(),
-            contractDuration: this.state.contractDuration,
-            contractMultiplier: this.state.contractMultiplier,
-            symbol: 'BTC/USD' /*CURRENTLY USING STATIC SYMBOL NEED TO FIX*/
-          });
-        }
-      }
+  handleClickRow = link => {
+    let addressEl = link.currentTarget.getElementsByClassName(
+      'token-address-link'
+    )[0];
+    if (typeof addressEl !== 'undefined') {
+      this.openContractDetails(
+        link,
+        addressEl.getAttribute('data-token-address')
+      );
     }
-    return allrows;
   };
 
   renderRows() {
     this.state.orderbook.map(order => {
-      const {
-        orderId,
-        address,
-        price,
-        quantity,
-        date,
-        contractDuration,
-        contractMultiplier,
-        symbol
-      } = order;
+      const { orderId, address, price, quantity, date } = order;
+
+      let symbol = 'BTC/USD'; /*CURRENTLY USING STATIC SYMBOL NEED TO FIX*/
 
       return (
         <tr>
@@ -96,11 +29,12 @@ class OrderBook extends Component {
           <td>
             <a
               className="link__token-address"
-              onClick={e => e.stopPropagation()}
+              onClick={this.handleRowClick}
               data-token-address={address}
             >
               <span>
-                {symbol} - {contractDuration} Days - {contractMultiplier}X
+                {symbol} - {this.props.contractDuration} Days -{' '}
+                {this.props.contractMultiplier}X
               </span>
             </a>
           </td>
@@ -139,4 +73,19 @@ class OrderBook extends Component {
   }
 }
 
-export default OrderBook;
+OrderBook.propTypes = {
+  orderbook: PropTypes.array.isRequired,
+  contractDuration: PropTypes.string.isRequired,
+  contractMultiplier: PropTypes.number.isRequired
+};
+
+const mapStateToProps = state => ({
+  orderbook: state.contract.orderbook,
+  contractDuration: state.contract.contractDuration,
+  contractMultiplier: state.contract.contractMultiplier
+});
+
+export default connect(
+  mapStateToProps,
+  { getOrderBook }
+)(OrderBook);
