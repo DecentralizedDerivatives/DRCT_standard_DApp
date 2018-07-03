@@ -1,11 +1,14 @@
 import { web3 } from '../ethereum';
 import {
   SET_CONTRACT_DETAILS,
+  SET_CONTRACT_OPEN_DATES,
   SET_ORDERBOOK,
-  SET_PROCESSING_ERROR
+  SET_PROCESSING,
+  SET_FETCHING_ERROR
 } from './types';
 
 export const getContractDetails = () => async dispatch => {
+  dispatch(setProcessing(true));
   try {
     const factory = await Factory.at(
       '0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642'
@@ -26,13 +29,15 @@ export const getContractDetails = () => async dispatch => {
     });
   } catch (err) {
     dispatch({
-      type: SET_PROCESSING_ERROR,
+      type: SET_FETCHING_ERROR,
       payload: err.message.split('\n')[0]
     });
   }
+  dispatch(setProcessing(false));
 };
 
 export const getOrderBook = () => async dispatch => {
+  dispatch(setProcessing(true));
   try {
     const factory = await Factory.at(
       '0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642'
@@ -79,13 +84,15 @@ export const getOrderBook = () => async dispatch => {
     });
   } catch (err) {
     dispatch({
-      type: SET_PROCESSING_ERROR,
+      type: SET_FETCHING_ERROR,
       payload: err.message.split('\n')[0]
     });
   }
+  dispatch(setProcessing(false));
 };
 
 export const getRecentTrades = () => async dispatch => {
+  dispatch(setProcessing(true));
   try {
     const exchange = await Exchange.deployed();
     var _trades = [];
@@ -115,8 +122,51 @@ export const getRecentTrades = () => async dispatch => {
     });
   } catch (err) {
     dispatch({
-      type: SET_PROCESSING_ERROR,
+      type: SET_FETCHING_ERROR,
       payload: err.message.split('\n')[0]
     });
   }
+  dispatch(setProcessing(false));
+};
+
+export const getContractOpenDates = () => async dispatch => {
+  dispatch(setProcessing(true));
+  try {
+    const factory = await Factory.at(
+      '0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642'
+    );
+    let openDates = [];
+    const numDates = await factory.getDateCount();
+
+    for (let i = 0; i < numDates; i++) {
+      const startDates = (await factory.startDates.call(i)).c[0];
+      let _date = new Date(startDates * 1000);
+      _date =
+        _date.getUTCMonth() +
+        1 +
+        '/' +
+        _date.getUTCDate() +
+        '/' +
+        _date.getUTCFullYear();
+      openDates.push(_date);
+    }
+
+    dispatch({
+      type: SET_CONTRACT_OPEN_DATES,
+      payload: openDates
+    });
+  } catch (err) {
+    dispatch({
+      type: SET_FETCHING_ERROR,
+      payload: err.message.split('\n')[0]
+    });
+  }
+  dispatch(setProcessing(false));
+};
+
+export const setProcessing = status => {
+  return {
+    type: SET_PROCESSING,
+    payload: status
+  };
 };

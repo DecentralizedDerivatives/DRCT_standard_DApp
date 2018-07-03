@@ -3,7 +3,9 @@ import {
   SET_USER_BALANCE,
   SET_USER_TRANSACTIONS,
   SET_USER_POSITIONS,
-  SET_USER_ORDERS
+  SET_USER_ORDERS,
+  SET_CASHOUT_RECEIPT,
+  SET_CASHOUT_ERROR
 } from './types';
 
 const initialState = {
@@ -43,7 +45,16 @@ export default function(state = initialState, action) {
         userOrderLabels,
         userOrders
       };
-
+    case SET_CASHOUT_RECEIPT:
+      return {
+        ...state,
+        cashOutTx: action.payload
+      };
+    case SET_CASHOUT_ERROR:
+      return {
+        ...state,
+        cashOutError: action.payload
+      };
     default:
       return state;
   }

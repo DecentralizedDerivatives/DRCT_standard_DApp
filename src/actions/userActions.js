@@ -10,12 +10,14 @@ import {
   SET_USER_ORDER_LABELS,
   SET_CURRENT,
   SET_PROCESSING_ERROR,
-  TX_PROCESSING,
-  RESET_TX_STATE,
-  SET_TX_RECEIPT
+  SET_PROCESSING,
+  SET_FETCHING_ERROR,
+  SET_CASHOUT_RECEIPT,
+  SET_CASHOUT_ERROR
 } from './types';
 
 export const getUserAccount = () => async dispatch => {
+  dispatch(setProcessing(true));
   try {
     const userAccounts = await web3.eth.getAccounts();
 
@@ -25,13 +27,16 @@ export const getUserAccount = () => async dispatch => {
     });
   } catch (err) {
     dispatch({
-      type: SET_PROCESSING_ERROR,
+      type: SET_FETCHING_ERROR,
       payload: err.message.split('\n')[0]
     });
   }
+
+  dispatch(setProcessing(false));
 };
 
 export const getUserBalance = () => async dispatch => {
+  dispatch(setProcessing(true));
   try {
     const wrapped = await Wrapped.deployed();
     const accounts = await web3.eth.getAccounts();
@@ -43,13 +48,16 @@ export const getUserBalance = () => async dispatch => {
     });
   } catch (err) {
     dispatch({
-      type: SET_PROCESSING_ERROR,
+      type: SET_FETCHING_ERROR,
       payload: err.message.split('\n')[0]
     });
   }
+
+  dispatch(setProcessing(false));
 };
 
 export const getUserTransactions = userAccount => async dispatch => {
+  dispatch(setProcessing(true));
   try {
     const exchange = await Exchange.deployed();
     const factory = await Factory.at(
@@ -97,13 +105,16 @@ export const getUserTransactions = userAccount => async dispatch => {
     }
   } catch (err) {
     dispatch({
-      type: SET_PROCESSING_ERROR,
+      type: SET_FETCHING_ERROR,
       payload: err.message.split('\n')[0]
     });
   }
+
+  dispatch(setProcessing(false));
 };
 
 export const getUserPositions = userAccount => async dispatch => {
+  dispatch(setProcessing(true));
   try {
     const factory = await Factory.at(
       '0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642'
@@ -151,13 +162,16 @@ export const getUserPositions = userAccount => async dispatch => {
     });
   } catch (err) {
     dispatch({
-      type: SET_PROCESSING_ERROR,
+      type: SET_FETCHING_ERROR,
       payload: err.message.split('\n')[0]
     });
   }
+
+  dispatch(setProcessing(false));
 };
 
 export const getUserTokenPositions = userAccount => async dispatch => {
+  dispatch(setProcessing(true));
   try {
     const factory = await Factory.at(
       '0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642'
@@ -205,13 +219,16 @@ export const getUserTokenPositions = userAccount => async dispatch => {
     });
   } catch (err) {
     dispatch({
-      type: SET_PROCESSING_ERROR,
+      type: SET_FETCHING_ERROR,
       payload: err.message.split('\n')[0]
     });
   }
+
+  dispatch(setProcessing(false));
 };
 
 export const getUserOrders = userAccount => async dispatch => {
+  dispatch(setProcessing(true));
   try {
     const exchange = await Exchange.deployed();
     const factory = await Factory.at(
@@ -272,15 +289,16 @@ export const getUserOrders = userAccount => async dispatch => {
     }
   } catch (err) {
     dispatch({
-      type: SET_PROCESSING_ERROR,
+      type: SET_FETCHING_ERROR,
       payload: err.message.split('\n')[0]
     });
   }
+
+  dispatch(setProcessing(false));
 };
 
 export const sendCashOutRequest = () => async dispatch => {
-  dispatch(resetTxState());
-  dispatch(setTxProcessing());
+  dispatch(setProcessing(true));
 
   try {
     const wrapped = await Wrapped.deployed();
@@ -291,25 +309,22 @@ export const sendCashOutRequest = () => async dispatch => {
     });
 
     dispatch({
-      type: SET_TX_RECEIPT,
+      type: SET_CASHOUT_RECEIPT,
       payload: response.tx
     });
   } catch (err) {
     dispatch({
-      type: SET_PROCESSING_ERROR,
+      type: SET_CASHOUT_ERROR,
       payload: err.message.split('\n')[0]
     });
   }
+
+  dispatch(setProcessing(false));
 };
 
-export const setTxProcessing = () => {
+export const setProcessing = status => {
   return {
-    type: TX_PROCESSING
-  };
-};
-
-export const resetTxState = () => {
-  return {
-    type: RESET_TX_STATE
+    type: SET_PROCESSING,
+    payload: status
   };
 };

@@ -1,47 +1,48 @@
 import {
   SET_IS_CONNECTED,
-  TX_PROCESSING,
+  SHOW_CONNECTION_MODAL,
+  SET_PROCESSING,
   SET_TX_RECEIPT,
-  RESET_TX_STATE,
-  SET_PROCESSING_ERROR
+  SET_FETCHING_ERROR
 } from '../actions/types';
 
 const initialState = {
-  isConnected: false,
-  txProcessing: false,
+  isConnectedMetamask: false,
+  isConnectedNetwork: false,
+  showConnectionModal: false,
+  isProcessing: false,
   txReceipt: '',
-  processingError: null
+  fetchingError: []
 };
 
 export default function(state = initialState, action) {
   switch (action.type) {
     case SET_IS_CONNECTED:
+      const { connectedMetamask, connectedNetwork } = action.payload;
       return {
         ...state,
-        isConnected: action.payload
+        isConnectedMetamask: connectedMetamask,
+        isConnectedNetwork: connectedNetwork
       };
-    case TX_PROCESSING:
+    case SET_PROCESSING:
       return {
         ...state,
-        txProcessing: true
+        isProcessing: action.payload
       };
     case SET_TX_RECEIPT:
       return {
         ...state,
-        txReceipt: action.payload,
-        txProcessing: false
+        txReceipt: action.payload
       };
-    case RESET_TX_STATE:
+    case SET_FETCHING_ERROR:
       return {
         ...state,
-        txProcessing: false,
-        txReceipt: '',
-        processingError: null
+        fetchingError: state.fetchingError.push(payload)
       };
-    case SET_PROCESSING_ERROR:
+    case SHOW_CONNECTION_MODAL:
       return {
         ...state,
-        processingError: payload
+        isConnectModalOpen: payload
       };
     default:
       return state;

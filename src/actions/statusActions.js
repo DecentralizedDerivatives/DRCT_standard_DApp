@@ -1,16 +1,24 @@
 import { web3 } from '../ethereum';
 
-import { SET_PROCESSING_ERROR, SET_IS_CONNECTED, TX_PROCESSING } from './types';
+import {
+  SET_PROCESSING_ERROR,
+  SET_IS_CONNECTED,
+  SHOW_CONNECTION_MODAL,
+  SET_PROCESSING
+} from './types';
 
 // Check connection status
-export const checkConnection = () => async dispatch => {
+export const checkUserConnection = () => async dispatch => {
   try {
     const accounts = await web3.eth.getAccounts();
     const network = await web3.eth.net.getId();
 
     dispatch({
       type: SET_IS_CONNECTED,
-      payload: accounts.length && network === 4
+      payload: {
+        connectedMetamask: accounts.length,
+        connectedNetwork: network === 4
+      }
     });
   } catch (err) {
     dispatch({
@@ -20,9 +28,17 @@ export const checkConnection = () => async dispatch => {
   }
 };
 
-// Set processing status
-export const setProcessing = () => {
+// Set connection modal status
+export const showConnectionModal = status => {
   return {
-    type: TX_PROCESSING
+    type: SHOW_CONNECTION_MODAL,
+    payload: status
+  };
+};
+
+export const setProcessing = status => {
+  return {
+    type: SET_PROCESSING,
+    payload: status
   };
 };

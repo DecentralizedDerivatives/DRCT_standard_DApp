@@ -2,12 +2,24 @@ import { web3 } from '../ethereum';
 import {
   SET_ORDER_DETAILS,
   SET_SELECTED_TOKEN,
-  SET_PROCESSING_ERROR,
-  TX_PROCESSING,
-  RESET_TX_STATE
+  SET_BUY_ORDER_RECEIPT,
+  SET_BUY_ORDER_ERROR,
+  SET_UNLIST_ORDER_RECEIPT,
+  SET_UNLIST_ORDER_ERROR,
+  SET_CONTRACT_CREATED,
+  SET_CONTRACT_ERROR,
+  SET_CONTRACT_FUNDED,
+  SET_SEND_FUNDS_ERROR,
+  SET_LIST_ORDER,
+  SET_LIST_ORDER_ERROR,
+  SET_LIST_ORDER_APPROVED,
+  SET_LIST_ORDER_APPROVE_ERROR,
+  SET_PROCESSING,
+  SET_FETCHING_ERROR
 } from './types';
 
 export const getOrderDetails = orderID => async dispatch => {
+  dispatch(setProcessing(true));
   try {
     const exchange = await Exchange.deployed();
     const factory = await Factory.at(
@@ -47,15 +59,15 @@ export const getOrderDetails = orderID => async dispatch => {
     }
   } catch (err) {
     dispatch({
-      type: SET_PROCESSING_ERROR,
+      type: SET_FETCHING_ERROR,
       payload: err.message.split('\n')[0]
     });
   }
+  dispatch(setProcessing(false));
 };
 
 export const sendBuyOrder = (orderID, account) => async dispatch => {
-  dispatch(resetTxState());
-  dispatch(setTxProcessing());
+  dispatch(setProcessing(true));
 
   try {
     const exchange = await Exchange.deployed();
@@ -68,20 +80,20 @@ export const sendBuyOrder = (orderID, account) => async dispatch => {
     });
 
     dispatch({
-      type: SET_TX_RECEIPT,
+      type: SET_BUY_ORDER_RECEIPT,
       payload: response.tx
     });
   } catch (err) {
     dispatch({
-      type: SET_PROCESSING_ERROR,
+      type: SET_BUY_ORDER_ERROR,
       payload: err.message.split('\n')[0]
     });
   }
+  dispatch(setProcessing(false));
 };
 
 export const sendUnlistOrder = (orderID, account) => async dispatch => {
-  dispatch(resetTxState());
-  dispatch(setTxProcessing());
+  dispatch(setProcessing(true));
 
   try {
     const exchange = await Exchange.deployed();
@@ -91,20 +103,21 @@ export const sendUnlistOrder = (orderID, account) => async dispatch => {
     });
 
     dispatch({
-      type: SET_TX_RECEIPT,
+      type: SET_UNLIST_ORDER_RECEIPT,
       payload: response.tx
     });
   } catch (err) {
     dispatch({
-      type: SET_PROCESSING_ERROR,
+      type: SET_UNLIST_ORDER_ERROR,
       payload: err.message.split('\n')[0]
     });
   }
+
+  dispatch(setProcessing(false));
 };
 
 export const sendListOrder = (orderDetails, account) => async dispatch => {
-  dispatch(resetTxState());
-  dispatch(setTxProcessing());
+  dispatch(setProcessing(true));
 
   let { selectedToken, amount, price } = orderDetails;
 
@@ -117,20 +130,21 @@ export const sendListOrder = (orderDetails, account) => async dispatch => {
     });
 
     dispatch({
-      type: SET_TX_RECEIPT,
+      type: SET_LIST_ORDER,
       payload: response.tx
     });
   } catch (err) {
     dispatch({
-      type: SET_PROCESSING_ERROR,
+      type: SET_LIST_ORDER_ERROR,
       payload: err.message.split('\n')[0]
     });
   }
+
+  dispatch(setProcessing(false));
 };
 
 export const sendApproveOrder = (approveDetails, account) => async dispatch => {
-  dispatch(resetTxState());
-  dispatch(setTxProcessing());
+  dispatch(setProcessing(true));
 
   let { selectedToken, amount } = approveDetails;
 
@@ -147,25 +161,95 @@ export const sendApproveOrder = (approveDetails, account) => async dispatch => {
     });
 
     dispatch({
-      type: SET_TX_RECEIPT,
+      type: SET_LIST_ORDER_APPROVED,
       payload: response.tx
     });
   } catch (err) {
     dispatch({
-      type: SET_PROCESSING_ERROR,
+      type: SET_LIST_ORDER_APPROVE_ERROR,
       payload: err.message.split('\n')[0]
     });
   }
+
+  dispatch(setProcessing(false));
 };
 
-export const setTxProcessing = () => {
-  return {
-    type: TX_PROCESSING
-  };
+export const sendCreateContractOrder = (
+  selectedContractDate,
+  account
+) => async dispatch => {
+  dispatch(setProcessing(true));
+
+  try {
+    const factory = await Factory.at(
+      '0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642'
+    );
+
+    let date = Math.floor(new Date(selectedContractDate).getTime() / 1000);
+    date = date - (date % 86400);
+
+    const response = await factory.deployContract(date, {
+      from: account,
+      gas: 4000000
+    });
+
+    dispatch({
+      type: SET_CONTRACT_CREATED,
+      payload: {
+        newContractAddress: response.logs[0].args._created,
+        newContractTx: response.tx
+      }
+    });
+  } catch (err) {
+    dispatch({
+      type: SET_CONTRACT_ERROR,
+      payload: err.message.split('\n')[0]
+    });
+  }
+
+  dispatch(setProcessing(false));
 };
 
-export const resetTxState = () => {
+export const sendSendFundsOrder = (
+  sendFundsDetails,
+  account
+) => async dispatch => {
+  dispatch(setProcessing(true));
+
+  let { newContractAddress, createContractAmount } = sendFundsDetails;
+
+  try {
+    const factory = await Factory.at(
+      '0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642'
+    );
+
+    let uc_add = await factory.user_contract.call();
+    const userContract = await UserContract.at(uc_add);
+
+    let _value = 1e18 * createContractAmount;
+
+    const response = userContract.Initiate(newContractAddress, _value, {
+      from: account,
+      gas: 4000000,
+      value: _value * 2
+    });
+    // Need custom action - SET_CONTRACT_FUNDED
+    dispatch({
+      type: SET_CONTRACT_FUNDED,
+      payload: response.tx
+    });
+  } catch (err) {
+    dispatch({
+      type: SET_SEND_FUNDS_ERROR,
+      payload: err.message.split('\n')[0]
+    });
+  }
+  dispatch(setProcessing(false));
+};
+
+export const setProcessing = status => {
   return {
-    type: RESET_TX_STATE
+    type: SET_PROCESSING,
+    payload: status
   };
 };
