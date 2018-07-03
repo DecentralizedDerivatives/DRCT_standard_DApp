@@ -17,7 +17,9 @@ class MyPortfolio extends Component {
   }
 
   async componentDidMount() {
-    await this.props.getUserAccount;
+    await this.props.getUserAccount();
+    await this.props.getUserPositions(this.props.userAccount);
+    await this.props.getUserTransactions(this.props.userAccount);
   }
 
   openContractDetails = (newActive, token_address = false) => {
@@ -60,4 +62,19 @@ class MyPortfolio extends Component {
   }
 }
 
-export default MyPortfolio;
+MyPortfolio.propTypes = {
+  getUserAccount: PropTypes.func.isRequired,
+  getUserPositions: PropTypes.func.isRequired,
+  getUserTransactions: PropTypes.func.isRequired,
+  orderID: PropTypes.string.isRequired,
+  userAccount: PropTypes.string.isRequired
+};
+
+const mapStateToProps = state => ({
+  userAccount: state.user.userAccount
+});
+
+export default connect(
+  mapStateToProps,
+  { getUserAccount, getUserPositions, getUserTransactions }
+)(MyPortfolio);

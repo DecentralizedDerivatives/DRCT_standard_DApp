@@ -2,33 +2,14 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Table } from 'reactstrap';
 import { Factory, Exchange, web3, DRCT } from '../ethereum';
+import { getUserTransactions } from '../actions/userActions';
 import '../styles/MyTransactions.css';
 
 class MyTransactions extends Component {
-  constructor() {
-    super();
-    this.state = {
-      contractAddress: '',
-      contractDuration: '',
-      contractMultiplier: ''
-    };
-  }
+  handleRowClick = e => {
+    e.preventDefault();
 
-  async componentDidMount() {
-    await this.props.getUserAccount();
-
-    await this.getMyTransactions();
-  }
-
-  getmyTransactions = myAccount => {
-    this.props.getUserTransactions(myAccount);
-  };
-
-  // Shouldn't this call a function to open TransactionDetails?
-  onClickRow = link => {
-    let addressEl = link.currentTarget.getElementsByClassName(
-      'link__token-address'
-    )[0];
+    let addressEl = e.target.getElementsByClassName('link__token-address')[0];
     if (typeof addressEl !== 'undefined') {
       this.openContractDetails(
         link,
@@ -38,9 +19,13 @@ class MyTransactions extends Component {
   };
 
   renderRows() {
+    /**
+     ******************************************
+     */
+    // Where is this from?
     const { tokenInfo } = this.state;
 
-    this.props.myTransactions.map(trade => {
+    this.props.userTransactions.map(trade => {
       const tradeTitle = trade[0];
       const tradeHash = trade[1];
 
@@ -56,7 +41,7 @@ class MyTransactions extends Component {
                   : `https://rinkeby.etherscan.io/address/${tradeHash}`
               }
               target="_blank"
-              onClick={event => event.stopPropagation()}
+              onClick={this.handleRowClick}
               data-token-address={tradeHash}
             >
               {tradeHash.substring(0, 14)}...
@@ -88,18 +73,16 @@ class MyTransactions extends Component {
 }
 
 MyTransactions.propTypes = {
-  getUserAccount: PropTypes.func.isRequired,
-  getUserTransactions: PropTypes.func.isRequired,
-  myAccount: PropTypes.string.isRequired,
-  myTransactions: PropTypes.array
+  userAccount: PropTypes.string.isRequired,
+  userTransactions: PropTypes.array
 };
 
 const mapStateToProps = state => ({
-  myAccount: state.userAccount,
-  myTransactions: state.userTransactions
+  userAccount: state.user.userAccount,
+  userTransactions: state.user.userTransactions
 });
 
 export default connect(
   mapStateToProps,
-  { getUserAccount, getUserTransactions }
+  { getUserTransactions }
 )(MyTransactions);

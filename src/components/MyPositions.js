@@ -2,38 +2,14 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Table } from 'reactstrap';
 import { Factory, Exchange, web3, DRCT } from '../ethereum';
+import { getContractDetails } from '../actions/userActions';
 import '../styles/MyPositions.css';
 
 class MyPositions extends Component {
-  constructor() {
-    super();
-    this.state = {
-      previousActive: '',
-      active: '',
-      myPositions: [['loading...', 'loading...', 'loading...']],
-      myAccount: '',
-      selectedTokenAddress: '',
-      contractAddress: '',
-      contractDuration: '',
-      contractMultiplier: '',
-      oracleAddress: ''
-    };
-  }
+  handleRowClick = e => {
+    e.preventDefault();
 
-  async componentDidMount() {
-    await this.props.getUserAccount;
-
-    await this.getMyPositions();
-  }
-
-  getMyPositions = myAccount => {
-    this.props.getUserPositions(myAccount);
-  };
-
-  onClickRow = link => {
-    let addressEl = link.currentTarget.getElementsByClassName(
-      'link__token-address'
-    )[0];
+    let addressEl = e.target.getElementsByClassName('link__token-address')[0];
     if (typeof addressEl !== 'undefined') {
       this.openContractDetails(
         link,
@@ -43,7 +19,7 @@ class MyPositions extends Component {
   };
 
   renderRows() {
-    this.state.myPositions.map(position => {
+    this.props.userPositions.map(position => {
       const {
         address,
         balance,
@@ -58,7 +34,7 @@ class MyPositions extends Component {
           <td>
             <a
               className="link__token-address"
-              onClick={event => event.stopPropagation()}
+              onClick={this.handleRowClick}
               data-token-address={address}
             >
               {symbol} - {contractDuration} Days - {contractMultiplier}X
@@ -95,18 +71,16 @@ class MyPositions extends Component {
 }
 
 MyPositions.propTypes = {
-  getUserAccount: PropTypes.func.isRequired,
-  getUserPositions: PropTypes.func.isRequired,
-  myAccount: PropTypes.string.isRequired,
-  myPositions: PropTypes.array
+  userAccount: PropTypes.string.isRequired,
+  userPositions: PropTypes.array
 };
 
 const mapStateToProps = state => ({
-  myAccount: state.userAccount,
-  myPositions: state.userPositions
+  userAccount: state.user.userAccount,
+  userPositions: state.user.userPositions
 });
 
 export default connect(
   mapStateToProps,
-  { getUserAccount, getUserPositions }
+  { getContractDetails }
 )(MyPositions);
