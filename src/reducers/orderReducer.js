@@ -8,7 +8,7 @@ import {
   SET_LIST_ORDER_ERROR,
   SET_LIST_ORDER_APPROVED,
   SET_LIST_ORDER_APPROVE_ERROR
-} from './types';
+} from '../actions/types';
 
 const initialState = {
   orderDetails: '',
@@ -39,7 +39,7 @@ export default function(state = initialState, action) {
         ...state,
         buyOrderError: action.payload
       };
-    case SET_UNLIST_ORDER:
+    case SET_UNLIST_ORDER_RECEIPT:
       return {
         ...state,
         unlistOrderTx: action.payload

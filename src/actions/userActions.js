@@ -1,4 +1,4 @@
-import { Wrapped, web3 } from '../ethereum';
+import { Factory, Exchange, web3, DRCT, Wrapped } from '../ethereum';
 import {
   SET_USER_ACCOUNT,
   SET_USER_BALANCE,
@@ -7,9 +7,8 @@ import {
   SET_USER_TOKENS,
   SET_SELECTED_TOKEN,
   SET_USER_ORDERS,
-  SET_USER_ORDER_LABELS,
+  // SET_USER_ORDER_LABELS,
   SET_CURRENT,
-  SET_PROCESSING_ERROR,
   SET_PROCESSING,
   SET_FETCHING_ERROR,
   SET_CASHOUT_RECEIPT,
@@ -59,7 +58,7 @@ export const getUserBalance = () => async dispatch => {
 export const getUserTransactions = userAccount => async dispatch => {
   dispatch(setProcessing(true));
   try {
-    const exchange = await Exchange.deployed();
+    //const exchange = await Exchange.deployed();
     const factory = await Factory.at(
       '0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642'
     );
@@ -90,7 +89,7 @@ export const getUserTransactions = userAccount => async dispatch => {
 
       for (let j = logs.length - 1; j >= Math.max(logs.length - 10, 0); j--) {
         if (
-          logs[i].args['_sender'].toUpperCase() == userAccount.toUpperCase()
+          logs[i].args['_sender'].toUpperCase() === userAccount.toUpperCase()
         ) {
           _trades.push([titles[i], logs[j].transactionHash]);
         }
@@ -119,7 +118,7 @@ export const getUserPositions = userAccount => async dispatch => {
     const factory = await Factory.at(
       '0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642'
     );
-    const _allrows = [];
+    let _allrows = [];
     const openDates = [];
     const numDates = await factory.getDateCount();
 
@@ -178,7 +177,7 @@ export const getUserTokenPositions = userAccount => async dispatch => {
     );
     const numDates = await factory.getDateCount();
     let _allrows = [];
-    let openDates = [];
+    // let openDates = [];
     for (let i = 0; i < numDates; i++) {
       const startDates = (await factory.startDates.call(i)).c[0];
       const _token_addresses = await factory.getTokens(startDates);

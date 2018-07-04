@@ -1,4 +1,8 @@
-import { SET_CURRENT, SET_SELECTED_TOKEN, CLEAR_SELECTED_TOKEN } from './types';
+import {
+  SET_CURRENT,
+  SET_SELECTED_TOKEN,
+  CLEAR_SELECTED_TOKEN
+} from '../actions/types';
 
 const initialState = {
   selectedToken: '',

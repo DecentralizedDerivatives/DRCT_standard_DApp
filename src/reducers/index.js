@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { reducer as formReducer } from 'redux';
+import { reducer as formReducer } from 'redux-form';
 import userReducer from './userReducer';
 import contractReducer from './contractReducer';
 import selectedReducer from './selectedReducer';

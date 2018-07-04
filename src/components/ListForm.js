@@ -1,7 +1,7 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import DropdownList from 'react-widgets/lib/DropdownList';
-import { InputGroup } from 'reactstrap';
+import { InputGroup, InputGroupAddon } from 'reactstrap';
 import InputNumber from './InputNumber';
 import 'react-widgets/dist/css/react-widgets.css';
 
@@ -12,7 +12,7 @@ export let ListForm = props => {
     pristine,
     reset,
     submitting,
-    onChange,
+    // onChange,
     dropDownData
   } = props;
 

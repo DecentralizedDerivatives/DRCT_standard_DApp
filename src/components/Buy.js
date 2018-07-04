@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { Collapse } from 'reactstrap';
 import BuyForm from './BuyForm';
 import { getOrderDetails, sendBuyOrder } from '../actions/orderActions';
-import { Factory, token, web3, Exchange } from '../ethereum';
 
 // Use named export for unconnected component for testing
 export class Buy extends Component {

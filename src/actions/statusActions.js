@@ -1,7 +1,7 @@
 import { web3 } from '../ethereum';
 
 import {
-  SET_PROCESSING_ERROR,
+  SET_FETCHING_ERROR,
   SET_IS_CONNECTED,
   SHOW_CONNECTION_MODAL,
   SET_PROCESSING
@@ -22,7 +22,7 @@ export const checkUserConnection = () => async dispatch => {
     });
   } catch (err) {
     dispatch({
-      type: SET_PROCESSING_ERROR,
+      type: SET_FETCHING_ERROR,
       payload: err.message.split('\n')[0]
     });
   }

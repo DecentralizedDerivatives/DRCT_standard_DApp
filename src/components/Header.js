@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import {
   Collapse,
   Navbar,
@@ -23,10 +24,11 @@ export class Header extends Component {
   constructor(props) {
     super(props);
 
-    this.toggle = this.toggle.bind(this);
     this.state = {
       isOpen: false
     };
+
+    this.toggle = this.toggle.bind(this);
   }
 
   toggle() {
@@ -40,12 +42,9 @@ export class Header extends Component {
       <div>
         <Navbar className="bg-dark" dark expand="md">
           <NavbarBrand href="/">
-            <img
-              src="../imgs/dda-logo.png"
-              alt="logo"
-              height="25px"
-              width="25px"
-            />DRCT
+            <img src="./dda-logo.png" alt="logo" height="30px" width="30px" />
+            {'  '}
+            DRCT
           </NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
@@ -78,15 +77,18 @@ export class Header extends Component {
               </UncontrolledDropdown> */}
               <NavItem>
                 <span>
-                  Connected
+                  <span className="connected">Connected</span>
                   <i
                     className={classnames('far fa-circle', {
-                      'connect__icon--green': this.props.isConnected,
-                      'connect__icon--red': !this.props.isConnected
+                      'connect__icon--green':
+                        this.props.isConnectedMetamask &&
+                        this.props.isConnectedNetwork,
+                      'connect__icon--red':
+                        !this.props.isConnectedMetamask ||
+                        !this.props.isConnectedNetwork
                     })}
                   />
                 </span>
-                />
               </NavItem>
             </Nav>
           </Collapse>
@@ -97,7 +99,8 @@ export class Header extends Component {
 }
 
 Header.propTypes = {
-  connected: PropTypes.bool.isRequired
+  isConnectedMetamask: PropTypes.bool.isRequired,
+  isConnectedNetwork: PropTypes.bool.isRequired
 };
 
 Navbar.propTypes = {
@@ -108,7 +111,8 @@ Navbar.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  isConnected: state.status.isConnected
+  isConnectedMetamask: state.status.isConnectedMetamask,
+  isConnectedNetwork: state.status.isConnectedNetwork
 });
 
 export default connect(mapStateToProps)(Header);

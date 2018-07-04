@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import Highcharts from 'highcharts/highstock';
 import api from '../api';
-require('highcharts/modules/exporting')(Highcharts);
-import highchartsOptions from './highcharts.options';
 import '../styles/PriceChart.css';
+require('highcharts/modules/exporting')(Highcharts);
 
 Highcharts.setOptions({
   rangeSelector: {

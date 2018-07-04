@@ -1,4 +1,4 @@
-import { web3 } from '../ethereum';
+import { Factory, Exchange, DRCT, UserContract } from '../ethereum';
 import {
   SET_ORDER_DETAILS,
   SET_SELECTED_TOKEN,
@@ -25,7 +25,7 @@ export const getOrderDetails = orderID => async dispatch => {
     const factory = await Factory.at(
       '0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642'
     );
-    const accounts = await web3.eth.getAccounts();
+    // const accounts = await web3.eth.getAccounts();
 
     // get orders for that book:
     let o_row = [];
@@ -51,7 +51,7 @@ export const getOrderDetails = orderID => async dispatch => {
       payload: _allrows
     });
 
-    if (_allrows.length == 1) {
+    if (_allrows.length === 1) {
       dispatch({
         type: SET_SELECTED_TOKEN,
         payload: order[3]

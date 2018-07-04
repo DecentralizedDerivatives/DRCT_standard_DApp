@@ -2,18 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Table } from 'reactstrap';
-import { Factory, Exchange, web3, DRCT } from '../ethereum';
-import { getContractDetails } from '../actions/userActions';
+import { getContractDetails } from '../actions/contractActions';
 import '../styles/MyPositions.css';
 
 // Use named export for unconnected component for testing
 export class MyPositions extends Component {
-  constructor(props) {
-    super(props);
-
-    const { handleRowClick } = this.props;
-  }
-
   renderRows() {
     this.props.userPositions.map(position => {
       const {

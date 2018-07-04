@@ -2,18 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Table } from 'reactstrap';
-import { Factory, Exchange, web3, DRCT } from '../ethereum';
 import { getUserTransactions } from '../actions/userActions';
 import '../styles/MyTransactions.css';
 
 // Use named export for unconnected component for testing
 export class MyTransactions extends Component {
-  constructor(props) {
-    super(props);
-
-    const { handleRowClick } = this.props;
-  }
-
   renderRows() {
     this.props.userTransactions.map(trade => {
       const tradeTitle = trade[0];
@@ -31,7 +24,7 @@ export class MyTransactions extends Component {
                   : `https://rinkeby.etherscan.io/address/${tradeHash}`
               }
               target="_blank"
-              onClick={handleRowClick}
+              onClick={this.handleRowClick}
               data-token-address={tradeHash}
             >
               {tradeHash.substring(0, 14)}...

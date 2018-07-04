@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Collapse } from 'reactstrap';
 import MyPositions from './MyPositions';
 import MyTransactions from './MyTransactions';
 import CreateContract from './CreateContract';
@@ -10,9 +11,7 @@ import {
   getUserPositions,
   getUserTransactions
 } from '../actions/userActions';
-import { getContractDetails } from '../actions/contractActions';
 import requireConnection from './requireConnection';
-import { Factory, Exchange, web3, DRCT } from '../ethereum';
 
 // Use named export for unconnected component for testing
 export class MyPortfolio extends Component {
@@ -45,7 +44,7 @@ export class MyPortfolio extends Component {
 
       await this.props.setSelectedToken(token_address);
 
-      this.openContractDetails(link, token_address);
+      this.openContractDetails(e.target, token_address);
     }
   };
 

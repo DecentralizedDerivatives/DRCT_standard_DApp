@@ -13,7 +13,7 @@ export let UnlistForm = props => {
     reset,
     submitting,
     onChange,
-    value,
+    // value,
     dropDownData,
     dropDownValue
   } = props;

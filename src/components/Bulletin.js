@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Factory, Exchange, web3 } from '../../ethereum';
+import PropTypes from 'prop-types';
+import { Collapse } from 'reactstrap';
 import OrderBook from './OrderBook';
 import RecentTrades from './RecentTrades';
 import ContractDetails from './ContractDetails';
@@ -15,7 +16,7 @@ import {
   getContractDetails
 } from '../actions/contractActions';
 import { setSelectedToken } from '../actions/selectedActions';
-import requireConnection from '../requireConnection';
+import requireConnection from './requireConnection';
 import '../styles/Bulletin.css';
 
 // Use named export for unconnected component for testing
@@ -26,8 +27,6 @@ export class Bulletin extends Component {
     this.state = {
       detailsOpen: false
     };
-
-    const { handleRowClick } = this.props;
   }
 
   async componentDidMount() {
@@ -51,7 +50,7 @@ export class Bulletin extends Component {
 
       await this.props.setSelectedToken(token_address);
 
-      this.openContractDetails(link, token_address);
+      this.openContractDetails(e.target, token_address);
     }
   };
 

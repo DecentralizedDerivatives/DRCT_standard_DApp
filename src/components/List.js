@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import TextField from './TextField';
-import BlockProgress from './BlockProgress';
-import Dropdown from './Dropdown';
-import { Factory, token, DRCT, web3, Exchange } from '../ethereum';
+import { Collapse } from 'reactstrap';
+import ListForm from './ListForm';
 import { getUserTokenPositions } from '../actions/userActions';
 import { sendListOrder, sendApproveOrder } from '../actions/orderActions';
 

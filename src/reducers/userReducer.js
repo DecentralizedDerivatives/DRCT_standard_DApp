@@ -6,7 +6,7 @@ import {
   SET_USER_ORDERS,
   SET_CASHOUT_RECEIPT,
   SET_CASHOUT_ERROR
-} from './types';
+} from '../actions/types';
 
 const initialState = {
   userAccount: '',

@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import TextField from './TextField';
-import Dropdown from './Dropdown';
-import { getUserOrders } from '../actions/accountActions';
+import { Collapse } from 'reactstrap';
+import UnlistForm from './UnlistForm';
+import { getUserOrders } from '../actions/userActions';
 import { sendUnlistOrder } from '../actions/orderActions';
-import { Factory, Exchange, web3 } from '../ethereum';
 
 // Use named export for unconnected component for testing
 export class Unlist extends Component {

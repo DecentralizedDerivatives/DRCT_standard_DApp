@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Factory, UserContract, web3 } from '../ethereum';
 import { Collapse } from 'reactstrap';
-import TextField from './TextField';
-import BlockProgress from './BlockProgress';
 import CreateContractForm from './CreateContractForm';
 import { getContractOpenDates } from '../actions/contractActions';
 import {
@@ -128,7 +126,7 @@ CreateContract.propTypes = {
 
 const mapStateToProps = state => ({
   userAccount: state.user.userAccount,
-  createContractAmount: state.form.create - contract.createContractAmount,
+  createContractAmount: state.form.createcontract.createContractAmount,
   newContractAddress: state.contract.newContractAddress,
   newContractTx: state.contract.newContractTx,
   newContractError: state.contract.newContractError,

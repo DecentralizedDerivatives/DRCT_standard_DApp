@@ -1,13 +1,19 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import DropdownList from 'react-widgets/lib/DropdownList';
-import { InputGroup } from 'reactstrap';
+import { InputGroup, InputGroupAddon } from 'reactstrap';
+// import DateTimePicker from 'react-widgets/lib/DateTimePicker';
+// import moment from 'moment';
+// import momentLocaliser from 'react-widgets/lib/util/localizers';
 import InputNumber from './InputNumber';
-import renderDatePicker from './renderDatePicker';
 import 'react-widgets/dist/css/react-widgets.css';
 
+// momentLocaliser(moment);
+
+const renderDatePicker = () => <input type="date" />;
+
 let CreateContractForm = props => {
-  const { handleSubmit, pristine, reset, submitting, onChange } = props;
+  const { handleSubmit, pristine, reset, submitting } = props;
 
   const durations = ['One week'];
   const currencies = ['BTC/USD'];
@@ -54,11 +60,7 @@ let CreateContractForm = props => {
         </InputGroup>
         <InputGroup>
           <label>Start Date</label>
-          <Field
-            name="startDate"
-            showTime={false}
-            component={renderDatePicker}
-          />
+          <Field name="startDate" component={renderDatePicker} />
         </InputGroup>
 
         <InputGroup>
@@ -66,7 +68,7 @@ let CreateContractForm = props => {
           <Field
             label="Amount of Ether"
             name="createContractAmount"
-            component={InputText}
+            component={InputNumber}
             type="number"
             step="0.1"
             validate={validateCreateContractAmount}
@@ -92,7 +94,7 @@ let CreateContractForm = props => {
 };
 
 CreateContractForm = reduxForm({
-  form: 'create-contract',
+  form: 'createcontract',
   initialValues: {
     createContractAmount: 0.1
   }

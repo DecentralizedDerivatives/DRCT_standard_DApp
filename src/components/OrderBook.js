@@ -2,17 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Table } from 'reactstrap';
-import { Factory, Exchange, web3, DRCT } from '../ethereum';
 import { getOrderBook } from '../actions/contractActions';
 
 // Use named export for unconnected component for testing
 export class OrderBook extends Component {
-  constructor(props) {
-    super(props);
-
-    const { handleRowClick } = this.props;
-  }
-
   renderRows() {
     this.state.orderbook.map(order => {
       const { orderId, address, price, quantity, date } = order;
@@ -25,7 +18,7 @@ export class OrderBook extends Component {
           <td>
             <a
               className="link__token-address"
-              onClick={handleRowClick}
+              onClick={this.handleRowClick}
               data-token-address={address}
             >
               <span>
@@ -43,8 +36,6 @@ export class OrderBook extends Component {
   }
 
   render() {
-    const { Body, Header, HeaderCell, Row } = Table;
-
     return (
       <div className="container">
         <div className="order-book">

@@ -1,10 +1,11 @@
-import { web3 } from '../ethereum';
+import { Factory, Exchange } from '../ethereum';
 import {
   SET_CONTRACT_DETAILS,
   SET_CONTRACT_OPEN_DATES,
   SET_ORDERBOOK,
   SET_PROCESSING,
-  SET_FETCHING_ERROR
+  SET_FETCHING_ERROR,
+  SET_RECENT_TRADES
 } from './types';
 
 export const getContractDetails = () => async dispatch => {
@@ -59,7 +60,7 @@ export const getOrderBook = () => async dispatch => {
           let _date = await factory.token_dates.call(book);
 
           _date = new Date(_date * 1000);
-          orderDate =
+          let orderDate =
             _date.getUTCMonth() +
             1 +
             '/' +

@@ -2,17 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Table } from 'reactstrap';
-import { Factory, Exchange, web3, DRCT } from '../ethereum';
 import { getRecentTrades } from '../actions/contractActions';
 
 // Use named export for unconnected component for testing
 export class RecentTrades extends Component {
-  constructor(props) {
-    super(props);
-
-    const { handleRowClick } = this.props;
-  }
-
   renderRows() {
     this.state.recentTrades.map(trade => {
       const { address, volume, price } = trade;
@@ -24,7 +17,7 @@ export class RecentTrades extends Component {
           <td>
             <a
               className="token-address-link"
-              onClick={handleRowClick}
+              onClick={this.handleRowClick}
               data-token-address={address}
             >
               {symbol} - {this.props.contractDuration} Days -{' '}
@@ -39,8 +32,6 @@ export class RecentTrades extends Component {
   }
 
   render() {
-    const { Body, Header, HeaderCell, Row } = Table;
-
     return (
       <div className="row">
         <Table className="recent-trades-table">

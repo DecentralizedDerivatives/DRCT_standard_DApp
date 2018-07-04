@@ -6,63 +6,55 @@ import {
   Card,
   CardBody,
   CardTitle,
+  CardText,
   CardSubtitle,
   CardLink
 } from 'reactstrap';
-import { Factory, Exchange, web3, DRCT } from '../ethereum';
 import { getContractDetails } from '../actions/contractActions';
 
 // Use named export for unconnected component for testing
 export class ContractDetails extends Component {
-  constructor(props) {
-    super(props);
-
-    const {
-      tokenAddress,
-      contractAddress,
-      contractDuration,
-      contractMultiplier,
-      oracleAddress,
-      handleDetailsClick
-    } = this.props;
-  }
-
   async componentDidMount() {
-    await this.props.getContractDetails(tokenAddress);
+    await this.props.getContractDetails(this.props.tokenAddress);
   }
 
   renderCardBody() {
     const cardBody =
-      typeof tokenAddress !== 'undefined' && tokenAddress.length ? (
+      typeof this.props.tokenAddress !== 'undefined' &&
+      this.props.tokenAddress.length ? (
         <CardBody>
           <CardTitle>Factory Contract</CardTitle>
           <CardSubtitle>Address</CardSubtitle>
           <CardLink
-            href={`https://rinkeby.etherscan.io/address/${contractAddress}`}
+            href={`https://rinkeby.etherscan.io/address/${
+              this.props.contractAddress
+            }`}
             target="_blank"
             rel="noopener noreferrer"
           >
-            {contractAddress}
+            {this.props.contractAddress}
           </CardLink>
           <CardSubtitle>Duration</CardSubtitle>
-          <CardText>{contractDuration}</CardText>
+          <CardText>{this.contractDuration}</CardText>
           <CardSubtitle>Multiplier</CardSubtitle>
-          <CardText>{contractMultiplier}</CardText>
+          <CardText>{this.contractMultiplier}</CardText>
           <CardSubtitle>Oracle Address</CardSubtitle>
           <CardLink
-            href={`https://rinkeby.etherscan.io/address/${oracleAddress}`}
+            href={`https://rinkeby.etherscan.io/address/${this.oracleAddress}`}
             target="_blank"
             rel="noopener noreferrer"
           >
-            {oracleAddress}
+            {this.oracleAddress}
           </CardLink>
           <CardSubtitle>Token Address</CardSubtitle>
           <CardLink
-            href={`https://rinkeby.etherscan.io/address/${tokenAddress}`}
+            href={`https://rinkeby.etherscan.io/address/${
+              this.props.tokenAddress
+            }`}
             target="_blank"
             rel="noopener noreferrer"
           >
-            {tokenAddress}
+            {this.props.tokenAddress}
           </CardLink>
         </CardBody>
       ) : (
@@ -70,23 +62,25 @@ export class ContractDetails extends Component {
           <CardTitle>Factory Contract</CardTitle>
           <CardSubtitle>Address</CardSubtitle>
           <CardLink
-            href={`https://rinkeby.etherscan.io/address/${contractAddress}`}
+            href={`https://rinkeby.etherscan.io/address/${
+              this.props.contractAddress
+            }`}
             target="_blank"
             rel="noopener noreferrer"
           >
-            {contractAddress}
+            {this.props.contractAddress}
           </CardLink>
           <CardSubtitle>Duration</CardSubtitle>
-          <CardText>{contractDuration}</CardText>
+          <CardText>{this.contractDuration}</CardText>
           <CardSubtitle>Multiplier</CardSubtitle>
-          <CardText>{contractMultiplier}</CardText>
+          <CardText>{this.contractMultiplier}</CardText>
           <CardSubtitle>Oracle Address</CardSubtitle>
           <CardLink
-            href={`https://rinkeby.etherscan.io/address/${oracleAddress}`}
+            href={`https://rinkeby.etherscan.io/address/${this.oracleAddress}`}
             target="_blank"
             rel="noopener noreferrer"
           >
-            {oracleAddress}
+            {this.oracleAddress}
           </CardLink>
         </CardBody>
       );
@@ -100,7 +94,7 @@ export class ContractDetails extends Component {
         <Card>
           {this.renderCardBody()}
           <CardBody>
-            <Button onClick={handleDetailsClick} />
+            <Button onClick={this.handleDetailsClick} />
           </CardBody>
         </Card>
       </div>
@@ -116,7 +110,7 @@ ContractDetails.propTypes = {
   tokenAddress: PropTypes.string
 };
 
-const mapStateToProps = (state = {
+const mapStateToProps = state => ({
   contractAddress: state.contract.contractAddress,
   contractDuration: state.contract.contractDuration,
   contractMultiplier: state.contract.contractMultiplier,

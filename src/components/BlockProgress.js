@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import {
   Card,
   CardBody,
@@ -33,7 +35,7 @@ class BlockProgress extends Component {
   }
 }
 
-ConnectionModal.propTypes = {
+BlockProgress.propTypes = {
   isProcessing: PropTypes.bool.isRequired
 };
 

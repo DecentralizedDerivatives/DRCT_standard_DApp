@@ -7,7 +7,7 @@ import {
   SET_CONTRACT_ERROR,
   SET_CONTRACT_FUNDED,
   SET_SEND_FUNDS_ERROR
-} from './types';
+} from '../actions/types';
 
 const initialState = {
   contractAddress: '',
@@ -28,7 +28,7 @@ export default function(state = initialState, action) {
       const {
         contractAddress,
         contractDuration,
-        contractAddress,
+        contractMultiplier,
         oracleAddress
       } = action.payload;
       return {
