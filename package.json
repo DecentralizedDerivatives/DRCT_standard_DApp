@@ -1,25 +1,24 @@
 {
   "name": "drct_standard_app",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^1.2.0",
-    "@material-ui/icons": "^1.0.0-beta.43",
     "axios": "^0.18.0",
-    "date-fns": "^2.0.0-alpha.7",
+    "bootstrap": "^4.1.1",
+    "classnames": "^2.2.6",
     "highcharts": "^6.1.0",
-    "material-ui": "^1.0.0-beta.42",
-    "material-ui-pickers": "^1.0.0-rc.6",
-    "normalize": "^0.3.1",
-    "normalize.css": "^8.0.0",
+    "jquery": "^3.3.1",
+    "moment": "^2.22.2",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
-    "react-grid-system": "^3.2.3",
-    "react-modal": "^3.4.5",
-    "react-router-bootstrap": "^0.24.4",
+    "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.4",
-    "styled-components": "^3.2.6",
+    "react-widgets": "^4.3.2",
+    "reactstrap": "^6.1.0",
+    "redux": "^4.0.0",
+    "redux-form": "^7.4.2",
+    "redux-thunk": "^2.3.0",
     "truffle-contract": "^3.0.5",
     "web3": "^1.0.0-beta.34"
   },
@@ -29,5 +28,10 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "prettier": "./node_modules/.bin/prettier --single-quote --trailing-comma es5 --print-width 80 --write --no-bracket-spacing src/**/**/**/**/*.js"
+  },
+  "devDependencies": {
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "redux-mock-store": "^1.5.3"
   }
 }
