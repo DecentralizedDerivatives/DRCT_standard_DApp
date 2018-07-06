@@ -82,7 +82,7 @@ MyPortfolio.propTypes = {
   getUserAccount: PropTypes.func.isRequired,
   getUserPositions: PropTypes.func.isRequired,
   getUserTransactions: PropTypes.func.isRequired,
-  orderID: PropTypes.string.isRequired,
+  orderID: PropTypes.string,
   userAccount: PropTypes.string.isRequired
 };
 

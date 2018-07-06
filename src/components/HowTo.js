@@ -1,6 +1,5 @@
 import React from 'react';
 import { Media } from 'reactstrap';
-import '../styles/HowTo.css';
 
 const HowTo = () => {
   const section1 = [

@@ -106,7 +106,7 @@ ContractDetails.propTypes = {
   contractAddress: PropTypes.string.isRequired,
   contractDuration: PropTypes.number.isRequired,
   contractMultiplier: PropTypes.number.isRequired,
-  oracleAddress: PropTypes.string.isRequired,
+  oracleAddress: PropTypes.string,
   tokenAddress: PropTypes.string
 };
 

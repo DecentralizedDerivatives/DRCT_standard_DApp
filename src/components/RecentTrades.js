@@ -17,11 +17,11 @@ export class RecentTrades extends Component {
           <td>
             <a
               className="token-address-link"
-              onClick={this.handleRowClick}
+              onClick={this.props.onRowClick}
               data-token-address={address}
             >
               {symbol} - {this.props.contractDuration} Days -{' '}
-              {this.porps.contractMultiplier}X
+              {this.props.contractMultiplier}X
             </a>
           </td>
           <td>{volume}</td>
@@ -53,7 +53,7 @@ export class RecentTrades extends Component {
 }
 
 RecentTrades.propTypes = {
-  handleRowClick: PropTypes.func.isRequired,
+  onRowClick: PropTypes.func.isRequired,
   recentTrades: PropTypes.array.isRequired,
   contractDuration: PropTypes.string.isRequired,
   contractMultiplier: PropTypes.number.isRequired

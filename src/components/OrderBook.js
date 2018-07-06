@@ -18,7 +18,7 @@ export class OrderBook extends Component {
           <td>
             <a
               className="link__token-address"
-              onClick={this.handleRowClick}
+              onClick={this.onRowClick}
               data-token-address={address}
             >
               <span>
@@ -61,7 +61,7 @@ export class OrderBook extends Component {
 }
 
 OrderBook.propTypes = {
-  handleRowClick: PropTypes.func.isRequired,
+  onRowClick: PropTypes.func.isRequired,
   orderbook: PropTypes.array.isRequired,
   contractDuration: PropTypes.string.isRequired,
   contractMultiplier: PropTypes.number.isRequired

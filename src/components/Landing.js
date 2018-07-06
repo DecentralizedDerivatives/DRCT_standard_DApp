@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
-import '../styles/Landing.css';
 
 class Landing extends Component {
   componentDidMount() {
