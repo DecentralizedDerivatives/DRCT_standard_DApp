@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Collapse } from 'reactstrap';
-import UnlistForm from './UnlistForm';
+import UnlistFormContainer from './UnlistFormContainer';
 import { getUserOrders } from '../actions/userActions';
 
 // Use named export for unconnected component for testing
@@ -57,7 +57,7 @@ export class Unlist extends Component {
         <Collapse isOpen={this.state.formOpen}>
           <div id="unlist-form">
             <h4 className="center-text">Unlist Order</h4>
-            <UnlistFormComponent />
+            <UnlistFormContainer />
           </div>
         </Collapse>
 

@@ -118,5 +118,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getContractOpenDates, sendCreateContractOrder, sendSendFundsOrder }
+  { getContractOpenDates, sendSendFundsOrder }
 )(CreateContract);

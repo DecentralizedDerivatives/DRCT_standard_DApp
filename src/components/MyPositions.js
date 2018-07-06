@@ -22,7 +22,7 @@ export class MyPositions extends Component {
           <td>
             <a
               className="link__token-address"
-              onClick={this.handleRowClick}
+              onClick={this.props.onRowClick}
               data-token-address={address}
             >
               {symbol} - {contractDuration} Days - {contractMultiplier}X

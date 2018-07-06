@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Collapse } from 'reactstrap';
-import ListForm from './ListForm';
+import ListFormContainer from './ListFormContainer';
 import { getUserTokenPositions } from '../actions/userActions';
 import { sendApproveOrder } from '../actions/orderActions';
 
@@ -87,7 +87,7 @@ export class List extends Component {
         <Collapse isOpen={this.state.formOpen}>
           <div id="list-form">
             <h4 className="center-text">Place Order</h4>
-            <ListFormComponent />
+            <ListFormContainer />
           </div>
         </Collapse>
 
