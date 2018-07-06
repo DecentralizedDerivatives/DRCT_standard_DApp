@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Highcharts from 'highcharts/highstock';
 import api from '../api';
-import '../styles/PriceChart.css';
 require('highcharts/modules/exporting')(Highcharts);
 
 Highcharts.setOptions({

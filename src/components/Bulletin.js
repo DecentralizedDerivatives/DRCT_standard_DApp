@@ -17,7 +17,6 @@ import {
 } from '../actions/contractActions';
 import { setSelectedToken } from '../actions/selectedActions';
 import requireConnection from './requireConnection';
-import '../styles/Bulletin.css';
 
 // Use named export for unconnected component for testing
 export class Bulletin extends Component {

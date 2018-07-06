@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Table } from 'reactstrap';
 import { getContractDetails } from '../actions/contractActions';
-import '../styles/MyPositions.css';
 
 // Use named export for unconnected component for testing
 export class MyPositions extends Component {
@@ -60,7 +59,7 @@ export class MyPositions extends Component {
 }
 
 MyPositions.propTypes = {
-  handleRowClick: PropTypes.func.isRequired,
+  onRowClick: PropTypes.func.isRequired,
   userAccount: PropTypes.string.isRequired,
   userPositions: PropTypes.array
 };

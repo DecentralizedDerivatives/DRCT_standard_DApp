@@ -11,15 +11,24 @@ import {
 
 const initialState = {
   contractAddress: '',
-  contractDuration: '',
-  contractMultiplier: '',
+  contractDuration: 0,
+  contractMultiplier: 0,
   oracleAddress: '',
   orderbook: ['loading...', 'loading...', 'loading...', 'loading...', '...'],
   recentTrades: [['No Recent Trades', '...', '...']],
   contractOpenDates: [],
-  newContractAddress: '',
-  newContractTx: '',
-  newContractError: null
+  newContract: {
+    id: '',
+    address: '',
+    duration: '',
+    currency: '',
+    startDate: '',
+    amount: 0,
+    funded: false,
+    fundedTx: ''
+  },
+  newContractCreateError: null,
+  newContractFundsError: null
 };
 
 export default function(state = initialState, action) {
@@ -56,18 +65,17 @@ export default function(state = initialState, action) {
     case SET_CONTRACT_CREATED:
       return {
         ...state,
-        newContractAddress: action.payload,
-        newContractTx: action.payload
+        newContract: action.payload
       };
     case SET_CONTRACT_ERROR:
       return {
         ...state,
-        newContractError: action.payload
+        newContractCreateError: action.payload
       };
     case SET_CONTRACT_FUNDED:
       return {
         ...state,
-        newContractFunded: action.payload
+        newContracts: { funded: true, fundedTx: action.payload }
       };
     case SET_SEND_FUNDS_ERROR:
       return {

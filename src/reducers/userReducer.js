@@ -3,6 +3,7 @@ import {
   SET_USER_BALANCE,
   SET_USER_TRANSACTIONS,
   SET_USER_POSITIONS,
+  SET_USER_TOKENS,
   SET_USER_ORDERS,
   SET_CASHOUT_RECEIPT,
   SET_CASHOUT_ERROR
@@ -13,7 +14,13 @@ const initialState = {
   userBalance: 0,
   userTransactions: [['loading...', 'loading...']],
   userPositions: [['loading...', 'loading...', 'loading...']],
-  userOrders: ''
+  userTokens: [],
+  userOrders: '',
+  userOrderLabels: '',
+  cashOut: {
+    id: '',
+    amount: 0
+  }
 };
 
 export default function(state = initialState, action) {
@@ -38,6 +45,11 @@ export default function(state = initialState, action) {
         ...state,
         userPositions: action.payload
       };
+    case SET_USER_TOKENS:
+      return {
+        ...state,
+        userTokens: action.payload
+      };
     case SET_USER_ORDERS:
       const { userOrderLabels, userOrders } = action.payload;
       return {
@@ -48,7 +60,7 @@ export default function(state = initialState, action) {
     case SET_CASHOUT_RECEIPT:
       return {
         ...state,
-        cashOutTx: action.payload
+        cashOut: action.payload
       };
     case SET_CASHOUT_ERROR:
       return {

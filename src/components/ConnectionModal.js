@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { showConnectionModal } from '../actions/statusActions';
-import '../styles/ConnectionModal.css';
 
 // Refactor as class component
 class ConnectionModal extends Component {
@@ -16,7 +15,7 @@ class ConnectionModal extends Component {
 
   handleClick() {
     this.props.showConnectionModal(false);
-    this.props.history.push('/');
+    // this.props.history.push('/');
   }
 
   render() {

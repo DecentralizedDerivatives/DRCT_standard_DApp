@@ -15,7 +15,6 @@ import {
   // DropdownMenu,
   // DropdownItem
 } from 'reactstrap';
-import '../styles/Header.css';
 
 // Dropdown disabled pending separate routes for dropdown items
 

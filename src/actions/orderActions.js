@@ -81,7 +81,10 @@ export const sendBuyOrder = (orderID, account) => async dispatch => {
 
     dispatch({
       type: SET_BUY_ORDER_RECEIPT,
-      payload: response.tx
+      payload: {
+        id: response.tx,
+        orderID: orderID
+      }
     });
   } catch (err) {
     dispatch({
@@ -104,7 +107,10 @@ export const sendUnlistOrder = (orderID, account) => async dispatch => {
 
     dispatch({
       type: SET_UNLIST_ORDER_RECEIPT,
-      payload: response.tx
+      payload: {
+        id: response.tx,
+        orderID: orderID
+      }
     });
   } catch (err) {
     dispatch({
@@ -116,22 +122,27 @@ export const sendUnlistOrder = (orderID, account) => async dispatch => {
   dispatch(setProcessing(false));
 };
 
-export const sendListOrder = (orderDetails, account) => async dispatch => {
+export const sendListOrder = (formValues, account) => async dispatch => {
   dispatch(setProcessing(true));
 
-  let { selectedToken, amount, price } = orderDetails;
+  let { token, price, amount } = formValues;
 
   try {
     const exchange = await Exchange.deployed();
 
-    const response = await exchange.list(selectedToken, amount, price * 1e18, {
+    const response = await exchange.list(token, amount, price * 1e18, {
       from: account,
       gas: 4000000
     });
 
     dispatch({
       type: SET_LIST_ORDER,
-      payload: response.tx
+      payload: {
+        id: response.tx,
+        token,
+        price,
+        amount
+      }
     });
   } catch (err) {
     dispatch({
@@ -175,17 +186,19 @@ export const sendApproveOrder = (approveDetails, account) => async dispatch => {
 };
 
 export const sendCreateContractOrder = (
-  selectedContractDate,
+  formValues,
   account
 ) => async dispatch => {
   dispatch(setProcessing(true));
+
+  const { duration, currency, startDate, amount } = formValues;
 
   try {
     const factory = await Factory.at(
       '0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642'
     );
 
-    let date = Math.floor(new Date(selectedContractDate).getTime() / 1000);
+    let date = Math.floor(new Date(startDate).getTime() / 1000);
     date = date - (date % 86400);
 
     const response = await factory.deployContract(date, {
@@ -196,8 +209,12 @@ export const sendCreateContractOrder = (
     dispatch({
       type: SET_CONTRACT_CREATED,
       payload: {
-        newContractAddress: response.logs[0].args._created,
-        newContractTx: response.tx
+        id: response.tx,
+        address: response.logs[0].args._created,
+        duration,
+        currency,
+        startDate,
+        amount
       }
     });
   } catch (err) {
@@ -233,7 +250,7 @@ export const sendSendFundsOrder = (
       gas: 4000000,
       value: _value * 2
     });
-    // Need custom action - SET_CONTRACT_FUNDED
+
     dispatch({
       type: SET_CONTRACT_FUNDED,
       payload: response.tx

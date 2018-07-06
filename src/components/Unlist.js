@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { Collapse } from 'reactstrap';
 import UnlistForm from './UnlistForm';
 import { getUserOrders } from '../actions/userActions';
-import { sendUnlistOrder } from '../actions/orderActions';
 
 // Use named export for unconnected component for testing
 export class Unlist extends Component {
@@ -23,26 +22,19 @@ export class Unlist extends Component {
     await this.props.getUserOrders(this.props.userAccount);
   }
 
-  handleSubmit = async e => {
-    e.preventDefault();
-
-    await this.props.sendUnlistOrder(
-      this.props.orderID,
-      this.props.userAccount
-    );
-
-    if (this.props.unlistOrderError) {
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.unlistOrderError !== 'null') {
       this.setState({
         resultsMessage: `Error: ${this.props.unlistOrderError}`,
         formOpen: false
       });
-    } else {
+    } else if (this.props.unlistOrderTx) {
       this.setState({
-        resultsMessage: `Tx receipt: ${this.props.unlistOrderTx}`,
+        resultsMessage: `Unlist Order result ${this.props.unlistOrderTx}`,
         formOpen: false
       });
     }
-  };
+  }
 
   toggleFormVisibility() {
     this.setState({
@@ -51,8 +43,6 @@ export class Unlist extends Component {
   }
 
   render() {
-    const { selectedToken, orderLabels } = this.props;
-
     return (
       <div className="container">
         <div id="unlist-button">
@@ -66,13 +56,8 @@ export class Unlist extends Component {
 
         <Collapse isOpen={this.state.formOpen}>
           <div id="unlist-form">
-            <h4 className="center-text">Unlist Confirmation</h4>
-            <UnlistForm
-              name="unlistOrderID"
-              onSubmit={this.handleSubmit}
-              dropdownValue={selectedToken}
-              dropdownData={orderLabels}
-            />
+            <h4 className="center-text">Unlist Order</h4>
+            <UnlistFormComponent />
           </div>
         </Collapse>
 
@@ -88,25 +73,18 @@ export class Unlist extends Component {
 
 Unlist.propTypes = {
   getUserOrders: PropTypes.func.isRequired,
-  sendUnlistOrder: PropTypes.func.isRequired,
   userAccount: PropTypes.string.isRequired,
-  orderID: PropTypes.string.isRequired,
-  selectedToken: PropTypes.string.isRequired,
-  orderLabels: PropTypes.array.isRequired,
   unlistOrderTx: PropTypes.string.isRequired,
   unlistOrderError: PropTypes.string.isRequired
 };
 
 const mapStateToProps = state => ({
   userAccount: state.account.userAccount,
-  orderID: state.form.unlist.unlistOrderID,
-  selectedToken: state.current.selectedToken,
-  orderLabels: state.account.userOrderLabels,
   unlistOrderTx: state.order.unlistOrderID,
   unlistOrderError: state.order.unlistOrderError
 });
 
 export default connect(
   mapStateToProps,
-  { getUserOrders, sendUnlistOrder }
+  { getUserOrders }
 )(Unlist);

@@ -1,0 +1,177 @@
+/* App */
+:root {
+  --color-blue: #114770;
+  --color-lightblue: #9fb5c5;
+  --color-white: #fff;
+  --color-green: #30ad63;
+  --color-lightGray: #e5e5e5;
+  --color-gray: rgba(0, 0, 0, 0.54);
+  --color-red: #ff4136;
+}
+
+* {
+  font-family: 'IBM Plex Sans', 'Roboto', sans-serif;
+}
+
+/* Bulletin */
+.wrapper {
+  margin: 25px;
+  display: grid;
+  grid-template-columns: repeat(12, [col-start] 1fr);
+  grid-gap: 20px;
+}
+
+.order-book {
+  grid-column: col-start / span 12;
+}
+.order-buttons {
+  grid-column: col-start / span 12;
+}
+.price-chart {
+  grid-column: col-start / span 12;
+}
+@media (min-width: 960px) {
+  .order-book {
+    grid-column: col-start / span 8;
+    grid-row: 1;
+  }
+  .order-buttons {
+    grid-column: 9 / span 5;
+    grid-row: 1 / 3;
+  }
+  .price-chart {
+    grid-column: col-start / span 8;
+    grid-row: 2;
+  }
+}
+
+.bulletin-order-btns-wrapper {
+  list-style: none;
+  margin: 0 0 20px;
+  padding: 0;
+  width: 100%;
+  display: inline-block;
+}
+.bulletin-order-btns li {
+  width: 100%;
+}
+.bulletin-order-btn {
+  background-color: transparent;
+  color: white;
+  width: 300px;
+  height: 45px;
+  border-bottom: 1px solid #27597e !important;
+  border-radius: 5px;
+  width: 100%;
+}
+.bulletin-order-btn-txt {
+  color: black;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+/* Connection Modal */
+.button-link {
+  text-decoration: none;
+  color: #3f51b5;
+}
+
+.button-text {
+  color: #fff;
+}
+
+.button {
+  width: 100%;
+  background-color: #114770;
+}
+
+.button:hover {
+  background-color: #9fb5c5;
+}
+
+.button-disabled: {
+  width: 100%;
+  background-color: #9fb5c5;
+}
+
+/* Header */
+.connected {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.connected__icon--green {
+  fill: #30ad63;
+}
+
+.connected__icon--red {
+  fill: #ff4136;
+}
+
+/* HowTo */
+.howTo__infograph {
+  width: 25em;
+  margin-top: 7%;
+  margin-right: 20%;
+}
+
+/* Landing */
+.landing__bg {
+  position: relative;
+  background: url('./imgs/cryptocurrency.jpg') no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+
+  margin-bottom: -50px;
+}
+
+.landing__overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding-top: 80px;
+}
+
+/* MyPositions MyTransactions */
+.link__token-address: {
+  color: #114770;
+  text-decoration: none;
+}
+
+/* pricechart */
+.pricechart__chart {
+  width: 100%;
+  height: 25rem;
+  display: inline-block;
+  position: relative;
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2),
+    0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 3px 1px -2px rgba(0, 0, 0, 0.12);
+  border-radius: 2px;
+}
+.pricechart__item {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.pricechart__dropdown {
+  position: absolute;
+  right: 3em;
+  top: 1em;
+  z-index: 2;
+  cursor: pointer;
+  font-size: 12px;
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+.pricechart__dropdown-item {
+  font-size: 12px;
+  font-family: 'IBM Plex Sans', sans-serif;
+}

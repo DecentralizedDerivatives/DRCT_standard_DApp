@@ -2,12 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Collapse } from 'reactstrap';
-import CreateContractForm from './CreateContractForm';
+import CreateContractFormContainer from './CreateContractFormContainer';
 import { getContractOpenDates } from '../actions/contractActions';
-import {
-  sendCreateContractOrder,
-  sendSendFundsOrder
-} from '../actions/orderActions';
+import { sendSendFundsOrder } from '../actions/orderActions';
 
 // Use named export for unconnected component for testing
 export class CreateContract extends Component {
@@ -24,51 +21,41 @@ export class CreateContract extends Component {
     await this.props.getContractOpenDates();
   }
 
-  handleCreateClick = async e => {
-    await this.props.sendCreateContractOrder(
-      this.props.selectedContractDate,
-      this.props.userAccount
-    );
-
-    if (this.props.newContractError) {
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.newContractCreateError !== 'null') {
       this.setState({
         resultsMessage: `Error: ${this.props.newContractError}`,
         sendFundsOpen: false,
         formOpen: false
       });
-    } else {
+    } else if (this.props.newContractAddress) {
       this.setState({
         resultsMessage: `Address result ${this.props.newContractAddress}`,
         sendFundsOpen: true,
         formOpen: false
       });
-    }
-  };
-
-  handleSendFundsClick = async e => {
-    const sendFundsDetails = {
-      newContractAddress: this.props.newContractAddress,
-      createContractAmount: this.props.createContractAmount
-    };
-
-    await this.props.sendSendFundsOrder(
-      sendFundsDetails,
-      this.props.userAccount
-    );
-
-    if (this.props.newContractFundsError) {
+    } else if (this.props.newContractFundsError) {
       this.setState({
         resultsMessage: `Error: ${this.props.newContractFundsError}`,
         sendFundsOpen: false,
         formOpen: false
       });
-    } else {
+    } else if (this.props.newContractFunded) {
       this.setState({
         resultsMessage: `Contract successfully funded.`,
         sendFundsOpen: false,
         formOpen: false
       });
     }
+  }
+
+  handleSendFundsClick = e => {
+    const sendFundsDetails = {
+      newContractAddress: this.props.newContractAddress,
+      newContractAmount: this.props.newContractAmount
+    };
+
+    this.props.sendSendFundsOrder(sendFundsDetails, this.props.userAccount);
   };
 
   toggleFormVisibility() {
@@ -87,10 +74,7 @@ export class CreateContract extends Component {
         <Collapse isOpen={this.state.formOpen}>
           <div id="create-contract-form">
             <h4 className="center-text">Create Contract</h4>
-            <CreateContractForm
-              name="createContractForm"
-              onSubmit={this.handleCreateClick}
-            />
+            <CreateContractFormContainer name="createContractForm" />
           </div>
         </Collapse>
 
@@ -116,21 +100,19 @@ CreateContract.propTypes = {
   sendCreateContractOrder: PropTypes.func.isRequired,
   sendSendFundsOrder: PropTypes.func.isRequired,
   userAccount: PropTypes.string.isRequired,
-  newContractAddress: PropTypes.string.isRequired,
-  newContractTx: PropTypes.string.isRequired,
-  newContractError: PropTypes.string,
-  newContractFunded: PropTypes.string.isRequired,
+  newContractAddress: PropTypes.string,
+  newContractCreateError: PropTypes.string,
+  newContractFunded: PropTypes.string,
   newContractFundsError: PropTypes.string,
-  createContractAmount: PropTypes.number.isRequired
+  createContractAmount: PropTypes.number
 };
 
 const mapStateToProps = state => ({
   userAccount: state.user.userAccount,
-  createContractAmount: state.form.createcontract.createContractAmount,
-  newContractAddress: state.contract.newContractAddress,
-  newContractTx: state.contract.newContractTx,
-  newContractError: state.contract.newContractError,
-  newContractFunded: state.contract.newContractFunded,
+  newContractAmount: state.contract.newContract.amount,
+  newContractAddress: state.contract.newContract.address,
+  newContractCreateError: state.contract.newContractCreateError,
+  newContractFunded: state.contract.newContract.funded,
   newContractFundsError: state.contract.newContractFundsError
 });
 

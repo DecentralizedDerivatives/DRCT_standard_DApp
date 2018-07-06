@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Collapse } from 'reactstrap';
-import BuyForm from './BuyForm';
-import { getOrderDetails, sendBuyOrder } from '../actions/orderActions';
+import BuyFormContainer from './BuyFormContainer';
+import { getOrderDetails } from '../actions/orderActions';
 
 // Use named export for unconnected component for testing
 export class Buy extends Component {
@@ -18,30 +18,23 @@ export class Buy extends Component {
     this.toggleFormVisibility = this.toggleFormVisibility.bind(this);
   }
 
-  static durations = ['One weeks', 'Two weeks'];
-  static currency = ['BTC/USD', 'ETH/USD'];
-
   async componentDidMount() {
     await this.getOrderDetails(this.props.orderID);
   }
 
-  handleSubmit = async e => {
-    e.preventDefault();
-
-    await this.sendBuyOrder(this.props.orderID, this.props.userAccount);
-
-    if (this.props.buyOrderError) {
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.buyOrderError !== 'null') {
       this.setState({
         resultsMessage: `Error: ${this.props.buyOrderError}`,
         formOpen: false
       });
-    } else {
+    } else if (this.props.buyOrderTx) {
       this.setState({
-        resultsMessage: `Tx receipt: ${this.props.buyOrderTx}`,
+        resultsMessage: `Buy Order result ${this.props.buyOrderTx}`,
         formOpen: false
       });
     }
-  };
+  }
 
   toggleFormVisibility() {
     this.setState({
@@ -59,7 +52,7 @@ export class Buy extends Component {
         <Collapse isOpen={this.state.formOpen}>
           <div id="buy-form">
             <h4 className="center-text">Buy Order</h4>
-            <BuyForm onSubmit={this.handleSubmit} />
+            <BuyFormContainer />
           </div>
         </Collapse>
 
@@ -75,7 +68,6 @@ export class Buy extends Component {
 
 Buy.propTypes = {
   getOrderDetails: PropTypes.func.isRequired,
-  sendBuyOrder: PropTypes.func.isRequired,
   orderID: PropTypes.string.isRequired,
   userAccount: PropTypes.string.isRequired,
   buyOrderTx: PropTypes.string.isRequired,
@@ -83,13 +75,13 @@ Buy.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  orderID: state.form.buy.orderID,
+  orderID: state.order.buy.orderID,
   userAccount: state.user.userAccount,
-  buyOrderTx: state.order.buyOrderTx,
+  buyOrderTx: state.order.buy.id,
   buyOrderError: state.order.buyOrderError
 });
 
 export default connect(
   mapStateToProps,
-  { getOrderDetails, sendBuyOrder }
+  { getOrderDetails }
 )(Buy);

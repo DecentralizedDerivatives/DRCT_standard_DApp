@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Table } from 'reactstrap';
 import { getUserTransactions } from '../actions/userActions';
-import '../styles/MyTransactions.css';
 
 // Use named export for unconnected component for testing
 export class MyTransactions extends Component {
@@ -24,7 +23,7 @@ export class MyTransactions extends Component {
                   : `https://rinkeby.etherscan.io/address/${tradeHash}`
               }
               target="_blank"
-              onClick={this.handleRowClick}
+              onClick={this.props.onRowClick}
               data-token-address={tradeHash}
             >
               {tradeHash.substring(0, 14)}...
@@ -56,7 +55,7 @@ export class MyTransactions extends Component {
 }
 
 MyTransactions.propTypes = {
-  handleRowClick: PropTypes.func.isRequired,
+  onRowClick: PropTypes.func.isRequired,
   userAccount: PropTypes.string.isRequired,
   userTransactions: PropTypes.array
 };
