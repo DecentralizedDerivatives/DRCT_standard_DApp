@@ -20,7 +20,7 @@ export default function(state = initialState, action) {
     case SET_CONNECTION_STATUS:
       return {
         ...state,
-        connectionStatus: action.payload
+        connectStatus: action.payload
       };
     case SET_PROCESSING:
       return {
