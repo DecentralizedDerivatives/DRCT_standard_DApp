@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import ConnectionModal from './components/ConnectionModal';
@@ -12,24 +12,23 @@ import HowTo from './components/HowTo';
 import { checkUserConnection } from './actions/statusActions';
 
 class AppRouter extends Component {
-  async componentDidMount() {
-    await this.props.checkUserConnection();
+  componentDidMount() {
+    this.props.checkUserConnection();
+  }
+
+  componentWillUpdate() {
+    this.props.checkUserConnection();
   }
 
   render() {
     return (
       <div className="app">
-        <Header
-          connected={
-            this.props.isConnectedMetamask && this.props.isConnectedNetwork
-          }
-        />
+        <Header connected={this.props.metamask && this.props.network === 4} />
         <Route exact path="/" component={Landing} />
         <Switch>
           <Route path="/portfolio" component={MyPortfolio} />
           <Route path="/bulletin" component={Bulletin} />
           <Route path="/how-to" component={HowTo} />
-          <Redirect to="/" />
         </Switch>
 
         <BlockProgress />
@@ -40,13 +39,14 @@ class AppRouter extends Component {
 }
 
 AppRouter.propTypes = {
-  isConnectedMetamask: PropTypes.bool.isRequired,
-  isConnectedNetwork: PropTypes.bool.isRequired
+  checkUserConnection: PropTypes.func.isRequired,
+  metamask: PropTypes.bool.isRequired,
+  network: PropTypes.number.isRequired
 };
 
 const mapStateToProps = state => ({
-  isConnectedMetamask: state.status.isConnectedMetamask,
-  isConnectedNetwork: state.status.isConnectedNetwork
+  metamask: state.status.connectStatus.metamask,
+  network: state.status.connectStatus.network
 });
 
 export default connect(

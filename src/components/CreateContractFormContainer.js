@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { reduxForm, getFormValues } from 'redux-form';
 import { sendCreateContractOrder } from '../actions/orderActions';
-import CreateContractFormComponent from './CreateContractForm';
+import CreateContractFormComponent from './CreateContractFormComponent';
 
 export const CreateContractFormContainer = props => {
   const submitForm = formValues => {

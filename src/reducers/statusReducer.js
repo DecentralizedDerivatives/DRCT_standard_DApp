@@ -1,13 +1,15 @@
 import {
-  SET_IS_CONNECTED,
+  SET_CONNECTION_STATUS,
   SHOW_CONNECTION_MODAL,
   SET_PROCESSING,
   SET_FETCHING_ERROR
 } from '../actions/types';
 
 const initialState = {
-  isConnectedMetamask: false,
-  isConnectedNetwork: false,
+  connectStatus: {
+    metamask: false,
+    network: 0
+  },
   isConnectModalOpen: false,
   isProcessing: false,
   fetchingError: []
@@ -15,12 +17,10 @@ const initialState = {
 
 export default function(state = initialState, action) {
   switch (action.type) {
-    case SET_IS_CONNECTED:
-      const { connectedMetamask, connectedNetwork } = action.payload;
+    case SET_CONNECTION_STATUS:
       return {
         ...state,
-        isConnectedMetamask: connectedMetamask,
-        isConnectedNetwork: connectedNetwork
+        connectionStatus: action.payload
       };
     case SET_PROCESSING:
       return {

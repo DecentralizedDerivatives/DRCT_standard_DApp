@@ -3,7 +3,7 @@ import { Field } from 'redux-form';
 import { InputGroup, InputGroupAddon } from 'reactstrap';
 import InputNumber from './InputNumber';
 import Select from './Select.js';
-import Datepicker from './Datepicker';
+import Datepicker from './datepicker';
 
 export const CreateContractFormComponent = ({
   handleSubmit,

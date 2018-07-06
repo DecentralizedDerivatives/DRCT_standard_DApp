@@ -1,14 +1,9 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 
 class Landing extends Component {
-  componentDidMount() {
-    if (this.props.isConnectedMetamask && this.props.isConnectedNetwork) {
-      this.props.history.push('/portfolio');
-    }
-  }
-
   render() {
     return (
       <div className="landing__bg">
@@ -17,27 +12,56 @@ class Landing extends Component {
             <div className="row">
               <div className="col-md-12 text-center">
                 <h1 className="display-3 mb-4">DRCT DApp</h1>
-                <p className="lead">
-                  Please log into your MetaMask extension to access this site.
-                </p>
-                <hr />
-                <a
-                  className="btn btn-lg btn-light"
-                  href="https://metamask.io/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Need MetaMask?
-                </a>
+                {!this.props.metamask && (
+                  <div>
+                    <p className="lead">
+                      Please log into your MetaMask extension to access this
+                      site.
+                    </p>
+                    <hr />
+                    <a
+                      className="btn btn-lg btn-light"
+                      href="https://metamask.io/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Need MetaMask?
+                    </a>
+                  </div>
+                )}
 
-                <a
-                  href="http://wwww.ddacoop.org"
-                  className="btn btn-lg btn-info mr-2"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Learn More About DRCT DApp
-                </a>
+                {this.props.metamask &&
+                  this.props.network !== 4 && (
+                    <div>
+                      <p className="lead">
+                        Please make sure MetaMask is set to{' '}
+                        <em>Rinkeby Test Network</em>
+                      </p>
+                    </div>
+                  )}
+
+                {this.props.metamask &&
+                  this.props.network === 4 && (
+                    <div>
+                      <p className="lead">
+                        You are connected to <em>Rinkeby Test Network</em>
+                      </p>
+                      <button>
+                        <Link href="/portfolio/">Go to My Portfolio</Link>
+                      </button>
+                    </div>
+                  )}
+
+                <div>
+                  <a
+                    href="http://wwww.ddacoop.org"
+                    className="btn btn-lg btn-info mr-2"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Learn More About DRCT DApp
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -48,13 +72,13 @@ class Landing extends Component {
 }
 
 Landing.propTypes = {
-  isConnectedMetamask: PropTypes.bool.isRequired,
-  isConnectedNetwork: PropTypes.bool.isRequired
+  metamask: PropTypes.bool.isRequired,
+  network: PropTypes.number.isRequired
 };
 
 const mapStateToProps = state => ({
-  isConnectedMetamask: state.status.isConnectedMetamask,
-  isConnectedNetwork: state.status.isConnectedNetwork
+  metamask: state.status.connectStatus.metamask,
+  network: state.status.connectStatus.network
 });
 
 export default connect(mapStateToProps)(Landing);

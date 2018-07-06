@@ -1,7 +1,7 @@
 import React from 'react';
 import { Field } from 'redux-form';
 import { InputGroup } from 'reactstrap';
-import InputNumber from './InputNumber';
+import InputText from './InputText';
 import Select from './Select.js';
 
 export const UnlistFormComponent = ({
