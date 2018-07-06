@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Collapse } from 'reactstrap';
 import ListForm from './ListForm';
 import { getUserTokenPositions } from '../actions/userActions';
-import { sendListOrder, sendApproveOrder } from '../actions/orderActions';
+import { sendApproveOrder } from '../actions/orderActions';
 
 // Use named export for unconnected component for testing
 export class List extends Component {
@@ -20,29 +20,33 @@ export class List extends Component {
     await this.props.getUserTokenPositions(this.props.userAccount);
   }
 
-  handleListClick = async e => {
-    const orderDetails = {
-      selectedToken: this.props.selectedToken,
-      amount: this.props.tokenAmt,
-      price: this.props.tokenPrice
-    };
-
-    await this.props.sendListOrder(orderDetails, this.props.userAccount);
-
-    if (this.props.listOrderError) {
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.listOrderError !== 'null') {
       this.setState({
         resultsMessage: `Error: ${this.props.listOrderError}`,
         approvalOpen: false,
         formOpen: false
       });
-    } else {
+    } else if (nextProps.listOrder.id) {
       this.setState({
-        resultsMessage: `Address result ${this.props.newContractAddress}`,
+        resultsMessage: `List Order result ${this.props.listOrder.id}`,
         approvalOpen: true,
         formOpen: false
       });
+    } else if (this.props.listOrderApproveError) {
+      this.setState({
+        resultsMessage: `Error: ${this.props.listOrderApproveError}`,
+        sendFundsOpen: false,
+        formOpen: false
+      });
+    } else if (this.props.listOrder.approved) {
+      this.setState({
+        resultsMessage: `Order approval confirmed`,
+        sendFundsOpen: false,
+        formOpen: false
+      });
     }
-  };
+  }
 
   handleApproveClick = async e => {
     const approveDetails = {
@@ -83,11 +87,7 @@ export class List extends Component {
         <Collapse isOpen={this.state.formOpen}>
           <div id="list-form">
             <h4 className="center-text">Place Order</h4>
-            <ListForm
-              name="listOrderID"
-              onSubmit={this.handleListClick}
-              dropdownData={this.props.userTokens}
-            />
+            <ListFormComponent />
           </div>
         </Collapse>
 
@@ -109,15 +109,13 @@ export class List extends Component {
 }
 List.propTypes = {
   getUserTokenPositions: PropTypes.func.isRequired,
-  sendListOrder: PropTypes.func.isRequired,
   sendApproveOrder: PropTypes.func.isRequired,
-  orderID: PropTypes.string.isRequired,
   userAccount: PropTypes.string.isRequired,
   userTokens: PropTypes.array.isRequired,
   selectedToken: PropTypes.string.isRequired,
   tokenAmt: PropTypes.number.isRequired,
   tokenPrice: PropTypes.number.isRequired,
-  listOrderTx: PropTypes.string.isRequired,
+  listOrderId: PropTypes.string.isRequired,
   listOrderError: PropTypes.string,
   listOrderApproved: PropTypes.string.isRequired,
   listOrderApproveError: PropTypes.string
@@ -126,16 +124,16 @@ List.propTypes = {
 const mapStateToProps = state => ({
   userAccount: state.user.userAccount,
   userTokens: state.user.userTokens,
-  selectedToken: state.form.list.listOrderToken,
-  tokenAmt: state.form.list.listTokenAmt,
-  tokenPrice: state.form.list.listOrderPrice,
-  listOrderTx: state.contract.listOrderTx,
-  listOrderError: state.contract.listOrderError,
-  listOrderApproved: state.contract.listOrderApproved,
-  listOrderApproveError: state.contract.listOrderFundsError
+  selectedToken: state.order.listOrder.token,
+  tokenAmt: state.order.listOrder.amount,
+  tokenPrice: state.order.listOrder.price,
+  listOrderId: state.order.listOrder.id,
+  listOrderError: state.order.listOrderError,
+  listOrderApproved: state.order.listOrder.approved,
+  listOrderApproveError: state.order.listOrderFundsError
 });
 
 export default connect(
   mapStateToProps,
-  { getUserTokenPositions, sendListOrder, sendApproveOrder }
+  { getUserTokenPositions, sendApproveOrder }
 )(List);

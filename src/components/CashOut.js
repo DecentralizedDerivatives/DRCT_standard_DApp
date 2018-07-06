@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Collapse } from 'reactstrap';
-import CashOutForm from './CashOutForm';
-import { getUserBalance, sendCashOutRequest } from '../actions/userActions';
+import CashOutFormContainer from './CashOutFormContainer';
+import { getUserBalance } from '../actions/userActions';
 import { Wrapped, web3 } from '../ethereum';
 
 // Use named export for unconnected component for testing
@@ -20,23 +20,19 @@ export class CashOut extends Component {
     await this.props.getUserBalance();
   }
 
-  handleSubmit = async e => {
-    e.preventDefault();
-
-    await this.props.sendCashOutRequest();
-
-    if (this.props.cashOutError) {
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.unlistOrderError !== 'null') {
       this.setState({
         resultsMessage: `Error: ${this.props.cashOutError}`,
         formOpen: false
       });
-    } else {
+    } else if (this.props.unlistOrderTx) {
       this.setState({
         resultsMessage: `Tx receipt: ${this.props.cashOutTx}`,
         formOpen: false
       });
     }
-  };
+  }
 
   // Toggle form visibility on button click
   toggleFormVisibility() {
@@ -57,7 +53,7 @@ export class CashOut extends Component {
         <Collapse isOpen={this.state.collapse}>
           <div id="cashout-form">
             <h4 className="center-text">Cash Out Request</h4>
-            <CashOutForm onSubmit={this.handleSubmit} />
+            <CashOutFormContainer />
           </div>
         </Collapse>
 
@@ -73,21 +69,18 @@ export class CashOut extends Component {
 
 CashOut.propTypes = {
   getUserBalance: PropTypes.func.isRequired,
-  sendCashOutRequest: PropTypes.func.isRequired,
   userBalance: PropTypes.number.isRequired,
-  withdrawAmount: PropTypes.number.isRequired,
   cashOutTx: PropTypes.string.isRequired,
   cashOutError: PropTypes.string.isRequired
 };
 
 const mapStateToProps = state => ({
   userBalance: state.user.userBalance,
-  withdrawAmount: state.form.cashout.withdrawAmount,
   cashOutTx: state.user.cashOutTx,
   cashOutError: state.user.cashOutError
 });
 
 export default connect(
   mapStateToProps,
-  { getUserBalance, sendCashOutRequest }
+  { getUserBalance }
 )(CashOut);
