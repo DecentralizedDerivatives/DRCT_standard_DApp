@@ -2,7 +2,7 @@ import { web3 } from '../ethereum';
 
 import {
   SET_FETCHING_ERROR,
-  SET_IS_CONNECTED,
+  SET_CONNECTION_STATUS,
   SHOW_CONNECTION_MODAL,
   SET_PROCESSING
 } from './types';
@@ -14,10 +14,10 @@ export const checkUserConnection = () => async dispatch => {
     const network = await web3.eth.net.getId();
 
     dispatch({
-      type: SET_IS_CONNECTED,
+      type: SET_CONNECTION_STATUS,
       payload: {
-        connectedMetamask: Boolean(accounts.length),
-        connectedNetwork: network === 4
+        metamask: Boolean(accounts.length),
+        network: network
       }
     });
   } catch (err) {
