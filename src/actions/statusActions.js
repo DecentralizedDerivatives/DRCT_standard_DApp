@@ -16,7 +16,7 @@ export const checkUserConnection = () => async dispatch => {
     dispatch({
       type: SET_IS_CONNECTED,
       payload: {
-        connectedMetamask: accounts.length,
+        connectedMetamask: Boolean(accounts.length),
         connectedNetwork: network === 4
       }
     });

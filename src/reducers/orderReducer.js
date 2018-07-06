@@ -12,14 +12,26 @@ import {
 
 const initialState = {
   orderDetails: '',
-  buyOrderTx: '',
+  buy: {
+    id: '',
+    orderID: ''
+  },
   buyOrderError: null,
-  unlistOrderTx: '',
-  unlistOrderError: null,
-  listOrderTx: '',
+  list: {
+    id: '',
+    token: '',
+    price: 0,
+    tokenAmount: 0,
+    approved: false,
+    approveTx: ''
+  },
   listOrderError: null,
-  listOrderApproved: '',
-  listOrderApproveError: null
+  listOrderApproveError: null,
+  unlist: {
+    id: '',
+    orderID: ''
+  },
+  unlistOrderError: null
 };
 
 export default function(state = initialState, action) {
@@ -32,7 +44,7 @@ export default function(state = initialState, action) {
     case SET_BUY_ORDER_RECEIPT:
       return {
         ...state,
-        buyOrderTx: action.payload
+        buyOrder: action.payload
       };
     case SET_BUY_ORDER_ERROR:
       return {
@@ -42,7 +54,7 @@ export default function(state = initialState, action) {
     case SET_UNLIST_ORDER_RECEIPT:
       return {
         ...state,
-        unlistOrderTx: action.payload
+        unlistOrder: action.payload
       };
     case SET_UNLIST_ORDER_ERROR:
       return {
@@ -52,7 +64,7 @@ export default function(state = initialState, action) {
     case SET_LIST_ORDER:
       return {
         ...state,
-        listOrderTx: action.payload
+        listOrder: action.payload
       };
     case SET_LIST_ORDER_ERROR:
       return {
@@ -62,7 +74,10 @@ export default function(state = initialState, action) {
     case SET_LIST_ORDER_APPROVED:
       return {
         ...state,
-        listOrderApproved: action.payload
+        listOrder: {
+          approved: true,
+          approveTX: action.payload
+        }
       };
     case SET_LIST_ORDER_APPROVE_ERROR:
       return {

@@ -139,7 +139,7 @@ export const getUserPositions = userAccount => async dispatch => {
 
       for (let j = 0; j < _token_addresses.length; j++) {
         let drct = await DRCT.at(_token_addresses[j]);
-        let _balance = await drct.balanceOf(this.props.myAccount);
+        let _balance = await drct.balanceOf(userAccount);
         if (_balance.c[0] > 0) {
           _allrows.push({
             address: _token_addresses[j],
@@ -296,20 +296,22 @@ export const getUserOrders = userAccount => async dispatch => {
   dispatch(setProcessing(false));
 };
 
-export const sendCashOutRequest = () => async dispatch => {
+export const sendCashOutRequest = (amount, account) => async dispatch => {
   dispatch(setProcessing(true));
 
   try {
     const wrapped = await Wrapped.deployed();
-    const accounts = await web3.eth.getAccounts();
-    const response = await wrapped.withdraw(this.state.myBalance, {
-      from: accounts[0],
+    const response = await wrapped.withdraw(amount, {
+      from: account,
       gas: 4000000
     });
 
     dispatch({
       type: SET_CASHOUT_RECEIPT,
-      payload: response.tx
+      payload: {
+        id: response.tx,
+        amount: amount
+      }
     });
   } catch (err) {
     dispatch({
