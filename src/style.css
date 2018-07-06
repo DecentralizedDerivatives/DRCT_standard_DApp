@@ -103,12 +103,8 @@
   letter-spacing: 1px;
 }
 
-.connected__icon--green {
-  fill: #30ad63;
-}
-
-.connected__icon--red {
-  fill: #ff4136;
+.connected__icon--white {
+  fill: #fff;
 }
 
 /* HowTo */

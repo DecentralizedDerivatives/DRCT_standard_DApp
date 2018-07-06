@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 
@@ -12,7 +12,7 @@ class Landing extends Component {
             <div className="row">
               <div className="col-md-12 text-center">
                 <h1 className="display-3 mb-4">DRCT DApp</h1>
-                {!this.state.metamask && (
+                {!this.props.metamask && (
                   <div>
                     <p className="lead">
                       Please log into your MetaMask extension to access this
@@ -30,7 +30,7 @@ class Landing extends Component {
                   </div>
                 )}
 
-                {this.state.metamask &&
+                {this.props.metamask &&
                   this.props.network !== 4 && (
                     <div>
                       <p className="lead">
@@ -40,7 +40,7 @@ class Landing extends Component {
                     </div>
                   )}
 
-                {this.state.metamask &&
+                {this.props.metamask &&
                   this.props.network === 4 && (
                     <div>
                       <p className="lead">
@@ -73,7 +73,7 @@ class Landing extends Component {
 
 Landing.propTypes = {
   metamask: PropTypes.bool.isRequired,
-  network: PropTypes.bool.isRequired
+  network: PropTypes.number.isRequired
 };
 
 const mapStateToProps = state => ({

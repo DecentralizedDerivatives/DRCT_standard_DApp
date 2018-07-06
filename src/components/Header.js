@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {
@@ -76,15 +75,10 @@ export class Header extends Component {
               </UncontrolledDropdown> */}
               <NavItem>
                 <span>
-                  <span className="connected">Connected</span>
+                  <span className="connected">Connected </span>
                   <i
                     className={classnames('far fa-circle', {
-                      'connect__icon--green':
-                        this.props.isConnectedMetamask &&
-                        this.props.isConnectedNetwork,
-                      'connect__icon--red':
-                        !this.props.isConnectedMetamask ||
-                        !this.props.isConnectedNetwork
+                      'connect__icon--white': this.props.connected
                     })}
                   />
                 </span>
@@ -97,21 +91,10 @@ export class Header extends Component {
   }
 }
 
-Header.propTypes = {
-  isConnectedMetamask: PropTypes.bool.isRequired,
-  isConnectedNetwork: PropTypes.bool.isRequired
-};
-
 Navbar.propTypes = {
-  light: PropTypes.bool,
   dark: PropTypes.bool,
   color: PropTypes.string,
   expand: PropTypes.string
 };
 
-const mapStateToProps = state => ({
-  isConnectedMetamask: state.status.isConnectedMetamask,
-  isConnectedNetwork: state.status.isConnectedNetwork
-});
-
-export default connect(mapStateToProps)(Header);
+export default Header;

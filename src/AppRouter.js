@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import ConnectionModal from './components/ConnectionModal';
@@ -29,7 +29,6 @@ class AppRouter extends Component {
           <Route path="/portfolio" component={MyPortfolio} />
           <Route path="/bulletin" component={Bulletin} />
           <Route path="/how-to" component={HowTo} />
-          <Redirect to="/" />
         </Switch>
 
         <BlockProgress />

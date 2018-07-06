@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { checkUserConnection } from '../actions/statusActions';
-
 export default ChildComponent => {
   class ComposedComponent extends Component {
     componentDidMount = () => {
