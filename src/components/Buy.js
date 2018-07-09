@@ -46,7 +46,9 @@ export class Buy extends Component {
     return (
       <div className="container">
         <div id="buy-button">
-          <button onClick={this.toggleFormVisibility}>Buy Order</button>
+          <button className="btn btn-info" onClick={this.toggleFormVisibility}>
+            Buy Order
+          </button>
         </div>
 
         <Collapse isOpen={this.state.formOpen}>

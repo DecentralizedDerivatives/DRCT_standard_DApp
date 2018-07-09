@@ -81,7 +81,9 @@ export class List extends Component {
     return (
       <div className="container">
         <div id="list-button">
-          <button onClick={this.toggleFormVisibility}>List Order</button>
+          <button className="btn btn-info" onClick={this.toggleFormVisibility}>
+            List Order
+          </button>
         </div>
 
         <Collapse isOpen={this.state.formOpen}>
@@ -94,7 +96,12 @@ export class List extends Component {
         <Collapse isOpen={this.state.approvalOpen}>
           <div id="approval">
             <h4 className="center-text">Order Placed</h4>
-            <button onClick={this.handleApproveClick}>Approve Order</button>
+            <button
+              className="btn btn-success"
+              onClick={this.handleApproveClick}
+            >
+              Approve Order
+            </button>
           </div>
         </Collapse>
 

@@ -83,7 +83,12 @@ export class CreateContract extends Component {
         <Collapse isOpen={this.state.sendFundsOpen}>
           <div id="send-funds">
             <h4 className="center-text">Contract Created</h4>
-            <button onClick={this.handleSendFundsClick}>Send Funds</button>
+            <button
+              className="btn btn-success"
+              onClick={this.handleSendFundsClick}
+            >
+              Send Funds
+            </button>
           </div>
         </Collapse>
 
