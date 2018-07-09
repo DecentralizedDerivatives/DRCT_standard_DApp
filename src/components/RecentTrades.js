@@ -6,7 +6,7 @@ import { getRecentTrades } from '../actions/contractActions';
 
 // Use named export for unconnected component for testing
 export class RecentTrades extends Component {
-  renderRows() {
+  renderRows = () => {
     this.state.recentTrades.map(trade => {
       const { address, volume, price } = trade;
 
@@ -29,24 +29,29 @@ export class RecentTrades extends Component {
         </tr>
       );
     });
-  }
+  };
 
   render() {
     return (
-      <div className="row">
-        <Table className="recent-trades-table">
-          <thead>
-            <tr>
-              <th>Recent Trades</th>
-            </tr>
-            <tr>
-              <th>Address</th>
-              <th>Volume</th>
-              <th>Price (ETH)</th>
-            </tr>
-          </thead>
-          <tbody>{this.renderRows()}</tbody>
-        </Table>
+      <div className="container">
+        <div className="row">
+          <Table
+            id="recent-trades-table"
+            className="table table-hover table-striped table-responsive"
+          >
+            <thead>
+              <tr>
+                <th>Recent Trades</th>
+              </tr>
+              <tr>
+                <th>Address</th>
+                <th>Volume</th>
+                <th>Price (ETH)</th>
+              </tr>
+            </thead>
+            <tbody>{this.renderRows()}</tbody>
+          </Table>
+        </div>
       </div>
     );
   }

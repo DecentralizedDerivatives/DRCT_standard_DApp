@@ -6,7 +6,7 @@ import { getContractDetails } from '../actions/contractActions';
 
 // Use named export for unconnected component for testing
 export class MyPositions extends Component {
-  renderRows() {
+  renderRows = () => {
     this.props.userPositions.map(position => {
       const {
         address,
@@ -33,13 +33,16 @@ export class MyPositions extends Component {
         </tr>
       );
     });
-  }
+  };
 
   render() {
     return (
       <div className="container">
         <div className="row">
-          <Table className="positions-table">
+          <Table
+            id="positions-table"
+            className="table table-hover table-striped table-responsive"
+          >
             <thead>
               <tr>
                 <th>My Tokens</th>

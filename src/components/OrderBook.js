@@ -6,7 +6,7 @@ import { getOrderBook } from '../actions/contractActions';
 
 // Use named export for unconnected component for testing
 export class OrderBook extends Component {
-  renderRows() {
+  renderRows = () => {
     this.state.orderbook.map(order => {
       const { orderId, address, price, quantity, date } = order;
 
@@ -33,13 +33,16 @@ export class OrderBook extends Component {
         </tr>
       );
     });
-  }
+  };
 
   render() {
     return (
       <div className="container">
         <div className="order-book">
-          <Table className="positions-table">
+          <Table
+            id="positions-table"
+            className="table table-hover table-striped table-responsive"
+          >
             <thead>
               <tr>
                 <th>Order Book</th>
