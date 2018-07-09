@@ -25,14 +25,14 @@ export class MyPortfolio extends Component {
 
   async componentDidMount() {
     await this.props.getUserAccount();
-    await this.props.getUserPositions(this.props.userAccount);
-    await this.props.getUserTransactions(this.props.userAccount);
+    // await this.props.getUserPositions(this.props.userAccount);
+    // await this.props.getUserTransactions(this.props.userAccount);
   }
 
-  async componentDidUpdate() {
-    await this.props.getUserPositions(this.props.userAccount);
-    await this.props.getUserTransactions(this.props.userAccount);
-  }
+  // async componentDidUpdate() {
+  //   await this.props.getUserPositions(this.props.userAccount);
+  //   await this.props.getUserTransactions(this.props.userAccount);
+  // }
 
   handleRowClick = async e => {
     e.preventDefault();

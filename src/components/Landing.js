@@ -4,6 +4,11 @@ import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 
 class Landing extends Component {
+  componentWillUpdate() {
+    this.renderMessage();
+    this.renderButtons();
+  }
+
   renderMessage() {
     let message;
     const network = 'Rinkeby Test Network';
@@ -63,7 +68,7 @@ class Landing extends Component {
       );
     } else if (this.props.metamask && this.props.network === 4) {
       msgBtn = (
-        <Link to="/portfolio/" className="btn btn-success link mr-2">
+        <Link to="/portfolio" className="btn btn-success link mr-2">
           Go to My Portfolio
         </Link>
       );
