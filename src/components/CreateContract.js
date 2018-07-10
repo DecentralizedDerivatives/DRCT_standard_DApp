@@ -22,25 +22,25 @@ export class CreateContract extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.newContractCreateError !== 'null') {
+    if (nextProps.newContractCreateError !== null) {
       this.setState({
         resultsMessage: `Error: ${this.props.newContractError}`,
         sendFundsOpen: false,
         formOpen: false
       });
-    } else if (this.props.newContractAddress) {
+    } else if (nextProps.newContractAddress) {
       this.setState({
         resultsMessage: `Address result ${this.props.newContractAddress}`,
         sendFundsOpen: true,
         formOpen: false
       });
-    } else if (this.props.newContractFundsError) {
+    } else if (nextProps.newContractFundsError) {
       this.setState({
         resultsMessage: `Error: ${this.props.newContractFundsError}`,
         sendFundsOpen: false,
         formOpen: false
       });
-    } else if (this.props.newContractFunded) {
+    } else if (nextProps.newContractFunded) {
       this.setState({
         resultsMessage: `Contract successfully funded.`,
         sendFundsOpen: false,
