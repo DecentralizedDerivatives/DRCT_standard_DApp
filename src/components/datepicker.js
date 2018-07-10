@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import { SingleDatePicker } from 'react-dates';
+import { HORIZONTAL_ORIENTATION } from 'react-dates/constants';
 import 'react-dates/lib/css/_datepicker.css';
 
 const defaultProps = {
@@ -37,7 +38,6 @@ export class Datepicker extends Component {
       <div>
         <div>{this.props.label}</div>
         <SingleDatePicker
-          {...props}
           id="start_date"
           date={this.state.date}
           onDateChange={this.handleDateChange}
@@ -49,6 +49,6 @@ export class Datepicker extends Component {
   }
 }
 
-DatePicker.defaultProps = defaultProps;
+Datepicker.defaultProps = defaultProps;
 
 export default Datepicker;
