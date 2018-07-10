@@ -8,8 +8,8 @@ import { sendSendFundsOrder } from '../actions/orderActions';
 
 // Use named export for unconnected component for testing
 export class CreateContract extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       formOpen: false,
       sendFundsOpen: false,
@@ -58,17 +58,19 @@ export class CreateContract extends Component {
     this.props.sendSendFundsOrder(sendFundsDetails, this.props.userAccount);
   };
 
-  toggleFormVisibility() {
+  toggleFormVisibility = () => {
     this.setState({
       formOpen: !this.state.formOpen
     });
-  }
+  };
 
   render() {
     return (
       <div className="container">
         <div id="create-contract-button">
-          <button onClick={this.toggleFormVisibility}>Create Contract</button>
+          <button onClick={this.toggleFormVisibility} className="btn btn-info">
+            Create Contract
+          </button>
         </div>
 
         <Collapse isOpen={this.state.formOpen}>
@@ -97,12 +99,11 @@ export class CreateContract extends Component {
 
 CreateContract.propTypes = {
   getContractOpenDates: PropTypes.func.isRequired,
-  sendCreateContractOrder: PropTypes.func.isRequired,
   sendSendFundsOrder: PropTypes.func.isRequired,
   userAccount: PropTypes.string.isRequired,
   newContractAddress: PropTypes.string,
   newContractCreateError: PropTypes.string,
-  newContractFunded: PropTypes.string,
+  newContractFunded: PropTypes.bool,
   newContractFundsError: PropTypes.string,
   createContractAmount: PropTypes.number
 };

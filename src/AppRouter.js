@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import ConnectionModal from './components/ConnectionModal';
@@ -22,18 +22,20 @@ class AppRouter extends Component {
 
   render() {
     return (
-      <div className="app">
-        <Header connected={this.props.metamask && this.props.network === 4} />
-        <Route exact path="/" component={Landing} />
-        <Switch>
-          <Route path="/portfolio" component={MyPortfolio} />
-          <Route path="/bulletin" component={Bulletin} />
-          <Route path="/how-to" component={HowTo} />
-        </Switch>
+      <Router>
+        <div className="app">
+          <Header connected={this.props.metamask && this.props.network === 4} />
+          <Route exact path="/" component={Landing} />
+          <Switch>
+            <Route exact path="/portfolio" component={MyPortfolio} />
+            <Route path="/bulletin" component={Bulletin} />
+            <Route path="/how-to" component={HowTo} />
+          </Switch>
 
-        <BlockProgress />
-        <ConnectionModal />
-      </div>
+          <BlockProgress />
+          <ConnectionModal />
+        </div>
+      </Router>
     );
   }
 }

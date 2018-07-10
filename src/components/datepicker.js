@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import { SingleDatePicker } from 'react-dates';
-import 'react-dates/lib/css/_datepicker.css';
+// import 'react-dates/lib/css/_datepicker.css';
 
 export class Datepicker extends Component {
   constructor(props) {
@@ -25,16 +25,16 @@ export class Datepicker extends Component {
 
   render() {
     return (
-      <div className="mv4 w-100">
-        <div className="b sans-serif pv2 w-100">{this.props.label}</div>
-        <SingleDatePicker
+      <div>
+        <div>{this.props.label}</div>
+        {/* <SingleDatePicker
           date={this.state.date}
           onDateChange={this.handleDateChange}
           focused={this.state.focused}
           onFocusChange={({ focused }) => this.setState({ focused })}
           showClearDate={true}
           numberOfMonths={1}
-        />
+        /> */}
       </div>
     );
   }

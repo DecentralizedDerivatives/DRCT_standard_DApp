@@ -30,7 +30,7 @@ export default function(state = initialState, action) {
     case SET_FETCHING_ERROR:
       return {
         ...state,
-        fetchingError: state.fetchingError.push(action.payload)
+        fetchingError: [...state.fetchingError, action.payload]
       };
     case SHOW_CONNECTION_MODAL:
       return {
