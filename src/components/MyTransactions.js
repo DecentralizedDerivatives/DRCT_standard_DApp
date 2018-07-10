@@ -6,7 +6,7 @@ import { getUserTransactions } from '../actions/userActions';
 
 // Use named export for unconnected component for testing
 export class MyTransactions extends Component {
-  renderRows() {
+  renderRows = () => {
     this.props.userTransactions.map(trade => {
       const tradeTitle = trade[0];
       const tradeHash = trade[1];
@@ -32,23 +32,28 @@ export class MyTransactions extends Component {
         </tr>
       );
     });
-  }
+  };
 
   render() {
     return (
-      <div className="row">
-        <Table className="transactions-table">
-          <thead>
-            <tr>
-              <th>My Transactions</th>
-            </tr>
-            <tr>
-              <th>Transaction</th>
-              <th>Transaction Hash</th>
-            </tr>
-          </thead>
-          <tbody>{this.renderRows()}</tbody>
-        </Table>
+      <div className="container">
+        <div className="row">
+          <Table
+            id="transactions-table"
+            className="table table-hover table-striped table-responsive"
+          >
+            <thead>
+              <tr>
+                <th>My Transactions</th>
+              </tr>
+              <tr>
+                <th>Transaction</th>
+                <th>Transaction Hash</th>
+              </tr>
+            </thead>
+            <tbody>{this.renderRows()}</tbody>
+          </Table>
+        </div>
       </div>
     );
   }

@@ -48,7 +48,9 @@ export class CashOut extends Component {
           Your Balance: {this.props.userBalance}
         </div>
         <div id="cashout-button">
-          <button onClick={this.toggleFormVisibility}>Cash Out</button>
+          <button className="btn btn-info" onClick={this.toggleFormVisibility}>
+            Cash Out
+          </button>
         </div>
         <Collapse isOpen={this.state.collapse}>
           <div id="cashout-form">
