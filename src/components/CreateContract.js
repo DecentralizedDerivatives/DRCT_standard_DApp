@@ -22,7 +22,7 @@ export class CreateContract extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.newContractCreateError !== null) {
+    if (nextProps.newContractCreateError) {
       this.setState({
         resultsMessage: `Error: ${this.props.newContractError}`,
         sendFundsOpen: false,
