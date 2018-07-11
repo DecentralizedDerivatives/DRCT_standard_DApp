@@ -14,8 +14,8 @@ const initialState = {
   contractDuration: 0,
   contractMultiplier: 0,
   oracleAddress: '',
-  orderbook: ['loading...', 'loading...', 'loading...', 'loading...', '...'],
-  recentTrades: [['No Recent Trades', '...', '...']],
+  orderbook: [],
+  recentTrades: [],
   contractOpenDates: [],
   newContract: {
     id: '',
