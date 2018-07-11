@@ -62,11 +62,6 @@ export const getUserTransactions = userAccount => async dispatch => {
     const factory = await Factory.at(
       '0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642'
     );
-    // let drct;
-    let _trades = [];
-    let titles = ['ContractCreation']; //Add other ATS when redeployed
-    // let ats = [
-    //   {
     //     //Sale: await exchange.Sale({}, {fromBlock:0, toBlock: 'latest'}),
     //     //OrderPlaced: await exchange.OrderPlaced({}, {fromBlock:0, toBlock: 'latest'}),
     //     //OrderRemoved: await exchange.OrderRemoved({}, {fromBlock:0, toBlock: 'latest'}),
@@ -76,41 +71,47 @@ export const getUserTransactions = userAccount => async dispatch => {
     //     )
     //     //Transfer: await drct.Transfer({}, {fromBlock:0, toBlock: 'latest'}),
     //     //Approval: await drct.Approval({}, {fromBlock:0, toBlock: 'latest'})
-    //   }
-    // ];
+    var transactions = [].concat(await getContractCreationEvents(factory, userAccount));
+    // TODO: append (concat) more / other events?
 
-    for (let i = 0; i < titles.length; i++) {
-      let transferEvent = await factory.ContractCreation(
-        {},
-        { fromBlock: 0, toBlock: 'latest' }
-      );
-
-      const logs = await transferEvent.get();
-
-      for (let j = logs.length - 1; j >= Math.max(logs.length - 10, 0); j--) {
-        if (
-          logs[i].args['_sender'].toUpperCase() === userAccount.toUpperCase()
-        ) {
-          _trades.push([titles[i], logs[j].transactionHash]);
-        }
-      }
-
-      _trades = _trades.length === 0 ? [] : _trades;
-
-      dispatch({
-        type: SET_USER_TRANSACTIONS,
-        payload: _trades
-      });
-    }
+    dispatch({
+      type: SET_USER_TRANSACTIONS,
+      payload: transactions
+    });
   } catch (err) {
     dispatch({
       type: SET_FETCHING_ERROR,
-      payload: err.message.split('\n')[0]
+      payload: 'getUserTransactions: ' + err.message.split('\n')[0]
     });
   }
 
   dispatch(setProcessing(false));
 };
+
+const getContractCreationEvents = async (factory, userAccount) => {
+  let transferEvent = await factory.ContractCreation(
+    {},
+    { fromBlock: 0, toBlock: 'latest' }
+  );
+  let trades = [];
+  return new Promise((resolve, reject) => {
+    transferEvent.get(function (err, logs) { // .get() does not support async/await
+      try {
+        for (let j = logs.length - 1; j >= Math.max(logs.length - 10, 0); j--) {
+          if (
+            logs[j].args['_sender'].toUpperCase() === userAccount.toUpperCase()
+          ) {
+            trades.push({title: 'ContractCreation', hash: logs[j].transactionHash});
+          }
+        }
+        trades = trades.length === 0 ? [] : trades;
+        resolve(trades);
+      } catch (err) {
+        reject('get ContractCreation: ' + err.message.split('\n')[0]);
+      }
+    });
+  });
+}
 
 export const getUserPositions = userAccount => async dispatch => {
   dispatch(setProcessing(true));

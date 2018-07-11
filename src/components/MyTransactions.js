@@ -10,9 +10,10 @@ export class MyTransactions extends Component {
     if (this.props.userTransactions.length === 0) {
       return <tr><td colSpan='12' style={{textAlign: 'center'}}><h5>No Recent Events</h5></td></tr>
     }
+    console.log('CLIENT SIDE', this.props.userTransactions)
     var rows = this.props.userTransactions.map(trade => {
-      const tradeTitle = trade[0];
-      const tradeHash = trade[1];
+      const tradeTitle = trade.title;
+      const tradeHash = trade.hash;
 
       return (
         <tr>
