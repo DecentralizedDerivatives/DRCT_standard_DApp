@@ -1,5 +1,5 @@
 import React from 'react';
-import { Media } from 'reactstrap';
+import { Row, Col } from 'reactstrap';
 
 const HowTo = () => {
   const section1 = [
@@ -12,7 +12,7 @@ const HowTo = () => {
   ];
 
   const section2 = [
-    'In the <em>My Portfolio</em> tab, you can see your positions and your transactions',
+    'In the My Portfolio tab, you can see your positions and your transactions',
     "Go buy some tokens or create a contract if you don't have any!",
     'You can click on the row to see more details about the tokens'
   ];
@@ -20,9 +20,9 @@ const HowTo = () => {
   const section3 = [
     'Creating a contract is a two step process',
     'First you have to deploy a contract, then you have to wrap your Ether and send it to the contract to fund it',
-    'So in the <em>Create Contract</em> tab, first pick a start date and then click: <em>Create Contract</em>',
+    'So in the Create Contract tab, first pick a start date and then click: Create Contract',
     'After that, you can wait for the address result (your new contract)',
-    'Once that comes back, you can click <em>Send Funds</em> to send double what you entered in the <em>amount of Ether</em> field (its per side)',
+    'Once that comes back, you can click Send Funds</em> to send double what you entered in the amount of Ether</em> field (its per side)',
     'Once the contract mines you will see it in your positions'
   ];
 
@@ -38,121 +38,154 @@ const HowTo = () => {
 
   const section5 = [
     'Contracts for the dapp, although you send them Ether, actually use wrapped (or tokenized Ether) to make things easier on us',
-    "This however means that you'll have to <em>unwrap</em> your Ether after the contract expires and pays out",
-    'To do this, just click <em>Cash Out</em>',
+    "This however means that you'll have to unwrap</em> your Ether after the contract expires and pays out",
+    'To do this, just click Cash Out</em>',
     'If you have a balance there, you will be able to click withdraw and unwrap all your Ether',
     "Remember that some contracts may take a day to close out, so don't panic if your Eth isn't there on the expiration date"
   ];
 
   const renderListItem = text => (
-    <Media>
-      <Media left>
-        <Media object data-src="../imgs/eth_transparent.png" alt="ETh-Logo" />
-      </Media>
-      <Media body>{text}</Media>
-    </Media>
+    <Row key={text} className="mb-3">
+      <Col md="1">
+        <img
+          src="/eth_transparent.png"
+          className="img-fluid float-left"
+          alt="ETh-Logo"
+          height="40"
+          width="40"
+        />
+      </Col>
+      <Col md="11">
+        <div>{text}</div>
+      </Col>
+    </Row>
   );
 
   return (
-    <div>
-      <Media>
-        <Media body>
-          <Media heading>How To</Media>
-        </Media>
-      </Media>
-
-      <Media>
-        <Media body>
-          <Media heading>Welcome to the DDA dapp!</Media>
-          Before we get into specifics, let's talk about how the contracts work.
-        </Media>
+    <div className="container mt-5">
+      <div className="mx-auto">
+        <h3>Welcome to the DDA dapp!</h3>
+        <Row className="ml-3 mt-4 mb-3">
+          <h5>
+            <em>
+              Before we get into specifics, let's talk about how the contracts
+              work.
+            </em>
+          </h5>
+        </Row>
         {section1.map(item => renderListItem(item))}
-      </Media>
+      </div>
 
-      <Media>
-        <Media body>
-          <Media heading>
-            Here's a picture to help explain it a bit better.
-          </Media>
-        </Media>
-        <Media body>
-          <Media center className="howTo__infograph">
-            <Media
-              object
-              data-src="../imgs/infograph-transparent.png"
-              alt="Infograph"
-            />
-          </Media>
-        </Media>
-      </Media>
+      <div className="mt-5">
+        <Row className="ml-3">
+          <h5>
+            <em>Here's a picture to help explain it a bit better:</em>
+          </h5>
+        </Row>
+        <Row>
+          <img
+            src="/infograph-transparent.png"
+            className="img-fluid"
+            alt="ETh-Logo"
+            width="300"
+          />
+        </Row>
+      </div>
 
-      <Media>
-        <Media body>
-          <Media heading>Viewing My Positions</Media>
-        </Media>
-
+      <div className="mb-5">
+        <Row className="ml-3 mb-2">
+          <h5>
+            <em>Viewing Your Positions</em>
+          </h5>
+        </Row>
         {section2.map(item => renderListItem(item))}
-      </Media>
+      </div>
 
-      <Media>
-        <Media body>
-          <Media heading>Creating a Contract</Media>
-        </Media>
-
+      <div className="mb-5">
+        <Row className="ml-3 mb-2">
+          <h5>
+            <em>Creating a Contract</em>
+          </h5>
+        </Row>
         {section3.map(item => renderListItem(item))}
-      </Media>
+      </div>
 
-      <Media>
-        <Media body>
-          <Media heading>Using the Bulletin</Media>
-        </Media>
-
+      <div className="mb-5">
+        <Row className="ml-3 mb-2">
+          <h5>
+            <em>Using the Bulletin</em>
+          </h5>
+        </Row>
         {section4.map(item => renderListItem(item))}
-      </Media>
+      </div>
 
-      <Media>
-        <Media body>
-          <Media heading>Cashing Out</Media>
-        </Media>
-
+      <div className="mb-5">
+        <Row className="ml-3 mb-2">
+          <h5>
+            <em>Cashing Out</em>
+          </h5>
+        </Row>
         {section5.map(item => renderListItem(item))}
-      </Media>
+      </div>
 
-      <Media>
-        <Media body>
-          <Media header>More Information</Media>
-        </Media>
-
-        <Media>
-          <Media left>
-            <Media
-              object
-              data-src="../imgs/eth_transparent.png"
+      <div className="mb-5">
+        <Row className="ml-3 mb-2">
+          <h5>
+            <em>Want to Learn More?</em>
+          </h5>
+        </Row>
+        <Row>
+          <Col md="1">
+            <img
+              src="/eth_transparent.png"
+              className="img-fluid float-left"
               alt="ETh-Logo"
+              height="40"
+              width="40"
             />
-          </Media>
-          <Media body>
-            Have another question, shoot us an email at:
-            <a href="mailto:info@decentralizedderivatives.org">
-              info@decentralizedderivatives
-            </a>
-          </Media>
-        </Media>
+          </Col>
+          <Col md="11">
+            <div>
+              <span>
+                To become a member or read more about us, check out our website:
+              </span>
+              <a href="https://www.ddacoop.org" className="pl-2">
+                www.ddacoop.org
+              </a>
+            </div>
+          </Col>
+        </Row>
+      </div>
 
-        <Media>
-          <Media left>
-            <Media
-              object
-              data-src="../imgs/eth_transparent.png"
+      <div className="mb-5">
+        <Row className="ml-3 mb-2">
+          <h5>
+            <em>Still Have Questions?</em>
+          </h5>
+        </Row>
+        <Row>
+          <Col md="1">
+            <img
+              src="/eth_transparent.png"
+              className="img-fluid float-left"
               alt="ETh-Logo"
+              height="40"
+              width="40"
             />
-          </Media>
-          <Media body>
-            To become a member or read more about us, check out our website:
-            <a href="https://www.ddacoop.org">www.ddacoop.org</a>
-          </Media>
-        </Media>
-      </Media>
+          </Col>
+          <Col md="11">
+            <div>
+              <span>If you have more questions, shoot us an email at:</span>
+              <a
+                href="mailto:info@decentralizedderivatives.org"
+                className="pl-2"
+              >
+                info@decentralizedderivatives
+              </a>
+            </div>
+          </Col>
+        </Row>
+      </div>
     </div>
   );
 };
