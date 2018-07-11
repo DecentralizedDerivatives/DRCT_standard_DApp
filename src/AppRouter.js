@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import 'react-dates/initialize';
 import ConnectionModal from './components/ConnectionModal';
 import BlockProgress from './components/BlockProgress';
 import Header from './components/Header';
