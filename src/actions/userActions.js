@@ -62,22 +62,22 @@ export const getUserTransactions = userAccount => async dispatch => {
     const factory = await Factory.at(
       '0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642'
     );
-    let drct;
+    // let drct;
     let _trades = [];
     let titles = ['ContractCreation']; //Add other ATS when redeployed
-    let ats = [
-      {
-        //Sale: await exchange.Sale({}, {fromBlock:0, toBlock: 'latest'}),
-        //OrderPlaced: await exchange.OrderPlaced({}, {fromBlock:0, toBlock: 'latest'}),
-        //OrderRemoved: await exchange.OrderRemoved({}, {fromBlock:0, toBlock: 'latest'}),
-        ContractCreation: await factory.ContractCreation(
-          {},
-          { fromBlock: 0, toBlock: 'latest' }
-        )
-        //Transfer: await drct.Transfer({}, {fromBlock:0, toBlock: 'latest'}),
-        //Approval: await drct.Approval({}, {fromBlock:0, toBlock: 'latest'})
-      }
-    ];
+    // let ats = [
+    //   {
+    //     //Sale: await exchange.Sale({}, {fromBlock:0, toBlock: 'latest'}),
+    //     //OrderPlaced: await exchange.OrderPlaced({}, {fromBlock:0, toBlock: 'latest'}),
+    //     //OrderRemoved: await exchange.OrderRemoved({}, {fromBlock:0, toBlock: 'latest'}),
+    //     ContractCreation: await factory.ContractCreation(
+    //       {},
+    //       { fromBlock: 0, toBlock: 'latest' }
+    //     )
+    //     //Transfer: await drct.Transfer({}, {fromBlock:0, toBlock: 'latest'}),
+    //     //Approval: await drct.Approval({}, {fromBlock:0, toBlock: 'latest'})
+    //   }
+    // ];
 
     for (let i = 0; i < titles.length; i++) {
       let transferEvent = await factory.ContractCreation(
