@@ -37,7 +37,7 @@ export const getOrderDetails = orderID => async dispatch => {
     _date = new Date(_date * 1000);
     _date =
       _date.getMonth() + 1 + '/' + _date.getDate() + '/' + _date.getFullYear();
-    (o_row = orderID.toString() + '(' + order[3]),
+    o_row = orderID.toString() + '(' + order[3] +
       order[1].c[0].toString() +
         '/' +
         order[2].c[0].toString() +
