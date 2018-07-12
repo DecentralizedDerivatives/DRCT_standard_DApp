@@ -15,6 +15,8 @@ import {
   SET_CASHOUT_ERROR
 } from './types';
 
+import FactoryProvider from '../factoryProvider';
+
 export const getUserAccount = () => async dispatch => {
   dispatch(setProcessing(true));
   try {
@@ -59,9 +61,13 @@ export const getUserTransactions = userAccount => async dispatch => {
   dispatch(setProcessing(true));
   try {
     //const exchange = await Exchange.deployed();
-    const factory = await Factory.at(
-      '0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642'
-    );
+    var factories = FactoryProvider.factories();
+    var transactions = []
+    factories.forEach(async (item, index) => {
+      const factory = await Factory.at(item.address);
+      var events = await getContractCreationEvents(factory, userAccount);
+      transactions = transactions.concat(events);
+    });
     //     //Sale: await exchange.Sale({}, {fromBlock:0, toBlock: 'latest'}),
     //     //OrderPlaced: await exchange.OrderPlaced({}, {fromBlock:0, toBlock: 'latest'}),
     //     //OrderRemoved: await exchange.OrderRemoved({}, {fromBlock:0, toBlock: 'latest'}),
@@ -71,9 +77,6 @@ export const getUserTransactions = userAccount => async dispatch => {
     //     )
     //     //Transfer: await drct.Transfer({}, {fromBlock:0, toBlock: 'latest'}),
     //     //Approval: await drct.Approval({}, {fromBlock:0, toBlock: 'latest'})
-    var transactions = [].concat(await getContractCreationEvents(factory, userAccount));
-    // TODO: append (concat) more / other events?
-
     dispatch({
       type: SET_USER_TRANSACTIONS,
       payload: transactions
@@ -81,7 +84,7 @@ export const getUserTransactions = userAccount => async dispatch => {
   } catch (err) {
     dispatch({
       type: SET_FETCHING_ERROR,
-      payload: 'getUserTransactions: ' + err.message.split('\n')[0]
+      payload: 'User Transactions: ' + err.message.split('\n')[0]
     });
   }
 
@@ -97,17 +100,17 @@ const getContractCreationEvents = async (factory, userAccount) => {
   return new Promise((resolve, reject) => {
     transferEvent.get(function (err, logs) { // .get() does not support async/await
       try {
-        for (let j = logs.length - 1; j >= Math.max(logs.length - 10, 0); j--) {
+        for (let i = logs.length - 1; i >= Math.max(logs.length - 10, 0); i--) {
           if (
-            logs[j].args['_sender'].toUpperCase() === userAccount.toUpperCase()
+            logs[i].args['_sender'].toUpperCase() === userAccount.toUpperCase()
           ) {
-            trades.push({title: 'ContractCreation', hash: logs[j].transactionHash});
+            trades.push({title: 'ContractCreation', hash: logs[i].transactionHash});
           }
         }
         trades = trades.length === 0 ? [] : trades;
         resolve(trades);
       } catch (err) {
-        reject('get ContractCreation: ' + err.message.split('\n')[0]);
+        reject('Contract Creation Event: ' + err.message.split('\n')[0]);
       }
     });
   });
@@ -116,59 +119,57 @@ const getContractCreationEvents = async (factory, userAccount) => {
 export const getUserPositions = userAccount => async dispatch => {
   dispatch(setProcessing(true));
   try {
-    const factory = await Factory.at(
-      '0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642'
-    );
-    let _allrows = [];
-    const openDates = [];
-    const numDates = await factory.getDateCount();
+    var factories = FactoryProvider.factories();
+    var positions = []
+    factories.forEach(async (item, index) => {
+      const factory = await Factory.at(item.address);
+      var data = await getPositionsForFactory(factory, userAccount);
+      positions = positions.concat(data);
+    });
 
-    for (let i = 0; i < numDates; i++) {
-      const startDates = (await factory.startDates.call(i)).c[0];
-      const _token_addresses = await factory.getTokens(startDates);
-
-      let _date = new Date(startDates * 1000);
-      _date =
-        _date.getUTCMonth() +
-        1 +
-        '/' +
-        _date.getUTCDate() +
-        '/' +
-        _date.getUTCFullYear();
-
-      openDates.push(_date);
-
-      for (let j = 0; j < _token_addresses.length; j++) {
-        let drct = await DRCT.at(_token_addresses[j]);
-        let _balance = await drct.balanceOf(userAccount);
-        if (_balance.c[0] > 0) {
-          _allrows.push({
-            address: _token_addresses[j],
-            balance: _balance.c[0].toString(),
-            date: _date.toString(),
-            symbol: 'BTC/USD' /*CURRENTLY USING STATIC SYMBOL NEED TO FIX*/,
-            contractDuration: this.state.contractDuration,
-            contractMultiplier: this.state.contractMultiplier
-          });
-        }
-      }
-    }
-
-    _allrows = _allrows.length === 0 ? [] : _allrows;
+    positions = positions.length === 0 ? [] : positions;
 
     dispatch({
       type: SET_USER_POSITIONS,
-      payload: _allrows
+      payload: positions
     });
   } catch (err) {
     dispatch({
       type: SET_FETCHING_ERROR,
-      payload: err.message.split('\n')[0]
+      payload: 'User Positions: ' + err.message.split('\n')[0]
     });
   }
 
   dispatch(setProcessing(false));
 };
+
+const getPositionsForFactory = async (factory, userAccount) => {
+  let allRows = [];
+  const numDates = await factory.getDateCount();
+  for (let i = 0; i < numDates; i++) {
+    const startDate = (await factory.startDates.call(i)).c[0];
+    const tokenAddresses = await factory.getTokens(startDate);
+    for (let p = 0; p < tokenAddresses.length; p++) {
+      let drct = await DRCT.at(tokenAddresses[p]);
+      let balance = await drct.balanceOf(userAccount);
+      if (balance.c[0] > 0) {
+        let date = new Date(startDate * 1000);
+        date = date.getUTCMonth() + 1 + '/' +
+          date.getUTCDate() + '/' +
+          date.getUTCFullYear();
+        allRows.push({
+          address: tokenAddresses[p],
+          balance: balance.c[0].toString(),
+          date: date.toString(),
+          symbol: 'BTC/USD',
+          contractDuration: 0, // TODO: this.state.contractDuration,
+          contractMultiplier: 0, // TODO: this.state.contractMultiplier
+        });
+      }
+    }
+  }
+  return allRows;
+}
 
 export const getUserTokenPositions = userAccount => async dispatch => {
   dispatch(setProcessing(true));
@@ -177,11 +178,11 @@ export const getUserTokenPositions = userAccount => async dispatch => {
       '0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642'
     );
     const numDates = await factory.getDateCount();
-    let _allrows = [];
+    let allRows = [];
     // let openDates = [];
     for (let i = 0; i < numDates; i++) {
       const startDates = (await factory.startDates.call(i)).c[0];
-      const _token_addresses = await factory.getTokens(startDates);
+      const tokenAddresses = await factory.getTokens(startDates);
       let _date = new Date(startDates * 1000);
       _date =
         _date.getMonth() +
@@ -191,22 +192,22 @@ export const getUserTokenPositions = userAccount => async dispatch => {
         '/' +
         _date.getFullYear();
 
-      for (let j = 0; j < _token_addresses.length; j++) {
-        const drct = await DRCT.at(_token_addresses[j]); //Getting contract
-        const _balance = (await drct.balanceOf(userAccount)).c[0]; //Getting balance of token
-        if (_balance > 0) {
-          _allrows.push(`${_token_addresses[j]}(${_balance}/${_date})`); //Pushing token address + balance/date
+      for (let p = 0; p < tokenAddresses.length; p++) {
+        const drct = await DRCT.at(tokenAddresses[p]); //Getting contract
+        const balance = (await drct.balanceOf(userAccount)).c[0]; //Getting balance of token
+        if (balance > 0) {
+          allRows.push(`${tokenAddresses[p]}(${balance}/${_date})`); //Pushing token address + balance/date
         }
       }
     }
 
-    const _userTokens = _allrows ? _allrows : ['No Current Position'];
+    const _userTokens = allRows ? allRows : ['No Current Position'];
 
-    if (_allrows) {
+    if (allRows) {
       dispatch({
         type: SET_SELECTED_TOKEN,
         payload: {
-          selectedToken: _allrows[0]
+          selectedToken: allRows[0]
         }
       });
     }
