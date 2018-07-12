@@ -16,7 +16,7 @@ export class List extends Component {
       resultsMessage: ''
     };
   }
-  async componentWillMount() {
+  async componentDidMount() {
     await this.props.getUserTokenPositions(this.props.userAccount);
   }
 
@@ -120,27 +120,27 @@ List.propTypes = {
   userAccount: PropTypes.string.isRequired,
   userTokens: PropTypes.array.isRequired,
   selectedToken: PropTypes.string.isRequired,
-  tokenAmt: PropTypes.number.isRequired,
-  tokenPrice: PropTypes.number.isRequired,
+  tokenAmt: PropTypes.number,
+  tokenPrice: PropTypes.number,
   listOrderId: PropTypes.string.isRequired,
   listOrderError: PropTypes.string,
-  listOrderApproved: PropTypes.string.isRequired,
+  listOrderApproved: PropTypes.bool,
   listOrderApproveError: PropTypes.string
 };
 
 const mapStateToProps = state => ({
   userAccount: state.user.userAccount,
   userTokens: state.user.userTokens,
-  selectedToken: state.order.listOrder.token,
-  tokenAmt: state.order.listOrder.amount,
-  tokenPrice: state.order.listOrder.price,
-  listOrderId: state.order.listOrder.id,
+  selectedToken: state.order.list.token,
+  tokenAmt: state.order.list.amount,
+  tokenPrice: state.order.list.price,
+  listOrderId: state.order.list.id,
   listOrderError: state.order.listOrderError,
-  listOrderApproved: state.order.listOrder.approved,
+  listOrderApproved: state.order.list.approved,
   listOrderApproveError: state.order.listOrderFundsError
 });
 
 export default connect(
   mapStateToProps,
-  { getUserTokenPositions, sendApproveOrder }
+  { sendApproveOrder, getUserTokenPositions }
 )(List);

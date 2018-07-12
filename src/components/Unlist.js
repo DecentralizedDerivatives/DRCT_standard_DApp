@@ -74,12 +74,12 @@ export class Unlist extends Component {
 Unlist.propTypes = {
   getUserOrders: PropTypes.func.isRequired,
   userAccount: PropTypes.string.isRequired,
-  unlistOrderTx: PropTypes.string.isRequired,
-  unlistOrderError: PropTypes.string.isRequired
+  unlistOrderTx: PropTypes.string,
+  unlistOrderError: PropTypes.string
 };
 
 const mapStateToProps = state => ({
-  userAccount: state.account.userAccount,
+  userAccount: state.user.userAccount,
   unlistOrderTx: state.order.unlistOrderID,
   unlistOrderError: state.order.unlistOrderError
 });

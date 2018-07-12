@@ -16,7 +16,7 @@ export const UnlistFormContainer = props => {
       change={props.change}
       onSubmit={submitForm}
       handleSubmit={props.handleSubmit}
-      selectOptions={this.props.userOrders}
+      selectOptions={props.userOrders}
     />
   );
 };

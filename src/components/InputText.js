@@ -14,4 +14,4 @@ export const InputText = ({ label, input }) => {
   );
 };
 
-export default Text;
+export default InputText;

@@ -7,7 +7,7 @@ import { getRecentTrades } from '../actions/contractActions';
 // Use named export for unconnected component for testing
 export class RecentTrades extends Component {
   renderRows = () => {
-    this.state.recentTrades.map(trade => {
+    this.props.recentTrades.map(trade => {
       const { address, volume, price } = trade;
 
       const symbol = 'BTC/USD';
@@ -60,7 +60,7 @@ export class RecentTrades extends Component {
 RecentTrades.propTypes = {
   onRowClick: PropTypes.func.isRequired,
   recentTrades: PropTypes.array.isRequired,
-  contractDuration: PropTypes.string.isRequired,
+  contractDuration: PropTypes.number.isRequired,
   contractMultiplier: PropTypes.number.isRequired
 };
 
