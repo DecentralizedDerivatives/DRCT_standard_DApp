@@ -25,7 +25,9 @@ class AppRouter extends Component {
     return (
       <Router>
         <div className="app">
-          <Header connected={this.props.metamask && this.props.network === 4} />
+          <Header
+            isConnected={this.props.metamask && this.props.network === 4}
+          />
           <Route exact path="/" component={Landing} />
           <Switch>
             <Route exact path="/portfolio" component={MyPortfolio} />
