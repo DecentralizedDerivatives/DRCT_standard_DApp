@@ -15,6 +15,8 @@ import {
   SET_CASHOUT_ERROR
 } from './types';
 
+import FactoryProvider from '../factoryProvider';
+
 export const getUserAccount = () => async dispatch => {
   dispatch(setProcessing(true));
   try {
@@ -59,9 +61,13 @@ export const getUserTransactions = userAccount => async dispatch => {
   dispatch(setProcessing(true));
   try {
     //const exchange = await Exchange.deployed();
-    const factory = await Factory.at(
-      '0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642'
-    );
+    var factories = FactoryProvider.factories();
+    var transactions = []
+    factories.forEach(async (item, index) => {
+      const factory = await Factory.at(item.address);
+      var events = await getContractCreationEvents(factory, userAccount);
+      transactions = transactions.concat(events);
+    });
     //     //Sale: await exchange.Sale({}, {fromBlock:0, toBlock: 'latest'}),
     //     //OrderPlaced: await exchange.OrderPlaced({}, {fromBlock:0, toBlock: 'latest'}),
     //     //OrderRemoved: await exchange.OrderRemoved({}, {fromBlock:0, toBlock: 'latest'}),
@@ -71,9 +77,6 @@ export const getUserTransactions = userAccount => async dispatch => {
     //     )
     //     //Transfer: await drct.Transfer({}, {fromBlock:0, toBlock: 'latest'}),
     //     //Approval: await drct.Approval({}, {fromBlock:0, toBlock: 'latest'})
-    var transactions = [].concat(await getContractCreationEvents(factory, userAccount));
-    // TODO: append (concat) more / other events?
-
     dispatch({
       type: SET_USER_TRANSACTIONS,
       payload: transactions
@@ -81,7 +84,7 @@ export const getUserTransactions = userAccount => async dispatch => {
   } catch (err) {
     dispatch({
       type: SET_FETCHING_ERROR,
-      payload: 'getUserTransactions: ' + err.message.split('\n')[0]
+      payload: 'User Transactions: ' + err.message.split('\n')[0]
     });
   }
 
@@ -107,7 +110,7 @@ const getContractCreationEvents = async (factory, userAccount) => {
         trades = trades.length === 0 ? [] : trades;
         resolve(trades);
       } catch (err) {
-        reject('get ContractCreation: ' + err.message.split('\n')[0]);
+        reject('Contract Creation Event: ' + err.message.split('\n')[0]);
       }
     });
   });
