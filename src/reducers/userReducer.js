@@ -12,8 +12,8 @@ import {
 const initialState = {
   userAccount: '',
   userBalance: 0,
-  userTransactions: [['loading...', 'loading...']],
-  userPositions: [['loading...', 'loading...', 'loading...']],
+  userTransactions: [],
+  userPositions: [],
   userTokens: [],
   userOrders: '',
   userOrderLabels: '',
