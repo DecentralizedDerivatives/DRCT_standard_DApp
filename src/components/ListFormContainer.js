@@ -16,7 +16,7 @@ export const ListFormContainer = props => {
       change={props.change}
       onSubmit={submitForm}
       handleSubmit={props.handleSubmit}
-      selectOptions={this.props.userTokens}
+      selectOptions={props.userTokens}
     />
   );
 };

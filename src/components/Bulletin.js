@@ -9,7 +9,11 @@ import PriceChart from './PriceChart';
 import List from './List';
 import Unlist from './Unlist';
 import Buy from './Buy';
-import { getUserAccount } from '../actions/userActions';
+import {
+  getUserAccount,
+  getUserTokenPositions,
+  getUserOrders
+} from '../actions/userActions';
 import {
   getOrderBook,
   getRecentTrades,
@@ -30,14 +34,16 @@ export class Bulletin extends Component {
 
   async componentDidMount() {
     await this.props.getUserAccount();
-    await this.props.getOrderBook();
-    await this.props.getRecentTrades();
+    this.props.getOrderBook();
+    this.props.getRecentTrades();
+    this.props.getUserTokenPositions();
+    this.props.getUserOrders();
   }
 
-  async componentDidUpdate() {
-    await this.props.getOrderBook();
-    await this.props.getRecentTrades();
-  }
+  // async componentDidUpdate() {
+  //   await this.props.getOrderBook();
+  //   await this.props.getRecentTrades();
+  // }
 
   handleRowClick = async e => {
     e.preventDefault();
@@ -98,8 +104,10 @@ Bulletin.propTypes = {
   getOrderBook: PropTypes.func.isRequired,
   getRecentTrades: PropTypes.func.isRequired,
   getContractDetails: PropTypes.func.isRequired,
+  getUserTokenPositions: PropTypes.func.isRequired,
+  getUserOrders: PropTypes.func.isRequired,
   setSelectedToken: PropTypes.func.isRequired,
-  orderID: PropTypes.string.isRequired,
+  orderID: PropTypes.string,
   userAccount: PropTypes.string.isRequired
 };
 
@@ -114,6 +122,8 @@ export default connect(
     getOrderBook,
     getRecentTrades,
     setSelectedToken,
-    getContractDetails
+    getContractDetails,
+    getUserTokenPositions,
+    getUserOrders
   }
 )(requireConnection(Bulletin));

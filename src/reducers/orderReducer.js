@@ -44,7 +44,7 @@ export default function(state = initialState, action) {
     case SET_BUY_ORDER_RECEIPT:
       return {
         ...state,
-        buyOrder: action.payload
+        buy: action.payload
       };
     case SET_BUY_ORDER_ERROR:
       return {
@@ -54,7 +54,7 @@ export default function(state = initialState, action) {
     case SET_UNLIST_ORDER_RECEIPT:
       return {
         ...state,
-        unlistOrder: action.payload
+        unlist: action.payload
       };
     case SET_UNLIST_ORDER_ERROR:
       return {
@@ -64,7 +64,7 @@ export default function(state = initialState, action) {
     case SET_LIST_ORDER:
       return {
         ...state,
-        listOrder: action.payload
+        list: action.payload
       };
     case SET_LIST_ORDER_ERROR:
       return {
@@ -74,7 +74,7 @@ export default function(state = initialState, action) {
     case SET_LIST_ORDER_APPROVED:
       return {
         ...state,
-        listOrder: {
+        list: {
           approved: true,
           approveTX: action.payload
         }
