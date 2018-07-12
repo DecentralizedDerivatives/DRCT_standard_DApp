@@ -7,7 +7,10 @@ import { getUserTransactions } from '../actions/userActions';
 // Use named export for unconnected component for testing
 export class MyTransactions extends Component {
   renderRows = () => {
-    this.props.userTransactions.map(trade => {
+    if (this.props.userTransactions.length === 0) {
+      return <tr><td colSpan='12' style={{textAlign: 'center'}}><h5>No Recent Events</h5></td></tr>
+    }
+    var rows = this.props.userTransactions.map(trade => {
       const tradeTitle = trade[0];
       const tradeHash = trade[1];
 
@@ -32,6 +35,7 @@ export class MyTransactions extends Component {
         </tr>
       );
     });
+    return rows;
   };
 
   render() {

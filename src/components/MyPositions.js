@@ -7,7 +7,10 @@ import { getContractDetails } from '../actions/contractActions';
 // Use named export for unconnected component for testing
 export class MyPositions extends Component {
   renderRows = () => {
-    this.props.userPositions.map(position => {
+    if (this.props.userPositions.length === 0) {
+      return <tr><td colSpan='12' style={{textAlign: 'center'}}><h5>No Recent Events</h5></td></tr>
+    }
+    var rows = this.props.userPositions.map(position => {
       const {
         address,
         balance,
@@ -33,6 +36,7 @@ export class MyPositions extends Component {
         </tr>
       );
     });
+    return rows;
   };
 
   render() {

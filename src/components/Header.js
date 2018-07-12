@@ -40,18 +40,26 @@ export class Header extends Component {
       <div>
         <Navbar className="bg-dark" dark expand="md">
           <NavbarBrand href="/">
-            <img src="./dda-logo.png" alt="logo" height="30px" width="30px" />
-            {'  '}
+            <img
+              className="header__logo"
+              src="./dda-logo.png"
+              alt="logo"
+              height="30px"
+              width="30px"
+            />
             DRCT
           </NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/portfolio/">Portfolio</NavLink>
+                <NavLink href="/portfolio">Portfolio</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/how-to/">How To</NavLink>
+                <NavLink href="/bulletin">Bulletin</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="/how-to">How To</NavLink>
               </NavItem>
               {/* <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
@@ -74,14 +82,23 @@ export class Header extends Component {
                 </DropdownMenu>
               </UncontrolledDropdown> */}
               <NavItem>
-                <span>
-                  <span className="connected">Connected </span>
-                  <i
-                    className={classnames('far fa-circle', {
-                      'connect__icon--white': this.props.connected
-                    })}
-                  />
-                </span>
+                {this.props.isConnected && (
+                  <div className="connected">
+                    Connected
+                    <span style={{ color: 'green', paddingLeft: '5px' }}>
+                      <i className="fas fa-circle" />
+                    </span>
+                  </div>
+                )}
+
+                {!this.props.isConnected && (
+                  <div className="connected">
+                    Not Connected
+                    <span style={{ color: 'red', paddingLeft: '5px' }}>
+                      <i className="fas fa-circle" />
+                    </span>
+                  </div>
+                )}
               </NavItem>
             </Nav>
           </Collapse>
@@ -90,6 +107,10 @@ export class Header extends Component {
     );
   }
 }
+
+Header.propTypes = {
+  isConnected: PropTypes.bool.isRequired
+};
 
 Navbar.propTypes = {
   dark: PropTypes.bool,

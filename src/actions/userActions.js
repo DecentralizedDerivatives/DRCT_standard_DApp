@@ -95,7 +95,7 @@ export const getUserTransactions = userAccount => async dispatch => {
         }
       }
 
-      _trades = _trades.length === 0 ? [['No Recent Events', '...']] : _trades;
+      _trades = _trades.length === 0 ? [] : _trades;
 
       dispatch({
         type: SET_USER_TRANSACTIONS,
@@ -153,7 +153,7 @@ export const getUserPositions = userAccount => async dispatch => {
       }
     }
 
-    _allrows = _allrows.length === 0 ? [['No Recent Events', '...']] : _allrows;
+    _allrows = _allrows.length === 0 ? [] : _allrows;
 
     dispatch({
       type: SET_USER_POSITIONS,
@@ -199,7 +199,7 @@ export const getUserTokenPositions = userAccount => async dispatch => {
       }
     }
 
-    const _userTokens = _allrows ? _allrows : ['No Current Positions'];
+    const _userTokens = _allrows ? _allrows : ['No Current Position'];
 
     if (_allrows) {
       dispatch({

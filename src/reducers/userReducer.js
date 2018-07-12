@@ -15,6 +15,7 @@ const initialState = {
   userTransactions: [['loading...', 'loading...']],
   userPositions: [['loading...', 'loading...', 'loading...']],
   userTokens: [['loading']],
+
   userOrders: '',
   userOrderLabels: '',
   cashOut: {
