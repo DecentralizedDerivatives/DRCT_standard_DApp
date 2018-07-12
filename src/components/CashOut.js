@@ -73,7 +73,7 @@ CashOut.propTypes = {
   getUserBalance: PropTypes.func.isRequired,
   userBalance: PropTypes.number.isRequired,
   cashOutTx: PropTypes.string.isRequired,
-  cashOutError: PropTypes.string.isRequired
+  cashOutError: PropTypes.string
 };
 
 const mapStateToProps = state => ({

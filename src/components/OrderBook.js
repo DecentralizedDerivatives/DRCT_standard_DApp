@@ -7,7 +7,7 @@ import { getOrderBook } from '../actions/contractActions';
 // Use named export for unconnected component for testing
 export class OrderBook extends Component {
   renderRows = () => {
-    this.state.orderbook.map(order => {
+    this.props.orderbook.map(order => {
       const { orderId, address, price, quantity, date } = order;
 
       let symbol = 'BTC/USD'; /*CURRENTLY USING STATIC SYMBOL NEED TO FIX*/
@@ -66,7 +66,7 @@ export class OrderBook extends Component {
 OrderBook.propTypes = {
   onRowClick: PropTypes.func.isRequired,
   orderbook: PropTypes.array.isRequired,
-  contractDuration: PropTypes.string.isRequired,
+  contractDuration: PropTypes.number.isRequired,
   contractMultiplier: PropTypes.number.isRequired
 };
 
