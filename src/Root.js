@@ -1,6 +1,8 @@
+import React from 'react';
+import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import { createLogger } from 'redux-logger'
+import { createLogger } from 'redux-logger';
 import rootReducer from './reducers';
 
 const initialState = {};
@@ -11,6 +13,13 @@ if (process.env.NODE_ENV === 'development') {
   middlewares.push(createLogger());
   composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 }
-const store = createStore(rootReducer, initialState, composeEnhancer(applyMiddleware(...middlewares)));
 
-export default store;
+export default props => {
+  const store = createStore(
+    rootReducer,
+    initialState,
+    composeEnhancer(applyMiddleware(...middlewares))
+  );
+
+  return <Provider store={store}>{props.children}</Provider>;
+};

@@ -3,6 +3,7 @@ import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import 'react-dates/initialize';
+
 import ConnectionModal from './components/ConnectionModal';
 import BlockProgress from './components/BlockProgress';
 import Header from './components/Header';
@@ -11,6 +12,8 @@ import MyPortfolio from './components/MyPortfolio';
 import Bulletin from './components/Bulletin';
 import HowTo from './components/HowTo';
 import { checkUserConnection } from './actions/statusActions';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './style.css';
 
 class AppRouter extends Component {
   componentDidMount() {
