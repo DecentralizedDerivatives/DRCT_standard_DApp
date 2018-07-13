@@ -68,9 +68,14 @@ class Landing extends Component {
       );
     } else if (this.props.metamask && this.props.network === 4) {
       msgBtn = (
-        <Link to="/portfolio" className="btn btn-success link mr-2">
-          Go to My Portfolio
-        </Link>
+        <div>
+          <Link to="/portfolio" className="btn btn-success link mr-2">
+            Go to My Portfolio
+          </Link>
+          <Link to="/bulletin" className="btn btn-success link mr-2">
+            Go to Bulletin
+          </Link>
+        </div>
       );
     }
 

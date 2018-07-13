@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Collapse } from 'reactstrap';
 import UnlistFormContainer from './UnlistFormContainer';
-import { getUserOrders } from '../actions/userActions';
+// import { getUserOrders } from '../actions/userActions';
 
 // Use named export for unconnected component for testing
 export class Unlist extends Component {
@@ -17,10 +17,9 @@ export class Unlist extends Component {
 
     this.toggleFormVisibility = this.toggleFormVisibility.bind(this);
   }
-
-  async componentWillMount() {
-    await this.props.getUserOrders(this.props.userAccount);
-  }
+  // async componentDidMount() {
+  //   await this.props.getUserOrders(this.props.userAccount);
+  // }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.unlistOrderError !== 'null') {
@@ -72,7 +71,7 @@ export class Unlist extends Component {
 }
 
 Unlist.propTypes = {
-  getUserOrders: PropTypes.func.isRequired,
+  // getUserOrders: PropTypes.func.isRequired,
   userAccount: PropTypes.string.isRequired,
   unlistOrderTx: PropTypes.string,
   unlistOrderError: PropTypes.string
@@ -84,7 +83,4 @@ const mapStateToProps = state => ({
   unlistOrderError: state.order.unlistOrderError
 });
 
-export default connect(
-  mapStateToProps,
-  { getUserOrders }
-)(Unlist);
+export default connect(mapStateToProps, null)(Unlist);
