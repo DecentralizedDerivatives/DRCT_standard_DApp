@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import classnames from 'classnames';
 import {
   Collapse,
@@ -53,13 +54,13 @@ export class Header extends Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/portfolio">Portfolio</NavLink>
+                <Link className="nav-link" to="/portfolio">Portfolio</Link>
               </NavItem>
               <NavItem>
-                <NavLink href="/bulletin">Bulletin</NavLink>
+                <Link className="nav-link" to="/bulletin">Bulletin</Link>
               </NavItem>
               <NavItem>
-                <NavLink href="/how-to">How To</NavLink>
+                <Link className="nav-link" to="/how-to">How To</Link>
               </NavItem>
               {/* <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>

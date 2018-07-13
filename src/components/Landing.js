@@ -46,7 +46,7 @@ class Landing extends Component {
 
     const ddacoopBtn = (
       <a
-        href="http://wwww.ddacoop.org"
+        href="http://www.ddacoop.org"
         className="btn btn-info ml-2"
         target="_blank"
         rel="noopener noreferrer"
