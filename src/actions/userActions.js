@@ -175,17 +175,15 @@ export const getUserTokenPositions = userAccount => async dispatch => {
       var data = await getTokenPositionsForFactory(factory, userAccount);
       tokens = tokens.concat(data);
     }
-    if (tokens.length > 0) {
-      dispatch({
-        type: SET_SELECTED_TOKEN,
-        payload: {
-          selectedToken: tokens[0]
-        }
-      });
-    }
     dispatch({
       type: SET_USER_TOKENS,
       payload: tokens
+    });
+    dispatch({
+      type: SET_SELECTED_TOKEN,
+      payload: {
+        selectedToken: tokens.length > 0 ? tokens[0] : null
+      }
     });
   } catch (err) {
     dispatch({
@@ -221,72 +219,56 @@ const getTokenPositionsForFactory = async (factory, userAccount) => {
 export const getUserOrders = userAccount => async dispatch => {
   dispatch(setProcessing(true));
   try {
-    const exchange = await Exchange.deployed();
-    const factory = await Factory.at(
-      '0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642'
-    );
-
-    const books = await exchange.getUserOrders.call(userAccount); //Gets all listed order ids
-    const allOrders = []; //Contains all information for each order
-    const allOrderLabels = []; //Contains only what's going to be displayed in dropdown
-
-    for (let i = 0; i < books.length; i++) {
-      //Getting all info for orders in book and storing them in an object
-      const order = {};
-      order.id = books[i].c[0];
-      order.info = await exchange.getOrder(order.id); //Getting order info by order Id (returns array);
-      order.owner = order.info[0];
-      order.price = order.info[1].c[0] / 10000; //divided by 10000 to fix offset
-      order.owned = order.info[2].c[0];
-      order.address = order.info[3];
-      order.date = await factory.token_dates.call(order.address);
-      order.date = new Date(order.date * 1000);
-      order.date =
-        order.date.getMonth() +
-        1 +
-        '/' +
-        order.date.getDate() +
-        '/' +
-        order.date.getFullYear();
-      order.row = `${order.address}(${order.owned}/${order.date})`;
-      allOrders.push(order);
-      allOrderLabels.push(order.row);
+    var factories = FactoryProvider.factories();
+    var orders = []
+    for (var i = 0; i < factories.length; i++) {
+      var data = await getOrdersForFactory(factories[i], userAccount);
+      orders = orders.concat(data);
     }
-
-    if (allOrderLabels.length) {
-      dispatch({
-        type: SET_USER_ORDERS,
-        payload: {
-          userOrderLabels: allOrderLabels,
-          userOrders: allOrders
-        }
-      });
-
-      dispatch({
-        type: SET_CURRENT,
-        payload: {
-          selectedToken: allOrderLabels[0],
-          selectedOrderID: allOrders[0].id
-        }
-      });
-    } else {
-      dispatch({
-        type: SET_CURRENT,
-        payload: {
-          selectedToken: 'No orders listed',
-          selectedOrderID: ''
-        }
-      });
-    }
+    dispatch({
+      type: SET_USER_ORDERS,
+      payload: {
+        userOrders: orders
+      }
+    });
+    dispatch({
+      type: SET_CURRENT,
+      payload: {
+        selectedToken: orders.length > 0 ? orders[0].row : null,
+        selectedOrderID: orders.length > 0 ? orders[0].id : null
+      }
+    });
   } catch (err) {
     dispatch({
       type: SET_FETCHING_ERROR,
-      payload: err.message.split('\n')[0]
+      payload: 'User Orders: ' + err.message.split('\n')[0]
     });
   }
 
   dispatch(setProcessing(false));
 };
+const getOrdersForFactory = async (factory, userAccount) => {
+  const exchange = await Exchange.deployed();
+  const books = await exchange.getUserOrders.call(userAccount); //Gets all listed order ids
+  const allOrders = []; //Contains all information for each order
+  for (let i = 0; i < books.length; i++) {
+    const order = {};
+    order.id = books[i].c[0];
+    order.info = await exchange.getOrder(order.id); //Getting order info by order Id (returns array);
+    order.owner = order.info[0];
+    order.price = order.info[1].c[0] / 10000; //divided by 10000 to fix offset
+    order.owned = order.info[2].c[0];
+    order.address = order.info[3];
+    var date = await factory.token_dates.call(order.address);
+    date = new Date(date * 1000);
+    order.date = date.getMonth() + 1 + '/' +
+      date.getDate() + '/' +
+      date.getFullYear();
+    order.row = `${order.address}(${order.owned}/${order.date})`;
+    allOrders.push(order);
+  }
+  return allOrders;
+}
 
 export const sendCashOutRequest = (amount, account) => async dispatch => {
   dispatch(setProcessing(true));

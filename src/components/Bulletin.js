@@ -34,10 +34,10 @@ export class Bulletin extends Component {
 
   async componentDidMount() {
     await this.props.getUserAccount();
-    this.props.getOrderBook();
-    this.props.getRecentTrades();
-    this.props.getUserTokenPositions();
-    this.props.getUserOrders();
+    this.props.getOrderBook(this.props.userAccount);
+    this.props.getRecentTrades(this.props.userAccount);
+    this.props.getUserTokenPositions(this.props.userAccount);
+    this.props.getUserOrders(this.props.userAccount);
   }
 
   // async componentDidUpdate() {
