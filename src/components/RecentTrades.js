@@ -7,13 +7,10 @@ import { getRecentTrades } from '../actions/contractActions';
 // Use named export for unconnected component for testing
 export class RecentTrades extends Component {
   renderRows = () => {
-    this.props.recentTrades.map(trade => {
-      const { address, volume, price } = trade;
-
-      const symbol = 'BTC/USD';
-
+    var rows = this.props.recentTrades.map((trade, index) => {
+      const { address, volume, price, symbol } = trade;
       return (
-        <tr>
+        <tr key={index}>
           <td>
             <a
               className="token-address-link"
@@ -29,6 +26,7 @@ export class RecentTrades extends Component {
         </tr>
       );
     });
+    return rows;
   };
 
   render() {

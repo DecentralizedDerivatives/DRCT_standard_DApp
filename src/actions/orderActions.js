@@ -18,36 +18,26 @@ import {
   SET_FETCHING_ERROR
 } from './types';
 
+import FactoryProvider from '../factoryProvider';
+
+//TODO: This function makes no sense.  Why return an array of strings??
+//Should be a single object with order details.  Right??
 export const getOrderDetails = orderID => async dispatch => {
   dispatch(setProcessing(true));
   try {
+    if (!orderID) {
+      dispatch({type: SET_SELECTED_TOKEN, payload: ''});
+      return dispatch({type: SET_ORDER_DETAILS, payload: ''});
+    }
+    var factories = FactoryProvider.factories();
     const exchange = await Exchange.deployed();
-    const factory = await Factory.at(
-      '0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642'
-    );
-    // const accounts = await web3.eth.getAccounts();
-
-    // get orders for that book:
-    let o_row = [];
+    let order = await exchange.getOrder(orderID);
     let _allrows = [];
-    let order;
-    order = await exchange.getOrder(orderID);
-
-    let _date = await factory.token_dates.call(order[3]);
-    _date = new Date(_date * 1000);
-    _date =
-      _date.getMonth() + 1 + '/' + _date.getDate() + '/' + _date.getFullYear();
-    o_row =
-      orderID.toString() +
-      '(' +
-      order[3] +
-      order[1].c[0].toString() +
-      '/' +
-      order[2].c[0].toString() +
-      '/' +
-      _date.toString() +
-      ')';
-    _allrows.push(o_row);
+    for (var i = 0; i < factories.length; i++) {
+      const factory = await Factory.at(factories[i].address);
+      var orderDetail = await getOrderDetailForFactory(factory, order, orderID);
+      _allrows.push(orderDetail);
+    }
 
     dispatch({
       type: SET_ORDER_DETAILS,
@@ -63,10 +53,28 @@ export const getOrderDetails = orderID => async dispatch => {
   } catch (err) {
     dispatch({
       type: SET_FETCHING_ERROR,
-      payload: err.message.split('\n')[0]
+      payload: 'Get Order Details: ' + err.message.split('\n')[0]
     });
   }
   dispatch(setProcessing(false));
+};
+const getOrderDetailForFactory = async (factory, order, orderID) => {
+  let display = [];
+  let date = await factory.token_dates.call(order[3]);
+  date = new Date(date * 1000);
+  date =
+    date.getMonth() + 1 + '/' + date.getDate() + '/' + date.getFullYear();
+  display =
+    orderID.toString() +
+    '(' +
+    order[3] +
+    order[1].c[0].toString() +
+    '/' +
+    order[2].c[0].toString() +
+    '/' +
+    date.toString() +
+    ')';
+  return display;
 };
 
 export const sendBuyOrder = (orderID, account) => async dispatch => {
