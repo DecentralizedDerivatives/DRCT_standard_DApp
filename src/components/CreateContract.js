@@ -11,7 +11,6 @@ export class CreateContract extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      formOpen: false,
       sendFundsOpen: false,
       resultsMessage: ''
     };
@@ -58,47 +57,47 @@ export class CreateContract extends Component {
     this.props.sendSendFundsOrder(sendFundsDetails, this.props.userAccount);
   };
 
-  toggleFormVisibility = () => {
-    this.setState({
-      formOpen: !this.state.formOpen
-    });
-  };
-
   render() {
-    return (
-      <div className="container">
-        <div id="create-contract-button">
-          <button onClick={this.toggleFormVisibility} className="btn btn-info">
-            Create Contract
-          </button>
+    return(
+      // <div className="container">
+      //   <div id="create-contract-button">
+      //     <button onClick={this.toggleFormVisibility} className="btn btn-info">
+      //       Create Contract
+      //     </button>
+      //   </div>
+
+      //   <Collapse isOpen={this.state.formOpen}>
+      //     <div id="create-contract-form">
+      //       <h4 className="center-text">Create Contract</h4>
+      //       <CreateContractFormContainer name="createContractForm" />
+      //     </div>
+      //   </Collapse>
+
+      //   <Collapse isOpen={this.state.sendFundsOpen}>
+      //     <div id="send-funds">
+      //       <h4 className="center-text">Contract Created</h4>
+      //       <button
+      //         className="btn btn-success"
+      //         onClick={this.handleSendFundsClick}
+      //       >
+      //         Send Funds
+      //       </button>
+      //     </div>
+      //   </Collapse>
+
+      //   {this.state.resultsMessage && (
+      //     <div id="results-message" className="text-center">
+      //       {this.state.resultsMessage}
+      //     </div>
+      //   )}
+      // </div> 
+      <div className="create-contract">
+        <div className="modal-background" onClick={this.props.close}></div>
+        <div className="modal">
+        <CreateContractFormContainer name="createContractForm" />
         </div>
-
-        <Collapse isOpen={this.state.formOpen}>
-          <div id="create-contract-form">
-            <h4 className="center-text">Create Contract</h4>
-            <CreateContractFormContainer name="createContractForm" />
-          </div>
-        </Collapse>
-
-        <Collapse isOpen={this.state.sendFundsOpen}>
-          <div id="send-funds">
-            <h4 className="center-text">Contract Created</h4>
-            <button
-              className="btn btn-success"
-              onClick={this.handleSendFundsClick}
-            >
-              Send Funds
-            </button>
-          </div>
-        </Collapse>
-
-        {this.state.resultsMessage && (
-          <div id="results-message" className="text-center">
-            {this.state.resultsMessage}
-          </div>
-        )}
       </div>
-    );
+    )
   }
 }
 

@@ -14,7 +14,7 @@ class BlockProgress extends Component {
   render() {
     return (
       <Modal isOpen={this.props.isProcessing}>
-        <Card>
+        <Card classN>
           <CardHeader className="text-center">Processing...</CardHeader>
           <CardBody>
             <CardImg
