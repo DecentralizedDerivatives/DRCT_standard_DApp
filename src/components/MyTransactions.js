@@ -41,7 +41,7 @@ export class MyTransactions extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="table-container">
         <div className="row">
           <Table
             id="transactions-table"
