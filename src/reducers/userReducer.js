@@ -52,10 +52,9 @@ export default function(state = initialState, action) {
         userTokens: action.payload
       };
     case SET_USER_ORDERS:
-      const { userOrderLabels, userOrders } = action.payload;
+      const { userOrders } = action.payload;
       return {
         ...state,
-        userOrderLabels,
         userOrders
       };
     case SET_CASHOUT_RECEIPT:
