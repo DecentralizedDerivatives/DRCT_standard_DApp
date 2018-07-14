@@ -12,7 +12,7 @@ export const checkUserConnection = () => async dispatch => {
   try {
     const accounts = await web3.eth.getAccounts();
     const network = await web3.eth.net.getId();
-
+    console.log("NETWORK",network);
     dispatch({
       type: SET_CONNECTION_STATUS,
       payload: {

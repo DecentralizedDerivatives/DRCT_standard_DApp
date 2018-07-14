@@ -58,6 +58,16 @@ export class Header extends Component {
           <li>
             <Link className="nav-link" to="/how-to">How To</Link>
           </li>
+          <li>
+            <a 
+              className="nav-link"
+              href="http://www.ddacoop.org/about"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              DDA Info
+            </a>
+          </li>
         </ul>
         <div className="connection-status">
           {this.props.isConnected && (

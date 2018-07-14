@@ -6,96 +6,75 @@ import { PropTypes } from 'prop-types';
 class Landing extends Component {
   componentDidUpdate() {
     this.renderMessage();
-    this.renderButtons();
   }
 
   renderMessage() {
-    let message;
-    const network = 'Rinkeby Test Network';
-
-    if (!this.props.metamask) {
-      message = (
-        <div>
-          <p>Please Login to MetaMask</p>
-          <p>Select: {network}</p>
-        </div>
-      );
-    } else if (this.props.metamask && this.props.network !== 4) {
-      message = (
-        <div>
-          <p>Please Set MetaMask To:</p>
-          <p>{network}</p>
-        </div>
-      );
-    } else if (this.props.metamask && this.props.network === 4) {
-      message = (
-        <div>
-          <p>You are Connected To:</p>
-          <p>
-            <em>{network}</em>
-          </p>
-        </div>
-      );
+    const network_id = 4; //ID of metamask network to connect to
+    const connected_network = this.props.network;
+    const network_labels = {
+      1:{
+        title:"ethereum main network",
+        className:"ethereum-network-label"
+      },
+      3:{
+        title:"ropsten test network",
+        className:"ropsten-network-label"
+      },
+      4:{
+        title:"rinkeby test network",
+        className:"rinkeby-network-label"
+      },
+      42:{
+        title:"kovan test network",
+        className:"kovan-network-label"
+      }
     }
-
-    return <div className="lead">{message}</div>;
+    switch (true) {
+      case this.props.metamask && connected_network !== network_id:
+        return (
+          <div>
+            <p>You are Currently Connected To:</p>
+            <p className={"landing-network-status " + network_labels[connected_network].className}>{network_labels[connected_network].title}</p>
+            <p>Please Set MetaMask To:</p>
+            <p className={"landing-network-status " + network_labels[network_id].className}>{network_labels[network_id].title}</p>
+          </div>
+        );
+      case this.props.metamask && connected_network === network_id:
+        return (
+          <div>
+            <p>You are Connected To:</p>
+            <p className={"landing-network-status " + network_labels[network_id].className}>{network_labels[network_id].title}</p>
+          </div>
+        );
+      default:
+        return (
+          <div>
+            <p>Please Login to MetaMask</p>
+            <p className="landing-network-status">
+              Select :
+              <p className={network_labels[network_id].className}>
+                {network_labels[network_id].title}
+              </p>
+            </p>
+          </div>
+        );
+    }
   }
 
-  renderButtons() {
-    let msgBtn = '';
-
-    const ddacoopBtn = (
-      <a
-        href="http://www.ddacoop.org"
-        className="btn btn-info ml-2"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Learn More About DRCT DApp
-      </a>
-    );
-
-    if (!this.props.metamask) {
-      msgBtn = (
-        <a
-          className="btn btn-primary mr-2"
-          href="https://metamask.io/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Need MetaMask?
-        </a>
-      );
-    } else if (this.props.metamask && this.props.network === 4) {
-      msgBtn = (
-        <Link to="/portfolio" className="btn btn-success link mr-2">
-          Go to My Portfolio
-        </Link>
-      );
-    }
-
-    return (
-      <div className="center-items">
-        {msgBtn} {ddacoopBtn}
-      </div>
-    );
-  }
 
   render() {
     return (
-      <div className="landing__bg">
-        <div className="landing__overlay text-light">
-          <div className="container">
-            <div className="row">
-              <div className="col-md-12 text-center">
-                <h1 className="display-3 mb-4">DRCT DApp</h1>
-                {this.renderMessage()}
-                <hr />
-                {this.renderButtons()}
-              </div>
-            </div>
-          </div>
-        </div>
+      <div id="landing">
+        <h1 className="landing-head">
+          Decentralized Derivatives Association - DRCT
+        </h1>
+        <h3 className="landing-subhead">
+          {this.renderMessage()}
+        </h3>
+        <img
+          className="landing-logo"
+          src={require("../imgs/logo-large.png")}
+        />
       </div>
     );
   }

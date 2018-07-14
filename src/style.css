@@ -12,7 +12,12 @@
 * {
   font-family: 'IBM Plex Sans', 'Roboto', sans-serif;
 }
-
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
 /* Bulletin */
 .wrapper {
   margin: 25px;
@@ -162,27 +167,45 @@
   margin-top: 7%;
   margin-right: 20%;
 }
-
-
 /* Landing */
-.landing__bg {
-  position: relative;
-  background: url('./imgs/cryptocurrency.jpg') no-repeat;
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-
-  margin-bottom: -50px;
+#landing{
+  text-align:center;
 }
-
-.landing__overlay {
-  background-color: rgba(0, 0, 0, 0.7);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  padding-top: 80px;
+.landing-head{
+  margin:2em 0 1em 0;
+  color:#104874;
+  font-weight:400;
+}
+.landing-subhead{
+  font-weight: 400;
+}
+.landing-network-status{
+  font-style: italic;
+  text-transform: capitalize;
+}
+.landing-network-status p{
+  display: inline-block;
+  margin-left:10px;
+}
+.landing-logo{
+  width:32vmax;
+  margin-top:2em;
+  animation:spin 240s infinite linear;
+  min-width:500px;
+  max-width:800px;
+}
+    /*network labels*/
+.rinkeby-network-label{
+  color:#feb236;
+}
+.ethereum-network-label{
+  color:#008B8B;
+}
+.ropsten-network-label{
+  color:#D23641;
+}
+.kovan-network-label{
+  color:#4B0082;
 }
 
 /* MyPositions MyTransactions */
