@@ -19,7 +19,8 @@ export class MyPortfolio extends Component {
     super();
 
     this.state = {
-      detailsOpen: false
+      detailsOpen: false,
+      formOpen: false,
     };
   }
 
@@ -61,7 +62,23 @@ export class MyPortfolio extends Component {
       detailsOpen: false
     });
   };
-
+  handleCreateContract = () => {
+    this.setState({
+      formOpen: !this.state.formOpen
+    });
+  };
+  renderCreateContract = () =>{
+    return this.state.formOpen?(
+      <CreateContract close={this.closeCreateContract} />
+    ):(
+      null
+    )
+  }
+  closeCreateContract = () =>{
+    this.setState({
+      formOpen: false
+    });
+  }
   render() {
     return (
       <div id="portfolio">
@@ -70,7 +87,8 @@ export class MyPortfolio extends Component {
         <Collapse isOpen={this.state.detailsOpen}>
           <ContractDetails onClick={this.closeContractDetails.bind(this)} />
         </Collapse>
-        <CreateContract />
+        {this.renderCreateContract()}
+        <div className="create-contract-btn" onClick={this.handleCreateContract}>Create Contract</div>
       </div>
     );
   }

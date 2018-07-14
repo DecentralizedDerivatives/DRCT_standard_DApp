@@ -14,10 +14,10 @@ export const CreateContractFormComponent = ({
   change
 }) => {
   return (
-    <div>
-      <h3>Create Contract</h3>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <InputGroup>
+      <form onSubmit={handleSubmit(onSubmit)} className="create-contract-form">
+        <InputGroup
+            className="form-dropdown"
+        >
           <Field
             name="duration"
             label="Select Duration"
@@ -28,7 +28,9 @@ export const CreateContractFormComponent = ({
           />
         </InputGroup>
 
-        <InputGroup>
+        <InputGroup
+          className="form-dropdown"
+        >
           <Field
             name="currency"
             label="Select Currency"
@@ -37,7 +39,7 @@ export const CreateContractFormComponent = ({
             onChange={onCurrencyChange}
           />
         </InputGroup>
-        <InputGroup>
+        <InputGroup className="form-date">
           <Field
             name="startDate"
             label="Start Date"
@@ -46,7 +48,7 @@ export const CreateContractFormComponent = ({
           />
         </InputGroup>
 
-        <InputGroup>
+        <InputGroup className="form-eth-input">
           <Field
             name="amount"
             label="Amount of Ether"
@@ -55,13 +57,12 @@ export const CreateContractFormComponent = ({
           <InputGroupAddon addonType="append">ETH</InputGroupAddon>
         </InputGroup>
 
-        <div>
-          <button type="submit" className="btn btn-primary">
-            Submit
+        <div className="form-submit-wrapper">
+          <button type="submit" className="form-submit btn btn-primary">
+            Create Contract
           </button>
         </div>
       </form>
-    </div>
   );
 };
 

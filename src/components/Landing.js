@@ -12,7 +12,7 @@ class Landing extends Component {
     const connected_network = this.props.network;
     const network_labels = {
       1:{
-        title:"ethereum main network",
+        title:"main ethereum network",
         className:"ethereum-network-label"
       },
       3:{

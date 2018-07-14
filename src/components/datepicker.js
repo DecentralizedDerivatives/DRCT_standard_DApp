@@ -43,6 +43,7 @@ export class Datepicker extends Component {
           onDateChange={this.handleDateChange}
           focused={this.state.focused}
           onFocusChange={this.handleFocusChange}
+          daySize={32}
         />
       </div>
     );
