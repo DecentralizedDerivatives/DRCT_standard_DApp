@@ -12,12 +12,7 @@
 * {
   font-family: 'IBM Plex Sans', 'Roboto', sans-serif;
 }
-@keyframes spin {
-  100% {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
-}
+
 /* Bulletin */
 .wrapper {
   margin: 25px;
@@ -95,64 +90,12 @@
   background-color: #9fb5c5;
 }
 
-.button-disabled {
+.button-disabled: {
   width: 100%;
   background-color: #9fb5c5;
 }
 
 /* Header */
-#header-nav{
-  width:100%;
-  height:65px;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,.2), 0 6px 20px 0 rgba(0,0,0,.19);
-  background-color:#104874;
-}
-  /* logo */
-.nav-logo{
-  float:left;
-  margin-left: 15px;
-  height:58px;
-  width:auto;
-  margin-top:3.5px;
-}
-  /*links*/
-#header-nav ul{
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  float: left;
-  margin-left: 15px;
-  height:100%;
-}
-#header-nav ul li{
-  display:inline-block;
-  margin:0;  
-  cursor: pointer;
-}
-#header-nav ul li:hover{
-  background-color: #0d3e65;
-}
-#header-nav ul li:not(:first-child) {
-  border-left: 1px solid #ffffff38;
-}
-#header-nav ul li:last-child{
-  border-right: 1px solid #ffffff38;
-}
-#header-nav ul li a,#header-nav ul li p{
-  margin:0;
-  padding:20.5px 30px;
-  color: white;
-}
-#selected-nav{
-  background-color:white;
-  color: #104874;
-}
-  /*status*/
-#header-nav .connection-status{
-  float:right;
-  margin-top:12.5px;
-  margin-right: 15px;
-}
 .connected {
   color: #fff;
   font-size: 16px;
@@ -161,55 +104,41 @@
   margin-top: 7px;
   margin-left: 5px;
 }
+
+.header__logo {
+  margin-right: 10px;
+}
+
 /* HowTo */
 .howTo__infograph {
   width: 25em;
   margin-top: 7%;
   margin-right: 20%;
 }
+
 /* Landing */
-#landing{
-  text-align:center;
+.landing__bg {
+  position: relative;
+  background: url('./imgs/cryptocurrency.jpg') no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+
+  margin-bottom: -50px;
 }
-.landing-head{
-  margin:2em 0 1em 0;
-  color:#104874;
-  font-weight:400;
-}
-.landing-subhead{
-  font-weight: 400;
-}
-.landing-network-status{
-  font-style: italic;
-  text-transform: capitalize;
-}
-.landing-network-status p{
-  display: inline-block;
-  margin-left:10px;
-}
-.landing-logo{
-  width:32vmax;
-  margin-top:2em;
-  animation:spin 240s infinite linear;
-  min-width:500px;
-  max-width:800px;
-}
-    /*network labels*/
-.rinkeby-network-label{
-  color:#feb236;
-}
-.ethereum-network-label{
-  color:#008B8B;
-}
-.ropsten-network-label{
-  color:#D23641;
-}
-.kovan-network-label{
-  color:#4B0082;
+
+.landing__overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding-top: 80px;
 }
 
 /* MyPositions MyTransactions */
-.link__token-address {
+.link__token-address: {
   color: #114770;
   text-decoration: none;
 }
@@ -243,18 +172,4 @@
 .pricechart__dropdown-item {
   font-size: 12px;
   font-family: 'IBM Plex Sans', sans-serif;
-}
-/* Portfolio */
-#portfolio{
-  text-align:center;
-}
-/* Table */
-.table-container{
-  text-align:left;
-  width:80%;
-  display:inline-block;
-  margin: 2em;
-}
-.table-container th{
-  width:100%;
 }
