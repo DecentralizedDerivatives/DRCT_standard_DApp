@@ -138,7 +138,7 @@
 #header-nav ul li:last-child{
   border-right: 1px solid #ffffff38;
 }
-#header-nav ul li a{
+#header-nav ul li a,#header-nav ul li p{
   margin:0;
   padding:20.5px 30px;
   color: white;

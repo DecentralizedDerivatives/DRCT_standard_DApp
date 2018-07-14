@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import { Collapse } from 'reactstrap';
 import MyPositions from './MyPositions';
 import MyTransactions from './MyTransactions';
-import CreateContract from './CreateContract';
 import ContractDetails from './ContractDetails';
+import CreateContract from "./CreateContract";
 import {
   getUserAccount,
   getUserPositions,
@@ -67,12 +67,10 @@ export class MyPortfolio extends Component {
       <div id="portfolio">
         <MyPositions onRowClick={this.handleRowClick.bind(this)} />
         <MyTransactions onRowClick={this.handleRowClick.bind(this)} />
-
-        <CreateContract />
-
         <Collapse isOpen={this.state.detailsOpen}>
           <ContractDetails onClick={this.closeContractDetails.bind(this)} />
         </Collapse>
+        <CreateContract />
       </div>
     );
   }

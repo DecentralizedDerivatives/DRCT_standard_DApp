@@ -66,7 +66,7 @@ class Landing extends Component {
     return (
       <div id="landing">
         <h1 className="landing-head">
-          Decentralized Derivatives Association - DRCT
+          Decentralized Derivatives Association  DRCT
         </h1>
         <h3 className="landing-subhead">
           {this.renderMessage()}
