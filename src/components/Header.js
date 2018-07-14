@@ -14,6 +14,7 @@ import {
   // DropdownMenu,
   // DropdownItem
 } from 'reactstrap';
+
 // Dropdown disabled pending separate routes for dropdown items
 
 // Use named export for unconnected component for testing
@@ -36,63 +37,85 @@ export class Header extends Component {
 
   render() {
     return (
-      <nav id="header-nav">
-        <Link to="/">
-          <img
-            className="nav-logo"
-            src="./dda-logo.png"
-            alt="logo"
-            height="30px"
-            width="30px"
-          />
-        </Link>
-        <ul>
-          <li>
-            <Link className="nav-link" to="/portfolio">Portfolio</Link>
-          </li>
-          <li>
-            <Link className="nav-link" to="/bulletin">Bulletin</Link>
-          </li>
-          <li>
-            <Link className="nav-link" to="/how-to">How To</Link>
-          </li>
-          <li>
-            <a
-              className="nav-link"
-              href="http://www.ddacoop.org/about"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              DDA Info
-            </a>
-          </li>
-        </ul>
-        <div className="connection-status">
-          {this.props.isConnected && (
-            <div className="connected">
-              Connected
+      <div>
+        <Navbar className="bg-dark" dark expand="md">
+          <NavbarBrand href="/">
+            <img
+              className="header__logo"
+              src="./dda-logo.png"
+              alt="logo"
+              height="30px"
+              width="30px"
+            />
+            DRCT
+          </NavbarBrand>
+          <NavbarToggler onClick={this.toggle} />
+          <Collapse isOpen={this.state.isOpen} navbar>
+            <Nav className="ml-auto" navbar>
+              <NavItem>
+                <NavLink href="/portfolio">Portfolio</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="/bulletin">Bulletin</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="/how-to">How To</NavLink>
+              </NavItem>
+              {/* <UncontrolledDropdown nav inNavbar>
+                <DropdownToggle nav caret>
+                  More
+                </DropdownToggle>
+                <DropdownMenu right>
+                  <DropdownItem>
+                    <NavLink href="/buy/">Buy</NavLink>
+                  </DropdownItem>
+                  <DropdownItem>
+                    <NavLink href="/list/">List</NavLink>
+                  </DropdownItem>
+                  <DropdownItem>
+                    <NavLink href="/unlist/">Unlist</NavLink>
+                  </DropdownItem>
+                  <DropdownItem divider />
+                  <DropdownItem>
+                    <NavLink href="/create-contract/">Create Contract</NavLink>
+                  </DropdownItem>
+                </DropdownMenu>
+              </UncontrolledDropdown> */}
+              <NavItem>
+                {this.props.isConnected && (
+                  <div className="connected">
+                    Connected
                     <span style={{ color: 'green', paddingLeft: '5px' }}>
-                <i className="fas fa-circle" />
-              </span>
-            </div>
-          )}
+                      <i className="fas fa-circle" />
+                    </span>
+                  </div>
+                )}
 
-          {!this.props.isConnected && (
-            <div className="connected">
-              Not Connected
+                {!this.props.isConnected && (
+                  <div className="connected">
+                    Not Connected
                     <span style={{ color: 'red', paddingLeft: '5px' }}>
-                <i className="fas fa-circle" />
-              </span>
-            </div>
-          )}
-        </div>
-      </nav>
+                      <i className="fas fa-circle" />
+                    </span>
+                  </div>
+                )}
+              </NavItem>
+            </Nav>
+          </Collapse>
+        </Navbar>
+      </div>
     );
   }
 }
 
 Header.propTypes = {
   isConnected: PropTypes.bool.isRequired
+};
+
+Navbar.propTypes = {
+  dark: PropTypes.bool,
+  color: PropTypes.string,
+  expand: PropTypes.string
 };
 
 export default Header;
