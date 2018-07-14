@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Collapse } from 'reactstrap';
 import CreateContractFormContainer from './CreateContractFormContainer';
-import { getContractOpenDates } from '../actions/contractActions';
 import { sendSendFundsOrder } from '../actions/orderActions';
 
 // Use named export for unconnected component for testing
@@ -15,10 +14,6 @@ export class CreateContract extends Component {
       sendFundsOpen: false,
       resultsMessage: ''
     };
-  }
-
-  async componentWillMount() {
-    await this.props.getContractOpenDates();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -103,7 +98,6 @@ export class CreateContract extends Component {
 }
 
 CreateContract.propTypes = {
-  getContractOpenDates: PropTypes.func.isRequired,
   sendSendFundsOrder: PropTypes.func.isRequired,
   userAccount: PropTypes.string.isRequired,
   newContractAddress: PropTypes.string,
@@ -124,5 +118,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getContractOpenDates, sendSendFundsOrder }
+  { sendSendFundsOrder }
 )(CreateContract);

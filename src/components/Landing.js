@@ -49,12 +49,12 @@ class Landing extends Component {
         return (
           <div>
             <p>Please Login to MetaMask</p>
-            <p className="landing-network-status">
+            <div className="landing-network-status">
               Select :
               <p className={network_labels[network_id].className}>
                 {network_labels[network_id].title}
               </p>
-            </p>
+            </div>
           </div>
         );
     }
@@ -70,7 +70,7 @@ class Landing extends Component {
         <h3 className="landing-subhead">
           {this.renderMessage()}
         </h3>
-        <img
+        <img alt=''
           className="landing-logo"
           src={require("../imgs/logo-large.png")}
         />

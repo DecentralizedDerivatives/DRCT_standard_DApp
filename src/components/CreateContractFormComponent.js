@@ -4,11 +4,13 @@ import { InputGroup, InputGroupAddon } from 'reactstrap';
 import InputNumber from './InputNumber';
 import Select from './Select.js';
 import Datepicker from './datepicker';
+import { factories } from '../factoryProvider';
 
 export const CreateContractFormComponent = ({
   handleSubmit,
   onSubmit,
   formValues,
+  onCurrencyChange,
   change
 }) => {
   return (
@@ -31,9 +33,8 @@ export const CreateContractFormComponent = ({
             name="currency"
             label="Select Currency"
             component={Select}
-            options={{
-              'BTC/USD': 'BTC/USD'
-            }}
+            options={factories(true)}
+            onChange={onCurrencyChange}
           />
         </InputGroup>
         <InputGroup>

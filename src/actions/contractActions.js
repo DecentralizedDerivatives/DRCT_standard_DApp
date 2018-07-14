@@ -57,16 +57,16 @@ export const getOrderBook = () => async dispatch => {
       for (let j = 0; j < orders.length; j++) {
         if (orders[j].c[0] > 0) {
           order = await exchange.getOrder(orders[j].c[0]);
-          let _date = await factory.token_dates.call(book);
+          let date = await factory.token_dates.call(book);
 
-          _date = new Date(_date * 1000);
+          date = new Date(date * 1000);
           let orderDate =
-            _date.getUTCMonth() +
+            date.getUTCMonth() +
             1 +
             '/' +
-            _date.getUTCDate() +
+            date.getUTCDate() +
             '/' +
-            _date.getUTCFullYear();
+            date.getUTCFullYear();
 
           _allrows.push({
             orderId: orders[j].c[0].toString(),
@@ -86,7 +86,7 @@ export const getOrderBook = () => async dispatch => {
   } catch (err) {
     dispatch({
       type: SET_FETCHING_ERROR,
-      payload: err.message.split('\n')[0]
+      payload: 'Order Book: ' + err.message.split('\n')[0]
     });
   }
   dispatch(setProcessing(false));
@@ -96,60 +96,52 @@ export const getRecentTrades = () => async dispatch => {
   dispatch(setProcessing(true));
   try {
     const exchange = await Exchange.deployed();
-    var _trades = [];
 
     let transferEvent = await exchange.Sale(
       {},
       { fromBlock: 0, toBlock: 'latest' }
     );
 
-    const logs = await transferEvent.get();
-
-    if (logs.length === 0) {
-      _trades = [['No Recent Trades', '...', '...']];
-    } else {
-      for (let i = logs.length - 1; i >= Math.max(logs.length - 10, 0); i--) {
-        _trades.push({
-          address: logs[i].args['_token'].toString(),
-          volume: logs[i].args['_amount'].toString(),
-          price: (logs[i].args['_price'] / 1e18).toString()
-        });
+    transferEvent.get(function (err, events) {
+      var trades = [];
+      if (events.length > 0) {
+        for (let i = events.length - 1; i >= Math.max(events.length - 10, 0); i--) {
+          trades.push({
+            address: events[i].args['_token'].toString(),
+            volume: events[i].args['_amount'].toString(),
+            price: (events[i].args['_price'] / 1e18).toString(),
+            symbol: '????' // TODO:  How can Symbol be determined from returned events?
+          });
+        }
       }
-    }
-
-    dispatch({
-      type: SET_RECENT_TRADES,
-      payload: _trades
+      dispatch({
+        type: SET_RECENT_TRADES,
+        payload: trades
+      });
     });
   } catch (err) {
     dispatch({
       type: SET_FETCHING_ERROR,
-      payload: err.message.split('\n')[0]
+      payload: 'Recent Trades: ' + err.message.split('\n')[0]
     });
   }
   dispatch(setProcessing(false));
 };
 
-export const getContractOpenDates = () => async dispatch => {
+export const getContractOpenDates = (address) => async dispatch => {
   dispatch(setProcessing(true));
   try {
-    const factory = await Factory.at(
-      '0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642'
-    );
+    const factory = await Factory.at(address);
     let openDates = [];
     const numDates = await factory.getDateCount();
 
     for (let i = 0; i < numDates; i++) {
       const startDates = (await factory.startDates.call(i)).c[0];
-      let _date = new Date(startDates * 1000);
-      _date =
-        _date.getUTCMonth() +
-        1 +
-        '/' +
-        _date.getUTCDate() +
-        '/' +
-        _date.getUTCFullYear();
-      openDates.push(_date);
+      let date = new Date(startDates * 1000);
+      date = date.getUTCMonth() + 1 + '/' +
+        date.getUTCDate() + '/' +
+        date.getUTCFullYear();
+      openDates.push(date);
     }
 
     dispatch({
@@ -159,7 +151,7 @@ export const getContractOpenDates = () => async dispatch => {
   } catch (err) {
     dispatch({
       type: SET_FETCHING_ERROR,
-      payload: err.message.split('\n')[0]
+      payload: 'Contract Open Dates: ' + err.message.split('\n')[0]
     });
   }
   dispatch(setProcessing(false));

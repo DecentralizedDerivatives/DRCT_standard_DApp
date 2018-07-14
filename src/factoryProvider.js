@@ -23,7 +23,13 @@ function addresses () {
   return list
 }
 
-function factories () {
+function factories (flatten) {
+  if (flatten) {
+    return items.reduce((obj, item) => {
+      obj[item.address] = item.symbol;
+      return obj
+    }, {})
+  }
   return items
 }
 
