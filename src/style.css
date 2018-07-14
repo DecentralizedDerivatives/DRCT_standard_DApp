@@ -90,12 +90,64 @@
   background-color: #9fb5c5;
 }
 
-.button-disabled: {
+.button-disabled {
   width: 100%;
   background-color: #9fb5c5;
 }
 
 /* Header */
+#header-nav{
+  width:100%;
+  height:65px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,.2), 0 6px 20px 0 rgba(0,0,0,.19);
+  background-color:#104874;
+}
+  /* logo */
+.nav-logo{
+  float:left;
+  margin-left: 15px;
+  height:58px;
+  width:auto;
+  margin-top:3.5px;
+}
+  /*links*/
+#header-nav ul{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  float: left;
+  margin-left: 15px;
+  height:100%;
+}
+#header-nav ul li{
+  display:inline-block;
+  margin:0;  
+  cursor: pointer;
+}
+#header-nav ul li:hover{
+  background-color: #0d3e65;
+}
+#header-nav ul li:not(:first-child) {
+  border-left: 1px solid #ffffff38;
+}
+#header-nav ul li:last-child{
+  border-right: 1px solid #ffffff38;
+}
+#header-nav ul li a{
+  margin:0;
+  padding:20.5px 30px;
+  color: white;
+}
+#selected-nav{
+  background-color:white;
+  color: #104874;
+}
+  /*status*/
+#header-nav .connection-status{
+  float:right;
+  margin-top:12.5px;
+  margin-right: 15px;
+}
 .connected {
   color: #fff;
   font-size: 16px;
@@ -104,17 +156,13 @@
   margin-top: 7px;
   margin-left: 5px;
 }
-
-.header__logo {
-  margin-right: 10px;
-}
-
 /* HowTo */
 .howTo__infograph {
   width: 25em;
   margin-top: 7%;
   margin-right: 20%;
 }
+
 
 /* Landing */
 .landing__bg {
@@ -138,7 +186,7 @@
 }
 
 /* MyPositions MyTransactions */
-.link__token-address: {
+.link__token-address {
   color: #114770;
   text-decoration: none;
 }
@@ -174,6 +222,16 @@
   font-family: 'IBM Plex Sans', sans-serif;
 }
 /* Portfolio */
+#portfolio{
+  text-align:center;
+}
+/* Table */
 .table-container{
-  
+  text-align:left;
+  width:80%;
+  display:inline-block;
+  margin: 2em;
+}
+.table-container th{
+  width:100%;
 }

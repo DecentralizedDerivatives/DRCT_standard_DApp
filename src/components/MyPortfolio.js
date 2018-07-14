@@ -64,7 +64,7 @@ export class MyPortfolio extends Component {
 
   render() {
     return (
-      <div>
+      <div id="portfolio">
         <MyPositions onRowClick={this.handleRowClick.bind(this)} />
         <MyTransactions onRowClick={this.handleRowClick.bind(this)} />
 

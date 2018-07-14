@@ -38,73 +38,47 @@ export class Header extends Component {
 
   render() {
     return (
-      <div>
-        <Navbar className="bg-dark" dark expand="md">
-          <NavbarBrand href="/">
-            <img
-              className="header__logo"
-              src="./dda-logo.png"
-              alt="logo"
-              height="30px"
-              width="30px"
-            />
-            DRCT
-          </NavbarBrand>
-          <NavbarToggler onClick={this.toggle} />
-          <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="ml-auto" navbar>
-              <NavItem>
-                <Link className="nav-link" to="/portfolio">Portfolio</Link>
-              </NavItem>
-              <NavItem>
-                <Link className="nav-link" to="/bulletin">Bulletin</Link>
-              </NavItem>
-              <NavItem>
-                <Link className="nav-link" to="/how-to">How To</Link>
-              </NavItem>
-              {/* <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>
-                  More
-                </DropdownToggle>
-                <DropdownMenu right>
-                  <DropdownItem>
-                    <NavLink href="/buy/">Buy</NavLink>
-                  </DropdownItem>
-                  <DropdownItem>
-                    <NavLink href="/list/">List</NavLink>
-                  </DropdownItem>
-                  <DropdownItem>
-                    <NavLink href="/unlist/">Unlist</NavLink>
-                  </DropdownItem>
-                  <DropdownItem divider />
-                  <DropdownItem>
-                    <NavLink href="/create-contract/">Create Contract</NavLink>
-                  </DropdownItem>
-                </DropdownMenu>
-              </UncontrolledDropdown> */}
-              <NavItem>
-                {this.props.isConnected && (
-                  <div className="connected">
-                    Connected
+      <nav id="header-nav">
+        <Link to="/">
+          <img
+            className="nav-logo"
+            src="./dda-logo.png"
+            alt="logo"
+            height="30px"
+            width="30px"
+          />
+        </Link>
+        <ul>
+          <li>
+            <Link className="nav-link" to="/portfolio">Portfolio</Link>
+          </li>
+          <li>
+            <Link className="nav-link" to="/bulletin">Bulletin</Link>
+          </li>
+          <li>
+            <Link className="nav-link" to="/how-to">How To</Link>
+          </li>
+        </ul>
+        <div className="connection-status">
+          {this.props.isConnected && (
+            <div className="connected">
+              Connected
                     <span style={{ color: 'green', paddingLeft: '5px' }}>
-                      <i className="fas fa-circle" />
-                    </span>
-                  </div>
-                )}
+                <i className="fas fa-circle" />
+              </span>
+            </div>
+          )}
 
-                {!this.props.isConnected && (
-                  <div className="connected">
-                    Not Connected
+          {!this.props.isConnected && (
+            <div className="connected">
+              Not Connected
                     <span style={{ color: 'red', paddingLeft: '5px' }}>
-                      <i className="fas fa-circle" />
-                    </span>
-                  </div>
-                )}
-              </NavItem>
-            </Nav>
-          </Collapse>
-        </Navbar>
-      </div>
+                <i className="fas fa-circle" />
+              </span>
+            </div>
+          )}
+        </div>
+      </nav>
     );
   }
 }
