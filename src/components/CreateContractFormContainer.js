@@ -17,6 +17,7 @@ export const CreateContractFormContainer = props => {
   return (
     <CreateContractFormComponent
       formValues={props.formValues}
+      contractDates={props.contractDates}
       onCurrencyChange={onCurrencyChange}
       onSubmit={submitForm}
       handleSubmit={props.handleSubmit}
@@ -26,7 +27,8 @@ export const CreateContractFormContainer = props => {
 
 const mapStateToProps = state => ({
   formValues: getFormValues('create-contract')(state),
-  userAccount: state.user.userAccount
+  userAccount: state.user.userAccount,
+  contractDates: state.contract.contractOpenDates
 });
 
 const formConfiguration = {

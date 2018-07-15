@@ -203,12 +203,8 @@ export const sendCreateContractOrder = (
   dispatch(setProcessing(true));
 
   const { duration, currency, startDate, amount } = formValues;
-  console.log('Form Values': formValues);
-
   try {
-    const factory = await Factory.at(
-      '0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642'
-    );
+    const factory = await Factory.at(currency);
 
     let date = Math.floor(new Date(startDate).getTime() / 1000);
     date = date - (date % 86400);
