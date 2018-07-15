@@ -203,6 +203,7 @@ export const sendCreateContractOrder = (
   dispatch(setProcessing(true));
 
   const { duration, currency, startDate, amount } = formValues;
+  console.log('Form Values': formValues);
 
   try {
     const factory = await Factory.at(

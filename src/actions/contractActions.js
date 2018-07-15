@@ -12,7 +12,7 @@ export const getContractDetails = () => async dispatch => {
   dispatch(setProcessing(true));
   try {
     const factory = await Factory.at(
-      '0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642'
+      '0x8822b11262fb2f6c201e6fed8a3098b32851cc42'
     );
 
     const response = await factory.getVariables();
@@ -41,7 +41,7 @@ export const getOrderBook = () => async dispatch => {
   dispatch(setProcessing(true));
   try {
     const factory = await Factory.at(
-      '0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642'
+      '0x8822b11262fb2f6c201e6fed8a3098b32851cc42'
     );
 
     // first get number of open books (tokens with open orders):
@@ -132,6 +132,7 @@ export const getContractOpenDates = (address) => async dispatch => {
   dispatch(setProcessing(true));
   try {
     const factory = await Factory.at(address);
+    console.log(factory);
     let openDates = [];
     const numDates = await factory.getDateCount();
 
@@ -143,7 +144,7 @@ export const getContractOpenDates = (address) => async dispatch => {
         date.getUTCFullYear();
       openDates.push(date);
     }
-
+    console.log('opens',openDates);
     dispatch({
       type: SET_CONTRACT_OPEN_DATES,
       payload: openDates

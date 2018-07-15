@@ -8,7 +8,7 @@ import CreateContractFormComponent from './CreateContractFormComponent';
 export const CreateContractFormContainer = props => {
   const submitForm = formValues => {
     console.log('submitting Form: ', formValues);
-    props.sendCreateContractOrder(formValues, this.props.userAccount);
+    props.sendCreateContractOrder(formValues, props.userAccount);
   };
   const onCurrencyChange = async (evt) => {
     var address = evt.target.value;
