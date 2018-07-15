@@ -9,6 +9,7 @@ export const CreateContractFormComponent = ({
   handleSubmit,
   onSubmit,
   formValues,
+  contractDates,
   onCurrencyChange
 }) => {
   return (
@@ -42,9 +43,7 @@ export const CreateContractFormComponent = ({
             name="startDate"
             label="Start Date"
             component={Select}
-            options={{
-              '1531440000': 1531440000
-            }} 
+            options={contractDates} 
           />
         </InputGroup>
 

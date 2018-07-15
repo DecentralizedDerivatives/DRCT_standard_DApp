@@ -132,7 +132,7 @@ export const getContractOpenDates = (address) => async dispatch => {
   dispatch(setProcessing(true));
   try {
     const factory = await Factory.at(address);
-    console.log(factory);
+    // console.log(factory);
     let openDates = [];
     const numDates = await factory.getDateCount();
 
@@ -144,7 +144,7 @@ export const getContractOpenDates = (address) => async dispatch => {
         date.getUTCFullYear();
       openDates.push(date);
     }
-    console.log('opens',openDates);
+    // console.log('opens',openDates);
     dispatch({
       type: SET_CONTRACT_OPEN_DATES,
       payload: openDates
