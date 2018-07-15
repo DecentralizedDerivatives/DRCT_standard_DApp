@@ -14,7 +14,7 @@ const initialState = {
   orderDetails: '',
   buy: {
     id: '',
-    orderID: ''
+    orderId: ''
   },
   buyOrderError: null,
   list: {
@@ -29,7 +29,7 @@ const initialState = {
   listOrderApproveError: null,
   unlist: {
     id: '',
-    orderID: ''
+    orderId: ''
   },
   unlistOrderError: null
 };

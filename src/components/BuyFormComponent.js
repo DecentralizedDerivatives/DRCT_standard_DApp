@@ -16,7 +16,7 @@ export const BuyFormComponent = ({
       <form onSubmit={handleSubmit(onSubmit)}>
         <InputGroup>
           <Field
-            name="orderID"
+            name="orderId"
             label="Select Order to Buy"
             component={InputText}
           />

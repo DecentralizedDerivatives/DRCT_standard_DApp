@@ -7,20 +7,13 @@ import { getOrderBook } from '../actions/contractActions';
 // Use named export for unconnected component for testing
 export class OrderBook extends Component {
   renderRows = () => {
-    this.props.orderbook.map(order => {
-      const { orderId, address, price, quantity, date } = order;
-
-      let symbol = 'BTC/USD'; /*CURRENTLY USING STATIC SYMBOL NEED TO FIX*/
-
+    var rows = this.props.orderbook.map(order => {
+      const { orderId, address, price, quantity, date, symbol } = order;
       return (
-        <tr>
+        <tr key={orderId} onClick={this.props.onRowClick.bind(this, address, symbol)}>
           <td>{orderId}</td>
           <td>
-            <a
-              className="link__token-address"
-              onClick={this.onRowClick}
-              data-token-address={address}
-            >
+            <a className="link__token-address">
               <span>
                 {symbol} - {this.props.contractDuration} Days -{' '}
                 {this.props.contractMultiplier}X
@@ -33,6 +26,7 @@ export class OrderBook extends Component {
         </tr>
       );
     });
+    return rows;
   };
 
   render() {

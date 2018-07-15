@@ -19,7 +19,7 @@ export class Buy extends Component {
   }
 
   async componentDidMount() {
-    await this.props.getOrderDetails(this.props.orderID);
+    await this.props.getOrderDetails(this.props.orderId);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -70,14 +70,14 @@ export class Buy extends Component {
 
 Buy.propTypes = {
   getOrderDetails: PropTypes.func.isRequired,
-  orderID: PropTypes.string.isRequired,
+  orderId: PropTypes.string.isRequired,
   userAccount: PropTypes.string.isRequired,
   buyOrderTx: PropTypes.string.isRequired,
   buyOrderError: PropTypes.string
 };
 
 const mapStateToProps = state => ({
-  orderID: state.order.buy.orderID,
+  orderId: state.order.buy.orderId,
   userAccount: state.user.userAccount,
   buyOrderTx: state.order.buy.id,
   buyOrderError: state.order.buyOrderError
