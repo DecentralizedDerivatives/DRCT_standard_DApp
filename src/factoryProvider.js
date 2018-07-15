@@ -30,6 +30,13 @@ function factories (flatten) {
   return items
 }
 
+function getFromSymbol (symbol) {
+  var provider = items.filter(item => item.symbol === symbol);
+  if (provider && provider.length > 0) { return provider[0]; }
+  return null;
+}
+
 module.exports.symbols = symbols
 module.exports.addresses = addresses
 module.exports.factories = factories
+module.exports.getFromSymbol = getFromSymbol
