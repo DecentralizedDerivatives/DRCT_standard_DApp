@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Highcharts from 'highcharts/highstock';
-import api from '../api';
+import { getPriceChartData } from '../actions/dataActions';
 require('highcharts/modules/exporting')(Highcharts);
 
 Highcharts.setOptions({
@@ -81,19 +82,21 @@ class PriceChart extends Component {
     this.fetchData('btc');
   }
 
-  // TODO:Move into action
   fetchData = async type => {
-    const data = await api[type].get();
-    this.setState({ data }, () => {
-      this.createChart();
-    });
+    await this.props.getPriceChartData(type);
+    
+    if (this.props.pricechart) {
+      this.createChart(type);
+    }
+    
+    
   };
 
   createChart = type => {
     Highcharts.stockChart('container', {
       series: [
         {
-          data: this.state.data,
+          data: this.props.pricechart,
           tooltip: {
             valueDecimals: 2
           },
@@ -135,4 +138,8 @@ class PriceChart extends Component {
   }
 }
 
-export default PriceChart;
+const mapStateToProps = state => ({
+  pricechart: state.data.pricechart
+});
+
+export default connect(mapStateToProps, { getPriceChartData })(PriceChart);

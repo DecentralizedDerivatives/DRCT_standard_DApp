@@ -5,6 +5,7 @@ import contractReducer from './contractReducer';
 import selectedReducer from './selectedReducer';
 import orderReducer from './orderReducer';
 import statusReducer from './statusReducer';
+import dataReducer from './dataReducer';
 
 export default combineReducers({
   user: userReducer,
@@ -12,5 +13,6 @@ export default combineReducers({
   selected: selectedReducer,
   order: orderReducer,
   status: statusReducer,
-  form: formReducer
+  form: formReducer,
+  data: dataReducer
 });
