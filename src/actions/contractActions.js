@@ -8,6 +8,8 @@ import {
   SET_RECENT_TRADES
 } from './types';
 
+import FactoryProvider from '../factoryProvider';
+
 export const getContractDetails = () => async dispatch => {
   dispatch(setProcessing(true));
   try {
@@ -40,25 +42,30 @@ export const getContractDetails = () => async dispatch => {
 export const getOrderBook = () => async dispatch => {
   dispatch(setProcessing(true));
   try {
-    const factory = await Factory.at(
-      '0x8822b11262fb2f6c201e6fed8a3098b32851cc42'
-    );
-
     // first get number of open books (tokens with open orders):
     let exchange = await Exchange.deployed();
     let numBooks = await exchange.getBookCount();
-
+    var factories = FactoryProvider.factories();
     // get orders for that book:
     let _allrows = [];
     let order;
     for (let i = 0; i < numBooks; i++) {
       let book = await exchange.openBooks(i);
+      console.log('book', book)
+      let date = null;
+      for (var p = 0; p < factories.length; p++) {
+        const factory = await Factory.at(factories[p].address);
+        let tokenDate = await factory.token_dates.call(book);
+        if (tokenDate.c && tokenDate.c.length > 0 && tokenDate.c[0] !== 0) {
+          date = tokenDate.c[0];
+          break;
+        }
+      }
       let orders = await exchange.getOrders(book);
       for (let j = 0; j < orders.length; j++) {
         if (orders[j].c[0] > 0) {
           order = await exchange.getOrder(orders[j].c[0]);
-          let date = await factory.token_dates.call(book);
-
+          console.log('Order', order);
           date = new Date(date * 1000);
           let orderDate =
             date.getUTCMonth() +
