@@ -23,7 +23,7 @@ export class Buy extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.buyOrderError !== 'null') {
+    if (nextProps.buyOrderError !== null) {
       this.setState({
         resultsMessage: `Error: ${this.props.buyOrderError}`,
         formOpen: false
