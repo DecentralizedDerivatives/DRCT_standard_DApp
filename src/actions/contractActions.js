@@ -133,16 +133,16 @@ export const getContractOpenDates = (address) => async dispatch => {
   try {
     const factory = await Factory.at(address);
     // console.log(factory);
-    let openDates = [];
+    let openDates = {};
     const numDates = await factory.getDateCount();
 
     for (let i = 0; i < numDates; i++) {
-      const startDates = (await factory.startDates.call(i)).c[0];
-      let date = new Date(startDates * 1000);
-      date = date.getUTCMonth() + 1 + '/' +
-        date.getUTCDate() + '/' +
-        date.getUTCFullYear();
-      openDates.push(date);
+      const startDate = (await factory.startDates.call(i)).c[0];
+      let formattedDate = new Date(startDate * 1000);
+      formattedDate = formattedDate.getUTCMonth() + 1 + '/' +
+        formattedDate.getUTCDate() + '/' +
+        formattedDate.getUTCFullYear();
+      openDates[startDate] = formattedDate;
     }
     // console.log('opens',openDates);
     dispatch({
