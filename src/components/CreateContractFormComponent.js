@@ -3,15 +3,13 @@ import { Field } from 'redux-form';
 import { InputGroup, InputGroupAddon } from 'reactstrap';
 import InputNumber from './InputNumber';
 import Select from './Select.js';
-import Datepicker from './datepicker';
 import { factories } from '../factoryProvider';
 
 export const CreateContractFormComponent = ({
   handleSubmit,
   onSubmit,
   formValues,
-  onCurrencyChange,
-  change
+  onCurrencyChange
 }) => {
   return (
       <form onSubmit={handleSubmit(onSubmit)} className="create-contract-form">
@@ -39,12 +37,14 @@ export const CreateContractFormComponent = ({
             onChange={onCurrencyChange}
           />
         </InputGroup>
-        <InputGroup className="form-date">
+        <InputGroup className="form-dropdown">
           <Field
             name="startDate"
             label="Start Date"
-            component={Datepicker}
-            change={change}
+            component={Select}
+            options={{
+              '1531440000': 1531440000
+            }} 
           />
         </InputGroup>
 

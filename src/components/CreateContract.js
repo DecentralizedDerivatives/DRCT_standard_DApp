@@ -106,6 +106,7 @@ CreateContract.propTypes = {
   createContractAmount: PropTypes.number
 };
 
+
 const mapStateToProps = state => ({
   userAccount: state.user.userAccount,
   newContractAmount: state.contract.newContract.amount,
