@@ -17,10 +17,20 @@ export const checkUserConnection = () => async dispatch => {
       type: SET_CONNECTION_STATUS,
       payload: {
         metamask: Boolean(accounts.length),
-        network: network
+        network: network,
+        verified: true
       }
     });
   } catch (err) {
+    dispatch({
+      type: SET_CONNECTION_STATUS,
+      payload: {
+        metamask: false,
+        network: 0,
+        verified: true
+      }
+    });
+
     dispatch({
       type: SET_FETCHING_ERROR,
       payload: err.message.split('\n')[0]

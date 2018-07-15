@@ -12,7 +12,10 @@ export default ChildComponent => {
     };
 
     shouldNavigateAway = () => {
-      if (!(this.props.metamask && this.props.network === 4)) {
+      if (
+        !(this.props.metamask && this.props.network === 4) &&
+        this.props.verified
+      ) {
         this.props.history.push('/');
       }
     };
@@ -25,7 +28,8 @@ export default ChildComponent => {
 
   const mapStateToProps = state => ({
     metamask: state.status.connectStatus.metamask,
-    network: state.status.connectStatus.network
+    network: state.status.connectStatus.network,
+    verified: state.status.connectStatus.verified
   });
 
   return connect(mapStateToProps)(ComposedComponent);

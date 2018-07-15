@@ -22,7 +22,7 @@ export class Unlist extends Component {
   // }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.unlistOrderError !== 'null') {
+    if (nextProps.unlistOrderError !== null) {
       this.setState({
         resultsMessage: `Error: ${this.props.unlistOrderError}`,
         formOpen: false

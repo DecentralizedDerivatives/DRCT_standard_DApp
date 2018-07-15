@@ -8,7 +8,8 @@ import {
 const initialState = {
   connectStatus: {
     metamask: false,
-    network: 0
+    network: 0,
+    verified: false
   },
   isConnectModalOpen: false,
   isProcessing: false,

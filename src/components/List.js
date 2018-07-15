@@ -15,21 +15,24 @@ export class List extends Component {
       approvalOpen: false,
       resultsMessage: ''
     };
+
+    this.toggleFormVisibility = this.toggleFormVisibility.bind(this);
   }
+
   async componentDidMount() {
     await this.props.getUserTokenPositions(this.props.userAccount);
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.listOrderError !== 'null') {
+    if (nextProps.listOrderError !== null) {
       this.setState({
         resultsMessage: `Error: ${this.props.listOrderError}`,
         approvalOpen: false,
         formOpen: false
       });
-    } else if (nextProps.listOrder.id) {
+    } else if (nextProps.listOrderId) {
       this.setState({
-        resultsMessage: `List Order result ${this.props.listOrder.id}`,
+        resultsMessage: `List Order result ${this.props.listOrderId}`,
         approvalOpen: true,
         formOpen: false
       });
@@ -39,7 +42,7 @@ export class List extends Component {
         sendFundsOpen: false,
         formOpen: false
       });
-    } else if (this.props.listOrder.approved) {
+    } else if (this.props.listOrderApproved) {
       this.setState({
         resultsMessage: `Order approval confirmed`,
         sendFundsOpen: false,
