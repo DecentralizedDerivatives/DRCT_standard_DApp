@@ -24,7 +24,8 @@ describe('userReducer', () => {
     cashOut: {
       id: '',
       amount: 0
-    }
+    },
+    cashOutError: null
   };
 
   describe('initialState', () => {
