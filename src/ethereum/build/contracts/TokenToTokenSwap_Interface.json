@@ -24,25 +24,25 @@
   "deployedBytecode": "0x",
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "pragma solidity ^0.4.21;\r\n\r\n//Swap interface- descriptions can be found in TokenToTokenSwap.sol\r\ninterface TokenToTokenSwap_Interface {\r\n  function createSwap(uint _amount, address _senderAdd) external;\r\n}\r\n",
+  "source": "pragma solidity ^0.4.24;\r\n\r\n//Swap interface- descriptions can be found in TokenToTokenSwap.sol\r\ninterface TokenToTokenSwap_Interface {\r\n  function createSwap(uint _amount, address _senderAdd) external;\r\n}\r\n",
   "sourcePath": "C:\\company\\code\\drct_standard\\contracts\\interfaces\\TokenToTokenSwap_Interface.sol",
   "ast": {
     "absolutePath": "/C/company/code/drct_standard/contracts/interfaces/TokenToTokenSwap_Interface.sol",
     "exportedSymbols": {
       "TokenToTokenSwap_Interface": [
-        3355
+        3716
       ]
     },
-    "id": 3356,
+    "id": 3717,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 3347,
+        "id": 3708,
         "literals": [
           "solidity",
           "^",
           "0.4",
-          ".21"
+          ".24"
         ],
         "nodeType": "PragmaDirective",
         "src": "0:24:19"
@@ -53,9 +53,9 @@
         "contractKind": "interface",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 3355,
+        "id": 3716,
         "linearizedBaseContracts": [
-          3355
+          3716
         ],
         "name": "TokenToTokenSwap_Interface",
         "nodeType": "ContractDefinition",
@@ -63,7 +63,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 3354,
+            "id": 3715,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -71,15 +71,15 @@
             "name": "createSwap",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 3352,
+              "id": 3713,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3349,
+                  "id": 3710,
                   "name": "_amount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3354,
+                  "scope": 3715,
                   "src": "159:12:19",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -88,7 +88,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 3348,
+                    "id": 3709,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "159:4:19",
@@ -102,10 +102,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 3351,
+                  "id": 3712,
                   "name": "_senderAdd",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3354,
+                  "scope": 3715,
                   "src": "173:18:19",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -114,7 +114,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 3350,
+                    "id": 3711,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "173:7:19",
@@ -131,19 +131,19 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 3353,
+              "id": 3714,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "201:0:19"
             },
-            "scope": 3355,
+            "scope": 3716,
             "src": "139:63:19",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "external"
           }
         ],
-        "scope": 3356,
+        "scope": 3717,
         "src": "97:108:19"
       }
     ],
@@ -153,19 +153,19 @@
     "absolutePath": "/C/company/code/drct_standard/contracts/interfaces/TokenToTokenSwap_Interface.sol",
     "exportedSymbols": {
       "TokenToTokenSwap_Interface": [
-        3355
+        3716
       ]
     },
-    "id": 3356,
+    "id": 3717,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 3347,
+        "id": 3708,
         "literals": [
           "solidity",
           "^",
           "0.4",
-          ".21"
+          ".24"
         ],
         "nodeType": "PragmaDirective",
         "src": "0:24:19"
@@ -176,9 +176,9 @@
         "contractKind": "interface",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 3355,
+        "id": 3716,
         "linearizedBaseContracts": [
-          3355
+          3716
         ],
         "name": "TokenToTokenSwap_Interface",
         "nodeType": "ContractDefinition",
@@ -186,7 +186,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 3354,
+            "id": 3715,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -194,15 +194,15 @@
             "name": "createSwap",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 3352,
+              "id": 3713,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3349,
+                  "id": 3710,
                   "name": "_amount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3354,
+                  "scope": 3715,
                   "src": "159:12:19",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -211,7 +211,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 3348,
+                    "id": 3709,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "159:4:19",
@@ -225,10 +225,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 3351,
+                  "id": 3712,
                   "name": "_senderAdd",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3354,
+                  "scope": 3715,
                   "src": "173:18:19",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -237,7 +237,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 3350,
+                    "id": 3711,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "173:7:19",
@@ -254,19 +254,19 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 3353,
+              "id": 3714,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "201:0:19"
             },
-            "scope": 3355,
+            "scope": 3716,
             "src": "139:63:19",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "external"
           }
         ],
-        "scope": 3356,
+        "scope": 3717,
         "src": "97:108:19"
       }
     ],
@@ -278,5 +278,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-06-06T00:18:20.281Z"
+  "updatedAt": "2018-07-16T15:23:55.419Z"
 }

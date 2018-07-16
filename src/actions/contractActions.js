@@ -41,7 +41,9 @@ export const getOrderBook = () => async dispatch => {
   dispatch(setProcessing(true));
   try {
     // first get number of open books (tokens with open orders):
-    let exchange = await Exchange.deployed();
+        var static_addresses = FactoryProvider.get_static_addresses();
+        console.log(static_addresses);
+    const exchange = await Exchange.at(static_addresses.exchange);
     let numBooks = await exchange.getBookCount();
     var factories = FactoryProvider.factories();
     // get orders for that book:
@@ -102,7 +104,8 @@ export const getOrderBook = () => async dispatch => {
 export const getRecentTrades = () => async dispatch => {
   dispatch(setProcessing(true));
   try {
-    const exchange = await Exchange.deployed();
+        var static_addresses = FactoryProvider.get_static_addresses();
+    const exchange = await Exchange.at(static_addresses.exchange);
 
     let transferEvent = await exchange.Sale(
       {},

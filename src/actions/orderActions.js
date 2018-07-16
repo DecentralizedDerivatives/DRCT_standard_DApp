@@ -30,7 +30,8 @@ export const getOrderDetails = orderId => async dispatch => {
       return dispatch({type: SET_ORDER_DETAILS, payload: ''});
     }
     var factories = FactoryProvider.factories();
-    const exchange = await Exchange.deployed();
+    var static_addresses = FactoryProvider.get_static_addresses();
+    const exchange = await Exchange.at(static_addresses.exchange);
     let order = await exchange.getOrder(orderId);
     let _allrows = [];
     for (var i = 0; i < factories.length; i++) {
@@ -81,7 +82,8 @@ export const sendBuyOrder = (orderId, account) => async dispatch => {
   dispatch(setProcessing(true));
 
   try {
-    const exchange = await Exchange.deployed();
+        var static_addresses = FactoryProvider.get_static_addresses();
+    const exchange = await Exchange.at(static_addresses.exchange);
     const order = await exchange.getOrder(orderId);
     const _value = order[1];
     const response = await exchange.buy(order, {
@@ -110,7 +112,8 @@ export const sendUnlistOrder = (orderId, account) => async dispatch => {
   dispatch(setProcessing(true));
 
   try {
-    const exchange = await Exchange.deployed();
+        var static_addresses = FactoryProvider.get_static_addresses();
+    const exchange = await Exchange.at(static_addresses.exchange);
     const response = await exchange.unlist(orderId, {
       from: account,
       gas: 4000000
@@ -139,7 +142,8 @@ export const sendListOrder = (formValues, account) => async dispatch => {
   let { token, price, amount } = formValues;
 
   try {
-    const exchange = await Exchange.deployed();
+        var static_addresses = FactoryProvider.get_static_addresses();
+    const exchange = await Exchange.at(static_addresses.exchange);
 
     const response = await exchange.list(token, amount, price * 1e18, {
       from: account,
@@ -171,7 +175,8 @@ export const sendApproveOrder = (approveDetails, account) => async dispatch => {
   let { selectedToken, amount } = approveDetails;
 
   try {
-    const exchange = await Exchange.deployed();
+        var static_addresses = FactoryProvider.get_static_addresses();
+    const exchange = await Exchange.at(static_addresses.exchange);
 
     selectedToken = selectedToken.split('(')[0].replace(/['"]+/g, '');
 
@@ -245,7 +250,7 @@ export const sendSendFundsOrder = (
 
   try {
     const factory = await Factory.at(
-      '0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642'
+      '0x8822b11262fb2f6c201e6fed8a3098b32851cc42'
     );
 
     let uc_add = await factory.user_contract.call();
@@ -253,7 +258,7 @@ export const sendSendFundsOrder = (
 
     let _value = 1e18 * createContractAmount;
 
-    const response = userContract.Initiate(newContractAddress, _value, {
+    const response = await userContract.Initiate("0x433da4ce71a89a5c09c96c06d2431f17718c256d", _value, {
       from: account,
       gas: 4000000,
       value: _value * 2
