@@ -145,8 +145,8 @@
       "type": "function"
     }
   ],
-  "bytecode": "0x608060405234801561001057600080fd5b50336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506001600090806001815401808255809150509060018203906000526020600020016000909192909190916101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050610ac4806100c76000396000f300608060405260043610610083576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806313af4035146100885780632e6ccbf6146100cb5780634b37c73f146101385780635bb478081461017b5780637ff25bbb146101be578063bff18c7814610215578063d10474341461026c575b600080fd5b34801561009457600080fd5b506100c9600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610297565b005b3480156100d757600080fd5b506100f660048036038101908080359060200190929190505050610335565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561014457600080fd5b50610179600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610378565b005b34801561018757600080fd5b506101bc600480360381019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506105f5565b005b3480156101ca57600080fd5b506101ff600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610694565b6040518082815260200191505060405180910390f35b34801561022157600080fd5b5061022a6106ac565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561027857600080fd5b50610281610903565b6040518082815260200191505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156102f257600080fd5b806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050565b600060018281548110151561034657fe5b9060005260206000200160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff169050919050565b60008060008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156103d857600080fd5b600073ffffffffffffffffffffffffffffffffffffffff168473ffffffffffffffffffffffffffffffffffffffff161415801561045557506000600360008673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000205414155b151561046057600080fd5b600360008573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000205492506104ba6001808054905061091290919063ffffffff16565b91506001828154811015156104cb57fe5b9060005260206000200160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1690508060018481548110151561050857fe5b9060005260206000200160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555082600360008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000208190555060018054809190600190036105a99190610a47565b506000600360008673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000208190555050505050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561065057600080fd5b80600260006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050565b60036020528060005260406000206000915090505481565b6000806000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561070a57600080fd5b610735600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1661092b565b9050600180549050600360008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000208190555060018190806001815401808255809150509060018203906000526020600020016000909192909190916101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550508073ffffffffffffffffffffffffffffffffffffffff166319ab453c336040518263ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001915050600060405180830381600087803b15801561088157600080fd5b505af1158015610895573d6000803e3d6000fd5b505050507fa9a8b2f8fb6763e00282add661bca3f2b49006e30222824c36a47a3de1f6b25881604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390a18091505090565b60006001808054905003905090565b600082821115151561092057fe5b818303905092915050565b60006060600080606060405190810160405280603f81526020017f600034603b57603080600f833981f36000368180378080368173bebebebebebe81526020017fbebebebebebebebebebebebebebe5af43d82803e15602c573d90f35b3d90fd008152509250846c01000000000000000000000000029150600090505b6014811015610a305781816014811015156109bf57fe5b1a7f0100000000000000000000000000000000000000000000000000000000000000028382601a018151811015156109f357fe5b9060200101907effffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff1916908160001a90535080806001019150506109a8565b82516020840181816000f095505050505050919050565b815481835581811115610a6e57818360005260206000209182019101610a6d9190610a73565b5b505050565b610a9591905b80821115610a91576000816000905550600101610a79565b5090565b905600a165627a7a72305820cb786a3f5d81f1618120a3204f368420d69aac85062632e2e8b20195d766b7bd0029",
-  "deployedBytecode": "0x608060405260043610610083576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806313af4035146100885780632e6ccbf6146100cb5780634b37c73f146101385780635bb478081461017b5780637ff25bbb146101be578063bff18c7814610215578063d10474341461026c575b600080fd5b34801561009457600080fd5b506100c9600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610297565b005b3480156100d757600080fd5b506100f660048036038101908080359060200190929190505050610335565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561014457600080fd5b50610179600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610378565b005b34801561018757600080fd5b506101bc600480360381019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506105f5565b005b3480156101ca57600080fd5b506101ff600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610694565b6040518082815260200191505060405180910390f35b34801561022157600080fd5b5061022a6106ac565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561027857600080fd5b50610281610903565b6040518082815260200191505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156102f257600080fd5b806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050565b600060018281548110151561034657fe5b9060005260206000200160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff169050919050565b60008060008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156103d857600080fd5b600073ffffffffffffffffffffffffffffffffffffffff168473ffffffffffffffffffffffffffffffffffffffff161415801561045557506000600360008673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000205414155b151561046057600080fd5b600360008573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000205492506104ba6001808054905061091290919063ffffffff16565b91506001828154811015156104cb57fe5b9060005260206000200160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1690508060018481548110151561050857fe5b9060005260206000200160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555082600360008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000208190555060018054809190600190036105a99190610a47565b506000600360008673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000208190555050505050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561065057600080fd5b80600260006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050565b60036020528060005260406000206000915090505481565b6000806000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561070a57600080fd5b610735600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1661092b565b9050600180549050600360008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000208190555060018190806001815401808255809150509060018203906000526020600020016000909192909190916101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550508073ffffffffffffffffffffffffffffffffffffffff166319ab453c336040518263ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001915050600060405180830381600087803b15801561088157600080fd5b505af1158015610895573d6000803e3d6000fd5b505050507fa9a8b2f8fb6763e00282add661bca3f2b49006e30222824c36a47a3de1f6b25881604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390a18091505090565b60006001808054905003905090565b600082821115151561092057fe5b818303905092915050565b60006060600080606060405190810160405280603f81526020017f600034603b57603080600f833981f36000368180378080368173bebebebebebe81526020017fbebebebebebebebebebebebebebe5af43d82803e15602c573d90f35b3d90fd008152509250846c01000000000000000000000000029150600090505b6014811015610a305781816014811015156109bf57fe5b1a7f0100000000000000000000000000000000000000000000000000000000000000028382601a018151811015156109f357fe5b9060200101907effffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff1916908160001a90535080806001019150506109a8565b82516020840181816000f095505050505050919050565b815481835581811115610a6e57818360005260206000209182019101610a6d9190610a73565b5b505050565b610a9591905b80821115610a91576000816000905550600101610a79565b5090565b905600a165627a7a72305820cb786a3f5d81f1618120a3204f368420d69aac85062632e2e8b20195d766b7bd0029",
+  "bytecode": "0x608060405234801561001057600080fd5b50336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506001600090806001815401808255809150509060018203906000526020600020016000909192909190916101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050610ac4806100c76000396000f300608060405260043610610083576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806313af4035146100885780632e6ccbf6146100cb5780634b37c73f146101385780635bb478081461017b5780637ff25bbb146101be578063bff18c7814610215578063d10474341461026c575b600080fd5b34801561009457600080fd5b506100c9600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610297565b005b3480156100d757600080fd5b506100f660048036038101908080359060200190929190505050610335565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561014457600080fd5b50610179600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610378565b005b34801561018757600080fd5b506101bc600480360381019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506105f5565b005b3480156101ca57600080fd5b506101ff600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610694565b6040518082815260200191505060405180910390f35b34801561022157600080fd5b5061022a6106ac565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561027857600080fd5b50610281610903565b6040518082815260200191505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156102f257600080fd5b806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050565b600060018281548110151561034657fe5b9060005260206000200160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff169050919050565b60008060008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156103d857600080fd5b600073ffffffffffffffffffffffffffffffffffffffff168473ffffffffffffffffffffffffffffffffffffffff161415801561045557506000600360008673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000205414155b151561046057600080fd5b600360008573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000205492506104ba6001808054905061091290919063ffffffff16565b91506001828154811015156104cb57fe5b9060005260206000200160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1690508060018481548110151561050857fe5b9060005260206000200160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555082600360008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000208190555060018054809190600190036105a99190610a47565b506000600360008673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000208190555050505050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561065057600080fd5b80600260006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050565b60036020528060005260406000206000915090505481565b6000806000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561070a57600080fd5b610735600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1661092b565b9050600180549050600360008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000208190555060018190806001815401808255809150509060018203906000526020600020016000909192909190916101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550508073ffffffffffffffffffffffffffffffffffffffff166319ab453c336040518263ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001915050600060405180830381600087803b15801561088157600080fd5b505af1158015610895573d6000803e3d6000fd5b505050507fa9a8b2f8fb6763e00282add661bca3f2b49006e30222824c36a47a3de1f6b25881604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390a18091505090565b60006001808054905003905090565b600082821115151561092057fe5b818303905092915050565b60006060600080606060405190810160405280603f81526020017f600034603b57603080600f833981f36000368180378080368173bebebebebebe81526020017fbebebebebebebebebebebebebebe5af43d82803e15602c573d90f35b3d90fd008152509250846c01000000000000000000000000029150600090505b6014811015610a305781816014811015156109bf57fe5b1a7f0100000000000000000000000000000000000000000000000000000000000000028382601a018151811015156109f357fe5b9060200101907effffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff1916908160001a90535080806001019150506109a8565b82516020840181816000f095505050505050919050565b815481835581811115610a6e57818360005260206000209182019101610a6d9190610a73565b5b505050565b610a9591905b80821115610a91576000816000905550600101610a79565b5090565b905600a165627a7a72305820c234b2d8937f4a2c92b6299dea4af441666e6e6bab9c05bc45ace6d714a4abc50029",
+  "deployedBytecode": "0x608060405260043610610083576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806313af4035146100885780632e6ccbf6146100cb5780634b37c73f146101385780635bb478081461017b5780637ff25bbb146101be578063bff18c7814610215578063d10474341461026c575b600080fd5b34801561009457600080fd5b506100c9600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610297565b005b3480156100d757600080fd5b506100f660048036038101908080359060200190929190505050610335565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561014457600080fd5b50610179600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610378565b005b34801561018757600080fd5b506101bc600480360381019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506105f5565b005b3480156101ca57600080fd5b506101ff600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610694565b6040518082815260200191505060405180910390f35b34801561022157600080fd5b5061022a6106ac565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561027857600080fd5b50610281610903565b6040518082815260200191505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156102f257600080fd5b806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050565b600060018281548110151561034657fe5b9060005260206000200160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff169050919050565b60008060008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156103d857600080fd5b600073ffffffffffffffffffffffffffffffffffffffff168473ffffffffffffffffffffffffffffffffffffffff161415801561045557506000600360008673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000205414155b151561046057600080fd5b600360008573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000205492506104ba6001808054905061091290919063ffffffff16565b91506001828154811015156104cb57fe5b9060005260206000200160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1690508060018481548110151561050857fe5b9060005260206000200160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555082600360008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000208190555060018054809190600190036105a99190610a47565b506000600360008673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000208190555050505050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561065057600080fd5b80600260006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050565b60036020528060005260406000206000915090505481565b6000806000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561070a57600080fd5b610735600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1661092b565b9050600180549050600360008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000208190555060018190806001815401808255809150509060018203906000526020600020016000909192909190916101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550508073ffffffffffffffffffffffffffffffffffffffff166319ab453c336040518263ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001915050600060405180830381600087803b15801561088157600080fd5b505af1158015610895573d6000803e3d6000fd5b505050507fa9a8b2f8fb6763e00282add661bca3f2b49006e30222824c36a47a3de1f6b25881604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390a18091505090565b60006001808054905003905090565b600082821115151561092057fe5b818303905092915050565b60006060600080606060405190810160405280603f81526020017f600034603b57603080600f833981f36000368180378080368173bebebebebebe81526020017fbebebebebebebebebebebebebebe5af43d82803e15602c573d90f35b3d90fd008152509250846c01000000000000000000000000029150600090505b6014811015610a305781816014811015156109bf57fe5b1a7f0100000000000000000000000000000000000000000000000000000000000000028382601a018151811015156109f357fe5b9060200101907effffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff1916908160001a90535080806001019150506109a8565b82516020840181816000f095505050505050919050565b815481835581811115610a6e57818360005260206000209182019101610a6d9190610a73565b5b505050565b610a9591905b80821115610a91576000816000905550600101610a79565b5090565b905600a165627a7a72305820c234b2d8937f4a2c92b6299dea4af441666e6e6bab9c05bc45ace6d714a4abc50029",
   "sourceMap": "231:2197:5:-;;;599:65;8:9:-1;5:2;;;30:1;27;20:12;5:2;599:65:5;539:10:0;531:5;;:18;;;;;;;;;;;;;;;;;;625:17:5;656:1;625:34;;39:1:-1;33:3;27:10;23:18;57:10;52:3;45:23;79:10;72:17;;0:93;625:34:5;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;231:2197;;;;;;",
   "deployedSourceMap": "231:2197:5:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;687:85:0;;8:9:-1;5:2;;;30:1;27;20:12;5:2;687:85:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;2311:114:5;;8:9:-1;5:2;;;30:1;27;20:12;5:2;2311:114:5;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1402:485;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1402:485:5;;;;;;;;;;;;;;;;;;;;;;;;;;;;766:84;;8:9:-1;5:2;;;30:1;27;20:12;5:2;766:84:5;;;;;;;;;;;;;;;;;;;;;;;;;;;;392:45;;8:9:-1;5:2;;;30:1;27;20:12;5:2;392:45:5;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1009:290;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1009:290:5;;;;;;;;;;;;;;;;;;;;;;;;;;;1997:101;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1997:101:5;;;;;;;;;;;;;;;;;;;;;;;687:85:0;443:5;;;;;;;;;;;429:19;;:10;:19;;;421:28;;;;;;;;758:6;750:5;;:14;;;;;;;;;;;;;;;;;;687:85;:::o;2311:114:5:-;2375:7;2395:17;2413:6;2395:25;;;;;;;;;;;;;;;;;;;;;;;;;;;2388:32;;2311:114;;;:::o;1402:485::-;1534:14;1585:24;1654:19;443:5:0;;;;;;;;;;;429:19;;:10;:19;;;421:28;;;;;;;;1494:1:5;1474:22;;:8;:22;;;;:54;;;;;1527:1;1500:13;:23;1514:8;1500:23;;;;;;;;;;;;;;;;:28;;1474:54;1466:63;;;;;;;;1551:13;:23;1565:8;1551:23;;;;;;;;;;;;;;;;1534:40;;1612:31;1641:1;1612:17;:24;;;;:28;;:31;;;;:::i;:::-;1585:58;;1676:17;1694:16;1676:35;;;;;;;;;;;;;;;;;;;;;;;;;;;1654:57;;1750:11;1722:17;1740:6;1722:25;;;;;;;;;;;;;;;;;;:39;;;;;;;;;;;;;;;;;;1801:6;1772:13;:26;1786:11;1772:26;;;;;;;;;;;;;;;:35;;;;1818:17;:26;;;;;;;;;;;;:::i;:::-;;1881:1;1855:13;:23;1869:8;1855:23;;;;;;;;;;;;;;;:27;;;;1402:485;;;;:::o;766:84::-;443:5:0;;;;;;;;;;;429:19;;:10;:19;;;421:28;;;;;;;;837:8:5;827:7;;:18;;;;;;;;;;;;;;;;;;766:84;:::o;392:45::-;;;;;;;;;;;;;;;;;:::o;1009:290::-;1061:7;1074:16;443:5:0;;;;;;;;;;;429:19;;:10;:19;;;421:28;;;;;;;;1093:20:5;1105:7;;;;;;;;;;;1093:11;:20::i;:::-;1074:39;;1144:17;:24;;;;1118:13;:23;1132:8;1118:23;;;;;;;;;;;;;;;:50;;;;1173:17;1196:8;1173:32;;39:1:-1;33:3;27:10;23:18;57:10;52:3;45:23;79:10;72:17;;0:93;1173:32:5;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1218:8;1210:22;;;1233:10;1210:34;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1210:34:5;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;1210:34:5;;;;1254:20;1265:8;1254:20;;;;;;;;;;;;;;;;;;;;;;1286:8;1279:15;;1009:290;;:::o;1997:101::-;2048:4;2092:1;2065:17;:24;;;;:28;2058:35;;1997:101;:::o;543:113:22:-;601:7;629:1;624;:6;;617:14;;;;;;649:1;645;:5;638:12;;543:113;;;;:::o;911:541:0:-;966:14;993:18;1156:19;1209:6;993:152;;;;;;;;;;;;;;;;;;;;;;;;;1186:6;1178:15;;1156:37;;1218:1;1209:10;;1204:87;1225:2;1221:1;:6;1204:87;;;1265:11;1277:1;1265:14;;;;;;;;;;;;1249:5;1260:1;1255:2;:6;1249:13;;;;;;;;;;;;;;:30;;;;;;;;;;;1229:3;;;;;;;1204:87;;;1342:5;1336:12;1385:4;1378:5;1374:16;1430:3;1424:4;1421:1;1414:20;1404:30;;1310:135;;;;;;;;:::o;231:2197:5:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
   "source": "pragma solidity ^0.4.24;\r\n\r\nimport \"./libraries/SafeMath.sol\";\r\nimport './Factory.sol';\r\nimport \"./CloneFactory.sol\";\r\n\r\n/**\r\n*This contract deploys a factory contract and uses CloneFactory to clone the factory\r\n*specified.\r\n*/\r\n\r\ncontract MasterDeployer is CloneFactory{\r\n    \r\n    using SafeMath for uint256;\r\n\r\n    /*Variables*/\r\n\taddress[] factory_contracts;\r\n\taddress private factory;\r\n\tmapping(address => uint) public factory_index;\r\n\r\n    /*Events*/\r\n\tevent NewFactory(address _factory);\r\n\r\n    /*Functions*/\r\n    /**\r\n    *@dev Initiates the factory_contract array with address(0)\r\n    */\r\n\tconstructor() public {\r\n\t\tfactory_contracts.push(address(0));\r\n\t}\r\n\r\n    /**\r\n    *@dev Set factory address to clone\r\n    *@param _factory address to clone\r\n    */\t\r\n\tfunction setFactory(address _factory) public onlyOwner(){\r\n\t\tfactory = _factory;\r\n\t}\r\n\r\n    /**\r\n    *@dev creates a new factory by cloning the factory specified in setFactory.\r\n    *@return _new_fac which is the new factory address\r\n    */\r\n\tfunction deployFactory() public onlyOwner() returns(address){\r\n\t\taddress _new_fac = createClone(factory);\r\n\t\tfactory_index[_new_fac] = factory_contracts.length;\r\n\t\tfactory_contracts.push(_new_fac);\r\n\t\tFactory(_new_fac).init(msg.sender);\r\n\t\temit NewFactory(_new_fac);\r\n\t\treturn _new_fac;\r\n\t}\r\n\r\n    /**\r\n    *@dev Removes the factory specified\r\n    *@param _factory address to remove\r\n    */\r\n\tfunction removeFactory(address _factory) public onlyOwner(){\r\n\t\trequire(_factory != address(0) && factory_index[_factory] != 0);\r\n\t\tuint256 fIndex = factory_index[_factory];\r\n        uint256 lastFactoryIndex = factory_contracts.length.sub(1);\r\n        address lastFactory = factory_contracts[lastFactoryIndex];\r\n        factory_contracts[fIndex] = lastFactory;\r\n        factory_index[lastFactory] = fIndex;\r\n        factory_contracts.length--;\r\n        factory_index[_factory] = 0;\r\n\t}\r\n\r\n    /**\r\n    *@dev Counts the number of factories\r\n    *@returns the number of active factories\r\n    */\r\n\tfunction getFactoryCount() public constant returns(uint){\r\n\t\treturn factory_contracts.length - 1;\r\n\t}\r\n\r\n    /**\r\n    *@dev Returns the factory address for the specified index\r\n    *@param _index for factory to look up in the factory_contracts array\r\n    *@return factory address for the index specified\r\n    */\r\n\tfunction getFactorybyIndex(uint _index) public constant returns(address){\r\n\t\treturn factory_contracts[_index];\r\n\t}\r\n}\r\n",
@@ -155,14 +155,14 @@
     "absolutePath": "/C/company/code/drct_standard/contracts/MasterDeployer.sol",
     "exportedSymbols": {
       "MasterDeployer": [
-        2105
+        2118
       ]
     },
-    "id": 2106,
+    "id": 2119,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1930,
+        "id": 1943,
         "literals": [
           "solidity",
           "^",
@@ -175,10 +175,10 @@
       {
         "absolutePath": "/C/company/code/drct_standard/contracts/libraries/SafeMath.sol",
         "file": "./libraries/SafeMath.sol",
-        "id": 1931,
+        "id": 1944,
         "nodeType": "ImportDirective",
-        "scope": 2106,
-        "sourceUnit": 5074,
+        "scope": 2119,
+        "sourceUnit": 5087,
         "src": "28:34:5",
         "symbolAliases": [],
         "unitAlias": ""
@@ -186,10 +186,10 @@
       {
         "absolutePath": "/C/company/code/drct_standard/contracts/Factory.sol",
         "file": "./Factory.sol",
-        "id": 1932,
+        "id": 1945,
         "nodeType": "ImportDirective",
-        "scope": 2106,
-        "sourceUnit": 1929,
+        "scope": 2119,
+        "sourceUnit": 1942,
         "src": "64:23:5",
         "symbolAliases": [],
         "unitAlias": ""
@@ -197,9 +197,9 @@
       {
         "absolutePath": "/C/company/code/drct_standard/contracts/CloneFactory.sol",
         "file": "./CloneFactory.sol",
-        "id": 1933,
+        "id": 1946,
         "nodeType": "ImportDirective",
-        "scope": 2106,
+        "scope": 2119,
         "sourceUnit": 84,
         "src": "89:28:5",
         "symbolAliases": [],
@@ -211,7 +211,7 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 1934,
+              "id": 1947,
               "name": "CloneFactory",
               "nodeType": "UserDefinedTypeName",
               "referencedDeclaration": 83,
@@ -221,7 +221,7 @@
                 "typeString": "contract CloneFactory"
               }
             },
-            "id": 1935,
+            "id": 1948,
             "nodeType": "InheritanceSpecifier",
             "src": "258:12:5"
           }
@@ -232,32 +232,32 @@
         "contractKind": "contract",
         "documentation": "his contract deploys a factory contract and uses CloneFactory to clone the factory\r\npecified.\r",
         "fullyImplemented": true,
-        "id": 2105,
+        "id": 2118,
         "linearizedBaseContracts": [
-          2105,
+          2118,
           83
         ],
         "name": "MasterDeployer",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
-            "id": 1938,
+            "id": 1951,
             "libraryName": {
               "contractScope": null,
-              "id": 1936,
+              "id": 1949,
               "name": "SafeMath",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 5073,
+              "referencedDeclaration": 5086,
               "src": "289:8:5",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_SafeMath_$5073",
+                "typeIdentifier": "t_contract$_SafeMath_$5086",
                 "typeString": "library SafeMath"
               }
             },
             "nodeType": "UsingForDirective",
             "src": "283:27:5",
             "typeName": {
-              "id": 1937,
+              "id": 1950,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "302:7:5",
@@ -269,10 +269,10 @@
           },
           {
             "constant": false,
-            "id": 1941,
+            "id": 1954,
             "name": "factory_contracts",
             "nodeType": "VariableDeclaration",
-            "scope": 2105,
+            "scope": 2118,
             "src": "334:27:5",
             "stateVariable": true,
             "storageLocation": "default",
@@ -282,7 +282,7 @@
             },
             "typeName": {
               "baseType": {
-                "id": 1939,
+                "id": 1952,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "334:7:5",
@@ -291,7 +291,7 @@
                   "typeString": "address"
                 }
               },
-              "id": 1940,
+              "id": 1953,
               "length": null,
               "nodeType": "ArrayTypeName",
               "src": "334:9:5",
@@ -305,10 +305,10 @@
           },
           {
             "constant": false,
-            "id": 1943,
+            "id": 1956,
             "name": "factory",
             "nodeType": "VariableDeclaration",
-            "scope": 2105,
+            "scope": 2118,
             "src": "365:23:5",
             "stateVariable": true,
             "storageLocation": "default",
@@ -317,7 +317,7 @@
               "typeString": "address"
             },
             "typeName": {
-              "id": 1942,
+              "id": 1955,
               "name": "address",
               "nodeType": "ElementaryTypeName",
               "src": "365:7:5",
@@ -331,10 +331,10 @@
           },
           {
             "constant": false,
-            "id": 1947,
+            "id": 1960,
             "name": "factory_index",
             "nodeType": "VariableDeclaration",
-            "scope": 2105,
+            "scope": 2118,
             "src": "392:45:5",
             "stateVariable": true,
             "storageLocation": "default",
@@ -343,9 +343,9 @@
               "typeString": "mapping(address => uint256)"
             },
             "typeName": {
-              "id": 1946,
+              "id": 1959,
               "keyType": {
-                "id": 1944,
+                "id": 1957,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "400:7:5",
@@ -361,7 +361,7 @@
                 "typeString": "mapping(address => uint256)"
               },
               "valueType": {
-                "id": 1945,
+                "id": 1958,
                 "name": "uint",
                 "nodeType": "ElementaryTypeName",
                 "src": "411:4:5",
@@ -377,20 +377,20 @@
           {
             "anonymous": false,
             "documentation": null,
-            "id": 1951,
+            "id": 1964,
             "name": "NewFactory",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 1950,
+              "id": 1963,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1949,
+                  "id": 1962,
                   "indexed": false,
                   "name": "_factory",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1951,
+                  "scope": 1964,
                   "src": "476:16:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -399,7 +399,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1948,
+                    "id": 1961,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "476:7:5",
@@ -418,7 +418,7 @@
           },
           {
             "body": {
-              "id": 1962,
+              "id": 1975,
               "nodeType": "Block",
               "src": "620:44:5",
               "statements": [
@@ -432,7 +432,7 @@
                           {
                             "argumentTypes": null,
                             "hexValue": "30",
-                            "id": 1958,
+                            "id": 1971,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -455,7 +455,7 @@
                               "typeString": "int_const 0"
                             }
                           ],
-                          "id": 1957,
+                          "id": 1970,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -468,7 +468,7 @@
                           },
                           "typeName": "address"
                         },
-                        "id": 1959,
+                        "id": 1972,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -492,18 +492,18 @@
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 1954,
+                        "id": 1967,
                         "name": "factory_contracts",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1941,
+                        "referencedDeclaration": 1954,
                         "src": "625:17:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_array$_t_address_$dyn_storage",
                           "typeString": "address[] storage ref"
                         }
                       },
-                      "id": 1956,
+                      "id": 1969,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -517,7 +517,7 @@
                         "typeString": "function (address) returns (uint256)"
                       }
                     },
-                    "id": 1960,
+                    "id": 1973,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -531,14 +531,14 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 1961,
+                  "id": 1974,
                   "nodeType": "ExpressionStatement",
                   "src": "625:34:5"
                 }
               ]
             },
             "documentation": "dev Initiates the factory_contract array with address(0)\r",
-            "id": 1963,
+            "id": 1976,
             "implemented": true,
             "isConstructor": true,
             "isDeclaredConst": false,
@@ -546,19 +546,19 @@
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1952,
+              "id": 1965,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "610:2:5"
             },
             "payable": false,
             "returnParameters": {
-              "id": 1953,
+              "id": 1966,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "620:0:5"
             },
-            "scope": 2105,
+            "scope": 2118,
             "src": "599:65:5",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -566,25 +566,25 @@
           },
           {
             "body": {
-              "id": 1974,
+              "id": 1987,
               "nodeType": "Block",
               "src": "822:28:5",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 1972,
+                    "id": 1985,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 1970,
+                      "id": 1983,
                       "name": "factory",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1943,
+                      "referencedDeclaration": 1956,
                       "src": "827:7:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -595,11 +595,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 1971,
+                      "id": 1984,
                       "name": "_factory",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1965,
+                      "referencedDeclaration": 1978,
                       "src": "837:8:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -612,24 +612,24 @@
                       "typeString": "address"
                     }
                   },
-                  "id": 1973,
+                  "id": 1986,
                   "nodeType": "ExpressionStatement",
                   "src": "827:18:5"
                 }
               ]
             },
             "documentation": "dev Set factory address to clone\r\nparam _factory address to clone\r",
-            "id": 1975,
+            "id": 1988,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
             "modifiers": [
               {
                 "arguments": [],
-                "id": 1968,
+                "id": 1981,
                 "modifierName": {
                   "argumentTypes": null,
-                  "id": 1967,
+                  "id": 1980,
                   "name": "onlyOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
@@ -647,15 +647,15 @@
             "name": "setFactory",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1966,
+              "id": 1979,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1965,
+                  "id": 1978,
                   "name": "_factory",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1975,
+                  "scope": 1988,
                   "src": "786:16:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -664,7 +664,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1964,
+                    "id": 1977,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "786:7:5",
@@ -681,12 +681,12 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 1969,
+              "id": 1982,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "822:0:5"
             },
-            "scope": 2105,
+            "scope": 2118,
             "src": "766:84:5",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -694,21 +694,21 @@
           },
           {
             "body": {
-              "id": 2015,
+              "id": 2028,
               "nodeType": "Block",
               "src": "1069:230:5",
               "statements": [
                 {
                   "assignments": [
-                    1983
+                    1996
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 1983,
+                      "id": 1996,
                       "name": "_new_fac",
                       "nodeType": "VariableDeclaration",
-                      "scope": 2016,
+                      "scope": 2029,
                       "src": "1074:16:5",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -717,7 +717,7 @@
                         "typeString": "address"
                       },
                       "typeName": {
-                        "id": 1982,
+                        "id": 1995,
                         "name": "address",
                         "nodeType": "ElementaryTypeName",
                         "src": "1074:7:5",
@@ -730,17 +730,17 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 1987,
+                  "id": 2000,
                   "initialValue": {
                     "argumentTypes": null,
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 1985,
+                        "id": 1998,
                         "name": "factory",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1943,
+                        "referencedDeclaration": 1956,
                         "src": "1105:7:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -755,7 +755,7 @@
                           "typeString": "address"
                         }
                       ],
-                      "id": 1984,
+                      "id": 1997,
                       "name": "createClone",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
@@ -766,7 +766,7 @@
                         "typeString": "function (address) returns (address)"
                       }
                     },
-                    "id": 1986,
+                    "id": 1999,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -786,7 +786,7 @@
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 1993,
+                    "id": 2006,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -795,25 +795,25 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 1988,
+                        "id": 2001,
                         "name": "factory_index",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1947,
+                        "referencedDeclaration": 1960,
                         "src": "1118:13:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                           "typeString": "mapping(address => uint256)"
                         }
                       },
-                      "id": 1990,
+                      "id": 2003,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 1989,
+                        "id": 2002,
                         "name": "_new_fac",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1983,
+                        "referencedDeclaration": 1996,
                         "src": "1132:8:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -837,18 +837,18 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 1991,
+                        "id": 2004,
                         "name": "factory_contracts",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1941,
+                        "referencedDeclaration": 1954,
                         "src": "1144:17:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_array$_t_address_$dyn_storage",
                           "typeString": "address[] storage ref"
                         }
                       },
-                      "id": 1992,
+                      "id": 2005,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
@@ -868,7 +868,7 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 1994,
+                  "id": 2007,
                   "nodeType": "ExpressionStatement",
                   "src": "1118:50:5"
                 },
@@ -878,11 +878,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 1998,
+                        "id": 2011,
                         "name": "_new_fac",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1983,
+                        "referencedDeclaration": 1996,
                         "src": "1196:8:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -899,18 +899,18 @@
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 1995,
+                        "id": 2008,
                         "name": "factory_contracts",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1941,
+                        "referencedDeclaration": 1954,
                         "src": "1173:17:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_array$_t_address_$dyn_storage",
                           "typeString": "address[] storage ref"
                         }
                       },
-                      "id": 1997,
+                      "id": 2010,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -924,7 +924,7 @@
                         "typeString": "function (address) returns (uint256)"
                       }
                     },
-                    "id": 1999,
+                    "id": 2012,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -938,7 +938,7 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 2000,
+                  "id": 2013,
                   "nodeType": "ExpressionStatement",
                   "src": "1173:32:5"
                 },
@@ -950,18 +950,18 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 2005,
+                          "id": 2018,
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 12054,
+                          "referencedDeclaration": 12067,
                           "src": "1233:3:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
                             "typeString": "msg"
                           }
                         },
-                        "id": 2006,
+                        "id": 2019,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -988,11 +988,11 @@
                         "arguments": [
                           {
                             "argumentTypes": null,
-                            "id": 2002,
+                            "id": 2015,
                             "name": "_new_fac",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1983,
+                            "referencedDeclaration": 1996,
                             "src": "1218:8:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
@@ -1007,18 +1007,18 @@
                               "typeString": "address"
                             }
                           ],
-                          "id": 2001,
+                          "id": 2014,
                           "name": "Factory",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1928,
+                          "referencedDeclaration": 1941,
                           "src": "1210:7:5",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_type$_t_contract$_Factory_$1928_$",
+                            "typeIdentifier": "t_type$_t_contract$_Factory_$1941_$",
                             "typeString": "type(contract Factory)"
                           }
                         },
-                        "id": 2003,
+                        "id": 2016,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1028,11 +1028,11 @@
                         "nodeType": "FunctionCall",
                         "src": "1210:17:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_Factory_$1928",
+                          "typeIdentifier": "t_contract$_Factory_$1941",
                           "typeString": "contract Factory"
                         }
                       },
-                      "id": 2004,
+                      "id": 2017,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1046,7 +1046,7 @@
                         "typeString": "function (address) external"
                       }
                     },
-                    "id": 2007,
+                    "id": 2020,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1060,7 +1060,7 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 2008,
+                  "id": 2021,
                   "nodeType": "ExpressionStatement",
                   "src": "1210:34:5"
                 },
@@ -1070,11 +1070,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 2010,
+                        "id": 2023,
                         "name": "_new_fac",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1983,
+                        "referencedDeclaration": 1996,
                         "src": "1265:8:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -1089,18 +1089,18 @@
                           "typeString": "address"
                         }
                       ],
-                      "id": 2009,
+                      "id": 2022,
                       "name": "NewFactory",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1951,
+                      "referencedDeclaration": 1964,
                       "src": "1254:10:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_address_$returns$__$",
                         "typeString": "function (address)"
                       }
                     },
-                    "id": 2011,
+                    "id": 2024,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1114,43 +1114,43 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 2012,
+                  "id": 2025,
                   "nodeType": "EmitStatement",
                   "src": "1249:25:5"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 2013,
+                    "id": 2026,
                     "name": "_new_fac",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 1983,
+                    "referencedDeclaration": 1996,
                     "src": "1286:8:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     }
                   },
-                  "functionReturnParameters": 1981,
-                  "id": 2014,
+                  "functionReturnParameters": 1994,
+                  "id": 2027,
                   "nodeType": "Return",
                   "src": "1279:15:5"
                 }
               ]
             },
             "documentation": "dev creates a new factory by cloning the factory specified in setFactory.\r\nreturn _new_fac which is the new factory address\r",
-            "id": 2016,
+            "id": 2029,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
             "modifiers": [
               {
                 "arguments": [],
-                "id": 1978,
+                "id": 1991,
                 "modifierName": {
                   "argumentTypes": null,
-                  "id": 1977,
+                  "id": 1990,
                   "name": "onlyOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
@@ -1168,22 +1168,22 @@
             "name": "deployFactory",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1976,
+              "id": 1989,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1031:2:5"
             },
             "payable": false,
             "returnParameters": {
-              "id": 1981,
+              "id": 1994,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1980,
+                  "id": 1993,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2016,
+                  "scope": 2029,
                   "src": "1061:7:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1192,7 +1192,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1979,
+                    "id": 1992,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1061:7:5",
@@ -1207,7 +1207,7 @@
               ],
               "src": "1060:9:5"
             },
-            "scope": 2105,
+            "scope": 2118,
             "src": "1009:290:5",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1215,7 +1215,7 @@
           },
           {
             "body": {
-              "id": 2080,
+              "id": 2093,
               "nodeType": "Block",
               "src": "1461:426:5",
               "statements": [
@@ -1229,7 +1229,7 @@
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
                         },
-                        "id": 2034,
+                        "id": 2047,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1240,18 +1240,18 @@
                             "typeIdentifier": "t_address",
                             "typeString": "address"
                           },
-                          "id": 2028,
+                          "id": 2041,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "leftExpression": {
                             "argumentTypes": null,
-                            "id": 2024,
+                            "id": 2037,
                             "name": "_factory",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 2018,
+                            "referencedDeclaration": 2031,
                             "src": "1474:8:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
@@ -1266,7 +1266,7 @@
                               {
                                 "argumentTypes": null,
                                 "hexValue": "30",
-                                "id": 2026,
+                                "id": 2039,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": true,
@@ -1289,7 +1289,7 @@
                                   "typeString": "int_const 0"
                                 }
                               ],
-                              "id": 2025,
+                              "id": 2038,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": true,
@@ -1302,7 +1302,7 @@
                               },
                               "typeName": "address"
                             },
-                            "id": 2027,
+                            "id": 2040,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -1330,7 +1330,7 @@
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
                           },
-                          "id": 2033,
+                          "id": 2046,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -1339,25 +1339,25 @@
                             "argumentTypes": null,
                             "baseExpression": {
                               "argumentTypes": null,
-                              "id": 2029,
+                              "id": 2042,
                               "name": "factory_index",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1947,
+                              "referencedDeclaration": 1960,
                               "src": "1500:13:5",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                                 "typeString": "mapping(address => uint256)"
                               }
                             },
-                            "id": 2031,
+                            "id": 2044,
                             "indexExpression": {
                               "argumentTypes": null,
-                              "id": 2030,
+                              "id": 2043,
                               "name": "_factory",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 2018,
+                              "referencedDeclaration": 2031,
                               "src": "1514:8:5",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_address",
@@ -1380,7 +1380,7 @@
                           "rightExpression": {
                             "argumentTypes": null,
                             "hexValue": "30",
-                            "id": 2032,
+                            "id": 2045,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -1415,21 +1415,21 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 2023,
+                      "id": 2036,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        12057,
-                        12058
+                        12070,
+                        12071
                       ],
-                      "referencedDeclaration": 12057,
+                      "referencedDeclaration": 12070,
                       "src": "1466:7:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                         "typeString": "function (bool) pure"
                       }
                     },
-                    "id": 2035,
+                    "id": 2048,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1443,21 +1443,21 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 2036,
+                  "id": 2049,
                   "nodeType": "ExpressionStatement",
                   "src": "1466:63:5"
                 },
                 {
                   "assignments": [
-                    2038
+                    2051
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 2038,
+                      "id": 2051,
                       "name": "fIndex",
                       "nodeType": "VariableDeclaration",
-                      "scope": 2081,
+                      "scope": 2094,
                       "src": "1534:14:5",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -1466,7 +1466,7 @@
                         "typeString": "uint256"
                       },
                       "typeName": {
-                        "id": 2037,
+                        "id": 2050,
                         "name": "uint256",
                         "nodeType": "ElementaryTypeName",
                         "src": "1534:7:5",
@@ -1479,30 +1479,30 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 2042,
+                  "id": 2055,
                   "initialValue": {
                     "argumentTypes": null,
                     "baseExpression": {
                       "argumentTypes": null,
-                      "id": 2039,
+                      "id": 2052,
                       "name": "factory_index",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1947,
+                      "referencedDeclaration": 1960,
                       "src": "1551:13:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                         "typeString": "mapping(address => uint256)"
                       }
                     },
-                    "id": 2041,
+                    "id": 2054,
                     "indexExpression": {
                       "argumentTypes": null,
-                      "id": 2040,
+                      "id": 2053,
                       "name": "_factory",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 2018,
+                      "referencedDeclaration": 2031,
                       "src": "1565:8:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -1525,15 +1525,15 @@
                 },
                 {
                   "assignments": [
-                    2044
+                    2057
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 2044,
+                      "id": 2057,
                       "name": "lastFactoryIndex",
                       "nodeType": "VariableDeclaration",
-                      "scope": 2081,
+                      "scope": 2094,
                       "src": "1585:24:5",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -1542,7 +1542,7 @@
                         "typeString": "uint256"
                       },
                       "typeName": {
-                        "id": 2043,
+                        "id": 2056,
                         "name": "uint256",
                         "nodeType": "ElementaryTypeName",
                         "src": "1585:7:5",
@@ -1555,14 +1555,14 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 2050,
+                  "id": 2063,
                   "initialValue": {
                     "argumentTypes": null,
                     "arguments": [
                       {
                         "argumentTypes": null,
                         "hexValue": "31",
-                        "id": 2048,
+                        "id": 2061,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -1589,18 +1589,18 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 2045,
+                          "id": 2058,
                           "name": "factory_contracts",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1941,
+                          "referencedDeclaration": 1954,
                           "src": "1612:17:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_array$_t_address_$dyn_storage",
                             "typeString": "address[] storage ref"
                           }
                         },
-                        "id": 2046,
+                        "id": 2059,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
@@ -1614,21 +1614,21 @@
                           "typeString": "uint256"
                         }
                       },
-                      "id": 2047,
+                      "id": 2060,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "sub",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 5031,
+                      "referencedDeclaration": 5044,
                       "src": "1612:28:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint256_$returns$_t_uint256_$bound_to$_t_uint256_$",
                         "typeString": "function (uint256,uint256) pure returns (uint256)"
                       }
                     },
-                    "id": 2049,
+                    "id": 2062,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1647,15 +1647,15 @@
                 },
                 {
                   "assignments": [
-                    2052
+                    2065
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 2052,
+                      "id": 2065,
                       "name": "lastFactory",
                       "nodeType": "VariableDeclaration",
-                      "scope": 2081,
+                      "scope": 2094,
                       "src": "1654:19:5",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -1664,7 +1664,7 @@
                         "typeString": "address"
                       },
                       "typeName": {
-                        "id": 2051,
+                        "id": 2064,
                         "name": "address",
                         "nodeType": "ElementaryTypeName",
                         "src": "1654:7:5",
@@ -1677,30 +1677,30 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 2056,
+                  "id": 2069,
                   "initialValue": {
                     "argumentTypes": null,
                     "baseExpression": {
                       "argumentTypes": null,
-                      "id": 2053,
+                      "id": 2066,
                       "name": "factory_contracts",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1941,
+                      "referencedDeclaration": 1954,
                       "src": "1676:17:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_array$_t_address_$dyn_storage",
                         "typeString": "address[] storage ref"
                       }
                     },
-                    "id": 2055,
+                    "id": 2068,
                     "indexExpression": {
                       "argumentTypes": null,
-                      "id": 2054,
+                      "id": 2067,
                       "name": "lastFactoryIndex",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 2044,
+                      "referencedDeclaration": 2057,
                       "src": "1694:16:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -1724,7 +1724,7 @@
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 2061,
+                    "id": 2074,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1733,25 +1733,25 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 2057,
+                        "id": 2070,
                         "name": "factory_contracts",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1941,
+                        "referencedDeclaration": 1954,
                         "src": "1722:17:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_array$_t_address_$dyn_storage",
                           "typeString": "address[] storage ref"
                         }
                       },
-                      "id": 2059,
+                      "id": 2072,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 2058,
+                        "id": 2071,
                         "name": "fIndex",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2038,
+                        "referencedDeclaration": 2051,
                         "src": "1740:6:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -1773,11 +1773,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 2060,
+                      "id": 2073,
                       "name": "lastFactory",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 2052,
+                      "referencedDeclaration": 2065,
                       "src": "1750:11:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -1790,14 +1790,14 @@
                       "typeString": "address"
                     }
                   },
-                  "id": 2062,
+                  "id": 2075,
                   "nodeType": "ExpressionStatement",
                   "src": "1722:39:5"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 2067,
+                    "id": 2080,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1806,25 +1806,25 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 2063,
+                        "id": 2076,
                         "name": "factory_index",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1947,
+                        "referencedDeclaration": 1960,
                         "src": "1772:13:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                           "typeString": "mapping(address => uint256)"
                         }
                       },
-                      "id": 2065,
+                      "id": 2078,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 2064,
+                        "id": 2077,
                         "name": "lastFactory",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2052,
+                        "referencedDeclaration": 2065,
                         "src": "1786:11:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -1846,11 +1846,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 2066,
+                      "id": 2079,
                       "name": "fIndex",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 2038,
+                      "referencedDeclaration": 2051,
                       "src": "1801:6:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -1863,14 +1863,14 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 2068,
+                  "id": 2081,
                   "nodeType": "ExpressionStatement",
                   "src": "1772:35:5"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 2072,
+                    "id": 2085,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1883,18 +1883,18 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 2069,
+                        "id": 2082,
                         "name": "factory_contracts",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1941,
+                        "referencedDeclaration": 1954,
                         "src": "1818:17:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_array$_t_address_$dyn_storage",
                           "typeString": "address[] storage ref"
                         }
                       },
-                      "id": 2071,
+                      "id": 2084,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
@@ -1913,14 +1913,14 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 2073,
+                  "id": 2086,
                   "nodeType": "ExpressionStatement",
                   "src": "1818:26:5"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 2078,
+                    "id": 2091,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1929,25 +1929,25 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 2074,
+                        "id": 2087,
                         "name": "factory_index",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1947,
+                        "referencedDeclaration": 1960,
                         "src": "1855:13:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                           "typeString": "mapping(address => uint256)"
                         }
                       },
-                      "id": 2076,
+                      "id": 2089,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 2075,
+                        "id": 2088,
                         "name": "_factory",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2018,
+                        "referencedDeclaration": 2031,
                         "src": "1869:8:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -1970,7 +1970,7 @@
                     "rightHandSide": {
                       "argumentTypes": null,
                       "hexValue": "30",
-                      "id": 2077,
+                      "id": 2090,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -1991,24 +1991,24 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 2079,
+                  "id": 2092,
                   "nodeType": "ExpressionStatement",
                   "src": "1855:27:5"
                 }
               ]
             },
             "documentation": "dev Removes the factory specified\r\nparam _factory address to remove\r",
-            "id": 2081,
+            "id": 2094,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
             "modifiers": [
               {
                 "arguments": [],
-                "id": 2021,
+                "id": 2034,
                 "modifierName": {
                   "argumentTypes": null,
-                  "id": 2020,
+                  "id": 2033,
                   "name": "onlyOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
@@ -2026,15 +2026,15 @@
             "name": "removeFactory",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2019,
+              "id": 2032,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2018,
+                  "id": 2031,
                   "name": "_factory",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2081,
+                  "scope": 2094,
                   "src": "1425:16:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2043,7 +2043,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2017,
+                    "id": 2030,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1425:7:5",
@@ -2060,12 +2060,12 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 2022,
+              "id": 2035,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1461:0:5"
             },
-            "scope": 2105,
+            "scope": 2118,
             "src": "1402:485:5",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -2073,7 +2073,7 @@
           },
           {
             "body": {
-              "id": 2091,
+              "id": 2104,
               "nodeType": "Block",
               "src": "2053:45:5",
               "statements": [
@@ -2084,7 +2084,7 @@
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     },
-                    "id": 2089,
+                    "id": 2102,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2093,18 +2093,18 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 2086,
+                        "id": 2099,
                         "name": "factory_contracts",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1941,
+                        "referencedDeclaration": 1954,
                         "src": "2065:17:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_array$_t_address_$dyn_storage",
                           "typeString": "address[] storage ref"
                         }
                       },
-                      "id": 2087,
+                      "id": 2100,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
@@ -2123,7 +2123,7 @@
                     "rightExpression": {
                       "argumentTypes": null,
                       "hexValue": "31",
-                      "id": 2088,
+                      "id": 2101,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -2144,15 +2144,15 @@
                       "typeString": "uint256"
                     }
                   },
-                  "functionReturnParameters": 2085,
-                  "id": 2090,
+                  "functionReturnParameters": 2098,
+                  "id": 2103,
                   "nodeType": "Return",
                   "src": "2058:35:5"
                 }
               ]
             },
             "documentation": "dev Counts the number of factories\r\nreturns the number of active factories\r",
-            "id": 2092,
+            "id": 2105,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -2160,22 +2160,22 @@
             "name": "getFactoryCount",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2082,
+              "id": 2095,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "2021:2:5"
             },
             "payable": false,
             "returnParameters": {
-              "id": 2085,
+              "id": 2098,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2084,
+                  "id": 2097,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2092,
+                  "scope": 2105,
                   "src": "2048:4:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2184,7 +2184,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2083,
+                    "id": 2096,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "2048:4:5",
@@ -2199,7 +2199,7 @@
               ],
               "src": "2047:6:5"
             },
-            "scope": 2105,
+            "scope": 2118,
             "src": "1997:101:5",
             "stateMutability": "view",
             "superFunction": null,
@@ -2207,7 +2207,7 @@
           },
           {
             "body": {
-              "id": 2103,
+              "id": 2116,
               "nodeType": "Block",
               "src": "2383:42:5",
               "statements": [
@@ -2216,25 +2216,25 @@
                     "argumentTypes": null,
                     "baseExpression": {
                       "argumentTypes": null,
-                      "id": 2099,
+                      "id": 2112,
                       "name": "factory_contracts",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1941,
+                      "referencedDeclaration": 1954,
                       "src": "2395:17:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_array$_t_address_$dyn_storage",
                         "typeString": "address[] storage ref"
                       }
                     },
-                    "id": 2101,
+                    "id": 2114,
                     "indexExpression": {
                       "argumentTypes": null,
-                      "id": 2100,
+                      "id": 2113,
                       "name": "_index",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 2094,
+                      "referencedDeclaration": 2107,
                       "src": "2413:6:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -2252,15 +2252,15 @@
                       "typeString": "address"
                     }
                   },
-                  "functionReturnParameters": 2098,
-                  "id": 2102,
+                  "functionReturnParameters": 2111,
+                  "id": 2115,
                   "nodeType": "Return",
                   "src": "2388:32:5"
                 }
               ]
             },
             "documentation": "dev Returns the factory address for the specified index\r\nparam _index for factory to look up in the factory_contracts array\r\nreturn factory address for the index specified\r",
-            "id": 2104,
+            "id": 2117,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -2268,15 +2268,15 @@
             "name": "getFactorybyIndex",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2095,
+              "id": 2108,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2094,
+                  "id": 2107,
                   "name": "_index",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2104,
+                  "scope": 2117,
                   "src": "2338:11:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2285,7 +2285,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2093,
+                    "id": 2106,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "2338:4:5",
@@ -2302,15 +2302,15 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 2098,
+              "id": 2111,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2097,
+                  "id": 2110,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2104,
+                  "scope": 2117,
                   "src": "2375:7:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2319,7 +2319,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2096,
+                    "id": 2109,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "2375:7:5",
@@ -2334,14 +2334,14 @@
               ],
               "src": "2374:9:5"
             },
-            "scope": 2105,
+            "scope": 2118,
             "src": "2311:114:5",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 2106,
+        "scope": 2119,
         "src": "231:2197:5"
       }
     ],
@@ -2351,14 +2351,14 @@
     "absolutePath": "/C/company/code/drct_standard/contracts/MasterDeployer.sol",
     "exportedSymbols": {
       "MasterDeployer": [
-        2105
+        2118
       ]
     },
-    "id": 2106,
+    "id": 2119,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1930,
+        "id": 1943,
         "literals": [
           "solidity",
           "^",
@@ -2371,10 +2371,10 @@
       {
         "absolutePath": "/C/company/code/drct_standard/contracts/libraries/SafeMath.sol",
         "file": "./libraries/SafeMath.sol",
-        "id": 1931,
+        "id": 1944,
         "nodeType": "ImportDirective",
-        "scope": 2106,
-        "sourceUnit": 5074,
+        "scope": 2119,
+        "sourceUnit": 5087,
         "src": "28:34:5",
         "symbolAliases": [],
         "unitAlias": ""
@@ -2382,10 +2382,10 @@
       {
         "absolutePath": "/C/company/code/drct_standard/contracts/Factory.sol",
         "file": "./Factory.sol",
-        "id": 1932,
+        "id": 1945,
         "nodeType": "ImportDirective",
-        "scope": 2106,
-        "sourceUnit": 1929,
+        "scope": 2119,
+        "sourceUnit": 1942,
         "src": "64:23:5",
         "symbolAliases": [],
         "unitAlias": ""
@@ -2393,9 +2393,9 @@
       {
         "absolutePath": "/C/company/code/drct_standard/contracts/CloneFactory.sol",
         "file": "./CloneFactory.sol",
-        "id": 1933,
+        "id": 1946,
         "nodeType": "ImportDirective",
-        "scope": 2106,
+        "scope": 2119,
         "sourceUnit": 84,
         "src": "89:28:5",
         "symbolAliases": [],
@@ -2407,7 +2407,7 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 1934,
+              "id": 1947,
               "name": "CloneFactory",
               "nodeType": "UserDefinedTypeName",
               "referencedDeclaration": 83,
@@ -2417,7 +2417,7 @@
                 "typeString": "contract CloneFactory"
               }
             },
-            "id": 1935,
+            "id": 1948,
             "nodeType": "InheritanceSpecifier",
             "src": "258:12:5"
           }
@@ -2428,32 +2428,32 @@
         "contractKind": "contract",
         "documentation": "his contract deploys a factory contract and uses CloneFactory to clone the factory\r\npecified.\r",
         "fullyImplemented": true,
-        "id": 2105,
+        "id": 2118,
         "linearizedBaseContracts": [
-          2105,
+          2118,
           83
         ],
         "name": "MasterDeployer",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
-            "id": 1938,
+            "id": 1951,
             "libraryName": {
               "contractScope": null,
-              "id": 1936,
+              "id": 1949,
               "name": "SafeMath",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 5073,
+              "referencedDeclaration": 5086,
               "src": "289:8:5",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_SafeMath_$5073",
+                "typeIdentifier": "t_contract$_SafeMath_$5086",
                 "typeString": "library SafeMath"
               }
             },
             "nodeType": "UsingForDirective",
             "src": "283:27:5",
             "typeName": {
-              "id": 1937,
+              "id": 1950,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "302:7:5",
@@ -2465,10 +2465,10 @@
           },
           {
             "constant": false,
-            "id": 1941,
+            "id": 1954,
             "name": "factory_contracts",
             "nodeType": "VariableDeclaration",
-            "scope": 2105,
+            "scope": 2118,
             "src": "334:27:5",
             "stateVariable": true,
             "storageLocation": "default",
@@ -2478,7 +2478,7 @@
             },
             "typeName": {
               "baseType": {
-                "id": 1939,
+                "id": 1952,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "334:7:5",
@@ -2487,7 +2487,7 @@
                   "typeString": "address"
                 }
               },
-              "id": 1940,
+              "id": 1953,
               "length": null,
               "nodeType": "ArrayTypeName",
               "src": "334:9:5",
@@ -2501,10 +2501,10 @@
           },
           {
             "constant": false,
-            "id": 1943,
+            "id": 1956,
             "name": "factory",
             "nodeType": "VariableDeclaration",
-            "scope": 2105,
+            "scope": 2118,
             "src": "365:23:5",
             "stateVariable": true,
             "storageLocation": "default",
@@ -2513,7 +2513,7 @@
               "typeString": "address"
             },
             "typeName": {
-              "id": 1942,
+              "id": 1955,
               "name": "address",
               "nodeType": "ElementaryTypeName",
               "src": "365:7:5",
@@ -2527,10 +2527,10 @@
           },
           {
             "constant": false,
-            "id": 1947,
+            "id": 1960,
             "name": "factory_index",
             "nodeType": "VariableDeclaration",
-            "scope": 2105,
+            "scope": 2118,
             "src": "392:45:5",
             "stateVariable": true,
             "storageLocation": "default",
@@ -2539,9 +2539,9 @@
               "typeString": "mapping(address => uint256)"
             },
             "typeName": {
-              "id": 1946,
+              "id": 1959,
               "keyType": {
-                "id": 1944,
+                "id": 1957,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "400:7:5",
@@ -2557,7 +2557,7 @@
                 "typeString": "mapping(address => uint256)"
               },
               "valueType": {
-                "id": 1945,
+                "id": 1958,
                 "name": "uint",
                 "nodeType": "ElementaryTypeName",
                 "src": "411:4:5",
@@ -2573,20 +2573,20 @@
           {
             "anonymous": false,
             "documentation": null,
-            "id": 1951,
+            "id": 1964,
             "name": "NewFactory",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 1950,
+              "id": 1963,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1949,
+                  "id": 1962,
                   "indexed": false,
                   "name": "_factory",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1951,
+                  "scope": 1964,
                   "src": "476:16:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2595,7 +2595,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1948,
+                    "id": 1961,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "476:7:5",
@@ -2614,7 +2614,7 @@
           },
           {
             "body": {
-              "id": 1962,
+              "id": 1975,
               "nodeType": "Block",
               "src": "620:44:5",
               "statements": [
@@ -2628,7 +2628,7 @@
                           {
                             "argumentTypes": null,
                             "hexValue": "30",
-                            "id": 1958,
+                            "id": 1971,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -2651,7 +2651,7 @@
                               "typeString": "int_const 0"
                             }
                           ],
-                          "id": 1957,
+                          "id": 1970,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -2664,7 +2664,7 @@
                           },
                           "typeName": "address"
                         },
-                        "id": 1959,
+                        "id": 1972,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -2688,18 +2688,18 @@
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 1954,
+                        "id": 1967,
                         "name": "factory_contracts",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1941,
+                        "referencedDeclaration": 1954,
                         "src": "625:17:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_array$_t_address_$dyn_storage",
                           "typeString": "address[] storage ref"
                         }
                       },
-                      "id": 1956,
+                      "id": 1969,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -2713,7 +2713,7 @@
                         "typeString": "function (address) returns (uint256)"
                       }
                     },
-                    "id": 1960,
+                    "id": 1973,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2727,14 +2727,14 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 1961,
+                  "id": 1974,
                   "nodeType": "ExpressionStatement",
                   "src": "625:34:5"
                 }
               ]
             },
             "documentation": "dev Initiates the factory_contract array with address(0)\r",
-            "id": 1963,
+            "id": 1976,
             "implemented": true,
             "isConstructor": true,
             "isDeclaredConst": false,
@@ -2742,19 +2742,19 @@
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1952,
+              "id": 1965,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "610:2:5"
             },
             "payable": false,
             "returnParameters": {
-              "id": 1953,
+              "id": 1966,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "620:0:5"
             },
-            "scope": 2105,
+            "scope": 2118,
             "src": "599:65:5",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -2762,25 +2762,25 @@
           },
           {
             "body": {
-              "id": 1974,
+              "id": 1987,
               "nodeType": "Block",
               "src": "822:28:5",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 1972,
+                    "id": 1985,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 1970,
+                      "id": 1983,
                       "name": "factory",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1943,
+                      "referencedDeclaration": 1956,
                       "src": "827:7:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -2791,11 +2791,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 1971,
+                      "id": 1984,
                       "name": "_factory",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1965,
+                      "referencedDeclaration": 1978,
                       "src": "837:8:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -2808,24 +2808,24 @@
                       "typeString": "address"
                     }
                   },
-                  "id": 1973,
+                  "id": 1986,
                   "nodeType": "ExpressionStatement",
                   "src": "827:18:5"
                 }
               ]
             },
             "documentation": "dev Set factory address to clone\r\nparam _factory address to clone\r",
-            "id": 1975,
+            "id": 1988,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
             "modifiers": [
               {
                 "arguments": [],
-                "id": 1968,
+                "id": 1981,
                 "modifierName": {
                   "argumentTypes": null,
-                  "id": 1967,
+                  "id": 1980,
                   "name": "onlyOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
@@ -2843,15 +2843,15 @@
             "name": "setFactory",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1966,
+              "id": 1979,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1965,
+                  "id": 1978,
                   "name": "_factory",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1975,
+                  "scope": 1988,
                   "src": "786:16:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2860,7 +2860,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1964,
+                    "id": 1977,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "786:7:5",
@@ -2877,12 +2877,12 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 1969,
+              "id": 1982,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "822:0:5"
             },
-            "scope": 2105,
+            "scope": 2118,
             "src": "766:84:5",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -2890,21 +2890,21 @@
           },
           {
             "body": {
-              "id": 2015,
+              "id": 2028,
               "nodeType": "Block",
               "src": "1069:230:5",
               "statements": [
                 {
                   "assignments": [
-                    1983
+                    1996
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 1983,
+                      "id": 1996,
                       "name": "_new_fac",
                       "nodeType": "VariableDeclaration",
-                      "scope": 2016,
+                      "scope": 2029,
                       "src": "1074:16:5",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -2913,7 +2913,7 @@
                         "typeString": "address"
                       },
                       "typeName": {
-                        "id": 1982,
+                        "id": 1995,
                         "name": "address",
                         "nodeType": "ElementaryTypeName",
                         "src": "1074:7:5",
@@ -2926,17 +2926,17 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 1987,
+                  "id": 2000,
                   "initialValue": {
                     "argumentTypes": null,
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 1985,
+                        "id": 1998,
                         "name": "factory",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1943,
+                        "referencedDeclaration": 1956,
                         "src": "1105:7:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -2951,7 +2951,7 @@
                           "typeString": "address"
                         }
                       ],
-                      "id": 1984,
+                      "id": 1997,
                       "name": "createClone",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
@@ -2962,7 +2962,7 @@
                         "typeString": "function (address) returns (address)"
                       }
                     },
-                    "id": 1986,
+                    "id": 1999,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2982,7 +2982,7 @@
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 1993,
+                    "id": 2006,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2991,25 +2991,25 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 1988,
+                        "id": 2001,
                         "name": "factory_index",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1947,
+                        "referencedDeclaration": 1960,
                         "src": "1118:13:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                           "typeString": "mapping(address => uint256)"
                         }
                       },
-                      "id": 1990,
+                      "id": 2003,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 1989,
+                        "id": 2002,
                         "name": "_new_fac",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1983,
+                        "referencedDeclaration": 1996,
                         "src": "1132:8:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -3033,18 +3033,18 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 1991,
+                        "id": 2004,
                         "name": "factory_contracts",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1941,
+                        "referencedDeclaration": 1954,
                         "src": "1144:17:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_array$_t_address_$dyn_storage",
                           "typeString": "address[] storage ref"
                         }
                       },
-                      "id": 1992,
+                      "id": 2005,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
@@ -3064,7 +3064,7 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 1994,
+                  "id": 2007,
                   "nodeType": "ExpressionStatement",
                   "src": "1118:50:5"
                 },
@@ -3074,11 +3074,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 1998,
+                        "id": 2011,
                         "name": "_new_fac",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1983,
+                        "referencedDeclaration": 1996,
                         "src": "1196:8:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -3095,18 +3095,18 @@
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 1995,
+                        "id": 2008,
                         "name": "factory_contracts",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1941,
+                        "referencedDeclaration": 1954,
                         "src": "1173:17:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_array$_t_address_$dyn_storage",
                           "typeString": "address[] storage ref"
                         }
                       },
-                      "id": 1997,
+                      "id": 2010,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -3120,7 +3120,7 @@
                         "typeString": "function (address) returns (uint256)"
                       }
                     },
-                    "id": 1999,
+                    "id": 2012,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -3134,7 +3134,7 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 2000,
+                  "id": 2013,
                   "nodeType": "ExpressionStatement",
                   "src": "1173:32:5"
                 },
@@ -3146,18 +3146,18 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 2005,
+                          "id": 2018,
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 12054,
+                          "referencedDeclaration": 12067,
                           "src": "1233:3:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
                             "typeString": "msg"
                           }
                         },
-                        "id": 2006,
+                        "id": 2019,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -3184,11 +3184,11 @@
                         "arguments": [
                           {
                             "argumentTypes": null,
-                            "id": 2002,
+                            "id": 2015,
                             "name": "_new_fac",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1983,
+                            "referencedDeclaration": 1996,
                             "src": "1218:8:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
@@ -3203,18 +3203,18 @@
                               "typeString": "address"
                             }
                           ],
-                          "id": 2001,
+                          "id": 2014,
                           "name": "Factory",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1928,
+                          "referencedDeclaration": 1941,
                           "src": "1210:7:5",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_type$_t_contract$_Factory_$1928_$",
+                            "typeIdentifier": "t_type$_t_contract$_Factory_$1941_$",
                             "typeString": "type(contract Factory)"
                           }
                         },
-                        "id": 2003,
+                        "id": 2016,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -3224,11 +3224,11 @@
                         "nodeType": "FunctionCall",
                         "src": "1210:17:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_Factory_$1928",
+                          "typeIdentifier": "t_contract$_Factory_$1941",
                           "typeString": "contract Factory"
                         }
                       },
-                      "id": 2004,
+                      "id": 2017,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -3242,7 +3242,7 @@
                         "typeString": "function (address) external"
                       }
                     },
-                    "id": 2007,
+                    "id": 2020,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -3256,7 +3256,7 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 2008,
+                  "id": 2021,
                   "nodeType": "ExpressionStatement",
                   "src": "1210:34:5"
                 },
@@ -3266,11 +3266,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 2010,
+                        "id": 2023,
                         "name": "_new_fac",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1983,
+                        "referencedDeclaration": 1996,
                         "src": "1265:8:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -3285,18 +3285,18 @@
                           "typeString": "address"
                         }
                       ],
-                      "id": 2009,
+                      "id": 2022,
                       "name": "NewFactory",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1951,
+                      "referencedDeclaration": 1964,
                       "src": "1254:10:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_address_$returns$__$",
                         "typeString": "function (address)"
                       }
                     },
-                    "id": 2011,
+                    "id": 2024,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -3310,43 +3310,43 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 2012,
+                  "id": 2025,
                   "nodeType": "EmitStatement",
                   "src": "1249:25:5"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 2013,
+                    "id": 2026,
                     "name": "_new_fac",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 1983,
+                    "referencedDeclaration": 1996,
                     "src": "1286:8:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     }
                   },
-                  "functionReturnParameters": 1981,
-                  "id": 2014,
+                  "functionReturnParameters": 1994,
+                  "id": 2027,
                   "nodeType": "Return",
                   "src": "1279:15:5"
                 }
               ]
             },
             "documentation": "dev creates a new factory by cloning the factory specified in setFactory.\r\nreturn _new_fac which is the new factory address\r",
-            "id": 2016,
+            "id": 2029,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
             "modifiers": [
               {
                 "arguments": [],
-                "id": 1978,
+                "id": 1991,
                 "modifierName": {
                   "argumentTypes": null,
-                  "id": 1977,
+                  "id": 1990,
                   "name": "onlyOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
@@ -3364,22 +3364,22 @@
             "name": "deployFactory",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1976,
+              "id": 1989,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1031:2:5"
             },
             "payable": false,
             "returnParameters": {
-              "id": 1981,
+              "id": 1994,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1980,
+                  "id": 1993,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2016,
+                  "scope": 2029,
                   "src": "1061:7:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3388,7 +3388,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1979,
+                    "id": 1992,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1061:7:5",
@@ -3403,7 +3403,7 @@
               ],
               "src": "1060:9:5"
             },
-            "scope": 2105,
+            "scope": 2118,
             "src": "1009:290:5",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -3411,7 +3411,7 @@
           },
           {
             "body": {
-              "id": 2080,
+              "id": 2093,
               "nodeType": "Block",
               "src": "1461:426:5",
               "statements": [
@@ -3425,7 +3425,7 @@
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
                         },
-                        "id": 2034,
+                        "id": 2047,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -3436,18 +3436,18 @@
                             "typeIdentifier": "t_address",
                             "typeString": "address"
                           },
-                          "id": 2028,
+                          "id": 2041,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "leftExpression": {
                             "argumentTypes": null,
-                            "id": 2024,
+                            "id": 2037,
                             "name": "_factory",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 2018,
+                            "referencedDeclaration": 2031,
                             "src": "1474:8:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
@@ -3462,7 +3462,7 @@
                               {
                                 "argumentTypes": null,
                                 "hexValue": "30",
-                                "id": 2026,
+                                "id": 2039,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": true,
@@ -3485,7 +3485,7 @@
                                   "typeString": "int_const 0"
                                 }
                               ],
-                              "id": 2025,
+                              "id": 2038,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": true,
@@ -3498,7 +3498,7 @@
                               },
                               "typeName": "address"
                             },
-                            "id": 2027,
+                            "id": 2040,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -3526,7 +3526,7 @@
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
                           },
-                          "id": 2033,
+                          "id": 2046,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -3535,25 +3535,25 @@
                             "argumentTypes": null,
                             "baseExpression": {
                               "argumentTypes": null,
-                              "id": 2029,
+                              "id": 2042,
                               "name": "factory_index",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1947,
+                              "referencedDeclaration": 1960,
                               "src": "1500:13:5",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                                 "typeString": "mapping(address => uint256)"
                               }
                             },
-                            "id": 2031,
+                            "id": 2044,
                             "indexExpression": {
                               "argumentTypes": null,
-                              "id": 2030,
+                              "id": 2043,
                               "name": "_factory",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 2018,
+                              "referencedDeclaration": 2031,
                               "src": "1514:8:5",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_address",
@@ -3576,7 +3576,7 @@
                           "rightExpression": {
                             "argumentTypes": null,
                             "hexValue": "30",
-                            "id": 2032,
+                            "id": 2045,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -3611,21 +3611,21 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 2023,
+                      "id": 2036,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        12057,
-                        12058
+                        12070,
+                        12071
                       ],
-                      "referencedDeclaration": 12057,
+                      "referencedDeclaration": 12070,
                       "src": "1466:7:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                         "typeString": "function (bool) pure"
                       }
                     },
-                    "id": 2035,
+                    "id": 2048,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -3639,21 +3639,21 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 2036,
+                  "id": 2049,
                   "nodeType": "ExpressionStatement",
                   "src": "1466:63:5"
                 },
                 {
                   "assignments": [
-                    2038
+                    2051
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 2038,
+                      "id": 2051,
                       "name": "fIndex",
                       "nodeType": "VariableDeclaration",
-                      "scope": 2081,
+                      "scope": 2094,
                       "src": "1534:14:5",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -3662,7 +3662,7 @@
                         "typeString": "uint256"
                       },
                       "typeName": {
-                        "id": 2037,
+                        "id": 2050,
                         "name": "uint256",
                         "nodeType": "ElementaryTypeName",
                         "src": "1534:7:5",
@@ -3675,30 +3675,30 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 2042,
+                  "id": 2055,
                   "initialValue": {
                     "argumentTypes": null,
                     "baseExpression": {
                       "argumentTypes": null,
-                      "id": 2039,
+                      "id": 2052,
                       "name": "factory_index",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1947,
+                      "referencedDeclaration": 1960,
                       "src": "1551:13:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                         "typeString": "mapping(address => uint256)"
                       }
                     },
-                    "id": 2041,
+                    "id": 2054,
                     "indexExpression": {
                       "argumentTypes": null,
-                      "id": 2040,
+                      "id": 2053,
                       "name": "_factory",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 2018,
+                      "referencedDeclaration": 2031,
                       "src": "1565:8:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -3721,15 +3721,15 @@
                 },
                 {
                   "assignments": [
-                    2044
+                    2057
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 2044,
+                      "id": 2057,
                       "name": "lastFactoryIndex",
                       "nodeType": "VariableDeclaration",
-                      "scope": 2081,
+                      "scope": 2094,
                       "src": "1585:24:5",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -3738,7 +3738,7 @@
                         "typeString": "uint256"
                       },
                       "typeName": {
-                        "id": 2043,
+                        "id": 2056,
                         "name": "uint256",
                         "nodeType": "ElementaryTypeName",
                         "src": "1585:7:5",
@@ -3751,14 +3751,14 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 2050,
+                  "id": 2063,
                   "initialValue": {
                     "argumentTypes": null,
                     "arguments": [
                       {
                         "argumentTypes": null,
                         "hexValue": "31",
-                        "id": 2048,
+                        "id": 2061,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -3785,18 +3785,18 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 2045,
+                          "id": 2058,
                           "name": "factory_contracts",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1941,
+                          "referencedDeclaration": 1954,
                           "src": "1612:17:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_array$_t_address_$dyn_storage",
                             "typeString": "address[] storage ref"
                           }
                         },
-                        "id": 2046,
+                        "id": 2059,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
@@ -3810,21 +3810,21 @@
                           "typeString": "uint256"
                         }
                       },
-                      "id": 2047,
+                      "id": 2060,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "sub",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 5031,
+                      "referencedDeclaration": 5044,
                       "src": "1612:28:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint256_$returns$_t_uint256_$bound_to$_t_uint256_$",
                         "typeString": "function (uint256,uint256) pure returns (uint256)"
                       }
                     },
-                    "id": 2049,
+                    "id": 2062,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -3843,15 +3843,15 @@
                 },
                 {
                   "assignments": [
-                    2052
+                    2065
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 2052,
+                      "id": 2065,
                       "name": "lastFactory",
                       "nodeType": "VariableDeclaration",
-                      "scope": 2081,
+                      "scope": 2094,
                       "src": "1654:19:5",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -3860,7 +3860,7 @@
                         "typeString": "address"
                       },
                       "typeName": {
-                        "id": 2051,
+                        "id": 2064,
                         "name": "address",
                         "nodeType": "ElementaryTypeName",
                         "src": "1654:7:5",
@@ -3873,30 +3873,30 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 2056,
+                  "id": 2069,
                   "initialValue": {
                     "argumentTypes": null,
                     "baseExpression": {
                       "argumentTypes": null,
-                      "id": 2053,
+                      "id": 2066,
                       "name": "factory_contracts",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1941,
+                      "referencedDeclaration": 1954,
                       "src": "1676:17:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_array$_t_address_$dyn_storage",
                         "typeString": "address[] storage ref"
                       }
                     },
-                    "id": 2055,
+                    "id": 2068,
                     "indexExpression": {
                       "argumentTypes": null,
-                      "id": 2054,
+                      "id": 2067,
                       "name": "lastFactoryIndex",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 2044,
+                      "referencedDeclaration": 2057,
                       "src": "1694:16:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -3920,7 +3920,7 @@
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 2061,
+                    "id": 2074,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -3929,25 +3929,25 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 2057,
+                        "id": 2070,
                         "name": "factory_contracts",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1941,
+                        "referencedDeclaration": 1954,
                         "src": "1722:17:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_array$_t_address_$dyn_storage",
                           "typeString": "address[] storage ref"
                         }
                       },
-                      "id": 2059,
+                      "id": 2072,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 2058,
+                        "id": 2071,
                         "name": "fIndex",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2038,
+                        "referencedDeclaration": 2051,
                         "src": "1740:6:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -3969,11 +3969,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 2060,
+                      "id": 2073,
                       "name": "lastFactory",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 2052,
+                      "referencedDeclaration": 2065,
                       "src": "1750:11:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -3986,14 +3986,14 @@
                       "typeString": "address"
                     }
                   },
-                  "id": 2062,
+                  "id": 2075,
                   "nodeType": "ExpressionStatement",
                   "src": "1722:39:5"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 2067,
+                    "id": 2080,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -4002,25 +4002,25 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 2063,
+                        "id": 2076,
                         "name": "factory_index",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1947,
+                        "referencedDeclaration": 1960,
                         "src": "1772:13:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                           "typeString": "mapping(address => uint256)"
                         }
                       },
-                      "id": 2065,
+                      "id": 2078,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 2064,
+                        "id": 2077,
                         "name": "lastFactory",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2052,
+                        "referencedDeclaration": 2065,
                         "src": "1786:11:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -4042,11 +4042,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 2066,
+                      "id": 2079,
                       "name": "fIndex",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 2038,
+                      "referencedDeclaration": 2051,
                       "src": "1801:6:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -4059,14 +4059,14 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 2068,
+                  "id": 2081,
                   "nodeType": "ExpressionStatement",
                   "src": "1772:35:5"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 2072,
+                    "id": 2085,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -4079,18 +4079,18 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 2069,
+                        "id": 2082,
                         "name": "factory_contracts",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1941,
+                        "referencedDeclaration": 1954,
                         "src": "1818:17:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_array$_t_address_$dyn_storage",
                           "typeString": "address[] storage ref"
                         }
                       },
-                      "id": 2071,
+                      "id": 2084,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
@@ -4109,14 +4109,14 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 2073,
+                  "id": 2086,
                   "nodeType": "ExpressionStatement",
                   "src": "1818:26:5"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 2078,
+                    "id": 2091,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -4125,25 +4125,25 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 2074,
+                        "id": 2087,
                         "name": "factory_index",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1947,
+                        "referencedDeclaration": 1960,
                         "src": "1855:13:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                           "typeString": "mapping(address => uint256)"
                         }
                       },
-                      "id": 2076,
+                      "id": 2089,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 2075,
+                        "id": 2088,
                         "name": "_factory",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2018,
+                        "referencedDeclaration": 2031,
                         "src": "1869:8:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -4166,7 +4166,7 @@
                     "rightHandSide": {
                       "argumentTypes": null,
                       "hexValue": "30",
-                      "id": 2077,
+                      "id": 2090,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -4187,24 +4187,24 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 2079,
+                  "id": 2092,
                   "nodeType": "ExpressionStatement",
                   "src": "1855:27:5"
                 }
               ]
             },
             "documentation": "dev Removes the factory specified\r\nparam _factory address to remove\r",
-            "id": 2081,
+            "id": 2094,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
             "modifiers": [
               {
                 "arguments": [],
-                "id": 2021,
+                "id": 2034,
                 "modifierName": {
                   "argumentTypes": null,
-                  "id": 2020,
+                  "id": 2033,
                   "name": "onlyOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
@@ -4222,15 +4222,15 @@
             "name": "removeFactory",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2019,
+              "id": 2032,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2018,
+                  "id": 2031,
                   "name": "_factory",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2081,
+                  "scope": 2094,
                   "src": "1425:16:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4239,7 +4239,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2017,
+                    "id": 2030,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1425:7:5",
@@ -4256,12 +4256,12 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 2022,
+              "id": 2035,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1461:0:5"
             },
-            "scope": 2105,
+            "scope": 2118,
             "src": "1402:485:5",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -4269,7 +4269,7 @@
           },
           {
             "body": {
-              "id": 2091,
+              "id": 2104,
               "nodeType": "Block",
               "src": "2053:45:5",
               "statements": [
@@ -4280,7 +4280,7 @@
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     },
-                    "id": 2089,
+                    "id": 2102,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -4289,18 +4289,18 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 2086,
+                        "id": 2099,
                         "name": "factory_contracts",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1941,
+                        "referencedDeclaration": 1954,
                         "src": "2065:17:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_array$_t_address_$dyn_storage",
                           "typeString": "address[] storage ref"
                         }
                       },
-                      "id": 2087,
+                      "id": 2100,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
@@ -4319,7 +4319,7 @@
                     "rightExpression": {
                       "argumentTypes": null,
                       "hexValue": "31",
-                      "id": 2088,
+                      "id": 2101,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -4340,15 +4340,15 @@
                       "typeString": "uint256"
                     }
                   },
-                  "functionReturnParameters": 2085,
-                  "id": 2090,
+                  "functionReturnParameters": 2098,
+                  "id": 2103,
                   "nodeType": "Return",
                   "src": "2058:35:5"
                 }
               ]
             },
             "documentation": "dev Counts the number of factories\r\nreturns the number of active factories\r",
-            "id": 2092,
+            "id": 2105,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -4356,22 +4356,22 @@
             "name": "getFactoryCount",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2082,
+              "id": 2095,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "2021:2:5"
             },
             "payable": false,
             "returnParameters": {
-              "id": 2085,
+              "id": 2098,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2084,
+                  "id": 2097,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2092,
+                  "scope": 2105,
                   "src": "2048:4:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4380,7 +4380,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2083,
+                    "id": 2096,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "2048:4:5",
@@ -4395,7 +4395,7 @@
               ],
               "src": "2047:6:5"
             },
-            "scope": 2105,
+            "scope": 2118,
             "src": "1997:101:5",
             "stateMutability": "view",
             "superFunction": null,
@@ -4403,7 +4403,7 @@
           },
           {
             "body": {
-              "id": 2103,
+              "id": 2116,
               "nodeType": "Block",
               "src": "2383:42:5",
               "statements": [
@@ -4412,25 +4412,25 @@
                     "argumentTypes": null,
                     "baseExpression": {
                       "argumentTypes": null,
-                      "id": 2099,
+                      "id": 2112,
                       "name": "factory_contracts",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1941,
+                      "referencedDeclaration": 1954,
                       "src": "2395:17:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_array$_t_address_$dyn_storage",
                         "typeString": "address[] storage ref"
                       }
                     },
-                    "id": 2101,
+                    "id": 2114,
                     "indexExpression": {
                       "argumentTypes": null,
-                      "id": 2100,
+                      "id": 2113,
                       "name": "_index",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 2094,
+                      "referencedDeclaration": 2107,
                       "src": "2413:6:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -4448,15 +4448,15 @@
                       "typeString": "address"
                     }
                   },
-                  "functionReturnParameters": 2098,
-                  "id": 2102,
+                  "functionReturnParameters": 2111,
+                  "id": 2115,
                   "nodeType": "Return",
                   "src": "2388:32:5"
                 }
               ]
             },
             "documentation": "dev Returns the factory address for the specified index\r\nparam _index for factory to look up in the factory_contracts array\r\nreturn factory address for the index specified\r",
-            "id": 2104,
+            "id": 2117,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -4464,15 +4464,15 @@
             "name": "getFactorybyIndex",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2095,
+              "id": 2108,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2094,
+                  "id": 2107,
                   "name": "_index",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2104,
+                  "scope": 2117,
                   "src": "2338:11:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4481,7 +4481,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2093,
+                    "id": 2106,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "2338:4:5",
@@ -4498,15 +4498,15 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 2098,
+              "id": 2111,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2097,
+                  "id": 2110,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2104,
+                  "scope": 2117,
                   "src": "2375:7:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4515,7 +4515,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2096,
+                    "id": 2109,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "2375:7:5",
@@ -4530,14 +4530,14 @@
               ],
               "src": "2374:9:5"
             },
-            "scope": 2105,
+            "scope": 2118,
             "src": "2311:114:5",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 2106,
+        "scope": 2119,
         "src": "231:2197:5"
       }
     ],
@@ -4548,6 +4548,6 @@
     "version": "0.4.24+commit.e67f0147.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "2.0.0",
-  "updatedAt": "2018-07-16T15:23:55.411Z"
+  "schemaVersion": "2.0.1",
+  "updatedAt": "2018-07-16T18:24:58.406Z"
 }
