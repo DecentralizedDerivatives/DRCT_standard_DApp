@@ -18,7 +18,7 @@ const initialState = {
   oracleAddress: '',
   orderbook: [],
   recentTrades: [],
-  contractOpenDates: [],
+  contractOpenDates: {},
   newContract: {
     id: '',
     address: '',
@@ -128,6 +128,112 @@ describe('contractReducer', () => {
             symbol: '????'
           }
         ]
+      };
+
+      const state = contractReducer(initialState, action);
+      expect(state).toEqual(expectedState);
+    });
+  });
+
+  describe('SET_CONTRACT_OPEN_DATES', () => {
+    it('returns the correct state', () => {
+      const action = {
+        type: SET_CONTRACT_OPEN_DATES,
+        payload: {
+          1000001: '01/01/2018'
+        }
+      };
+
+      const expectedState = {
+        ...initialState,
+        contractOpenDates: {
+          1000001: '01/01/2018'
+        }
+      };
+
+      const state = contractReducer(initialState, action);
+      expect(state).toEqual(expectedState);
+    });
+  });
+
+  describe('SET_CONTRACT_CREATED', () => {
+    it('returns the correct state', () => {
+      const action = {
+        type: SET_CONTRACT_CREATED,
+        payload: {
+          id: '0x0xxx',
+          address: '0x0xxxxxx1',
+          duration: 'One Week',
+          currency: 'BTC/USD',
+          startDate: '01/01/2018',
+          amount: 1
+        }
+      };
+
+      const expectedState = {
+        ...initialState,
+        newContract: {
+          id: '0x0xxx',
+          address: '0x0xxxxxx1',
+          duration: 'One Week',
+          currency: 'BTC/USD',
+          startDate: '01/01/2018',
+          amount: 1
+        }
+      };
+
+      const state = contractReducer(initialState, action);
+      expect(state).toEqual(expectedState);
+    });
+  });
+
+  describe('SET_CONTRACT_ERROR', () => {
+    it('returns the correct state', () => {
+      const action = {
+        type: SET_CONTRACT_ERROR,
+        payload: 'Contract Creation Error'
+      };
+
+      const expectedState = {
+        ...initialState,
+        newContractCreateError: 'Contract Creation Error'
+      };
+
+      const state = contractReducer(initialState, action);
+      expect(state).toEqual(expectedState);
+    });
+  });
+
+  describe('SET_CONTRACT_FUNDED', () => {
+    it('returns the correct state', () => {
+      const action = {
+        type: SET_CONTRACT_FUNDED,
+        payload: '0x0xxxxxx4'
+      };
+
+      const expectedState = {
+        ...initialState,
+        newContract: {
+          funded: true,
+          fundedTx: '0x0xxxxxx4'
+        }
+      };
+
+      const state = contractReducer(initialState, action);
+      expect(state).toEqual(expectedState);
+    });
+  });
+
+  describe('SET_SEND_FUNDS_ERROR', () => {
+    it('returns the correct state', () => {
+      const action = {
+        type: SET_SEND_FUNDS_ERROR,
+        payload: 'Send Funds Error'
+      };
+
+      const expectedState = {
+        ...initialState,
+        newContractFundsError: 'Send Funds Error'
       };
 
       const state = contractReducer(initialState, action);
