@@ -31,14 +31,14 @@
     "absolutePath": "/C/company/code/drct_standard/contracts/interfaces/Membership_Interface.sol",
     "exportedSymbols": {
       "Membership_Interface": [
-        3686
+        3699
       ]
     },
-    "id": 3687,
+    "id": 3700,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 3678,
+        "id": 3691,
         "literals": [
           "solidity",
           "^",
@@ -54,9 +54,9 @@
         "contractKind": "interface",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 3686,
+        "id": 3699,
         "linearizedBaseContracts": [
-          3686
+          3699
         ],
         "name": "Membership_Interface",
         "nodeType": "ContractDefinition",
@@ -64,7 +64,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 3685,
+            "id": 3698,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -72,15 +72,15 @@
             "name": "getMembershipType",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 3681,
+              "id": 3694,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3680,
+                  "id": 3693,
                   "name": "_member",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3685,
+                  "scope": 3698,
                   "src": "93:15:17",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -89,7 +89,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 3679,
+                    "id": 3692,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "93:7:17",
@@ -106,15 +106,15 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 3684,
+              "id": 3697,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3683,
+                  "id": 3696,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3685,
+                  "scope": 3698,
                   "src": "136:4:17",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -123,7 +123,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 3682,
+                    "id": 3695,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "136:4:17",
@@ -138,14 +138,14 @@
               ],
               "src": "135:6:17"
             },
-            "scope": 3686,
+            "scope": 3699,
             "src": "66:76:17",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "external"
           }
         ],
-        "scope": 3687,
+        "scope": 3700,
         "src": "28:117:17"
       }
     ],
@@ -155,14 +155,14 @@
     "absolutePath": "/C/company/code/drct_standard/contracts/interfaces/Membership_Interface.sol",
     "exportedSymbols": {
       "Membership_Interface": [
-        3686
+        3699
       ]
     },
-    "id": 3687,
+    "id": 3700,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 3678,
+        "id": 3691,
         "literals": [
           "solidity",
           "^",
@@ -178,9 +178,9 @@
         "contractKind": "interface",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 3686,
+        "id": 3699,
         "linearizedBaseContracts": [
-          3686
+          3699
         ],
         "name": "Membership_Interface",
         "nodeType": "ContractDefinition",
@@ -188,7 +188,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 3685,
+            "id": 3698,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -196,15 +196,15 @@
             "name": "getMembershipType",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 3681,
+              "id": 3694,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3680,
+                  "id": 3693,
                   "name": "_member",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3685,
+                  "scope": 3698,
                   "src": "93:15:17",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -213,7 +213,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 3679,
+                    "id": 3692,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "93:7:17",
@@ -230,15 +230,15 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 3684,
+              "id": 3697,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3683,
+                  "id": 3696,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3685,
+                  "scope": 3698,
                   "src": "136:4:17",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -247,7 +247,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 3682,
+                    "id": 3695,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "136:4:17",
@@ -262,14 +262,14 @@
               ],
               "src": "135:6:17"
             },
-            "scope": 3686,
+            "scope": 3699,
             "src": "66:76:17",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "external"
           }
         ],
-        "scope": 3687,
+        "scope": 3700,
         "src": "28:117:17"
       }
     ],
@@ -280,6 +280,6 @@
     "version": "0.4.24+commit.e67f0147.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "2.0.0",
-  "updatedAt": "2018-07-16T15:23:55.419Z"
+  "schemaVersion": "2.0.1",
+  "updatedAt": "2018-07-16T18:24:58.415Z"
 }

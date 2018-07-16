@@ -39,14 +39,14 @@
     "absolutePath": "/C/company/code/drct_standard/contracts/interfaces/Deployer_Interface.sol",
     "exportedSymbols": {
       "Deployer_Interface": [
-        3566
+        3579
       ]
     },
-    "id": 3567,
+    "id": 3580,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 3554,
+        "id": 3567,
         "literals": [
           "solidity",
           "^",
@@ -62,9 +62,9 @@
         "contractKind": "interface",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 3566,
+        "id": 3579,
         "linearizedBaseContracts": [
-          3566
+          3579
         ],
         "name": "Deployer_Interface",
         "nodeType": "ContractDefinition",
@@ -72,7 +72,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 3565,
+            "id": 3578,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -80,15 +80,15 @@
             "name": "newContract",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 3561,
+              "id": 3574,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3556,
+                  "id": 3569,
                   "name": "_party",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3565,
+                  "scope": 3578,
                   "src": "154:14:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -97,7 +97,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 3555,
+                    "id": 3568,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "154:7:14",
@@ -111,10 +111,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 3558,
+                  "id": 3571,
                   "name": "user_contract",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3565,
+                  "scope": 3578,
                   "src": "170:21:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -123,7 +123,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 3557,
+                    "id": 3570,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "170:7:14",
@@ -137,10 +137,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 3560,
+                  "id": 3573,
                   "name": "_start_date",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3565,
+                  "scope": 3578,
                   "src": "193:16:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -149,7 +149,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 3559,
+                    "id": 3572,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "193:4:14",
@@ -166,15 +166,15 @@
             },
             "payable": true,
             "returnParameters": {
-              "id": 3564,
+              "id": 3577,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3563,
+                  "id": 3576,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3565,
+                  "scope": 3578,
                   "src": "237:7:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -183,7 +183,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 3562,
+                    "id": 3575,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "237:7:14",
@@ -198,14 +198,14 @@
               ],
               "src": "236:9:14"
             },
-            "scope": 3566,
+            "scope": 3579,
             "src": "133:113:14",
             "stateMutability": "payable",
             "superFunction": null,
             "visibility": "external"
           }
         ],
-        "scope": 3567,
+        "scope": 3580,
         "src": "99:150:14"
       }
     ],
@@ -215,14 +215,14 @@
     "absolutePath": "/C/company/code/drct_standard/contracts/interfaces/Deployer_Interface.sol",
     "exportedSymbols": {
       "Deployer_Interface": [
-        3566
+        3579
       ]
     },
-    "id": 3567,
+    "id": 3580,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 3554,
+        "id": 3567,
         "literals": [
           "solidity",
           "^",
@@ -238,9 +238,9 @@
         "contractKind": "interface",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 3566,
+        "id": 3579,
         "linearizedBaseContracts": [
-          3566
+          3579
         ],
         "name": "Deployer_Interface",
         "nodeType": "ContractDefinition",
@@ -248,7 +248,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 3565,
+            "id": 3578,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -256,15 +256,15 @@
             "name": "newContract",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 3561,
+              "id": 3574,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3556,
+                  "id": 3569,
                   "name": "_party",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3565,
+                  "scope": 3578,
                   "src": "154:14:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -273,7 +273,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 3555,
+                    "id": 3568,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "154:7:14",
@@ -287,10 +287,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 3558,
+                  "id": 3571,
                   "name": "user_contract",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3565,
+                  "scope": 3578,
                   "src": "170:21:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -299,7 +299,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 3557,
+                    "id": 3570,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "170:7:14",
@@ -313,10 +313,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 3560,
+                  "id": 3573,
                   "name": "_start_date",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3565,
+                  "scope": 3578,
                   "src": "193:16:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -325,7 +325,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 3559,
+                    "id": 3572,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "193:4:14",
@@ -342,15 +342,15 @@
             },
             "payable": true,
             "returnParameters": {
-              "id": 3564,
+              "id": 3577,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3563,
+                  "id": 3576,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3565,
+                  "scope": 3578,
                   "src": "237:7:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -359,7 +359,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 3562,
+                    "id": 3575,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "237:7:14",
@@ -374,14 +374,14 @@
               ],
               "src": "236:9:14"
             },
-            "scope": 3566,
+            "scope": 3579,
             "src": "133:113:14",
             "stateMutability": "payable",
             "superFunction": null,
             "visibility": "external"
           }
         ],
-        "scope": 3567,
+        "scope": 3580,
         "src": "99:150:14"
       }
     ],
@@ -392,6 +392,6 @@
     "version": "0.4.24+commit.e67f0147.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "2.0.0",
-  "updatedAt": "2018-07-16T15:23:55.418Z"
+  "schemaVersion": "2.0.1",
+  "updatedAt": "2018-07-16T18:24:58.415Z"
 }
