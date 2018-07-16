@@ -39,7 +39,8 @@ export const getUserAccount = () => async dispatch => {
 export const getUserBalance = () => async dispatch => {
   dispatch(setProcessing(true));
   try {
-    const wrapped = await Wrapped.deployed();
+        var static_addresses = FactoryProvider.get_static_addresses();
+    const wrapped = await Wrapped.at(static_addresses.wrapped_ether)
     const accounts = await web3.eth.getAccounts();
     let _res = await wrapped.balanceOf(accounts[0]);
 
@@ -248,8 +249,9 @@ export const getUserOrders = userAccount => async dispatch => {
   dispatch(setProcessing(false));
 };
 const getOrdersForFactory = async (factory, userAccount) => {
-  const exchange = await Exchange.deployed();
-  const books = await exchange.getUserOrders.call(userAccount); //Gets all listed order ids
+      var static_addresses = FactoryProvider.get_static_addresses();
+    const exchange = await Exchange.at(static_addresses.exchange);
+      const books = await exchange.getUserOrders.call(userAccount); //Gets all listed order ids
   const allOrders = []; //Contains all information for each order
   for (let i = 0; i < books.length; i++) {
     const order = {};
@@ -274,7 +276,8 @@ export const sendCashOutRequest = (amount, account) => async dispatch => {
   dispatch(setProcessing(true));
 
   try {
-    const wrapped = await Wrapped.deployed();
+            var static_addresses = FactoryProvider.get_static_addresses();
+    const wrapped = await Wrapped.at(static_addresses.wrapped_ether)
     const response = await wrapped.withdraw(amount, {
       from: account,
       gas: 4000000
