@@ -16,12 +16,13 @@ const initialState = {
   userPositions: [],
   userTokens: [],
 
-  userOrders: '',
+  userOrders: [],
   userOrderLabels: '',
   cashOut: {
     id: '',
     amount: 0
-  }
+  },
+  cashOutError: null
 };
 
 export default function(state = initialState, action) {
