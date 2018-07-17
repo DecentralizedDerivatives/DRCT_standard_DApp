@@ -210,10 +210,7 @@ export const sendCreateContractOrder = (
   const { duration, currency, startDate, amount } = formValues;
   try {
     const factory = await Factory.at(currency);
-    let date = Math.floor(new Date(startDate).getTime() / 1000);
-    date = date - (date % 86400);
-
-    const response = await factory.deployContract(date, {
+    const response = await factory.deployContract(startDate, {
       from: account,
       gas: 4000000
     });
