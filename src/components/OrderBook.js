@@ -7,6 +7,9 @@ import { getOrderBook } from '../actions/contractActions';
 // Use named export for unconnected component for testing
 export class OrderBook extends Component {
   renderRows = () => {
+    if (this.props.orderbook.length === 0) {
+      return <tr><td colSpan='12' style={{textAlign: 'center'}}><h5>No Recent Orders</h5></td></tr>
+    }
     var rows = this.props.orderbook.map(order => {
       const { orderId, address, price, quantity, date, symbol } = order;
       return (

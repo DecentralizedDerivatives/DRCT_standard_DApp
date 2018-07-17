@@ -34,24 +34,16 @@ export class MyPortfolio extends Component {
   //   await this.props.getUserPositions(this.props.userAccount);
   //   await this.props.getUserTransactions(this.props.userAccount);
   // }
-
-  handleRowClick = async e => {
+  //
+  handleRowClick = async (transactionAddress, e) => {
     e.preventDefault();
-
-    let addressEl = e.target.getElementsByClassName('link__token-address')[0];
-
-    if (typeof addressEl !== 'undefined') {
-      const token_address = addressEl.getAttribute('data-token-address');
-
-      await this.props.setSelectedToken(token_address);
-
-      this.openContractDetails(e.target, token_address);
-    }
+    console.log('ROW CLICK', transactionAddress)
+    // TODO: Do we need a Transaction Details popup?
+    // this.openContractDetails(symbol);
   };
-
-  openContractDetails = async (link, token_address = false) => {
-    await this.props.getContractDetails(link);
-
+  //
+  openContractDetails = async (symbol) => {
+    // await this.props.getContractDetails(symbol);
     this.setState({
       detailsOpen: true
     });

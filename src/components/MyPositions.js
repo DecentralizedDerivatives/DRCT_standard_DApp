@@ -10,7 +10,7 @@ export class MyPositions extends Component {
     if (this.props.userPositions.length === 0) {
       return <tr><td colSpan='12' style={{textAlign: 'center'}}><h5>No Recent Events</h5></td></tr>
     }
-    var rows = this.props.userPositions.map(position => {
+    var rows = this.props.userPositions.map((position, index) => {
       const {
         address,
         balance,
@@ -21,7 +21,7 @@ export class MyPositions extends Component {
       } = position;
 
       return (
-        <tr>
+        <tr key={index}>
           <td>
             <a
               className="link__token-address"

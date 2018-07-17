@@ -10,25 +10,21 @@ export class MyTransactions extends Component {
     if (this.props.userTransactions.length === 0) {
       return <tr><td colSpan='12' style={{textAlign: 'center'}}><h5>No Recent Events</h5></td></tr>
     }
-    // console.log('CLIENT SIDE', this.props.userTransactions)
-    var rows = this.props.userTransactions.map(trade => {
+    console.log('Transactions', this.props.userTransactions)
+    var rows = this.props.userTransactions.map((trade, index) => {
       const tradeTitle = trade.title;
       const tradeHash = trade.hash;
 
       return (
-        <tr>
+        <tr key={index} onClick={this.props.onRowClick.bind(this, tradeHash)}>
           <td>{tradeTitle}</td>
           <td>
-            <a
-              className="link__token-address"
+            <a className="link__token-address"
               href={
                 tradeHash.length > 50
                   ? `https://rinkeby.etherscan.io/tx/${tradeHash}`
                   : `https://rinkeby.etherscan.io/address/${tradeHash}`
               }
-              target="_blank"
-              onClick={this.props.onRowClick}
-              data-token-address={tradeHash}
             >
               {tradeHash.substring(0, 14)}...
             </a>
