@@ -53,7 +53,7 @@ export class CreateContract extends Component {
   };
 
   render() {
-    return(
+    return this.state.sendFundsOpen?(
       // <div className="container">
       //   <div id="create-contract-button">
       //     <button onClick={this.toggleFormVisibility} className="btn btn-info">
@@ -80,19 +80,35 @@ export class CreateContract extends Component {
       //     </div>
       //   </Collapse>
 
-      //   {this.state.resultsMessage && (
-      //     <div id="results-message" className="text-center">
-      //       {this.state.resultsMessage}
-      //     </div>
-      //   )}
+        // {this.state.resultsMessage && (
+        //   <div id="results-message" className="text-center">
+        //     {this.state.resultsMessage}
+        //   </div>
+        // )}
       // </div> 
-      <div className="create-contract">
-        <div className="modal-background" onClick={this.props.close}></div>
-        <div className="modal">
-        <CreateContractFormContainer name="createContractForm" />
+      <div className="create-contract" >
+      <div className="modal-background" onClick={this.props.close}></div>
+      <div className="modal" style={{height:"230px"}}>
+        <div id="send-funds">
+          <h3 className="created-address">
+            Address Result : {this.props.newContractAddress}
+          </h3>
+          <button
+            onClick={this.handleSendFundsClick}
+          >
+          Send Funds
+          </button>
         </div>
       </div>
-    )
+      </div>
+    ):(
+      <div className="create-contract">
+      <div className="modal-background" onClick={this.props.close}></div>
+      <div className="modal">
+      <CreateContractFormContainer name="createContractForm" />
+      </div>
+    </div>
+    );
   }
 }
 

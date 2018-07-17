@@ -5,26 +5,20 @@ import PropTypes from 'prop-types';
 
 // Use named export for unconnected component for testing
 export class Header extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      isOpen: false
-    };
-
-    this.toggle = this.toggle.bind(this);
+  handleNavClick = (e) => {
+    if(this.props.isConnected){
+      const path = e.currentTarget.getAttribute("href");
+      if(document.getElementById("selected-nav")!==null) document.getElementById("selected-nav").removeAttribute("id");
+      if(path !== "/"){
+        e.currentTarget.setAttribute("id","selected-nav");
+      }
+    }
   }
-
-  toggle() {
-    this.setState({
-      isOpen: !this.state.isOpen
-    });
-  }
-
   render() {
+    const disabledLink = this.props.isConnected?"":"disabled";
     return (
       <nav id="header-nav">
-        <Link to="/">
+        <Link onClick={this.handleNavClick} to="/">
           <img
             className="nav-logo"
             src="./dda-logo.png"
@@ -35,13 +29,13 @@ export class Header extends Component {
         </Link>
         <ul>
           <li>
-            <Link className="nav-link" to="/portfolio">Portfolio</Link>
+            <Link onClick={this.handleNavClick} className={"nav-link " + disabledLink }  to="/portfolio">Portfolio</Link>
           </li>
           <li>
-            <Link className="nav-link" to="/bulletin">Bulletin</Link>
+            <Link onClick={this.handleNavClick} className={"nav-link " + disabledLink } to="/bulletin">Bulletin</Link>
           </li>
           <li>
-            <Link className="nav-link" to="/how-to">How To</Link>
+            <Link onClick={this.handleNavClick} className={"nav-link " + disabledLink } to="/how-to">How To</Link>
           </li>
           <li>
             <a
