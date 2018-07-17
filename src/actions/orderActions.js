@@ -30,8 +30,8 @@ export const getOrderDetails = orderId => async dispatch => {
       return dispatch({type: SET_ORDER_DETAILS, payload: ''});
     }
     var factories = FactoryProvider.factories();
-    var static_addresses = FactoryProvider.get_static_addresses();
-    const exchange = await Exchange.at(static_addresses.exchange);
+    var staticAddresses = FactoryProvider.getStaticAddresses();
+    const exchange = await Exchange.at(staticAddresses.exchange);
     let order = await exchange.getOrder(orderId);
     let _allrows = [];
     for (var i = 0; i < factories.length; i++) {
@@ -82,8 +82,8 @@ export const sendBuyOrder = (orderId, account) => async dispatch => {
   dispatch(setProcessing(true));
 
   try {
-        var static_addresses = FactoryProvider.get_static_addresses();
-    const exchange = await Exchange.at(static_addresses.exchange);
+    var staticAddresses = FactoryProvider.getStaticAddresses();
+    const exchange = await Exchange.at(staticAddresses.exchange);
     const order = await exchange.getOrder(orderId);
     const _value = order[1];
     const response = await exchange.buy(order, {
@@ -112,8 +112,8 @@ export const sendUnlistOrder = (orderId, account) => async dispatch => {
   dispatch(setProcessing(true));
 
   try {
-        var static_addresses = FactoryProvider.get_static_addresses();
-    const exchange = await Exchange.at(static_addresses.exchange);
+    var staticAddresses = FactoryProvider.getStaticAddresses();
+    const exchange = await Exchange.at(staticAddresses.exchange);
     const response = await exchange.unlist(orderId, {
       from: account,
       gas: 4000000
@@ -142,8 +142,8 @@ export const sendListOrder = (formValues, account) => async dispatch => {
   let { token, price, amount } = formValues;
 
   try {
-        var static_addresses = FactoryProvider.get_static_addresses();
-    const exchange = await Exchange.at(static_addresses.exchange);
+    var staticAddresses = FactoryProvider.getStaticAddresses();
+    const exchange = await Exchange.at(staticAddresses.exchange);
 
     const response = await exchange.list(token, amount, price * 1e18, {
       from: account,
@@ -175,8 +175,8 @@ export const sendApproveOrder = (approveDetails, account) => async dispatch => {
   let { selectedToken, amount } = approveDetails;
 
   try {
-        var static_addresses = FactoryProvider.get_static_addresses();
-    const exchange = await Exchange.at(static_addresses.exchange);
+    var staticAddresses = FactoryProvider.getStaticAddresses();
+    const exchange = await Exchange.at(staticAddresses.exchange);
 
     selectedToken = selectedToken.split('(')[0].replace(/['"]+/g, '');
 
