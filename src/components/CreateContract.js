@@ -58,7 +58,7 @@ export class CreateContract extends Component {
             <h3 className="created-address">
               Address Result : {this.props.newContract.address}
             </h3>
-            {newContractFundsError}
+            {this.props.newContractFundsError}
             <button
               onClick={this.handleSendFundsClick}
             >
