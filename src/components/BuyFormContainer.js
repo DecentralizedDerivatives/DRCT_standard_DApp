@@ -1,13 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { reduxForm, getFormValues } from 'redux-form';
 import { sendBuyOrder } from '../actions/orderActions';
 import BuyFormComponent from './BuyFormComponent';
 
-export const BuyFormContainer = props => {
-  const submitForm = formValues => {
+export let BuyFormContainer = props => {
+  const submitForm = (formValues, sendBuyOrder, userAccount) => {
     console.log('submitting Form: ', formValues);
-    this.props.sendBuyOrder(formValues, this.props.userAccount);
+    sendBuyOrder(formValues, userAccount);
   };
 
   return (
@@ -20,15 +21,24 @@ export const BuyFormContainer = props => {
   );
 };
 
+BuyFormContainer.propTypes = {
+  sendBuyOrder: PropTypes.func.isRequired,
+  formValues: PropTypes.object,
+  userOrders: PropTypes.array
+};
+
 const mapStateToProps = state => ({
   formValues: getFormValues('buy-form')(state),
   userOrders: state.user.userOrders
 });
+
 const formConfiguration = {
   form: 'buy-form'
 };
 
-export default connect(
+BuyFormContainer = reduxForm(formConfiguration)(BuyFormContainer);
+
+export default (BuyFormContainer = connect(
   mapStateToProps,
   { sendBuyOrder }
-)(reduxForm(formConfiguration)(BuyFormContainer));
+)(BuyFormContainer));

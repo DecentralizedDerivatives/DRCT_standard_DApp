@@ -45,23 +45,14 @@ export class Bulletin extends Component {
   //   await this.props.getRecentTrades();
   // }
 
-  handleRowClick = async e => {
+  handleRowClick = async (tokenAddress, symbol, e) => {
     e.preventDefault();
-
-    let addressEl = e.target.getElementsByClassName('link__token-address')[0];
-
-    if (typeof addressEl !== 'undefined') {
-      const token_address = addressEl.getAttribute('data-token-address');
-
-      await this.props.setSelectedToken(token_address);
-
-      this.openContractDetails(e.target, token_address);
-    }
+    await this.props.setSelectedToken(tokenAddress);
+    this.openContractDetails(symbol);
   };
 
-  openContractDetails = async (link, token_address = false) => {
-    await this.props.getContractDetails(link);
-
+  openContractDetails = async (symbol) => {
+    await this.props.getContractDetails(symbol);
     this.setState({
       detailsOpen: true
     });
@@ -107,7 +98,7 @@ Bulletin.propTypes = {
   getUserTokenPositions: PropTypes.func.isRequired,
   getUserOrders: PropTypes.func.isRequired,
   setSelectedToken: PropTypes.func.isRequired,
-  orderID: PropTypes.string,
+  orderId: PropTypes.string,
   userAccount: PropTypes.string.isRequired
 };
 

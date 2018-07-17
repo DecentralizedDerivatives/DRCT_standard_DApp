@@ -16,7 +16,7 @@ const initialState = {
   oracleAddress: '',
   orderbook: [],
   recentTrades: [],
-  contractOpenDates: [],
+  contractOpenDates: {},
   newContract: {
     id: '',
     address: '',
@@ -75,7 +75,7 @@ export default function(state = initialState, action) {
     case SET_CONTRACT_FUNDED:
       return {
         ...state,
-        newContracts: { funded: true, fundedTx: action.payload }
+        newContract: { funded: true, fundedTx: action.payload }
       };
     case SET_SEND_FUNDS_ERROR:
       return {

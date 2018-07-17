@@ -8,15 +8,15 @@ import {
   SET_RECENT_TRADES
 } from './types';
 
-export const getContractDetails = () => async dispatch => {
+import FactoryProvider from '../factoryProvider';
+
+export const getContractDetails = (symbol) => async dispatch => {
   dispatch(setProcessing(true));
   try {
-    const factory = await Factory.at(
-      '0x8822b11262fb2f6c201e6fed8a3098b32851cc42'
-    );
+    const provider = FactoryProvider.getFromSymbol(symbol);
+    const factory = await Factory.at(provider && provider.address ? provider.address : '');
 
     const response = await factory.getVariables();
-
     const details = {
       contractAddress: response[0],
       contractDuration: response[1].c[0],
@@ -40,25 +40,34 @@ export const getContractDetails = () => async dispatch => {
 export const getOrderBook = () => async dispatch => {
   dispatch(setProcessing(true));
   try {
-    const factory = await Factory.at(
-      '0x8822b11262fb2f6c201e6fed8a3098b32851cc42'
-    );
-
     // first get number of open books (tokens with open orders):
-    let exchange = await Exchange.deployed();
+        var static_addresses = FactoryProvider.get_static_addresses();
+        console.log(static_addresses);
+    const exchange = await Exchange.at(static_addresses.exchange);
     let numBooks = await exchange.getBookCount();
-
+    var factories = FactoryProvider.factories();
     // get orders for that book:
     let _allrows = [];
     let order;
     for (let i = 0; i < numBooks; i++) {
       let book = await exchange.openBooks(i);
+      // console.log('book', book)
+      let date = null;
+      let symbol = '???';
+      for (var p = 0; p < factories.length; p++) {
+        const factory = await Factory.at(factories[p].address);
+        let tokenDate = await factory.token_dates.call(book);
+        if (tokenDate.c && tokenDate.c.length > 0 && tokenDate.c[0] !== 0) {
+          date = tokenDate.c[0];
+          symbol = factory.symbol;
+          break;
+        }
+      }
       let orders = await exchange.getOrders(book);
       for (let j = 0; j < orders.length; j++) {
         if (orders[j].c[0] > 0) {
           order = await exchange.getOrder(orders[j].c[0]);
-          let date = await factory.token_dates.call(book);
-
+          // console.log('Order', order);
           date = new Date(date * 1000);
           let orderDate =
             date.getUTCMonth() +
@@ -67,14 +76,14 @@ export const getOrderBook = () => async dispatch => {
             date.getUTCDate() +
             '/' +
             date.getUTCFullYear();
-
           _allrows.push({
             orderId: orders[j].c[0].toString(),
             address: order[3],
             price: (order[1].c[0] / 10000).toString(),
             quantity: order[2].c[0].toString(),
-            date: orderDate.toString()
-          });
+            date: orderDate.toString(),
+            symbol: symbol
+           });
         }
       }
     }
@@ -95,7 +104,8 @@ export const getOrderBook = () => async dispatch => {
 export const getRecentTrades = () => async dispatch => {
   dispatch(setProcessing(true));
   try {
-    const exchange = await Exchange.deployed();
+        var static_addresses = FactoryProvider.get_static_addresses();
+    const exchange = await Exchange.at(static_addresses.exchange);
 
     let transferEvent = await exchange.Sale(
       {},
@@ -103,6 +113,7 @@ export const getRecentTrades = () => async dispatch => {
     );
 
     transferEvent.get(function (err, events) {
+      // console.log('events', events);
       var trades = [];
       if (events.length > 0) {
         for (let i = events.length - 1; i >= Math.max(events.length - 10, 0); i--) {
@@ -128,10 +139,10 @@ export const getRecentTrades = () => async dispatch => {
   dispatch(setProcessing(false));
 };
 
-export const getContractOpenDates = (address) => async dispatch => {
+export const getContractOpenDates = (currencyAddress) => async dispatch => {
   dispatch(setProcessing(true));
   try {
-    const factory = await Factory.at(address);
+    const factory = await Factory.at(currencyAddress);
     // console.log(factory);
     let openDates = {};
     const numDates = await factory.getDateCount();

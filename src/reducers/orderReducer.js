@@ -14,7 +14,7 @@ const initialState = {
   orderDetails: '',
   buy: {
     id: '',
-    orderID: ''
+    orderId: ''
   },
   buyOrderError: null,
   list: {
@@ -29,7 +29,7 @@ const initialState = {
   listOrderApproveError: null,
   unlist: {
     id: '',
-    orderID: ''
+    orderId: ''
   },
   unlistOrderError: null
 };
@@ -76,7 +76,7 @@ export default function(state = initialState, action) {
         ...state,
         list: {
           approved: true,
-          approveTX: action.payload
+          approveTx: action.payload
         }
       };
     case SET_LIST_ORDER_APPROVE_ERROR:

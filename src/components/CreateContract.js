@@ -45,9 +45,10 @@ export class CreateContract extends Component {
 
   handleSendFundsClick = e => {
     const sendFundsDetails = {
-      newContractAddress: this.props.newContractAddress,
-      newContractAmount: this.props.newContractAmount
+      newContractAddress:  "0xd5980579aff2ce3187740decbc78221362971c8e",
+      createContractAmount: 0.01//this.props.newContractAmount
     };
+    console.log('s',this.sendFundDetails);
 
     this.props.sendSendFundsOrder(sendFundsDetails, this.props.userAccount);
   };
@@ -99,6 +100,7 @@ export class CreateContract extends Component {
           Send Funds
           </button>
         </div>
+                </div>
       </div>
       </div>
     ):(

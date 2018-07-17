@@ -1,13 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { reduxForm, getFormValues } from 'redux-form';
 import { sendUnlistOrder } from '../actions/orderActions';
 import UnlistFormComponent from './UnlistFormComponent';
 
-export const UnlistFormContainer = props => {
-  const submitForm = formValues => {
+export let UnlistFormContainer = props => {
+  const submitForm = (formValues, sendUnlistOrder, userAccount) => {
     console.log('submitting Form: ', formValues);
-    this.props.sendUnlistOrder(formValues, this.props.userAccount);
+    sendUnlistOrder(formValues, userAccount);
   };
 
   return (
@@ -21,15 +22,24 @@ export const UnlistFormContainer = props => {
   );
 };
 
+UnlistFormContainer.propTypes = {
+  sendUnlistOrder: PropTypes.func.isRequired,
+  formValues: PropTypes.object,
+  userOrders: PropTypes.array
+};
+
 const mapStateToProps = state => ({
   formValues: getFormValues('unlist-form')(state),
   userOrders: state.user.userOrders
 });
+
 const formConfiguration = {
   form: 'unlist-form'
 };
 
-export default connect(
+UnlistFormContainer = reduxForm(formConfiguration)(UnlistFormContainer);
+
+export default (UnlistFormContainer = connect(
   mapStateToProps,
   { sendUnlistOrder }
-)(reduxForm(formConfiguration)(UnlistFormContainer));
+)(UnlistFormContainer));

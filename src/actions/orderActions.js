@@ -22,20 +22,21 @@ import FactoryProvider from '../factoryProvider';
 
 //TODO: This function makes no sense.  Why return an array of strings??
 //Should be a single object with order details.  Right??
-export const getOrderDetails = orderID => async dispatch => {
+export const getOrderDetails = orderId => async dispatch => {
   dispatch(setProcessing(true));
   try {
-    if (!orderID) {
+    if (!orderId) {
       dispatch({type: SET_SELECTED_TOKEN, payload: ''});
       return dispatch({type: SET_ORDER_DETAILS, payload: ''});
     }
     var factories = FactoryProvider.factories();
-    const exchange = await Exchange.deployed();
-    let order = await exchange.getOrder(orderID);
+    var static_addresses = FactoryProvider.get_static_addresses();
+    const exchange = await Exchange.at(static_addresses.exchange);
+    let order = await exchange.getOrder(orderId);
     let _allrows = [];
     for (var i = 0; i < factories.length; i++) {
       const factory = await Factory.at(factories[i].address);
-      var orderDetail = await getOrderDetailForFactory(factory, order, orderID);
+      var orderDetail = await getOrderDetailForFactory(factory, order, orderId);
       _allrows.push(orderDetail);
     }
 
@@ -58,14 +59,14 @@ export const getOrderDetails = orderID => async dispatch => {
   }
   dispatch(setProcessing(false));
 };
-const getOrderDetailForFactory = async (factory, order, orderID) => {
+const getOrderDetailForFactory = async (factory, order, orderId) => {
   let display = [];
   let date = await factory.token_dates.call(order[3]);
   date = new Date(date * 1000);
   date =
     date.getMonth() + 1 + '/' + date.getDate() + '/' + date.getFullYear();
   display =
-    orderID.toString() +
+    orderId.toString() +
     '(' +
     order[3] +
     order[1].c[0].toString() +
@@ -77,12 +78,13 @@ const getOrderDetailForFactory = async (factory, order, orderID) => {
   return display;
 };
 
-export const sendBuyOrder = (orderID, account) => async dispatch => {
+export const sendBuyOrder = (orderId, account) => async dispatch => {
   dispatch(setProcessing(true));
 
   try {
-    const exchange = await Exchange.deployed();
-    const order = await exchange.getOrder(orderID);
+        var static_addresses = FactoryProvider.get_static_addresses();
+    const exchange = await Exchange.at(static_addresses.exchange);
+    const order = await exchange.getOrder(orderId);
     const _value = order[1];
     const response = await exchange.buy(order, {
       from: account,
@@ -94,7 +96,7 @@ export const sendBuyOrder = (orderID, account) => async dispatch => {
       type: SET_BUY_ORDER_RECEIPT,
       payload: {
         id: response.tx,
-        orderID: orderID
+        orderId: orderId
       }
     });
   } catch (err) {
@@ -106,12 +108,13 @@ export const sendBuyOrder = (orderID, account) => async dispatch => {
   dispatch(setProcessing(false));
 };
 
-export const sendUnlistOrder = (orderID, account) => async dispatch => {
+export const sendUnlistOrder = (orderId, account) => async dispatch => {
   dispatch(setProcessing(true));
 
   try {
-    const exchange = await Exchange.deployed();
-    const response = await exchange.unlist(orderID, {
+        var static_addresses = FactoryProvider.get_static_addresses();
+    const exchange = await Exchange.at(static_addresses.exchange);
+    const response = await exchange.unlist(orderId, {
       from: account,
       gas: 4000000
     });
@@ -120,7 +123,7 @@ export const sendUnlistOrder = (orderID, account) => async dispatch => {
       type: SET_UNLIST_ORDER_RECEIPT,
       payload: {
         id: response.tx,
-        orderID: orderID
+        orderId: orderId
       }
     });
   } catch (err) {
@@ -139,7 +142,8 @@ export const sendListOrder = (formValues, account) => async dispatch => {
   let { token, price, amount } = formValues;
 
   try {
-    const exchange = await Exchange.deployed();
+        var static_addresses = FactoryProvider.get_static_addresses();
+    const exchange = await Exchange.at(static_addresses.exchange);
 
     const response = await exchange.list(token, amount, price * 1e18, {
       from: account,
@@ -171,7 +175,8 @@ export const sendApproveOrder = (approveDetails, account) => async dispatch => {
   let { selectedToken, amount } = approveDetails;
 
   try {
-    const exchange = await Exchange.deployed();
+        var static_addresses = FactoryProvider.get_static_addresses();
+    const exchange = await Exchange.at(static_addresses.exchange);
 
     selectedToken = selectedToken.split('(')[0].replace(/['"]+/g, '');
 
@@ -245,7 +250,7 @@ export const sendSendFundsOrder = (
 
   try {
     const factory = await Factory.at(
-      '0x15bd4d9dd2dfc5e01801be8ed17392d8404f9642'
+      '0x8822b11262fb2f6c201e6fed8a3098b32851cc42'
     );
 
     let uc_add = await factory.user_contract.call();
@@ -253,7 +258,7 @@ export const sendSendFundsOrder = (
 
     let _value = 1e18 * createContractAmount;
 
-    const response = userContract.Initiate(newContractAddress, _value, {
+    const response = await userContract.Initiate("0x433da4ce71a89a5c09c96c06d2431f17718c256d", _value, {
       from: account,
       gas: 4000000,
       value: _value * 2

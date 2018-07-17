@@ -1,19 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { reduxForm, getFormValues } from 'redux-form';
 import { sendCreateContractOrder } from '../actions/orderActions';
 import { getContractOpenDates } from '../actions/contractActions';
 import CreateContractFormComponent from './CreateContractFormComponent';
 
-export const CreateContractFormContainer = props => {
-  const submitForm = formValues => {
+export let CreateContractFormContainer = props => {
+  const submitForm = (formValues, sendCreateContractOrder, userAccount) => {
     console.log('submitting Form: ', formValues);
-    props.sendCreateContractOrder(formValues, props.userAccount);
+    sendCreateContractOrder(formValues, userAccount);
   };
-  const onCurrencyChange = async (evt) => {
+
+  const onCurrencyChange = async evt => {
     var address = evt.target.value;
     await props.getContractOpenDates(address);
-  }
+  };
+
   return (
     <CreateContractFormComponent
       formValues={props.formValues}
@@ -23,6 +26,12 @@ export const CreateContractFormContainer = props => {
       handleSubmit={props.handleSubmit}
     />
   );
+};
+
+CreateContractFormContainer.propTypes = {
+  sendCreateContractOrder: PropTypes.func.isRequired,
+  formValues: PropTypes.object,
+  userAccount: PropTypes.string
 };
 
 const mapStateToProps = state => ({
@@ -35,7 +44,11 @@ const formConfiguration = {
   form: 'create-contract'
 };
 
-export default connect(
+CreateContractFormContainer = reduxForm(formConfiguration)(
+  CreateContractFormContainer
+);
+
+export default (CreateContractFormContainer = connect(
   mapStateToProps,
   { getContractOpenDates, sendCreateContractOrder }
-)(reduxForm(formConfiguration)(CreateContractFormContainer));
+)(CreateContractFormContainer));

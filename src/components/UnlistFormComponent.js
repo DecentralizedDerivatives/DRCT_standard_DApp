@@ -17,7 +17,7 @@ export const UnlistFormComponent = ({
       <form onSubmit={handleSubmit(onSubmit)}>
         <InputGroup>
           <Field
-            name="orderID"
+            name="orderId"
             label="Select Order to Unlist"
             component={Select}
             options={selectOptions}
@@ -26,7 +26,7 @@ export const UnlistFormComponent = ({
 
         <InputGroup>
           <Field
-            name="orderID"
+            name="orderId"
             label="Or enter Order ID"
             component={InputText}
           />

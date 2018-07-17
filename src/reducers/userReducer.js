@@ -16,12 +16,13 @@ const initialState = {
   userPositions: [],
   userTokens: [],
 
-  userOrders: '',
+  userOrders: [],
   userOrderLabels: '',
   cashOut: {
     id: '',
     amount: 0
-  }
+  },
+  cashOutError: null
 };
 
 export default function(state = initialState, action) {
@@ -52,11 +53,15 @@ export default function(state = initialState, action) {
         userTokens: action.payload
       };
     case SET_USER_ORDERS:
-      const { userOrders } = action.payload;
       return {
         ...state,
-        userOrders
+        userOrders: action.payload
       };
+    // const { userOrders } = action.payload;
+    // return {
+    //   ...state,
+    //   userOrders
+    // };
     case SET_CASHOUT_RECEIPT:
       return {
         ...state,
