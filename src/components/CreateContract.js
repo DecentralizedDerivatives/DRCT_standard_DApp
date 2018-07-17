@@ -55,53 +55,30 @@ export class CreateContract extends Component {
 
   render() {
     return(
-      // <div className="container">
-      //   <div id="create-contract-button">
-      //     <button onClick={this.toggleFormVisibility} className="btn btn-info">
-      //       Create Contract
-      //     </button>
-      //   </div>
-
-      //   <Collapse isOpen={this.state.formOpen}>
-      //     <div id="create-contract-form">
-      //       <h4 className="center-text">Create Contract</h4>
-      //       <CreateContractFormContainer name="createContractForm" />
-      //     </div>
-      //   </Collapse>
-
-      //   <Collapse isOpen={this.state.sendFundsOpen}>
-      //     <div id="send-funds">
-      //       <h4 className="center-text">Contract Created</h4>
-      //       <button
-      //         className="btn btn-success"
-      //         onClick={this.handleSendFundsClick}
-      //       >
-      //         Send Funds
-      //       </button>
-      //     </div>
-      //   </Collapse>
-
-      //   {this.state.resultsMessage && (
-      //     <div id="results-message" className="text-center">
-      //       {this.state.resultsMessage}
-      //     </div>
-      //   )}
-      // </div> 
-      <div className="create-contract">
+      this.state.sendFundsOpen?(
+        <div className="create-contract" >
+        <div className="modal-background" onClick={this.props.close}></div>
+        <div className="modal" style={{height:"230px"}}>
+          <div id="send-funds">
+            <h3 className="created-address">
+              Address Result : {this.props.newContractAddress}
+            </h3>
+            <button
+              onClick={this.handleSendFundsClick}
+            >
+            Send Funds
+            </button>
+          </div>
+        </div>
+        </div>
+      ):(
+        <div className="create-contract">
         <div className="modal-background" onClick={this.props.close}></div>
         <div className="modal">
         <CreateContractFormContainer name="createContractForm" />
-
-        <div>
-        <button
-              className="btn btn-success"
-              onClick={this.handleSendFundsClick}
-            >
-              Send Funds
-            </button>
         </div>
-                </div>
       </div>
+      )
     )
   }
 }
