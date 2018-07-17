@@ -7,9 +7,9 @@ import { getContractOpenDates } from '../actions/contractActions';
 import CreateContractFormComponent from './CreateContractFormComponent';
 
 export let CreateContractFormContainer = props => {
-  const submitForm = (formValues, sendCreateContractOrder, userAccount) => {
+  const submitForm = formValues => {
     console.log('submitting Form: ', formValues);
-    sendCreateContractOrder(formValues, userAccount);
+    props.sendCreateContractOrder(formValues, props.userAccount);
   };
 
   const onCurrencyChange = async evt => {
