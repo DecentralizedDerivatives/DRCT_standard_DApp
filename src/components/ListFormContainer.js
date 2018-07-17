@@ -1,13 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { reduxForm, getFormValues } from 'redux-form';
 import { sendListOrder } from '../actions/orderActions';
 import ListFormComponent from './ListFormComponent';
 
-export const ListFormContainer = props => {
-  const submitForm = formValues => {
+export let ListFormContainer = props => {
+  const submitForm = (formValues, sendListOrder, userAccount) => {
     console.log('submitting Form: ', formValues);
-    this.props.sendListOrder(formValues, this.props.userAccount);
+    sendListOrder(formValues, userAccount);
   };
 
   return (
@@ -21,15 +22,24 @@ export const ListFormContainer = props => {
   );
 };
 
+ListFormContainer.propTypes = {
+  sendListOrder: PropTypes.func.isRequired,
+  formValues: PropTypes.object,
+  userTokens: PropTypes.array
+};
+
 const mapStateToProps = state => ({
   formValues: getFormValues('list-form')(state),
   userTokens: state.user.userTokens
 });
+
 const formConfiguration = {
   form: 'list-form'
 };
 
-export default connect(
+ListFormContainer = reduxForm(formConfiguration)(ListFormContainer);
+
+export default (ListFormContainer = connect(
   mapStateToProps,
   { sendListOrder }
-)(reduxForm(formConfiguration)(ListFormContainer));
+)(ListFormContainer));
