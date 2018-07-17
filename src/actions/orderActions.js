@@ -210,7 +210,6 @@ export const sendCreateContractOrder = (
   const { duration, currency, startDate, amount } = formValues;
   try {
     const factory = await Factory.at(currency);
-
     let date = Math.floor(new Date(startDate).getTime() / 1000);
     date = date - (date % 86400);
 
@@ -245,20 +244,19 @@ export const sendSendFundsOrder = (
   account
 ) => async dispatch => {
   dispatch(setProcessing(true));
-
+  const factories = FactoryProvider.factories();
+  const BTC_factoryAddress = factories[0].address; //Hard Coded for BTC for testing need to fix !
   let { newContractAddress, createContractAmount } = sendFundsDetails;
 
   try {
-    const factory = await Factory.at(
-      '0x8822b11262fb2f6c201e6fed8a3098b32851cc42'
-    );
+    const factory = await Factory.at(BTC_factoryAddress);
 
     let uc_add = await factory.user_contract.call();
     const userContract = await UserContract.at(uc_add);
 
     let _value = 1e18 * createContractAmount;
 
-    const response = await userContract.Initiate("0x433da4ce71a89a5c09c96c06d2431f17718c256d", _value, {
+    const response = await userContract.Initiate( newContractAddress, _value, {
       from: account,
       gas: 4000000,
       value: _value * 2
