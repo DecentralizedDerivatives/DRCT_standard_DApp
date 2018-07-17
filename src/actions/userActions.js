@@ -39,8 +39,8 @@ export const getUserAccount = () => async dispatch => {
 export const getUserBalance = () => async dispatch => {
   dispatch(setProcessing(true));
   try {
-        var static_addresses = FactoryProvider.get_static_addresses();
-    const wrapped = await Wrapped.at(static_addresses.wrapped_ether)
+    var staticAddresses = FactoryProvider.getStaticAddresses();
+    const wrapped = await Wrapped.at(staticAddresses.wrapped_ether)
     const accounts = await web3.eth.getAccounts();
     let _res = await wrapped.balanceOf(accounts[0]);
 
@@ -228,9 +228,7 @@ export const getUserOrders = userAccount => async dispatch => {
     }
     dispatch({
       type: SET_USER_ORDERS,
-      payload: {
-        userOrders: orders
-      }
+      payload: orders
     });
     dispatch({
       type: SET_CURRENT,
@@ -249,9 +247,9 @@ export const getUserOrders = userAccount => async dispatch => {
   dispatch(setProcessing(false));
 };
 const getOrdersForFactory = async (factory, userAccount) => {
-      var static_addresses = FactoryProvider.get_static_addresses();
-    const exchange = await Exchange.at(static_addresses.exchange);
-      const books = await exchange.getUserOrders.call(userAccount); //Gets all listed order ids
+  var staticAddresses = FactoryProvider.getStaticAddresses();
+  const exchange = await Exchange.at(staticAddresses.exchange);
+  const books = await exchange.getUserOrders.call(userAccount); //Gets all listed order ids
   const allOrders = []; //Contains all information for each order
   for (let i = 0; i < books.length; i++) {
     const order = {};
@@ -276,8 +274,8 @@ export const sendCashOutRequest = (amount, account) => async dispatch => {
   dispatch(setProcessing(true));
 
   try {
-            var static_addresses = FactoryProvider.get_static_addresses();
-    const wrapped = await Wrapped.at(static_addresses.wrapped_ether)
+    var staticAddresses = FactoryProvider.getStaticAddresses();
+    const wrapped = await Wrapped.at(staticAddresses.wrapped_ether)
     const response = await wrapped.withdraw(amount, {
       from: account,
       gas: 4000000

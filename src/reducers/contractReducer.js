@@ -75,7 +75,12 @@ export default function(state = initialState, action) {
     case SET_CONTRACT_FUNDED:
       return {
         ...state,
-        newContract: { funded: true, fundedTx: action.payload }
+        newContract:
+          Object.assign(
+            initialState.newContract,
+            { funded: true, fundedTx: action.payload },
+            {}
+          )
       };
     case SET_SEND_FUNDS_ERROR:
       return {

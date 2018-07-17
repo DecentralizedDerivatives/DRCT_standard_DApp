@@ -22,9 +22,9 @@ export class CreateContract extends Component {
         sendFundsOpen: false,
         formOpen: false
       });
-    } else if (nextProps.newContractAddress) {
+    } else if (nextProps.newContract.address) {
       this.setState({
-        resultsMessage: `Address result ${this.props.newContractAddress}`,
+        resultsMessage: `Address result ${this.props.newContract.address}`,
         sendFundsOpen: true,
         formOpen: false
       });
@@ -34,7 +34,7 @@ export class CreateContract extends Component {
         sendFundsOpen: false,
         formOpen: false
       });
-    } else if (nextProps.newContractFunded) {
+    } else if (nextProps.newContract.funded) {
       this.setState({
         resultsMessage: `Contract successfully funded.`,
         sendFundsOpen: false,
@@ -44,25 +44,21 @@ export class CreateContract extends Component {
   }
 
   handleSendFundsClick = e => {
-    const sendFundsDetails = {
-      newContractAddress:  this.props.newContractAddress,
-      createContractAmount: this.props.newContractAmount
-    };
-    console.log('s',this.sendFundDetails);
-
-    this.props.sendSendFundsOrder(sendFundsDetails, this.props.userAccount);
+    console.log('CONTRACT DETAILS', this.props.newContract);
+    this.props.sendSendFundsOrder(this.props.newContract, this.props.userAccount);
   };
 
   render() {
     return(
-      this.state.sendFundsOpen?(
+      this.state.sendFundsOpen ? (
         <div className="create-contract" >
         <div className="modal-background" onClick={this.props.close}></div>
         <div className="modal" style={{height:"230px"}}>
           <div id="send-funds">
             <h3 className="created-address">
-              Address Result : {this.props.newContractAddress}
+              Address Result : {this.props.newContract.address}
             </h3>
+            {newContractFundsError}
             <button
               onClick={this.handleSendFundsClick}
             >
@@ -86,9 +82,7 @@ export class CreateContract extends Component {
 CreateContract.propTypes = {
   sendSendFundsOrder: PropTypes.func.isRequired,
   userAccount: PropTypes.string.isRequired,
-  newContractAddress: PropTypes.string,
-  newContractCreateError: PropTypes.string,
-  newContractFunded: PropTypes.bool,
+  newContract: PropTypes.object,
   newContractFundsError: PropTypes.string,
   createContractAmount: PropTypes.number
 };
@@ -96,10 +90,8 @@ CreateContract.propTypes = {
 
 const mapStateToProps = state => ({
   userAccount: state.user.userAccount,
-  newContractAmount: state.contract.newContract.amount,
-  newContractAddress: state.contract.newContract.address,
+  newContract: state.contract.newContract,
   newContractCreateError: state.contract.newContractCreateError,
-  newContractFunded: state.contract.newContract.funded,
   newContractFundsError: state.contract.newContractFundsError
 });
 
