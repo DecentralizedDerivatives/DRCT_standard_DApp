@@ -76,7 +76,7 @@ export default function(state = initialState, action) {
         ...state,
         list: {
           approved: true,
-          approveTX: action.payload
+          approveTx: action.payload
         }
       };
     case SET_LIST_ORDER_APPROVE_ERROR:
