@@ -31,7 +31,7 @@ export class RecentTrades extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="table-container recent-trades">
         <div className="row">
           <Table
             id="recent-trades-table"
