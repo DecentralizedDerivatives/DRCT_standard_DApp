@@ -58,7 +58,7 @@ export const getOrderBook = () => async dispatch => {
         let tokenDate = await factory.token_dates.call(book);
         if (tokenDate.c && tokenDate.c.length > 0 && tokenDate.c[0] !== 0) {
           date = tokenDate.c[0];
-          symbol = factory.symbol;
+          symbol = factories[p].symbol;
           break;
         }
       }
@@ -66,15 +66,9 @@ export const getOrderBook = () => async dispatch => {
       for (let j = 0; j < orders.length; j++) {
         if (orders[j].c[0] > 0) {
           order = await exchange.getOrder(orders[j].c[0]);
-          // console.log('Order', order);
           date = new Date(date * 1000);
-          let orderDate =
-            date.getUTCMonth() +
-            1 +
-            '/' +
-            date.getUTCDate() +
-            '/' +
-            date.getUTCFullYear();
+          let orderDate = date.getUTCMonth() + 1 + '/' +
+            date.getUTCDate() + '/' + date.getUTCFullYear();
           _allrows.push({
             orderId: orders[j].c[0].toString(),
             address: order[3],
@@ -86,7 +80,6 @@ export const getOrderBook = () => async dispatch => {
         }
       }
     }
-
     dispatch({
       type: SET_ORDERBOOK,
       payload: _allrows
