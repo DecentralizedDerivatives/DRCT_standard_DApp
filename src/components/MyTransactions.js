@@ -10,23 +10,22 @@ export class MyTransactions extends Component {
     if (this.props.userTransactions.length === 0) {
       return <tr><td colSpan='12' style={{textAlign: 'center'}}><h5>No Recent Events</h5></td></tr>
     }
-    console.log('Transactions', this.props.userTransactions)
+    // console.log('Transactions', this.props.userTransactions)
     var rows = this.props.userTransactions.map((trade, index) => {
       const tradeTitle = trade.title;
       const tradeHash = trade.hash;
 
       return (
-        <tr key={index} onClick={this.props.onRowClick.bind(this, tradeHash)}>
+        <tr key={index}>
           <td>{tradeTitle}</td>
           <td>
-            <a className="link__token-address"
+            <a target="_blank" className="link__token-address"
               href={
                 tradeHash.length > 50
                   ? `https://rinkeby.etherscan.io/tx/${tradeHash}`
                   : `https://rinkeby.etherscan.io/address/${tradeHash}`
               }
-            >
-              {tradeHash.substring(0, 14)}...
+            >{tradeHash.substring(0, 14)}...
             </a>
           </td>
         </tr>
@@ -61,7 +60,6 @@ export class MyTransactions extends Component {
 }
 
 MyTransactions.propTypes = {
-  onRowClick: PropTypes.func.isRequired,
   userAccount: PropTypes.string.isRequired,
   userTransactions: PropTypes.array
 };

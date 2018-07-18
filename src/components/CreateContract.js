@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Collapse } from 'reactstrap';
 import CreateContractFormContainer from './CreateContractFormContainer';
 import { sendSendFundsOrder } from '../actions/orderActions';
 
