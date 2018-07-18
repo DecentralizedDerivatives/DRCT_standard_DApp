@@ -6,13 +6,13 @@ import InputText from './InputText';
 export const BuyFormComponent = ({
   handleSubmit,
   onSubmit,
+  submitting,
   formValues,
   change,
   selectOptions
 }) => {
   return (
     <div>
-      <h3>Buy Order</h3>
       <form onSubmit={handleSubmit(onSubmit)}>
         <InputGroup>
           <Field
@@ -23,7 +23,11 @@ export const BuyFormComponent = ({
         </InputGroup>
 
         <div>
-          <button type="submit" className="btn btn-primary">
+          <button
+            type="submit"
+            disabled={submitting}
+            className="btn btn-primary"
+          >
             Submit
           </button>
         </div>

@@ -5,6 +5,23 @@ import { reduxForm, getFormValues } from 'redux-form';
 import { sendListOrder } from '../actions/orderActions';
 import ListFormComponent from './ListFormComponent';
 
+const validate = values => {
+  const errors = {};
+  if (!values.token) {
+    errors.token = 'Required';
+  }
+
+  if (!values.price) {
+    errors.price = 'Required';
+  }
+
+  if (!values.tokenAmount) {
+    errors.tokenAmount = 'Required';
+  }
+
+  return errors;
+};
+
 export let ListFormContainer = props => {
   const submitForm = (formValues, sendListOrder, userAccount) => {
     console.log('submitting Form: ', formValues);
@@ -34,7 +51,8 @@ const mapStateToProps = state => ({
 });
 
 const formConfiguration = {
-  form: 'list-form'
+  form: 'list-form',
+  validate
 };
 
 ListFormContainer = reduxForm(formConfiguration)(ListFormContainer);

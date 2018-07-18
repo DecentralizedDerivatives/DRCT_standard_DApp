@@ -7,6 +7,7 @@ import Select from './Select.js';
 export const UnlistFormComponent = ({
   handleSubmit,
   onSubmit,
+  submitting,
   formValues,
   change,
   selectOptions
@@ -33,7 +34,11 @@ export const UnlistFormComponent = ({
         </InputGroup>
 
         <div>
-          <button type="submit" className="btn btn-primary">
+          <button
+            type="submit"
+            disabled={submitting}
+            className="btn btn-primary"
+          >
             Submit
           </button>
         </div>

@@ -5,6 +5,15 @@ import { reduxForm, getFormValues } from 'redux-form';
 import { sendCashOutRequest } from '../actions/orderActions';
 import CashOutFormComponent from './CashOutFormComponent';
 
+const validate = values => {
+  const errors = {};
+  if (!values.withdrawAmount) {
+    errors.withdrawAmount = 'Required';
+  }
+
+  return errors;
+};
+
 export let CashOutFormContainer = props => {
   const submitForm = (formValues, sendCashOutRequest, userAccount) => {
     console.log('submitting Form: ', formValues);
@@ -33,7 +42,8 @@ const mapStateToProps = state => ({
 });
 
 const formConfiguration = {
-  form: 'cashout-form'
+  form: 'cashout-form',
+  validate
 };
 
 CashOutFormContainer = reduxForm(formConfiguration)(CashOutFormContainer);

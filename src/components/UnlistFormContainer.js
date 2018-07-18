@@ -5,6 +5,15 @@ import { reduxForm, getFormValues } from 'redux-form';
 import { sendUnlistOrder } from '../actions/orderActions';
 import UnlistFormComponent from './UnlistFormComponent';
 
+const validate = values => {
+  const errors = {};
+  if (!values.orderId) {
+    errors.orderId = 'Required';
+  }
+
+  return errors;
+};
+
 export let UnlistFormContainer = props => {
   const submitForm = (formValues, sendUnlistOrder, userAccount) => {
     console.log('submitting Form: ', formValues);
@@ -34,7 +43,8 @@ const mapStateToProps = state => ({
 });
 
 const formConfiguration = {
-  form: 'unlist-form'
+  form: 'unlist-form',
+  validate
 };
 
 UnlistFormContainer = reduxForm(formConfiguration)(UnlistFormContainer);

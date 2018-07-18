@@ -13,16 +13,9 @@ export class OrderBook extends Component {
     var rows = this.props.orderbook.map(order => {
       const { orderId, address, price, quantity, date, symbol } = order;
       return (
-        <tr key={orderId} onClick={this.props.onRowClick.bind(this, address, symbol)}>
+        <tr key={orderId} className='clickable' onClick={this.props.onRowClick.bind(this, address, symbol)}>
           <td>{orderId}</td>
-          <td>
-            <a className="link__token-address">
-              <span>
-                {symbol} - {this.props.contractDuration} Days -{' '}
-                {this.props.contractMultiplier}X
-              </span>
-            </a>
-          </td>
+          <td>{symbol}</td>
           <td>{price}</td>
           <td>{quantity}</td>
           <td>{date}</td>
