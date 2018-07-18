@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Collapse } from 'reactstrap';
 import MyPositions from './MyPositions';
 import MyTransactions from './MyTransactions';
-import ContractDetails from './ContractDetails';
 import CreateContract from "./CreateContract";
 import {
   getUserAccount,
@@ -29,31 +27,6 @@ export class MyPortfolio extends Component {
     this.props.getUserPositions(this.props.userAccount);
     this.props.getUserTransactions(this.props.userAccount);
   }
-
-  // async componentDidUpdate() {
-  //   await this.props.getUserPositions(this.props.userAccount);
-  //   await this.props.getUserTransactions(this.props.userAccount);
-  // }
-  //
-  handleRowClick = async (transactionAddress, e) => {
-    e.preventDefault();
-    console.log('ROW CLICK', transactionAddress)
-    // TODO: Do we need a Transaction Details popup?
-    // this.openContractDetails(symbol);
-  };
-  //
-  openContractDetails = async (symbol) => {
-    // await this.props.getContractDetails(symbol);
-    this.setState({
-      detailsOpen: true
-    });
-  };
-
-  closeContractDetails = () => {
-    this.setState({
-      detailsOpen: false
-    });
-  };
   handleCreateContract = () => {
     this.setState({
       formOpen: !this.state.formOpen
@@ -74,11 +47,8 @@ export class MyPortfolio extends Component {
   render() {
     return (
       <div id="portfolio">
-        <MyPositions onRowClick={this.handleRowClick.bind(this)} />
-        <MyTransactions onRowClick={this.handleRowClick.bind(this)} />
-        <Collapse isOpen={this.state.detailsOpen}>
-          <ContractDetails onClick={this.closeContractDetails.bind(this)} />
-        </Collapse>
+        <MyPositions />
+        <MyTransactions />
         {this.renderCreateContract()}
         <div className="create-contract-btn" onClick={this.handleCreateContract}>Create Contract</div>
       </div>

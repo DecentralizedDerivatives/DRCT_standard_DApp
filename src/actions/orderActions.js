@@ -242,8 +242,6 @@ export const sendSendFundsOrder = (
 ) => async dispatch => {
   dispatch(setProcessing(true));
   try {
-    console.log('NEW CONTRACT', newContract);
-    const factories = FactoryProvider.factories();
     const factory = await Factory.at(newContract.currency);
 
     let userAddress = await factory.user_contract.call();
