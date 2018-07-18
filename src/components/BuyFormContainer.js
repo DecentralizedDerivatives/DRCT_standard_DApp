@@ -15,9 +15,9 @@ const validate = values => {
 };
 
 export let BuyFormContainer = props => {
-  const submitForm = (formValues, sendBuyOrder, userAccount) => {
+  const submitForm = formValues => {
     console.log('submitting Form: ', formValues);
-    sendBuyOrder(formValues, userAccount);
+    props.sendBuyOrder(formValues, props.userAccount);
   };
 
   return (

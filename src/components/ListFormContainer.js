@@ -23,9 +23,9 @@ const validate = values => {
 };
 
 export let ListFormContainer = props => {
-  const submitForm = (formValues, sendListOrder, userAccount) => {
+  const submitForm = formValues => {
     console.log('submitting Form: ', formValues);
-    sendListOrder(formValues, userAccount);
+    props.sendListOrder(formValues, props.userAccount);
   };
 
   return (

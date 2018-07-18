@@ -27,8 +27,8 @@ export class OrderBook extends Component {
 
   render() {
     return (
-      <div className="container">
-        <div className="order-book">
+      <div className="table-container order-book">
+        <div className="row">
           <Table
             id="positions-table"
             className="table table-hover table-striped table-responsive"
