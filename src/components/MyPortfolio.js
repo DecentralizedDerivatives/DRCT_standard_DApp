@@ -5,7 +5,8 @@ import { Collapse } from 'reactstrap';
 import MyPositions from './MyPositions';
 import MyTransactions from './MyTransactions';
 import ContractDetails from './ContractDetails';
-import CreateContract from "./CreateContract";
+import CreateContract from './CreateContract';
+import CashOut from './CashOut';
 import {
   getUserAccount,
   getUserPositions,
@@ -20,7 +21,7 @@ export class MyPortfolio extends Component {
 
     this.state = {
       detailsOpen: false,
-      formOpen: false,
+      formOpen: false
     };
   }
 
@@ -37,12 +38,12 @@ export class MyPortfolio extends Component {
   //
   handleRowClick = async (transactionAddress, e) => {
     e.preventDefault();
-    console.log('ROW CLICK', transactionAddress)
+    console.log('ROW CLICK', transactionAddress);
     // TODO: Do we need a Transaction Details popup?
     // this.openContractDetails(symbol);
   };
   //
-  openContractDetails = async (symbol) => {
+  openContractDetails = async symbol => {
     // await this.props.getContractDetails(symbol);
     this.setState({
       detailsOpen: true
@@ -59,18 +60,16 @@ export class MyPortfolio extends Component {
       formOpen: !this.state.formOpen
     });
   };
-  renderCreateContract = () =>{
-    return this.state.formOpen?(
+  renderCreateContract = () => {
+    return this.state.formOpen ? (
       <CreateContract close={this.closeCreateContract} />
-    ):(
-      null
-    )
-  }
-  closeCreateContract = () =>{
+    ) : null;
+  };
+  closeCreateContract = () => {
     this.setState({
       formOpen: false
     });
-  }
+  };
   render() {
     return (
       <div id="portfolio">
@@ -80,7 +79,13 @@ export class MyPortfolio extends Component {
           <ContractDetails onClick={this.closeContractDetails.bind(this)} />
         </Collapse>
         {this.renderCreateContract()}
-        <div className="create-contract-btn" onClick={this.handleCreateContract}>Create Contract</div>
+        <div
+          className="create-contract-btn"
+          onClick={this.handleCreateContract}
+        >
+          Create Contract
+        </div>
+        <CashOut />
       </div>
     );
   }

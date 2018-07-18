@@ -1,6 +1,6 @@
 import React from 'react';
 import { Field } from 'redux-form';
-import { InputGroup } from 'reactstrap';
+import { InputGroup, InputGroupAddon } from 'reactstrap';
 import InputNumber from './InputNumber';
 
 export const CashOutFormComponent = ({
@@ -11,7 +11,6 @@ export const CashOutFormComponent = ({
 }) => {
   return (
     <div>
-      <h3>CashOut Order</h3>
       <form onSubmit={handleSubmit(onSubmit)}>
         <InputGroup>
           <Field
@@ -23,7 +22,7 @@ export const CashOutFormComponent = ({
         </InputGroup>
 
         <div>
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-primary btn-lg">
             Submit
           </button>
         </div>
