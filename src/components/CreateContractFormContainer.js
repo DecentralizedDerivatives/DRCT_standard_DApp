@@ -6,6 +6,27 @@ import { sendCreateContractOrder } from '../actions/orderActions';
 import { getContractOpenDates } from '../actions/contractActions';
 import CreateContractFormComponent from './CreateContractFormComponent';
 
+const validate = values => {
+  const errors = {};
+  if (!values.duration) {
+    errors.duration = 'Required';
+  }
+
+  if (!values.currency) {
+    errors.currency = 'Required';
+  }
+
+  if (!values.startDate) {
+    errors.startDate = 'Required';
+  }
+
+  if (!values.amount) {
+    errors.amount = 'Required';
+  }
+
+  return errors;
+};
+
 export let CreateContractFormContainer = props => {
   const submitForm = formValues => {
     console.log('submitting Form: ', formValues);
@@ -41,7 +62,8 @@ const mapStateToProps = state => ({
 });
 
 const formConfiguration = {
-  form: 'create-contract'
+  form: 'create-contract',
+  validate
 };
 
 CreateContractFormContainer = reduxForm(formConfiguration)(

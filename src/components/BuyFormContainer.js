@@ -5,6 +5,15 @@ import { reduxForm, getFormValues } from 'redux-form';
 import { sendBuyOrder } from '../actions/orderActions';
 import BuyFormComponent from './BuyFormComponent';
 
+const validate = values => {
+  const errors = {};
+  if (!values.orderId) {
+    errors.orderId = 'Required';
+  }
+
+  return errors;
+};
+
 export let BuyFormContainer = props => {
   const submitForm = (formValues, sendBuyOrder, userAccount) => {
     console.log('submitting Form: ', formValues);
@@ -33,7 +42,8 @@ const mapStateToProps = state => ({
 });
 
 const formConfiguration = {
-  form: 'buy-form'
+  form: 'buy-form',
+  validate
 };
 
 BuyFormContainer = reduxForm(formConfiguration)(BuyFormContainer);
