@@ -7,13 +7,13 @@ import Select from './Select.js';
 export const ListFormComponent = ({
   handleSubmit,
   onSubmit,
+  submitting,
   formValues,
   change,
   selectOptions
 }) => {
   return (
     <div>
-      <h3>List Order</h3>
       <form onSubmit={handleSubmit(onSubmit)}>
         <InputGroup>
           <Field
@@ -42,7 +42,11 @@ export const ListFormComponent = ({
         </InputGroup>
 
         <div>
-          <button type="submit" className="btn btn-primary">
+          <button
+            type="submit"
+            disabled={submitting}
+            className="btn btn-primary"
+          >
             Submit
           </button>
         </div>

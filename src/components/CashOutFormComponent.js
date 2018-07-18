@@ -6,12 +6,12 @@ import InputNumber from './InputNumber';
 export const CashOutFormComponent = ({
   handleSubmit,
   onSubmit,
+  submitting,
   formValues,
   change
 }) => {
   return (
     <div>
-      <h3>CashOut Order</h3>
       <form onSubmit={handleSubmit(onSubmit)}>
         <InputGroup>
           <Field
@@ -23,7 +23,11 @@ export const CashOutFormComponent = ({
         </InputGroup>
 
         <div>
-          <button type="submit" className="btn btn-primary">
+          <button
+            type="submit"
+            disabled={submitting}
+            className="btn btn-primary"
+          >
             Submit
           </button>
         </div>
