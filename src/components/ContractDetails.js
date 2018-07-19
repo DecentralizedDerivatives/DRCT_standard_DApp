@@ -14,9 +14,9 @@ import { getContractDetails } from '../actions/contractActions';
 
 // Use named export for unconnected component for testing
 export class ContractDetails extends Component {
-  async componentDidMount() {
-    await this.props.getContractDetails(this.props.tokenAddress);
-  }
+  // async componentDidMount() {
+  //   await this.props.getContractDetails(this.props.tokenAddress);
+  // }
 
   renderCardBody() {
     const cardBody =
@@ -35,16 +35,16 @@ export class ContractDetails extends Component {
             {this.props.contractAddress}
           </CardLink>
           <CardSubtitle>Duration</CardSubtitle>
-          <CardText>{this.contractDuration}</CardText>
+          <CardText>{this.props.contractDuration}</CardText>
           <CardSubtitle>Multiplier</CardSubtitle>
-          <CardText>{this.contractMultiplier}</CardText>
+          <CardText>{this.props.contractMultiplier}</CardText>
           <CardSubtitle>Oracle Address</CardSubtitle>
           <CardLink
-            href={`https://rinkeby.etherscan.io/address/${this.oracleAddress}`}
+            href={`https://rinkeby.etherscan.io/address/${this.props.oracleAddress}`}
             target="_blank"
             rel="noopener noreferrer"
           >
-            {this.oracleAddress}
+            {this.props.oracleAddress}
           </CardLink>
           <CardSubtitle>Token Address</CardSubtitle>
           <CardLink
@@ -71,16 +71,16 @@ export class ContractDetails extends Component {
             {this.props.contractAddress}
           </CardLink>
           <CardSubtitle>Duration</CardSubtitle>
-          <CardText>{this.contractDuration}</CardText>
+          <CardText>{this.props.contractDuration}</CardText>
           <CardSubtitle>Multiplier</CardSubtitle>
-          <CardText>{this.contractMultiplier}</CardText>
+          <CardText>{this.props.contractMultiplier}</CardText>
           <CardSubtitle>Oracle Address</CardSubtitle>
           <CardLink
-            href={`https://rinkeby.etherscan.io/address/${this.oracleAddress}`}
+            href={`https://rinkeby.etherscan.io/address/${this.props.oracleAddress}`}
             target="_blank"
             rel="noopener noreferrer"
           >
-            {this.oracleAddress}
+            {this.props.oracleAddress}
           </CardLink>
         </CardBody>
       );
@@ -114,7 +114,7 @@ const mapStateToProps = state => ({
   contractAddress: state.contract.contractAddress,
   contractDuration: state.contract.contractDuration,
   contractMultiplier: state.contract.contractMultiplier,
-  oracledAddress: state.contract.oracleAddress,
+  oracleAddress: state.contract.oracleAddress,
   tokenAddress: state.selected.selectedTokenAddress
 });
 

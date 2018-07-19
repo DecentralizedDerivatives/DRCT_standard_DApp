@@ -66,7 +66,7 @@ export class Bulletin extends Component {
 
   render() {
     return (
-      <div>
+      <div id="bulletin">
         <div className="wrapper">
           <OrderBook onRowClick={this.handleRowClick.bind(this)} />
 

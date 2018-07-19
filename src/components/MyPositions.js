@@ -12,7 +12,7 @@ export class MyPositions extends Component {
     }
     var rows = this.props.userPositions.map((position, index) => {
       const {
-        address,
+        // address,
         balance,
         date,
         symbol,
@@ -23,13 +23,7 @@ export class MyPositions extends Component {
       return (
         <tr key={index}>
           <td>
-            <a
-              className="link__token-address"
-              onClick={this.props.onRowClick}
-              data-token-address={address}
-            >
-              {symbol} - {contractDuration} Days - {contractMultiplier}X
-            </a>
+            {symbol} - {contractDuration} Days - {contractMultiplier}X
           </td>
           <td>{balance}</td>
           <td>{date}</td>
@@ -66,7 +60,6 @@ export class MyPositions extends Component {
 }
 
 MyPositions.propTypes = {
-  onRowClick: PropTypes.func.isRequired,
   userAccount: PropTypes.string.isRequired,
   userPositions: PropTypes.array
 };

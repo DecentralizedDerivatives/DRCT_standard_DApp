@@ -14,8 +14,6 @@ export class Buy extends Component {
       formOpen: false,
       resultsMessage: ''
     };
-
-    this.toggleFormVisibility = this.toggleFormVisibility.bind(this);
   }
 
   async componentDidMount() {
@@ -36,28 +34,56 @@ export class Buy extends Component {
     }
   }
 
-  toggleFormVisibility() {
+  toggleFormVisibility = () =>{
     this.setState({
       formOpen: !this.state.formOpen
     });
   }
-
+  renderOrderModal = () => (
+    this.state.formOpen?(
+      <div>
+        <div className="order-modal-background" onClick={this.closeOrderModal} />
+        <div className="order-modal">
+             <div id="buy-form">
+             <h4 className="center-text">Buy Order</h4>
+             <BuyFormContainer />
+           </div>
+        </div>
+      </div>
+    ):(
+      null
+    )
+  );
+  closeOrderModal = () => this.setState({formOpen:false});
   render() {
     return (
-      <div className="container">
-        <div id="buy-button">
-          <button className="btn btn-info" onClick={this.toggleFormVisibility}>
+      // <div className="container">
+      //   <div id="buy-button">
+      //     <button className="btn btn-info" onClick={this.toggleFormVisibility}>
+      //       Buy Order
+      //     </button>
+      //   </div>
+
+      //   <Collapse isOpen={this.state.formOpen}>
+      //     <div id="buy-form">
+      //       <h4 className="center-text">Buy Order</h4>
+      //       <BuyFormContainer />
+      //     </div>
+      //   </Collapse>
+
+      //   {this.state.resultsMessage && (
+      //     <div id="results-message" className="text-center">
+      //       {this.state.resultsMessage}
+      //     </div>
+      //   )}
+      // </div>
+      <div className="order-btn-wrapper">
+        <div className="order-btn"  onClick={this.toggleFormVisibility}>
+          <label className="order-btn-label">
             Buy Order
-          </button>
+          </label>
         </div>
-
-        <Collapse isOpen={this.state.formOpen}>
-          <div id="buy-form">
-            <h4 className="center-text">Buy Order</h4>
-            <BuyFormContainer />
-          </div>
-        </Collapse>
-
+        {this.renderOrderModal()}
         {this.state.resultsMessage && (
           <div id="results-message" className="text-center">
             {this.state.resultsMessage}

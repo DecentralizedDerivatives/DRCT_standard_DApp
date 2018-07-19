@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Collapse } from 'reactstrap';
 import MyPositions from './MyPositions';
 import MyTransactions from './MyTransactions';
 import ContractDetails from './ContractDetails';
@@ -30,7 +29,6 @@ export class MyPortfolio extends Component {
     this.props.getUserPositions(this.props.userAccount);
     this.props.getUserTransactions(this.props.userAccount);
   }
-
   // async componentDidUpdate() {
   //   await this.props.getUserPositions(this.props.userAccount);
   //   await this.props.getUserTransactions(this.props.userAccount);
@@ -73,11 +71,8 @@ export class MyPortfolio extends Component {
   render() {
     return (
       <div id="portfolio">
-        <MyPositions onRowClick={this.handleRowClick.bind(this)} />
-        <MyTransactions onRowClick={this.handleRowClick.bind(this)} />
-        <Collapse isOpen={this.state.detailsOpen}>
-          <ContractDetails onClick={this.closeContractDetails.bind(this)} />
-        </Collapse>
+        <MyPositions />
+        <MyTransactions />
         {this.renderCreateContract()}
         <div
           className="create-contract-btn"
