@@ -12,27 +12,22 @@ export const BuyFormComponent = ({
   selectOptions
 }) => {
   return (
-    <div>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <InputGroup>
-          <Field
-            name="orderId"
-            label="Select Order to Buy"
-            component={InputText}
-          />
-        </InputGroup>
-
+      <form className="buy-order-form"  autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
+        <div className="order-input-wrapper">
+            <h3>Buy Order ID :</h3>
+            <input className="order-id-input" name="orderId" type="number" min="0"/>
+            <h4>Enter the order ID</h4>
+        </div>
         <div>
           <button
             type="submit"
             disabled={submitting}
-            className="btn btn-primary"
+            className="order-submit-btn btn btn-primary"
           >
             Submit
           </button>
         </div>
       </form>
-    </div>
   );
 };
 

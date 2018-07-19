@@ -20,7 +20,7 @@ export const Select = props => {
     return (
       <div className="mv3 w-100">
         <div className="b sans-serif pv2 w-100">{label}</div>
-        <select {...input} className="pa2 input-reset ba b--black-40 w-100">
+        <select {...input} className="order-form-dropdown">
           <option value="">Select</option>
           {Object.keys(options).map(renderSelectOptions)}
         </select>

@@ -40,13 +40,18 @@ export class Buy extends Component {
     });
   }
   renderOrderModal = () => (
-    this.state.formOpen?(
+    this.state.formOpen||this.state.resultsMessage?(
       <div>
         <div className="order-modal-background" onClick={this.closeOrderModal} />
         <div className="order-modal">
              <div id="buy-form">
-             <h4 className="center-text">Buy Order</h4>
+             <h4 className="order-modal-head">Order Confirmation</h4>
              <BuyFormContainer />
+             {this.state.resultsMessage && (
+              <div id="results-message" className="text-center">
+                {this.state.resultsMessage}
+              </div>
+            )}
            </div>
         </div>
       </div>
@@ -54,29 +59,9 @@ export class Buy extends Component {
       null
     )
   );
-  closeOrderModal = () => this.setState({formOpen:false});
+  closeOrderModal = () => this.setState({formOpen:false,resultsMessage:""});
   render() {
     return (
-      // <div className="container">
-      //   <div id="buy-button">
-      //     <button className="btn btn-info" onClick={this.toggleFormVisibility}>
-      //       Buy Order
-      //     </button>
-      //   </div>
-
-      //   <Collapse isOpen={this.state.formOpen}>
-      //     <div id="buy-form">
-      //       <h4 className="center-text">Buy Order</h4>
-      //       <BuyFormContainer />
-      //     </div>
-      //   </Collapse>
-
-      //   {this.state.resultsMessage && (
-      //     <div id="results-message" className="text-center">
-      //       {this.state.resultsMessage}
-      //     </div>
-      //   )}
-      // </div>
       <div className="order-btn-wrapper">
         <div className="order-btn"  onClick={this.toggleFormVisibility}>
           <label className="order-btn-label">
@@ -84,11 +69,6 @@ export class Buy extends Component {
           </label>
         </div>
         {this.renderOrderModal()}
-        {this.state.resultsMessage && (
-          <div id="results-message" className="text-center">
-            {this.state.resultsMessage}
-          </div>
-        )}
       </div>
     );
   }
