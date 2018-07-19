@@ -131,7 +131,7 @@
   margin:20px 0 25px 0;
   font-weight:400;
 }
-/* Buy Order Form */
+/* Order Form */
 .buy-order-form{
   position: relative;
   width:400px;
@@ -166,8 +166,19 @@
   transition:all 0.3s ease;
 }
 .order-submit-btn:hover{
-  background-color:var(--color-lightblue);
+  background-color:var(--color-lightblue)!important;
 }
+.order-form-dropdown{
+  border-top:none;
+  border-left:none;
+  border-right:none;
+  border-bottom:1px solid grey;
+  width:90%;
+  padding:7px 15px;
+  background-color:transparent;
+  margin: 15px 0;
+}
+
 /* Connection Modal */
 .button-link {
   text-decoration: none;
@@ -487,4 +498,7 @@ div.form-eth-input.input-group div:nth-child(1) input{
   background-color:#114770;
   border:none;
   padding:10px 0;
+}
+.form-submit:hover{
+  background-color:var(--color-lightblue)!important;
 }
