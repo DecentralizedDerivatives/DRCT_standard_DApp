@@ -12,7 +12,7 @@ export const BuyFormComponent = ({
   selectOptions
 }) => {
   return (
-      <form className="buy-order-form"  autocomplete="off" onSubmit={handleSubmit(onSubmit)}>
+      <form className="buy-order-form"  autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
         <div className="order-input-wrapper">
             <h3>Buy Order ID :</h3>
             <input className="order-id-input" name="orderId" type="number" min="0"/>

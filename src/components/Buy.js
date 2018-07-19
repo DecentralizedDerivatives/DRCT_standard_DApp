@@ -59,7 +59,7 @@ export class Buy extends Component {
       null
     )
   );
-  closeOrderModal = () => this.setState({formOpen:false});
+  closeOrderModal = () => this.setState({formOpen:false,resultsMessage:""});
   render() {
     return (
       <div className="order-btn-wrapper">
