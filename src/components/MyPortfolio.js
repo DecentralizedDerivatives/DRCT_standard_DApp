@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import MyPositions from './MyPositions';
 import MyTransactions from './MyTransactions';
-import CreateContract from "./CreateContract";
+import ContractDetails from './ContractDetails';
+import CreateContract from './CreateContract';
+import CashOut from './CashOut';
 import {
   getUserAccount,
   getUserPositions,
@@ -18,7 +20,7 @@ export class MyPortfolio extends Component {
 
     this.state = {
       detailsOpen: false,
-      formOpen: false,
+      formOpen: false
     };
   }
 
@@ -27,30 +29,58 @@ export class MyPortfolio extends Component {
     this.props.getUserPositions(this.props.userAccount);
     this.props.getUserTransactions(this.props.userAccount);
   }
+  // async componentDidUpdate() {
+  //   await this.props.getUserPositions(this.props.userAccount);
+  //   await this.props.getUserTransactions(this.props.userAccount);
+  // }
+  //
+  handleRowClick = async (transactionAddress, e) => {
+    e.preventDefault();
+    console.log('ROW CLICK', transactionAddress);
+    // TODO: Do we need a Transaction Details popup?
+    // this.openContractDetails(symbol);
+  };
+  //
+  openContractDetails = async symbol => {
+    // await this.props.getContractDetails(symbol);
+    this.setState({
+      detailsOpen: true
+    });
+  };
+
+  closeContractDetails = () => {
+    this.setState({
+      detailsOpen: false
+    });
+  };
   handleCreateContract = () => {
     this.setState({
       formOpen: !this.state.formOpen
     });
   };
-  renderCreateContract = () =>{
-    return this.state.formOpen?(
+  renderCreateContract = () => {
+    return this.state.formOpen ? (
       <CreateContract close={this.closeCreateContract} />
-    ):(
-      null
-    )
-  }
-  closeCreateContract = () =>{
+    ) : null;
+  };
+  closeCreateContract = () => {
     this.setState({
       formOpen: false
     });
-  }
+  };
   render() {
     return (
       <div id="portfolio">
         <MyPositions />
         <MyTransactions />
         {this.renderCreateContract()}
-        <div className="create-contract-btn" onClick={this.handleCreateContract}>Create Contract</div>
+        <div
+          className="create-contract-btn"
+          onClick={this.handleCreateContract}
+        >
+          Create Contract
+        </div>
+        <CashOut />
       </div>
     );
   }

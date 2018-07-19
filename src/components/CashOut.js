@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { Collapse } from 'reactstrap';
 import CashOutFormContainer from './CashOutFormContainer';
 import { getUserBalance } from '../actions/userActions';
-import { Wrapped, web3 } from '../ethereum';
 
 // Use named export for unconnected component for testing
 export class CashOut extends Component {
@@ -14,6 +13,8 @@ export class CashOut extends Component {
       formOpen: false,
       resultsMessage: ''
     };
+
+    this.toggleFormVisibility = this.toggleFormVisibility.bind(this);
   }
 
   async componentWillMount() {
@@ -44,11 +45,12 @@ export class CashOut extends Component {
   render() {
     return (
       <div className="container">
-        <div className="user-balance">
-          Your Balance: {this.props.userBalance}
-        </div>
+        <h3 className="user-balance">Your Balance: {this.props.userBalance}</h3>
         <div id="cashout-button">
-          <button className="btn btn-info" onClick={this.toggleFormVisibility}>
+          <button
+            className="btn create-contract-btn"
+            onClick={this.toggleFormVisibility}
+          >
             Cash Out
           </button>
         </div>
@@ -72,7 +74,7 @@ export class CashOut extends Component {
 CashOut.propTypes = {
   getUserBalance: PropTypes.func.isRequired,
   userBalance: PropTypes.number.isRequired,
-  cashOutTx: PropTypes.string.isRequired,
+  cashOutTx: PropTypes.string,
   cashOutError: PropTypes.string
 };
 

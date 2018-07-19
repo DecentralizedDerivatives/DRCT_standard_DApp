@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { reduxForm, getFormValues } from 'redux-form';
-import { sendCashOutRequest } from '../actions/orderActions';
+import { sendCashOutRequest } from '../actions/userActions';
 import CashOutFormComponent from './CashOutFormComponent';
 
 const validate = values => {
@@ -31,7 +31,7 @@ export let CashOutFormContainer = props => {
 };
 
 CashOutFormComponent.propTypes = {
-  sendCashOutRequest: PropTypes.func.isRequired,
+  // sendCashOutRequest: PropTypes.func.isRequired,
   formValues: PropTypes.object,
   userOrders: PropTypes.array
 };
