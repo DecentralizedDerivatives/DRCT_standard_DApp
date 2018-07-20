@@ -194,16 +194,21 @@ const getTokenPositionsForFactory = async (factory, userAccount) => {
   for (let i = 0; i < numDates; i++) {
     const startDates = (await factory.startDates.call(i)).c[0];
     const tokenAddresses = await factory.getTokens(startDates);
-    let _date = new Date(startDates * 1000);
-    _date = _date.getMonth() + 1 + '/' +
-      _date.getDate() + '/' +
-      _date.getFullYear();
+    let date = new Date(startDates * 1000);
+    date = date.getMonth() + 1 + '/' +
+      date.getDate() + '/' +
+      date.getFullYear();
 
     for (let p = 0; p < tokenAddresses.length; p++) {
       const drct = await DRCT.at(tokenAddresses[p]); //Getting contract
       const balance = (await drct.balanceOf(userAccount)).c[0]; //Getting balance of token
       if (balance > 0) {
-        tokens.push(`${tokenAddresses[p]}(${balance}/${_date})`); //Pushing token address + balance/date
+        tokens.push({
+          address: tokenAddresses[p],
+          balance,
+          date
+        })
+        // tokens.push(`${tokenAddresses[p]}(${balance}/${date})`); //Pushing token address + balance/date
       };
     }
   }

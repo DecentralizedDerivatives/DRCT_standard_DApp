@@ -102,22 +102,38 @@ export const getRecentTrades = () => async dispatch => {
     );
 
     transferEvent.get(async function (err, events) {
-      console.log('events', events);
+      // console.log('events', events);
       var trades = [];
       if (events.length > 0) {
         for (let i = events.length - 1; i >= Math.max(events.length - 10, 0); i--) {
           var token = events[i].args['_token'].toString();
+          // console.log('token', token);
           var drct = DRCT.at(token);
-          // console.log('drct', drct)
+          // console.log('drct', drct);
           var factoryAddress = await drct.getFactoryAddress();
-          // console.log('factoryAddress', factoryAddress)
-          var provider = FactoryProvider.getFromAddress(factoryAddress);
-          // console.log('provider', provider)
+          // console.log('factoryAddress', factoryAddress);
+          var symbol = '???';
+          var details = {};
+          if (parseInt(factoryAddress, 16) !== 0) {
+            // console.log('Address', factoryAddress)
+            var provider = FactoryProvider.getFromAddress(factoryAddress);
+            const factory = await Factory.at(factoryAddress);
+            const response = await factory.getVariables();
+            symbol = provider.symbol
+            details = {
+              contractAddress: response[0],
+              contractDuration: response[1].c[0],
+              contractMultiplier: response[2].c[0],
+              oracleAddress: response[3]
+            };
+          }
           trades.push({
             address: token,
             volume: events[i].args['_amount'].toString(),
             price: (events[i].args['_price'] / 1e18).toString(),
-            symbol: provider ? provider.symbol : '???'
+            contractDuration: details.contractDuration ? details.contractDuration : 0,
+            contractMultiplier: details.contractMultiplier ? details.contractMultiplier : 0,
+            symbol
           });
         }
       }

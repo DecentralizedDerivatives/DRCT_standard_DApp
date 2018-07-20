@@ -81,7 +81,7 @@ export const sendBuyOrder = (orderId, account) => async dispatch => {
   dispatch(setProcessing(true));
 
   try {
-    orderId = parseInt(orderId);
+    orderId = parseInt(orderId, 10);
     var staticAddresses = FactoryProvider.getStaticAddresses();
     const exchange = await Exchange.at(staticAddresses.exchange);
     const order = await exchange.getOrder(orderId);
@@ -173,26 +173,25 @@ export const sendListOrder = (formValues, account) => async dispatch => {
 export const sendApproveOrder = (approveDetails, account) => async dispatch => {
   dispatch(setProcessing(true));
 
-  let { selectedToken, amount } = approveDetails;
+  let { token, tokenAmount } = approveDetails;
 
   try {
     var staticAddresses = FactoryProvider.getStaticAddresses();
     const exchange = await Exchange.at(staticAddresses.exchange);
 
-    selectedToken = selectedToken.split('(')[0].replace(/['"]+/g, '');
+    const drct = await DRCT.at(token);
 
-    const drct = await DRCT.at(selectedToken);
-
-    const response = await drct.approve(exchange.address, amount, {
+    const response = await drct.approve(exchange.address, tokenAmount, {
       from: account,
       gas: 4000000
     });
-
+    console.log('RESPONSE', response)
     dispatch({
       type: SET_LIST_ORDER_APPROVED,
       payload: response.tx
     });
   } catch (err) {
+    console.log('APPROVE ERROR', err)
     dispatch({
       type: SET_LIST_ORDER_APPROVE_ERROR,
       payload: err.message.split('\n')[0]

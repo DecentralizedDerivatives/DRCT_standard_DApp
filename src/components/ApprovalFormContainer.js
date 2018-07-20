@@ -2,34 +2,29 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { reduxForm, getFormValues } from 'redux-form';
-import { sendListOrder } from '../actions/orderActions';
-import ListFormComponent from './ListFormComponent';
+import { sendApproveOrder } from '../actions/orderActions';
+import ApprovalFormComponent from './ApprovalFormComponent';
 
 const validate = values => {
   const errors = {};
   if (!values.token) {
     errors.token = 'Required';
   }
-
-  if (!values.price) {
-    errors.price = 'Required';
-  }
-
   if (!values.tokenAmount) {
     errors.tokenAmount = 'Required';
   }
-
   return errors;
 };
 
-export let ListFormContainer = props => {
+export let ApprovalFormContainer = props => {
   const submitForm = formValues => {
     console.log('submitting Form: ', formValues);
-    // props.sendListOrder(formValues, props.userAccount);
+
+    props.sendApproveOrder(formValues, props.userAccount);
   };
 
   return (
-    <ListFormComponent
+    <ApprovalFormComponent
       formValues={props.formValues}
       change={props.change}
       onSubmit={submitForm}
@@ -39,25 +34,27 @@ export let ListFormContainer = props => {
   );
 };
 
-ListFormContainer.propTypes = {
-  sendListOrder: PropTypes.func.isRequired,
+ApprovalFormContainer.propTypes = {
+  sendApproveOrder: PropTypes.func.isRequired,
+  userAccount: PropTypes.string.isRequired,
   formValues: PropTypes.object,
-  userTokens: PropTypes.array
+  userTokens: PropTypes.array,
 };
 
 const mapStateToProps = state => ({
-  formValues: getFormValues('list-form')(state),
-  userTokens: state.user.userTokens
+  formValues: getFormValues('approval-form')(state),
+  userTokens: state.user.userTokens,
+  userAccount: state.user.userAccount
 });
 
 const formConfiguration = {
-  form: 'list-form',
+  form: 'approval-form',
   validate
 };
 
-ListFormContainer = reduxForm(formConfiguration)(ListFormContainer);
+ApprovalFormContainer = reduxForm(formConfiguration)(ApprovalFormContainer);
 
-export default (ListFormContainer = connect(
+export default (ApprovalFormContainer = connect(
   mapStateToProps,
-  { sendListOrder }
-)(ListFormContainer));
+  { sendApproveOrder }
+)(ApprovalFormContainer));

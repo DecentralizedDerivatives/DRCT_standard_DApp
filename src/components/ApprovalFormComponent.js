@@ -1,10 +1,10 @@
 import React from 'react';
 import { Field } from 'redux-form';
-import { InputGroup, InputGroupAddon } from 'reactstrap';
+import { InputGroup } from 'reactstrap';
 import InputNumber from './InputNumber';
 import Select from './Select.js';
 
-export const ListFormComponent = ({
+export const ApprovalFormComponent = ({
   handleSubmit,
   onSubmit,
   submitting,
@@ -27,20 +27,10 @@ export const ListFormComponent = ({
             options={selectOptions}
           />
         </InputGroup>
-
-        <InputGroup>
-          <Field
-            name="price"
-            label="Enter Price in ETH"
-            component={InputNumber}
-          />
-          <InputGroupAddon addonType="append">ETH</InputGroupAddon>
-        </InputGroup>
-
         <InputGroup>
           <Field
             name="tokenAmount"
-            label="Amount of Token"
+            label="Token Amount"
             component={InputNumber}
           />
         </InputGroup>
@@ -59,4 +49,4 @@ export const ListFormComponent = ({
   );
 };
 
-export default ListFormComponent;
+export default ApprovalFormComponent;

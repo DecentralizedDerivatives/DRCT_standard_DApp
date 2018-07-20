@@ -1,78 +1,69 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Collapse } from 'reactstrap';
+// import { Collapse } from 'reactstrap';
 import ListFormContainer from './ListFormContainer';
-import { getUserTokenPositions } from '../actions/userActions';
+import ApprovalFormContainer from './ApprovalFormContainer';
 import { sendApproveOrder } from '../actions/orderActions';
 
-// Use named export for unconnected component for testing
 export class List extends Component {
   constructor() {
     super();
     this.state = {
       formOpen: false,
-      approvalOpen: false,
       resultsMessage: ''
     };
 
     this.toggleFormVisibility = this.toggleFormVisibility.bind(this);
   }
 
-  async componentDidMount() {
-    await this.props.getUserTokenPositions(this.props.userAccount);
-  }
-
   componentWillReceiveProps(nextProps) {
     if (nextProps.listOrderError !== null) {
       this.setState({
-        resultsMessage: `Error: ${this.props.listOrderError}`,
-        approvalOpen: false,
+        resultsMessage: `Error: ${nextProps.listOrderError}`,
         formOpen: false
       });
     } else if (nextProps.listOrderId) {
       this.setState({
-        resultsMessage: `List Order result ${this.props.listOrderId}`,
-        approvalOpen: true,
-        formOpen: false
+        resultsMessage: `List Order result ${nextProps.listOrderId}`,
+        formOpen: true
       });
-    } else if (this.props.listOrderApproveError) {
+    } else if (nextProps.listOrderApproveError) {
       this.setState({
-        resultsMessage: `Error: ${this.props.listOrderApproveError}`,
-        sendFundsOpen: false,
-        formOpen: false
+        resultsMessage: `Error: ${nextProps.listOrderApproveError}`,
+        formOpen: true
       });
-    } else if (this.props.listOrderApproved) {
+    } else if (nextProps.listOrderApproved) {
       this.setState({
         resultsMessage: `Order approval confirmed`,
-        sendFundsOpen: false,
-        formOpen: false
+        formOpen: true
       });
     }
   }
 
-  handleApproveClick = async e => {
-    const approveDetails = {
-      selectedToken: this.props.selectedToken,
-      amount: this.props.tokenAmt
-    };
-
-    await this.props.sendApproveOrder(approveDetails, this.props.userAccount);
-
-    if (this.props.listOrderApproveError) {
-      this.setState({
-        resultsMessage: `Error: ${this.props.listOrderApproveError}`,
-        sendFundsOpen: false,
-        formOpen: false
-      });
-    } else {
-      this.setState({
-        resultsMessage: `Order approval confirmed`,
-        sendFundsOpen: false,
-        formOpen: false
-      });
-    }
-  };
+  // handleApproveClick = async e => {
+  //   const approveDetails = {
+  //     selectedToken: this.props.selectedToken,
+  //     amount: this.props.tokenAmt
+  //   };
+  //
+  //   await this.props.sendApproveOrder(approveDetails, this.props.userAccount);
+  //
+  //   console.log('APPROVAL SENT');
+  //   if (this.props.listOrderApproveError) {
+  //     this.setState({
+  //       resultsMessage: `Error in Approve Click: ${this.props.listOrderApproveError}`,
+  //       sendFundsOpen: false,
+  //       formOpen: false
+  //     });
+  //   } else {
+  //     this.setState({
+  //       resultsMessage: `Order approval confirmed in Approve Click`,
+  //       sendFundsOpen: false,
+  //       formOpen: false
+  //     });
+  //   }
+  // };
 
   toggleFormVisibility() {
     this.setState({
@@ -85,8 +76,9 @@ export class List extends Component {
         <div className="order-modal-background" onClick={this.closeOrderModal} />
         <div className="order-modal">
           <div id="buy-form">
-            <h4 className="order-modal-head">Order Confirmation</h4>
-            <ListFormContainer />
+            <h4 className="order-modal-head">
+              { this.props.listOrderApproved ? <span>List Order</span> : <span>Approve Order</span> }</h4>
+            { this.props.listOrderApproved ? <ListFormContainer /> : <ApprovalFormContainer /> }
             {this.state.resultsMessage && (
               <div id="results-message" className="text-center">
                 {this.state.resultsMessage}
@@ -146,14 +138,13 @@ export class List extends Component {
   }
 }
 List.propTypes = {
-  getUserTokenPositions: PropTypes.func.isRequired,
   sendApproveOrder: PropTypes.func.isRequired,
   userAccount: PropTypes.string.isRequired,
   userTokens: PropTypes.array.isRequired,
-  selectedToken: PropTypes.string.isRequired,
+  selectedToken: PropTypes.string,
   tokenAmt: PropTypes.number,
   tokenPrice: PropTypes.number,
-  listOrderId: PropTypes.string.isRequired,
+  listOrderId: PropTypes.string,
   listOrderError: PropTypes.string,
   listOrderApproved: PropTypes.bool,
   listOrderApproveError: PropTypes.string
@@ -173,5 +164,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { sendApproveOrder, getUserTokenPositions }
+  { sendApproveOrder }
 )(List);

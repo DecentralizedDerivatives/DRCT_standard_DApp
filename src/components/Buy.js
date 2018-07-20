@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Collapse } from 'reactstrap';
 import BuyFormContainer from './BuyFormContainer';
 import { getOrderDetails } from '../actions/orderActions';
 
