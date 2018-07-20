@@ -18,7 +18,6 @@ import {
 import FactoryProvider from '../factoryProvider';
 
 export const getUserAccount = () => async dispatch => {
-  dispatch(setProcessing(true));
   try {
     const userAccounts = await web3.eth.getAccounts();
 
@@ -32,12 +31,9 @@ export const getUserAccount = () => async dispatch => {
       payload: err.message.split('\n')[0]
     });
   }
-
-  dispatch(setProcessing(false));
 };
 
 export const getUserBalance = () => async dispatch => {
-  dispatch(setProcessing(true));
   try {
     const wrapped = await Wrapped.deployed();
     const accounts = await web3.eth.getAccounts();
@@ -53,12 +49,9 @@ export const getUserBalance = () => async dispatch => {
       payload: err.message.split('\n')[0]
     });
   }
-
-  dispatch(setProcessing(false));
 };
 
 export const getUserTransactions = userAccount => async dispatch => {
-  dispatch(setProcessing(true));
   try {
     //const exchange = await Exchange.deployed();
     var factories = FactoryProvider.factories();
@@ -87,8 +80,6 @@ export const getUserTransactions = userAccount => async dispatch => {
       payload: 'User Transactions: ' + err.message.split('\n')[0]
     });
   }
-
-  dispatch(setProcessing(false));
 };
 
 const getContractCreationEvents = async (factory, userAccount) => {
@@ -114,7 +105,6 @@ const getContractCreationEvents = async (factory, userAccount) => {
 }
 
 export const getUserPositions = userAccount => async dispatch => {
-  dispatch(setProcessing(true));
   try {
     var factories = FactoryProvider.factories();
     var positions = []
@@ -132,8 +122,6 @@ export const getUserPositions = userAccount => async dispatch => {
       payload: 'User Positions: ' + err.message.split('\n')[0]
     });
   }
-
-  dispatch(setProcessing(false));
 };
 
 const getPositionsForFactory = async (provider, userAccount) => {
@@ -166,7 +154,6 @@ const getPositionsForFactory = async (provider, userAccount) => {
 }
 
 export const getUserTokenPositions = userAccount => async dispatch => {
-  dispatch(setProcessing(true));
   try {
     var factories = FactoryProvider.factories();
     var tokens = []
@@ -191,8 +178,6 @@ export const getUserTokenPositions = userAccount => async dispatch => {
       payload: 'User Token Positions: ' + err.message.split('\n')[0]
     });
   }
-
-  dispatch(setProcessing(false));
 };
 
 const getTokenPositionsForFactory = async (factory, userAccount) => {
@@ -217,7 +202,6 @@ const getTokenPositionsForFactory = async (factory, userAccount) => {
   return tokens;
 };
 export const getUserOrders = userAccount => async dispatch => {
-  dispatch(setProcessing(true));
   try {
     var factories = FactoryProvider.factories();
     var orders = []
@@ -244,8 +228,6 @@ export const getUserOrders = userAccount => async dispatch => {
       payload: 'User Orders: ' + err.message.split('\n')[0]
     });
   }
-
-  dispatch(setProcessing(false));
 };
 const getOrdersForFactory = async (factory, userAccount) => {
   const exchange = await Exchange.deployed();

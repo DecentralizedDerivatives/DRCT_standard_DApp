@@ -23,7 +23,6 @@ import FactoryProvider from '../factoryProvider';
 //TODO: This function makes no sense.  Why return an array of strings??
 //Should be a single object with order details.  Right??
 export const getOrderDetails = orderId => async dispatch => {
-  dispatch(setProcessing(true));
   try {
     if (!orderId) {
       dispatch({type: SET_SELECTED_TOKEN, payload: ''});
@@ -56,8 +55,8 @@ export const getOrderDetails = orderId => async dispatch => {
       payload: 'Get Order Details: ' + err.message.split('\n')[0]
     });
   }
-  dispatch(setProcessing(false));
 };
+
 const getOrderDetailForFactory = async (factory, order, orderId) => {
   let display = [];
   let date = await factory.token_dates.call(order[3]);
