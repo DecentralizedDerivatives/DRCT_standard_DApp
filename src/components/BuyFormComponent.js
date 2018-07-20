@@ -13,8 +13,8 @@ export const BuyFormComponent = ({
 }) => {
   return (
       <form className="buy-order-form"  autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
-        <InputGroup className="form-eth-input">
-          <Field name="orderId" label="Order Id" component={InputNumber} />
+        <InputGroup className="order-input-wrapper">
+          <Field className="order-input" name="orderId" label="Order Id" component={InputNumber} />
         </InputGroup>
         <div>
           <button

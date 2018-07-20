@@ -13,9 +13,8 @@ export const ListFormComponent = ({
   selectOptions
 }) => {
   return (
-    <div>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <InputGroup>
+      <form  autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
+        <InputGroup className="order-input-wrapper">
           <Field
             name="token"
             label="Select Token"
@@ -24,19 +23,21 @@ export const ListFormComponent = ({
           />
         </InputGroup>
 
-        <InputGroup>
+        <InputGroup className="order-input-wrapper">
           <Field
             name="price"
             label="Enter Price in ETH"
+            className="order-input"       
             component={InputNumber}
+            addonLabel={"ETH"}
           />
-          <InputGroupAddon addonType="append">ETH</InputGroupAddon>
         </InputGroup>
 
-        <InputGroup>
+        <InputGroup className="order-input-wrapper">
           <Field
             name="tokenAmount"
             label="Amount of Token"
+            className="order-input"
             component={InputNumber}
           />
         </InputGroup>
@@ -45,13 +46,12 @@ export const ListFormComponent = ({
           <button
             type="submit"
             disabled={submitting}
-            className="btn btn-primary"
+            className="order-submit-btn btn btn-primary"
           >
             Submit
           </button>
         </div>
       </form>
-    </div>
   );
 };
 

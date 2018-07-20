@@ -71,15 +71,15 @@ export class Bulletin extends Component {
             <Unlist />
           </div>
 
+          <div className="price-chart">
+            <PriceChart />
+          </div>
           <RecentTrades onRowClick={this.handleRowClick.bind(this)} />
 
           <Collapse isOpen={this.state.detailsOpen}>
             <ContractDetails onClick={this.closeContractDetails.bind(this)} />
           </Collapse>
 
-          <div className="price-chart">
-            <PriceChart />
-          </div>
         </div>
       </div>
     );
