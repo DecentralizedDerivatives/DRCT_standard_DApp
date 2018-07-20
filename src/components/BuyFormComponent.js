@@ -1,7 +1,7 @@
 import React from 'react';
 import { Field } from 'redux-form';
 import { InputGroup } from 'reactstrap';
-import InputText from './InputText';
+import InputNumber from './InputNumber';
 
 export const BuyFormComponent = ({
   handleSubmit,
@@ -13,11 +13,9 @@ export const BuyFormComponent = ({
 }) => {
   return (
       <form className="buy-order-form"  autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
-        <div className="order-input-wrapper">
-            <h3>Buy Order ID :</h3>
-            <input className="order-id-input" name="orderId" type="number" min="0"/>
-            <h4>Enter the order ID</h4>
-        </div>
+        <InputGroup className="form-eth-input">
+          <Field name="orderId" label="Order Id" component={InputNumber} />
+        </InputGroup>
         <div>
           <button
             type="submit"

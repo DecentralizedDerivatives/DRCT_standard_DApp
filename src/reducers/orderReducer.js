@@ -14,7 +14,7 @@ const initialState = {
   orderDetails: '',
   buy: {
     id: '',
-    orderId: ''
+    orderId: 0
   },
   buyOrderError: null,
   list: {

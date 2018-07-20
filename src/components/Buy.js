@@ -15,20 +15,15 @@ export class Buy extends Component {
       resultsMessage: ''
     };
   }
-
-  async componentDidMount() {
-    await this.props.getOrderDetails(this.props.orderId);
-  }
-
   componentWillReceiveProps(nextProps) {
     if (nextProps.buyOrderError !== null) {
       this.setState({
-        resultsMessage: `Error: ${this.props.buyOrderError}`,
+        resultsMessage: `Error: ${nextProps.buyOrderError}`,
         formOpen: false
       });
-    } else if (this.props.buyOrderTx) {
+    } else if (nextProps.buyOrderTx) {
       this.setState({
-        resultsMessage: `Buy Order result ${this.props.buyOrderTx}`,
+        resultsMessage: `Success!  Order ID: ${nextProps.buyOrderTx}`,
         formOpen: false
       });
     }
@@ -76,9 +71,9 @@ export class Buy extends Component {
 
 Buy.propTypes = {
   getOrderDetails: PropTypes.func.isRequired,
-  orderId: PropTypes.string.isRequired,
   userAccount: PropTypes.string.isRequired,
-  buyOrderTx: PropTypes.string.isRequired,
+  orderId: PropTypes.number,
+  buyOrderTx: PropTypes.string,
   buyOrderError: PropTypes.string
 };
 

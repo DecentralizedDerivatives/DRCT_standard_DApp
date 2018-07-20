@@ -17,7 +17,7 @@ const validate = values => {
 export let BuyFormContainer = props => {
   const submitForm = formValues => {
     console.log('submitting Form: ', formValues);
-    props.sendBuyOrder(formValues, props.userAccount);
+    props.sendBuyOrder(formValues.orderId, props.userAccount);
   };
 
   return (
@@ -33,12 +33,14 @@ export let BuyFormContainer = props => {
 BuyFormContainer.propTypes = {
   sendBuyOrder: PropTypes.func.isRequired,
   formValues: PropTypes.object,
-  userOrders: PropTypes.array
+  userOrders: PropTypes.array,
+  userAccount: PropTypes.string
 };
 
 const mapStateToProps = state => ({
   formValues: getFormValues('buy-form')(state),
-  userOrders: state.user.userOrders
+  userOrders: state.user.userOrders,
+  userAccount: state.user.userAccount
 });
 
 const formConfiguration = {

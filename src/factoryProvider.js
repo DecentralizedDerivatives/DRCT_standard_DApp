@@ -38,6 +38,11 @@ function factories (flatten) {
   return items
 }
 
+function getFromAddress (address) {
+  var provider = items.filter(item => item.address === address);
+  if (provider && provider.length > 0) { return provider[0]; }
+  return null;
+}
 function getFromSymbol (symbol) {
   var provider = items.filter(item => item.symbol === symbol);
   if (provider && provider.length > 0) { return provider[0]; }
@@ -47,5 +52,6 @@ function getFromSymbol (symbol) {
 module.exports.symbols = symbols
 module.exports.addresses = addresses
 module.exports.factories = factories
+module.exports.getFromAddress = getFromAddress
 module.exports.getFromSymbol = getFromSymbol
 module.exports.getStaticAddresses = getStaticAddresses
