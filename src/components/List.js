@@ -94,38 +94,6 @@ export class List extends Component {
   closeOrderModal = () => this.setState({ formOpen: false, resultsMessage: "" });
   render() {
     return (
-      // <div className="container">
-      //   <div id="list-button">
-      //     <button className="btn btn-info" onClick={this.toggleFormVisibility}>
-      //       List Order
-      //     </button>
-      //   </div>
-
-      //   <Collapse isOpen={this.state.formOpen}>
-      //     <div id="list-form">
-      //       <h4 className="center-text">Place Order</h4>
-      //       <ListFormContainer />
-      //     </div>
-      //   </Collapse>
-
-      //   <Collapse isOpen={this.state.approvalOpen}>
-      //     <div id="approval">
-      //       <h4 className="center-text">Order Placed</h4>
-      //       <button
-      //         className="btn btn-success"
-      //         onClick={this.handleApproveClick}
-      //       >
-      //         Approve Order
-      //       </button>
-      //     </div>
-      //   </Collapse>
-
-      //   {this.state.resultsMessage && (
-      //     <div id="results-message" className="text-center">
-      //       {this.state.resultsMessage}
-      //     </div>
-      //   )}
-      // </div>
       <div className="order-btn-wrapper">
         <div className="order-btn" onClick={this.toggleFormVisibility}>
           <label className="order-btn-label">

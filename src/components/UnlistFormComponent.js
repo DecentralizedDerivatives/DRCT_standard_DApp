@@ -13,9 +13,7 @@ export const UnlistFormComponent = ({
   selectOptions
 }) => {
   return (
-    <div>
-      <h3>Unlist Order</h3>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form className="unlist-order-form"  autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
         <InputGroup>
           <Field
             name="orderId"
@@ -37,13 +35,12 @@ export const UnlistFormComponent = ({
           <button
             type="submit"
             disabled={submitting}
-            className="btn btn-primary"
+            className="order-submit-btn btn btn-primary"
           >
             Submit
           </button>
         </div>
       </form>
-    </div>
   );
 };
 

@@ -140,22 +140,20 @@
   text-align:left;
   margin:45px 0 0px 25px;
 }
-.order-input-wrapper h3{
-  font-size:15px;
-  margin-bottom:15px;
+.order-input-wrapper label{
+  font-size:20px;
+  margin: 0 25px 7px 5px;
+  vertical-align: bottom;
 }
-.order-input-wrapper h4{
-  font-size:12px;
-  margin-top:15px;
-  color:grey;
-}
-.order-id-input{
+
+.order-input{
   border-top:none;
   border-left:none;
   border-right:none;
   border-bottom:1px solid grey;
-  width:90%;
   padding:7px 15px;
+  margin-bottom:5px;
+  display: inline-block;
 }
 .order-submit-btn{
   width:90%;
@@ -178,7 +176,10 @@
   background-color:transparent;
   margin: 15px 0;
 }
+/* List Order */
+.list-order-input{
 
+}
 /* Connection Modal */
 .button-link {
   text-decoration: none;
@@ -501,4 +502,38 @@ div.form-eth-input.input-group div:nth-child(1) input{
 }
 .form-submit:hover{
   background-color:var(--color-lightblue)!important;
+}
+/* Input number */
+.input-number{
+  display:inline-block;
+}
+.input-error{
+  display: block;
+  text-align: center;
+}
+.input-number .input-group-append{
+  display: inline-block;
+}
+.input-number .input-group-append span{
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  padding: 8px;
+}
+/* Input Text Component */
+.input-text{
+  width:100%;
+
+}
+.input-text .input-error{
+  display:block;
+}
+/* Unlist Form Component */
+.unlist-order-form input[type="text"]{
+  width:80%;
+  border-top:none;
+  border-left:none;
+  border-right:none;
+  border-bottom:1px solid grey;
+  padding:7px 15px;
+  margin-bottom:5px;
 }
