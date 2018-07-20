@@ -3,8 +3,7 @@ import { web3 } from '../ethereum';
 import {
   SET_FETCHING_ERROR,
   SET_CONNECTION_STATUS,
-  SHOW_CONNECTION_MODAL,
-  SET_PROCESSING
+  SHOW_CONNECTION_MODAL
 } from './types';
 
 // Check connection status
@@ -42,13 +41,6 @@ export const checkUserConnection = () => async dispatch => {
 export const showConnectionModal = status => {
   return {
     type: SHOW_CONNECTION_MODAL,
-    payload: status
-  };
-};
-
-export const setProcessing = status => {
-  return {
-    type: SET_PROCESSING,
     payload: status
   };
 };

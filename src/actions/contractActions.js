@@ -3,7 +3,6 @@ import {
   SET_CONTRACT_DETAILS,
   SET_CONTRACT_OPEN_DATES,
   SET_ORDERBOOK,
-  SET_PROCESSING,
   SET_FETCHING_ERROR,
   SET_RECENT_TRADES
 } from './types';
@@ -11,7 +10,6 @@ import {
 import FactoryProvider from '../factoryProvider';
 
 export const getContractDetails = (symbol) => async dispatch => {
-  dispatch(setProcessing(true));
   try {
     const provider = FactoryProvider.getFromSymbol(symbol);
     const factory = await Factory.at(provider && provider.address ? provider.address : '');
@@ -34,11 +32,9 @@ export const getContractDetails = (symbol) => async dispatch => {
       payload: err.message.split('\n')[0]
     });
   }
-  dispatch(setProcessing(false));
 };
 
 export const getOrderBook = () => async dispatch => {
-  dispatch(setProcessing(true));
   try {
     // first get number of open books (tokens with open orders):
     var staticAddresses = FactoryProvider.getStaticAddresses();
@@ -90,11 +86,9 @@ export const getOrderBook = () => async dispatch => {
       payload: 'Order Book: ' + err.message.split('\n')[0]
     });
   }
-  dispatch(setProcessing(false));
 };
 
 export const getRecentTrades = () => async dispatch => {
-  dispatch(setProcessing(true));
   try {
     var staticAddresses = FactoryProvider.getStaticAddresses();
     const exchange = await Exchange.at(staticAddresses.exchange);
@@ -128,11 +122,9 @@ export const getRecentTrades = () => async dispatch => {
       payload: 'Recent Trades: ' + err.message.split('\n')[0]
     });
   }
-  dispatch(setProcessing(false));
 };
 
 export const getContractOpenDates = (currencyAddress) => async dispatch => {
-  dispatch(setProcessing(true));
   try {
     const factory = await Factory.at(currencyAddress);
     // console.log(factory);
@@ -158,12 +150,4 @@ export const getContractOpenDates = (currencyAddress) => async dispatch => {
       payload: 'Contract Open Dates: ' + err.message.split('\n')[0]
     });
   }
-  dispatch(setProcessing(false));
-};
-
-export const setProcessing = status => {
-  return {
-    type: SET_PROCESSING,
-    payload: status
-  };
 };

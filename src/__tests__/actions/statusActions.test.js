@@ -12,7 +12,7 @@ describe('statusActions', () => {
     store.clearActions();
   });
 
-  describe('setProcessing', () => {
+  describe('getUserAccount', () => {
     it('should dispatch correct action', () => {
       const store = mockStore({});
       store.dispatch(statusActions.setProcessing(true));
