@@ -40,11 +40,6 @@ export class Bulletin extends Component {
     this.props.getUserOrders(this.props.userAccount);
   }
 
-  // async componentDidUpdate() {
-  //   await this.props.getOrderBook();
-  //   await this.props.getRecentTrades();
-  // }
-
   handleRowClick = async (tokenAddress, symbol, e) => {
     e.preventDefault();
     await this.props.setSelectedToken(tokenAddress);

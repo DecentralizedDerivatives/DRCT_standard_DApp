@@ -1,4 +1,4 @@
-import { Factory, Exchange } from '../ethereum';
+import { Factory, Exchange, DRCT } from '../ethereum';
 import {
   SET_CONTRACT_DETAILS,
   SET_CONTRACT_OPEN_DATES,
@@ -79,6 +79,9 @@ export const getOrderBook = () => async dispatch => {
            });
         }
       }
+      _allrows.sort(function (a, b) {
+        return a.orderId - b.orderId;
+      });
     }
     dispatch({
       type: SET_ORDERBOOK,
@@ -104,16 +107,23 @@ export const getRecentTrades = () => async dispatch => {
       { fromBlock: 0, toBlock: 'latest' }
     );
 
-    transferEvent.get(function (err, events) {
-      // console.log('events', events);
+    transferEvent.get(async function (err, events) {
+      console.log('events', events);
       var trades = [];
       if (events.length > 0) {
         for (let i = events.length - 1; i >= Math.max(events.length - 10, 0); i--) {
+          var token = events[i].args['_token'].toString();
+          var drct = DRCT.at(token);
+          // console.log('drct', drct)
+          var factoryAddress = await drct.getFactoryAddress();
+          // console.log('factoryAddress', factoryAddress)
+          var provider = FactoryProvider.getFromAddress(factoryAddress);
+          // console.log('provider', provider)
           trades.push({
-            address: events[i].args['_token'].toString(),
+            address: token,
             volume: events[i].args['_amount'].toString(),
             price: (events[i].args['_price'] / 1e18).toString(),
-            symbol: '????' // TODO:  How can Symbol be determined from returned events?
+            symbol: provider ? provider.symbol : '???'
           });
         }
       }

@@ -82,16 +82,17 @@ export const sendBuyOrder = (orderId, account) => async dispatch => {
   dispatch(setProcessing(true));
 
   try {
+    orderId = parseInt(orderId);
     var staticAddresses = FactoryProvider.getStaticAddresses();
     const exchange = await Exchange.at(staticAddresses.exchange);
     const order = await exchange.getOrder(orderId);
     const _value = order[1];
-    const response = await exchange.buy(order, {
+    const response = await exchange.buy(orderId, {
       from: account,
       gas: 4000000,
       value: _value
     });
-
+    console.log('RESPONSE', response)
     dispatch({
       type: SET_BUY_ORDER_RECEIPT,
       payload: {
@@ -100,6 +101,7 @@ export const sendBuyOrder = (orderId, account) => async dispatch => {
       }
     });
   } catch (err) {
+    console.log('err', err.message)
     dispatch({
       type: SET_BUY_ORDER_ERROR,
       payload: err.message.split('\n')[0]

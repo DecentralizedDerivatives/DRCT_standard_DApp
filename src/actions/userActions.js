@@ -141,6 +141,13 @@ const getPositionsForFactory = async (provider, userAccount) => {
   const factory = await Factory.at(provider.address);
   let positions = [];
   const numDates = await factory.getDateCount();
+  const response = await factory.getVariables();
+  const details = {
+    contractAddress: response[0],
+    contractDuration: response[1].c[0],
+    contractMultiplier: response[2].c[0],
+    oracleAddress: response[3]
+  };
   for (let i = 0; i < numDates; i++) {
     const startDate = (await factory.startDates.call(i)).c[0];
     const tokenAddresses = await factory.getTokens(startDate);
@@ -157,8 +164,8 @@ const getPositionsForFactory = async (provider, userAccount) => {
           balance: balance.c[0].toString(),
           date: date.toString(),
           symbol: provider.symbol,
-          contractDuration: 0, // TODO: this.state.contractDuration,
-          contractMultiplier: 0, // TODO: this.state.contractMultiplier
+          contractDuration: details.contractDuration,
+          contractMultiplier: details.contractMultiplier
         });
       }
     }
