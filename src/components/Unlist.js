@@ -40,31 +40,37 @@ export class Unlist extends Component {
       formOpen: !this.state.formOpen
     });
   }
+  renderOrderModal = () => (
+    this.state.formOpen || this.state.resultsMessage ? (
+      <div>
+        <div className="order-modal-background" onClick={this.closeOrderModal} />
+        <div className="order-modal">
+          <div id="buy-form">
+            <h4 className="order-modal-head">Order Confirmation</h4>
+            <UnlistFormContainer />
+            {this.state.resultsMessage && (
+              <div id="results-message" className="text-center">
+                {this.state.resultsMessage}
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    ) : (
+        null
+      )
+  );
+  closeOrderModal = () => this.setState({ formOpen: false, resultsMessage: "" });
 
   render() {
     return (
-      <div className="container">
-        <div id="unlist-button">
-          <button
-            className="btn btn-primary"
-            onClick={this.toggleFormVisibility}
-          >
+      <div className="order-btn-wrapper">
+        <div className="order-btn" onClick={this.toggleFormVisibility}>
+          <label className="order-btn-label">
             Unlist Order
-          </button>
+            </label>
         </div>
-
-        <Collapse isOpen={this.state.formOpen}>
-          <div id="unlist-form">
-            <h4 className="center-text">Unlist Order</h4>
-            <UnlistFormContainer />
-          </div>
-        </Collapse>
-
-        {this.state.resultsMessage && (
-          <div id="results-message" className="text-center">
-            {this.state.resultsMessage}
-          </div>
-        )}
+        {this.renderOrderModal()}
       </div>
     );
   }
