@@ -7,7 +7,6 @@ import {
   SET_USER_TOKENS,
   SET_USER_ORDERS,
   // SET_USER_ORDER_LABELS,
-  SET_CURRENT,
   SET_PROCESSING,
   SET_FETCHING_ERROR,
   SET_CASHOUT_RECEIPT,
@@ -209,22 +208,17 @@ const getTokenPositionsForFactory = async (factory, userAccount) => {
 };
 export const getUserOrders = userAccount => async dispatch => {
   try {
-    var factories = FactoryProvider.factories();
+    var providers = FactoryProvider.factories();
+    // console.log('FACTORIES', providers)
     var orders = []
-    for (var i = 0; i < factories.length; i++) {
-      var data = await getOrdersForFactory(factories[i], userAccount);
+    for (var i = 0; i < providers.length; i++) {
+      const factory = await Factory.at(providers[i].address);
+      var data = await getOrdersForFactory(factory, userAccount);
       orders = orders.concat(data);
     }
     dispatch({
       type: SET_USER_ORDERS,
       payload: orders
-    });
-    dispatch({
-      type: SET_CURRENT,
-      payload: {
-        selectedToken: orders.length > 0 ? orders[0].row : null,
-        selectedOrderID: orders.length > 0 ? orders[0].id : null
-      }
     });
   } catch (err) {
     dispatch({
@@ -236,7 +230,8 @@ export const getUserOrders = userAccount => async dispatch => {
 const getOrdersForFactory = async (factory, userAccount) => {
   var staticAddresses = FactoryProvider.getStaticAddresses();
   const exchange = await Exchange.at(staticAddresses.exchange);
-  const books = await exchange.getUserOrders.call(userAccount); //Gets all listed order ids
+  // console.log('exchagn', exchange)
+  const books = await exchange.getUserOrders(userAccount); //Gets all listed order ids
   const allOrders = []; //Contains all information for each order
   for (let i = 0; i < books.length; i++) {
     const order = {};

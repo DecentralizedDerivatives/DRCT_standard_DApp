@@ -7,9 +7,6 @@ import Select from './Select.js';
 export const ApprovalFormComponent = ({
   handleSubmit,
   onSubmit,
-  submitting,
-  formValues,
-  change,
   selectOptions
 }) => {
   selectOptions = selectOptions.reduce((obj, item) => {
@@ -38,7 +35,6 @@ export const ApprovalFormComponent = ({
         <div>
           <button
             type="submit"
-            disabled={submitting}
             className="btn btn-primary"
           >
             Submit

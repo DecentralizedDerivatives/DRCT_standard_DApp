@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { reduxForm, getFormValues } from 'redux-form';
+import { reduxForm } from 'redux-form';
 import { sendApproveOrder } from '../actions/orderActions';
 import ApprovalFormComponent from './ApprovalFormComponent';
 
@@ -25,10 +25,8 @@ export let ApprovalFormContainer = props => {
 
   return (
     <ApprovalFormComponent
-      formValues={props.formValues}
-      change={props.change}
-      onSubmit={submitForm}
       handleSubmit={props.handleSubmit}
+      onSubmit={submitForm}
       selectOptions={props.userTokens}
     />
   );
@@ -37,12 +35,10 @@ export let ApprovalFormContainer = props => {
 ApprovalFormContainer.propTypes = {
   sendApproveOrder: PropTypes.func.isRequired,
   userAccount: PropTypes.string.isRequired,
-  formValues: PropTypes.object,
   userTokens: PropTypes.array,
 };
 
 const mapStateToProps = state => ({
-  formValues: getFormValues('approval-form')(state),
   userTokens: state.user.userTokens,
   userAccount: state.user.userAccount
 });

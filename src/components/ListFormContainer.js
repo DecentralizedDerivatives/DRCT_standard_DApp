@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { reduxForm, getFormValues } from 'redux-form';
+import { reduxForm } from 'redux-form';
 import { sendListOrder } from '../actions/orderActions';
 import ListFormComponent from './ListFormComponent';
 
@@ -24,30 +24,33 @@ const validate = values => {
 
 export let ListFormContainer = props => {
   const submitForm = formValues => {
+    formValues.token = props.token
+    formValues.tokenAmount = props.tokenAmount
     console.log('submitting Form: ', formValues);
-    // props.sendListOrder(formValues, props.userAccount);
+    props.sendListOrder(formValues, props.userAccount);
   };
 
   return (
     <ListFormComponent
-      formValues={props.formValues}
-      change={props.change}
-      onSubmit={submitForm}
       handleSubmit={props.handleSubmit}
-      selectOptions={props.userTokens}
+      onSubmit={submitForm}
+      token={props.token}
+      tokenAmount={props.tokenAmount}
     />
   );
 };
 
 ListFormContainer.propTypes = {
   sendListOrder: PropTypes.func.isRequired,
-  formValues: PropTypes.object,
-  userTokens: PropTypes.array
+  userAccount: PropTypes.string.isRequired,
+  token: PropTypes.string.isRequired,
+  tokenAmount: PropTypes.number.isRequired
 };
 
 const mapStateToProps = state => ({
-  formValues: getFormValues('list-form')(state),
-  userTokens: state.user.userTokens
+  userAccount: state.user.userAccount,
+  token: state.order.list.token,
+  tokenAmount: state.order.list.tokenAmount
 });
 
 const formConfiguration = {
