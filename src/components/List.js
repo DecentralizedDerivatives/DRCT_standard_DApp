@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 // import { Collapse } from 'reactstrap';
 import ListFormContainer from './ListFormContainer';
 import ApprovalFormContainer from './ApprovalFormContainer';
-import { sendApproveOrder } from '../actions/orderActions';
+// import { sendApproveOrder } from '../actions/orderActions';
 
 export class List extends Component {
   constructor() {
@@ -106,12 +106,6 @@ export class List extends Component {
   }
 }
 List.propTypes = {
-  sendApproveOrder: PropTypes.func.isRequired,
-  userAccount: PropTypes.string.isRequired,
-  userTokens: PropTypes.array.isRequired,
-  selectedToken: PropTypes.string,
-  tokenAmt: PropTypes.number,
-  tokenPrice: PropTypes.number,
   listOrderId: PropTypes.string,
   listOrderError: PropTypes.string,
   listOrderApproved: PropTypes.bool,
@@ -119,18 +113,10 @@ List.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  userAccount: state.user.userAccount,
-  userTokens: state.user.userTokens,
-  selectedToken: state.order.list.token,
-  tokenAmt: state.order.list.amount,
-  tokenPrice: state.order.list.price,
   listOrderId: state.order.list.id,
   listOrderError: state.order.listOrderError,
   listOrderApproved: state.order.list.approved,
   listOrderApproveError: state.order.listOrderFundsError
 });
 
-export default connect(
-  mapStateToProps,
-  { sendApproveOrder }
-)(List);
+export default connect(mapStateToProps, { })(List);

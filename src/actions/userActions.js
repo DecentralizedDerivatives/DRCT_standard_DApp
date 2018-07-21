@@ -5,7 +5,6 @@ import {
   SET_USER_TRANSACTIONS,
   SET_USER_POSITIONS,
   SET_USER_TOKENS,
-  SET_SELECTED_TOKEN,
   SET_USER_ORDERS,
   // SET_USER_ORDER_LABELS,
   SET_CURRENT,
@@ -129,13 +128,13 @@ const getPositionsForFactory = async (provider, userAccount) => {
   const factory = await Factory.at(provider.address);
   let positions = [];
   const numDates = await factory.getDateCount();
-  const response = await factory.getVariables();
-  const details = {
-    contractAddress: response[0],
-    contractDuration: response[1].c[0],
-    contractMultiplier: response[2].c[0],
-    oracleAddress: response[3]
-  };
+  // const response = await factory.getVariables();
+  // const details = {
+  //   contractAddress: response[0],
+  //   contractDuration: response[1].c[0],
+  //   contractMultiplier: response[2].c[0],
+  //   oracleAddress: response[3]
+  // };
   for (let i = 0; i < numDates; i++) {
     const startDate = (await factory.startDates.call(i)).c[0];
     const tokenAddresses = await factory.getTokens(startDate);
@@ -152,8 +151,8 @@ const getPositionsForFactory = async (provider, userAccount) => {
           balance: balance.c[0].toString(),
           date: date.toString(),
           symbol: provider.symbol,
-          contractDuration: details.contractDuration,
-          contractMultiplier: details.contractMultiplier
+          contractDuration: provider.duration,
+          contractMultiplier: provider.multiplier
         });
       }
     }
@@ -173,12 +172,6 @@ export const getUserTokenPositions = userAccount => async dispatch => {
     dispatch({
       type: SET_USER_TOKENS,
       payload: tokens
-    });
-    dispatch({
-      type: SET_SELECTED_TOKEN,
-      payload: {
-        selectedToken: tokens.length > 0 ? tokens[0] : null
-      }
     });
   } catch (err) {
     dispatch({

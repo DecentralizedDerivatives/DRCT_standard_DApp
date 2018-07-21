@@ -1,34 +1,33 @@
 
 const items = [
-  { address: '0x95c9c47558115b12f25dce5103e73e0803a5b9c7', symbol: 'BTC/USD' },
-  { address: '0xdfb380afc0948e9551fd17b486681122b5936c2a', symbol: 'ETH/USD' }
+  { address: '0x5dbc9e739bcc518c4ce3084e597117eb0dc929e6', symbol: 'BTC/USD', duration: 7, multiplier: 1, oracle: '0xb7e4411299161051bdae859392537d367758a62a' },
+  { address: '0xa18e394d8de8f0203fa89b9f35212a2ecbede48a', symbol: 'ETH/USD', duration: 7, multiplier: 5, oracle: '0xf5b3b07568b0e90df92df0a22f955a7219077289' }
 ]
 
-const staticAddresses = {exchange: '0x2242ef4a4a1b4510c09c1a4de12cd96b0108d0cb',
-  wrapped_ether: '0xc733a8ba37590e71096f10b23a049f3a30386c6f',
-  membership: '0xdcff3a825f6ab9a861bdf481017d91b25ac980a4'}
-
-function getStaticAddresses(){
-  return staticAddresses
+const staticAddresses = {
+  exchange: '0x5c9b3e0774dadf6977d6b13d4cf149736318fc32',
+  wrapped_ether: '0x5a123d2f53a0410def29f1e2902abea66f59e246',
+  membership: '0xfcb2342eca570fb10da23ce7dd430f41e4f5a989'
 }
 
-function symbols () {
+module.exports.getStaticAddresses = () => {
+  return staticAddresses
+}
+module.exports.symbols = () => {
   let list = []
   items.forEach(function (e) {
     list.push(e.symbol)
   })
   return list
 }
-
-function addresses () {
+module.exports.addresses = () => {
   let list = []
   items.forEach(function (e) {
     list.push(e.address)
   })
   return list
 }
-
-function factories (flatten) {
+module.exports.factories = (flatten) => {
   if (flatten) {
     return items.reduce((obj, item) => {
       obj[item.address] = item.symbol;
@@ -37,21 +36,13 @@ function factories (flatten) {
   }
   return items
 }
-
-function getFromAddress (address) {
+module.exports.getFromAddress = (address) => {
   var provider = items.filter(item => item.address === address);
   if (provider && provider.length > 0) { return provider[0]; }
   return null;
 }
-function getFromSymbol (symbol) {
+module.exports.getFromSymbol = (symbol) => {
   var provider = items.filter(item => item.symbol === symbol);
   if (provider && provider.length > 0) { return provider[0]; }
   return null;
 }
-
-module.exports.symbols = symbols
-module.exports.addresses = addresses
-module.exports.factories = factories
-module.exports.getFromAddress = getFromAddress
-module.exports.getFromSymbol = getFromSymbol
-module.exports.getStaticAddresses = getStaticAddresses

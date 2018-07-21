@@ -12,14 +12,17 @@ import FactoryProvider from '../factoryProvider';
 export const getContractDetails = (symbol) => async dispatch => {
   try {
     const provider = FactoryProvider.getFromSymbol(symbol);
-    const factory = await Factory.at(provider && provider.address ? provider.address : '');
-
-    const response = await factory.getVariables();
+    // const factory = await Factory.at(provider && provider.address ? provider.address : '');
+    // const response = await factory.getVariables();
     const details = {
-      contractAddress: response[0],
-      contractDuration: response[1].c[0],
-      contractMultiplier: response[2].c[0],
-      oracleAddress: response[3]
+      contractAddress: provider.address,
+      contractDuration: provider.duration,
+      contractMultiplier: provider.multiplier,
+      oracleAddress: provider.oracle
+      // contractAddress: response[0],
+      // contractDuration: response[1].c[0],
+      // contractMultiplier: response[2].c[0],
+      // oracleAddress: response[3]
     };
 
     dispatch({
@@ -112,28 +115,14 @@ export const getRecentTrades = () => async dispatch => {
           // console.log('drct', drct);
           var factoryAddress = await drct.getFactoryAddress();
           // console.log('factoryAddress', factoryAddress);
-          var symbol = '???';
-          var details = {};
-          if (parseInt(factoryAddress, 16) !== 0) {
-            // console.log('Address', factoryAddress)
-            var provider = FactoryProvider.getFromAddress(factoryAddress);
-            const factory = await Factory.at(factoryAddress);
-            const response = await factory.getVariables();
-            symbol = provider.symbol
-            details = {
-              contractAddress: response[0],
-              contractDuration: response[1].c[0],
-              contractMultiplier: response[2].c[0],
-              oracleAddress: response[3]
-            };
-          }
+          var provider = FactoryProvider.getFromAddress(factoryAddress);
           trades.push({
             address: token,
             volume: events[i].args['_amount'].toString(),
             price: (events[i].args['_price'] / 1e18).toString(),
-            contractDuration: details.contractDuration ? details.contractDuration : 0,
-            contractMultiplier: details.contractMultiplier ? details.contractMultiplier : 0,
-            symbol
+            contractDuration: provider && provider.duration ? provider.duration : 0,
+            contractMultiplier: provider && provider.multiplier ? provider.multiplier : 0,
+            symbol: provider && provider.symbol ? provider.symbol : '??'
           });
         }
       }
