@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { reduxForm, getFormValues } from 'redux-form';
+import { reduxForm } from 'redux-form';
 import { sendCashOutRequest } from '../actions/userActions';
 import CashOutFormComponent from './CashOutFormComponent';
 
@@ -22,8 +22,6 @@ export let CashOutFormContainer = props => {
 
   return (
     <CashOutFormComponent
-      formValues={props.formValues}
-      change={props.change}
       onSubmit={submitForm}
       handleSubmit={props.handleSubmit}
     />
@@ -31,14 +29,10 @@ export let CashOutFormContainer = props => {
 };
 
 CashOutFormComponent.propTypes = {
-  // sendCashOutRequest: PropTypes.func.isRequired,
-  formValues: PropTypes.object,
-  userOrders: PropTypes.array
+  sendCashOutRequest: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
-  formValues: getFormValues('cashout-form')(state),
-  userOrders: state.user.userOrders
 });
 
 const formConfiguration = {
