@@ -10,7 +10,7 @@ export const ApprovalFormComponent = ({
   selectOptions
 }) => {
   selectOptions = selectOptions.reduce((obj, item) => {
-    obj[item.address] = item.date + ': ' + item.balance + ' (' + item.address + ')';
+    obj[item.address] = item.tokenType + ' ' + item.symbol + ': ' + item.balance + ' (' + item.date + ')';
     return obj
   }, {})
   return (

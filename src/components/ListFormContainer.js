@@ -44,7 +44,7 @@ ListFormContainer.propTypes = {
   sendListOrder: PropTypes.func.isRequired,
   userAccount: PropTypes.string.isRequired,
   token: PropTypes.string.isRequired,
-  tokenAmount: PropTypes.number.isRequired
+  tokenAmount: PropTypes.string.isRequired
 };
 
 const mapStateToProps = state => ({

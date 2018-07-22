@@ -21,7 +21,7 @@ const initialState = {
     id: '',
     token: '',
     price: 0,
-    tokenAmount: 0,
+    tokenAmount: '',
     approved: false,
     approveTx: ''
   },

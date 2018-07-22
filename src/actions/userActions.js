@@ -138,7 +138,10 @@ const getPositionsForFactory = async (provider, userAccount) => {
     const startDate = (await factory.startDates.call(i)).c[0];
     const tokenAddresses = await factory.getTokens(startDate);
     for (let p = 0; p < tokenAddresses.length; p++) {
-      let drct = await DRCT.at(tokenAddresses[p]);
+      let tokenAddress = tokenAddresses[p];
+      let drct = await DRCT.at(tokenAddress);
+      let tokenType = (await factory.getTokenType(tokenAddress)).c[0];
+      // console.log('TOKEN TYPE', tokenType)
       let balance = await drct.balanceOf(userAccount);
       if (balance.c[0] > 0) {
         let date = new Date(startDate * 1000);
@@ -146,12 +149,13 @@ const getPositionsForFactory = async (provider, userAccount) => {
           date.getUTCDate() + '/' +
           date.getUTCFullYear();
         positions.push({
-          address: tokenAddresses[p],
+          address: tokenAddress,
           balance: balance.c[0].toString(),
           date: date.toString(),
           symbol: provider.symbol,
           contractDuration: provider.duration,
-          contractMultiplier: provider.multiplier
+          contractMultiplier: provider.multiplier,
+          tokenType: tokenType === 1 ? 'Short' : 'Long'
         });
       }
     }
@@ -161,11 +165,10 @@ const getPositionsForFactory = async (provider, userAccount) => {
 
 export const getUserTokenPositions = userAccount => async dispatch => {
   try {
-    var factories = FactoryProvider.factories();
+    var providers = FactoryProvider.factories();
     var tokens = []
-    for (var i = 0; i < factories.length; i++) {
-      const factory = await Factory.at(factories[i].address);
-      var data = await getTokenPositionsForFactory(factory, userAccount);
+    for (var i = 0; i < providers.length; i++) {
+      var data = await getTokenPositionsForFactory(providers[i], userAccount);
       tokens = tokens.concat(data);
     }
     dispatch({
@@ -180,7 +183,8 @@ export const getUserTokenPositions = userAccount => async dispatch => {
   }
 };
 
-const getTokenPositionsForFactory = async (factory, userAccount) => {
+const getTokenPositionsForFactory = async (provider, userAccount) => {
+  const factory = await Factory.at(provider.address);
   const numDates = await factory.getDateCount();
   let tokens = [];
   for (let i = 0; i < numDates; i++) {
@@ -195,12 +199,14 @@ const getTokenPositionsForFactory = async (factory, userAccount) => {
       const drct = await DRCT.at(tokenAddresses[p]); //Getting contract
       const balance = (await drct.balanceOf(userAccount)).c[0]; //Getting balance of token
       if (balance > 0) {
+        let tokenType = (await factory.getTokenType(tokenAddresses[p])).c[0];
         tokens.push({
           address: tokenAddresses[p],
           balance,
-          date
+          date,
+          tokenType: tokenType === 1 ? 'Short' : 'Long',
+          symbol: provider.symbol
         })
-        // tokens.push(`${tokenAddresses[p]}(${balance}/${date})`); //Pushing token address + balance/date
       };
     }
   }
