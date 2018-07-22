@@ -16,19 +16,16 @@ export class Unlist extends Component {
 
     this.toggleFormVisibility = this.toggleFormVisibility.bind(this);
   }
-  // async componentDidMount() {
-  //   await this.props.getUserOrders(this.props.userAccount);
-  // }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.unlistOrderError !== null) {
       this.setState({
-        resultsMessage: `Error: ${this.props.unlistOrderError}`,
+        resultsMessage: `Error: ${nextProps.unlistOrderError}`,
         formOpen: false
       });
     } else if (this.props.unlistOrderTx) {
       this.setState({
-        resultsMessage: `Unlist Order result ${this.props.unlistOrderTx}`,
+        resultsMessage: `Unlist Order result ${nextProps.unlistOrderTx}`,
         formOpen: false
       });
     }
@@ -39,6 +36,8 @@ export class Unlist extends Component {
       formOpen: !this.state.formOpen
     });
   }
+  closeOrderModal = () => this.setState({ formOpen: false, resultsMessage: "" });
+
   renderOrderModal = () => (
     this.state.formOpen || this.state.resultsMessage ? (
       <div>
@@ -59,7 +58,6 @@ export class Unlist extends Component {
         null
       )
   );
-  closeOrderModal = () => this.setState({ formOpen: false, resultsMessage: "" });
 
   render() {
     return (
@@ -76,7 +74,6 @@ export class Unlist extends Component {
 }
 
 Unlist.propTypes = {
-  // getUserOrders: PropTypes.func.isRequired,
   userAccount: PropTypes.string.isRequired,
   unlistOrderTx: PropTypes.string,
   unlistOrderError: PropTypes.string
