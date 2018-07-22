@@ -16,13 +16,14 @@ export class MyPositions extends Component {
         date,
         symbol,
         contractDuration,
-        contractMultiplier
+        contractMultiplier,
+        tokenType
       } = position;
 
       return (
         <tr key={index}>
           <td>
-            {symbol} - {contractDuration} Days - {contractMultiplier}X
+            {tokenType} {symbol} - {contractDuration} Days - {contractMultiplier}X
           </td>
           <td>{balance}</td>
           <td>{date}</td>

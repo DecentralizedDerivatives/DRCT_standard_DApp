@@ -166,7 +166,6 @@ export const sendApproveOrder = (approveDetails, account) => async dispatch => {
   try {
     var staticAddresses = FactoryProvider.getStaticAddresses();
     const exchange = await Exchange.at(staticAddresses.exchange);
-    tokenAmount = parseInt(tokenAmount, 10);
     const drct = await DRCT.at(token);
     const response = await drct.approve(exchange.address, tokenAmount, {
       from: account,
