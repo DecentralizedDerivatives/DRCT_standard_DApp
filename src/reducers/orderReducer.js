@@ -64,7 +64,10 @@ export default function(state = initialState, action) {
     case SET_LIST_ORDER:
       return {
         ...state,
-        list: action.payload
+        list: {
+          ...state.list,
+          ...action.payload
+        }
       };
     case SET_LIST_ORDER_ERROR:
       return {
@@ -75,8 +78,8 @@ export default function(state = initialState, action) {
       return {
         ...state,
         list: {
-          approved: true,
-          approveTx: action.payload
+          ...state.list,
+          ...action.payload
         }
       };
     case SET_LIST_ORDER_APPROVE_ERROR:

@@ -8,18 +8,10 @@ import { getRecentTrades } from '../actions/contractActions';
 export class RecentTrades extends Component {
   renderRows = () => {
     var rows = this.props.recentTrades.map((trade, index) => {
-      const { address, volume, price, symbol } = trade;
+      const { address, volume, price, symbol, contractDuration, contractMultiplier } = trade;
       return (
-        <tr key={index}>
-          <td>
-            <a
-              className="token-address-link"
-              onClick={this.props.onRowClick}
-              data-token-address={address}
-            >
-              {symbol} - {this.props.contractDuration} Days -{' '}
-              {this.props.contractMultiplier}X
-            </a>
+        <tr key={index} className='clickable' onClick={this.props.onRowClick.bind(this, address, symbol)}>
+          <td>{symbol} - {contractDuration} Days - {' ' + contractMultiplier}X
           </td>
           <td>{volume}</td>
           <td>{price}</td>

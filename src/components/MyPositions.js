@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Table } from 'reactstrap';
-import { getContractDetails } from '../actions/contractActions';
 
 // Use named export for unconnected component for testing
 export class MyPositions extends Component {
@@ -69,7 +68,4 @@ const mapStateToProps = state => ({
   userPositions: state.user.userPositions
 });
 
-export default connect(
-  mapStateToProps,
-  { getContractDetails }
-)(MyPositions);
+export default connect(mapStateToProps,{ })(MyPositions);

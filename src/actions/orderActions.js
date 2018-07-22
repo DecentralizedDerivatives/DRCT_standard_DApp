@@ -1,7 +1,6 @@
 import { Factory, Exchange, DRCT, UserContract } from '../ethereum';
 import {
   SET_ORDER_DETAILS,
-  SET_SELECTED_TOKEN,
   SET_BUY_ORDER_RECEIPT,
   SET_BUY_ORDER_ERROR,
   SET_UNLIST_ORDER_RECEIPT,
@@ -25,7 +24,6 @@ import FactoryProvider from '../factoryProvider';
 export const getOrderDetails = orderId => async dispatch => {
   try {
     if (!orderId) {
-      dispatch({type: SET_SELECTED_TOKEN, payload: ''});
       return dispatch({type: SET_ORDER_DETAILS, payload: ''});
     }
     var factories = FactoryProvider.factories();
@@ -38,18 +36,10 @@ export const getOrderDetails = orderId => async dispatch => {
       var orderDetail = await getOrderDetailForFactory(factory, order, orderId);
       _allrows.push(orderDetail);
     }
-
     dispatch({
       type: SET_ORDER_DETAILS,
       payload: _allrows
     });
-
-    if (_allrows.length === 1) {
-      dispatch({
-        type: SET_SELECTED_TOKEN,
-        payload: order[3]
-      });
-    }
   } catch (err) {
     dispatch({
       type: SET_FETCHING_ERROR,
@@ -81,7 +71,7 @@ export const sendBuyOrder = (orderId, account) => async dispatch => {
   dispatch(setProcessing(true));
 
   try {
-    orderId = parseInt(orderId);
+    orderId = parseInt(orderId, 10);
     var staticAddresses = FactoryProvider.getStaticAddresses();
     const exchange = await Exchange.at(staticAddresses.exchange);
     const order = await exchange.getOrder(orderId);
@@ -140,13 +130,13 @@ export const sendUnlistOrder = (orderId, account) => async dispatch => {
 export const sendListOrder = (formValues, account) => async dispatch => {
   dispatch(setProcessing(true));
 
-  let { token, price, amount } = formValues;
+  let { token, tokenAmount, price } = formValues;
 
   try {
     var staticAddresses = FactoryProvider.getStaticAddresses();
     const exchange = await Exchange.at(staticAddresses.exchange);
 
-    const response = await exchange.list(token, amount, price * 1e18, {
+    const response = await exchange.list(token, tokenAmount, price * 1e18, {
       from: account,
       gas: 4000000
     });
@@ -155,9 +145,7 @@ export const sendListOrder = (formValues, account) => async dispatch => {
       type: SET_LIST_ORDER,
       payload: {
         id: response.tx,
-        token,
-        price,
-        amount
+        price
       }
     });
   } catch (err) {
@@ -173,26 +161,29 @@ export const sendListOrder = (formValues, account) => async dispatch => {
 export const sendApproveOrder = (approveDetails, account) => async dispatch => {
   dispatch(setProcessing(true));
 
-  let { selectedToken, amount } = approveDetails;
+  let { token, tokenAmount } = approveDetails;
 
   try {
     var staticAddresses = FactoryProvider.getStaticAddresses();
     const exchange = await Exchange.at(staticAddresses.exchange);
-
-    selectedToken = selectedToken.split('(')[0].replace(/['"]+/g, '');
-
-    const drct = await DRCT.at(selectedToken);
-
-    const response = await drct.approve(exchange.address, amount, {
+    tokenAmount = parseInt(tokenAmount, 10);
+    const drct = await DRCT.at(token);
+    const response = await drct.approve(exchange.address, tokenAmount, {
       from: account,
       gas: 4000000
     });
-
+    console.log('RESPONSE', response)
     dispatch({
       type: SET_LIST_ORDER_APPROVED,
-      payload: response.tx
+      payload: {
+        token,
+        tokenAmount,
+        approved: true,
+        approveTx: response.tx
+      }
     });
   } catch (err) {
+    console.log('APPROVE ERROR', err)
     dispatch({
       type: SET_LIST_ORDER_APPROVE_ERROR,
       payload: err.message.split('\n')[0]
