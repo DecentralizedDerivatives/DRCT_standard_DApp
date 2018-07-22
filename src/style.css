@@ -90,7 +90,7 @@
 .order-btn{
  width:85%;
  height:45px;
- background-color:transparent; 
+ background-color:transparent;
  border-bottom:2px solid var(--color-blue);
  text-align:center;
  border-radius:5px;
@@ -301,6 +301,11 @@
   animation:spin 240s infinite linear;
   min-width:500px;
   max-width:800px;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: auto;
 }
     /*network labels*/
 .rinkeby-network-label{
