@@ -15,9 +15,9 @@ const validate = values => {
 };
 
 export let CashOutFormContainer = props => {
-  const submitForm = (formValues, sendCashOutRequest, userAccount) => {
+  const submitForm = formValues => {
     console.log('submitting Form: ', formValues);
-    sendCashOutRequest(formValues, userAccount);
+    props.sendCashOutRequest(formValues.withdrawAmount, props.userAccount);
   };
 
   return (
@@ -28,11 +28,13 @@ export let CashOutFormContainer = props => {
   );
 };
 
-CashOutFormComponent.propTypes = {
-  sendCashOutRequest: PropTypes.func.isRequired
+CashOutFormContainer.propTypes = {
+  sendCashOutRequest: PropTypes.func.isRequired,
+  userAccount: PropTypes.string.isRequired
 };
 
 const mapStateToProps = state => ({
+  userAccount: state.user.userAccount
 });
 
 const formConfiguration = {
@@ -43,6 +45,5 @@ const formConfiguration = {
 CashOutFormContainer = reduxForm(formConfiguration)(CashOutFormContainer);
 
 export default (CashOutFormContainer = connect(
-  mapStateToProps,
-  { sendCashOutRequest }
+  mapStateToProps, { sendCashOutRequest }
 )(CashOutFormContainer));

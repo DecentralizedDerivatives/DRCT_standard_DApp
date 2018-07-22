@@ -5,10 +5,7 @@ import InputNumber from './InputNumber';
 
 export const CashOutFormComponent = ({
   handleSubmit,
-  onSubmit,
-  submitting,
-  formValues,
-  change
+  onSubmit
 }) => {
   return (
     <div>
