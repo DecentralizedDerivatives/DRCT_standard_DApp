@@ -3,6 +3,8 @@ import {
   SET_CONTRACT_DETAILS,
   SET_CONTRACT_OPEN_DATES,
   SET_ORDERBOOK,
+  SET_FETCH_IN_PROGRESS,
+  REMOVE_FETCH_IN_PROGRESS,
   SET_FETCHING_ERROR,
   SET_RECENT_TRADES
 } from './types';
@@ -39,6 +41,7 @@ export const getContractDetails = (symbol) => async dispatch => {
 
 export const getOrderBook = () => async dispatch => {
   try {
+    dispatch({ type: SET_FETCH_IN_PROGRESS, payload: SET_ORDERBOOK });
     // first get number of open books (tokens with open orders):
     var staticAddresses = FactoryProvider.getStaticAddresses();
     const exchange = await Exchange.at(staticAddresses.exchange);
@@ -86,6 +89,7 @@ export const getOrderBook = () => async dispatch => {
       type: SET_ORDERBOOK,
       payload: _allrows
     });
+    dispatch({ type: REMOVE_FETCH_IN_PROGRESS, payload: SET_ORDERBOOK });
   } catch (err) {
     dispatch({
       type: SET_FETCHING_ERROR,
@@ -96,6 +100,7 @@ export const getOrderBook = () => async dispatch => {
 
 export const getRecentTrades = () => async dispatch => {
   try {
+    dispatch({ type: SET_FETCH_IN_PROGRESS, payload: SET_RECENT_TRADES });
     var staticAddresses = FactoryProvider.getStaticAddresses();
     const exchange = await Exchange.at(staticAddresses.exchange);
 
@@ -131,6 +136,7 @@ export const getRecentTrades = () => async dispatch => {
         payload: trades
       });
     });
+    dispatch({ type: REMOVE_FETCH_IN_PROGRESS, payload: SET_RECENT_TRADES });
   } catch (err) {
     dispatch({
       type: SET_FETCHING_ERROR,

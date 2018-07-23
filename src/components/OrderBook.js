@@ -2,11 +2,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Table } from 'reactstrap';
+import Loading from './Loading';
 import { getOrderBook } from '../actions/contractActions';
-
+import { SET_ORDERBOOK } from '../actions/types';
 // Use named export for unconnected component for testing
 export class OrderBook extends Component {
   renderRows = () => {
+    if (this.props.loading) {
+      return <tr><td colSpan='12' style={{textAlign: 'center'}}><Loading /></td></tr>
+    }
     if (this.props.orderbook.length === 0) {
       return <tr><td colSpan='12' style={{textAlign: 'center'}}><h5>No Recent Orders</h5></td></tr>
     }
@@ -55,12 +59,14 @@ export class OrderBook extends Component {
 
 OrderBook.propTypes = {
   onRowClick: PropTypes.func.isRequired,
+  loading: PropTypes.bool.isRequired,
   orderbook: PropTypes.array.isRequired,
   contractDuration: PropTypes.number.isRequired,
   contractMultiplier: PropTypes.number.isRequired
 };
 
 const mapStateToProps = state => ({
+  loading: state.status.fetchInProgress.includes(SET_ORDERBOOK),
   orderbook: state.contract.orderbook,
   contractDuration: state.contract.contractDuration,
   contractMultiplier: state.contract.contractMultiplier

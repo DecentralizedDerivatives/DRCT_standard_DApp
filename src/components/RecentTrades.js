@@ -2,11 +2,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Table } from 'reactstrap';
+import Loading from './Loading';
 import { getRecentTrades } from '../actions/contractActions';
-
+import { SET_RECENT_TRADES } from '../actions/types';
 // Use named export for unconnected component for testing
 export class RecentTrades extends Component {
   renderRows = () => {
+    if (this.props.loading) {
+      return <tr><td colSpan='12' style={{textAlign: 'center'}}><Loading /></td></tr>
+    }
     var rows = this.props.recentTrades.map((trade, index) => {
       const { address, volume, price, symbol, contractDuration, contractMultiplier } = trade;
       return (
@@ -49,12 +53,14 @@ export class RecentTrades extends Component {
 
 RecentTrades.propTypes = {
   onRowClick: PropTypes.func.isRequired,
+  loading: PropTypes.bool.isRequired,
   recentTrades: PropTypes.array.isRequired,
   contractDuration: PropTypes.number.isRequired,
   contractMultiplier: PropTypes.number.isRequired
 };
 
 const mapStateToProps = state => ({
+  loading: state.status.fetchInProgress.includes(SET_RECENT_TRADES),
   recentTrades: state.contract.recentTrades,
   contractDuration: state.contract.contractDuration,
   contractMultiplier: state.contract.contractMultiplier

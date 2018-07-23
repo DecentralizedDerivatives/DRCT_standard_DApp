@@ -6,8 +6,9 @@ import {
   SET_USER_POSITIONS,
   SET_USER_TOKENS,
   SET_USER_ORDERS,
-  // SET_USER_ORDER_LABELS,
   SET_PROCESSING,
+  SET_FETCH_IN_PROGRESS,
+  REMOVE_FETCH_IN_PROGRESS,
   SET_FETCHING_ERROR,
   SET_CASHOUT_RECEIPT,
   SET_CASHOUT_ERROR
@@ -52,7 +53,7 @@ export const getUserBalance = () => async dispatch => {
 
 export const getUserTransactions = userAccount => async dispatch => {
   try {
-    //const exchange = await Exchange.deployed();
+    dispatch({ type: SET_FETCH_IN_PROGRESS, payload: SET_USER_TRANSACTIONS });
     var factories = FactoryProvider.factories();
     var transactions = [];
     for (var i = 0; i < factories.length; i++) {
@@ -73,6 +74,7 @@ export const getUserTransactions = userAccount => async dispatch => {
       type: SET_USER_TRANSACTIONS,
       payload: transactions
     });
+    dispatch({ type: REMOVE_FETCH_IN_PROGRESS, payload: SET_USER_TRANSACTIONS });
   } catch (err) {
     dispatch({
       type: SET_FETCHING_ERROR,
@@ -105,6 +107,7 @@ const getContractCreationEvents = async (factory, userAccount) => {
 
 export const getUserPositions = userAccount => async dispatch => {
   try {
+    dispatch({ type: SET_FETCH_IN_PROGRESS, payload: SET_USER_POSITIONS });
     var factories = FactoryProvider.factories();
     var positions = []
     for (var i = 0; i < factories.length; i++) {
@@ -115,6 +118,7 @@ export const getUserPositions = userAccount => async dispatch => {
       type: SET_USER_POSITIONS,
       payload: positions
     });
+    dispatch({ type: REMOVE_FETCH_IN_PROGRESS, payload: SET_USER_POSITIONS });
   } catch (err) {
     dispatch({
       type: SET_FETCHING_ERROR,

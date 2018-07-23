@@ -2,11 +2,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Table } from 'reactstrap';
+import Loading from './Loading';
 import { getUserTransactions } from '../actions/userActions';
-
+import { SET_USER_TRANSACTIONS } from '../actions/types';
 // Use named export for unconnected component for testing
 export class MyTransactions extends Component {
   renderRows = () => {
+    if (this.props.loading) {
+      return <tr><td colSpan='12' style={{textAlign: 'center'}}><Loading /></td></tr>
+    }
     if (this.props.userTransactions.length === 0) {
       return <tr><td colSpan='12' style={{textAlign: 'center'}}><h5>No Recent Events</h5></td></tr>
     }
@@ -60,11 +64,13 @@ export class MyTransactions extends Component {
 }
 
 MyTransactions.propTypes = {
+  loading: PropTypes.bool.isRequired,
   userAccount: PropTypes.string.isRequired,
   userTransactions: PropTypes.array
 };
 
 const mapStateToProps = state => ({
+  loading: state.status.fetchInProgress.includes(SET_USER_TRANSACTIONS),
   userAccount: state.user.userAccount,
   userTransactions: state.user.userTransactions
 });

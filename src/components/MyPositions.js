@@ -2,10 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Table } from 'reactstrap';
+import Loading from './Loading';
+import { SET_USER_POSITIONS } from '../actions/types';
 
-// Use named export for unconnected component for testing
 export class MyPositions extends Component {
   renderRows = () => {
+    if (this.props.loading) {
+      return <tr><td colSpan='12' style={{textAlign: 'center'}}><Loading /></td></tr>
+    }
     if (this.props.userPositions.length === 0) {
       return <tr><td colSpan='12' style={{textAlign: 'center'}}><h5>No Recent Events</h5></td></tr>
     }
@@ -60,11 +64,13 @@ export class MyPositions extends Component {
 }
 
 MyPositions.propTypes = {
+  loading: PropTypes.bool.isRequired,
   userAccount: PropTypes.string.isRequired,
   userPositions: PropTypes.array
 };
 
 const mapStateToProps = state => ({
+  loading: state.status.fetchInProgress.includes(SET_USER_POSITIONS),
   userAccount: state.user.userAccount,
   userPositions: state.user.userPositions
 });
