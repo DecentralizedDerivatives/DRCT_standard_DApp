@@ -5,17 +5,17 @@ import { Table } from 'reactstrap';
 import Loading from './Loading';
 import { getRecentTrades } from '../actions/contractActions';
 import { SET_RECENT_TRADES } from '../actions/types';
-// Use named export for unconnected component for testing
+
 export class RecentTrades extends Component {
   renderRows = () => {
     if (this.props.loading) {
       return <tr><td colSpan='12' style={{textAlign: 'center'}}><Loading /></td></tr>
     }
     var rows = this.props.recentTrades.map((trade, index) => {
-      const { address, volume, price, symbol, contractDuration, contractMultiplier } = trade;
+      const { address, volume, price, symbol, tokenType, contractDuration, contractMultiplier } = trade;
       return (
         <tr key={index} className='clickable' onClick={this.props.onRowClick.bind(this, address, symbol)}>
-          <td>{symbol} - {contractDuration} Days - {' ' + contractMultiplier}X
+          <td>{tokenType} {symbol} - {contractDuration} Days - {' ' + contractMultiplier}X
           </td>
           <td>{volume}</td>
           <td>{price}</td>
