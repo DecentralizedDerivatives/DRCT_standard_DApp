@@ -15,11 +15,11 @@ export class OrderBook extends Component {
       return <tr><td colSpan='12' style={{textAlign: 'center'}}><h5>No Recent Orders</h5></td></tr>
     }
     var rows = this.props.orderbook.map(order => {
-      const { orderId, address, price, quantity, date, symbol } = order;
+      const { orderId, address, price, quantity, date, symbol, tokenType } = order;
       return (
         <tr key={orderId} className='clickable' onClick={this.props.onRowClick.bind(this, address, symbol)}>
           <td>{orderId}</td>
-          <td>{symbol}</td>
+          <td>{tokenType + ' ' + symbol}</td>
           <td>{price}</td>
           <td>{quantity}</td>
           <td>{date}</td>
