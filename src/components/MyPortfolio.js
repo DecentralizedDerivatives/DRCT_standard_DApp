@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import MyPositions from './MyPositions';
 import MyTransactions from './MyTransactions';
-import ContractDetails from './ContractDetails';
+// import ContractDetails from './ContractDetails';
 import CreateContract from './CreateContract';
 import CashOut from './CashOut';
 import {

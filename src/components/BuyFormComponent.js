@@ -4,12 +4,8 @@ import { InputGroup } from 'reactstrap';
 import InputNumber from './InputNumber';
 
 export const BuyFormComponent = ({
-  handleSubmit,
   onSubmit,
-  submitting,
-  formValues,
-  change,
-  selectOptions
+  handleSubmit
 }) => {
   return (
       <form className="buy-order-form"  autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
@@ -17,11 +13,7 @@ export const BuyFormComponent = ({
           <Field className="order-input" name="orderId" label="Order Id" component={InputNumber} />
         </InputGroup>
         <div>
-          <button
-            type="submit"
-            disabled={submitting}
-            className="order-submit-btn btn btn-primary"
-          >
+          <button type="submit" className="order-submit-btn btn btn-primary">
             Submit
           </button>
         </div>

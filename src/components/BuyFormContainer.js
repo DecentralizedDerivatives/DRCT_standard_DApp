@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { reduxForm, getFormValues } from 'redux-form';
+import { reduxForm } from 'redux-form';
 import { sendBuyOrder } from '../actions/orderActions';
 import BuyFormComponent from './BuyFormComponent';
 
@@ -22,8 +22,6 @@ export let BuyFormContainer = props => {
 
   return (
     <BuyFormComponent
-      formValues={props.formValues}
-      change={props.change}
       onSubmit={submitForm}
       handleSubmit={props.handleSubmit}
     />
@@ -32,14 +30,10 @@ export let BuyFormContainer = props => {
 
 BuyFormContainer.propTypes = {
   sendBuyOrder: PropTypes.func.isRequired,
-  formValues: PropTypes.object,
-  userOrders: PropTypes.array,
   userAccount: PropTypes.string
 };
 
 const mapStateToProps = state => ({
-  formValues: getFormValues('buy-form')(state),
-  userOrders: state.user.userOrders,
   userAccount: state.user.userAccount
 });
 

@@ -10,7 +10,7 @@ export class CashOut extends Component {
   constructor() {
     super();
     this.state = {
-      formOpen: false,
+      collapse: false,
       resultsMessage: ''
     };
 
@@ -22,15 +22,15 @@ export class CashOut extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.unlistOrderError !== 'null') {
+    if (nextProps.cashOutError !== 'null') {
       this.setState({
-        resultsMessage: `Error: ${this.props.cashOutError}`,
-        formOpen: false
+        resultsMessage: `Error: ${nextProps.cashOutError}`,
+        collapse: false
       });
-    } else if (this.props.unlistOrderTx) {
+    } else if (nextProps.cashOutTx) {
       this.setState({
-        resultsMessage: `Tx receipt: ${this.props.cashOutTx}`,
-        formOpen: false
+        resultsMessage: `Tx receipt: ${nextProps.cashOutTx}`,
+        collapse: false
       });
     }
   }
@@ -38,6 +38,7 @@ export class CashOut extends Component {
   // Toggle form visibility on button click
   toggleFormVisibility() {
     this.setState({
+      resultsMessage: '',
       collapse: !this.state.collapse
     });
   }

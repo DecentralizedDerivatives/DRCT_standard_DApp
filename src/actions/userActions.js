@@ -5,11 +5,10 @@ import {
   SET_USER_TRANSACTIONS,
   SET_USER_POSITIONS,
   SET_USER_TOKENS,
-  SET_SELECTED_TOKEN,
   SET_USER_ORDERS,
-  // SET_USER_ORDER_LABELS,
-  SET_CURRENT,
   SET_PROCESSING,
+  SET_FETCH_IN_PROGRESS,
+  REMOVE_FETCH_IN_PROGRESS,
   SET_FETCHING_ERROR,
   SET_CASHOUT_RECEIPT,
   SET_CASHOUT_ERROR
@@ -54,7 +53,7 @@ export const getUserBalance = () => async dispatch => {
 
 export const getUserTransactions = userAccount => async dispatch => {
   try {
-    //const exchange = await Exchange.deployed();
+    dispatch({ type: SET_FETCH_IN_PROGRESS, payload: SET_USER_TRANSACTIONS });
     var factories = FactoryProvider.factories();
     var transactions = [];
     for (var i = 0; i < factories.length; i++) {
@@ -75,6 +74,7 @@ export const getUserTransactions = userAccount => async dispatch => {
       type: SET_USER_TRANSACTIONS,
       payload: transactions
     });
+    dispatch({ type: REMOVE_FETCH_IN_PROGRESS, payload: SET_USER_TRANSACTIONS });
   } catch (err) {
     dispatch({
       type: SET_FETCHING_ERROR,
@@ -107,6 +107,7 @@ const getContractCreationEvents = async (factory, userAccount) => {
 
 export const getUserPositions = userAccount => async dispatch => {
   try {
+    dispatch({ type: SET_FETCH_IN_PROGRESS, payload: SET_USER_POSITIONS });
     var factories = FactoryProvider.factories();
     var positions = []
     for (var i = 0; i < factories.length; i++) {
@@ -117,6 +118,7 @@ export const getUserPositions = userAccount => async dispatch => {
       type: SET_USER_POSITIONS,
       payload: positions
     });
+    dispatch({ type: REMOVE_FETCH_IN_PROGRESS, payload: SET_USER_POSITIONS });
   } catch (err) {
     dispatch({
       type: SET_FETCHING_ERROR,
@@ -129,18 +131,21 @@ const getPositionsForFactory = async (provider, userAccount) => {
   const factory = await Factory.at(provider.address);
   let positions = [];
   const numDates = await factory.getDateCount();
-  const response = await factory.getVariables();
-  const details = {
-    contractAddress: response[0],
-    contractDuration: response[1].c[0],
-    contractMultiplier: response[2].c[0],
-    oracleAddress: response[3]
-  };
+  // const response = await factory.getVariables();
+  // const details = {
+  //   contractAddress: response[0],
+  //   contractDuration: response[1].c[0],
+  //   contractMultiplier: response[2].c[0],
+  //   oracleAddress: response[3]
+  // };
   for (let i = 0; i < numDates; i++) {
     const startDate = (await factory.startDates.call(i)).c[0];
     const tokenAddresses = await factory.getTokens(startDate);
     for (let p = 0; p < tokenAddresses.length; p++) {
-      let drct = await DRCT.at(tokenAddresses[p]);
+      let tokenAddress = tokenAddresses[p];
+      let drct = await DRCT.at(tokenAddress);
+      let tokenType = (await factory.getTokenType(tokenAddress)).c[0];
+      // console.log('TOKEN TYPE', tokenType)
       let balance = await drct.balanceOf(userAccount);
       if (balance.c[0] > 0) {
         let date = new Date(startDate * 1000);
@@ -148,12 +153,13 @@ const getPositionsForFactory = async (provider, userAccount) => {
           date.getUTCDate() + '/' +
           date.getUTCFullYear();
         positions.push({
-          address: tokenAddresses[p],
+          address: tokenAddress,
           balance: balance.c[0].toString(),
           date: date.toString(),
           symbol: provider.symbol,
-          contractDuration: details.contractDuration,
-          contractMultiplier: details.contractMultiplier
+          contractDuration: provider.duration,
+          contractMultiplier: provider.multiplier,
+          tokenType: tokenType === 1 ? 'Short' : 'Long'
         });
       }
     }
@@ -163,22 +169,15 @@ const getPositionsForFactory = async (provider, userAccount) => {
 
 export const getUserTokenPositions = userAccount => async dispatch => {
   try {
-    var factories = FactoryProvider.factories();
+    var providers = FactoryProvider.factories();
     var tokens = []
-    for (var i = 0; i < factories.length; i++) {
-      const factory = await Factory.at(factories[i].address);
-      var data = await getTokenPositionsForFactory(factory, userAccount);
+    for (var i = 0; i < providers.length; i++) {
+      var data = await getTokenPositionsForFactory(providers[i], userAccount);
       tokens = tokens.concat(data);
     }
     dispatch({
       type: SET_USER_TOKENS,
       payload: tokens
-    });
-    dispatch({
-      type: SET_SELECTED_TOKEN,
-      payload: {
-        selectedToken: tokens.length > 0 ? tokens[0] : null
-      }
     });
   } catch (err) {
     dispatch({
@@ -188,22 +187,30 @@ export const getUserTokenPositions = userAccount => async dispatch => {
   }
 };
 
-const getTokenPositionsForFactory = async (factory, userAccount) => {
+const getTokenPositionsForFactory = async (provider, userAccount) => {
+  const factory = await Factory.at(provider.address);
   const numDates = await factory.getDateCount();
   let tokens = [];
   for (let i = 0; i < numDates; i++) {
     const startDates = (await factory.startDates.call(i)).c[0];
     const tokenAddresses = await factory.getTokens(startDates);
-    let _date = new Date(startDates * 1000);
-    _date = _date.getMonth() + 1 + '/' +
-      _date.getDate() + '/' +
-      _date.getFullYear();
+    let date = new Date(startDates * 1000);
+    date = date.getMonth() + 1 + '/' +
+      date.getDate() + '/' +
+      date.getFullYear();
 
     for (let p = 0; p < tokenAddresses.length; p++) {
       const drct = await DRCT.at(tokenAddresses[p]); //Getting contract
       const balance = (await drct.balanceOf(userAccount)).c[0]; //Getting balance of token
       if (balance > 0) {
-        tokens.push(`${tokenAddresses[p]}(${balance}/${_date})`); //Pushing token address + balance/date
+        let tokenType = (await factory.getTokenType(tokenAddresses[p])).c[0];
+        tokens.push({
+          address: tokenAddresses[p],
+          balance,
+          date,
+          tokenType: tokenType === 1 ? 'Short' : 'Long',
+          symbol: provider.symbol
+        })
       };
     }
   }
@@ -211,22 +218,17 @@ const getTokenPositionsForFactory = async (factory, userAccount) => {
 };
 export const getUserOrders = userAccount => async dispatch => {
   try {
-    var factories = FactoryProvider.factories();
+    var providers = FactoryProvider.factories();
+    // console.log('FACTORIES', providers)
     var orders = []
-    for (var i = 0; i < factories.length; i++) {
-      var data = await getOrdersForFactory(factories[i], userAccount);
+    for (var i = 0; i < providers.length; i++) {
+      const factory = await Factory.at(providers[i].address);
+      var data = await getOrdersForFactory(factory, userAccount);
       orders = orders.concat(data);
     }
     dispatch({
       type: SET_USER_ORDERS,
       payload: orders
-    });
-    dispatch({
-      type: SET_CURRENT,
-      payload: {
-        selectedToken: orders.length > 0 ? orders[0].row : null,
-        selectedOrderID: orders.length > 0 ? orders[0].id : null
-      }
     });
   } catch (err) {
     dispatch({
@@ -238,7 +240,8 @@ export const getUserOrders = userAccount => async dispatch => {
 const getOrdersForFactory = async (factory, userAccount) => {
   var staticAddresses = FactoryProvider.getStaticAddresses();
   const exchange = await Exchange.at(staticAddresses.exchange);
-  const books = await exchange.getUserOrders.call(userAccount); //Gets all listed order ids
+  // console.log('exchagn', exchange)
+  const books = await exchange.getUserOrders(userAccount); //Gets all listed order ids
   const allOrders = []; //Contains all information for each order
   for (let i = 0; i < books.length; i++) {
     const order = {};
