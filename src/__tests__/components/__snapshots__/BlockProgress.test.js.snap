@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<ApprovalFormContainer /> render() renders the component 1`] = `
+exports[`<BlockProgress /> render() renders the component 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Root>
-    <Connect(ReduxForm) />
+    <Connect(BlockProgress) />
 </Root>,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -19,7 +19,7 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
-      "children": <Connect(ReduxForm) />,
+      "children": <Connect(BlockProgress) />,
       "store": Object {
         "dispatch": [Function],
         "getState": [Function],
@@ -46,7 +46,7 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
-        "children": <Connect(ReduxForm) />,
+        "children": <Connect(BlockProgress) />,
         "store": Object {
           "dispatch": [Function],
           "getState": [Function],
