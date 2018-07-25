@@ -533,7 +533,7 @@ div.form-eth-input.input-group div:nth-child(1) input{
   display:block;
 }
 /* Unlist Form Component */
-.unlist-order-form input[type="text"]{
+input[type="text"]{
   width:80%;
   border-top:none;
   border-left:none;

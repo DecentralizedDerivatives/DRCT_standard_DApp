@@ -39,13 +39,19 @@ export let CreateContractFormContainer = props => {
   };
 
   return (
-    <CreateContractFormComponent
-      formValues={props.formValues}
-      contractDates={props.contractDates}
-      onCurrencyChange={onCurrencyChange}
-      onSubmit={submitForm}
-      handleSubmit={props.handleSubmit}
-    />
+    <div>
+      <CreateContractFormComponent
+        formValues={props.formValues}
+        contractDates={props.contractDates}
+        onCurrencyChange={onCurrencyChange}
+        onSubmit={submitForm}
+        handleSubmit={props.handleSubmit} />
+      <div style={{marginTop: '20px', color: 'blue', textDecoration: 'underline'}}
+        className='clickable'
+        onClick={props.handleSkipCreate}>
+        Already have a created contract?
+      </div>
+    </div>
   );
 };
 

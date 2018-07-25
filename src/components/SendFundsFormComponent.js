@@ -1,47 +1,31 @@
 import React from 'react';
 import { Field } from 'redux-form';
 import { InputGroup, InputGroupAddon } from 'reactstrap';
+import InputText from './InputText';
 import InputNumber from './InputNumber';
 import Select from './Select.js';
 import { factories } from '../factoryProvider';
 
-export const CreateContractFormComponent = ({
+export const SendFundsFormComponent = ({
   handleSubmit,
-  onSubmit,
-  contractDates,
-  onCurrencyChange
+  onSubmit
 }) => {
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <InputGroup className="form-dropdown">
-        <Field
-          name="duration"
-          label="Select Duration"
-          component={Select}
-          options={{
-            'One Week': 'One Week'
-          }}
-        />
-      </InputGroup>
-
+    <form autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
       <InputGroup className="form-dropdown">
         <Field
           name="currency"
           label="Select Currency"
           component={Select}
           options={factories(true)}
-          onChange={onCurrencyChange}
         />
       </InputGroup>
-      <InputGroup className="form-dropdown">
+      <InputGroup className="form-eth-input">
         <Field
-          name="startDate"
-          label="Start Date"
-          component={Select}
-          options={contractDates}
-        />
+          name="address"
+          label="Swap Address"
+          component={InputText} />
       </InputGroup>
-
       <InputGroup className="form-eth-input">
         <Field name="amount" label="Amount of Ether" component={InputNumber} />
         <InputGroupAddon addonType="append">ETH</InputGroupAddon>
@@ -49,11 +33,11 @@ export const CreateContractFormComponent = ({
 
       <div className="form-submit-wrapper">
         <button type="submit" className="form-submit btn btn-primary">
-          Create Contract
+          Send Funds
         </button>
       </div>
     </form>
   );
 };
 
-export default CreateContractFormComponent;
+export default SendFundsFormComponent;
