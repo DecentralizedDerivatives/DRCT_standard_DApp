@@ -387,6 +387,39 @@
 .table-container th{
   width:100%;
 }
+
+.terms-document {
+  position: fixed;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+}
+.terms-document .modal-background{
+  background-color:#0000004a;
+  width:100%;
+  height:100%;
+}
+.terms-document .modal{
+  width:70%;
+  min-width: 400px;
+  display:inline-block;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+  background-color:white;
+  border-radius:5px;
+  box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);
+  overflow-y: scroll;
+  overflow-x: auto;
+}
+
+@media (max-width: 720px) {
+  .terms-document .modal{
+    width:98%;
+  }
+}
+
 /* Create Contract */
 .create-contract{
   position: fixed;

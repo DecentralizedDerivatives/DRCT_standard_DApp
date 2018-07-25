@@ -14,6 +14,10 @@ export class Header extends Component {
       }
     }
   }
+  handleTermsClick = (e) => {
+    e.preventDefault();
+    this.props.showTerms();
+  }
   render() {
     const disabledLink = this.props.isConnected?"":"disabled";
     return (
@@ -38,14 +42,7 @@ export class Header extends Component {
             <Link onClick={this.handleNavClick} className={"nav-link " + disabledLink } to="/how-to">How To</Link>
           </li>
           <li>
-            <a
-              className="nav-link"
-              href="http://www.ddacoop.org/about"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              DDA Info
-            </a>
+            <a onClick={this.handleTermsClick} className="nav-link">Terms</a>
           </li>
         </ul>
         <div className="connection-status">
@@ -73,6 +70,7 @@ export class Header extends Component {
 }
 
 Header.propTypes = {
+  showTerms: PropTypes.func.isRequired,
   isConnected: PropTypes.bool.isRequired
 };
 
