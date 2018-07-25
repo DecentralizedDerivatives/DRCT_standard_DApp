@@ -11,11 +11,16 @@ import Landing from './components/Landing';
 import MyPortfolio from './components/MyPortfolio';
 import Bulletin from './components/Bulletin';
 import HowTo from './components/HowTo';
+import Terms from './components/Terms';
 import { checkUserConnection } from './actions/statusActions';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css';
 
 class AppRouter extends Component {
+  constructor() {
+    super();
+    this.state = { showTerms: false };
+  }
   componentDidMount() {
     this.props.checkUserConnection();
   }
@@ -29,6 +34,7 @@ class AppRouter extends Component {
       <Router>
         <div className="app">
           <Header
+            showTerms={() => { this.setState({showTerms: Boolean(true)}); }}
             isConnected={this.props.metamask && this.props.network === 4}
           />
           <Route exact path="/" component={Landing} />
@@ -40,6 +46,10 @@ class AppRouter extends Component {
 
           <BlockProgress />
           <ConnectionModal />
+          { this.state.showTerms ?
+            (
+              <Terms close={() => { this.setState({showTerms: Boolean(false)}); }} />
+            ) : ''}
         </div>
       </Router>
     );
