@@ -38,6 +38,12 @@ export class Bulletin extends Component {
     this.props.getRecentTrades(this.props.userAccount);
     this.props.getUserTokenPositions(this.props.userAccount);
     this.props.getUserOrders(this.props.userAccount);
+    this.orderBookInterval = setInterval(() => this.props.getOrderBook(this.props.userAccount, true), 30000);
+    this.recentTradesInterval = setInterval(() => this.props.getRecentTrades(this.props.userAccount, true), 30000);
+  }
+  componentWillUnmount() {
+    clearInterval(this.orderBookInterval);
+    clearInterval(this.recentTradesInterval);
   }
 
   handleRowClick = async (tokenAddress, symbol, e) => {

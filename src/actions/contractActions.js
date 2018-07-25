@@ -39,9 +39,9 @@ export const getContractDetails = (symbol) => async dispatch => {
   }
 };
 
-export const getOrderBook = () => async dispatch => {
+export const getOrderBook = (isSilent) => async dispatch => {
   try {
-    dispatch({ type: SET_FETCH_IN_PROGRESS, payload: SET_ORDERBOOK });
+    if (!isSilent) { dispatch({ type: SET_FETCH_IN_PROGRESS, payload: SET_ORDERBOOK }); };
     var staticAddresses = FactoryProvider.getStaticAddresses();
     const exchange = await Exchange.at(staticAddresses.exchange);
     let numBooks = await exchange.getBookCount();
@@ -95,9 +95,9 @@ export const getOrderBook = () => async dispatch => {
   }
 };
 
-export const getRecentTrades = () => async dispatch => {
+export const getRecentTrades = (isSilent) => async dispatch => {
   try {
-    dispatch({ type: SET_FETCH_IN_PROGRESS, payload: SET_RECENT_TRADES });
+    if (!isSilent) { dispatch({ type: SET_FETCH_IN_PROGRESS, payload: SET_RECENT_TRADES }); };
     var staticAddresses = FactoryProvider.getStaticAddresses();
     const exchange = await Exchange.at(staticAddresses.exchange);
 
@@ -135,8 +135,8 @@ export const getRecentTrades = () => async dispatch => {
         type: SET_RECENT_TRADES,
         payload: trades
       });
+      dispatch({ type: REMOVE_FETCH_IN_PROGRESS, payload: SET_RECENT_TRADES });
     });
-    dispatch({ type: REMOVE_FETCH_IN_PROGRESS, payload: SET_RECENT_TRADES });
   } catch (err) {
     dispatch({
       type: SET_FETCHING_ERROR,
