@@ -75,11 +75,15 @@ export default function(state = initialState, action) {
         listOrderError: action.payload
       };
     case SET_LIST_ORDER_APPROVED:
+      const { token, tokenAmount, approved, approveTx } = action.payload;
       return {
         ...state,
         list: {
           ...state.list,
-          ...action.payload
+          token,
+          tokenAmount,
+          approved,
+          approveTx
         }
       };
     case SET_LIST_ORDER_APPROVE_ERROR:
