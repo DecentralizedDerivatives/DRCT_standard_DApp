@@ -28,15 +28,16 @@ export class MyPortfolio extends Component {
     await this.props.getUserAccount();
     this.props.getUserPositions(this.props.userAccount);
     this.props.getUserTransactions(this.props.userAccount);
+    this.positionsInterval = setInterval(() => this.props.getUserPositions(this.props.userAccount, true), 30000);
+    this.transactionsInterval = setInterval(() => this.props.getUserTransactions(this.props.userAccount, true), 30000);
   }
-  // async componentDidUpdate() {
-  //   await this.props.getUserPositions(this.props.userAccount);
-  //   await this.props.getUserTransactions(this.props.userAccount);
-  // }
-  //
+  componentWillUnmount() {
+    clearInterval(this.positionsInterval);
+    clearInterval(this.transactionsInterval);
+  }
   handleRowClick = async (transactionAddress, e) => {
     e.preventDefault();
-    console.log('ROW CLICK', transactionAddress);
+    // console.log('ROW CLICK', transactionAddress);
     // TODO: Do we need a Transaction Details popup?
     // this.openContractDetails(symbol);
   };

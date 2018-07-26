@@ -51,9 +51,9 @@ export const getUserBalance = () => async dispatch => {
   }
 };
 
-export const getUserTransactions = userAccount => async dispatch => {
+export const getUserTransactions = (userAccount, isSilent) => async dispatch => {
   try {
-    dispatch({ type: SET_FETCH_IN_PROGRESS, payload: SET_USER_TRANSACTIONS });
+    if (!isSilent) { dispatch({ type: SET_FETCH_IN_PROGRESS, payload: SET_USER_TRANSACTIONS }); };
     var factories = FactoryProvider.factories();
     var transactions = [];
     for (var i = 0; i < factories.length; i++) {
@@ -105,9 +105,9 @@ const getContractCreationEvents = async (factory, userAccount) => {
   });
 }
 
-export const getUserPositions = userAccount => async dispatch => {
+export const getUserPositions = (userAccount, isSilent) => async dispatch => {
   try {
-    dispatch({ type: SET_FETCH_IN_PROGRESS, payload: SET_USER_POSITIONS });
+    if (!isSilent) { dispatch({ type: SET_FETCH_IN_PROGRESS, payload: SET_USER_POSITIONS }); };
     var factories = FactoryProvider.factories();
     var positions = []
     for (var i = 0; i < factories.length; i++) {
