@@ -16,14 +16,14 @@ describe('orderReducer', () => {
     orderDetails: '',
     buy: {
       id: '',
-      orderId: ''
+      orderId: 0
     },
     buyOrderError: null,
     list: {
       id: '',
       token: '',
       price: 0,
-      tokenAmount: 0,
+      tokenAmount: '',
       approved: false,
       approveTx: ''
     },
@@ -156,6 +156,7 @@ describe('orderReducer', () => {
       const expectedState = {
         ...initialState,
         list: {
+          ...initialState.list,
           id: '0x00x0xxxxxx0',
           token: '0x0xxx',
           price: 10,
@@ -189,10 +190,11 @@ describe('orderReducer', () => {
     const _initialState = {
       ...initialState,
       list: {
+        ...initialState.list,
         id: '0x00x0xxxxxx0',
         token: '0x0xxx',
         price: 10,
-        amount: 0.5,
+
         approved: false,
         approveTx: ''
       }
@@ -201,14 +203,23 @@ describe('orderReducer', () => {
     it('returns the correct state', () => {
       const action = {
         type: SET_LIST_ORDER_APPROVED,
-        payload: '0x0xxxxxx4'
+        payload: {
+          token: '0x0xxx',
+          tokenAmount: 0.1,
+          approved: true,
+          approveTx: '0x0xxxxxx4'
+        }
       };
 
       const expectedState = {
         ..._initialState,
         list: {
+          approveTx: '0x0xxxxxx4',
           approved: true,
-          approveTx: '0x0xxxxxx4'
+          id: '0x00x0xxxxxx0',
+          price: 10,
+          token: '0x0xxx',
+          tokenAmount: 0.1
         }
       };
 
