@@ -6,12 +6,14 @@ import PropTypes from 'prop-types';
 // Use named export for unconnected component for testing
 export class Header extends Component {
   handleNavClick = (e) => {
-    if(this.props.isConnected){
+    if (this.props.isConnected && this.props.whiteListed) {
       const path = e.currentTarget.getAttribute("href");
       if(document.getElementById("selected-nav")!==null) document.getElementById("selected-nav").removeAttribute("id");
       if(path !== "/"){
         e.currentTarget.setAttribute("id","selected-nav");
       }
+    } else {
+      return false;
     }
   }
   handleTermsClick = (e) => {
@@ -46,10 +48,19 @@ export class Header extends Component {
           </li>
         </ul>
         <div className="connection-status">
-          {this.props.isConnected && (
+          {this.props.isConnected && this.props.whiteListed && (
             <div className="connected">
               Connected
                     <span style={{ color: 'green', paddingLeft: '5px' }}>
+                <i className="fas fa-circle" />
+              </span>
+            </div>
+          )}
+
+          {this.props.isConnected && !this.props.whiteListed && (
+            <div className="connected">
+              Connected
+                    <span style={{ color: 'yellow', paddingLeft: '5px' }}>
                 <i className="fas fa-circle" />
               </span>
             </div>
@@ -71,7 +82,8 @@ export class Header extends Component {
 
 Header.propTypes = {
   showTerms: PropTypes.func.isRequired,
-  isConnected: PropTypes.bool.isRequired
+  isConnected: PropTypes.bool.isRequired,
+  whiteListed: PropTypes.bool.isRequired
 };
 
 export default Header;

@@ -43,6 +43,9 @@ class Landing extends Component {
           <div>
             <p>You are Connected To:</p>
             <p className={"landing-network-status " + network_labels[network_id].className}>{network_labels[network_id].title}</p>
+            {this.props.whiteListed ? '' :
+              <p>The DDA dapp is currently for members only.<br /> If you are interested in becoming a member,<br />please visit: <a href='http://www.ddacoop.org/membership'>http://www.ddacoop.org/membership</a></p>
+            }
           </div>
         );
       default:
@@ -81,12 +84,14 @@ class Landing extends Component {
 
 Landing.propTypes = {
   metamask: PropTypes.bool.isRequired,
-  network: PropTypes.number.isRequired
+  network: PropTypes.number.isRequired,
+  whiteListed: PropTypes.bool.isRequired
 };
 
 const mapStateToProps = state => ({
   metamask: state.status.connectStatus.metamask,
-  network: state.status.connectStatus.network
+  network: state.status.connectStatus.network,
+  whiteListed: state.status.connectStatus.whiteListed
 });
 
 export default connect(mapStateToProps)(Landing);

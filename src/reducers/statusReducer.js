@@ -11,7 +11,8 @@ const initialState = {
   connectStatus: {
     metamask: false,
     network: 0,
-    verified: false
+    verified: false,
+    whiteListed: false
   },
   isConnectModalOpen: false,
   isProcessing: false,
