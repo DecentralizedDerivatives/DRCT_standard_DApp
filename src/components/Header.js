@@ -5,12 +5,39 @@ import PropTypes from 'prop-types';
 
 // Use named export for unconnected component for testing
 export class Header extends Component {
+  constructor() {
+    super();
+    this.state = {
+      isMobile: false
+    }
+  }
+  componentDidMount = () => {
+    window.addEventListener("resize", () => {
+      const w = window.innerWidth;
+      const h = window.innerHeight;
+      if (w <= 700 && this.state.isMobile === false) {
+        this.setState({ isMobile: true });
+      } else if (w > 700 && this.state.isMobile === true) {
+        this.setState({ isMobile: false });
+        document.getElementById("nav-links").classList.remove("hide-nav");
+        document.getElementById("nav-links").classList.remove("show-nav");
+      }
+    });
+    window.addEventListener("scroll", () => {
+      if(this.state.isMobile && document.getElementById("nav-links").classList.contains("show-nav")){
+        document.getElementsByClassName("hamburger-btn-x")[0].classList.remove("hamburger-btn-x");
+        document.getElementById("nav-links").classList.add("hide-nav");
+        document.getElementById("nav-links").classList.remove("show-nav");
+      }
+    });
+    if(window.innerWidth<=700)this.setState({isMobile:true});
+  }
   handleNavClick = (e) => {
     if (this.props.isConnected && this.props.whiteListed) {
       const path = e.currentTarget.getAttribute("href");
-      if(document.getElementById("selected-nav")!==null) document.getElementById("selected-nav").removeAttribute("id");
-      if(path !== "/"){
-        e.currentTarget.setAttribute("id","selected-nav");
+      if (document.getElementById("selected-nav") !== null) document.getElementById("selected-nav").removeAttribute("id");
+      if (path !== "/") {
+        e.currentTarget.setAttribute("id", "selected-nav");
       }
     } else {
       return false;
@@ -20,10 +47,33 @@ export class Header extends Component {
     e.preventDefault();
     this.props.showTerms();
   }
+  hamburgerClick = (e) =>{
+    if(e.currentTarget.classList.contains("hamburger-btn-x")){
+      e.currentTarget.classList.remove("hamburger-btn-x");
+      document.getElementById("nav-links").classList.add("hide-nav");
+      document.getElementById("nav-links").classList.remove("show-nav");
+    }else{
+      e.currentTarget.classList.add("hamburger-btn-x");
+      document.getElementById("nav-links").classList.remove("hide-nav");
+      document.getElementById("nav-links").classList.add("show-nav");
+    }
+  }
+  renderHamburger = () => {
+    return (
+      this.state.isMobile ? (
+        <div onClick={this.hamburgerClick} className="hamburger-btn">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      ) : ""
+    );
+  }
   render() {
-    const disabledLink = this.props.isConnected?"":"disabled";
+    const disabledLink = this.props.isConnected ? "" : "disabled";
     return (
       <nav id="header-nav">
+        {this.renderHamburger()}
         <Link onClick={this.handleNavClick} to="/">
           <img
             className="nav-logo"
@@ -33,15 +83,15 @@ export class Header extends Component {
             width="30px"
           />
         </Link>
-        <ul>
+        <ul id="nav-links">
           <li>
-            <Link onClick={this.handleNavClick} className={"nav-link " + disabledLink }  to="/portfolio">Portfolio</Link>
+            <Link onClick={this.handleNavClick} className={"nav-link " + disabledLink} to="/portfolio">Portfolio</Link>
           </li>
           <li>
-            <Link onClick={this.handleNavClick} className={"nav-link " + disabledLink } to="/bulletin">Bulletin</Link>
+            <Link onClick={this.handleNavClick} className={"nav-link " + disabledLink} to="/bulletin">Bulletin</Link>
           </li>
           <li>
-            <Link onClick={this.handleNavClick} className={"nav-link " + disabledLink } to="/how-to">How To</Link>
+            <Link onClick={this.handleNavClick} className={"nav-link " + disabledLink} to="/how-to">How To</Link>
           </li>
           <li>
             <a onClick={this.handleTermsClick} className="nav-link">Terms</a>
