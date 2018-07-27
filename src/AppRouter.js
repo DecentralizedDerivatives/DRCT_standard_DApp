@@ -36,6 +36,7 @@ class AppRouter extends Component {
           <Header
             showTerms={() => { this.setState({showTerms: Boolean(true)}); }}
             isConnected={this.props.metamask && this.props.network === 4}
+            whiteListed={this.props.whiteListed}
           />
           <Route exact path="/" component={Landing} />
           <Switch>
@@ -59,12 +60,14 @@ class AppRouter extends Component {
 AppRouter.propTypes = {
   checkUserConnection: PropTypes.func.isRequired,
   metamask: PropTypes.bool.isRequired,
+  whiteListed: PropTypes.bool.isRequired,
   network: PropTypes.number.isRequired
 };
 
 const mapStateToProps = state => ({
   metamask: state.status.connectStatus.metamask,
-  network: state.status.connectStatus.network
+  network: state.status.connectStatus.network,
+  whiteListed: state.status.connectStatus.whiteListed
 });
 
 export default connect(

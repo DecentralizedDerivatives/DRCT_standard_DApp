@@ -3,7 +3,6 @@ import statusReducer from '../../reducers/statusReducer';
 import {
   SET_CONNECTION_STATUS,
   SHOW_CONNECTION_MODAL,
-  SET_PROCESSING,
   SET_FETCHING_ERROR
 } from '../../actions/types';
 
@@ -14,6 +13,7 @@ describe('statusReducer', () => {
       network: 0,
       verified: false
     },
+    fetchInProgress: [],
     isConnectModalOpen: false,
     isProcessing: false,
     fetchingError: []
@@ -44,31 +44,9 @@ describe('statusReducer', () => {
           network: 4,
           verified: true
         },
+        fetchInProgress: [],
         isConnectModalOpen: false,
         isProcessing: false,
-        fetchingError: []
-      };
-
-      const state = statusReducer(initialState, action);
-      expect(state).toEqual(expectedState);
-    });
-  });
-
-  describe('SET_PROCESSING', () => {
-    it('returns the correct state', () => {
-      const action = {
-        type: SET_PROCESSING,
-        payload: true
-      };
-
-      const expectedState = {
-        connectStatus: {
-          metamask: false,
-          network: 0,
-          verified: false
-        },
-        isConnectModalOpen: false,
-        isProcessing: true,
         fetchingError: []
       };
 
@@ -90,6 +68,7 @@ describe('statusReducer', () => {
           network: 0,
           verified: false
         },
+        fetchInProgress: [],
         isConnectModalOpen: false,
         isProcessing: false,
         fetchingError: ['Error Message']
@@ -113,6 +92,7 @@ describe('statusReducer', () => {
           network: 0,
           verified: false
         },
+        fetchInProgress: [],
         isConnectModalOpen: true,
         isProcessing: false,
         fetchingError: []
