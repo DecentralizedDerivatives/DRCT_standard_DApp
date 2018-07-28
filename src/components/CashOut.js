@@ -22,7 +22,7 @@ export class CashOut extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.cashOutError !== 'null') {
+    if (nextProps.cashOutError) {
       this.setState({
         resultsMessage: `Error: ${nextProps.cashOutError}`,
         collapse: false
