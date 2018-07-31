@@ -369,7 +369,7 @@
   color:white;
   padding:10px 25px;
   font-size:22px;
-  margin: 3em 10em;
+  margin: 3em auto;
   display:inline-block;
   transition: all 0.3s ease;
   border-radius: 3px;
