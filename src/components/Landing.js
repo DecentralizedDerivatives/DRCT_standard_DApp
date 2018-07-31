@@ -8,7 +8,7 @@ class Landing extends Component {
   }
 
   renderMessage() {
-    const network_id = 4; //ID of metamask network to connect to
+    const network_id = 1; //ID of metamask network to connect to
     const connected_network = this.props.network;
     const network_labels = {
       1:{

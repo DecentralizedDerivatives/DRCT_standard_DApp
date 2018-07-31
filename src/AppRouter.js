@@ -29,13 +29,14 @@ class AppRouter extends Component {
     this.props.checkUserConnection();
   }
 
+  // TODO: CONFIG FOR RINKEBY VS MAIN NETWORK
   render() {
     return (
       <Router>
         <div className="app">
           <Header
             showTerms={() => { this.setState({showTerms: Boolean(true)}); }}
-            isConnected={this.props.metamask && this.props.network === 4}
+            isConnected={this.props.metamask && this.props.network === 1}
             whiteListed={this.props.whiteListed}
           />
           <Route exact path="/" component={Landing} />
