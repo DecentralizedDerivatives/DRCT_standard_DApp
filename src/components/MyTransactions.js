@@ -41,23 +41,18 @@ export class MyTransactions extends Component {
   render() {
     return (
       <div className="table-container">
-        <div className="row">
-          <Table
-            id="transactions-table"
-            className="table table-hover table-striped table-responsive"
-          >
-            <thead>
-              <tr>
-                <th>My Transactions</th>
-              </tr>
-              <tr>
-                <th>Transaction</th>
-                <th>Transaction Hash</th>
-              </tr>
-            </thead>
-            <tbody>{this.renderRows()}</tbody>
-          </Table>
-        </div>
+        <Table className="table table-hover table-striped table-responsive">
+          <thead>
+            <tr>
+              <th colSpan='2'>My Transactions</th>
+            </tr>
+            <tr>
+              <th>Transaction</th>
+              <th>Transaction Hash</th>
+            </tr>
+          </thead>
+          <tbody>{this.renderRows()}</tbody>
+        </Table>
       </div>
     );
   }

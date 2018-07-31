@@ -40,24 +40,19 @@ export class MyPositions extends Component {
   render() {
     return (
       <div className="table-container">
-        <div className="row">
-          <Table
-            id="positions-table"
-            className="table table-hover table-striped table-responsive"
-          >
-            <thead>
-              <tr>
-                <th>My Tokens</th>
-              </tr>
-              <tr>
-                <th>Asset</th>
-                <th>Balance</th>
-                <th>Start Date</th>
-              </tr>
-            </thead>
-            <tbody>{this.renderRows()}</tbody>
-          </Table>
-        </div>
+        <Table className="table table-hover table-striped table-responsive">
+          <thead>
+            <tr>
+              <th colSpan='3'>My Tokens</th>
+            </tr>
+            <tr>
+              <th>Asset</th>
+              <th>Balance</th>
+              <th>Start Date</th>
+            </tr>
+          </thead>
+          <tbody>{this.renderRows()}</tbody>
+        </Table>
       </div>
     );
   }
