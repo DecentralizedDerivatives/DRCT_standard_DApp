@@ -8,7 +8,7 @@ Code for dapp.ddacoop.org
         Node.js
         Metamask
 
-To clone on local machine and use contracts on Rinkeby network:
+To clone on local machine and use contracts on Ethereum network:
 
     git clone https://www.github.com/DecentralizedDerivatives/drct_standard_dapp
 

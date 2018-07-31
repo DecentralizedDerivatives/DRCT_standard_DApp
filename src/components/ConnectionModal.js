@@ -27,7 +27,7 @@ class ConnectionModal extends Component {
         <ModalBody>
           <div id="alert-dialog-description">
             <span>
-              Are you sure you're connected to the Ethereum Rinkeby Testnet?
+              Are you sure you're connected to the Ethereum Main Network?
             </span>
           </div>
         </ModalBody>

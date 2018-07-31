@@ -18,7 +18,8 @@ export class MyTransactions extends Component {
     var rows = this.props.userTransactions.map((trade, index) => {
       const tradeTitle = trade.title;
       const tradeHash = trade.hash;
-
+      // const url = 'https://rinkeby.etherscan.io'
+      const url = 'https://etherscan.io'
       return (
         <tr key={index}>
           <td>{tradeTitle}</td>
@@ -26,8 +27,8 @@ export class MyTransactions extends Component {
             <a target="_blank" className="link__token-address"
               href={
                 tradeHash.length > 50
-                  ? `https://rinkeby.etherscan.io/tx/${tradeHash}`
-                  : `https://rinkeby.etherscan.io/address/${tradeHash}`
+                  ? `${url}/tx/${tradeHash}`
+                  : `${url}/address/${tradeHash}`
               }
             >{tradeHash.substring(0, 14)}...
             </a>
