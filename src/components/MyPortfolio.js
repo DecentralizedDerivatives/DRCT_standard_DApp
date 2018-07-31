@@ -26,6 +26,7 @@ export class MyPortfolio extends Component {
 
   async componentDidMount() {
     await this.props.getUserAccount();
+    if (!this.props.userAccount) { return };
     this.props.getUserPositions(this.props.userAccount);
     this.props.getUserTransactions(this.props.userAccount);
     this.positionsInterval = setInterval(() => this.props.getUserPositions(this.props.userAccount, true), 30000);
@@ -92,7 +93,7 @@ MyPortfolio.propTypes = {
   getUserPositions: PropTypes.func.isRequired,
   getUserTransactions: PropTypes.func.isRequired,
   orderId: PropTypes.string,
-  userAccount: PropTypes.string.isRequired
+  userAccount: PropTypes.string
 };
 
 const mapStateToProps = state => ({

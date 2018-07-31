@@ -37,7 +37,7 @@ export let SendFundsFormContainer = props => {
 
 SendFundsFormContainer.propTypes = {
   sendFunds: PropTypes.func.isRequired,
-  userAccount: PropTypes.string.isRequired,
+  userAccount: PropTypes.string,
 };
 
 const mapStateToProps = state => ({

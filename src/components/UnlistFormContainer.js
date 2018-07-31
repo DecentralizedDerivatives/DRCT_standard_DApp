@@ -30,7 +30,7 @@ export let UnlistFormContainer = props => {
 
 UnlistFormContainer.propTypes = {
   sendUnlistOrder: PropTypes.func.isRequired,
-  userAccount: PropTypes.string.isRequired
+  userAccount: PropTypes.string
 };
 
 const mapStateToProps = state => ({

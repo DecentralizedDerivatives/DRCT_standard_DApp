@@ -42,7 +42,7 @@ export let ListFormContainer = props => {
 
 ListFormContainer.propTypes = {
   sendListOrder: PropTypes.func.isRequired,
-  userAccount: PropTypes.string.isRequired,
+  userAccount: PropTypes.string,
   token: PropTypes.string.isRequired,
   tokenAmount: PropTypes.string.isRequired
 };

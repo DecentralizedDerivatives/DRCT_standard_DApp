@@ -30,7 +30,7 @@ export let CashOutFormContainer = props => {
 
 CashOutFormContainer.propTypes = {
   sendCashOutRequest: PropTypes.func.isRequired,
-  userAccount: PropTypes.string.isRequired
+  userAccount: PropTypes.string
 };
 
 const mapStateToProps = state => ({

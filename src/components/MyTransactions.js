@@ -65,13 +65,11 @@ export class MyTransactions extends Component {
 
 MyTransactions.propTypes = {
   loading: PropTypes.bool.isRequired,
-  userAccount: PropTypes.string.isRequired,
   userTransactions: PropTypes.array
 };
 
 const mapStateToProps = state => ({
   loading: state.status.fetchInProgress.includes(SET_USER_TRANSACTIONS),
-  userAccount: state.user.userAccount,
   userTransactions: state.user.userTransactions
 });
 

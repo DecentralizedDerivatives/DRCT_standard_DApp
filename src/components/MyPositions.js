@@ -65,13 +65,11 @@ export class MyPositions extends Component {
 
 MyPositions.propTypes = {
   loading: PropTypes.bool.isRequired,
-  userAccount: PropTypes.string.isRequired,
   userPositions: PropTypes.array
 };
 
 const mapStateToProps = state => ({
   loading: state.status.fetchInProgress.includes(SET_USER_POSITIONS),
-  userAccount: state.user.userAccount,
   userPositions: state.user.userPositions
 });
 

@@ -34,7 +34,7 @@ export let ApprovalFormContainer = props => {
 
 ApprovalFormContainer.propTypes = {
   sendApproveOrder: PropTypes.func.isRequired,
-  userAccount: PropTypes.string.isRequired,
+  userAccount: PropTypes.string,
   userTokens: PropTypes.array,
 };
 
