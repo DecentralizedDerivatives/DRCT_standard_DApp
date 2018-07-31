@@ -5,6 +5,7 @@ import InputNumber from './InputNumber';
 
 export const CashOutFormComponent = ({
   handleSubmit,
+  maxBalanceClick,
   onSubmit
 }) => {
   return (
@@ -18,7 +19,11 @@ export const CashOutFormComponent = ({
           />
           <InputGroupAddon addonType="append">ETH</InputGroupAddon>
         </InputGroup>
-
+        <div>
+          <button onClick={maxBalanceClick} className="btn btn-danger btn-md">
+            Max
+          </button>
+        </div>
         <div>
           <button type="submit" className="btn btn-primary btn-lg">
             Submit

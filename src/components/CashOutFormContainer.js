@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { reduxForm } from 'redux-form';
+import { reduxForm,change } from 'redux-form';
 import { sendCashOutRequest } from '../actions/userActions';
 import CashOutFormComponent from './CashOutFormComponent';
 
@@ -20,10 +20,16 @@ export let CashOutFormContainer = props => {
     props.sendCashOutRequest(formValues.withdrawAmount, props.userAccount);
   };
 
+  const maxBalanceClick = e => {
+    e.preventDefault();
+    props.change('withdrawAmount',props.userBalance)
+  }
+
   return (
     <CashOutFormComponent
       onSubmit={submitForm}
       handleSubmit={props.handleSubmit}
+      maxBalanceClick={maxBalanceClick}
     />
   );
 };
@@ -34,7 +40,8 @@ CashOutFormContainer.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  userAccount: state.user.userAccount
+  userAccount: state.user.userAccount,
+  userBalance: state.user.userBalance
 });
 
 const formConfiguration = {
