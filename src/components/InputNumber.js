@@ -3,7 +3,7 @@ import { InputGroupAddon } from 'reactstrap'
 const InputNumber = ({ input, label, className, addonLabel, meta: { touched, error } }) => (
   <div className="input-number">
     <label htmlFor={input.name}>{label}</label>
-    <input className={className} {...input}  type="number" step=".01" min="0" />
+    <input className={className} {...input} type="number" step=".01" min="0" />
     {addonLabel&& (
       <InputGroupAddon addonType="append">{addonLabel}</InputGroupAddon>
     )}
