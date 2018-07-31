@@ -13,7 +13,6 @@ export class CashOut extends Component {
       collapse: false,
       resultsMessage: ''
     };
-
     this.toggleFormVisibility = this.toggleFormVisibility.bind(this);
   }
 
@@ -22,7 +21,7 @@ export class CashOut extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.cashOutError !== 'null') {
+    if (nextProps.cashOutError) {
       this.setState({
         resultsMessage: `Error: ${nextProps.cashOutError}`,
         collapse: false
@@ -43,6 +42,10 @@ export class CashOut extends Component {
     });
   }
 
+  alertUserBalance() {
+    alert(this.props.userBalance)
+  }
+
   render() {
     return (
       <div className="container">
@@ -58,7 +61,7 @@ export class CashOut extends Component {
         <Collapse isOpen={this.state.collapse}>
           <div id="cashout-form">
             <h4 className="center-text">Cash Out Request</h4>
-            <CashOutFormContainer />
+            <CashOutFormContainer alertUserBalance={this.alertUserBalance}/>
           </div>
         </Collapse>
 

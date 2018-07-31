@@ -1,5 +1,6 @@
-import { web3 } from '../ethereum';
+import { web3, Factory } from '../ethereum';
 
+import FactoryProvider from '../factoryProvider';
 import {
   SET_FETCHING_ERROR,
   SET_CONNECTION_STATUS,
@@ -11,12 +12,18 @@ export const checkUserConnection = () => async dispatch => {
   try {
     const accounts = await web3.eth.getAccounts();
     const network = await web3.eth.net.getId();
+    var whiteListed = false;
 
+    if (accounts.length > 0) {
+      const factory = await Factory.at(FactoryProvider.factories()[0].address);
+      whiteListed = await factory.isWhitelisted(accounts[0]);
+    }
     dispatch({
       type: SET_CONNECTION_STATUS,
       payload: {
         metamask: Boolean(accounts.length),
-        network: network,
+        network,
+        whiteListed,
         verified: true
       }
     });
@@ -26,6 +33,7 @@ export const checkUserConnection = () => async dispatch => {
       payload: {
         metamask: false,
         network: 0,
+        whiteListed: false,
         verified: true
       }
     });

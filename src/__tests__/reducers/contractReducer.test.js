@@ -214,6 +214,12 @@ describe('contractReducer', () => {
       const expectedState = {
         ...initialState,
         newContract: {
+          id: '',
+          address: '',
+          duration: '',
+          currency: '',
+          startDate: '',
+          amount: 0,
           funded: true,
           fundedTx: '0x0xxxxxx4'
         }
