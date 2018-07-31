@@ -32,26 +32,21 @@ export class OrderBook extends Component {
   render() {
     return (
       <div className="table-container order-book">
-        <div className="row">
-          <Table
-            id="positions-table"
-            className="table table-hover table-striped table-responsive"
-          >
-            <thead>
-              <tr>
-                <th>Order Book</th>
-              </tr>
-              <tr>
-                <th>Order Id</th>
-                <th>Asset</th>
-                <th>Price (ETH)</th>
-                <th>Quantity</th>
-                <th>Start Date</th>
-              </tr>
-            </thead>
-            <tbody>{this.renderRows()}</tbody>
-          </Table>
-        </div>
+        <Table className="table table-hover table-striped table-responsive">
+          <thead>
+            <tr>
+              <th colSpan='6'>Order Book</th>
+            </tr>
+            <tr>
+              <th>Order Id</th>
+              <th>Asset</th>
+              <th>Price (ETH)</th>
+              <th>Quantity</th>
+              <th>Start Date</th>
+            </tr>
+          </thead>
+          <tbody>{this.renderRows()}</tbody>
+        </Table>
       </div>
     );
   }

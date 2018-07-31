@@ -35,8 +35,8 @@ export class Bulletin extends Component {
   async componentDidMount() {
     await this.props.getUserAccount();
     if (!this.props.userAccount) { return };
-    this.props.getOrderBook(this.props.userAccount);
-    this.props.getRecentTrades(this.props.userAccount);
+    this.props.getOrderBook();
+    this.props.getRecentTrades();
     this.props.getUserTokenPositions(this.props.userAccount);
     this.props.getUserOrders(this.props.userAccount);
     this.orderBookInterval = setInterval(() => this.props.getOrderBook(this.props.userAccount, true), 30000);
@@ -69,25 +69,22 @@ export class Bulletin extends Component {
   render() {
     return (
       <div id="bulletin">
-        <div className="wrapper">
-          <OrderBook onRowClick={this.handleRowClick.bind(this)} />
+        <OrderBook onRowClick={this.handleRowClick.bind(this)} />
 
-          <div className="order-buttons">
-            <Buy />
-            <List />
-            <Unlist />
-          </div>
-
-          <div className="price-chart">
-            {this.props.userAccount ? <PriceChart /> : ''}
-          </div>
-          <RecentTrades onRowClick={this.handleRowClick.bind(this)} />
-
-          <Collapse isOpen={this.state.detailsOpen}>
-            <ContractDetails onClick={this.closeContractDetails.bind(this)} />
-          </Collapse>
-
+        <div className="order-buttons">
+          <Buy />
+          <List />
+          <Unlist />
         </div>
+
+        <div className="table-container price-chart">
+          {this.props.userAccount ? <PriceChart /> : ''}
+        </div>
+        <RecentTrades onRowClick={this.handleRowClick.bind(this)} />
+
+        <Collapse isOpen={this.state.detailsOpen}>
+          <ContractDetails onClick={this.closeContractDetails.bind(this)} />
+        </Collapse>
       </div>
     );
   }
