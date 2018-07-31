@@ -70,7 +70,6 @@ export class Buy extends Component {
 
 Buy.propTypes = {
   getOrderDetails: PropTypes.func.isRequired,
-  userAccount: PropTypes.string.isRequired,
   orderId: PropTypes.number,
   buyOrderTx: PropTypes.string,
   buyOrderError: PropTypes.string
@@ -78,7 +77,6 @@ Buy.propTypes = {
 
 const mapStateToProps = state => ({
   orderId: state.order.buy.orderId,
-  userAccount: state.user.userAccount,
   buyOrderTx: state.order.buy.id,
   buyOrderError: state.order.buyOrderError
 });

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { reduxForm,change } from 'redux-form';
+import { reduxForm } from 'redux-form';
 import { sendCashOutRequest } from '../actions/userActions';
 import CashOutFormComponent from './CashOutFormComponent';
 
@@ -36,7 +36,7 @@ export let CashOutFormContainer = props => {
 
 CashOutFormContainer.propTypes = {
   sendCashOutRequest: PropTypes.func.isRequired,
-  userAccount: PropTypes.string.isRequired
+  userAccount: PropTypes.string
 };
 
 const mapStateToProps = state => ({

@@ -34,6 +34,7 @@ export class Bulletin extends Component {
 
   async componentDidMount() {
     await this.props.getUserAccount();
+    if (!this.props.userAccount) { return };
     this.props.getOrderBook(this.props.userAccount);
     this.props.getRecentTrades(this.props.userAccount);
     this.props.getUserTokenPositions(this.props.userAccount);
@@ -78,7 +79,7 @@ export class Bulletin extends Component {
           </div>
 
           <div className="price-chart">
-            <PriceChart />
+            {this.props.userAccount ? <PriceChart /> : ''}
           </div>
           <RecentTrades onRowClick={this.handleRowClick.bind(this)} />
 
@@ -100,7 +101,7 @@ Bulletin.propTypes = {
   getUserOrders: PropTypes.func.isRequired,
   setSelectedToken: PropTypes.func.isRequired,
   orderId: PropTypes.string,
-  userAccount: PropTypes.string.isRequired
+  userAccount: PropTypes.string
 };
 
 const mapStateToProps = state => ({
