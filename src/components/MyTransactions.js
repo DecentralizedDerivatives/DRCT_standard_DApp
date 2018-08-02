@@ -18,8 +18,9 @@ export class MyTransactions extends Component {
     var rows = this.props.userTransactions.map((trade, index) => {
       const tradeTitle = trade.title;
       const tradeHash = trade.hash;
-      // const url = 'https://rinkeby.etherscan.io'
-      const url = 'https://etherscan.io'
+      const network_id = require('../config/keys').network_id;
+      const networks = require('../networkProvider');
+      const url = networks[network_id].url
       return (
         <tr key={index}>
           <td>{tradeTitle}</td>

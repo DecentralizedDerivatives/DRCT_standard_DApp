@@ -18,8 +18,9 @@ export class ContractDetails extends Component {
   //   await this.props.getContractDetails(this.props.tokenAddress);
   // }
   renderCardBody() {
-    // const url = 'https://rinkeby.etherscan.io/address/'
-    const url = 'https://etherscan.io/address/'
+    const network_id = require('../config/keys').network_id;
+    const networks = require('../networkProvider');
+    const url = networks[network_id].url + '/address/';
     const cardBody =
       typeof this.props.tokenAddress !== 'undefined' &&
       this.props.tokenAddress.length ? (
