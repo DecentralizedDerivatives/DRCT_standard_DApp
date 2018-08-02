@@ -19,6 +19,7 @@ export class MyPortfolio extends Component {
     super();
 
     this.state = {
+      cashoutOpen: false,
       detailsOpen: false,
       formOpen: false
     };
@@ -70,6 +71,21 @@ export class MyPortfolio extends Component {
       formOpen: false
     });
   };
+  handleCashout = () => {
+    this.setState({
+      cashoutOpen: !this.state.cashoutOpen
+    });
+  };
+  renderCashout = () => {
+    return this.state.cashoutOpen ? (
+      <CashOut close={this.closeCashout} />
+    ) : null;
+  };
+  closeCashout = () => {
+    this.setState({
+      cashoutOpen: false
+    });
+  };
   render() {
     return (
       <div id="portfolio">
@@ -82,7 +98,13 @@ export class MyPortfolio extends Component {
         >
           Create Contract
         </div>
-        <CashOut />
+        {this.renderCashout()}
+        <div id="cashout-button">
+          <button className="btn create-contract-btn"
+            onClick={this.handleCashout}>
+            Cash Out
+          </button>
+        </div>
       </div>
     );
   }

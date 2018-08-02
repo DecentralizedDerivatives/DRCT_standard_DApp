@@ -393,6 +393,13 @@
 #portfolio{
   text-align:center;
 }
+.cashout-form {
+  padding: 20px;
+}
+.user-balance {
+  margin-bottom: 20px;
+
+}
 .create-contract-btn{
   cursor: pointer;
   border:1px solid grey;
