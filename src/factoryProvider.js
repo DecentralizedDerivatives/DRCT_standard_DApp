@@ -66,12 +66,12 @@ module.exports.factories = (flatten) => {
   return list
 }
 module.exports.getFromAddress = (address) => {
-  var provider = items.filter(item => item.address === address);
+  var provider = items().filter(item => item.address === address);
   if (provider && provider.length > 0) { return provider[0]; }
   return null;
 }
 module.exports.getFromSymbol = (symbol) => {
-  var provider = items.filter(item => item.symbol === symbol);
+  var provider = items().filter(item => item.symbol === symbol);
   if (provider && provider.length > 0) { return provider[0]; }
   return null;
 }
