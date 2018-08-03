@@ -11,10 +11,10 @@ export default ChildComponent => {
       this.shouldNavigateAway();
     };
 
-    //CHANGE FOR RINKEBY VS MAIN NETWORK
     shouldNavigateAway = () => {
       if (!this.props.verified) { return };
-      if (!this.props.metamask || this.props.network !== 1 || !this.props.whiteListed) {
+      const network_id = require('../config/keys').network_id;
+      if (!this.props.metamask || this.props.network !== network_id || !this.props.whiteListed) {
         this.props.history.push('/');
       }
     };

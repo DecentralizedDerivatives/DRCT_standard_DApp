@@ -20,11 +20,9 @@ export const CashOutFormComponent = ({
           <InputGroupAddon addonType="append">ETH</InputGroupAddon>
         </InputGroup>
         <div>
-          <button onClick={maxBalanceClick} className="btn btn-danger btn-md">
+          <button onClick={maxBalanceClick} className="btn btn-danger btn-lg" style={{marginRight: '20px'}}>
             Max
           </button>
-        </div>
-        <div>
           <button type="submit" className="btn btn-primary btn-lg">
             Submit
           </button>
