@@ -35,7 +35,7 @@ class AppRouter extends Component {
         <div className="app">
           <Header
             showTerms={() => { this.setState({showTerms: Boolean(true)}); }}
-            isConnected={this.props.metamask && this.props.network === 4}
+            isConnected={this.props.metamask && this.props.network === require('./config/keys').network_id}
             whiteListed={this.props.whiteListed}
           />
           <Route exact path="/" component={Landing} />

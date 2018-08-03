@@ -17,8 +17,10 @@ export class ContractDetails extends Component {
   // async componentDidMount() {
   //   await this.props.getContractDetails(this.props.tokenAddress);
   // }
-
   renderCardBody() {
+    const network_id = require('../config/keys').network_id;
+    const networks = require('../networkProvider');
+    const url = networks[network_id].url + '/address/';
     const cardBody =
       typeof this.props.tokenAddress !== 'undefined' &&
       this.props.tokenAddress.length ? (
@@ -26,12 +28,9 @@ export class ContractDetails extends Component {
           <CardTitle>Factory Contract</CardTitle>
           <CardSubtitle>Address</CardSubtitle>
           <CardLink
-            href={`https://rinkeby.etherscan.io/address/${
-              this.props.contractAddress
-            }`}
+            href={url + this.props.contractAddress}
             target="_blank"
-            rel="noopener noreferrer"
-          >
+            rel="noopener noreferrer">
             {this.props.contractAddress}
           </CardLink>
           <CardSubtitle>Duration</CardSubtitle>
@@ -40,7 +39,7 @@ export class ContractDetails extends Component {
           <CardText>{this.props.contractMultiplier}</CardText>
           <CardSubtitle>Oracle Address</CardSubtitle>
           <CardLink
-            href={`https://rinkeby.etherscan.io/address/${this.props.oracleAddress}`}
+            href={url + this.props.oracleAddress}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -48,9 +47,7 @@ export class ContractDetails extends Component {
           </CardLink>
           <CardSubtitle>Token Address</CardSubtitle>
           <CardLink
-            href={`https://rinkeby.etherscan.io/address/${
-              this.props.tokenAddress
-            }`}
+            href={url + this.props.tokenAddress}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -62,9 +59,7 @@ export class ContractDetails extends Component {
           <CardTitle>Factory Contract</CardTitle>
           <CardSubtitle>Address</CardSubtitle>
           <CardLink
-            href={`https://rinkeby.etherscan.io/address/${
-              this.props.contractAddress
-            }`}
+            href={url + this.props.contractAddress}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -76,7 +71,7 @@ export class ContractDetails extends Component {
           <CardText>{this.props.contractMultiplier}</CardText>
           <CardSubtitle>Oracle Address</CardSubtitle>
           <CardLink
-            href={`https://rinkeby.etherscan.io/address/${this.props.oracleAddress}`}
+            href={url + this.props.oracleAddress}
             target="_blank"
             rel="noopener noreferrer"
           >

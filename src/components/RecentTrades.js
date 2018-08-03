@@ -28,24 +28,19 @@ export class RecentTrades extends Component {
   render() {
     return (
       <div className="table-container recent-trades">
-        <div className="row">
-          <Table
-            id="recent-trades-table"
-            className="table table-hover table-striped table-responsive"
-          >
-            <thead>
-              <tr>
-                <th>Recent Trades</th>
-              </tr>
-              <tr>
-                <th>Address</th>
-                <th>Volume</th>
-                <th>Price (ETH)</th>
-              </tr>
-            </thead>
-            <tbody>{this.renderRows()}</tbody>
-          </Table>
-        </div>
+        <Table className="table table-hover table-striped table-responsive">
+          <thead>
+            <tr>
+              <th colSpan='3'>Recent Trades</th>
+            </tr>
+            <tr>
+              <th>Address</th>
+              <th>Volume</th>
+              <th>Price (ETH)</th>
+            </tr>
+          </thead>
+          <tbody>{this.renderRows()}</tbody>
+        </Table>
       </div>
     );
   }

@@ -43,11 +43,11 @@ export class CreateContract extends Component {
     this.setState({sendFundsOpen: true});
   }
   handleSendFundsDirectly = (details) => {
-    console.log('FUNDING DETAILS', details);
+    // console.log('FUNDING DETAILS', details);
     this.props.sendSendFundsOrder(details, this.props.userAccount);
   }
   handleSendFundsClick = e => {
-    console.log('CONTRACT DETAILS', this.props.newContract);
+    // console.log('CONTRACT DETAILS', this.props.newContract);
     this.props.sendSendFundsOrder(this.props.newContract, this.props.userAccount);
   };
 
@@ -89,7 +89,7 @@ export class CreateContract extends Component {
 
 CreateContract.propTypes = {
   sendSendFundsOrder: PropTypes.func.isRequired,
-  userAccount: PropTypes.string.isRequired,
+  userAccount: PropTypes.string,
   newContract: PropTypes.object,
   newContractFundsError: PropTypes.string,
   createContractAmount: PropTypes.number

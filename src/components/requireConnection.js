@@ -13,7 +13,8 @@ export default ChildComponent => {
 
     shouldNavigateAway = () => {
       if (!this.props.verified) { return };
-      if (!this.props.metamask || this.props.network !== 4 || !this.props.whiteListed) {
+      const network_id = require('../config/keys').network_id;
+      if (!this.props.metamask || this.props.network !== network_id || !this.props.whiteListed) {
         this.props.history.push('/');
       }
     };

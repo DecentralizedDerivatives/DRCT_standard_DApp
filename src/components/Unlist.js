@@ -74,7 +74,7 @@ export class Unlist extends Component {
 }
 
 Unlist.propTypes = {
-  userAccount: PropTypes.string.isRequired,
+  userAccount: PropTypes.string,
   unlistOrderTx: PropTypes.string,
   unlistOrderError: PropTypes.string
 };

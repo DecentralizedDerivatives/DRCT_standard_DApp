@@ -84,26 +84,30 @@ class PriceChart extends Component {
 
   fetchData = async type => {
     await this.props.getPriceChartData(type);
-    
+
     if (this.props.pricechart) {
       this.createChart(type);
     }
-    
-    
+
+
   };
 
   createChart = type => {
-    Highcharts.stockChart('container', {
-      series: [
-        {
-          data: this.props.pricechart,
-          tooltip: {
-            valueDecimals: 2
-          },
-          enableMouseTracking: false
-        }
-      ]
-    });
+    try {
+      Highcharts.stockChart('container', {
+        series: [
+          {
+            data: this.props.pricechart,
+            tooltip: {
+              valueDecimals: 2
+            },
+            enableMouseTracking: false
+          }
+        ]
+      });
+    } catch (e) {
+      console.log('Error creating chart', e)
+    }
   };
 
   handleChange = event => {

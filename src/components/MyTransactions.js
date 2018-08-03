@@ -18,7 +18,9 @@ export class MyTransactions extends Component {
     var rows = this.props.userTransactions.map((trade, index) => {
       const tradeTitle = trade.title;
       const tradeHash = trade.hash;
-
+      const network_id = require('../config/keys').network_id;
+      const networks = require('../networkProvider');
+      const url = networks[network_id].url
       return (
         <tr key={index}>
           <td>{tradeTitle}</td>
@@ -26,8 +28,8 @@ export class MyTransactions extends Component {
             <a target="_blank" className="link__token-address"
               href={
                 tradeHash.length > 50
-                  ? `https://rinkeby.etherscan.io/tx/${tradeHash}`
-                  : `https://rinkeby.etherscan.io/address/${tradeHash}`
+                  ? `${url}/tx/${tradeHash}`
+                  : `${url}/address/${tradeHash}`
               }
             >{tradeHash.substring(0, 14)}...
             </a>
@@ -41,23 +43,18 @@ export class MyTransactions extends Component {
   render() {
     return (
       <div className="table-container">
-        <div className="row">
-          <Table
-            id="transactions-table"
-            className="table table-hover table-striped table-responsive"
-          >
-            <thead>
-              <tr>
-                <th>My Transactions</th>
-              </tr>
-              <tr>
-                <th>Transaction</th>
-                <th>Transaction Hash</th>
-              </tr>
-            </thead>
-            <tbody>{this.renderRows()}</tbody>
-          </Table>
-        </div>
+        <Table className="table table-hover table-striped table-responsive">
+          <thead>
+            <tr>
+              <th colSpan='2'>My Transactions</th>
+            </tr>
+            <tr>
+              <th>Transaction</th>
+              <th>Transaction Hash</th>
+            </tr>
+          </thead>
+          <tbody>{this.renderRows()}</tbody>
+        </Table>
       </div>
     );
   }
@@ -65,13 +62,11 @@ export class MyTransactions extends Component {
 
 MyTransactions.propTypes = {
   loading: PropTypes.bool.isRequired,
-  userAccount: PropTypes.string.isRequired,
   userTransactions: PropTypes.array
 };
 
 const mapStateToProps = state => ({
   loading: state.status.fetchInProgress.includes(SET_USER_TRANSACTIONS),
-  userAccount: state.user.userAccount,
   userTransactions: state.user.userTransactions
 });
 
