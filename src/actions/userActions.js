@@ -38,11 +38,12 @@ export const getUserBalance = () => async dispatch => {
     const wrapped = await Wrapped.at(staticAddresses.wrapped_ether)
     const accounts = await web3.eth.getAccounts();
     let _res = await wrapped.balanceOf(accounts[0]);
-
+    let adjustedBalance  = _res.c[0]/10000;
     dispatch({
       type: SET_USER_BALANCE,
-      payload: _res.c[0]
+      payload: adjustedBalance//_res.c[0]
     });
+    
   } catch (err) {
     dispatch({
       type: SET_FETCHING_ERROR,
@@ -61,15 +62,6 @@ export const getUserTransactions = (userAccount, isSilent) => async dispatch => 
       var events = await getContractCreationEvents(factory, userAccount);
       transactions = transactions.concat(events);
     };
-    //     //Sale: await exchange.Sale({}, {fromBlock:0, toBlock: 'latest'}),
-    //     //OrderPlaced: await exchange.OrderPlaced({}, {fromBlock:0, toBlock: 'latest'}),
-    //     //OrderRemoved: await exchange.OrderRemoved({}, {fromBlock:0, toBlock: 'latest'}),
-    //     ContractCreation: await factory.ContractCreation(
-    //       {},
-    //       { fromBlock: 0, toBlock: 'latest' }
-    //     )
-    //     //Transfer: await drct.Transfer({}, {fromBlock:0, toBlock: 'latest'}),
-    //     //Approval: await drct.Approval({}, {fromBlock:0, toBlock: 'latest'})
     dispatch({
       type: SET_USER_TRANSACTIONS,
       payload: transactions
