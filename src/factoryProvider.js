@@ -1,6 +1,7 @@
 
 const items = () => {
   const networkId = require('./config/keys').network_id;
+    console.log('Process',process.env.NODE_ENV)
   switch (networkId) {
     case 1: // MAIN NETWORK
       return [
