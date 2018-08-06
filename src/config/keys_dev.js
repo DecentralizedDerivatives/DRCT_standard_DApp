@@ -1,4 +1,4 @@
 
 module.exports = {
-  network_id: 4
+  network_id: process.env.NETWORK_ID || 4
 }
