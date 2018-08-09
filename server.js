@@ -5,14 +5,14 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 const env = {
-  'NETWORK_ID': process.env.NETWORK_ID
+  'NETWORK_ID': process.env.NETWORK_ID || 4
 }
 
 app.use(express.static(path.resolve(__dirname, 'build')));
 
 app.get('/env.js', function (req, res) {
   res.set('Content-Type', 'application/javascript');
-  res.send('var env = ' + serialize(env));
+  res.send('var env = ' + JSON.stringify(env));
 });
 
 app.get('*', (req, res) => {

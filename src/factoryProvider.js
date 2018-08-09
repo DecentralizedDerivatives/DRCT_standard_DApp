@@ -1,7 +1,6 @@
 
 const items = () => {
   const networkId = this.getNetworkId();
-  console.log('networkId', networkId)
   switch (networkId) {
     case 1: // MAIN NETWORK
       return [
@@ -39,11 +38,7 @@ const staticAddresses = () => {
 }
 
 module.exports.getNetworkId = () => {
-  console.log('ENV NODE ENV', process.env.NODE_ENV);
-  console.log('ENV NETWORK ID', process.env.NETWORK_ID);
-  console.log('ENV NET ID', process.env.NET_ID);
-  console.log('REACT APP NET ID', process.env.REACT_APP_NET_ID)
-  return process.env.NET_ID || 4
+  return window.env.NETWORK_ID
 }
 
 module.exports.getStaticAddresses = () => {
