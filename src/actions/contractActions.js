@@ -10,6 +10,7 @@ import {
 } from './types';
 
 import FactoryProvider from '../factoryProvider';
+const moment = require('moment');
 
 export const getContractDetails = (symbol) => async dispatch => {
   try {
@@ -155,12 +156,14 @@ export const getContractOpenDates = (currencyAddress) => async dispatch => {
     for (let i = 0; i < numDates; i++) {
       const startDate = (await factory.startDates.call(i)).c[0];
       let formattedDate = new Date(startDate * 1000);
+      var momentDate = moment(formattedDate);
+      var pastDate = moment().subtract(5, 'days').startOf('day');
+      if (momentDate.isBefore(pastDate)) { continue }
       formattedDate = formattedDate.getUTCMonth() + 1 + '/' +
         formattedDate.getUTCDate() + '/' +
         formattedDate.getUTCFullYear();
       openDates[startDate] = formattedDate;
     }
-    // console.log('opens',openDates);
     dispatch({
       type: SET_CONTRACT_OPEN_DATES,
       payload: openDates

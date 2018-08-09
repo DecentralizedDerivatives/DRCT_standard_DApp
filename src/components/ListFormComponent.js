@@ -23,6 +23,7 @@ export const ListFormComponent = ({
             className="order-input"
             component={InputNumber}
             addonLabel={"ETH"}
+            step={"0.00001"}
           />
         </InputGroup>
         <div>

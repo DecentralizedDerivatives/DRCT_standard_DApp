@@ -13,7 +13,6 @@ import Bulletin from './components/Bulletin';
 import HowTo from './components/HowTo';
 import Terms from './components/Terms';
 import { checkUserConnection } from './actions/statusActions';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css';
 
 class AppRouter extends Component {

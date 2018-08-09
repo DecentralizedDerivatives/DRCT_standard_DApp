@@ -16,6 +16,7 @@ export const CashOutFormComponent = ({
             label="Amount to Withdraw"
             name="withdrawAmount"
             component={InputNumber}
+            step={"0.0000001"}
           />
           <InputGroupAddon addonType="append">ETH</InputGroupAddon>
         </InputGroup>

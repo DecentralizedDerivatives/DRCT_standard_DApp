@@ -1,9 +1,9 @@
 import React from 'react';
 import { InputGroupAddon } from 'reactstrap'
-const InputNumber = ({ input, label, className, addonLabel, meta: { touched, error } }) => (
+const InputNumber = ({ input, label, className, step, addonLabel, meta: { touched, error } }) => (
   <div className="input-number">
     <label htmlFor={input.name}>{label}</label>
-    <input className={className} {...input} type="number" step=".01" min="0" />
+    <input className={className} {...input} type="number" step={step || "0.01"} min="0" />
     {addonLabel&& (
       <InputGroupAddon addonType="append">{addonLabel}</InputGroupAddon>
     )}
