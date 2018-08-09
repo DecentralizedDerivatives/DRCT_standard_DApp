@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import FactoryProvider from '../factoryProvider';
 
 export default ChildComponent => {
   class ComposedComponent extends Component {
@@ -13,7 +14,7 @@ export default ChildComponent => {
 
     shouldNavigateAway = () => {
       if (!this.props.verified) { return };
-      const network_id = require('../config/keys').network_id;
+      const network_id = FactoryProvider.getNetworkId();
       if (!this.props.metamask || this.props.network !== network_id || !this.props.whiteListed) {
         this.props.history.push('/');
       }

@@ -14,6 +14,7 @@ import HowTo from './components/HowTo';
 import Terms from './components/Terms';
 import { checkUserConnection } from './actions/statusActions';
 import './style.css';
+import FactoryProvider from './factoryProvider';
 
 class AppRouter extends Component {
   constructor() {
@@ -34,7 +35,7 @@ class AppRouter extends Component {
         <div className="app">
           <Header
             showTerms={() => { this.setState({showTerms: Boolean(true)}); }}
-            isConnected={this.props.metamask && this.props.network === require('./config/keys').network_id}
+            isConnected={this.props.metamask && this.props.network === FactoryProvider.getNetworkId()}
             whiteListed={this.props.whiteListed}
           />
           <Route exact path="/" component={Landing} />

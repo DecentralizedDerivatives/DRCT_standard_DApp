@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
+import FactoryProvider from '../factoryProvider';
 
 class Landing extends Component {
   componentDidUpdate() {
@@ -8,7 +9,7 @@ class Landing extends Component {
   }
 
   renderMessage() {
-    const network_id = require('../config/keys').network_id;
+    const network_id = FactoryProvider.getNetworkId();
     const connected_network = this.props.network;
     const networks = require('../networkProvider');
     switch (true) {
