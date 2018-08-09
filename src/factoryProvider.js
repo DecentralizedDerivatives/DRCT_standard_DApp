@@ -39,7 +39,9 @@ const staticAddresses = () => {
 }
 
 module.exports.getNetworkId = () => {
-  return process.env.NETWORK_ID || 4
+  console.log('ENV NODE ENV', process.env.NODE_ENV);
+  console.log('ENV NET ID', process.env.NET_ID);
+  return process.env.NET_ID || 4
 }
 
 module.exports.getStaticAddresses = () => {
