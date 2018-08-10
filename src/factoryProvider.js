@@ -38,7 +38,7 @@ const staticAddresses = () => {
 }
 
 module.exports.getNetworkId = () => {
-  return window.env.NETWORK_ID
+  return parseInt(window.env.NETWORK_ID)
 }
 
 module.exports.getStaticAddresses = () => {
