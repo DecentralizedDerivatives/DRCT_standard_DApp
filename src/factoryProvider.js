@@ -1,7 +1,6 @@
 
 const items = () => {
-  const networkId = require('./config/keys').network_id;
-    console.log('Process',process.env.NODE_ENV)
+  const networkId = this.getNetworkId();
   switch (networkId) {
     case 1: // MAIN NETWORK
       return [
@@ -19,7 +18,7 @@ const items = () => {
 }
 
 const staticAddresses = () => {
-  const networkId = require('./config/keys').network_id;
+  const networkId = this.getNetworkId();
   switch (networkId) {
     case 1: // MAIN NETWORK
       return {
@@ -38,6 +37,9 @@ const staticAddresses = () => {
   }
 }
 
+module.exports.getNetworkId = () => {
+  return window.env.NETWORK_ID
+}
 
 module.exports.getStaticAddresses = () => {
   return staticAddresses();

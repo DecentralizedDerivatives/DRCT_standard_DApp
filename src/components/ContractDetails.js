@@ -11,6 +11,7 @@ import {
   CardLink
 } from 'reactstrap';
 import { getContractDetails } from '../actions/contractActions';
+import FactoryProvider from '../factoryProvider';
 
 // Use named export for unconnected component for testing
 export class ContractDetails extends Component {
@@ -18,7 +19,7 @@ export class ContractDetails extends Component {
   //   await this.props.getContractDetails(this.props.tokenAddress);
   // }
   renderCardBody() {
-    const network_id = require('../config/keys').network_id;
+    const network_id = FactoryProvider.getNetworkId();
     const networks = require('../networkProvider');
     const url = networks[network_id].url + '/address/';
     const cardBody =
