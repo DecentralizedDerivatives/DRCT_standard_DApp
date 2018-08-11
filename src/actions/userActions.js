@@ -41,7 +41,7 @@ export const getUserBalance = () => async dispatch => {
     let adjustedBalance  = _res.c[0]/10000;
     dispatch({
       type: SET_USER_BALANCE,
-      payload: adjustedBalance//_res.c[0]
+      payload: adjustedBalance
     });
     
   } catch (err) {
@@ -258,9 +258,10 @@ export const sendCashOutRequest = (amount, account) => async dispatch => {
   dispatch(setProcessing(true));
 
   try {
+    var amountInWei = amount * 1e18;
     var staticAddresses = FactoryProvider.getStaticAddresses();
     const wrapped = await Wrapped.at(staticAddresses.wrapped_ether)
-    const response = await wrapped.withdraw(amount, {
+    const response = await wrapped.withdraw(amountInWei, {
       from: account,
       gas: 4000000
     });
@@ -269,7 +270,7 @@ export const sendCashOutRequest = (amount, account) => async dispatch => {
       type: SET_CASHOUT_RECEIPT,
       payload: {
         id: response.tx,
-        amount: amount
+        amount: amountInWei
       }
     });
   } catch (err) {
