@@ -78,7 +78,7 @@ export const sendBuyOrder = (orderId, account) => async dispatch => {
     const _value = order[1];
     const response = await exchange.buy(orderId, {
       from: account,
-      gas: 4000000,
+      gas: 200000,
       value: _value
     });
     console.log('RESPONSE', response)
@@ -107,7 +107,7 @@ export const sendUnlistOrder = (orderId, account) => async dispatch => {
     const exchange = await Exchange.at(staticAddresses.exchange);
     const response = await exchange.unlist(orderId, {
       from: account,
-      gas: 4000000
+      gas: 80000
     });
 
     dispatch({
@@ -138,7 +138,7 @@ export const sendListOrder = (formValues, account) => async dispatch => {
 
     const response = await exchange.list(token, tokenAmount, price * 1e18, {
       from: account,
-      gas: 4000000
+      gas: 300000
     });
 
     dispatch({
@@ -169,7 +169,7 @@ export const sendApproveOrder = (approveDetails, account) => async dispatch => {
     const drct = await DRCT.at(token);
     const response = await drct.approve(exchange.address, tokenAmount, {
       from: account,
-      gas: 4000000
+      gas: 70000
     });
     console.log('RESPONSE', response)
     dispatch({
@@ -203,7 +203,7 @@ export const sendCreateContractOrder = (
     const factory = await Factory.at(currency);
     const response = await factory.deployContract(startDate, {
       from: account,
-      gas: 4000000
+      gas: 250000
     });
 
     dispatch({
@@ -242,7 +242,7 @@ export const sendSendFundsOrder = (
 
     const response = await userContract.Initiate(newContract.address, fundingAmount, {
       from: account,
-      gas: 4000000,
+      gas: 1000000,
       value: fundingAmount * 2
     });
 
