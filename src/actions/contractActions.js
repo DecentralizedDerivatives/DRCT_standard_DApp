@@ -67,10 +67,11 @@ export const getOrderBook = (isSilent) => async dispatch => {
             let date = new Date(tokenDate.c[0] * 1000);
             let orderDate = date.getUTCMonth() + 1 + '/' +
               date.getUTCDate() + '/' + date.getUTCFullYear();
+            var precisePrice = parseFloat(order[1].c[0]/10000).toFixed(5);
             _allrows.push({
               orderId: orders[j].c[0].toString(),
               address: order[3],
-              price: (order[1].c[0] / 10000).toString(),
+              price: precisePrice,
               quantity: order[2].c[0].toString(),
               date: orderDate.toString(),
               symbol: factories[p].symbol,
@@ -121,10 +122,11 @@ export const getRecentTrades = (isSilent) => async dispatch => {
           let tokenType = (await factory.getTokenType(token)).c[0];
           // console.log('factoryAddress', factoryAddress);
           var provider = FactoryProvider.getFromAddress(factoryAddress);
+          var precisePrice = parseFloat(events[i].args['_price']/1e18).toFixed(5);
           trades.push({
             address: token,
             volume: events[i].args['_amount'].toString(),
-            price: (events[i].args['_price'] / 1e18).toString(),
+            price: precisePrice,
             contractDuration: provider && provider.duration ? provider.duration : 0,
             contractMultiplier: provider && provider.multiplier ? provider.multiplier : 0,
             symbol: provider && provider.symbol ? provider.symbol : '??',
