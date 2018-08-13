@@ -16,8 +16,12 @@ To clone on local machine and use contracts on Ethereum network:
 
     npm install
 
-    npm start
+    npm run dev
 
 Full documentation of the contracts at: [https://www.github.com/DecentralizedDerivatives/DRCT_standard](https://www.github.com/DecentralizedDerivatives/DRCT_standard)
 
 This webpage builds the DApp at dapp.ddacoop.org
+
+#Production in Heroku
+
+The Heroku instance automatically installs node_modules, then kicks off the postinstall script.  Once the app is built, Heroku automatically calls npm start.

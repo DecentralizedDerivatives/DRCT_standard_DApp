@@ -546,6 +546,9 @@
   margin-top: 30px;
   font-size: 20px;
 }
+.input-group {
+  vertical-align: top;
+}
 div.form-date.input-group > div > div:nth-child(1){
   margin-bottom:10px
 }

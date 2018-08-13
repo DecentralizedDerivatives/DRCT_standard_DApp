@@ -11,6 +11,10 @@ export const CreateContractFormComponent = ({
   contractDates,
   onCurrencyChange
 }) => {
+  let factoryList = factories().reduce((obj, item) => {
+    obj[item.address] = item.symbol + ' (' + item.multiplier + 'X multiplier)';
+    return obj
+  }, {})
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <InputGroup className="form-dropdown">
@@ -27,9 +31,9 @@ export const CreateContractFormComponent = ({
       <InputGroup className="form-dropdown">
         <Field
           name="currency"
-          label="Select Currency"
+          label="Select Underlying"
           component={Select}
-          options={factories(true)}
+          options={factoryList}
           onChange={onCurrencyChange}
         />
       </InputGroup>
