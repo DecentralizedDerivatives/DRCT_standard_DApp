@@ -6,7 +6,7 @@ const HowTo = () => {
     'All contracts are Ethereum smart contracts that pay out the change in an underlying rate (e.g. BTC/USD) over a time frame (e.g. 7 days)',
     'Sometimes the contracts use multipliers too (e.g. 10x)',
     'All Contracts are fully collateralized. The smart contract holds the Ether and the contracts are capped (so a 10x multiplier means that a 10% move is all you can gain or lose from)',
-    'Contracts start by a "Creator" creating DRCT Tokens (long and short) for a given rate/duration/start date combmination',
+    'Contracts start by a "Creator" creating DRCT Tokens (long and short) for a given rate/duration/start date combination',
     'These tokens are normal ERC20 tokens on the Ethereum network.',
     'At the start of the contract, one Ether of collateral locked in this contract is worth 1000 tokens. This is your balance',
     'Owners of the tokens at expiration get distributed the collateral held in the smart contract'
