@@ -6,30 +6,33 @@ const HowTo = () => {
     'All contracts are Ethereum smart contracts that pay out the change in an underlying rate (e.g. BTC/USD) over a time frame (e.g. 7 days)',
     'Sometimes the contracts use multipliers too (e.g. 10x)',
     'All Contracts are fully collateralized. The smart contract holds the Ether and the contracts are capped (so a 10x multiplier means that a 10% move is all you can gain or lose from)',
-    'Contracts start by a market maker creating a contract by funding both sides (long and short)',
-    'Contract positions are represented as tokens on the Ethereum network (e.g. one Ether of collateral locked in this contract is worth 1000 tokens. This is your balance)',
-    'Owners of tokens at expiration get paid from collateral held in the smart contract'
+    'Contracts start by a "Creator" creating DRCT Tokens (long and short) for a given rate/duration/start date combmination',
+    'These tokens are normal ERC20 tokens on the Ethereum network.',
+    'At the start of the contract, one Ether of collateral locked in this contract is worth 1000 tokens. This is your balance',
+    'Owners of the tokens at expiration get distributed the collateral held in the smart contract'
   ];
 
   const section2 = [
     'In the My Portfolio tab, you can see your positions and your transactions',
-    "Go buy some tokens or create a contract if you don't have any!",
-    'You can click on the row to see more details about the tokens'
+    "Go buy some tokens on the Bulletin or create a contract if you don't have any!",
+    'You can click on the rows to see more details about the tokens'
   ];
 
   const section3 = [
     'Creating a contract is a two step process',
     'First you have to deploy a contract, then you have to wrap your Ether and send it to the contract to fund it',
-    'So in the Create Contract tab, first pick a start date and then click: Create Contract',
+    'So after clicking "Create Contrat", select a duration, underlying and start date, enter the amount of Ether per side and then click: Create Contract',
     'After that, you can wait for the address result (your new contract)',
-    'Once that comes back, you can click Send Funds</em> to send double what you entered in the amount of Ether</em> field (its per side)',
+    'Note: the contract will take double what you entered in the "amount of Ether" field (its per side, so X amount collateralizing Long tokens and the same on the Short side)',
+    'Once that comes back, you can click Send Funds',
     'Once the contract mines you will see it in your positions'
   ];
 
   const section4 = [
-    'The Bulletin is a sell only list of tokens that you can buy (think like Craigslist but for derivative tokens)',
+    'The Bulletin is a sell only list of tokens that you can buy (think like Craigslist but for DRCT tokens)',
     'That said, there are no partial orders on the Bulletin (you have to buy them all in a given order)',
     'To list your own, just click list, pick from your tokens, set an amount to sell and a price and your off',
+    'Like the creating of contract, listing is a two step process (first approval, then listing), so be sure to wait for the first call to come back',
     "You own the tokens until someone buys them (they'll still show up in your token list)",
     'To buy, just find the order ID and click buy.',
     'You can unlist your orders also by just knowing the order ID',
@@ -38,8 +41,8 @@ const HowTo = () => {
 
   const section5 = [
     'Contracts for the dapp, although you send them Ether, actually use wrapped (or tokenized Ether) to make things easier on us',
-    "This however means that you'll have to unwrap</em> your Ether after the contract expires and pays out",
-    'To do this, just click Cash Out</em>',
+    "This means that you'll have to unwrap your Ether after the contract expires and pays out",
+    'To do this, just click Cash Out',
     'If you have a balance there, you will be able to click withdraw and unwrap all your Ether',
     "Remember that some contracts may take a day to close out, so don't panic if your Eth isn't there on the expiration date"
   ];
@@ -85,9 +88,9 @@ const HowTo = () => {
         <Row>
           <img
             src="/infograph-transparent.png"
-            className="img-fluid"
+            className="howTo__infograph"
             alt="ETh-Logo"
-            width="300"
+            width="350"
           />
         </Row>
       </div>
@@ -177,10 +180,10 @@ const HowTo = () => {
             <div>
               <span>If you have more questions, shoot us an email at:</span>
               <a
-                href="mailto:info@decentralizedderivatives.org"
+                href="mailto:info@ddacoop.org"
                 className="pl-2"
               >
-                info@decentralizedderivatives
+                info@ddacoop.org
               </a>
             </div>
           </Col>
