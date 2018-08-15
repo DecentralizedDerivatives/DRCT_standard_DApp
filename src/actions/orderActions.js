@@ -78,7 +78,7 @@ export const sendBuyOrder = (orderId, account) => async dispatch => {
     const _value = order[1];
     const response = await exchange.buy(orderId, {
       from: account,
-      gas: 200000,
+      gas: 400000,
       value: _value
     });
     console.log('RESPONSE', response)
