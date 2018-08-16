@@ -5,6 +5,7 @@ import { Table } from 'reactstrap';
 import Loading from './Loading';
 import { getUserTransactions } from '../actions/userActions';
 import { SET_USER_TRANSACTIONS } from '../actions/types';
+import FactoryProvider from '../factoryProvider';
 // Use named export for unconnected component for testing
 export class MyTransactions extends Component {
   renderRows = () => {
@@ -18,7 +19,7 @@ export class MyTransactions extends Component {
     var rows = this.props.userTransactions.map((trade, index) => {
       const tradeTitle = trade.title;
       const tradeHash = trade.hash;
-      const network_id = require('../config/keys').network_id;
+      const network_id = FactoryProvider.getNetworkId();
       const networks = require('../networkProvider');
       const url = networks[network_id].url
       return (
