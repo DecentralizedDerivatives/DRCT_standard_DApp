@@ -14,6 +14,7 @@ const initialState = {
   contractAddress: '',
   contractDuration: 0,
   contractMultiplier: 0,
+  contractStartPrice: 0,
   oracleAddress: '',
   orderbook: [],
   recentTrades: [],

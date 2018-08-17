@@ -33,6 +33,7 @@ export const getContractDetails = (symbol) => async dispatch => {
       type: SET_CONTRACT_DETAILS,
       payload: details
     });
+    return details;
   } catch (err) {
     dispatch({
       type: SET_FETCHING_ERROR,
@@ -41,15 +42,19 @@ export const getContractDetails = (symbol) => async dispatch => {
   }
 };
 
-export const getStartDatePrice = (startDate) => async dispatch => {
+export const getStartDatePrice = (oracleAddress, startDate) => async dispatch => {
   try {
-    const data = await Oracle.retrieveData(startDate);
+    const oracle = await Oracle.at(oracleAddress)
+    var data = await oracle.retrieveData(startDate);
     dispatch({
       type: SET_CONTRACT_START_PRICE,
-      payload: data
+      payload: data.c[0]
     });
-  } catch (e) {
-
+  } catch (err) {
+    dispatch({
+      type: SET_FETCHING_ERROR,
+      payload: err.message.split('\n')[0]
+    });
   }
 }
 export const getOrderBook = (isSilent) => async dispatch => {

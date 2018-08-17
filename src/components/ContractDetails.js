@@ -1,20 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { getContractDetails, getStartDatePrice } from '../actions/contractActions';
 import FactoryProvider from '../factoryProvider';
 
-// Use named export for unconnected component for testing
 export class ContractDetails extends Component {
-  // async componentDidMount() {
-  //   await this.props.getContractDetails(this.props.tokenAddress);
-  // }
   renderdiv() {
     const network_id = FactoryProvider.getNetworkId();
     const networks = require('../networkProvider');
     const url = networks[network_id].url + '/address/';
-    // const startDate = null;
-    console.log('CONTRACT', this.props.contract)
     const div = (
         <div style={{margin: '20px', padding: '10px'}}>
           <h2>Factory Contract</h2>
@@ -22,8 +15,8 @@ export class ContractDetails extends Component {
             <div className='title'>Address</div>
             <div className='detail'>
               <a href={url + this.props.contract.contractAddress}
-                  target="_blank"
-                  rel="noopener noreferrer">{this.props.contract.contractAddress}
+                target="_blank"
+                rel="noopener noreferrer">{this.props.contract.contractAddress}
               </a>
             </div>
           </div>
@@ -45,8 +38,7 @@ export class ContractDetails extends Component {
               </a>
             </div>
           </div>
-          {this.props.tokenAddress &&
-          this.props.tokenAddress.length ?
+          {this.props.tokenAddress && this.props.tokenAddress.length ?
             <div className='detail-segment'>
               <div className='title'>Token Address</div>
               <div className='detail'>
@@ -56,6 +48,12 @@ export class ContractDetails extends Component {
                   rel="noopener noreferrer">{this.props.tokenAddress}
                 </a>
               </div>
+            </div>
+          : ''}
+          {this.props.contract.contractStartPrice > 0 ?
+            <div className='detail-segment'>
+              <div className='title'>Start Price</div>
+              <div className='detail'>{this.props.contract.contractStartPrice}</div>
             </div>
           : ''}
         </div>
@@ -91,14 +89,7 @@ ContractDetails.propTypes = {
 
 const mapStateToProps = state => ({
   contract: state.contract,
-  // contractDuration: state.contract.contractDuration,
-  // contractMultiplier: state.contract.contractMultiplier,
-  // contractStartPrice: state.contract.contractStartPrice,
-  // oracleAddress: state.contract.oracleAddress,
   tokenAddress: state.selected.selectedTokenAddress
 });
 
-export default connect(
-  mapStateToProps,
-  { getContractDetails, getStartDatePrice }
-)(ContractDetails);
+export default connect(mapStateToProps, { })(ContractDetails);
