@@ -7,6 +7,9 @@ const Factory = contract(factoryArtifact);
 const exchangeArtifact = require('./build/contracts/Exchange.json');
 const Exchange = contract(exchangeArtifact);
 
+const oracleArtifact = require('./build/contracts/Oracle.json');
+const Oracle = contract(oracleArtifact);
+
 const swapArtitifact = require('./build/contracts/TokenToTokenSwap.json');
 const Swap = contract(swapArtitifact);
 
@@ -21,7 +24,7 @@ const drctArtifact = require('./build/contracts/DRCT_Token.json');
 const DRCT = contract(drctArtifact);
 
 if (typeof window !== 'undefined' && typeof window.web3 !== 'undefined') {
-  [Factory, Exchange, Swap, Wrapped, DRCT, UserContract].forEach(Contract =>
+  [Factory, Exchange, Swap, Wrapped, DRCT, UserContract, Oracle].forEach(Contract =>
     Contract.setProvider(web3.currentProvider)
   );
 }
@@ -29,6 +32,7 @@ if (typeof window !== 'undefined' && typeof window.web3 !== 'undefined') {
 module.exports = {
   Factory,
   Exchange,
+  Oracle,
   Swap,
   Wrapped,
   DRCT,

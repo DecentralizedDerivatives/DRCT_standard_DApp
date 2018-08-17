@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Collapse } from 'reactstrap';
 import OrderBook from './OrderBook';
 import RecentTrades from './RecentTrades';
 import ContractDetails from './ContractDetails';
@@ -17,10 +16,13 @@ import {
 import {
   getOrderBook,
   getRecentTrades,
-  getContractDetails
+  getContractDetails,
+  getStartDatePrice
 } from '../actions/contractActions';
 import { setSelectedToken } from '../actions/selectedActions';
 import requireConnection from './requireConnection';
+
+const moment = require('moment');
 
 // Use named export for unconnected component for testing
 export class Bulletin extends Component {
@@ -30,6 +32,7 @@ export class Bulletin extends Component {
     this.state = {
       detailsOpen: false
     };
+    this.handleRowClick = this.handleRowClick.bind(this)
   }
 
   async componentDidMount() {
@@ -47,19 +50,25 @@ export class Bulletin extends Component {
     clearInterval(this.recentTradesInterval);
   }
 
-  handleRowClick = async (tokenAddress, symbol, e) => {
+  handleRowClick = async (tokenAddress, symbol, date, e) => {
     e.preventDefault();
     await this.props.setSelectedToken(tokenAddress);
-    this.openContractDetails(symbol);
-  };
-
-  openContractDetails = async (symbol) => {
-    await this.props.getContractDetails(symbol);
+    var details = await this.props.getContractDetails(symbol);
+    const startDate = date ? moment(date, 'MM/DD/YYYY') : null;
+    if (startDate && startDate.isBefore(moment().startOf('day'))) {
+      await this.props.getStartDatePrice(details.oracleAddress, startDate.format('x'));
+    }
     this.setState({
       detailsOpen: true
     });
   };
 
+  renderContractDetails = () => {
+    return this.state.detailsOpen ? (
+      <ContractDetails
+        close={this.closeContractDetails.bind(this)} />
+    ) : null;
+  };
   closeContractDetails = () => {
     this.setState({
       detailsOpen: false
@@ -69,7 +78,7 @@ export class Bulletin extends Component {
   render() {
     return (
       <div id="bulletin">
-        <OrderBook onRowClick={this.handleRowClick.bind(this)} />
+        <OrderBook onRowClick={this.handleRowClick} />
 
         <div className="order-buttons">
           <Buy />
@@ -80,11 +89,9 @@ export class Bulletin extends Component {
         <div className="table-container price-chart">
           {this.props.userAccount ? <PriceChart /> : ''}
         </div>
-        <RecentTrades onRowClick={this.handleRowClick.bind(this)} />
+        <RecentTrades onRowClick={this.handleRowClick} />
 
-        <Collapse isOpen={this.state.detailsOpen}>
-          <ContractDetails onClick={this.closeContractDetails.bind(this)} />
-        </Collapse>
+        {this.renderContractDetails()}
       </div>
     );
   }
@@ -94,6 +101,7 @@ Bulletin.propTypes = {
   getOrderBook: PropTypes.func.isRequired,
   getRecentTrades: PropTypes.func.isRequired,
   getContractDetails: PropTypes.func.isRequired,
+  getStartDatePrice: PropTypes.func.isRequired,
   getUserTokenPositions: PropTypes.func.isRequired,
   getUserOrders: PropTypes.func.isRequired,
   setSelectedToken: PropTypes.func.isRequired,
@@ -113,6 +121,7 @@ export default connect(
     getRecentTrades,
     setSelectedToken,
     getContractDetails,
+    getStartDatePrice,
     getUserTokenPositions,
     getUserOrders
   }

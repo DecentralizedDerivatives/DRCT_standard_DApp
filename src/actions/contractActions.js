@@ -1,7 +1,8 @@
-import { Factory, Exchange, DRCT } from '../ethereum';
+import { Factory, Exchange, DRCT, Oracle } from '../ethereum';
 import {
   SET_CONTRACT_DETAILS,
   SET_CONTRACT_OPEN_DATES,
+  SET_CONTRACT_START_PRICE,
   SET_ORDERBOOK,
   SET_FETCH_IN_PROGRESS,
   REMOVE_FETCH_IN_PROGRESS,
@@ -32,6 +33,7 @@ export const getContractDetails = (symbol) => async dispatch => {
       type: SET_CONTRACT_DETAILS,
       payload: details
     });
+    return details;
   } catch (err) {
     dispatch({
       type: SET_FETCHING_ERROR,
@@ -40,6 +42,21 @@ export const getContractDetails = (symbol) => async dispatch => {
   }
 };
 
+export const getStartDatePrice = (oracleAddress, startDate) => async dispatch => {
+  try {
+    const oracle = await Oracle.at(oracleAddress)
+    var data = await oracle.retrieveData(startDate);
+    dispatch({
+      type: SET_CONTRACT_START_PRICE,
+      payload: data.c[0]
+    });
+  } catch (err) {
+    dispatch({
+      type: SET_FETCHING_ERROR,
+      payload: err.message.split('\n')[0]
+    });
+  }
+}
 export const getOrderBook = (isSilent) => async dispatch => {
   try {
     if (!isSilent) { dispatch({ type: SET_FETCH_IN_PROGRESS, payload: SET_ORDERBOOK }); };
