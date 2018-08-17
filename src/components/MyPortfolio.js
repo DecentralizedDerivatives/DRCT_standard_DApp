@@ -99,11 +99,13 @@ export class MyPortfolio extends Component {
           Create Contract
         </div>
         {this.renderCashout()}
-        <div id="cashout-button">
-          <button className="btn create-contract-btn"
-            onClick={this.handleCashout}>
-            Cash Out
-          </button>
+
+        <div className="order-btn-wrapper">
+          <div className="order-btn"   style={{width:'150px'}} onClick={this.handleCashout}>
+            <label className="order-btn-label">
+              Cash Out
+            </label>
+          </div>
         </div>
       </div>
     );

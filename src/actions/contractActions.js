@@ -65,11 +65,13 @@ export const getOrderBook = (isSilent) => async dispatch => {
             // console.log('order', order)
             let tokenType = (await factory.getTokenType(order[3])).c[0];
             let date = new Date(tokenDate.c[0] * 1000);
+            let startDate = new Date();
+            startDate.setDate(date.getDate() + 1);
             var todayMinusSixDays = new Date();
             todayMinusSixDays.setDate(todayMinusSixDays.getDate() - 6);
             if (date > todayMinusSixDays) {
-              let orderDate = date.getUTCMonth() + 1 + '/' +
-                date.getUTCDate() + '/' + date.getUTCFullYear();
+              let orderDate = startDate.getUTCMonth() + 1 + '/' +
+                startDate.getUTCDate() + '/' + startDate.getUTCFullYear();
               var precisePrice = parseFloat(order[1].c[0]/10000).toFixed(5);
               _allrows.push({
                 orderId: orders[j].c[0].toString(),

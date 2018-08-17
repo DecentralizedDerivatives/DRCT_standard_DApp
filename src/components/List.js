@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-// import { Collapse } from 'reactstrap';
 import ListFormContainer from './ListFormContainer';
 import ApprovalFormContainer from './ApprovalFormContainer';
-// import { sendApproveOrder } from '../actions/orderActions';
 
 export class List extends Component {
   constructor() {
