@@ -135,6 +135,18 @@ button {
   font-size:20px;
   cursor:pointer;
 }
+
+.order-btn-button{
+  margin-top:8px;
+  width:100%;
+   background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    overflow: hidden;
+    outline:none;
+  font-size:20px;
+  cursor:pointer;
+}
 .order-modal{
   z-index: 99;
   width:400px;

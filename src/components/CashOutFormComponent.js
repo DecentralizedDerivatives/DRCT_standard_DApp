@@ -5,28 +5,17 @@ import InputNumber from './InputNumber';
 
 export const CashOutFormComponent = ({
   handleSubmit,
-  maxBalanceClick,
   onSubmit
 }) => {
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <InputGroup>
-          <Field
-            label="Amount to Withdraw"
-            name="withdrawAmount"
-            component={InputNumber}
-            step={"0.0000001"}
-          />
-          <InputGroupAddon addonType="append">ETH</InputGroupAddon>
-        </InputGroup>
-        <div>
-          <button onClick={maxBalanceClick} className="btn btn-danger btn-lg" style={{marginRight: '20px'}}>
-            Max
+      <div className="order-btn-wrapper">
+        <div className="order-btn"   style={{width:'150px'}}>
+          <button className="order-btn-button">
+            Wtihdraw
           </button>
-          <button type="submit" className="btn btn-primary btn-lg">
-            Submit
-          </button>
+        </div>
         </div>
       </form>
     </div>
