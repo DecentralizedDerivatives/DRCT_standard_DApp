@@ -1,7 +1,8 @@
-import { Factory, Exchange, DRCT } from '../ethereum';
+import { Factory, Exchange, DRCT, Oracle } from '../ethereum';
 import {
   SET_CONTRACT_DETAILS,
   SET_CONTRACT_OPEN_DATES,
+  SET_CONTRACT_START_PRICE,
   SET_ORDERBOOK,
   SET_FETCH_IN_PROGRESS,
   REMOVE_FETCH_IN_PROGRESS,
@@ -40,6 +41,17 @@ export const getContractDetails = (symbol) => async dispatch => {
   }
 };
 
+export const getStartDatePrice = (startDate) => async dispatch => {
+  try {
+    const data = await Oracle.retrieveData(startDate);
+    dispatch({
+      type: SET_CONTRACT_START_PRICE,
+      payload: data
+    });
+  } catch (e) {
+
+  }
+}
 export const getOrderBook = (isSilent) => async dispatch => {
   try {
     if (!isSilent) { dispatch({ type: SET_FETCH_IN_PROGRESS, payload: SET_ORDERBOOK }); };

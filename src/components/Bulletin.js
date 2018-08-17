@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Collapse } from 'reactstrap';
 import OrderBook from './OrderBook';
 import RecentTrades from './RecentTrades';
 import ContractDetails from './ContractDetails';
@@ -59,7 +58,11 @@ export class Bulletin extends Component {
       detailsOpen: true
     });
   };
-
+  renderContractDetails = () => {
+    return this.state.detailsOpen ? (
+      <ContractDetails close={this.closeContractDetails.bind(this)} />
+    ) : null;
+  };
   closeContractDetails = () => {
     this.setState({
       detailsOpen: false
@@ -82,9 +85,7 @@ export class Bulletin extends Component {
         </div>
         <RecentTrades onRowClick={this.handleRowClick.bind(this)} />
 
-        <Collapse isOpen={this.state.detailsOpen}>
-          <ContractDetails onClick={this.closeContractDetails.bind(this)} />
-        </Collapse>
+        {this.renderContractDetails()}
       </div>
     );
   }
