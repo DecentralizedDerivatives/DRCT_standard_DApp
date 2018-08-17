@@ -31,10 +31,6 @@ export class CashOut extends Component {
     }
   }
 
-  alertUserBalance() {
-    alert(this.props.userBalance)
-  }
-
   render() {
     return (
       <div className="create-contract">
