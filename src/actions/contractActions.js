@@ -77,18 +77,22 @@ export const getOrderBook = (isSilent) => async dispatch => {
             // console.log('order', order)
             let tokenType = (await factory.getTokenType(order[3])).c[0];
             let date = new Date(tokenDate.c[0] * 1000);
-            let orderDate = date.getUTCMonth() + 1 + '/' +
-              date.getUTCDate() + '/' + date.getUTCFullYear();
-            var precisePrice = parseFloat(order[1].c[0]/10000).toFixed(5);
-            _allrows.push({
-              orderId: orders[j].c[0].toString(),
-              address: order[3],
-              price: precisePrice,
-              quantity: order[2].c[0].toString(),
-              date: orderDate.toString(),
-              symbol: factories[p].symbol,
-              tokenType: tokenType === 1 ? 'Short' : 'Long'
-             });
+            var todayMinusSixDays = new Date();
+            todayMinusSixDays.setDate(todayMinusSixDays.getDate() - 6);
+            if (date > todayMinusSixDays) {
+              let orderDate = date.getUTCMonth() + 1 + '/' +
+                date.getUTCDate() + '/' + date.getUTCFullYear();
+              var precisePrice = parseFloat(order[1].c[0]/10000).toFixed(5);
+              _allrows.push({
+                orderId: orders[j].c[0].toString(),
+                address: order[3],
+                price: precisePrice,
+                quantity: order[2].c[0].toString(),
+                date: orderDate.toString(),
+                symbol: factories[p].symbol,
+                tokenType: tokenType === 1 ? 'Short' : 'Long'
+               });
+            }
           }
         }
       }

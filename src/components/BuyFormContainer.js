@@ -9,8 +9,9 @@ const validate = values => {
   const errors = {};
   if (!values.orderId) {
     errors.orderId = 'Required';
+  } else{
+    values.orderId = values.orderId.replace(/\D/g,'');
   }
-
   return errors;
 };
 
