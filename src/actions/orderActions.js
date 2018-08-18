@@ -107,7 +107,7 @@ export const sendUnlistOrder = (orderId, account) => async dispatch => {
     const exchange = await Exchange.at(staticAddresses.exchange);
     const response = await exchange.unlist(orderId, {
       from: account,
-      gas: 80000
+      gas: 110000
     });
 
     dispatch({
