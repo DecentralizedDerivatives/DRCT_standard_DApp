@@ -3,6 +3,7 @@ import {
   SET_ORDERBOOK,
   SET_RECENT_TRADES,
   SET_CONTRACT_OPEN_DATES,
+  SET_CONTRACT_START_PRICE,
   SET_CONTRACT_CREATED,
   SET_CONTRACT_ERROR,
   SET_CONTRACT_FUNDED,
@@ -13,6 +14,7 @@ const initialState = {
   contractAddress: '',
   contractDuration: 0,
   contractMultiplier: 0,
+  contractStartPrice: 0,
   oracleAddress: '',
   orderbook: [],
   recentTrades: [],
@@ -62,6 +64,11 @@ export default function(state = initialState, action) {
         ...state,
         contractOpenDates: action.payload
       };
+    case SET_CONTRACT_START_PRICE:
+      return {
+        ...state,
+        contractStartPrice: action.payload
+      }
     case SET_CONTRACT_CREATED:
       return {
         ...state,

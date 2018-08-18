@@ -6,6 +6,7 @@ import {
   UserContract,
   Wrapped,
   DRCT,
+  Oracle
 } from './contracts';
 
-export {Factory, Exchange, UserContract, Swap, Wrapped, DRCT, web3};
+export {Factory, Oracle, Exchange, UserContract, Swap, Wrapped, DRCT, web3};

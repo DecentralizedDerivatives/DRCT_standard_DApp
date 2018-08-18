@@ -38,12 +38,13 @@ export const getUserBalance = () => async dispatch => {
     const wrapped = await Wrapped.at(staticAddresses.wrapped_ether)
     const accounts = await web3.eth.getAccounts();
     let _res = await wrapped.balanceOf(accounts[0]);
-    let adjustedBalance  = _res.c[0]/10000;
+    console.log(_res,'res');
+    let adjustedBalance  = Number(parseFloat(_res.c[0]/(1e18)).toFixed(5));
     dispatch({
       type: SET_USER_BALANCE,
       payload: adjustedBalance
     });
-    
+
   } catch (err) {
     dispatch({
       type: SET_FETCHING_ERROR,
@@ -254,16 +255,19 @@ const getOrdersForFactory = async (factory, userAccount) => {
   return allOrders;
 }
 
-export const sendCashOutRequest = (amount, account) => async dispatch => {
+export const sendCashOutRequest = () => async dispatch => {
   dispatch(setProcessing(true));
 
   try {
-    var amountInWei = amount * 1e18;
+    //var amountInWei = amount * 1e18;
     var staticAddresses = FactoryProvider.getStaticAddresses();
     const wrapped = await Wrapped.at(staticAddresses.wrapped_ether)
+    const accounts = await web3.eth.getAccounts();
+      let amountInWei = await wrapped.balanceOf(accounts[0]);
+        console.log('amount',amountInWei)
     const response = await wrapped.withdraw(amountInWei, {
-      from: account,
-      gas: 4000000
+      from: accounts[0],
+      gas: 70000
     });
 
     dispatch({

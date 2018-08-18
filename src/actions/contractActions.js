@@ -1,7 +1,8 @@
-import { Factory, Exchange, DRCT } from '../ethereum';
+import { Factory, Exchange, DRCT, Oracle } from '../ethereum';
 import {
   SET_CONTRACT_DETAILS,
   SET_CONTRACT_OPEN_DATES,
+  SET_CONTRACT_START_PRICE,
   SET_ORDERBOOK,
   SET_FETCH_IN_PROGRESS,
   REMOVE_FETCH_IN_PROGRESS,
@@ -32,6 +33,7 @@ export const getContractDetails = (symbol) => async dispatch => {
       type: SET_CONTRACT_DETAILS,
       payload: details
     });
+    return details;
   } catch (err) {
     dispatch({
       type: SET_FETCHING_ERROR,
@@ -40,6 +42,21 @@ export const getContractDetails = (symbol) => async dispatch => {
   }
 };
 
+export const getStartDatePrice = (oracleAddress, startDate) => async dispatch => {
+  try {
+    const oracle = await Oracle.at(oracleAddress)
+    var data = await oracle.retrieveData(startDate);
+    dispatch({
+      type: SET_CONTRACT_START_PRICE,
+      payload: data.c[0]
+    });
+  } catch (err) {
+    dispatch({
+      type: SET_FETCHING_ERROR,
+      payload: err.message.split('\n')[0]
+    });
+  }
+}
 export const getOrderBook = (isSilent) => async dispatch => {
   try {
     if (!isSilent) { dispatch({ type: SET_FETCH_IN_PROGRESS, payload: SET_ORDERBOOK }); };
@@ -65,17 +82,24 @@ export const getOrderBook = (isSilent) => async dispatch => {
             // console.log('order', order)
             let tokenType = (await factory.getTokenType(order[3])).c[0];
             let date = new Date(tokenDate.c[0] * 1000);
-            let orderDate = date.getUTCMonth() + 1 + '/' +
-              date.getUTCDate() + '/' + date.getUTCFullYear();
-            _allrows.push({
-              orderId: orders[j].c[0].toString(),
-              address: order[3],
-              price: (order[1].c[0] / 10000).toString(),
-              quantity: order[2].c[0].toString(),
-              date: orderDate.toString(),
-              symbol: factories[p].symbol,
-              tokenType: tokenType === 1 ? 'Short' : 'Long'
-             });
+            let startDate = new Date();
+            startDate.setDate(date.getDate() + 1);
+            var todayMinusSixDays = new Date();
+            todayMinusSixDays.setDate(todayMinusSixDays.getDate() - 6);
+            if (date > todayMinusSixDays) {
+              let orderDate = startDate.getUTCMonth() + 1 + '/' +
+                startDate.getUTCDate() + '/' + startDate.getUTCFullYear();
+              var precisePrice = parseFloat(order[1].c[0]/10000).toFixed(5);
+              _allrows.push({
+                orderId: orders[j].c[0].toString(),
+                address: order[3],
+                price: precisePrice,
+                quantity: order[2].c[0].toString(),
+                date: orderDate.toString(),
+                symbol: factories[p].symbol,
+                tokenType: tokenType === 1 ? 'Short' : 'Long'
+               });
+            }
           }
         }
       }
@@ -121,10 +145,11 @@ export const getRecentTrades = (isSilent) => async dispatch => {
           let tokenType = (await factory.getTokenType(token)).c[0];
           // console.log('factoryAddress', factoryAddress);
           var provider = FactoryProvider.getFromAddress(factoryAddress);
+          var precisePrice = parseFloat(events[i].args['_price']/1e18).toFixed(5);
           trades.push({
             address: token,
             volume: events[i].args['_amount'].toString(),
-            price: (events[i].args['_price'] / 1e18).toString(),
+            price: precisePrice,
             contractDuration: provider && provider.duration ? provider.duration : 0,
             contractMultiplier: provider && provider.multiplier ? provider.multiplier : 0,
             symbol: provider && provider.symbol ? provider.symbol : '??',

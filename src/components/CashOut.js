@@ -31,18 +31,14 @@ export class CashOut extends Component {
     }
   }
 
-  alertUserBalance() {
-    alert(this.props.userBalance)
-  }
-
   render() {
     return (
       <div className="create-contract">
         <div className="modal-background" onClick={this.props.close}></div>
         <div className="modal">
           <div id="cashout-form" className='cashout-form'>
-            <h3 className="user-balance">Your Balance: {this.props.userBalance}</h3>
-            <h4 className="center-text">Cash Out Request</h4>
+            <h3 className="center-text">Cash Out Request</h3>
+            <h4 className="user-balance">Your Balance: {this.props.userBalance} Ether</h4>
             <CashOutFormContainer alertUserBalance={this.alertUserBalance}/>
             {this.state.resultsMessage && (
               <div id="results-message" className="text-center">
