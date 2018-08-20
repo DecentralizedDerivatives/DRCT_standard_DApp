@@ -38,8 +38,8 @@ export class OrderBook extends Component {
               <th colSpan='6'>Order Book</th>
             </tr>
             <tr>
-              <th>Order Id</th>
-              <th>Asset</th>
+              <th style={{width: '20%'}}>Order Id</th>
+              <th style={{width: '40%'}}>Asset</th>
               <th>Price (ETH)</th>
               <th>Quantity</th>
               <th>Start Date</th>

@@ -28,7 +28,11 @@ class Landing extends Component {
             <p>You are Connected To:</p>
             <p className={"landing-network-status " + networks[network_id].className}>{networks[network_id].title}</p>
             {this.props.whiteListed ? '' :
-              <p>The DDA dapp is currently for members only.<br /> If you are interested in becoming a member,<br />please visit: <a href='http://www.ddacoop.org/membership'>http://www.ddacoop.org/membership</a></p>
+              <div>
+                <p>The DDA dapp is currently for members only.</p>
+                <p>To learn more about membership, visit: <br /><a href='http://www.ddacoop.org/membership'>http://www.ddacoop.org/membership</a></p>
+                <p>To become a member, please visit<br /><a href='https://membership.ddacoop.org'>https://membership.ddacoop.org</a></p>
+              </div>
             }
           </div>
         );
