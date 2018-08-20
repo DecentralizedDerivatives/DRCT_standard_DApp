@@ -18,7 +18,7 @@ const validate = values => {
 
 export let UnlistFormContainer = props => {
   const submitForm = formValues => {
-    console.log('submitting Form: ', formValues);
+    // console.log('submitting Form: ', formValues);
     props.sendUnlistOrder(formValues.orderId, props.userAccount);
   };
 

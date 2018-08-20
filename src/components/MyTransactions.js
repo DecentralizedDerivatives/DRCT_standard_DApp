@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Table } from 'reactstrap';
 import Loading from './Loading';
 import { getUserTransactions } from '../actions/userActions';
 import { SET_USER_TRANSACTIONS } from '../actions/types';
@@ -31,8 +30,7 @@ export class MyTransactions extends Component {
                 tradeHash.length > 50
                   ? `${url}/tx/${tradeHash}`
                   : `${url}/address/${tradeHash}`
-              }
-            >{tradeHash.substring(0, 14)}...
+              }>{tradeHash}
             </a>
           </td>
         </tr>
@@ -43,19 +41,17 @@ export class MyTransactions extends Component {
 
   render() {
     return (
-      <div className="table-container">
-        <Table className="table table-hover table-striped table-responsive">
+      <div className="wide-table-container">
+        <div className='table-title'>My Transactions</div>
+        <table className="table table-hover table-striped">
           <thead>
             <tr>
-              <th colSpan='2'>My Transactions</th>
-            </tr>
-            <tr>
-              <th>Transaction</th>
+              <th style={{width: '30%'}}>Transaction</th>
               <th>Transaction Hash</th>
             </tr>
           </thead>
           <tbody>{this.renderRows()}</tbody>
-        </Table>
+        </table>
       </div>
     );
   }

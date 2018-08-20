@@ -263,8 +263,8 @@ export const sendCashOutRequest = () => async dispatch => {
     var staticAddresses = FactoryProvider.getStaticAddresses();
     const wrapped = await Wrapped.at(staticAddresses.wrapped_ether)
     const accounts = await web3.eth.getAccounts();
-      let amountInWei = await wrapped.balanceOf(accounts[0]);
-        console.log('amount',amountInWei)
+    let amountInWei = await wrapped.balanceOf(accounts[0]);
+        // console.log('amount',amountInWei)
     const response = await wrapped.withdraw(amountInWei, {
       from: accounts[0],
       gas: 70000
