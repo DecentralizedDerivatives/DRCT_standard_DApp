@@ -18,7 +18,7 @@ const validate = values => {
 
 export let ApprovalFormContainer = props => {
   const submitForm = formValues => {
-    console.log('submitting Form: ', formValues);
+    // console.log('submitting Form: ', formValues);
 
     props.sendApproveOrder(formValues, props.userAccount);
   };

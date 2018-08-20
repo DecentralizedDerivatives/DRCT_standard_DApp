@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Table } from 'reactstrap';
 import Loading from './Loading';
 import { SET_USER_POSITIONS } from '../actions/types';
 
@@ -39,20 +38,18 @@ export class MyPositions extends Component {
 
   render() {
     return (
-      <div className="table-container">
-        <Table className="table table-hover table-striped table-responsive">
+      <div className="wide-table-container">
+        <div className='table-title'>My Tokens</div>
+        <table className="table table-hover table-striped">
           <thead>
             <tr>
-              <th colSpan='3'>My Tokens</th>
-            </tr>
-            <tr>
-              <th>Asset</th>
-              <th>Balance</th>
+              <th style={{width: '30%'}}>Asset</th>
+              <th style={{width: '30%'}}>Balance</th>
               <th>Start Date</th>
             </tr>
           </thead>
           <tbody>{this.renderRows()}</tbody>
-        </Table>
+        </table>
       </div>
     );
   }

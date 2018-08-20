@@ -425,13 +425,22 @@ button {
   color:white;
   padding:10px 25px;
   font-size:22px;
-  margin: 3em auto;
+  margin: 1em auto;
   display:inline-block;
   transition: all 0.3s ease;
   border-radius: 3px;
 }
 .create-contract-btn:hover{
   background-color:#0d3e65;
+}
+
+.wide-table-container {
+  text-align: left;
+  padding: 1em;
+}
+.wide-table-container .table-title {
+  font-weight: bold;
+  padding: .75rem;
 }
 /* Table */
 .table-container{
