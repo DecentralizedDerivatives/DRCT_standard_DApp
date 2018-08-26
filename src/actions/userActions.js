@@ -189,8 +189,8 @@ const getTokenPositionsForFactory = async (provider, userAccount) => {
     const tokenAddresses = await factory.getTokens(startDates);
     let date = new Date(startDates * 1000);
     date = date.getMonth() + 1 + '/' +
-      date.getDate() + '/' +
-      date.getFullYear();
+      date.getUTCDate() + '/' +
+      date.getUTCFullYear();
 
     for (let p = 0; p < tokenAddresses.length; p++) {
       const drct = await DRCT.at(tokenAddresses[p]); //Getting contract
@@ -263,8 +263,8 @@ export const sendCashOutRequest = () => async dispatch => {
     var staticAddresses = FactoryProvider.getStaticAddresses();
     const wrapped = await Wrapped.at(staticAddresses.wrapped_ether)
     const accounts = await web3.eth.getAccounts();
-      let amountInWei = await wrapped.balanceOf(accounts[0]);
-        console.log('amount',amountInWei)
+    let amountInWei = await wrapped.balanceOf(accounts[0]);
+        // console.log('amount',amountInWei)
     const response = await wrapped.withdraw(amountInWei, {
       from: accounts[0],
       gas: 70000

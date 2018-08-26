@@ -28,14 +28,19 @@ class Landing extends Component {
             <p>You are Connected To:</p>
             <p className={"landing-network-status " + networks[network_id].className}>{networks[network_id].title}</p>
             {this.props.whiteListed ? '' :
-              <p>The DDA dapp is currently for members only.<br /> If you are interested in becoming a member,<br />please visit: <a href='http://www.ddacoop.org/membership'>http://www.ddacoop.org/membership</a></p>
+              <div>
+                <p>The DDA dapp is currently for members only.</p>
+                <p>To learn more about membership, visit: <br /><a href='http://www.ddacoop.org/membership'>http://www.ddacoop.org/membership</a></p>
+                <p>To become a member, please visit<br /><a href='https://membership.ddacoop.org'>https://membership.ddacoop.org</a></p>
+              </div>
             }
           </div>
         );
       default:
         return (
           <div>
-            <p>Please Login to MetaMask</p>
+            <p>Please Login to <a href="https://metamask.io/">MetaMask</a></p>
+            <p className="landing_p"><a href="https://www.cryptocompare.com/wallets/guides/how-to-use-metamask/">What is MetaMask?</a></p>
             <div className="landing-network-status">
               Select :
               <p className={networks[network_id].className}>

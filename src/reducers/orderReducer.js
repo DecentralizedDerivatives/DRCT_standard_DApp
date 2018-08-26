@@ -22,8 +22,8 @@ const initialState = {
     token: '',
     price: 0,
     tokenAmount: '',
-    approved: false,
-    approveTx: ''
+    approved: false
+    // approveTx: ''
   },
   listOrderError: null,
   listOrderApproveError: null,
@@ -75,15 +75,14 @@ export default function(state = initialState, action) {
         listOrderError: action.payload
       };
     case SET_LIST_ORDER_APPROVED:
-      const { token, tokenAmount, approved, approveTx } = action.payload;
+      const { token, tokenAmount, approved } = action.payload;
       return {
         ...state,
         list: {
           ...state.list,
           token,
           tokenAmount,
-          approved,
-          approveTx
+          approved
         }
       };
     case SET_LIST_ORDER_APPROVE_ERROR:

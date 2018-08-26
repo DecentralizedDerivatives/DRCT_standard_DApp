@@ -7,7 +7,7 @@ import CashOutFormComponent from './CashOutFormComponent';
 
 export let CashOutFormContainer = props => {
   const submitForm = formValues => {
-    console.log('submitting Form: ', formValues);
+    // console.log('submitting Form: ', formValues);
     props.sendCashOutRequest();
   };
   return (

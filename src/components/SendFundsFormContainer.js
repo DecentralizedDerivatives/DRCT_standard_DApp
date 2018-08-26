@@ -23,7 +23,7 @@ const validate = values => {
 
 export let SendFundsFormContainer = props => {
   const submitForm = formValues => {
-    console.log('submitting Form: ', formValues);
+    // console.log('submitting Form: ', formValues);
     props.sendFunds(formValues, props.userAccount);
   };
 

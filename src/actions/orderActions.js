@@ -107,7 +107,7 @@ export const sendUnlistOrder = (orderId, account) => async dispatch => {
     const exchange = await Exchange.at(staticAddresses.exchange);
     const response = await exchange.unlist(orderId, {
       from: account,
-      gas: 110000
+      gas: 200000
     });
 
     dispatch({
@@ -167,18 +167,31 @@ export const sendApproveOrder = (approveDetails, account) => async dispatch => {
     var staticAddresses = FactoryProvider.getStaticAddresses();
     const exchange = await Exchange.at(staticAddresses.exchange);
     const drct = await DRCT.at(token);
-    const response = await drct.approve(exchange.address, tokenAmount, {
-      from: account,
-      gas: 70000
-    });
-    console.log('RESPONSE', response)
+    const allowance = await drct.allowance(account, exchange.address)
+    const approvedAmount = allowance && allowance.c && allowance.c.length > 0 ? allowance.c[0] : 0
+    let listedAmount = tokenAmount
+    if (Number(tokenAmount) < Number(approvedAmount)) {
+      const ordersList = await exchange.getUserOrders(account)
+      for (let ord of ordersList) {
+        let order = await exchange.getOrder(ord.c[0])
+        if (order[3] === token) {
+          listedAmount += order[2].c[0]
+        }
+      }
+    }
+    if (Number(listedAmount) > Number(approvedAmount)) {
+      await drct.approve(exchange.address, tokenAmount, {
+        from: account,
+        gas: 70000
+      });
+    }
     dispatch({
       type: SET_LIST_ORDER_APPROVED,
       payload: {
         token,
         tokenAmount,
-        approved: true,
-        approveTx: response.tx
+        approved: true
+        // approveTx: response.tx
       }
     });
   } catch (err) {
