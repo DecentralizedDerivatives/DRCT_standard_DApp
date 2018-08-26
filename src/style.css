@@ -328,6 +328,11 @@ button {
 #landing{
   text-align:center;
 }
+
+.landing_p{
+  font-size: 15px;
+  text-decoration: underline;
+}
 .landing-head{
   margin:2em 0 1em 0;
   color:#104874;

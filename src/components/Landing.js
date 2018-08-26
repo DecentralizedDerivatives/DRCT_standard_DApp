@@ -39,7 +39,8 @@ class Landing extends Component {
       default:
         return (
           <div>
-            <p>Please Login to MetaMask</p>
+            <p>Please Login to <a href="https://metamask.io/">MetaMask</a></p>
+            <p className="landing_p"><a href="https://www.cryptocompare.com/wallets/guides/how-to-use-metamask/">What is MetaMask?</a></p>
             <div className="landing-network-status">
               Select :
               <p className={networks[network_id].className}>
