@@ -192,23 +192,27 @@ const getTokenPositionsForFactory = async (provider, userAccount) => {
     const startDates = (await factory.startDates.call(i)).c[0];
     const tokenAddresses = await factory.getTokens(startDates);
     let date = new Date(startDates * 1000);
-    date = date.getMonth() + 1 + '/' +
-      date.getUTCDate() + '/' +
-      date.getUTCFullYear();
+    var todayMinusSixDays = new Date();
+    todayMinusSixDays.setDate(todayMinusSixDays.getDate() - 6);
+    if (date > todayMinusSixDays) {
+      date = date.getMonth() + 1 + '/' +
+        date.getUTCDate() + '/' +
+        date.getUTCFullYear();
 
-    for (let p = 0; p < tokenAddresses.length; p++) {
-      const drct = await DRCT.at(tokenAddresses[p]); //Getting contract
-      const balance = (await drct.balanceOf(userAccount)).c[0]; //Getting balance of token
-      if (balance > 0) {
-        let tokenType = (await factory.getTokenType(tokenAddresses[p])).c[0];
-        tokens.push({
-          address: tokenAddresses[p],
-          balance,
-          date,
-          tokenType: tokenType === 1 ? 'Short' : 'Long',
-          symbol: provider.symbol
-        })
-      };
+      for (let p = 0; p < tokenAddresses.length; p++) {
+        const drct = await DRCT.at(tokenAddresses[p]); //Getting contract
+        const balance = (await drct.balanceOf(userAccount)).c[0]; //Getting balance of token
+        if (balance > 0) {
+          let tokenType = (await factory.getTokenType(tokenAddresses[p])).c[0];
+          tokens.push({
+            address: tokenAddresses[p],
+            balance,
+            date,
+            tokenType: tokenType === 1 ? 'Short' : 'Long',
+            symbol: provider.symbol
+          })
+        };
+      }
     }
   }
   return tokens;
