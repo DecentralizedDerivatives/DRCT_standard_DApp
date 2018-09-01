@@ -73,7 +73,8 @@ export class List extends Component {
         <div className="order-modal">
           <div id="buy-form">
             <h4 className="order-modal-head">
-              { this.props.listOrderApproved ? <span>List Order</span> : <span>Approve Order</span> }</h4>
+              { this.props.listOrderApproved ? <span>List Order</span> : <span>Approve Order</span> }
+            </h4>
             { this.props.listOrderApproved ? <ListFormContainer /> : <ApprovalFormContainer /> }
             {this.state.resultsMessage && (
               <div id="results-message" className="text-center">

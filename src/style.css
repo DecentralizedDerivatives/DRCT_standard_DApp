@@ -22,11 +22,11 @@ button {
             transform: rotate(360deg);
   }
 }
-.table thead th {
-  border-bottom: none;
-}
 .clickable {
   cursor: pointer;
+}
+.order-book {
+  border-bottom: solid 2px #ccc;
 }
 .order-book, .price-chart {
   margin:0 auto;
@@ -69,9 +69,6 @@ button {
     margin: 0 auto;
     width: 100%;
     float: none;
-  }
-  .order-book {
-    font-size: 12px;
   }
   .table-container.recent-trades{
     margin: 0 auto;
@@ -441,17 +438,27 @@ button {
 
 .wide-table-container {
   text-align: left;
-  padding: 1em;
+  padding: 0.5rem 1em 0;
+  height: 400px;
+  overflow-y: scroll;
 }
 .wide-table-container .table-title {
   font-weight: bold;
   padding: .75rem;
 }
 /* Table */
+.table {
+  font-size: 0.75rem;
+}
+.table thead th {
+  border-bottom: none;
+}
 .table-container{
   text-align:left;
   display:inline-block;
   padding: 1em;
+  height: 400px;
+  overflow-y: scroll;
 }
 .table-container th{
   width:100%;

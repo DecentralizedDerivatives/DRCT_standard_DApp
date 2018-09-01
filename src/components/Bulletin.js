@@ -90,7 +90,7 @@ export class Bulletin extends Component {
           <Unlist refreshPage={this.refreshPage}/>
         </div>
 
-        <div className="table-container price-chart">
+        <div className="price-chart">
           {this.props.userAccount ? <PriceChart /> : ''}
         </div>
         <RecentTrades onRowClick={this.handleRowClick} />
