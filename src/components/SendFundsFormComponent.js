@@ -27,8 +27,7 @@ export const SendFundsFormComponent = ({
           component={InputText} />
       </InputGroup>
       <InputGroup className="form-eth-input">
-        <Field name="amount" label="Amount of Ether" component={InputNumber} />
-        <InputGroupAddon addonType="append">ETH</InputGroupAddon>
+        <Field name="amount" label="Amount of Ether" addonLabel="ETH" component={InputNumber} />
       </InputGroup>
 
       <div className="form-submit-wrapper">

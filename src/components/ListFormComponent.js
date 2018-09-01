@@ -10,11 +10,12 @@ export const ListFormComponent = ({
   tokenAmount
 }) => {
   return (
-      <form  autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
-        <label>Token</label>
+      <form autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
+        <label style={{margin: '6px 0'}}><strong>Token:</strong></label>
         <div>{token}</div>
-        <label>Amount</label>
-        <div>{tokenAmount}</div>
+        <br />
+        <label style={{margin: '6px 6px 0 0'}}><strong>Amount:</strong></label>
+        <span>{tokenAmount}</span>
 
         <InputGroup className="order-input-wrapper">
           <Field
@@ -22,8 +23,8 @@ export const ListFormComponent = ({
             label="Enter Price in ETH"
             className="order-input"
             component={InputNumber}
-            addonLabel={"ETH"}
-            step={"0.00001"}
+            addonLabel="ETH"
+            step="0.00001"
           />
         </InputGroup>
         <div>

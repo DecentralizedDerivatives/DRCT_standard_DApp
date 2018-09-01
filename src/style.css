@@ -182,7 +182,8 @@ button {
   position: relative;
 }
 .order-input-wrapper{
-  text-align:left;
+  text-align: center;
+  margin-top: 20px;
 }
 .order-input-wrapper label{
   font-size:20px;
@@ -617,7 +618,10 @@ div.form-date.input-group > div > div:nth-child(1){
   text-align: center;
   width:100%;
 }
-div.form-eth-input.input-group div:nth-child(1){
+.input-label {
+  padding-right: 20px;
+}
+/* div.form-eth-input.input-group div:nth-child(1){
   margin-left:30px;
 }
 div.form-eth-input.input-group div:nth-child(1) label{
@@ -626,7 +630,7 @@ div.form-eth-input.input-group div:nth-child(1) label{
 }
 div.form-eth-input.input-group div:nth-child(1) input{
   padding:8px 20px;
-}
+} */
 .form-submit-wrapper{
   position: absolute;
   bottom:15px;
