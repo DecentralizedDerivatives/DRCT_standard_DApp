@@ -142,18 +142,22 @@ const getPositionsForFactory = async (provider, userAccount) => {
       let balance = await drct.balanceOf(userAccount);
       if (balance.c[0] > 0) {
         let date = new Date(startDate * 1000);
-        date = date.getUTCMonth() + 1 + '/' +
-          date.getUTCDate() + '/' +
-          date.getUTCFullYear();
-        positions.push({
-          address: tokenAddress,
-          balance: balance.c[0].toString(),
-          date: date.toString(),
-          symbol: provider.symbol,
-          contractDuration: provider.duration,
-          contractMultiplier: provider.multiplier,
-          tokenType: tokenType === 1 ? 'Short' : 'Long'
-        });
+        var todayMinusSixDays = new Date();
+        todayMinusSixDays.setDate(todayMinusSixDays.getDate() - 6);
+        if (date > todayMinusSixDays) {
+          let orderDate = date.getUTCMonth() + 1 + '/' +
+            date.getUTCDate() + '/' +
+            date.getUTCFullYear();
+          positions.push({
+            address: tokenAddress,
+            balance: balance.c[0].toString(),
+            date: orderDate.toString(),
+            symbol: provider.symbol,
+            contractDuration: provider.duration,
+            contractMultiplier: provider.multiplier,
+            tokenType: tokenType === 1 ? 'Short' : 'Long'
+          });
+        }
       }
     }
   }
