@@ -35,6 +35,7 @@ export class CreateContract extends Component {
         resultsMessage: `Contract successfully funded.`,
         sendFundsOpen: false
       });
+      if (this.props.close) { this.props.close() }
     }
   }
 
