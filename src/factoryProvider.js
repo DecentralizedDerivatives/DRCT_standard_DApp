@@ -1,41 +1,42 @@
-
 const items = () => {
-  const networkId = this.getNetworkId();
-  switch (networkId) {
-    case 1: // MAIN NETWORK
-      return [
-        { address: '0xce971acf8b9b0ce67a8018c4af2094b02c22da43', symbol: 'BTC/USD', duration: 7, multiplier: 1, oracle: '0x98d3c4adb5c171012d3f1fde32ed8dca488a2b34' },
-        { address: '0x8ff7e9f04fed4a6d7184962c6c44d2e701c2fb8a', symbol: 'ETH/USD', duration: 7, multiplier: 5, oracle: '0xc479e26a7237c1839f44a09843699597ef23e2c3' }
-      ]
-    case 4: // RINKEBY
-      return  [
-        { address: '0x92217550aba5912ba7eb70978871daf7d6bcc16', symbol: 'BTC/USD', duration: 7, multiplier: 1, oracle: '0x98cb5fc6ce37b4c4dceab510a56af254c551b705' },
-        { address: '0xf55e6ce774cec3817467aed5f5a5769f006658d0', symbol: 'ETH/USD', duration: 7, multiplier: 5, oracle: '0xd1864d6e55c0fb2b64035cfbc5a5c2f07e9cff89' }
-      ]
-    default:
-      return [];
+    const networkId = this.getNetworkId();
+    console.log('n',networkId);
+    switch (networkId) {
+      case 1: // MAIN NETWORK
+        return [
+          { address: '0xce971acf8b9b0ce67a8018c4af2094b02c22da43', symbol: 'BTC/USD', duration: 7, multiplier: 1, oracle: '0x98d3c4adb5c171012d3f1fde32ed8dca488a2b34' },
+          { address: '0x8ff7e9f04fed4a6d7184962c6c44d2e701c2fb8a', symbol: 'ETH/USD', duration: 7, multiplier: 5, oracle: '0xc479e26a7237c1839f44a09843699597ef23e2c3' }
+        ]
+      case 4: // RINKEBY
+        return  [
+          { address: '0x92217550aba5912ba7eb70978871daf7d6bcc16d', symbol: 'BTC/USD', duration: 7, multiplier: 1, oracle: '0x98cb5fc6ce37b4c4dceab510a56af254c551b705' },
+          { address: '0xf55e6ce774cec3817467aed5f5a5769f006658d0', symbol: 'ETH/USD', duration: 7, multiplier: 5, oracle: '0xd1864d6e55c0fb2b64035cfbc5a5c2f07e9cff89' }
+        ]
+      default:
+        return [];
+    }
   }
-}
+  
+  const staticAddresses = () => {
+    const networkId = this.getNetworkId();
+    switch (networkId) {
+      case 1: // MAIN NETWORK
+        return {
+          exchange: '0x1f2176d79fdc0ec4ddec59699e24ff05154a61b5',
+          wrapped_ether: '0xf2740c75f221788cf78c716b953a7f1c769d49b9',
+          membership: '0xd33615c5ea5d703f06d237f6c56ff2400b564c77'
+        }
+      case 4: // RINKEBY
+        return  {
+          exchange: '0x8a8c8caf721e1c7ebcc01522185f263370aa7f8d',
+          wrapped_ether: '0x6248cb8a316fc8f1488ce56f6ea517151923531a',
+          membership: '0x620b6b6ac75ad9234eb6c533688ddd8a5948650e'
+        }
+      default:
+        return {};
+    }
+  }
 
-const staticAddresses = () => {
-  const networkId = this.getNetworkId();
-  switch (networkId) {
-    case 1: // MAIN NETWORK
-      return {
-        exchange: '0x1f2176d79fdc0ec4ddec59699e24ff05154a61b5',
-        wrapped_ether: '0xf2740c75f221788cf78c716b953a7f1c769d49b9',
-        membership: '0x4286b9997df2af09e186c332e655e9cef71a40fa'
-      }
-    case 4: // RINKEBY
-      return  {
-        exchange: '0x8a8c8caf721e1c7ebcc01522185f263370aa7f8d',
-        wrapped_ether: '0x6248cb8a316fc8f1488ce56f6ea517151923531a',
-        membership: '0x50d9bf95bf09d6ea9812da2763eac32d21ca31d5'
-      }
-    default:
-      return {};
-  }
-}
 
 module.exports.getNetworkId = () => {
   return window.env && window.env.NETWORK_ID ? parseInt(window.env.NETWORK_ID, 10) : 4
