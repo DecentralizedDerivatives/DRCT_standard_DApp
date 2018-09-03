@@ -9,8 +9,8 @@ const items = () => {
       ]
     case 4: // RINKEBY
       return  [
-        { address: '0x804870d9b8184e12444405e1ee114757b97897b8', symbol: 'BTC/USD', duration: 7, multiplier: 1, oracle: '0x98cb5fc6ce37b4c4dceab510a56af254c551b705' },
-        { address: '0xa6fc8ed0d94a33de24eda0c226546ffa3737358a', symbol: 'ETH/USD', duration: 7, multiplier: 5, oracle: '0xd1864d6e55c0fb2b64035cfbc5a5c2f07e9cff89' }
+        { address: '0x92217550aba5912ba7eb70978871daf7d6bcc16', symbol: 'BTC/USD', duration: 7, multiplier: 1, oracle: '0x98cb5fc6ce37b4c4dceab510a56af254c551b705' },
+        { address: '0xf55e6ce774cec3817467aed5f5a5769f006658d0', symbol: 'ETH/USD', duration: 7, multiplier: 5, oracle: '0xd1864d6e55c0fb2b64035cfbc5a5c2f07e9cff89' }
       ]
     default:
       return [];
