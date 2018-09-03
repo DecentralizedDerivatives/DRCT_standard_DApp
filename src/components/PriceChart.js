@@ -10,6 +10,11 @@ Highcharts.setOptions({
     align: 'right',
     buttons: [
       {
+        type: 'day',
+        count: .25,
+        text: '6h'
+      },
+      {
         type: 'month',
         count: 1,
         text: '1m'
