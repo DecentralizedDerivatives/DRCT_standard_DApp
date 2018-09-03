@@ -4,8 +4,8 @@ const items = () => {
   switch (networkId) {
     case 1: // MAIN NETWORK
       return [
-        { address: '0x58ae23fd188a23a4f1224c3072fc7db40fca8d9c', symbol: 'BTC/USD', duration: 7, multiplier: 1, oracle: '0x98d3c4adb5c171012d3f1fde32ed8dca488a2b34' },
-        { address: '0x8207cea5aa1a9047b6607611c2b5b3f04df7b0d3', symbol: 'ETH/USD', duration: 7, multiplier: 5, oracle: '0xc479e26a7237c1839f44a09843699597ef23e2c3' }
+        { address: '0xce971acf8b9b0ce67a8018c4af2094b02c22da43', symbol: 'BTC/USD', duration: 7, multiplier: 1, oracle: '0x98d3c4adb5c171012d3f1fde32ed8dca488a2b34' },
+        { address: '0x8ff7e9f04fed4a6d7184962c6c44d2e701c2fb8a', symbol: 'ETH/USD', duration: 7, multiplier: 5, oracle: '0xc479e26a7237c1839f44a09843699597ef23e2c3' }
       ]
     case 4: // RINKEBY
       return  [
