@@ -88,7 +88,7 @@ export const getOrderBook = (isSilent) => async dispatch => {
             todayMinusSixDays.setDate(todayMinusSixDays.getDate() - 6);
             if (date > todayMinusSixDays) {
               let orderDate = startDate.getUTCMonth() + 1 + '/' +
-                startDate.getUTCDate() + '/' + startDate.getUTCFullYear();
+                startDate.getUTCDate() -1 + '/' + startDate.getUTCFullYear();
               var precisePrice = parseFloat(order[1].c[0]/10000).toFixed(5);
               _allrows.push({
                 orderId: orders[j].c[0].toString(),
