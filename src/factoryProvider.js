@@ -1,6 +1,5 @@
 const items = () => {
     const networkId = this.getNetworkId();
-    console.log('n',networkId);
     switch (networkId) {
       case 1: // MAIN NETWORK
         return [

@@ -39,7 +39,7 @@ export const getUserBalance = () => async dispatch => {
     const accounts = await web3.eth.getAccounts();
     let _res = await wrapped.balanceOf(accounts[0]);
     let _val;
-    for(i in _res.c){
+    for(var i in _res.c){
       _val = _val + _res.c[i]
     }
     console.log(_val,'res');
