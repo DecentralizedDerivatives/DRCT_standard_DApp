@@ -1,6 +1,6 @@
 import React from 'react';
 import { Field } from 'redux-form';
-import { InputGroup, InputGroupAddon } from 'reactstrap';
+import { InputGroup } from 'reactstrap';
 import InputText from './InputText';
 import InputNumber from './InputNumber';
 import Select from './Select.js';
