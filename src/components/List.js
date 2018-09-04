@@ -22,10 +22,8 @@ export class List extends Component {
         formOpen: false
       });
     } else if (nextProps.listOrderId) {
-      this.setState({
-        resultsMessage: `List Order result ${nextProps.listOrderId}`,
-        formOpen: true
-      });
+      this.setState({ resultsMessage: '', formOpen: false });
+      this.props.refreshPage(true);
     } else if (nextProps.listOrderApproveError) {
       this.setState({
         resultsMessage: `Error: ${nextProps.listOrderApproveError}`,
@@ -75,7 +73,8 @@ export class List extends Component {
         <div className="order-modal">
           <div id="buy-form">
             <h4 className="order-modal-head">
-              { this.props.listOrderApproved ? <span>List Order</span> : <span>Approve Order</span> }</h4>
+              { this.props.listOrderApproved ? <span>List Order</span> : <span>Approve Order</span> }
+            </h4>
             { this.props.listOrderApproved ? <ListFormContainer /> : <ApprovalFormContainer /> }
             {this.state.resultsMessage && (
               <div id="results-message" className="text-center">

@@ -21,13 +21,10 @@ export class CashOut extends Component {
     if (nextProps.cashOutError) {
       this.setState({
         resultsMessage: `Error: ${nextProps.cashOutError}`,
-        collapse: false
       });
     } else if (nextProps.cashOutTx) {
-      this.setState({
-        resultsMessage: `Tx receipt: ${nextProps.cashOutTx}`,
-        collapse: false
-      });
+      this.setState({ resultsMessage: '' });
+      if (this.props.close) { this.props.close() }
     }
   }
 
@@ -62,7 +59,7 @@ CashOut.propTypes = {
 
 const mapStateToProps = state => ({
   userBalance: state.user.userBalance,
-  cashOutTx: state.user.cashOutTx,
+  cashOutTx: state.user.cashOut.id,
   cashOutError: state.user.cashOutError
 });
 

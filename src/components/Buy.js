@@ -21,10 +21,8 @@ export class Buy extends Component {
         formOpen: false
       });
     } else if (nextProps.buyOrderTx) {
-      this.setState({
-        resultsMessage: `Success!  Order ID: ${nextProps.buyOrderTx}`,
-        formOpen: false
-      });
+      this.setState({ resultsMessage: '', formOpen: false });
+      this.props.refreshPage(true)
     }
   }
 

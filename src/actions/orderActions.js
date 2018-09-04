@@ -81,7 +81,7 @@ export const sendBuyOrder = (orderId, account) => async dispatch => {
       gas: 400000,
       value: _value
     });
-    console.log('RESPONSE', response)
+    // console.log('RESPONSE', response)
     dispatch({
       type: SET_BUY_ORDER_RECEIPT,
       payload: {

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Table } from 'reactstrap';
 import Loading from './Loading';
 import { getOrderBook } from '../actions/contractActions';
 import { SET_ORDERBOOK } from '../actions/types';
@@ -32,7 +31,7 @@ export class OrderBook extends Component {
   render() {
     return (
       <div className="table-container order-book">
-        <Table className="table table-hover table-striped table-responsive">
+        <table className="table table-hover table-striped table-responsive">
           <thead>
             <tr>
               <th colSpan='6'>Order Book</th>
@@ -46,7 +45,7 @@ export class OrderBook extends Component {
             </tr>
           </thead>
           <tbody>{this.renderRows()}</tbody>
-        </Table>
+        </table>
       </div>
     );
   }

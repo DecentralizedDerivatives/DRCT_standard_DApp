@@ -24,6 +24,7 @@ export const ApprovalFormComponent = ({
             options={selectOptions}
           />
         </InputGroup>
+        <br />
         <InputGroup>
           <Field
             name="tokenAmount"
@@ -32,7 +33,7 @@ export const ApprovalFormComponent = ({
             step={"0.00001"}
           />
         </InputGroup>
-
+        <br />
         <div>
           <button
             type="submit"

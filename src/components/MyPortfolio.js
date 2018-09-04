@@ -50,16 +50,8 @@ export class MyPortfolio extends Component {
       detailsOpen: true
     });
   };
-
-  closeContractDetails = () => {
-    this.setState({
-      detailsOpen: false
-    });
-  };
   handleCreateContract = () => {
-    this.setState({
-      formOpen: !this.state.formOpen
-    });
+    this.setState({formOpen: true});
   };
   renderCreateContract = () => {
     return this.state.formOpen ? (
@@ -67,14 +59,12 @@ export class MyPortfolio extends Component {
     ) : null;
   };
   closeCreateContract = () => {
-    this.setState({
-      formOpen: false
-    });
+    this.setState({formOpen: false});
+    this.props.getUserPositions(this.props.userAccount, true);
+    this.props.getUserTransactions(this.props.userAccount, true);
   };
   handleCashout = () => {
-    this.setState({
-      cashoutOpen: !this.state.cashoutOpen
-    });
+    this.setState({ cashoutOpen: true });
   };
   renderCashout = () => {
     return this.state.cashoutOpen ? (

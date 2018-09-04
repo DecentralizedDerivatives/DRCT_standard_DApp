@@ -63,6 +63,10 @@ export class Bulletin extends Component {
     });
   };
 
+  refreshPage = (silentMode) => {
+    this.props.getOrderBook(this.props.userAccount, silentMode)
+    this.props.getRecentTrades(this.props.userAccount, silentMode)
+  }
   renderContractDetails = () => {
     return this.state.detailsOpen ? (
       <ContractDetails
@@ -81,12 +85,12 @@ export class Bulletin extends Component {
         <OrderBook onRowClick={this.handleRowClick} />
 
         <div className="order-buttons">
-          <Buy />
-          <List />
-          <Unlist />
+          <Buy refreshPage={this.refreshPage}/>
+          <List refreshPage={this.refreshPage}/>
+          <Unlist refreshPage={this.refreshPage}/>
         </div>
 
-        <div className="table-container price-chart">
+        <div className="price-chart">
           {this.props.userAccount ? <PriceChart /> : ''}
         </div>
         <RecentTrades onRowClick={this.handleRowClick} />
