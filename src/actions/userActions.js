@@ -38,8 +38,12 @@ export const getUserBalance = () => async dispatch => {
     const wrapped = await Wrapped.at(staticAddresses.wrapped_ether)
     const accounts = await web3.eth.getAccounts();
     let _res = await wrapped.balanceOf(accounts[0]);
-    console.log(_res,'res');
-    let adjustedBalance  = Number(parseFloat(_res.c[0]/(1e18)).toFixed(5));
+    let _val;
+    for(i in _res.c){
+      _val = _val + _res.c[i]
+    }
+    console.log(_val,'res');
+    let adjustedBalance  = Number(parseFloat(_val/(10^(_res.e-1))).toFixed(5));
     dispatch({
       type: SET_USER_BALANCE,
       payload: adjustedBalance

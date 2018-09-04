@@ -83,7 +83,7 @@ export const getOrderBook = (isSilent) => async dispatch => {
             let tokenType = (await factory.getTokenType(order[3])).c[0];
             let date = new Date(tokenDate.c[0] * 1000);
             let startDate = new Date();
-            startDate.setDate(date.getUTCDate());
+            startDate.setDate(date.getDate());
             var todayMinusSixDays = new Date();
             todayMinusSixDays.setDate(todayMinusSixDays.getDate() - 6);
             if (date > todayMinusSixDays) {
