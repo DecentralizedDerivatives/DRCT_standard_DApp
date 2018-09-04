@@ -21,13 +21,13 @@ const items = () => {
     switch (networkId) {
       case 1: // MAIN NETWORK
         return {
-          exchange: '0x1f2176d79fdc0ec4ddec59699e24ff05154a61b5',
+          exchange: '0xea8261249bb7b99f6754410b059db561ac427692',
           wrapped_ether: '0xf2740c75f221788cf78c716b953a7f1c769d49b9',
           membership: '0xd33615c5ea5d703f06d237f6c56ff2400b564c77'
         }
       case 4: // RINKEBY
         return  {
-          exchange: '0x8a8c8caf721e1c7ebcc01522185f263370aa7f8d',
+          exchange: '0x6db2f17f0ff3892c8bbfbd0e1b7a9b4391d66a2e',
           wrapped_ether: '0x6248cb8a316fc8f1488ce56f6ea517151923531a',
           membership: '0x620b6b6ac75ad9234eb6c533688ddd8a5948650e'
         }
