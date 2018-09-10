@@ -72,23 +72,19 @@ export const getOrderBook = (isSilent) => async dispatch => {
         const factory = await Factory.at(factories[p].address);
         // console.log('factory', factories[p].symbol);
         let tokenDate = await factory.token_dates.call(book);
-        // console.log('tokenDate', tokenDate)
         if (tokenDate.c[0] === 0) { continue }
         let orders = await exchange.getOrders(book);
         // console.log('orders', orders)
         for (let j = 0; j < orders.length; j++) {
           if (orders[j].c[0] > 0) {
             let order = await exchange.getOrder(orders[j].c[0]);
-            // console.log('order', order)
             let tokenType = (await factory.getTokenType(order[3])).c[0];
             let date = new Date(tokenDate.c[0] * 1000);
-            let startDate = new Date();
-            startDate.setDate(date.getDate());
             var todayMinusSixDays = new Date();
             todayMinusSixDays.setDate(todayMinusSixDays.getDate() - 6);
             if (date > todayMinusSixDays) {
-              let orderDate = startDate.getUTCMonth() + 1 + '/' +
-                startDate.getUTCDate() + '/' + startDate.getUTCFullYear();
+              let orderDate = date.getUTCMonth() + 1 + '/' +
+                date.getUTCDate() + '/' + date.getUTCFullYear();
               var precisePrice = parseFloat(order[1].c[0]/10000).toFixed(5);
               _allrows.push({
                 orderId: orders[j].c[0].toString(),
