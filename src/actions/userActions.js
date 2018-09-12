@@ -32,12 +32,14 @@ export const getUserAccount = () => async dispatch => {
   }
 };
 const convertFromBigNumber = (bn) => {
+  console.log('BIG NUMBER: ', bn)
   if (!web3.utils.isBigNumber(bn)) { return bn }
   let str = bn.c[0].toString()
   let formattedStr = str.charAt(0) + '.' + str.slice(1)
   let val = parseFloat(formattedStr/(1e18))
   let multiplier = '1e' + (bn.e).toString()
   let adjustedBalance = val * (Number(multiplier))
+  console.log('AMOUNT: ', adjustedBalance)
   return adjustedBalance
 }
 export const getUserBalance = () => async dispatch => {
