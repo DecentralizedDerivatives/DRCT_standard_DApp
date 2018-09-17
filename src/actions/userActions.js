@@ -41,20 +41,22 @@ const convertFromBigNumber = (bn) => {
   console.log('AMOUNT: ', adjustedBalance)
   return adjustedBalance
 }
+
 export const getUserBalance = () => async dispatch => {
   try {
     var staticAddresses = FactoryProvider.getStaticAddresses();
     const wrapped = await Wrapped.at(staticAddresses.wrapped_ether)
     const accounts = await web3.eth.getAccounts();
     let _res = await wrapped.balanceOf(accounts[0]);
-    let balance = convertFromBigNumber(_res)
+    console.log(_res,'res');
+    let adjustedBalance  = Number(parseFloat(_res.c[0]/(10^(_res.e-1))).toFixed(5));
+    console.log(adjustedBalance);
     dispatch({
       type: SET_USER_BALANCE,
-      payload: Number(balance.toFixed(5))
+      payload: adjustedBalance
     });
 
   } catch (err) {
-    console.log('ERROR', err)
     dispatch({
       type: SET_FETCHING_ERROR,
       payload: err.message.split('\n')[0]
