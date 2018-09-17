@@ -32,28 +32,23 @@ export const getUserAccount = () => async dispatch => {
   }
 };
 const convertFromBigNumber = (bn) => {
-  console.log('BIG NUMBER: ', bn)
   let str = bn.c[0].toString()
   let formattedStr = str.charAt(0) + '.' + str.slice(1)
   let val = parseFloat(formattedStr/(1e18))
   let multiplier = '1e' + (bn.e).toString()
   let adjustedBalance = val * (Number(multiplier))
-  console.log('AMOUNT: ', adjustedBalance)
   return adjustedBalance
 }
-
 export const getUserBalance = () => async dispatch => {
   try {
     var staticAddresses = FactoryProvider.getStaticAddresses();
     const wrapped = await Wrapped.at(staticAddresses.wrapped_ether)
     const accounts = await web3.eth.getAccounts();
     let _res = await wrapped.balanceOf(accounts[0]);
-    console.log(_res,'res');
-    let adjustedBalance  = Number(parseFloat(_res.c[0]/(10^(_res.e-1))).toFixed(5));
-    console.log(adjustedBalance);
+    let balance = convertFromBigNumber(_res)
     dispatch({
       type: SET_USER_BALANCE,
-      payload: adjustedBalance
+      payload: Number(balance.toFixed(5))
     });
 
   } catch (err) {
