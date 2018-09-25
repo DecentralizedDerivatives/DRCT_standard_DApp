@@ -25,6 +25,9 @@ button {
 .clickable {
   cursor: pointer;
 }
+.warning {
+  color: red;
+}
 .order-book {
   border-bottom: solid 2px #ccc;
 }

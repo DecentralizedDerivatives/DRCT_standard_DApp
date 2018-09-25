@@ -2,8 +2,19 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import FactoryProvider from '../factoryProvider';
+import { formatter } from '../formatter';
 
 export class ContractDetails extends Component {
+  formatMoney (val, empty) {
+    if (!val) { return <span> {empty || '$0'} </span> }
+    var cls = val < 0 ? 'warning' : ''
+    return <span className={cls}>{formatter.toDollars(val)}</span>
+  }
+  formatPercent (val, empty) {
+    if (!val) { return <span> {empty || '$0'} </span> }
+    var cls = val < 0 ? 'warning' : ''
+    return <span className={cls}>{formatter.toPercent(val)}</span>
+  }
   renderdiv() {
     const network_id = FactoryProvider.getNetworkId();
     const networks = require('../networkProvider');
@@ -53,7 +64,13 @@ export class ContractDetails extends Component {
           {this.props.contract.contractStartPrice > 0 ?
             <div className='detail-segment'>
               <div className='title'>Start Price</div>
-              <div className='detail'>{this.props.contract.contractStartPrice}</div>
+              <div className='detail'>{this.formatMoney(this.props.contract.contractStartPrice)}</div>
+            </div>
+          : ''}
+          {this.props.contract.contractGain ?
+            <div className='detail-segment'>
+              <div className='title'>Current Gain/Loss</div>
+              <div className='detail'>{this.formatPercent(this.props.contract.contractGain)}</div>
             </div>
           : ''}
         </div>

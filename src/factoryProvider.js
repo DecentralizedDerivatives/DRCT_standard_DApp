@@ -3,19 +3,19 @@ const items = () => {
     switch (networkId) {
       case 1: // MAIN NETWORK
         return [
-          { address: '0xce971acf8b9b0ce67a8018c4af2094b02c22da43', symbol: 'BTC/USD', duration: 7, multiplier: 1, oracle: '0x98d3c4adb5c171012d3f1fde32ed8dca488a2b34' },
-          { address: '0x8ff7e9f04fed4a6d7184962c6c44d2e701c2fb8a', symbol: 'ETH/USD', duration: 7, multiplier: 5, oracle: '0xc479e26a7237c1839f44a09843699597ef23e2c3' }
+          { address: '0xce971acf8b9b0ce67a8018c4af2094b02c22da43', type: 'btc', symbol: 'BTC/USD', duration: 7, multiplier: 1, oracle: '0x98d3c4adb5c171012d3f1fde32ed8dca488a2b34' },
+          { address: '0x8ff7e9f04fed4a6d7184962c6c44d2e701c2fb8a', type: 'eth', symbol: 'ETH/USD', duration: 7, multiplier: 5, oracle: '0xc479e26a7237c1839f44a09843699597ef23e2c3' }
         ]
       case 4: // RINKEBY
         return  [
-          { address: '0x92217550aba5912ba7eb70978871daf7d6bcc16d', symbol: 'BTC/USD', duration: 7, multiplier: 1, oracle: '0x98cb5fc6ce37b4c4dceab510a56af254c551b705' },
-          { address: '0xf55e6ce774cec3817467aed5f5a5769f006658d0', symbol: 'ETH/USD', duration: 7, multiplier: 5, oracle: '0xd1864d6e55c0fb2b64035cfbc5a5c2f07e9cff89' }
+          { address: '0x92217550aba5912ba7eb70978871daf7d6bcc16d', type: 'btc', symbol: 'BTC/USD', duration: 7, multiplier: 1, oracle: '0x98cb5fc6ce37b4c4dceab510a56af254c551b705' },
+          { address: '0xf55e6ce774cec3817467aed5f5a5769f006658d0', type: 'eth', symbol: 'ETH/USD', duration: 7, multiplier: 5, oracle: '0xd1864d6e55c0fb2b64035cfbc5a5c2f07e9cff89' }
         ]
       default:
         return [];
     }
   }
-  
+
   const staticAddresses = () => {
     const networkId = this.getNetworkId();
     switch (networkId) {
