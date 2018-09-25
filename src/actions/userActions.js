@@ -14,6 +14,8 @@ import {
   SET_CASHOUT_ERROR
 } from './types';
 
+import api from '../api';
+import { getStartDatePrice } from './common';
 import FactoryProvider from '../factoryProvider';
 
 export const getUserAccount = () => async dispatch => {
@@ -154,6 +156,13 @@ const getPositionsForFactory = async (provider, userAccount) => {
           let orderDate = date.getUTCMonth() + 1 + '/' +
             date.getUTCDate() + '/' +
             date.getUTCFullYear();
+          let startPrice = await getStartDatePrice(provider.oracle, orderDate)
+          let contractGain = 0
+          if (startPrice) {
+            const priceData = await api[provider.type].get();
+            let currentPrice = priceData[priceData.length - 1][1]
+            contractGain = ((currentPrice - startPrice) / startPrice) * 100
+          }
           positions.push({
             address: tokenAddress,
             balance: balance.c[0].toString(),
@@ -161,6 +170,7 @@ const getPositionsForFactory = async (provider, userAccount) => {
             symbol: provider.symbol,
             contractDuration: provider.duration,
             contractMultiplier: provider.multiplier,
+            contractGain: contractGain,
             tokenType: tokenType === 1 ? 'Short' : 'Long'
           });
         }

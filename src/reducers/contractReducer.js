@@ -3,7 +3,6 @@ import {
   SET_ORDERBOOK,
   SET_RECENT_TRADES,
   SET_CONTRACT_OPEN_DATES,
-  SET_CONTRACT_START_PRICE,
   SET_CONTRACT_CREATED,
   SET_CONTRACT_ERROR,
   SET_CONTRACT_FUNDED,
@@ -13,8 +12,10 @@ import {
 const initialState = {
   contractAddress: '',
   contractDuration: 0,
+  contractGain: 0,
   contractMultiplier: 0,
   contractStartPrice: 0,
+  contractCurrentPrice: 0,
   oracleAddress: '',
   orderbook: [],
   recentTrades: [],
@@ -36,18 +37,9 @@ const initialState = {
 export default function(state = initialState, action) {
   switch (action.type) {
     case SET_CONTRACT_DETAILS:
-      const {
-        contractAddress,
-        contractDuration,
-        contractMultiplier,
-        oracleAddress
-      } = action.payload;
       return {
         ...state,
-        contractAddress,
-        contractDuration,
-        contractMultiplier,
-        oracleAddress
+        ...action.payload
       };
     case SET_ORDERBOOK:
       return {
@@ -64,11 +56,6 @@ export default function(state = initialState, action) {
         ...state,
         contractOpenDates: action.payload
       };
-    case SET_CONTRACT_START_PRICE:
-      return {
-        ...state,
-        contractStartPrice: action.payload
-      }
     case SET_CONTRACT_CREATED:
       return {
         ...state,
