@@ -161,7 +161,7 @@ const getPositionsForFactory = async (provider, userAccount) => {
           if (startPrice) {
             const priceData = await api[provider.type].get();
             let currentPrice = priceData[priceData.length - 1][1]
-            contractGain = ((currentPrice - startPrice) / startPrice) * 100
+            contractGain = ((currentPrice - startPrice) / startPrice) * 100 * Number(provider.multiplier)
           }
           positions.push({
             address: tokenAddress,

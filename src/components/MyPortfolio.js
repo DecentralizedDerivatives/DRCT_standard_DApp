@@ -83,14 +83,14 @@ export class MyPortfolio extends Component {
         <MyTransactions />
         {this.renderCreateContract()}
         <div
-          className="create-contract-btn"
+          className="btn btn-theme create-contract-btn"
           onClick={this.handleCreateContract}
         >
           Create Contract
         </div>
         {this.renderCashout()}
         <div id="cashout-button">
-          <button className="btn create-contract-btn"
+          <button className="btn btn-theme create-contract-btn"
             onClick={this.handleCashout}>
             Cash Out
           </button>
