@@ -7,7 +7,6 @@ import ContractDetails from './ContractDetails';
 import PriceChart from './PriceChart';
 import List from './List';
 import Unlist from './Unlist';
-import Buy from './Buy';
 import {
   getUserAccount,
   getUserTokenPositions,
@@ -75,10 +74,9 @@ export class Bulletin extends Component {
   render() {
     return (
       <div id="bulletin">
-        <OrderBook onRowClick={this.handleRowClick} />
+        <OrderBook onRowClick={this.handleRowClick} refreshPage={this.refreshPage} />
 
         <div className="order-buttons">
-          <Buy refreshPage={this.refreshPage}/>
           <List refreshPage={this.refreshPage}/>
           <Unlist refreshPage={this.refreshPage}/>
         </div>

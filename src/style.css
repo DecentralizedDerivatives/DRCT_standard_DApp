@@ -424,20 +424,27 @@ button {
   margin-bottom: 20px;
 
 }
-.create-contract-btn{
+.btn-theme {
   cursor: pointer;
   border:1px solid grey;
   background-color:#104874;
   color:white;
+}
+.btn-theme:hover{
+  color: #104874;
+  border-color: #104874;
+  background-color: white;
+}
+.btn-thin {
+  padding: 0.25rem 1rem;
+}
+.create-contract-btn{
   padding:10px 25px;
   font-size:22px;
   margin: 1em auto;
   display:inline-block;
   transition: all 0.3s ease;
   border-radius: 3px;
-}
-.create-contract-btn:hover{
-  background-color:#0d3e65;
 }
 
 .wide-table-container {
