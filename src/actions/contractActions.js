@@ -81,7 +81,7 @@ export const getOrderBook = (isSilent) => async dispatch => {
               if (startPrice > 0) {
                 const priceData = await api[provider.type].get();
                 let currentPrice = priceData[priceData.length - 1][1]
-                contractGain = ((currentPrice - startPrice) / startPrice) * 100 * Number(provider.multiplier)
+                contractGain = ((currentPrice - startPrice) / startPrice) * 100 * Number(provider.multiplier) * (tokenType === 1 ? -1 : 1)
               }
               _allrows.push({
                 orderId: orders[j].c[0].toString(),
@@ -91,7 +91,7 @@ export const getOrderBook = (isSilent) => async dispatch => {
                 date: orderDate.toString(),
                 symbol: factories[p].symbol,
                 contractGain: contractGain,
-                tokenType: tokenType === 1 ? 'Short' : 'Long'
+                tokenType: (tokenType === 1 ? 'Short' : 'Long')
                });
             }
           }

@@ -67,12 +67,6 @@ export class ContractDetails extends Component {
               <div className='detail'>{this.formatMoney(this.props.contract.contractStartPrice)}</div>
             </div>
           : ''}
-          {this.props.contract.contractGain ?
-            <div className='detail-segment'>
-              <div className='title'>Current Gain/Loss</div>
-              <div className='detail'>{this.formatPercent(this.props.contract.contractGain)}</div>
-            </div>
-          : ''}
         </div>
       );
 
