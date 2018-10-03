@@ -1,8 +1,7 @@
-import { Factory, Exchange, DRCT, Oracle } from '../ethereum';
+import { Factory, Exchange, DRCT } from '../ethereum';
 import {
   SET_CONTRACT_DETAILS,
   SET_CONTRACT_OPEN_DATES,
-  SET_CONTRACT_START_PRICE,
   SET_ORDERBOOK,
   SET_FETCH_IN_PROGRESS,
   REMOVE_FETCH_IN_PROGRESS,
@@ -10,25 +9,30 @@ import {
   SET_RECENT_TRADES
 } from './types';
 
+import api from '../api';
+import { getStartDatePrice } from './common';
 import FactoryProvider from '../factoryProvider';
 const moment = require('moment');
 
-export const getContractDetails = (symbol) => async dispatch => {
+export const getContractDetails = (symbol, startDate) => async dispatch => {
   try {
     const provider = FactoryProvider.getFromSymbol(symbol);
-    // const factory = await Factory.at(provider && provider.address ? provider.address : '');
-    // const response = await factory.getVariables();
     const details = {
       contractAddress: provider.address,
       contractDuration: provider.duration,
       contractMultiplier: provider.multiplier,
       oracleAddress: provider.oracle
-      // contractAddress: response[0],
-      // contractDuration: response[1].c[0],
-      // contractMultiplier: response[2].c[0],
-      // oracleAddress: response[3]
     };
-
+    let startPrice = await getStartDatePrice(details.oracleAddress, startDate)
+    details.contractStartPrice = Number(startPrice || 0)
+    details.contractCurrentPrice = 0
+    details.contractGain = 0
+    if (details.contractStartPrice > 0) {
+      const priceData = await api[provider.type].get();
+      let currentPrice = priceData[priceData.length - 1][1]
+      details.contractCurrentPrice = currentPrice
+      details.contractGain = ((details.contractCurrentPrice - details.contractStartPrice) / details.contractStartPrice) * 100 * Number(provider.multiplier)
+    }
     dispatch({
       type: SET_CONTRACT_DETAILS,
       payload: details
@@ -41,22 +45,6 @@ export const getContractDetails = (symbol) => async dispatch => {
     });
   }
 };
-
-export const getStartDatePrice = (oracleAddress, startDate) => async dispatch => {
-  try {
-    const oracle = await Oracle.at(oracleAddress)
-    var data = await oracle.retrieveData(startDate);
-    dispatch({
-      type: SET_CONTRACT_START_PRICE,
-      payload: data.c[0]
-    });
-  } catch (err) {
-    dispatch({
-      type: SET_FETCHING_ERROR,
-      payload: err.message.split('\n')[0]
-    });
-  }
-}
 export const getOrderBook = (isSilent) => async dispatch => {
   try {
     if (!isSilent) { dispatch({ type: SET_FETCH_IN_PROGRESS, payload: SET_ORDERBOOK }); };
@@ -70,26 +58,31 @@ export const getOrderBook = (isSilent) => async dispatch => {
       // console.log('book', book)
       for (var p = 0; p < factories.length; p++) {
         const factory = await Factory.at(factories[p].address);
-        // console.log('factory', factories[p].symbol);
+        // console.log('factory', factory);
         let tokenDate = await factory.token_dates.call(book);
-        // console.log('tokenDate', tokenDate)
         if (tokenDate.c[0] === 0) { continue }
         let orders = await exchange.getOrders(book);
         // console.log('orders', orders)
         for (let j = 0; j < orders.length; j++) {
           if (orders[j].c[0] > 0) {
             let order = await exchange.getOrder(orders[j].c[0]);
-            // console.log('order', order)
             let tokenType = (await factory.getTokenType(order[3])).c[0];
             let date = new Date(tokenDate.c[0] * 1000);
-            let startDate = new Date();
-            startDate.setDate(date.getDate() + 1);
             var todayMinusSixDays = new Date();
             todayMinusSixDays.setDate(todayMinusSixDays.getDate() - 6);
             if (date > todayMinusSixDays) {
-              let orderDate = startDate.getUTCMonth() + 1 + '/' +
-                startDate.getUTCDate() + '/' + startDate.getUTCFullYear();
+              let orderDate = date.getUTCMonth() + 1 + '/' +
+                date.getUTCDate() + '/' + date.getUTCFullYear();
               var precisePrice = parseFloat(order[1].c[0]/10000).toFixed(5);
+              let symbol = factories[p].symbol
+              const provider = FactoryProvider.getFromSymbol(symbol);
+              let startPrice = await getStartDatePrice(provider.oracle, orderDate)
+              let contractGain = 0
+              if (startPrice > 0) {
+                const priceData = await api[provider.type].get();
+                let currentPrice = priceData[priceData.length - 1][1]
+                contractGain = ((currentPrice - startPrice) / startPrice) * 100 * Number(provider.multiplier) * (tokenType === 1 ? -1 : 1)
+              }
               _allrows.push({
                 orderId: orders[j].c[0].toString(),
                 address: order[3],
@@ -97,7 +90,8 @@ export const getOrderBook = (isSilent) => async dispatch => {
                 quantity: order[2].c[0].toString(),
                 date: orderDate.toString(),
                 symbol: factories[p].symbol,
-                tokenType: tokenType === 1 ? 'Short' : 'Long'
+                contractGain: contractGain,
+                tokenType: (tokenType === 1 ? 'Short' : 'Long')
                });
             }
           }

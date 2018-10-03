@@ -14,6 +14,8 @@ import {
   SET_CASHOUT_ERROR
 } from './types';
 
+import api from '../api';
+import { getStartDatePrice } from './common';
 import FactoryProvider from '../factoryProvider';
 
 export const getUserAccount = () => async dispatch => {
@@ -31,18 +33,24 @@ export const getUserAccount = () => async dispatch => {
     });
   }
 };
-
+const convertFromBigNumber = (bn) => {
+  let str = bn.c[0].toString()
+  let formattedStr = str.charAt(0) + '.' + str.slice(1)
+  let val = parseFloat(formattedStr/(1e18))
+  let multiplier = '1e' + (bn.e).toString()
+  let adjustedBalance = val * (Number(multiplier))
+  return adjustedBalance
+}
 export const getUserBalance = () => async dispatch => {
   try {
     var staticAddresses = FactoryProvider.getStaticAddresses();
     const wrapped = await Wrapped.at(staticAddresses.wrapped_ether)
     const accounts = await web3.eth.getAccounts();
     let _res = await wrapped.balanceOf(accounts[0]);
-    console.log(_res,'res');
-    let adjustedBalance  = Number(parseFloat(_res.c[0]/(1e18)).toFixed(5));
+    let balance = convertFromBigNumber(_res)
     dispatch({
       type: SET_USER_BALANCE,
-      payload: adjustedBalance
+      payload: Number(balance.toFixed(5))
     });
 
   } catch (err) {
@@ -148,6 +156,13 @@ const getPositionsForFactory = async (provider, userAccount) => {
           let orderDate = date.getUTCMonth() + 1 + '/' +
             date.getUTCDate() + '/' +
             date.getUTCFullYear();
+          let startPrice = await getStartDatePrice(provider.oracle, orderDate)
+          let contractGain = 0
+          if (startPrice) {
+            const priceData = await api[provider.type].get();
+            let currentPrice = priceData[priceData.length - 1][1]
+            contractGain = ((currentPrice - startPrice) / startPrice) * 100 * Number(provider.multiplier) * (tokenType === 1 ? -1 : 1)
+          }
           positions.push({
             address: tokenAddress,
             balance: balance.c[0].toString(),
@@ -155,6 +170,7 @@ const getPositionsForFactory = async (provider, userAccount) => {
             symbol: provider.symbol,
             contractDuration: provider.duration,
             contractMultiplier: provider.multiplier,
+            contractGain: contractGain,
             tokenType: tokenType === 1 ? 'Short' : 'Long'
           });
         }

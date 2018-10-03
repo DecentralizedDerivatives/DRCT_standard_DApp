@@ -3,7 +3,9 @@ import { Row, Col } from 'reactstrap';
 
 const HowTo = () => {
   const section1 = [
-    'All contracts are Ethereum smart contracts that pay out the change in an underlying rate (e.g. BTC/USD) over a time frame (e.g. 7 days)',
+    'The DDA dapp is powered by Ethereum smart contracts that create "Long" and "Short" tokens on the network',
+    'Contracts are agreements to deliver the collateral in the Ethereum Smart Contract on the expiration date to the holder of a given token',
+    'Contracts pay out based upon the movement of an underlying rate (e.g. BTC/USD) over a time frame (e.g. 7 days)',
     'Sometimes the contracts use multipliers too (e.g. 10x)',
     'All Contracts are fully collateralized. The smart contract holds the Ether and the contracts are capped (so a 10x multiplier means that a 10% move is all you can gain or lose from)',
     'Contracts start by a "Creator" creating DRCT Tokens (long and short) for a given rate/duration/start date combination',
@@ -67,12 +69,19 @@ const HowTo = () => {
   return (
     <div className="container mt-5">
       <div className="mx-auto">
-        <h3>Welcome to the DDA dapp!</h3>
+        <h3>Welcome to the DDA dApp!</h3>
         <Row className="ml-3 mt-4 mb-3">
           <h5>
             <em>
               Before we get into specifics, let's talk about how the contracts
               work.
+            </em>
+          </h5>
+        </Row>
+        <Row className="ml-3 mt-4 mb-3">
+          <h5>
+            <em>
+              For a video walkthrough on how to use the site, check out our tutorial: <a href="https://youtu.be/hRAZeCvJ6lQ">https://youtu.be/hRAZeCvJ6lQ</a>
             </em>
           </h5>
         </Row>

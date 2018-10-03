@@ -7,7 +7,6 @@ import ContractDetails from './ContractDetails';
 import PriceChart from './PriceChart';
 import List from './List';
 import Unlist from './Unlist';
-import Buy from './Buy';
 import {
   getUserAccount,
   getUserTokenPositions,
@@ -16,13 +15,10 @@ import {
 import {
   getOrderBook,
   getRecentTrades,
-  getContractDetails,
-  getStartDatePrice
+  getContractDetails
 } from '../actions/contractActions';
 import { setSelectedToken } from '../actions/selectedActions';
 import requireConnection from './requireConnection';
-
-const moment = require('moment');
 
 // Use named export for unconnected component for testing
 export class Bulletin extends Component {
@@ -53,11 +49,7 @@ export class Bulletin extends Component {
   handleRowClick = async (tokenAddress, symbol, date, e) => {
     e.preventDefault();
     await this.props.setSelectedToken(tokenAddress);
-    var details = await this.props.getContractDetails(symbol);
-    const startDate = date ? moment(date, 'MM/DD/YYYY') : null;
-    if (startDate && startDate.isBefore(moment().startOf('day'))) {
-      await this.props.getStartDatePrice(details.oracleAddress, startDate.format('x'));
-    }
+    await this.props.getContractDetails(symbol, date);
     this.setState({
       detailsOpen: true
     });
@@ -82,10 +74,9 @@ export class Bulletin extends Component {
   render() {
     return (
       <div id="bulletin">
-        <OrderBook onRowClick={this.handleRowClick} />
+        <OrderBook onRowClick={this.handleRowClick} refreshPage={this.refreshPage} />
 
         <div className="order-buttons">
-          <Buy refreshPage={this.refreshPage}/>
           <List refreshPage={this.refreshPage}/>
           <Unlist refreshPage={this.refreshPage}/>
         </div>
@@ -105,7 +96,6 @@ Bulletin.propTypes = {
   getOrderBook: PropTypes.func.isRequired,
   getRecentTrades: PropTypes.func.isRequired,
   getContractDetails: PropTypes.func.isRequired,
-  getStartDatePrice: PropTypes.func.isRequired,
   getUserTokenPositions: PropTypes.func.isRequired,
   getUserOrders: PropTypes.func.isRequired,
   setSelectedToken: PropTypes.func.isRequired,
@@ -125,7 +115,6 @@ export default connect(
     getRecentTrades,
     setSelectedToken,
     getContractDetails,
-    getStartDatePrice,
     getUserTokenPositions,
     getUserOrders
   }

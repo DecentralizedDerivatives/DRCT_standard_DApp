@@ -69,7 +69,7 @@ const getOrderDetailForFactory = async (factory, order, orderId) => {
 
 export const sendBuyOrder = (orderId, account) => async dispatch => {
   dispatch(setProcessing(true));
-
+  dispatch({type: SET_BUY_ORDER_ERROR, payload: null });
   try {
     orderId = parseInt(orderId, 10);
     var staticAddresses = FactoryProvider.getStaticAddresses();
@@ -90,7 +90,7 @@ export const sendBuyOrder = (orderId, account) => async dispatch => {
       }
     });
   } catch (err) {
-    console.log('err', err.message)
+    // console.log('err', err.message)
     dispatch({
       type: SET_BUY_ORDER_ERROR,
       payload: err.message.split('\n')[0]

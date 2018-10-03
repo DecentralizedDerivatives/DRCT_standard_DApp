@@ -3,8 +3,14 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Loading from './Loading';
 import { SET_USER_POSITIONS } from '../actions/types';
+import { formatter } from '../formatter'
 
 export class MyPositions extends Component {
+  formatPercent (val, empty) {
+    if (!val) { return <span> {empty || '$0'} </span> }
+    var cls = val < 0 ? 'warning' : ''
+    return <span className={cls}>{formatter.toPercent(val)}</span>
+  }
   renderRows = () => {
     if (this.props.loading) {
       return <tr><td colSpan='12' style={{textAlign: 'center'}}><Loading /></td></tr>
@@ -20,7 +26,8 @@ export class MyPositions extends Component {
         symbol,
         contractDuration,
         contractMultiplier,
-        tokenType
+        tokenType,
+        contractGain
       } = position;
 
       return (
@@ -30,6 +37,7 @@ export class MyPositions extends Component {
           </td>
           <td>{balance}</td>
           <td>{date}</td>
+          <td>{this.formatPercent(contractGain, ' -- ')}</td>
         </tr>
       );
     });
@@ -44,8 +52,9 @@ export class MyPositions extends Component {
           <thead>
             <tr>
               <th style={{width: '30%'}}>Asset</th>
-              <th style={{width: '30%'}}>Balance</th>
+              <th style={{width: '20%'}}>Balance</th>
               <th>Start Date</th>
+              <th>Gain/Loss</th>
             </tr>
           </thead>
           <tbody>{this.renderRows()}</tbody>

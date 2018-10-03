@@ -3,9 +3,31 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Loading from './Loading';
 import { getOrderBook } from '../actions/contractActions';
+import { sendBuyOrder } from '../actions/orderActions';
 import { SET_ORDERBOOK } from '../actions/types';
-// Use named export for unconnected component for testing
+import { formatter } from '../formatter'
+
 export class OrderBook extends Component {
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.buyOrderTx) {
+      this.props.refreshPage(true)
+    }
+  }
+  formatMoney (val, empty) {
+    if (!val) { return <span> {empty || '$0'} </span> }
+    var cls = val < 0 ? 'warning' : ''
+    return <span className={cls}>{formatter.toDollars(val)}</span>
+  }
+  formatPercent (val, empty) {
+    if (!val) { return <span> {empty || '$0'} </span> }
+    var cls = val < 0 ? 'warning' : ''
+    return <span className={cls}>{formatter.toPercent(val)}</span>
+  }
+  handleBuy (orderId, e) {
+    e.preventDefault()
+    e.stopPropagation()
+    this.props.sendBuyOrder(orderId, this.props.userAccount)
+  }
   renderRows = () => {
     if (this.props.loading) {
       return <tr><td colSpan='12' style={{textAlign: 'center'}}><Loading /></td></tr>
@@ -14,7 +36,7 @@ export class OrderBook extends Component {
       return <tr><td colSpan='12' style={{textAlign: 'center'}}><h5>No Recent Orders</h5></td></tr>
     }
     var rows = this.props.orderbook.map(order => {
-      const { orderId, address, price, quantity, date, symbol, tokenType } = order;
+      const { orderId, address, price, quantity, date, symbol, tokenType, contractGain } = order;
       return (
         <tr key={orderId} className='clickable' onClick={this.props.onRowClick.bind(this, address, symbol, date)}>
           <td>{orderId}</td>
@@ -22,6 +44,10 @@ export class OrderBook extends Component {
           <td>{price}</td>
           <td>{quantity}</td>
           <td>{date}</td>
+          <td>{this.formatPercent(contractGain, ' -- ')}</td>
+          <td style={{padding: '0.4rem'}}>
+            <button className='btn btn-theme btn-thin' onClick={this.handleBuy.bind(this, orderId)}>Buy</button>
+          </td>
         </tr>
       );
     });
@@ -34,14 +60,16 @@ export class OrderBook extends Component {
         <table className="table table-hover table-striped table-responsive">
           <thead>
             <tr>
-              <th colSpan='6'>Order Book</th>
+              <th colSpan='6'>Order Book<div className='warning'>{this.props.buyOrderError}</div></th>
             </tr>
             <tr>
-              <th style={{width: '20%'}}>Order Id</th>
+              <th style={{width: '15%'}}>Order Id</th>
               <th style={{width: '40%'}}>Asset</th>
-              <th>Price (ETH)</th>
-              <th>Quantity</th>
+              <th style={{width: '15%'}}>Price (ETH)</th>
+              <th style={{width: '15%'}}>Quantity</th>
               <th>Start Date</th>
+              <th>Gain/Loss</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>{this.renderRows()}</tbody>
@@ -56,17 +84,21 @@ OrderBook.propTypes = {
   loading: PropTypes.bool.isRequired,
   orderbook: PropTypes.array.isRequired,
   contractDuration: PropTypes.number.isRequired,
-  contractMultiplier: PropTypes.number.isRequired
+  contractMultiplier: PropTypes.number.isRequired,
+  userAccount: PropTypes.string,
+  buyOrderError: PropTypes.string
 };
 
 const mapStateToProps = state => ({
   loading: state.status.fetchInProgress.includes(SET_ORDERBOOK),
   orderbook: state.contract.orderbook,
+  userAccount: state.user.userAccount,
   contractDuration: state.contract.contractDuration,
-  contractMultiplier: state.contract.contractMultiplier
+  contractMultiplier: state.contract.contractMultiplier,
+  buyOrderError: state.order.buyOrderError
 });
 
 export default connect(
   mapStateToProps,
-  { getOrderBook }
+  { getOrderBook, sendBuyOrder }
 )(OrderBook);
