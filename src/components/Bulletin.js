@@ -6,7 +6,6 @@ import RecentTrades from './RecentTrades';
 import ContractDetails from './ContractDetails';
 import PriceChart from './PriceChart';
 import List from './List';
-import Unlist from './Unlist';
 import {
   getUserAccount,
   getUserTokenPositions,
@@ -78,7 +77,6 @@ export class Bulletin extends Component {
 
         <div className="order-buttons">
           <List refreshPage={this.refreshPage}/>
-          <Unlist refreshPage={this.refreshPage}/>
         </div>
 
         <div className="price-chart">

@@ -62,7 +62,6 @@ export const getOrderBook = (isSilent) => async dispatch => {
         let tokenDate = await factory.token_dates.call(book);
         if (tokenDate.c[0] === 0) { continue }
         let orders = await exchange.getOrders(book);
-        // console.log('orders', orders)
         for (let j = 0; j < orders.length; j++) {
           if (orders[j].c[0] > 0) {
             let order = await exchange.getOrder(orders[j].c[0]);
@@ -85,6 +84,7 @@ export const getOrderBook = (isSilent) => async dispatch => {
               }
               _allrows.push({
                 orderId: orders[j].c[0].toString(),
+                creatorAddress: order[0],
                 address: order[3],
                 price: precisePrice,
                 quantity: order[2].c[0].toString(),
