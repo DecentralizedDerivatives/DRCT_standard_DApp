@@ -33,11 +33,11 @@ export class ContractDetails extends Component {
           </div>
           <div className='detail-segment'>
             <div className='title'>Duration</div>
-            <div className='detail'>{this.props.contract.contractDuration}</div>
+            <div className='detail'>{this.props.contract.contractDuration} days</div>
           </div>
           <div className='detail-segment'>
             <div className='title'>Multiplier</div>
-            <div className='detail'>{this.props.contract.contractMultiplier}</div>
+            <div className='detail'>{this.props.contract.contractMultiplier}X</div>
           </div>
           <div className='detail-segment'>
             <div className='title'>Oracle Address</div>
