@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
+import { Switch, Route, Redirect, BrowserRouter as Router } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import 'react-dates/initialize';
@@ -28,7 +28,11 @@ class AppRouter extends Component {
   componentWillUpdate() {
     this.props.checkUserConnection();
   }
-
+  chooseInitialRoute(){
+    if (this.props.metamask && this.props.network === FactoryProvider.getNetworkId()){
+      return (<Redirect to="/bulletin"  />)
+    } 
+  }
   render() {
     return (
       <Router>
@@ -51,6 +55,7 @@ class AppRouter extends Component {
             (
               <Terms close={() => { this.setState({showTerms: Boolean(false)}); }} />
             ) : ''}
+            {this.chooseInitialRoute()}
         </div>
       </Router>
     );
