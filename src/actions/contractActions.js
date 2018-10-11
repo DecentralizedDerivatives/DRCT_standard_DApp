@@ -136,6 +136,12 @@ export const getRecentTrades = (isSilent) => async dispatch => {
             date.getUTCDate() + '/' + date.getUTCFullYear();
           let tokenType = (await factory.getTokenType(token)).c[0];
           var provider = FactoryProvider.getFromAddress(factoryAddress);
+          const exchange = await Exchange.at(staticAddresses.exchange);
+      
+          let book = await exchange.openBooks(i);
+          let tokenDate = await factory.token_dates.call(book);
+          let date = new Date(tokenDate.c[0] * 1000);
+
           var precisePrice = parseFloat(events[i].args['_price']/1e18).toFixed(5);
           trades.push({
             address: token,
@@ -145,7 +151,8 @@ export const getRecentTrades = (isSilent) => async dispatch => {
             contractDuration: provider && provider.duration ? provider.duration : 0,
             contractMultiplier: provider && provider.multiplier ? provider.multiplier : 0,
             symbol: provider && provider.symbol ? provider.symbol : '??',
-            tokenType: tokenType === 1 ? 'Short' : 'Long'
+            tokenType: tokenType === 1 ? 'Short' : 'Long',
+            date: date.toString()
           });
         }
       }
