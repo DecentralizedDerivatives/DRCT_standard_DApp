@@ -132,13 +132,17 @@ export const getRecentTrades = (isSilent) => async dispatch => {
 
     transferEvent.get(async function (err, events) {
       var trades = [];
-      
+
       if (events.length > 0) {
         for (let i = events.length - 1; i >= Math.max(events.length - 10, 0); i--) {
           var token = events[i].args['_token'].toString();
           var drct = DRCT.at(token);
           var factoryAddress = await drct.getFactoryAddress();
           const factory = await Factory.at(factoryAddress);
+          let tokenDate = await factory.token_dates.call(token);
+          let date = new Date(tokenDate.c[0] * 1000);
+          let orderDate = date.getUTCMonth() + 1 + '/' +
+            date.getUTCDate() + '/' + date.getUTCFullYear();
           let tokenType = (await factory.getTokenType(token)).c[0];
           var provider = FactoryProvider.getFromAddress(factoryAddress);
           var precisePrice = parseFloat(events[i].args['_price']/1e18).toFixed(5);
@@ -146,6 +150,7 @@ export const getRecentTrades = (isSilent) => async dispatch => {
             address: token,
             volume: events[i].args['_amount'].toString(),
             price: precisePrice,
+            orderDate: orderDate,
             contractDuration: provider && provider.duration ? provider.duration : 0,
             contractMultiplier: provider && provider.multiplier ? provider.multiplier : 0,
             symbol: provider && provider.symbol ? provider.symbol : '??',

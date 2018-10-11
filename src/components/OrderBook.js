@@ -36,7 +36,7 @@ export class OrderBook extends Component {
   }
 
   renderUnlist(orderId, creatorAddress){
-    if (creatorAddress.toLowerCase() == this.props.userAccount.toLowerCase()){
+    if (creatorAddress.toLowerCase() === this.props.userAccount.toLowerCase()){
       return (
         <td style={{padding: '0.4rem'}}>
           <button className='btn btn-thin' onClick={this.handleUnlist.bind(this,orderId)}>Unlist</button>
