@@ -8,7 +8,7 @@ import { formatter } from '../formatter'
 export class MyPositions extends Component {
   formatPercent (val, empty) {
     if (!val) { return <span> {empty || '$0'} </span> }
-    var cls = val < 0 ? 'warning' : ''
+    var cls = val < 0 ? 'warning' : 'success'
     return <span className={cls}>{formatter.toPercent(val)}</span>
   }
   renderRows = () => {

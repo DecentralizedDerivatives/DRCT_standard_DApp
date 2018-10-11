@@ -150,30 +150,26 @@ const getPositionsForFactory = async (provider, userAccount) => {
       let balance = await drct.balanceOf(userAccount);
       if (balance.c[0] > 0) {
         let date = new Date(startDate * 1000);
-        var todayMinusSixDays = new Date();
-        todayMinusSixDays.setDate(todayMinusSixDays.getDate() - 6);
-        if (date > todayMinusSixDays) {
-          let orderDate = date.getUTCMonth() + 1 + '/' +
-            date.getUTCDate() + '/' +
-            date.getUTCFullYear();
-          let startPrice = await getStartDatePrice(provider.oracle, orderDate)
-          let contractGain = 0
-          if (startPrice) {
-            const priceData = await api[provider.type].get();
-            let currentPrice = priceData[priceData.length - 1][1]
-            contractGain = ((currentPrice - startPrice) / startPrice) * 100 * Number(provider.multiplier) * (tokenType === 1 ? -1 : 1)
-          }
-          positions.push({
-            address: tokenAddress,
-            balance: balance.c[0].toString(),
-            date: orderDate.toString(),
-            symbol: provider.symbol,
-            contractDuration: provider.duration,
-            contractMultiplier: provider.multiplier,
-            contractGain: contractGain,
-            tokenType: tokenType === 1 ? 'Short' : 'Long'
-          });
+        let orderDate = date.getUTCMonth() + 1 + '/' +
+          date.getUTCDate() + '/' +
+          date.getUTCFullYear();
+        let startPrice = await getStartDatePrice(provider.oracle, orderDate)
+        let contractGain = 0
+        if (startPrice) {
+          const priceData = await api[provider.type].get();
+          let currentPrice = priceData[priceData.length - 1][1]
+          contractGain = ((currentPrice - startPrice) / startPrice) * 100 * Number(provider.multiplier) * (tokenType === 1 ? -1 : 1)
         }
+        positions.push({
+          address: tokenAddress,
+          balance: balance.c[0].toString(),
+          date: orderDate.toString(),
+          symbol: provider.symbol,
+          contractDuration: provider.duration,
+          contractMultiplier: provider.multiplier,
+          contractGain: contractGain,
+          tokenType: tokenType === 1 ? 'Short' : 'Long'
+        });
       }
     }
   }
