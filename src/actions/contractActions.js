@@ -132,7 +132,7 @@ export const getRecentTrades = (isSilent) => async dispatch => {
 
     transferEvent.get(async function (err, events) {
       var trades = [];
-      
+
       if (events.length > 0) {
         for (let i = events.length - 1; i >= Math.max(events.length - 10, 0); i--) {
           var token = events[i].args['_token'].toString();
@@ -141,6 +141,12 @@ export const getRecentTrades = (isSilent) => async dispatch => {
           const factory = await Factory.at(factoryAddress);
           let tokenType = (await factory.getTokenType(token)).c[0];
           var provider = FactoryProvider.getFromAddress(factoryAddress);
+          const exchange = await Exchange.at(staticAddresses.exchange);
+      
+          let book = await exchange.openBooks(i);
+          let tokenDate = await factory.token_dates.call(book);
+          let date = new Date(tokenDate.c[0] * 1000);
+
           var precisePrice = parseFloat(events[i].args['_price']/1e18).toFixed(5);
           trades.push({
             address: token,
@@ -149,7 +155,8 @@ export const getRecentTrades = (isSilent) => async dispatch => {
             contractDuration: provider && provider.duration ? provider.duration : 0,
             contractMultiplier: provider && provider.multiplier ? provider.multiplier : 0,
             symbol: provider && provider.symbol ? provider.symbol : '??',
-            tokenType: tokenType === 1 ? 'Short' : 'Long'
+            tokenType: tokenType === 1 ? 'Short' : 'Long',
+            date: date.toString()
           });
         }
       }
