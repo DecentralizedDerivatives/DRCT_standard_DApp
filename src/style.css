@@ -28,6 +28,9 @@ button {
 .warning {
   color: red;
 }
+.success {
+  color: green;
+}
 .order-book {
   border-bottom: solid 2px #ccc;
 }

@@ -54,34 +54,25 @@ export const getOrderBook = (isSilent) => async dispatch => {
     var factories = FactoryProvider.factories();
     let _allrows = [];
     for (let i = 0; i < numBooks; i++) {
-
       let book = await exchange.openBooks(i);
-
       for (var p = 0; p < factories.length; p++) {
         const factory = await Factory.at(factories[p].address);
         let tokenDate = await factory.token_dates.call(book);
-
         if (tokenDate.c[0] === 0) { continue }
-
         let orders = await exchange.getOrders(book);
-
         for (let j = 0; j < orders.length; j++) {
           if (orders[j].c[0] > 0) {
             let order = await exchange.getOrder(orders[j].c[0]);
             let tokenType = (await factory.getTokenType(order[3])).c[0];
             let date = new Date(tokenDate.c[0] * 1000);
-            var todayMinusSixDays = new Date();
-            todayMinusSixDays.setDate(todayMinusSixDays.getDate() - 6);
-
-            if (date > todayMinusSixDays) {
-              let orderDate = date.getUTCMonth() + 1 + '/' +
-                date.getUTCDate() + '/' + date.getUTCFullYear();
+            let endDate = moment(date).utc().add(6, 'days')
+            if (moment().utc().isSameOrBefore(endDate)) {
+              let orderDate = moment(date).utc().format('MM/DD/YYYY')
               var precisePrice = parseFloat(order[1].c[0]/10000).toFixed(5);
               let symbol = factories[p].symbol
               const provider = FactoryProvider.getFromSymbol(symbol);
               let startPrice = await getStartDatePrice(provider.oracle, orderDate)
               let contractGain = 0
-
               if (startPrice > 0) {
                 const priceData = await api[provider.type].get();
                 let currentPrice = priceData[priceData.length - 1][1]
@@ -139,6 +130,10 @@ export const getRecentTrades = (isSilent) => async dispatch => {
           var drct = DRCT.at(token);
           var factoryAddress = await drct.getFactoryAddress();
           const factory = await Factory.at(factoryAddress);
+          let tokenDate = await factory.token_dates.call(token);
+          let date = new Date(tokenDate.c[0] * 1000);
+          let orderDate = date.getUTCMonth() + 1 + '/' +
+            date.getUTCDate() + '/' + date.getUTCFullYear();
           let tokenType = (await factory.getTokenType(token)).c[0];
           var provider = FactoryProvider.getFromAddress(factoryAddress);
           const exchange = await Exchange.at(staticAddresses.exchange);
@@ -152,6 +147,7 @@ export const getRecentTrades = (isSilent) => async dispatch => {
             address: token,
             volume: events[i].args['_amount'].toString(),
             price: precisePrice,
+            orderDate: orderDate,
             contractDuration: provider && provider.duration ? provider.duration : 0,
             contractMultiplier: provider && provider.multiplier ? provider.multiplier : 0,
             symbol: provider && provider.symbol ? provider.symbol : '??',

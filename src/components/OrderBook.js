@@ -19,8 +19,8 @@ export class OrderBook extends Component {
     return <span className={cls}>{formatter.toDollars(val)}</span>
   }
   formatPercent (val, empty) {
-    if (!val) { return <span> {empty || '$0'} </span> }
-    var cls = val < 0 ? 'warning' : ''
+    if (!val) { return <span> {empty || ' -- '} </span> }
+    var cls = val < 0 ? 'warning' : 'success'
     return <span className={cls}>{formatter.toPercent(val)}</span>
   }
   handleBuy (orderId, e) {
@@ -36,7 +36,7 @@ export class OrderBook extends Component {
   }
 
   renderUnlist(orderId, creatorAddress){
-    if (creatorAddress.toLowerCase() == this.props.userAccount.toLowerCase()){
+    if (creatorAddress.toLowerCase() === this.props.userAccount.toLowerCase()){
       return (
         <td style={{padding: '0.4rem'}}>
           <button className='btn btn-thin' onClick={this.handleUnlist.bind(this,orderId)}>Unlist</button>
