@@ -29,7 +29,9 @@ class AppRouter extends Component {
     this.props.checkUserConnection();
   }
   chooseInitialRoute(){
+    console.log('hey')
     if (this.props.metamask && this.props.network === FactoryProvider.getNetworkId()){
+      console.log('hey2')
       return (<Redirect to="/bulletin"  />)
     } 
   }
