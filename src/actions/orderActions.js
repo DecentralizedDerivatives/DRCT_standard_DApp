@@ -211,7 +211,8 @@ export const sendCreateContractOrder = (
 ) => async dispatch => {
   dispatch(setProcessing(true));
 
-  const { duration, currency, startDate, amount } = formValues;
+  const { duration, currency, startDate } = formValues;
+  var amount = formValues.amount / 2;
   try {
     const factory = await Factory.at(currency);
     const response = await factory.deployContract(startDate, {

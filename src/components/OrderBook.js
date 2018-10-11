@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Loading from './Loading';
 import { getOrderBook } from '../actions/contractActions';
-import { sendBuyOrder } from '../actions/orderActions';
+import { sendBuyOrder,sendUnlistOrder } from '../actions/orderActions';
 import { SET_ORDERBOOK } from '../actions/types';
 import { formatter } from '../formatter'
 
@@ -28,6 +28,22 @@ export class OrderBook extends Component {
     e.stopPropagation()
     this.props.sendBuyOrder(orderId, this.props.userAccount)
   }
+
+  handleUnlist(orderId, e){
+    e.preventDefault()
+    e.stopPropagation()
+    this.props.sendUnlistOrder(orderId,this.props.userAccount)
+  }
+
+  renderUnlist(orderId, creatorAddress){
+    if (creatorAddress.toLowerCase() == this.props.userAccount.toLowerCase()){
+      return (
+        <td style={{padding: '0.4rem'}}>
+          <button className='btn btn-thin' onClick={this.handleUnlist.bind(this,orderId)}>Unlist</button>
+        </td>
+        )
+    }
+  }
   renderRows = () => {
     if (this.props.loading) {
       return <tr><td colSpan='12' style={{textAlign: 'center'}}><Loading /></td></tr>
@@ -36,7 +52,7 @@ export class OrderBook extends Component {
       return <tr><td colSpan='12' style={{textAlign: 'center'}}><h5>No Recent Orders</h5></td></tr>
     }
     var rows = this.props.orderbook.map(order => {
-      const { orderId, address, price, quantity, date, symbol, tokenType, contractGain } = order;
+      const { orderId, address, creatorAddress, price, quantity, date, symbol, tokenType, contractGain } = order;
       return (
         <tr key={orderId} className='clickable' onClick={this.props.onRowClick.bind(this, address, symbol, date)}>
           <td>{orderId}</td>
@@ -48,6 +64,7 @@ export class OrderBook extends Component {
           <td style={{padding: '0.4rem'}}>
             <button className='btn btn-theme btn-thin' onClick={this.handleBuy.bind(this, orderId)}>Buy</button>
           </td>
+          {this.renderUnlist(orderId,creatorAddress)}
         </tr>
       );
     });
@@ -100,5 +117,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getOrderBook, sendBuyOrder }
+  { getOrderBook, sendBuyOrder, sendUnlistOrder  }
 )(OrderBook);

@@ -54,15 +54,17 @@ export const getOrderBook = (isSilent) => async dispatch => {
     var factories = FactoryProvider.factories();
     let _allrows = [];
     for (let i = 0; i < numBooks; i++) {
+
       let book = await exchange.openBooks(i);
-      // console.log('book', book)
+
       for (var p = 0; p < factories.length; p++) {
         const factory = await Factory.at(factories[p].address);
-        // console.log('factory', factory);
         let tokenDate = await factory.token_dates.call(book);
+
         if (tokenDate.c[0] === 0) { continue }
+
         let orders = await exchange.getOrders(book);
-        // console.log('orders', orders)
+
         for (let j = 0; j < orders.length; j++) {
           if (orders[j].c[0] > 0) {
             let order = await exchange.getOrder(orders[j].c[0]);
@@ -70,6 +72,7 @@ export const getOrderBook = (isSilent) => async dispatch => {
             let date = new Date(tokenDate.c[0] * 1000);
             var todayMinusSixDays = new Date();
             todayMinusSixDays.setDate(todayMinusSixDays.getDate() - 6);
+
             if (date > todayMinusSixDays) {
               let orderDate = date.getUTCMonth() + 1 + '/' +
                 date.getUTCDate() + '/' + date.getUTCFullYear();
@@ -78,6 +81,7 @@ export const getOrderBook = (isSilent) => async dispatch => {
               const provider = FactoryProvider.getFromSymbol(symbol);
               let startPrice = await getStartDatePrice(provider.oracle, orderDate)
               let contractGain = 0
+
               if (startPrice > 0) {
                 const priceData = await api[provider.type].get();
                 let currentPrice = priceData[priceData.length - 1][1]
@@ -85,6 +89,7 @@ export const getOrderBook = (isSilent) => async dispatch => {
               }
               _allrows.push({
                 orderId: orders[j].c[0].toString(),
+                creatorAddress: order[0],
                 address: order[3],
                 price: precisePrice,
                 quantity: order[2].c[0].toString(),
@@ -126,19 +131,22 @@ export const getRecentTrades = (isSilent) => async dispatch => {
     );
 
     transferEvent.get(async function (err, events) {
-      // console.log('events', events);
       var trades = [];
+
       if (events.length > 0) {
         for (let i = events.length - 1; i >= Math.max(events.length - 10, 0); i--) {
           var token = events[i].args['_token'].toString();
-          // console.log('token', token);
           var drct = DRCT.at(token);
-          // console.log('drct', drct);
           var factoryAddress = await drct.getFactoryAddress();
           const factory = await Factory.at(factoryAddress);
           let tokenType = (await factory.getTokenType(token)).c[0];
-          // console.log('factoryAddress', factoryAddress);
           var provider = FactoryProvider.getFromAddress(factoryAddress);
+          const exchange = await Exchange.at(staticAddresses.exchange);
+      
+          let book = await exchange.openBooks(i);
+          let tokenDate = await factory.token_dates.call(book);
+          let date = new Date(tokenDate.c[0] * 1000);
+
           var precisePrice = parseFloat(events[i].args['_price']/1e18).toFixed(5);
           trades.push({
             address: token,
@@ -147,7 +155,8 @@ export const getRecentTrades = (isSilent) => async dispatch => {
             contractDuration: provider && provider.duration ? provider.duration : 0,
             contractMultiplier: provider && provider.multiplier ? provider.multiplier : 0,
             symbol: provider && provider.symbol ? provider.symbol : '??',
-            tokenType: tokenType === 1 ? 'Short' : 'Long'
+            tokenType: tokenType === 1 ? 'Short' : 'Long',
+            date: date.toString()
           });
         }
       }

@@ -12,9 +12,9 @@ export class RecentTrades extends Component {
       return <tr><td colSpan='12' style={{textAlign: 'center'}}><Loading /></td></tr>
     }
     var rows = this.props.recentTrades.map((trade, index) => {
-      const { address, volume, price, symbol, tokenType, contractDuration, contractMultiplier } = trade;
+      const { address, volume, price, symbol, tokenType, contractDuration, contractMultiplier, date} = trade;
       return (
-        <tr key={index} className='clickable' onClick={this.props.onRowClick.bind(this, address, symbol, null)}>
+        <tr key={index} className='clickable' onClick={this.props.onRowClick.bind(this, address, symbol, date)}>
           <td>{tokenType} {symbol} - {contractDuration} Days - {' ' + contractMultiplier}X
           </td>
           <td>{volume}</td>
