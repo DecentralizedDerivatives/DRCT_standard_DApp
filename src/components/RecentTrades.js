@@ -14,7 +14,7 @@ export class RecentTrades extends Component {
     var rows = this.props.recentTrades.map((trade, index) => {
       const { address, volume, orderDate, price, symbol, tokenType, contractDuration, contractMultiplier } = trade;
       return (
-        <tr key={index} className='clickable' onClick={this.props.onRowClick.bind(this, address, symbol, null)}>
+        <tr key={index} className='clickable' onClick={this.props.onRowClick.bind(this, address, symbol, orderDate)}>
           <td>{tokenType} {symbol} - {contractDuration} Days - {' ' + contractMultiplier}X</td>
           <td>{orderDate}</td>
           <td>{volume}</td>
