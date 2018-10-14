@@ -55,24 +55,19 @@ export const getOrderBook = (isSilent) => async dispatch => {
     let _allrows = [];
     for (let i = 0; i < numBooks; i++) {
       let book = await exchange.openBooks(i);
-      // console.log('book', book)
       for (var p = 0; p < factories.length; p++) {
         const factory = await Factory.at(factories[p].address);
-        // console.log('factory', factory);
         let tokenDate = await factory.token_dates.call(book);
         if (tokenDate.c[0] === 0) { continue }
         let orders = await exchange.getOrders(book);
-        // console.log('orders', orders)
         for (let j = 0; j < orders.length; j++) {
           if (orders[j].c[0] > 0) {
             let order = await exchange.getOrder(orders[j].c[0]);
             let tokenType = (await factory.getTokenType(order[3])).c[0];
             let date = new Date(tokenDate.c[0] * 1000);
-            var todayMinusSixDays = new Date();
-            todayMinusSixDays.setDate(todayMinusSixDays.getDate() - 6);
-            if (date > todayMinusSixDays) {
-              let orderDate = date.getUTCMonth() + 1 + '/' +
-                date.getUTCDate() + '/' + date.getUTCFullYear();
+            let endDate = moment(date).utc().add(6, 'days')
+            if (moment().utc().isSameOrBefore(endDate)) {
+              let orderDate = moment(date).utc().format('MM/DD/YYYY')
               var precisePrice = parseFloat(order[1].c[0]/10000).toFixed(5);
               let symbol = factories[p].symbol
               const provider = FactoryProvider.getFromSymbol(symbol);
@@ -85,6 +80,7 @@ export const getOrderBook = (isSilent) => async dispatch => {
               }
               _allrows.push({
                 orderId: orders[j].c[0].toString(),
+                creatorAddress: order[0],
                 address: order[3],
                 price: precisePrice,
                 quantity: order[2].c[0].toString(),
@@ -126,28 +122,31 @@ export const getRecentTrades = (isSilent) => async dispatch => {
     );
 
     transferEvent.get(async function (err, events) {
-      // console.log('events', events);
       var trades = [];
+
       if (events.length > 0) {
         for (let i = events.length - 1; i >= Math.max(events.length - 10, 0); i--) {
           var token = events[i].args['_token'].toString();
-          // console.log('token', token);
           var drct = DRCT.at(token);
-          // console.log('drct', drct);
           var factoryAddress = await drct.getFactoryAddress();
           const factory = await Factory.at(factoryAddress);
+          let tokenDate = await factory.token_dates.call(token);
+          let date = new Date(tokenDate.c[0] * 1000);
+          let orderDate = date.getUTCMonth() + 1 + '/' +
+            date.getUTCDate() + '/' + date.getUTCFullYear();
           let tokenType = (await factory.getTokenType(token)).c[0];
-          // console.log('factoryAddress', factoryAddress);
           var provider = FactoryProvider.getFromAddress(factoryAddress);
           var precisePrice = parseFloat(events[i].args['_price']/1e18).toFixed(5);
           trades.push({
             address: token,
             volume: events[i].args['_amount'].toString(),
             price: precisePrice,
+            orderDate: orderDate,
             contractDuration: provider && provider.duration ? provider.duration : 0,
             contractMultiplier: provider && provider.multiplier ? provider.multiplier : 0,
             symbol: provider && provider.symbol ? provider.symbol : '??',
-            tokenType: tokenType === 1 ? 'Short' : 'Long'
+            tokenType: tokenType === 1 ? 'Short' : 'Long',
+            date: date.toString()
           });
         }
       }

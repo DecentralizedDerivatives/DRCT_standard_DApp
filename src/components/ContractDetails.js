@@ -12,7 +12,7 @@ export class ContractDetails extends Component {
   }
   formatPercent (val, empty) {
     if (!val) { return <span> {empty || '$0'} </span> }
-    var cls = val < 0 ? 'warning' : ''
+    var cls = val < 0 ? 'warning' : 'success'
     return <span className={cls}>{formatter.toPercent(val)}</span>
   }
   renderdiv() {
@@ -33,11 +33,11 @@ export class ContractDetails extends Component {
           </div>
           <div className='detail-segment'>
             <div className='title'>Duration</div>
-            <div className='detail'>{this.props.contract.contractDuration}</div>
+            <div className='detail'>{this.props.contract.contractDuration} days</div>
           </div>
           <div className='detail-segment'>
             <div className='title'>Multiplier</div>
-            <div className='detail'>{this.props.contract.contractMultiplier}</div>
+            <div className='detail'>{this.props.contract.contractMultiplier}X</div>
           </div>
           <div className='detail-segment'>
             <div className='title'>Oracle Address</div>

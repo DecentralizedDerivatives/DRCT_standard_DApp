@@ -28,6 +28,9 @@ button {
 .warning {
   color: red;
 }
+.success {
+  color: green;
+}
 .order-book {
   border-bottom: solid 2px #ccc;
 }
@@ -121,23 +124,23 @@ button {
 .order-btn{
  width:85%;
  height:45px;
- background-color:transparent;
- border-bottom:2px solid var(--color-blue);
  text-align:center;
  border-radius:5px;
  display:inline-block;
  margin: 15px 0;
- cursor:pointer;
+cursor: pointer;
+border:1px solid grey;
+background-color:#104874;
+color:white;
 }
 .order-btn-label{
   margin-top:8px;
-  color:var(--color-blue);;
   font-size:20px;
   cursor:pointer;
 }
 
 .order-btn-button{
-  margin-top:8px;
+  margin-top:20px;
   width:100%;
    background-color: Transparent;
     background-repeat:no-repeat;
@@ -147,6 +150,12 @@ button {
   font-size:20px;
   cursor:pointer;
 }
+.order-btn:hover{
+  color: #104874;
+  border-color: #104874;
+  background-color: white;
+}
+
 .order-modal{
   z-index: 99;
   width:400px;

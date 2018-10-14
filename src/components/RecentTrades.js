@@ -12,11 +12,11 @@ export class RecentTrades extends Component {
       return <tr><td colSpan='12' style={{textAlign: 'center'}}><Loading /></td></tr>
     }
     var rows = this.props.recentTrades.map((trade, index) => {
-      const { address, volume, price, symbol, tokenType, contractDuration, contractMultiplier } = trade;
+      const { address, volume, orderDate, price, symbol, tokenType, contractDuration, contractMultiplier } = trade;
       return (
-        <tr key={index} className='clickable' onClick={this.props.onRowClick.bind(this, address, symbol, null)}>
-          <td>{tokenType} {symbol} - {contractDuration} Days - {' ' + contractMultiplier}X
-          </td>
+        <tr key={index} className='clickable' onClick={this.props.onRowClick.bind(this, address, symbol, orderDate)}>
+          <td>{tokenType} {symbol} - {contractDuration} Days - {' ' + contractMultiplier}X</td>
+          <td>{orderDate}</td>
           <td>{volume}</td>
           <td>{price}</td>
         </tr>
@@ -35,6 +35,7 @@ export class RecentTrades extends Component {
             </tr>
             <tr>
               <th>Address</th>
+              <th>Start Date</th>
               <th>Volume</th>
               <th>Price (ETH)</th>
             </tr>

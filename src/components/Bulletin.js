@@ -6,7 +6,6 @@ import RecentTrades from './RecentTrades';
 import ContractDetails from './ContractDetails';
 import PriceChart from './PriceChart';
 import List from './List';
-import Unlist from './Unlist';
 import {
   getUserAccount,
   getUserTokenPositions,
@@ -48,6 +47,10 @@ export class Bulletin extends Component {
 
   handleRowClick = async (tokenAddress, symbol, date, e) => {
     e.preventDefault();
+    console.log('handleRowClick')
+    console.log(tokenAddress)
+    console.log(symbol)
+    console.log(date)
     await this.props.setSelectedToken(tokenAddress);
     await this.props.getContractDetails(symbol, date);
     this.setState({
@@ -78,7 +81,6 @@ export class Bulletin extends Component {
 
         <div className="order-buttons">
           <List refreshPage={this.refreshPage}/>
-          <Unlist refreshPage={this.refreshPage}/>
         </div>
 
         <div className="price-chart">
