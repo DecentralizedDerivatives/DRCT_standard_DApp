@@ -45,9 +45,7 @@ export const CreateContractFormComponent = ({
           options={contractDates}
         />
       </InputGroup>
-          <p style={{margin:'20px'}}>Enter the amount of Ether for the total purchase of the contract below.</p>
-          <p style={{margin: '20px'}}>
-            This amount represents <strong>short tokens + long tokens.</strong></p>
+          <p style={{margin:'5px'}}>Enter the amount of Ether for the total purchase of the contract below.</p>
       <InputGroup className="form-eth-input">
         <Field name="amount" addonLabel="ETH" component={InputNumber} />
       </InputGroup>
