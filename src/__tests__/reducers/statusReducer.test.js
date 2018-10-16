@@ -11,11 +11,12 @@ describe('statusReducer', () => {
     connectStatus: {
       metamask: false,
       network: 0,
-      verified: false
+      verified: false,
+      whiteListed: false
     },
-    fetchInProgress: [],
     isConnectModalOpen: false,
     isProcessing: false,
+    fetchInProgress: [],
     fetchingError: []
   };
 
@@ -66,7 +67,8 @@ describe('statusReducer', () => {
         connectStatus: {
           metamask: false,
           network: 0,
-          verified: false
+          verified: false,
+          whiteListed: false
         },
         fetchInProgress: [],
         isConnectModalOpen: false,
@@ -90,7 +92,8 @@ describe('statusReducer', () => {
         connectStatus: {
           metamask: false,
           network: 0,
-          verified: false
+          verified: false,
+          whiteListed: false
         },
         fetchInProgress: [],
         isConnectModalOpen: true,

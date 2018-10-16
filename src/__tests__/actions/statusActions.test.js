@@ -44,7 +44,8 @@ describe('statusActions', () => {
       connectStatus: {
         metamask: false,
         network: 0,
-        verified: false
+        verified: false,
+        whiteListed: false
       }
     };
 
@@ -57,7 +58,8 @@ describe('statusActions', () => {
           payload: {
             metamask: false,
             network: 0,
-            verified: true
+            verified: true,
+            whiteListed: false
           }
         };
         expect(actions[0]).toEqual(expectedPayload);

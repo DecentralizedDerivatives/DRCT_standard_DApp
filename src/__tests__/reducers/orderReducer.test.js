@@ -24,8 +24,7 @@ describe('orderReducer', () => {
       token: '',
       price: 0,
       tokenAmount: '',
-      approved: false,
-      approveTx: ''
+      approved: false
     },
     listOrderError: null,
     listOrderApproveError: null,
@@ -195,8 +194,7 @@ describe('orderReducer', () => {
         token: '0x0xxx',
         price: 10,
 
-        approved: false,
-        approveTx: ''
+        approved: false
       }
     };
 
@@ -207,14 +205,12 @@ describe('orderReducer', () => {
           token: '0x0xxx',
           tokenAmount: 0.1,
           approved: true,
-          approveTx: '0x0xxxxxx4'
         }
       };
 
       const expectedState = {
         ..._initialState,
         list: {
-          approveTx: '0x0xxxxxx4',
           approved: true,
           id: '0x00x0xxxxxx0',
           price: 10,
