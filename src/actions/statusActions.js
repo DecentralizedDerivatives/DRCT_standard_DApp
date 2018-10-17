@@ -7,6 +7,21 @@ import {
   SHOW_CONNECTION_MODAL
 } from './types';
 
+export const getAccounts = async () => {
+  try {
+    const accounts = await web3.eth.getAccounts();
+    const network = await web3.eth.net.getId();
+
+    if (accounts.length > 0) {
+      return network
+    } else {
+      return 1
+    }
+  } catch (err) {
+    console.log('ERROR HERE', err)
+    return 'bad guy'
+  }
+}
 // Check connection status
 export const checkUserConnection = () => async dispatch => {
   try {
@@ -28,6 +43,7 @@ export const checkUserConnection = () => async dispatch => {
       }
     });
   } catch (err) {
+    console.log('CAUGHT ERROR', err.message)
     dispatch({
       type: SET_CONNECTION_STATUS,
       payload: {
