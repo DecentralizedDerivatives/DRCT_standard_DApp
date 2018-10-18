@@ -49,18 +49,6 @@ export class ContractDetails extends Component {
               </a>
             </div>
           </div>
-          {this.props.tokenAddress && this.props.tokenAddress.length ?
-            <div className='detail-segment'>
-              <div className='title'>Token Address</div>
-              <div className='detail'>
-                <a
-                  href={url + this.props.tokenAddress}
-                  target="_blank"
-                  rel="noopener noreferrer">{this.props.tokenAddress}
-                </a>
-              </div>
-            </div>
-          : ''}
           {this.props.contract.contractStartPrice > 0 ?
             <div className='detail-segment'>
               <div className='title'>Start Price</div>
@@ -94,13 +82,11 @@ export class ContractDetails extends Component {
 }
 
 ContractDetails.propTypes = {
-  contract: PropTypes.object.isRequired,
-  tokenAddress: PropTypes.string
+  contract: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-  contract: state.contract,
-  tokenAddress: state.selected.selectedTokenAddress
+  contract: state.contract
 });
 
 export default connect(mapStateToProps, { })(ContractDetails);
