@@ -37,30 +37,6 @@ export class List extends Component {
     }
   }
 
-  // handleApproveClick = async e => {
-  //   const approveDetails = {
-  //     selectedToken: this.props.selectedToken,
-  //     amount: this.props.tokenAmt
-  //   };
-  //
-  //   await this.props.sendApproveOrder(approveDetails, this.props.userAccount);
-  //
-  //   console.log('APPROVAL SENT');
-  //   if (this.props.listOrderApproveError) {
-  //     this.setState({
-  //       resultsMessage: `Error in Approve Click: ${this.props.listOrderApproveError}`,
-  //       sendFundsOpen: false,
-  //       formOpen: false
-  //     });
-  //   } else {
-  //     this.setState({
-  //       resultsMessage: `Order approval confirmed in Approve Click`,
-  //       sendFundsOpen: false,
-  //       formOpen: false
-  //     });
-  //   }
-  // };
-
   toggleFormVisibility() {
     this.setState({
       formOpen: !this.state.formOpen

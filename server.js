@@ -7,7 +7,7 @@ const port = process.env.PORT || 3000;
 const env = {
   'NETWORK_ID': process.env.NETWORK_ID || 4
 }
-console.log('ENV',env.NETWORK_ID)
+// console.log('ENV',env.NETWORK_ID)
 
 app.use(express.static(path.resolve(__dirname, 'build')));
 

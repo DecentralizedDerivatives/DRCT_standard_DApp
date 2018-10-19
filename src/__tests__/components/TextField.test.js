@@ -9,7 +9,7 @@ describe('<TextField />', () => {
     it('renders the component', () => {
       const wrapper = shallow(
         <Root>
-          <TextField />
+          <TextField id='testId' name='testId' type='text' />
         </Root>
       );
       expect(wrapper).toMatchSnapshot();

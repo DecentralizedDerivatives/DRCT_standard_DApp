@@ -2,17 +2,19 @@
 
 exports[`<TextField /> render() renders the component 1`] = `
 ShallowWrapper {
-  "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Root>
     <TextField
-        type="text"
+      id="testId"
+      name="testId"
+      type="text"
     />
-</Root>,
+  </Root>,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
     "render": [Function],
+    "simulateError": [Function],
     "simulateEvent": [Function],
     "unmount": [Function],
   },
@@ -22,8 +24,10 @@ ShallowWrapper {
     "nodeType": "class",
     "props": Object {
       "children": <TextField
+        id="testId"
+        name="testId"
         type="text"
-/>,
+      />,
       "store": Object {
         "dispatch": [Function],
         "getState": [Function],
@@ -38,6 +42,8 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "function",
       "props": Object {
+        "id": "testId",
+        "name": "testId",
         "type": "text",
       },
       "ref": null,
@@ -53,8 +59,10 @@ ShallowWrapper {
       "nodeType": "class",
       "props": Object {
         "children": <TextField
+          id="testId"
+          name="testId"
           type="text"
-/>,
+        />,
         "store": Object {
           "dispatch": [Function],
           "getState": [Function],
@@ -69,6 +77,8 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "function",
         "props": Object {
+          "id": "testId",
+          "name": "testId",
           "type": "text",
         },
         "ref": null,
@@ -82,6 +92,16 @@ ShallowWrapper {
     "adapter": ReactSixteenAdapter {
       "options": Object {
         "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
       },
     },
   },

@@ -25,7 +25,7 @@ export class MyTransactions extends Component {
         <tr key={index}>
           <td>{tradeTitle}</td>
           <td>
-            <a target="_blank" className="link__token-address"
+            <a target="_blank" rel="noopener noreferrer" className="link__token-address"
               href={
                 tradeHash.length > 50
                   ? `${url}/tx/${tradeHash}`

@@ -23,7 +23,6 @@ const initialState = {
     price: 0,
     tokenAmount: '',
     approved: false
-    // approveTx: ''
   },
   listOrderError: null,
   listOrderApproveError: null,
