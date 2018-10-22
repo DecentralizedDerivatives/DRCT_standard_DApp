@@ -1,4 +1,4 @@
-import {get} from './utils';
+import { get } from './utils';
 
 const btc = {
   get: () =>
@@ -14,7 +14,23 @@ const eth = {
     ),
 };
 
+const btcMinute = {
+  get: () =>
+    get(
+      'https://min-api.cryptocompare.com/data/histominute?fsym=BTC&tsym=USD&limit=2000'
+    ),
+};
+
+const ethMinute = {
+  get: () =>
+    get(
+      'https://min-api.cryptocompare.com/data/histominute?fsym=ETH&tsym=USD&limit=2000'
+    ),
+};
+
 export default {
   eth,
   btc,
+  ethMinute,
+  btcMinute,
 };
