@@ -191,7 +191,6 @@ export const sendApproveOrder = (approveDetails, account) => async dispatch => {
         token,
         tokenAmount,
         approved: true
-        // approveTx: response.tx
       }
     });
   } catch (err) {

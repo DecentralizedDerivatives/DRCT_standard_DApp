@@ -5,6 +5,7 @@ import OrderBook from './OrderBook';
 import RecentTrades from './RecentTrades';
 import ContractDetails from './ContractDetails';
 import PriceChart from './PriceChart';
+import MyTokens from './MyTokens';
 import List from './List';
 import {
   getUserAccount,
@@ -79,10 +80,7 @@ export class Bulletin extends Component {
       <div id="bulletin">
         <OrderBook onRowClick={this.handleRowClick} refreshPage={this.refreshPage} />
 
-        <div className="order-buttons">
-          <List refreshPage={this.refreshPage}/>
-        </div>
-
+        <MyTokens />
         <div className="price-chart">
           {this.props.userAccount ? <PriceChart /> : ''}
         </div>
