@@ -5,50 +5,28 @@ import { getPriceChartData } from '../actions/dataActions';
 require('highcharts/modules/exporting')(Highcharts);
 
 Highcharts.setOptions({
-  rangeSelector: {
-    inputEnabled: false,
-    align: 'right',
-    buttons: [
-      {
-        type: 'day',
-        count: .25,
-        text: '6h'
-      },
-      {
-        type: 'month',
-        count: 1,
-        text: '1m'
-      },
-      {
-        type: 'all',
-        count: 3,
-        text: '3m'
-      }
-    ]
-  },
-
   exporting: {
-    enabled: false
+    enabled: false,
   },
 
   navigator: {
-    enabled: false
+    enabled: false,
   },
 
   colors: [
-    '#30AD63' //line
+    '#30AD63', //line
   ],
   chart: {
     backgroundColor: '#EEF2F5',
     style: {
-      fontFamily: "'Unica One', sans-serif"
-    }
+      fontFamily: "'Unica One', sans-serif",
+    },
   },
   subtitle: {
     style: {
       color: '#E0E0E3',
-      textTransform: 'uppercase'
-    }
+      textTransform: 'uppercase',
+    },
   },
   xAxis: {
     gridLineWidth: 0,
@@ -56,28 +34,30 @@ Highcharts.setOptions({
     tickWidth: 0,
     lineWidth: 0,
     labels: {
-      enabled: false
-    }
+      enabled: true,
+    },
+    type: 'datetime',
+    endOnTick: true,
   },
   yAxis: {
     gridLineColor: 'white',
     labels: {
       align: 'left',
       style: {
-        color: 'gray'
-      }
-    }
+        color: 'gray',
+      },
+    },
   },
   scrollbar: {
-    enabled: false
-  }
+    enabled: false,
+  },
 });
 
 class PriceChart extends Component {
   constructor() {
     super();
     this.state = {
-      currency: 'BTC'
+      currency: 'BTC',
     };
   }
 
@@ -88,35 +68,116 @@ class PriceChart extends Component {
   }
 
   fetchData = async type => {
-    await this.props.getPriceChartData(type);
+    await this.props.getPriceChartData(`${type}Minute`);
+    this.setState({
+      minutelyData: this.props.pricechart,
+    });
 
-    if (this.props.pricechart) {
+    await this.props.getPriceChartData(type);
+    this.setState({
+      hourlyData: this.props.pricechart,
+    });
+
+    if (this.state.minutelyData && this.state.hourlyData) {
       this.createChart(type);
     }
-
-
   };
 
-  createChart = type => {
+  updateChart = type => {
     try {
-      Highcharts.stockChart('container', {
-        series: [
-          {
-            data: this.props.pricechart,
-            tooltip: {
-              valueDecimals: 2
-            },
-            enableMouseTracking: false
-          }
-        ]
+      this.chart.series[0].update({
+        data: type === 'min'
+        ? this.state.minutelyData
+        : this.state.hourlyData,
       });
     } catch (e) {
-      console.log('Error creating chart', e)
+      console.log('Error trying to update chart: ', e);
+    }
+  };
+  createChart = type => {
+    try {
+      this.chart = Highcharts.stockChart('container', {
+        rangeSelector: {
+          allButtonsEnabled: true,
+          inputEnabled: false,
+          align: 'right',
+          buttons: [
+            {
+              type: 'minute',
+              count: 60,
+              text: '1m',
+              dataGrouping: {
+                forced: true,
+                units: [['minute', [1]]],
+              },
+              events: {
+                click: () => this.updateChart('min'),
+              },
+            },
+            {
+              type: 'hour',
+              count: 6,
+              text: '6h',
+              dataGrouping: {
+                forced: true,
+                units: [['minute', [30]]],
+              },
+              events: {
+                click: () => this.updateChart('hour'),
+              },
+            },
+            {
+              type: 'month',
+              count: 1,
+              text: '1M',
+              dataGrouping: {
+                enabled: true,
+                forced: false,
+                units: [['hour', [4]]],
+              },
+              events: {
+                click: () => this.updateChart('hour'),
+              },
+            },
+            {
+              type: 'month',
+              count: 3,
+              text: '3M',
+              dataGrouping: {
+                enabled: true,
+                forced: true,
+                units: [['day', [1]]],
+              },
+              events: {
+                click: () => this.updateChart('hour'),
+              },
+            },
+          ],
+          selected: 3,
+        },
+        tooltip: {
+          backgroundColor: '#eceeef',
+          animation: true,
+          shadow: true,
+        },
+        series: [
+          {
+            name: this.state.currency,
+            data: this.state.hourlyData,
+            tooltip: {
+              valueDecimals: 2,
+            },
+            enableMouseTracking: true,
+          },
+        ],
+      });
+    } catch (e) {
+      console.log('Error creating chart', e);
     }
   };
 
   handleChange = event => {
-    this.setState({ [event.target.name]: event.target.value });
+    this.setState({ currency: event.target.value });
     this.fetchData(event.target.value.toLowerCase());
   };
 
@@ -148,7 +209,10 @@ class PriceChart extends Component {
 }
 
 const mapStateToProps = state => ({
-  pricechart: state.data.pricechart
+  pricechart: state.data.pricechart,
 });
 
-export default connect(mapStateToProps, { getPriceChartData })(PriceChart);
+export default connect(
+  mapStateToProps,
+  {getPriceChartData}
+)(PriceChart);
