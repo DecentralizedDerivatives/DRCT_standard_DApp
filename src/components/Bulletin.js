@@ -16,7 +16,6 @@ import {
   getRecentTrades,
   getContractDetails
 } from '../actions/contractActions';
-import { setSelectedToken } from '../actions/selectedActions';
 import requireConnection from './requireConnection';
 
 // Use named export for unconnected component for testing
@@ -47,11 +46,6 @@ export class Bulletin extends Component {
 
   handleRowClick = async (tokenAddress, symbol, date, e) => {
     e.preventDefault();
-    console.log('handleRowClick')
-    console.log(tokenAddress)
-    console.log(symbol)
-    console.log(date)
-    await this.props.setSelectedToken(tokenAddress);
     await this.props.getContractDetails(symbol, date);
     this.setState({
       detailsOpen: true
@@ -100,7 +94,6 @@ Bulletin.propTypes = {
   getContractDetails: PropTypes.func.isRequired,
   getUserTokenPositions: PropTypes.func.isRequired,
   getUserOrders: PropTypes.func.isRequired,
-  setSelectedToken: PropTypes.func.isRequired,
   orderId: PropTypes.string,
   userAccount: PropTypes.string
 };
@@ -115,7 +108,6 @@ export default connect(
     getUserAccount,
     getOrderBook,
     getRecentTrades,
-    setSelectedToken,
     getContractDetails,
     getUserTokenPositions,
     getUserOrders

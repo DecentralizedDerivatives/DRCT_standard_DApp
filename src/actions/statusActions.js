@@ -13,7 +13,6 @@ export const checkUserConnection = () => async dispatch => {
     const accounts = await web3.eth.getAccounts();
     const network = await web3.eth.net.getId();
     var whiteListed = false;
-
     if (accounts.length > 0) {
       const factory = await Factory.at(FactoryProvider.factories()[0].address);
       whiteListed = await factory.isWhitelisted(accounts[0]);
@@ -28,6 +27,7 @@ export const checkUserConnection = () => async dispatch => {
       }
     });
   } catch (err) {
+    // console.log('CAUGHT ERROR', err.message)
     dispatch({
       type: SET_CONNECTION_STATUS,
       payload: {

@@ -17,7 +17,7 @@ export class Header extends Component {
   handleTermsClick = (e) => {
     e.preventDefault();
     this.handleNavClick(e);
-    this.props.showTerms();
+    if (this.props.showTerms) { this.props.showTerms(); }
   }
   hamburgerClick = (e) =>{
     this.setState({showMobileNav: !this.state.showMobileNav});
@@ -50,7 +50,7 @@ export class Header extends Component {
             <Link onClick={this.handleNavClick} className={"nav-link"} to="/how-to">How To</Link>
           </li>
           <li>
-            <a onClick={this.handleTermsClick} className="nav-link">Terms</a>
+            <p onClick={this.handleTermsClick} className="nav-link">Terms</p>
           </li>
         </ul>
         <div className="connection-status">
@@ -87,7 +87,7 @@ export class Header extends Component {
 }
 
 Header.propTypes = {
-  showTerms: PropTypes.func.isRequired,
+  showTerms: PropTypes.func,
   isConnected: PropTypes.bool.isRequired,
   whiteListed: PropTypes.bool.isRequired
 };

@@ -13,12 +13,15 @@ import {
 
 const initialState = {
   contractAddress: '',
+  contractCurrentPrice: 0,
   contractDuration: 0,
+  contractGain: 0,
   contractMultiplier: 0,
   oracleAddress: '',
   orderbook: [],
   recentTrades: [],
   contractOpenDates: {},
+  contractStartPrice: 0,
   newContract: {
     id: '',
     address: '',
