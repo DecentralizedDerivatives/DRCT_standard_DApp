@@ -8,7 +8,7 @@ describe('<MyPortfolio />', () => {
     it('renders the component', () => {
       const wrapper = shallow(
         <MyPortfolio store={initStore()} />
-      );
+      ).dive().dive().dive();
       expect(wrapper).toMatchSnapshot();
     });
   });

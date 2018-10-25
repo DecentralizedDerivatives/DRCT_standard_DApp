@@ -8,7 +8,7 @@ describe('<CashOut />', () => {
     it('renders the component', () => {
       const wrapper = shallow(
         <CashOut store={initStore()} />
-      );
+      ).dive();
       expect(wrapper).toMatchSnapshot();
     });
   });

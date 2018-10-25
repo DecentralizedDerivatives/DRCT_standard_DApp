@@ -3,7 +3,9 @@
 exports[`<BlockProgress /> render() renders the component 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Connect(BlockProgress)
+  Symbol(enzyme.__unrendered__): <BlockProgress
+    dispatch={[Function]}
+    isProcessing={false}
     store={
       Object {
         "dispatch": [Function],
@@ -13,30 +15,8 @@ ShallowWrapper {
         Symbol(observable): [Function],
       }
     }
-  />,
-  Symbol(enzyme.__renderer__): Object {
-    "batchedUpdates": [Function],
-    "getNode": [Function],
-    "render": [Function],
-    "simulateError": [Function],
-    "simulateEvent": [Function],
-    "unmount": [Function],
-  },
-  Symbol(enzyme.__node__): Object {
-    "instance": null,
-    "key": undefined,
-    "nodeType": "class",
-    "props": Object {
-      "dispatch": [Function],
-      "isProcessing": false,
-      "store": Object {
-        "dispatch": [Function],
-        "getState": [Function],
-        "replaceReducer": [Function],
-        "subscribe": [Function],
-        Symbol(observable): [Function],
-      },
-      "storeSubscription": Subscription {
+    storeSubscription={
+      Subscription {
         "listeners": Object {
           "clear": [Function],
           "get": [Function],
@@ -53,50 +33,20 @@ ShallowWrapper {
           Symbol(observable): [Function],
         },
         "unsubscribe": [Function],
-      },
-    },
-    "ref": null,
-    "rendered": null,
-    "type": [Function],
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
   },
+  Symbol(enzyme.__node__): "",
   Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "class",
-      "props": Object {
-        "dispatch": [Function],
-        "isProcessing": false,
-        "store": Object {
-          "dispatch": [Function],
-          "getState": [Function],
-          "replaceReducer": [Function],
-          "subscribe": [Function],
-          Symbol(observable): [Function],
-        },
-        "storeSubscription": Subscription {
-          "listeners": Object {
-            "clear": [Function],
-            "get": [Function],
-            "notify": [Function],
-            "subscribe": [Function],
-          },
-          "onStateChange": [Function],
-          "parentSub": undefined,
-          "store": Object {
-            "dispatch": [Function],
-            "getState": [Function],
-            "replaceReducer": [Function],
-            "subscribe": [Function],
-            Symbol(observable): [Function],
-          },
-          "unsubscribe": [Function],
-        },
-      },
-      "ref": null,
-      "rendered": null,
-      "type": [Function],
-    },
+    "",
   ],
   Symbol(enzyme.__options__): Object {
     "adapter": ReactSixteenAdapter {

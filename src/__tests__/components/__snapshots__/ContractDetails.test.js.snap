@@ -3,31 +3,9 @@
 exports[`<ContractDetails /> render() renders the component 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Connect(ContractDetails)
-    store={
+  Symbol(enzyme.__unrendered__): <ContractDetails
+    contract={
       Object {
-        "dispatch": [Function],
-        "getState": [Function],
-        "replaceReducer": [Function],
-        "subscribe": [Function],
-        Symbol(observable): [Function],
-      }
-    }
-  />,
-  Symbol(enzyme.__renderer__): Object {
-    "batchedUpdates": [Function],
-    "getNode": [Function],
-    "render": [Function],
-    "simulateError": [Function],
-    "simulateEvent": [Function],
-    "unmount": [Function],
-  },
-  Symbol(enzyme.__node__): Object {
-    "instance": null,
-    "key": undefined,
-    "nodeType": "class",
-    "props": Object {
-      "contract": Object {
         "contractAddress": "",
         "contractCurrentPrice": 0,
         "contractDuration": 0,
@@ -50,15 +28,19 @@ ShallowWrapper {
         "oracleAddress": "",
         "orderbook": Array [],
         "recentTrades": Array [],
-      },
-      "store": Object {
+      }
+    }
+    store={
+      Object {
         "dispatch": [Function],
         "getState": [Function],
         "replaceReducer": [Function],
         "subscribe": [Function],
         Symbol(observable): [Function],
-      },
-      "storeSubscription": Subscription {
+      }
+    }
+    storeSubscription={
+      Subscription {
         "listeners": Object {
           "clear": [Function],
           "get": [Function],
@@ -75,71 +57,1351 @@ ShallowWrapper {
           Symbol(observable): [Function],
         },
         "unsubscribe": [Function],
-      },
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="modal-background"
+        />,
+        <div
+          className="modal"
+        >
+          <div
+            style={
+              Object {
+                "margin": "20px",
+                "padding": "10px",
+              }
+            }
+          >
+            <h2>
+              Factory Contract
+            </h2>
+            <div
+              className="detail-segment"
+            >
+              <div
+                className="title"
+              >
+                Address
+              </div>
+              <div
+                className="detail"
+              >
+                <a
+                  href="https://rinkeby.etherscan.io/address/"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  
+                </a>
+              </div>
+            </div>
+            <div
+              className="detail-segment"
+            >
+              <div
+                className="title"
+              >
+                Duration
+              </div>
+              <div
+                className="detail"
+              >
+                0
+                 days
+              </div>
+            </div>
+            <div
+              className="detail-segment"
+            >
+              <div
+                className="title"
+              >
+                Multiplier
+              </div>
+              <div
+                className="detail"
+              >
+                0
+                X
+              </div>
+            </div>
+            <div
+              className="detail-segment"
+            >
+              <div
+                className="title"
+              >
+                Oracle Address
+              </div>
+              <div
+                className="detail"
+              >
+                <a
+                  href="https://rinkeby.etherscan.io/address/"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  
+                </a>
+              </div>
+            </div>
+            
+          </div>
+          <div>
+            <div
+              style={
+                Object {
+                  "margin": "8px auto",
+                  "textAlign": "center",
+                  "width": "100%",
+                }
+              }
+            >
+              <button
+                className="btn btn-primary btn-md"
+                type="submit"
+              >
+                Ok
+              </button>
+            </div>
+          </div>
+        </div>,
+      ],
+      "id": "contract-details",
     },
     "ref": null,
-    "rendered": null,
-    "type": [Function],
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "className": "modal-background",
+          "onClick": undefined,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              style={
+                Object {
+                  "margin": "20px",
+                  "padding": "10px",
+                }
+              }
+            >
+              <h2>
+                Factory Contract
+              </h2>
+              <div
+                className="detail-segment"
+              >
+                <div
+                  className="title"
+                >
+                  Address
+                </div>
+                <div
+                  className="detail"
+                >
+                  <a
+                    href="https://rinkeby.etherscan.io/address/"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    
+                  </a>
+                </div>
+              </div>
+              <div
+                className="detail-segment"
+              >
+                <div
+                  className="title"
+                >
+                  Duration
+                </div>
+                <div
+                  className="detail"
+                >
+                  0
+                   days
+                </div>
+              </div>
+              <div
+                className="detail-segment"
+              >
+                <div
+                  className="title"
+                >
+                  Multiplier
+                </div>
+                <div
+                  className="detail"
+                >
+                  0
+                  X
+                </div>
+              </div>
+              <div
+                className="detail-segment"
+              >
+                <div
+                  className="title"
+                >
+                  Oracle Address
+                </div>
+                <div
+                  className="detail"
+                >
+                  <a
+                    href="https://rinkeby.etherscan.io/address/"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    
+                  </a>
+                </div>
+              </div>
+              
+            </div>,
+            <div>
+              <div
+                style={
+                  Object {
+                    "margin": "8px auto",
+                    "textAlign": "center",
+                    "width": "100%",
+                  }
+                }
+              >
+                <button
+                  className="btn btn-primary btn-md"
+                  type="submit"
+                >
+                  Ok
+                </button>
+              </div>
+            </div>,
+          ],
+          "className": "modal",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <h2>
+                  Factory Contract
+                </h2>,
+                <div
+                  className="detail-segment"
+                >
+                  <div
+                    className="title"
+                  >
+                    Address
+                  </div>
+                  <div
+                    className="detail"
+                  >
+                    <a
+                      href="https://rinkeby.etherscan.io/address/"
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      
+                    </a>
+                  </div>
+                </div>,
+                <div
+                  className="detail-segment"
+                >
+                  <div
+                    className="title"
+                  >
+                    Duration
+                  </div>
+                  <div
+                    className="detail"
+                  >
+                    0
+                     days
+                  </div>
+                </div>,
+                <div
+                  className="detail-segment"
+                >
+                  <div
+                    className="title"
+                  >
+                    Multiplier
+                  </div>
+                  <div
+                    className="detail"
+                  >
+                    0
+                    X
+                  </div>
+                </div>,
+                <div
+                  className="detail-segment"
+                >
+                  <div
+                    className="title"
+                  >
+                    Oracle Address
+                  </div>
+                  <div
+                    className="detail"
+                  >
+                    <a
+                      href="https://rinkeby.etherscan.io/address/"
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      
+                    </a>
+                  </div>
+                </div>,
+                "",
+              ],
+              "style": Object {
+                "margin": "20px",
+                "padding": "10px",
+              },
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Factory Contract",
+                },
+                "ref": null,
+                "rendered": "Factory Contract",
+                "type": "h2",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <div
+                      className="title"
+                    >
+                      Address
+                    </div>,
+                    <div
+                      className="detail"
+                    >
+                      <a
+                        href="https://rinkeby.etherscan.io/address/"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        
+                      </a>
+                    </div>,
+                  ],
+                  "className": "detail-segment",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Address",
+                      "className": "title",
+                    },
+                    "ref": null,
+                    "rendered": "Address",
+                    "type": "div",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": <a
+                        href="https://rinkeby.etherscan.io/address/"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        
+                      </a>,
+                      "className": "detail",
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "",
+                        "href": "https://rinkeby.etherscan.io/address/",
+                        "rel": "noopener noreferrer",
+                        "target": "_blank",
+                      },
+                      "ref": null,
+                      "rendered": "",
+                      "type": "a",
+                    },
+                    "type": "div",
+                  },
+                ],
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <div
+                      className="title"
+                    >
+                      Duration
+                    </div>,
+                    <div
+                      className="detail"
+                    >
+                      0
+                       days
+                    </div>,
+                  ],
+                  "className": "detail-segment",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Duration",
+                      "className": "title",
+                    },
+                    "ref": null,
+                    "rendered": "Duration",
+                    "type": "div",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        0,
+                        " days",
+                      ],
+                      "className": "detail",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      0,
+                      " days",
+                    ],
+                    "type": "div",
+                  },
+                ],
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <div
+                      className="title"
+                    >
+                      Multiplier
+                    </div>,
+                    <div
+                      className="detail"
+                    >
+                      0
+                      X
+                    </div>,
+                  ],
+                  "className": "detail-segment",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Multiplier",
+                      "className": "title",
+                    },
+                    "ref": null,
+                    "rendered": "Multiplier",
+                    "type": "div",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        0,
+                        "X",
+                      ],
+                      "className": "detail",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      0,
+                      "X",
+                    ],
+                    "type": "div",
+                  },
+                ],
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <div
+                      className="title"
+                    >
+                      Oracle Address
+                    </div>,
+                    <div
+                      className="detail"
+                    >
+                      <a
+                        href="https://rinkeby.etherscan.io/address/"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        
+                      </a>
+                    </div>,
+                  ],
+                  "className": "detail-segment",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Oracle Address",
+                      "className": "title",
+                    },
+                    "ref": null,
+                    "rendered": "Oracle Address",
+                    "type": "div",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": <a
+                        href="https://rinkeby.etherscan.io/address/"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        
+                      </a>,
+                      "className": "detail",
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "",
+                        "href": "https://rinkeby.etherscan.io/address/",
+                        "rel": "noopener noreferrer",
+                        "target": "_blank",
+                      },
+                      "ref": null,
+                      "rendered": "",
+                      "type": "a",
+                    },
+                    "type": "div",
+                  },
+                ],
+                "type": "div",
+              },
+              "",
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <div
+                style={
+                  Object {
+                    "margin": "8px auto",
+                    "textAlign": "center",
+                    "width": "100%",
+                  }
+                }
+              >
+                <button
+                  className="btn btn-primary btn-md"
+                  type="submit"
+                >
+                  Ok
+                </button>
+              </div>,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <button
+                  className="btn btn-primary btn-md"
+                  type="submit"
+                >
+                  Ok
+                </button>,
+                "style": Object {
+                  "margin": "8px auto",
+                  "textAlign": "center",
+                  "width": "100%",
+                },
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Ok",
+                  "className": "btn btn-primary btn-md",
+                  "onClick": undefined,
+                  "type": "submit",
+                },
+                "ref": null,
+                "rendered": "Ok",
+                "type": "button",
+              },
+              "type": "div",
+            },
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+    ],
+    "type": "div",
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "class",
+      "nodeType": "host",
       "props": Object {
-        "contract": Object {
-          "contractAddress": "",
-          "contractCurrentPrice": 0,
-          "contractDuration": 0,
-          "contractGain": 0,
-          "contractMultiplier": 0,
-          "contractOpenDates": Object {},
-          "contractStartPrice": 0,
-          "newContract": Object {
-            "address": "",
-            "amount": 0,
-            "currency": "",
-            "duration": "",
-            "funded": false,
-            "fundedTx": "",
-            "id": "",
-            "startDate": "",
-          },
-          "newContractCreateError": null,
-          "newContractFundsError": null,
-          "oracleAddress": "",
-          "orderbook": Array [],
-          "recentTrades": Array [],
-        },
-        "store": Object {
-          "dispatch": [Function],
-          "getState": [Function],
-          "replaceReducer": [Function],
-          "subscribe": [Function],
-          Symbol(observable): [Function],
-        },
-        "storeSubscription": Subscription {
-          "listeners": Object {
-            "clear": [Function],
-            "get": [Function],
-            "notify": [Function],
-            "subscribe": [Function],
-          },
-          "onStateChange": [Function],
-          "parentSub": undefined,
-          "store": Object {
-            "dispatch": [Function],
-            "getState": [Function],
-            "replaceReducer": [Function],
-            "subscribe": [Function],
-            Symbol(observable): [Function],
-          },
-          "unsubscribe": [Function],
-        },
+        "children": Array [
+          <div
+            className="modal-background"
+          />,
+          <div
+            className="modal"
+          >
+            <div
+              style={
+                Object {
+                  "margin": "20px",
+                  "padding": "10px",
+                }
+              }
+            >
+              <h2>
+                Factory Contract
+              </h2>
+              <div
+                className="detail-segment"
+              >
+                <div
+                  className="title"
+                >
+                  Address
+                </div>
+                <div
+                  className="detail"
+                >
+                  <a
+                    href="https://rinkeby.etherscan.io/address/"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    
+                  </a>
+                </div>
+              </div>
+              <div
+                className="detail-segment"
+              >
+                <div
+                  className="title"
+                >
+                  Duration
+                </div>
+                <div
+                  className="detail"
+                >
+                  0
+                   days
+                </div>
+              </div>
+              <div
+                className="detail-segment"
+              >
+                <div
+                  className="title"
+                >
+                  Multiplier
+                </div>
+                <div
+                  className="detail"
+                >
+                  0
+                  X
+                </div>
+              </div>
+              <div
+                className="detail-segment"
+              >
+                <div
+                  className="title"
+                >
+                  Oracle Address
+                </div>
+                <div
+                  className="detail"
+                >
+                  <a
+                    href="https://rinkeby.etherscan.io/address/"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    
+                  </a>
+                </div>
+              </div>
+              
+            </div>
+            <div>
+              <div
+                style={
+                  Object {
+                    "margin": "8px auto",
+                    "textAlign": "center",
+                    "width": "100%",
+                  }
+                }
+              >
+                <button
+                  className="btn btn-primary btn-md"
+                  type="submit"
+                >
+                  Ok
+                </button>
+              </div>
+            </div>
+          </div>,
+        ],
+        "id": "contract-details",
       },
       "ref": null,
-      "rendered": null,
-      "type": [Function],
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "modal-background",
+            "onClick": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                style={
+                  Object {
+                    "margin": "20px",
+                    "padding": "10px",
+                  }
+                }
+              >
+                <h2>
+                  Factory Contract
+                </h2>
+                <div
+                  className="detail-segment"
+                >
+                  <div
+                    className="title"
+                  >
+                    Address
+                  </div>
+                  <div
+                    className="detail"
+                  >
+                    <a
+                      href="https://rinkeby.etherscan.io/address/"
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      
+                    </a>
+                  </div>
+                </div>
+                <div
+                  className="detail-segment"
+                >
+                  <div
+                    className="title"
+                  >
+                    Duration
+                  </div>
+                  <div
+                    className="detail"
+                  >
+                    0
+                     days
+                  </div>
+                </div>
+                <div
+                  className="detail-segment"
+                >
+                  <div
+                    className="title"
+                  >
+                    Multiplier
+                  </div>
+                  <div
+                    className="detail"
+                  >
+                    0
+                    X
+                  </div>
+                </div>
+                <div
+                  className="detail-segment"
+                >
+                  <div
+                    className="title"
+                  >
+                    Oracle Address
+                  </div>
+                  <div
+                    className="detail"
+                  >
+                    <a
+                      href="https://rinkeby.etherscan.io/address/"
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      
+                    </a>
+                  </div>
+                </div>
+                
+              </div>,
+              <div>
+                <div
+                  style={
+                    Object {
+                      "margin": "8px auto",
+                      "textAlign": "center",
+                      "width": "100%",
+                    }
+                  }
+                >
+                  <button
+                    className="btn btn-primary btn-md"
+                    type="submit"
+                  >
+                    Ok
+                  </button>
+                </div>
+              </div>,
+            ],
+            "className": "modal",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <h2>
+                    Factory Contract
+                  </h2>,
+                  <div
+                    className="detail-segment"
+                  >
+                    <div
+                      className="title"
+                    >
+                      Address
+                    </div>
+                    <div
+                      className="detail"
+                    >
+                      <a
+                        href="https://rinkeby.etherscan.io/address/"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        
+                      </a>
+                    </div>
+                  </div>,
+                  <div
+                    className="detail-segment"
+                  >
+                    <div
+                      className="title"
+                    >
+                      Duration
+                    </div>
+                    <div
+                      className="detail"
+                    >
+                      0
+                       days
+                    </div>
+                  </div>,
+                  <div
+                    className="detail-segment"
+                  >
+                    <div
+                      className="title"
+                    >
+                      Multiplier
+                    </div>
+                    <div
+                      className="detail"
+                    >
+                      0
+                      X
+                    </div>
+                  </div>,
+                  <div
+                    className="detail-segment"
+                  >
+                    <div
+                      className="title"
+                    >
+                      Oracle Address
+                    </div>
+                    <div
+                      className="detail"
+                    >
+                      <a
+                        href="https://rinkeby.etherscan.io/address/"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        
+                      </a>
+                    </div>
+                  </div>,
+                  "",
+                ],
+                "style": Object {
+                  "margin": "20px",
+                  "padding": "10px",
+                },
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Factory Contract",
+                  },
+                  "ref": null,
+                  "rendered": "Factory Contract",
+                  "type": "h2",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <div
+                        className="title"
+                      >
+                        Address
+                      </div>,
+                      <div
+                        className="detail"
+                      >
+                        <a
+                          href="https://rinkeby.etherscan.io/address/"
+                          rel="noopener noreferrer"
+                          target="_blank"
+                        >
+                          
+                        </a>
+                      </div>,
+                    ],
+                    "className": "detail-segment",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Address",
+                        "className": "title",
+                      },
+                      "ref": null,
+                      "rendered": "Address",
+                      "type": "div",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": <a
+                          href="https://rinkeby.etherscan.io/address/"
+                          rel="noopener noreferrer"
+                          target="_blank"
+                        >
+                          
+                        </a>,
+                        "className": "detail",
+                      },
+                      "ref": null,
+                      "rendered": Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "",
+                          "href": "https://rinkeby.etherscan.io/address/",
+                          "rel": "noopener noreferrer",
+                          "target": "_blank",
+                        },
+                        "ref": null,
+                        "rendered": "",
+                        "type": "a",
+                      },
+                      "type": "div",
+                    },
+                  ],
+                  "type": "div",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <div
+                        className="title"
+                      >
+                        Duration
+                      </div>,
+                      <div
+                        className="detail"
+                      >
+                        0
+                         days
+                      </div>,
+                    ],
+                    "className": "detail-segment",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Duration",
+                        "className": "title",
+                      },
+                      "ref": null,
+                      "rendered": "Duration",
+                      "type": "div",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          0,
+                          " days",
+                        ],
+                        "className": "detail",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        0,
+                        " days",
+                      ],
+                      "type": "div",
+                    },
+                  ],
+                  "type": "div",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <div
+                        className="title"
+                      >
+                        Multiplier
+                      </div>,
+                      <div
+                        className="detail"
+                      >
+                        0
+                        X
+                      </div>,
+                    ],
+                    "className": "detail-segment",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Multiplier",
+                        "className": "title",
+                      },
+                      "ref": null,
+                      "rendered": "Multiplier",
+                      "type": "div",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          0,
+                          "X",
+                        ],
+                        "className": "detail",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        0,
+                        "X",
+                      ],
+                      "type": "div",
+                    },
+                  ],
+                  "type": "div",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <div
+                        className="title"
+                      >
+                        Oracle Address
+                      </div>,
+                      <div
+                        className="detail"
+                      >
+                        <a
+                          href="https://rinkeby.etherscan.io/address/"
+                          rel="noopener noreferrer"
+                          target="_blank"
+                        >
+                          
+                        </a>
+                      </div>,
+                    ],
+                    "className": "detail-segment",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Oracle Address",
+                        "className": "title",
+                      },
+                      "ref": null,
+                      "rendered": "Oracle Address",
+                      "type": "div",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": <a
+                          href="https://rinkeby.etherscan.io/address/"
+                          rel="noopener noreferrer"
+                          target="_blank"
+                        >
+                          
+                        </a>,
+                        "className": "detail",
+                      },
+                      "ref": null,
+                      "rendered": Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "",
+                          "href": "https://rinkeby.etherscan.io/address/",
+                          "rel": "noopener noreferrer",
+                          "target": "_blank",
+                        },
+                        "ref": null,
+                        "rendered": "",
+                        "type": "a",
+                      },
+                      "type": "div",
+                    },
+                  ],
+                  "type": "div",
+                },
+                "",
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <div
+                  style={
+                    Object {
+                      "margin": "8px auto",
+                      "textAlign": "center",
+                      "width": "100%",
+                    }
+                  }
+                >
+                  <button
+                    className="btn btn-primary btn-md"
+                    type="submit"
+                  >
+                    Ok
+                  </button>
+                </div>,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <button
+                    className="btn btn-primary btn-md"
+                    type="submit"
+                  >
+                    Ok
+                  </button>,
+                  "style": Object {
+                    "margin": "8px auto",
+                    "textAlign": "center",
+                    "width": "100%",
+                  },
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Ok",
+                    "className": "btn btn-primary btn-md",
+                    "onClick": undefined,
+                    "type": "submit",
+                  },
+                  "ref": null,
+                  "rendered": "Ok",
+                  "type": "button",
+                },
+                "type": "div",
+              },
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
     },
   ],
   Symbol(enzyme.__options__): Object {

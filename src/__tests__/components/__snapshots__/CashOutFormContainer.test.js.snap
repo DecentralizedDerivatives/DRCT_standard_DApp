@@ -3,7 +3,70 @@
 exports[`<CashOutFormContainer /> render() renders the component 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Connect(ReduxForm)
+  Symbol(enzyme.__unrendered__): <Form(CashOutFormContainer)
+    anyTouched={false}
+    array={
+      Object {
+        "insert": [Function],
+        "move": [Function],
+        "pop": [Function],
+        "push": [Function],
+        "remove": [Function],
+        "removeAll": [Function],
+        "shift": [Function],
+        "splice": [Function],
+        "swap": [Function],
+        "unshift": [Function],
+      }
+    }
+    arrayInsert={[Function]}
+    arrayMove={[Function]}
+    arrayPop={[Function]}
+    arrayPush={[Function]}
+    arrayRemove={[Function]}
+    arrayRemoveAll={[Function]}
+    arrayShift={[Function]}
+    arraySplice={[Function]}
+    arraySwap={[Function]}
+    arrayUnshift={[Function]}
+    asyncValidating={false}
+    autofill={[Function]}
+    blur={[Function]}
+    change={[Function]}
+    clearAsyncError={[Function]}
+    clearFields={[Function]}
+    clearSubmit={[Function]}
+    clearSubmitErrors={[Function]}
+    destroy={[Function]}
+    destroyOnUnmount={true}
+    dirty={false}
+    dispatch={[Function]}
+    enableReinitialize={false}
+    focus={[Function]}
+    forceUnregisterOnUnmount={false}
+    form="cashout-form"
+    getFormState={[Function]}
+    initialize={[Function]}
+    initialized={false}
+    invalid={false}
+    keepDirtyOnReinitialize={false}
+    persistentSubmitErrors={false}
+    pristine={true}
+    pure={true}
+    registerField={[Function]}
+    reset={[Function]}
+    resetSection={[Function]}
+    sendCashOutRequest={[Function]}
+    setSubmitFailed={[Function]}
+    setSubmitSucceeded={[Function]}
+    shouldAsyncValidate={[Function]}
+    shouldError={[Function]}
+    shouldValidate={[Function]}
+    shouldWarn={[Function]}
+    startAsyncValidation={[Function]}
+    startSubmit={[Function]}
+    stopAsyncValidation={[Function]}
+    stopSubmit={[Function]}
     store={
       Object {
         "dispatch": [Function],
@@ -13,29 +76,8 @@ ShallowWrapper {
         Symbol(observable): [Function],
       }
     }
-  />,
-  Symbol(enzyme.__renderer__): Object {
-    "batchedUpdates": [Function],
-    "getNode": [Function],
-    "render": [Function],
-    "simulateError": [Function],
-    "simulateEvent": [Function],
-    "unmount": [Function],
-  },
-  Symbol(enzyme.__node__): Object {
-    "instance": null,
-    "key": undefined,
-    "nodeType": "class",
-    "props": Object {
-      "sendCashOutRequest": [Function],
-      "store": Object {
-        "dispatch": [Function],
-        "getState": [Function],
-        "replaceReducer": [Function],
-        "subscribe": [Function],
-        Symbol(observable): [Function],
-      },
-      "storeSubscription": Subscription {
+    storeSubscription={
+      Subscription {
         "listeners": Object {
           "clear": [Function],
           "get": [Function],
@@ -43,38 +85,7 @@ ShallowWrapper {
           "subscribe": [Function],
         },
         "onStateChange": [Function],
-        "parentSub": undefined,
-        "store": Object {
-          "dispatch": [Function],
-          "getState": [Function],
-          "replaceReducer": [Function],
-          "subscribe": [Function],
-          Symbol(observable): [Function],
-        },
-        "unsubscribe": [Function],
-      },
-      "userAccount": "",
-      "userBalance": 0,
-    },
-    "ref": null,
-    "rendered": null,
-    "type": [Function],
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "class",
-      "props": Object {
-        "sendCashOutRequest": [Function],
-        "store": Object {
-          "dispatch": [Function],
-          "getState": [Function],
-          "replaceReducer": [Function],
-          "subscribe": [Function],
-          Symbol(observable): [Function],
-        },
-        "storeSubscription": Subscription {
+        "parentSub": Subscription {
           "listeners": Object {
             "clear": [Function],
             "get": [Function],
@@ -92,8 +103,240 @@ ShallowWrapper {
           },
           "unsubscribe": [Function],
         },
+        "store": Object {
+          "dispatch": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+          Symbol(observable): [Function],
+        },
+        "unsubscribe": [Function],
+      }
+    }
+    submit={[Function]}
+    submitFailed={false}
+    submitSucceeded={false}
+    submitting={false}
+    syncErrors={Object {}}
+    syncWarnings={Object {}}
+    touch={[Function]}
+    touchOnBlur={true}
+    touchOnChange={false}
+    unregisterField={[Function]}
+    untouch={[Function]}
+    updateSyncErrors={[Function]}
+    updateSyncWarnings={[Function]}
+    updateUnregisteredFields={false}
+    userAccount=""
+    userBalance={0}
+    valid={true}
+    validExceptSubmit={true}
+    values={Object {}}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "anyTouched": false,
+      "array": Object {
+        "insert": [Function],
+        "move": [Function],
+        "pop": [Function],
+        "push": [Function],
+        "remove": [Function],
+        "removeAll": [Function],
+        "shift": [Function],
+        "splice": [Function],
+        "swap": [Function],
+        "unshift": [Function],
+      },
+      "asyncValidate": [Function],
+      "asyncValidating": false,
+      "autofill": [Function],
+      "blur": [Function],
+      "change": [Function],
+      "clearAsyncError": [Function],
+      "clearFields": [Function],
+      "clearSubmit": [Function],
+      "clearSubmitErrors": [Function],
+      "destroy": [Function],
+      "dirty": false,
+      "dispatch": [Function],
+      "error": undefined,
+      "form": "cashout-form",
+      "handleSubmit": [Function],
+      "initialValues": undefined,
+      "initialize": [Function],
+      "initialized": false,
+      "invalid": false,
+      "pristine": true,
+      "pure": true,
+      "reset": [Function],
+      "resetSection": [Function],
+      "sendCashOutRequest": [Function],
+      "store": Object {
+        "dispatch": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+        Symbol(observable): [Function],
+      },
+      "storeSubscription": Subscription {
+        "listeners": Object {
+          "clear": [Function],
+          "get": [Function],
+          "notify": [Function],
+          "subscribe": [Function],
+        },
+        "onStateChange": [Function],
+        "parentSub": Subscription {
+          "listeners": Object {
+            "clear": [Function],
+            "get": [Function],
+            "notify": [Function],
+            "subscribe": [Function],
+          },
+          "onStateChange": [Function],
+          "parentSub": undefined,
+          "store": Object {
+            "dispatch": [Function],
+            "getState": [Function],
+            "replaceReducer": [Function],
+            "subscribe": [Function],
+            Symbol(observable): [Function],
+          },
+          "unsubscribe": [Function],
+        },
+        "store": Object {
+          "dispatch": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+          Symbol(observable): [Function],
+        },
+        "unsubscribe": [Function],
+      },
+      "submit": [Function],
+      "submitFailed": false,
+      "submitSucceeded": false,
+      "submitting": false,
+      "touch": [Function],
+      "triggerSubmit": undefined,
+      "untouch": [Function],
+      "userAccount": "",
+      "userBalance": 0,
+      "valid": true,
+      "warning": undefined,
+    },
+    "ref": null,
+    "rendered": null,
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "anyTouched": false,
+        "array": Object {
+          "insert": [Function],
+          "move": [Function],
+          "pop": [Function],
+          "push": [Function],
+          "remove": [Function],
+          "removeAll": [Function],
+          "shift": [Function],
+          "splice": [Function],
+          "swap": [Function],
+          "unshift": [Function],
+        },
+        "asyncValidate": [Function],
+        "asyncValidating": false,
+        "autofill": [Function],
+        "blur": [Function],
+        "change": [Function],
+        "clearAsyncError": [Function],
+        "clearFields": [Function],
+        "clearSubmit": [Function],
+        "clearSubmitErrors": [Function],
+        "destroy": [Function],
+        "dirty": false,
+        "dispatch": [Function],
+        "error": undefined,
+        "form": "cashout-form",
+        "handleSubmit": [Function],
+        "initialValues": undefined,
+        "initialize": [Function],
+        "initialized": false,
+        "invalid": false,
+        "pristine": true,
+        "pure": true,
+        "reset": [Function],
+        "resetSection": [Function],
+        "sendCashOutRequest": [Function],
+        "store": Object {
+          "dispatch": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+          Symbol(observable): [Function],
+        },
+        "storeSubscription": Subscription {
+          "listeners": Object {
+            "clear": [Function],
+            "get": [Function],
+            "notify": [Function],
+            "subscribe": [Function],
+          },
+          "onStateChange": [Function],
+          "parentSub": Subscription {
+            "listeners": Object {
+              "clear": [Function],
+              "get": [Function],
+              "notify": [Function],
+              "subscribe": [Function],
+            },
+            "onStateChange": [Function],
+            "parentSub": undefined,
+            "store": Object {
+              "dispatch": [Function],
+              "getState": [Function],
+              "replaceReducer": [Function],
+              "subscribe": [Function],
+              Symbol(observable): [Function],
+            },
+            "unsubscribe": [Function],
+          },
+          "store": Object {
+            "dispatch": [Function],
+            "getState": [Function],
+            "replaceReducer": [Function],
+            "subscribe": [Function],
+            Symbol(observable): [Function],
+          },
+          "unsubscribe": [Function],
+        },
+        "submit": [Function],
+        "submitFailed": false,
+        "submitSucceeded": false,
+        "submitting": false,
+        "touch": [Function],
+        "triggerSubmit": undefined,
+        "untouch": [Function],
         "userAccount": "",
         "userBalance": 0,
+        "valid": true,
+        "warning": undefined,
       },
       "ref": null,
       "rendered": null,

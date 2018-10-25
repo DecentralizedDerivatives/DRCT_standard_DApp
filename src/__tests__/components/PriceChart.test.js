@@ -8,7 +8,7 @@ describe('<PriceChart />', () => {
     it('renders the component', () => {
       const wrapper = shallow(
         <PriceChart store={initStore()} />
-      );
+      ).dive();
       expect(wrapper).toMatchSnapshot();
     });
   });

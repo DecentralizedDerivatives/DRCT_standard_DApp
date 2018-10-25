@@ -3,7 +3,16 @@
 exports[`<Bulletin /> render() renders the component 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Connect(Connect(ComposedComponent))
+  Symbol(enzyme.__unrendered__): <Bulletin
+    dispatch={[Function]}
+    getContractDetails={[Function]}
+    getOrderBook={[Function]}
+    getRecentTrades={[Function]}
+    getUserAccount={[Function]}
+    getUserOrders={[Function]}
+    getUserTokenPositions={[Function]}
+    metamask={false}
+    network={0}
     store={
       Object {
         "dispatch": [Function],
@@ -13,34 +22,8 @@ ShallowWrapper {
         Symbol(observable): [Function],
       }
     }
-  />,
-  Symbol(enzyme.__renderer__): Object {
-    "batchedUpdates": [Function],
-    "getNode": [Function],
-    "render": [Function],
-    "simulateError": [Function],
-    "simulateEvent": [Function],
-    "unmount": [Function],
-  },
-  Symbol(enzyme.__node__): Object {
-    "instance": null,
-    "key": undefined,
-    "nodeType": "class",
-    "props": Object {
-      "getContractDetails": [Function],
-      "getOrderBook": [Function],
-      "getRecentTrades": [Function],
-      "getUserAccount": [Function],
-      "getUserOrders": [Function],
-      "getUserTokenPositions": [Function],
-      "store": Object {
-        "dispatch": [Function],
-        "getState": [Function],
-        "replaceReducer": [Function],
-        "subscribe": [Function],
-        Symbol(observable): [Function],
-      },
-      "storeSubscription": Subscription {
+    storeSubscription={
+      Subscription {
         "listeners": Object {
           "clear": [Function],
           "get": [Function],
@@ -48,42 +31,7 @@ ShallowWrapper {
           "subscribe": [Function],
         },
         "onStateChange": [Function],
-        "parentSub": undefined,
-        "store": Object {
-          "dispatch": [Function],
-          "getState": [Function],
-          "replaceReducer": [Function],
-          "subscribe": [Function],
-          Symbol(observable): [Function],
-        },
-        "unsubscribe": [Function],
-      },
-      "userAccount": "",
-    },
-    "ref": null,
-    "rendered": null,
-    "type": [Function],
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "class",
-      "props": Object {
-        "getContractDetails": [Function],
-        "getOrderBook": [Function],
-        "getRecentTrades": [Function],
-        "getUserAccount": [Function],
-        "getUserOrders": [Function],
-        "getUserTokenPositions": [Function],
-        "store": Object {
-          "dispatch": [Function],
-          "getState": [Function],
-          "replaceReducer": [Function],
-          "subscribe": [Function],
-          Symbol(observable): [Function],
-        },
-        "storeSubscription": Subscription {
+        "parentSub": Subscription {
           "listeners": Object {
             "clear": [Function],
             "get": [Function],
@@ -101,11 +49,216 @@ ShallowWrapper {
           },
           "unsubscribe": [Function],
         },
-        "userAccount": "",
+        "store": Object {
+          "dispatch": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+          Symbol(observable): [Function],
+        },
+        "unsubscribe": [Function],
+      }
+    }
+    userAccount=""
+    verified={false}
+    whiteListed={false}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <Connect(OrderBook)
+          onRowClick={[Function]}
+          refreshPage={[Function]}
+        />,
+        <div
+          className="order-buttons"
+        >
+          <Connect(List)
+            refreshPage={[Function]}
+          />
+        </div>,
+        <div
+          className="price-chart"
+        >
+          
+        </div>,
+        <Connect(RecentTrades)
+          onRowClick={[Function]}
+        />,
+        null,
+      ],
+      "id": "bulletin",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "onRowClick": [Function],
+          "refreshPage": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <Connect(List)
+            refreshPage={[Function]}
+          />,
+          "className": "order-buttons",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "refreshPage": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "",
+          "className": "price-chart",
+        },
+        "ref": null,
+        "rendered": "",
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "onRowClick": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      null,
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <Connect(OrderBook)
+            onRowClick={[Function]}
+            refreshPage={[Function]}
+          />,
+          <div
+            className="order-buttons"
+          >
+            <Connect(List)
+              refreshPage={[Function]}
+            />
+          </div>,
+          <div
+            className="price-chart"
+          >
+            
+          </div>,
+          <Connect(RecentTrades)
+            onRowClick={[Function]}
+          />,
+          null,
+        ],
+        "id": "bulletin",
       },
       "ref": null,
-      "rendered": null,
-      "type": [Function],
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "onRowClick": [Function],
+            "refreshPage": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <Connect(List)
+              refreshPage={[Function]}
+            />,
+            "className": "order-buttons",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "refreshPage": [Function],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "",
+            "className": "price-chart",
+          },
+          "ref": null,
+          "rendered": "",
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "onRowClick": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        null,
+      ],
+      "type": "div",
     },
   ],
   Symbol(enzyme.__options__): Object {

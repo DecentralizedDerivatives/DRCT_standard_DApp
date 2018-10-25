@@ -9,7 +9,7 @@ describe('<List />', () => {
     it('renders the component', () => {
       const wrapper = shallow(
         <List store={initStore()} />
-      );
+      ).dive();
       expect(wrapper).toMatchSnapshot();
     });
   });

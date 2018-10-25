@@ -8,7 +8,7 @@ describe('<MyTransactions />', () => {
     it('renders the component', () => {
       const wrapper = shallow(
         <MyTransactions store={initStore()} />
-      );
+      ).dive();
       expect(wrapper).toMatchSnapshot();
     });
   });

@@ -9,7 +9,7 @@ describe('<Landing />', () => {
     it('renders the component', () => {
       const wrapper = shallow(
         <Landing store={initStore()} />
-      );
+      ).dive();
       expect(wrapper).toMatchSnapshot();
     });
   });

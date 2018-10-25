@@ -9,7 +9,7 @@ describe('<ContractDetails />', () => {
     it('renders the component', () => {
       const wrapper = shallow(
         <ContractDetails store={initStore()} />
-      );
+      ).dive();
       expect(wrapper).toMatchSnapshot();
     });
   });

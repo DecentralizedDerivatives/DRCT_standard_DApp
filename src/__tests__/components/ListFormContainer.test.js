@@ -8,7 +8,7 @@ describe('<ListFormContainer />', () => {
     it('renders the component', () => {
       const wrapper = shallow(
         <ListFormContainer store={initStore()} />
-      );
+      ).dive().dive().dive();
       expect(wrapper).toMatchSnapshot();
     });
   });

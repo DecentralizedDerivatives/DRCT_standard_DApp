@@ -8,7 +8,7 @@ describe('<OrderBook />', () => {
     it('renders the component', () => {
       const wrapper = shallow(
         <OrderBook store={initStore()} />
-      );
+      ).dive();
       expect(wrapper).toMatchSnapshot();
     });
   });

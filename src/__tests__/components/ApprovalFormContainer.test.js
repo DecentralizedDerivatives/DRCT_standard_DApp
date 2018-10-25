@@ -8,7 +8,7 @@ describe('<ApprovalFormContainer />', () => {
     it('renders the component', () => {
       const wrapper = shallow(
         <ApprovalFormContainer store={initStore()} />
-      );
+      ).dive().dive().dive();
       expect(wrapper).toMatchSnapshot();
     });
   });

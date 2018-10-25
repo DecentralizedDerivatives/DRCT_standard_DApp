@@ -8,7 +8,7 @@ describe('<CreateContractFormContainer />', () => {
     it('renders the component', () => {
       const wrapper = shallow(
         <CreateContractFormContainer store={initStore()} />
-      );
+      ).dive().dive().dive();
       expect(wrapper).toMatchSnapshot();
     });
   });

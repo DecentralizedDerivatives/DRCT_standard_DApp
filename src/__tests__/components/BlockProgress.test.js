@@ -8,7 +8,7 @@ describe('<BlockProgress />', () => {
     it('renders the component', () => {
       const wrapper = shallow(
         <BlockProgress store={initStore()} />
-      );
+      ).dive();
       expect(wrapper).toMatchSnapshot();
     });
   });
