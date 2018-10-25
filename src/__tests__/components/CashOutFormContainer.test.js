@@ -1,16 +1,14 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Root from '../../Root';
+import { initStore } from '../../Root';
 import CashOutFormContainer from '../../components/CashOutFormContainer';
 
 describe('<CashOutFormContainer />', () => {
   describe('render()', () => {
     it('renders the component', () => {
       const wrapper = shallow(
-        <Root>
-          <CashOutFormContainer />
-        </Root>
-      );
+        <CashOutFormContainer store={initStore()} />
+      ).dive().dive().dive();
       expect(wrapper).toMatchSnapshot();
     });
   });

@@ -1,15 +1,14 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Root from '../../Root';
+import { initStore } from '../../Root';
 import CashOutFormComponent from '../../components/CashOutFormComponent';
 
 describe('<CashOutFormComponent />', () => {
   describe('render()', () => {
     it('renders the component', () => {
+      const handleSubmit = jest.fn();
       const wrapper = shallow(
-        <Root>
-          <CashOutFormComponent />
-        </Root>
+        <CashOutFormComponent store={initStore()} handleSubmit={handleSubmit} />
       );
       expect(wrapper).toMatchSnapshot();
     });

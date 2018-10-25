@@ -1,15 +1,13 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Root from '../../Root';
+import { initStore } from '../../Root';
 import Select from '../../components/Select';
 
 describe('<Select />', () => {
   describe('render()', () => {
     it('renders the component', () => {
       const wrapper = shallow(
-        <Root>
-          <Select />
-        </Root>
+        <Select store={initStore()} meta={{}} />
       );
       expect(wrapper).toMatchSnapshot();
     });

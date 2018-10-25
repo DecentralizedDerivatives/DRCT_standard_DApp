@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Root from '../../Root';
+import { initStore } from '../../Root';
 
 import List from '../../components/List';
 
@@ -8,10 +8,8 @@ describe('<List />', () => {
   describe('render()', () => {
     it('renders the component', () => {
       const wrapper = shallow(
-        <Root>
-          <List />
-        </Root>
-      );
+        <List store={initStore()} />
+      ).dive();
       expect(wrapper).toMatchSnapshot();
     });
   });
