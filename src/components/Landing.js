@@ -54,6 +54,7 @@ class Landing extends Component {
 
 
   render() {
+    let trustlink = 'https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url='
     return (
       <div id="landing">
         <h1 className="landing-head">
@@ -62,6 +63,7 @@ class Landing extends Component {
         <h3 className="landing-subhead">
           {this.renderMessage()}
         </h3>
+        <p>To use the secure Trust Wallet browser,<br />click <a href={trustlink + window.location.href}>here</a></p>
         <img alt=''
           className="landing-logo"
           src={require("../imgs/logo-large.png")}

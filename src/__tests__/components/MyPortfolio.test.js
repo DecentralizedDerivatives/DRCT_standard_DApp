@@ -1,16 +1,14 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Root from '../../Root';
+import { initStore } from '../../Root';
 import MyPortfolio from '../../components/MyPortfolio';
 
 describe('<MyPortfolio />', () => {
   describe('render()', () => {
     it('renders the component', () => {
       const wrapper = shallow(
-        <Root>
-          <MyPortfolio />
-        </Root>
-      );
+        <MyPortfolio store={initStore()} />
+      ).dive().dive().dive();
       expect(wrapper).toMatchSnapshot();
     });
   });

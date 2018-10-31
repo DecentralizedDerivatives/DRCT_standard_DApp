@@ -3,9 +3,46 @@
 exports[`<OrderBook /> render() renders the component 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Root>
-    <Connect(OrderBook) />
-  </Root>,
+  Symbol(enzyme.__unrendered__): <OrderBook
+    buyOrderError={null}
+    contractDuration={0}
+    contractMultiplier={0}
+    getOrderBook={[Function]}
+    loading={false}
+    orderbook={Array []}
+    sendBuyOrder={[Function]}
+    sendUnlistOrder={[Function]}
+    store={
+      Object {
+        "dispatch": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+        Symbol(observable): [Function],
+      }
+    }
+    storeSubscription={
+      Subscription {
+        "listeners": Object {
+          "clear": [Function],
+          "get": [Function],
+          "notify": [Function],
+          "subscribe": [Function],
+        },
+        "onStateChange": [Function],
+        "parentSub": undefined,
+        "store": Object {
+          "dispatch": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+          Symbol(observable): [Function],
+        },
+        "unsubscribe": [Function],
+      }
+    }
+    userAccount=""
+  />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -17,55 +54,1011 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "class",
+    "nodeType": "host",
     "props": Object {
-      "children": <Connect(OrderBook) />,
-      "store": Object {
-        "dispatch": [Function],
-        "getState": [Function],
-        "replaceReducer": [Function],
-        "subscribe": [Function],
-        Symbol(observable): [Function],
-      },
+      "children": <table
+        className="table table-hover table-striped table-responsive"
+      >
+        <thead>
+          <tr>
+            <th
+              colSpan="6"
+            >
+              Order Book
+              <div
+                className="warning"
+              />
+            </th>
+          </tr>
+          <tr>
+            <th
+              style={
+                Object {
+                  "width": "15%",
+                }
+              }
+            >
+              Order Id
+            </th>
+            <th
+              style={
+                Object {
+                  "width": "40%",
+                }
+              }
+            >
+              Asset
+            </th>
+            <th
+              style={
+                Object {
+                  "width": "15%",
+                }
+              }
+            >
+              Price (ETH)
+            </th>
+            <th
+              style={
+                Object {
+                  "width": "15%",
+                }
+              }
+            >
+              Quantity
+            </th>
+            <th>
+              Start Date
+            </th>
+            <th>
+              Gain/Loss
+            </th>
+            <th />
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td
+              colSpan="12"
+              style={
+                Object {
+                  "textAlign": "center",
+                }
+              }
+            >
+              <h5>
+                No Recent Orders
+              </h5>
+            </td>
+          </tr>
+        </tbody>
+      </table>,
+      "className": "table-container order-book",
     },
     "ref": null,
     "rendered": Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "class",
-      "props": Object {},
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <thead>
+            <tr>
+              <th
+                colSpan="6"
+              >
+                Order Book
+                <div
+                  className="warning"
+                />
+              </th>
+            </tr>
+            <tr>
+              <th
+                style={
+                  Object {
+                    "width": "15%",
+                  }
+                }
+              >
+                Order Id
+              </th>
+              <th
+                style={
+                  Object {
+                    "width": "40%",
+                  }
+                }
+              >
+                Asset
+              </th>
+              <th
+                style={
+                  Object {
+                    "width": "15%",
+                  }
+                }
+              >
+                Price (ETH)
+              </th>
+              <th
+                style={
+                  Object {
+                    "width": "15%",
+                  }
+                }
+              >
+                Quantity
+              </th>
+              <th>
+                Start Date
+              </th>
+              <th>
+                Gain/Loss
+              </th>
+              <th />
+            </tr>
+          </thead>,
+          <tbody>
+            <tr>
+              <td
+                colSpan="12"
+                style={
+                  Object {
+                    "textAlign": "center",
+                  }
+                }
+              >
+                <h5>
+                  No Recent Orders
+                </h5>
+              </td>
+            </tr>
+          </tbody>,
+        ],
+        "className": "table table-hover table-striped table-responsive",
+      },
       "ref": null,
-      "rendered": null,
-      "type": [Function],
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <tr>
+                <th
+                  colSpan="6"
+                >
+                  Order Book
+                  <div
+                    className="warning"
+                  />
+                </th>
+              </tr>,
+              <tr>
+                <th
+                  style={
+                    Object {
+                      "width": "15%",
+                    }
+                  }
+                >
+                  Order Id
+                </th>
+                <th
+                  style={
+                    Object {
+                      "width": "40%",
+                    }
+                  }
+                >
+                  Asset
+                </th>
+                <th
+                  style={
+                    Object {
+                      "width": "15%",
+                    }
+                  }
+                >
+                  Price (ETH)
+                </th>
+                <th
+                  style={
+                    Object {
+                      "width": "15%",
+                    }
+                  }
+                >
+                  Quantity
+                </th>
+                <th>
+                  Start Date
+                </th>
+                <th>
+                  Gain/Loss
+                </th>
+                <th />
+              </tr>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <th
+                  colSpan="6"
+                >
+                  Order Book
+                  <div
+                    className="warning"
+                  />
+                </th>,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "Order Book",
+                    <div
+                      className="warning"
+                    />,
+                  ],
+                  "colSpan": "6",
+                },
+                "ref": null,
+                "rendered": Array [
+                  "Order Book",
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": null,
+                      "className": "warning",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "div",
+                  },
+                ],
+                "type": "th",
+              },
+              "type": "tr",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <th
+                    style={
+                      Object {
+                        "width": "15%",
+                      }
+                    }
+                  >
+                    Order Id
+                  </th>,
+                  <th
+                    style={
+                      Object {
+                        "width": "40%",
+                      }
+                    }
+                  >
+                    Asset
+                  </th>,
+                  <th
+                    style={
+                      Object {
+                        "width": "15%",
+                      }
+                    }
+                  >
+                    Price (ETH)
+                  </th>,
+                  <th
+                    style={
+                      Object {
+                        "width": "15%",
+                      }
+                    }
+                  >
+                    Quantity
+                  </th>,
+                  <th>
+                    Start Date
+                  </th>,
+                  <th>
+                    Gain/Loss
+                  </th>,
+                  <th />,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Order Id",
+                    "style": Object {
+                      "width": "15%",
+                    },
+                  },
+                  "ref": null,
+                  "rendered": "Order Id",
+                  "type": "th",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Asset",
+                    "style": Object {
+                      "width": "40%",
+                    },
+                  },
+                  "ref": null,
+                  "rendered": "Asset",
+                  "type": "th",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Price (ETH)",
+                    "style": Object {
+                      "width": "15%",
+                    },
+                  },
+                  "ref": null,
+                  "rendered": "Price (ETH)",
+                  "type": "th",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Quantity",
+                    "style": Object {
+                      "width": "15%",
+                    },
+                  },
+                  "ref": null,
+                  "rendered": "Quantity",
+                  "type": "th",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Start Date",
+                  },
+                  "ref": null,
+                  "rendered": "Start Date",
+                  "type": "th",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Gain/Loss",
+                  },
+                  "ref": null,
+                  "rendered": "Gain/Loss",
+                  "type": "th",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {},
+                  "ref": null,
+                  "rendered": null,
+                  "type": "th",
+                },
+              ],
+              "type": "tr",
+            },
+          ],
+          "type": "thead",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <tr>
+              <td
+                colSpan="12"
+                style={
+                  Object {
+                    "textAlign": "center",
+                  }
+                }
+              >
+                <h5>
+                  No Recent Orders
+                </h5>
+              </td>
+            </tr>,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <td
+                colSpan="12"
+                style={
+                  Object {
+                    "textAlign": "center",
+                  }
+                }
+              >
+                <h5>
+                  No Recent Orders
+                </h5>
+              </td>,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <h5>
+                  No Recent Orders
+                </h5>,
+                "colSpan": "12",
+                "style": Object {
+                  "textAlign": "center",
+                },
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "No Recent Orders",
+                },
+                "ref": null,
+                "rendered": "No Recent Orders",
+                "type": "h5",
+              },
+              "type": "td",
+            },
+            "type": "tr",
+          },
+          "type": "tbody",
+        },
+      ],
+      "type": "table",
     },
-    "type": [Function],
+    "type": "div",
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "class",
+      "nodeType": "host",
       "props": Object {
-        "children": <Connect(OrderBook) />,
-        "store": Object {
-          "dispatch": [Function],
-          "getState": [Function],
-          "replaceReducer": [Function],
-          "subscribe": [Function],
-          Symbol(observable): [Function],
-        },
+        "children": <table
+          className="table table-hover table-striped table-responsive"
+        >
+          <thead>
+            <tr>
+              <th
+                colSpan="6"
+              >
+                Order Book
+                <div
+                  className="warning"
+                />
+              </th>
+            </tr>
+            <tr>
+              <th
+                style={
+                  Object {
+                    "width": "15%",
+                  }
+                }
+              >
+                Order Id
+              </th>
+              <th
+                style={
+                  Object {
+                    "width": "40%",
+                  }
+                }
+              >
+                Asset
+              </th>
+              <th
+                style={
+                  Object {
+                    "width": "15%",
+                  }
+                }
+              >
+                Price (ETH)
+              </th>
+              <th
+                style={
+                  Object {
+                    "width": "15%",
+                  }
+                }
+              >
+                Quantity
+              </th>
+              <th>
+                Start Date
+              </th>
+              <th>
+                Gain/Loss
+              </th>
+              <th />
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td
+                colSpan="12"
+                style={
+                  Object {
+                    "textAlign": "center",
+                  }
+                }
+              >
+                <h5>
+                  No Recent Orders
+                </h5>
+              </td>
+            </tr>
+          </tbody>
+        </table>,
+        "className": "table-container order-book",
       },
       "ref": null,
       "rendered": Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "class",
-        "props": Object {},
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <thead>
+              <tr>
+                <th
+                  colSpan="6"
+                >
+                  Order Book
+                  <div
+                    className="warning"
+                  />
+                </th>
+              </tr>
+              <tr>
+                <th
+                  style={
+                    Object {
+                      "width": "15%",
+                    }
+                  }
+                >
+                  Order Id
+                </th>
+                <th
+                  style={
+                    Object {
+                      "width": "40%",
+                    }
+                  }
+                >
+                  Asset
+                </th>
+                <th
+                  style={
+                    Object {
+                      "width": "15%",
+                    }
+                  }
+                >
+                  Price (ETH)
+                </th>
+                <th
+                  style={
+                    Object {
+                      "width": "15%",
+                    }
+                  }
+                >
+                  Quantity
+                </th>
+                <th>
+                  Start Date
+                </th>
+                <th>
+                  Gain/Loss
+                </th>
+                <th />
+              </tr>
+            </thead>,
+            <tbody>
+              <tr>
+                <td
+                  colSpan="12"
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  <h5>
+                    No Recent Orders
+                  </h5>
+                </td>
+              </tr>
+            </tbody>,
+          ],
+          "className": "table table-hover table-striped table-responsive",
+        },
         "ref": null,
-        "rendered": null,
-        "type": [Function],
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <tr>
+                  <th
+                    colSpan="6"
+                  >
+                    Order Book
+                    <div
+                      className="warning"
+                    />
+                  </th>
+                </tr>,
+                <tr>
+                  <th
+                    style={
+                      Object {
+                        "width": "15%",
+                      }
+                    }
+                  >
+                    Order Id
+                  </th>
+                  <th
+                    style={
+                      Object {
+                        "width": "40%",
+                      }
+                    }
+                  >
+                    Asset
+                  </th>
+                  <th
+                    style={
+                      Object {
+                        "width": "15%",
+                      }
+                    }
+                  >
+                    Price (ETH)
+                  </th>
+                  <th
+                    style={
+                      Object {
+                        "width": "15%",
+                      }
+                    }
+                  >
+                    Quantity
+                  </th>
+                  <th>
+                    Start Date
+                  </th>
+                  <th>
+                    Gain/Loss
+                  </th>
+                  <th />
+                </tr>,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <th
+                    colSpan="6"
+                  >
+                    Order Book
+                    <div
+                      className="warning"
+                    />
+                  </th>,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      "Order Book",
+                      <div
+                        className="warning"
+                      />,
+                    ],
+                    "colSpan": "6",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "Order Book",
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": null,
+                        "className": "warning",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": "div",
+                    },
+                  ],
+                  "type": "th",
+                },
+                "type": "tr",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <th
+                      style={
+                        Object {
+                          "width": "15%",
+                        }
+                      }
+                    >
+                      Order Id
+                    </th>,
+                    <th
+                      style={
+                        Object {
+                          "width": "40%",
+                        }
+                      }
+                    >
+                      Asset
+                    </th>,
+                    <th
+                      style={
+                        Object {
+                          "width": "15%",
+                        }
+                      }
+                    >
+                      Price (ETH)
+                    </th>,
+                    <th
+                      style={
+                        Object {
+                          "width": "15%",
+                        }
+                      }
+                    >
+                      Quantity
+                    </th>,
+                    <th>
+                      Start Date
+                    </th>,
+                    <th>
+                      Gain/Loss
+                    </th>,
+                    <th />,
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Order Id",
+                      "style": Object {
+                        "width": "15%",
+                      },
+                    },
+                    "ref": null,
+                    "rendered": "Order Id",
+                    "type": "th",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Asset",
+                      "style": Object {
+                        "width": "40%",
+                      },
+                    },
+                    "ref": null,
+                    "rendered": "Asset",
+                    "type": "th",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Price (ETH)",
+                      "style": Object {
+                        "width": "15%",
+                      },
+                    },
+                    "ref": null,
+                    "rendered": "Price (ETH)",
+                    "type": "th",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Quantity",
+                      "style": Object {
+                        "width": "15%",
+                      },
+                    },
+                    "ref": null,
+                    "rendered": "Quantity",
+                    "type": "th",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Start Date",
+                    },
+                    "ref": null,
+                    "rendered": "Start Date",
+                    "type": "th",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Gain/Loss",
+                    },
+                    "ref": null,
+                    "rendered": "Gain/Loss",
+                    "type": "th",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {},
+                    "ref": null,
+                    "rendered": null,
+                    "type": "th",
+                  },
+                ],
+                "type": "tr",
+              },
+            ],
+            "type": "thead",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <tr>
+                <td
+                  colSpan="12"
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  <h5>
+                    No Recent Orders
+                  </h5>
+                </td>
+              </tr>,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <td
+                  colSpan="12"
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  <h5>
+                    No Recent Orders
+                  </h5>
+                </td>,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <h5>
+                    No Recent Orders
+                  </h5>,
+                  "colSpan": "12",
+                  "style": Object {
+                    "textAlign": "center",
+                  },
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "No Recent Orders",
+                  },
+                  "ref": null,
+                  "rendered": "No Recent Orders",
+                  "type": "h5",
+                },
+                "type": "td",
+              },
+              "type": "tr",
+            },
+            "type": "tbody",
+          },
+        ],
+        "type": "table",
       },
-      "type": [Function],
+      "type": "div",
     },
   ],
   Symbol(enzyme.__options__): Object {
