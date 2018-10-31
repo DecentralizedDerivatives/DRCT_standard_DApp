@@ -30,7 +30,6 @@
     "build": "NODE_ENV=production react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "coverage": "react-scripts test --env=jsdom --coverage",
-    "eject": "react-scripts eject",
     "analyze": "source-map-explorer build/static/js/main.*",
     "prettier": "./node_modules/.bin/prettier --single-quote --trailing-comma es5 --print-width 80 --write --no-bracket-spacing src/**/**/**/**/*.js"
   },
