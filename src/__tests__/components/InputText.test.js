@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Root from '../../Root';
+import { initStore } from '../../Root';
 
 import InputText from '../../components/InputText';
 
@@ -8,9 +8,7 @@ describe('<InputText />', () => {
   describe('render()', () => {
     it('renders the component', () => {
       const wrapper = shallow(
-        <Root>
-          <InputText />
-        </Root>
+        <InputText store={initStore()} meta={{}} />
       );
       expect(wrapper).toMatchSnapshot();
     });

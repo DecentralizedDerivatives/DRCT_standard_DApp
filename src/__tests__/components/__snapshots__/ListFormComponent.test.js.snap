@@ -3,9 +3,32 @@
 exports[`<ListFormComponent /> render() renders the component 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Root>
-    <ListFormComponent />
-  </Root>,
+  Symbol(enzyme.__unrendered__): <ListFormComponent
+    handleSubmit={
+      [MockFunction] {
+        "calls": Array [
+          Array [
+            undefined,
+          ],
+        ],
+        "results": Array [
+          Object {
+            "isThrow": false,
+            "value": undefined,
+          },
+        ],
+      }
+    }
+    store={
+      Object {
+        "dispatch": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+        Symbol(observable): [Function],
+      }
+    }
+  />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -17,55 +40,417 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "class",
+    "nodeType": "host",
     "props": Object {
-      "children": <ListFormComponent />,
-      "store": Object {
-        "dispatch": [Function],
-        "getState": [Function],
-        "replaceReducer": [Function],
-        "subscribe": [Function],
-        Symbol(observable): [Function],
-      },
+      "autoComplete": "off",
+      "children": Array [
+        <label
+          style={
+            Object {
+              "margin": "6px 0",
+            }
+          }
+        >
+          <strong>
+            Token:
+          </strong>
+        </label>,
+        <div />,
+        <br />,
+        <label
+          style={
+            Object {
+              "margin": "6px 6px 0 0",
+            }
+          }
+        >
+          <strong>
+            Amount:
+          </strong>
+        </label>,
+        <span />,
+        <InputGroup
+          className="order-input-wrapper"
+          tag="div"
+        >
+          <Field
+            addonLabel="ETH"
+            className="order-input"
+            component={[Function]}
+            label="Enter Price in ETH"
+            name="price"
+            step="0.00001"
+          />
+        </InputGroup>,
+        <div>
+          <button
+            className="order-submit-btn btn btn-primary"
+            type="submit"
+          >
+            Submit
+          </button>
+        </div>,
+      ],
+      "onSubmit": undefined,
     },
     "ref": null,
-    "rendered": Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "function",
-      "props": Object {},
-      "ref": null,
-      "rendered": null,
-      "type": [Function],
-    },
-    "type": [Function],
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <strong>
+            Token:
+          </strong>,
+          "style": Object {
+            "margin": "6px 0",
+          },
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Token:",
+          },
+          "ref": null,
+          "rendered": "Token:",
+          "type": "strong",
+        },
+        "type": "label",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": undefined,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": "br",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <strong>
+            Amount:
+          </strong>,
+          "style": Object {
+            "margin": "6px 6px 0 0",
+          },
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Amount:",
+          },
+          "ref": null,
+          "rendered": "Amount:",
+          "type": "strong",
+        },
+        "type": "label",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": undefined,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "span",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": <Field
+            addonLabel="ETH"
+            className="order-input"
+            component={[Function]}
+            label="Enter Price in ETH"
+            name="price"
+            step="0.00001"
+          />,
+          "className": "order-input-wrapper",
+          "tag": "div",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "addonLabel": "ETH",
+            "className": "order-input",
+            "component": [Function],
+            "label": "Enter Price in ETH",
+            "name": "price",
+            "step": "0.00001",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <button
+            className="order-submit-btn btn btn-primary"
+            type="submit"
+          >
+            Submit
+          </button>,
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Submit",
+            "className": "order-submit-btn btn btn-primary",
+            "type": "submit",
+          },
+          "ref": null,
+          "rendered": "Submit",
+          "type": "button",
+        },
+        "type": "div",
+      },
+    ],
+    "type": "form",
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "class",
+      "nodeType": "host",
       "props": Object {
-        "children": <ListFormComponent />,
-        "store": Object {
-          "dispatch": [Function],
-          "getState": [Function],
-          "replaceReducer": [Function],
-          "subscribe": [Function],
-          Symbol(observable): [Function],
-        },
+        "autoComplete": "off",
+        "children": Array [
+          <label
+            style={
+              Object {
+                "margin": "6px 0",
+              }
+            }
+          >
+            <strong>
+              Token:
+            </strong>
+          </label>,
+          <div />,
+          <br />,
+          <label
+            style={
+              Object {
+                "margin": "6px 6px 0 0",
+              }
+            }
+          >
+            <strong>
+              Amount:
+            </strong>
+          </label>,
+          <span />,
+          <InputGroup
+            className="order-input-wrapper"
+            tag="div"
+          >
+            <Field
+              addonLabel="ETH"
+              className="order-input"
+              component={[Function]}
+              label="Enter Price in ETH"
+              name="price"
+              step="0.00001"
+            />
+          </InputGroup>,
+          <div>
+            <button
+              className="order-submit-btn btn btn-primary"
+              type="submit"
+            >
+              Submit
+            </button>
+          </div>,
+        ],
+        "onSubmit": undefined,
       },
       "ref": null,
-      "rendered": Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "function",
-        "props": Object {},
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
-      "type": [Function],
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <strong>
+              Token:
+            </strong>,
+            "style": Object {
+              "margin": "6px 0",
+            },
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Token:",
+            },
+            "ref": null,
+            "rendered": "Token:",
+            "type": "strong",
+          },
+          "type": "label",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": "br",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <strong>
+              Amount:
+            </strong>,
+            "style": Object {
+              "margin": "6px 6px 0 0",
+            },
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Amount:",
+            },
+            "ref": null,
+            "rendered": "Amount:",
+            "type": "strong",
+          },
+          "type": "label",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "span",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": <Field
+              addonLabel="ETH"
+              className="order-input"
+              component={[Function]}
+              label="Enter Price in ETH"
+              name="price"
+              step="0.00001"
+            />,
+            "className": "order-input-wrapper",
+            "tag": "div",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "addonLabel": "ETH",
+              "className": "order-input",
+              "component": [Function],
+              "label": "Enter Price in ETH",
+              "name": "price",
+              "step": "0.00001",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <button
+              className="order-submit-btn btn btn-primary"
+              type="submit"
+            >
+              Submit
+            </button>,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Submit",
+              "className": "order-submit-btn btn btn-primary",
+              "type": "submit",
+            },
+            "ref": null,
+            "rendered": "Submit",
+            "type": "button",
+          },
+          "type": "div",
+        },
+      ],
+      "type": "form",
     },
   ],
   Symbol(enzyme.__options__): Object {

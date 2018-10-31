@@ -1,16 +1,14 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Root from '../../Root';
-import Bulletin from '../../components/Bulletin';
+import { initStore } from '../../Root';
+import Bulletin, {Bulletin as b} from '../../components/Bulletin';
 
 describe('<Bulletin />', () => {
   describe('render()', () => {
     it('renders the component', () => {
       const wrapper = shallow(
-        <Root>
-          <Bulletin />
-        </Root>
-      );
+        <Bulletin store={initStore()} />
+      ).dive().dive().dive();
       expect(wrapper).toMatchSnapshot();
     });
   });
