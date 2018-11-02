@@ -1,6 +1,3 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import { initStore } from '../../Root';
 import Select from '../../components/Select';
 
 describe('<Select />', () => {

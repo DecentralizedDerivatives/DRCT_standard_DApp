@@ -1,15 +1,20 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import { initStore } from '../../Root';
-
 import ContractDetails from '../../components/ContractDetails';
 
 describe('<ContractDetails />', () => {
   describe('render()', () => {
-    it('renders the component', () => {
+    it('renders empty component', () => {
       const wrapper = shallow(
         <ContractDetails store={initStore()} />
       ).dive();
+
+      expect(wrapper).toMatchSnapshot();
+    });
+
+    it('renders the component', () => {
+      const wrapper = shallow(
+        <ContractDetails store={initFixtureStore()} />
+      ).dive();
+
       expect(wrapper).toMatchSnapshot();
     });
   });

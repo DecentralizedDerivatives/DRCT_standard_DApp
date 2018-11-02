@@ -8,7 +8,22 @@ ShallowWrapper {
     contractMultiplier={0}
     getRecentTrades={[Function]}
     loading={false}
-    recentTrades={Array []}
+    onRowClick={[MockFunction]}
+    recentTrades={
+      Array [
+        Object {
+          "address": "0x65696fae9ee29c84c9e8a5a33cdf6e4a81458d64",
+          "contractDuration": 7,
+          "contractMultiplier": 5,
+          "date": "Fri Oct 12 2018 03:00:00 GMT+0300 (Eastern European Summer Time)",
+          "orderDate": "10/12/2018",
+          "price": "0.11000",
+          "symbol": "ETH/USD",
+          "tokenType": "Short",
+          "volume": "1000",
+        },
+      ]
+    }
     store={
       Object {
         "dispatch": [Function],
@@ -80,7 +95,32 @@ ShallowWrapper {
             </th>
           </tr>
         </thead>
-        <tbody />
+        <tbody>
+          <tr
+            className="clickable"
+            onClick={[Function]}
+          >
+            <td>
+              Short
+               
+              ETH/USD
+               - 
+              7
+               Days - 
+               5
+              X
+            </td>
+            <td>
+              10/12/2018
+            </td>
+            <td>
+              1000
+            </td>
+            <td>
+              0.11000
+            </td>
+          </tr>
+        </tbody>
       </Table>,
       "className": "table-container recent-trades",
     },
@@ -114,7 +154,32 @@ ShallowWrapper {
               </th>
             </tr>
           </thead>,
-          <tbody />,
+          <tbody>
+            <tr
+              className="clickable"
+              onClick={[Function]}
+            >
+              <td>
+                Short
+                 
+                ETH/USD
+                 - 
+                7
+                 Days - 
+                 5
+                X
+              </td>
+              <td>
+                10/12/2018
+              </td>
+              <td>
+                1000
+              </td>
+              <td>
+                0.11000
+              </td>
+            </tr>
+          </tbody>,
         ],
         "className": "table table-hover table-striped table-responsive",
         "responsiveTag": "div",
@@ -256,10 +321,132 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": Array [],
+            "children": Array [
+              <tr
+                className="clickable"
+                onClick={[Function]}
+              >
+                <td>
+                  Short
+                   
+                  ETH/USD
+                   - 
+                  7
+                   Days - 
+                   5
+                  X
+                </td>
+                <td>
+                  10/12/2018
+                </td>
+                <td>
+                  1000
+                </td>
+                <td>
+                  0.11000
+                </td>
+              </tr>,
+            ],
           },
           "ref": null,
-          "rendered": Array [],
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": "0",
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <td>
+                    Short
+                     
+                    ETH/USD
+                     - 
+                    7
+                     Days - 
+                     5
+                    X
+                  </td>,
+                  <td>
+                    10/12/2018
+                  </td>,
+                  <td>
+                    1000
+                  </td>,
+                  <td>
+                    0.11000
+                  </td>,
+                ],
+                "className": "clickable",
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      "Short",
+                      " ",
+                      "ETH/USD",
+                      " - ",
+                      7,
+                      " Days - ",
+                      " 5",
+                      "X",
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "Short",
+                    " ",
+                    "ETH/USD",
+                    " - ",
+                    7,
+                    " Days - ",
+                    " 5",
+                    "X",
+                  ],
+                  "type": "td",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "10/12/2018",
+                  },
+                  "ref": null,
+                  "rendered": "10/12/2018",
+                  "type": "td",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "1000",
+                  },
+                  "ref": null,
+                  "rendered": "1000",
+                  "type": "td",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "0.11000",
+                  },
+                  "ref": null,
+                  "rendered": "0.11000",
+                  "type": "td",
+                },
+              ],
+              "type": "tr",
+            },
+          ],
           "type": "tbody",
         },
       ],
@@ -301,7 +488,32 @@ ShallowWrapper {
               </th>
             </tr>
           </thead>
-          <tbody />
+          <tbody>
+            <tr
+              className="clickable"
+              onClick={[Function]}
+            >
+              <td>
+                Short
+                 
+                ETH/USD
+                 - 
+                7
+                 Days - 
+                 5
+                X
+              </td>
+              <td>
+                10/12/2018
+              </td>
+              <td>
+                1000
+              </td>
+              <td>
+                0.11000
+              </td>
+            </tr>
+          </tbody>
         </Table>,
         "className": "table-container recent-trades",
       },
@@ -335,7 +547,32 @@ ShallowWrapper {
                 </th>
               </tr>
             </thead>,
-            <tbody />,
+            <tbody>
+              <tr
+                className="clickable"
+                onClick={[Function]}
+              >
+                <td>
+                  Short
+                   
+                  ETH/USD
+                   - 
+                  7
+                   Days - 
+                   5
+                  X
+                </td>
+                <td>
+                  10/12/2018
+                </td>
+                <td>
+                  1000
+                </td>
+                <td>
+                  0.11000
+                </td>
+              </tr>
+            </tbody>,
           ],
           "className": "table table-hover table-striped table-responsive",
           "responsiveTag": "div",
@@ -477,10 +714,132 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": Array [],
+              "children": Array [
+                <tr
+                  className="clickable"
+                  onClick={[Function]}
+                >
+                  <td>
+                    Short
+                     
+                    ETH/USD
+                     - 
+                    7
+                     Days - 
+                     5
+                    X
+                  </td>
+                  <td>
+                    10/12/2018
+                  </td>
+                  <td>
+                    1000
+                  </td>
+                  <td>
+                    0.11000
+                  </td>
+                </tr>,
+              ],
             },
             "ref": null,
-            "rendered": Array [],
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": "0",
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <td>
+                      Short
+                       
+                      ETH/USD
+                       - 
+                      7
+                       Days - 
+                       5
+                      X
+                    </td>,
+                    <td>
+                      10/12/2018
+                    </td>,
+                    <td>
+                      1000
+                    </td>,
+                    <td>
+                      0.11000
+                    </td>,
+                  ],
+                  "className": "clickable",
+                  "onClick": [Function],
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        "Short",
+                        " ",
+                        "ETH/USD",
+                        " - ",
+                        7,
+                        " Days - ",
+                        " 5",
+                        "X",
+                      ],
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      "Short",
+                      " ",
+                      "ETH/USD",
+                      " - ",
+                      7,
+                      " Days - ",
+                      " 5",
+                      "X",
+                    ],
+                    "type": "td",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "10/12/2018",
+                    },
+                    "ref": null,
+                    "rendered": "10/12/2018",
+                    "type": "td",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "1000",
+                    },
+                    "ref": null,
+                    "rendered": "1000",
+                    "type": "td",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "0.11000",
+                    },
+                    "ref": null,
+                    "rendered": "0.11000",
+                    "type": "td",
+                  },
+                ],
+                "type": "tr",
+              },
+            ],
             "type": "tbody",
           },
         ],

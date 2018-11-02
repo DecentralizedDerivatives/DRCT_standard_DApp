@@ -1,7 +1,3 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import { initStore } from '../../Root';
-
 import ConnectionModal from '../../components/ConnectionModal';
 
 describe('<ConnectionModal />', () => {
@@ -10,7 +6,10 @@ describe('<ConnectionModal />', () => {
       const wrapper = shallow(
         <ConnectionModal store={initStore()} />
       ).dive();
+
       expect(wrapper).toMatchSnapshot();
+
+      wrapper.find('ModalFooter > button').simulate('click');
     });
   });
 });

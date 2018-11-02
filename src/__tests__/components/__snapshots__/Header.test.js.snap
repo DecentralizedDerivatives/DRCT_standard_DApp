@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Header /> render connected and whitelisted renders the component 1`] = `
+exports[`<Header /> renders connected and whitelisted 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Header
@@ -936,7 +936,7 @@ ShallowWrapper {
 }
 `;
 
-exports[`<Header /> render connected not whitelisted renders the component 1`] = `
+exports[`<Header /> renders connected not whitelisted 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Header
@@ -1872,7 +1872,7 @@ ShallowWrapper {
 }
 `;
 
-exports[`<Header /> render not connected renders the component 1`] = `
+exports[`<Header /> renders the component 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Header

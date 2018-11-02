@@ -8,8 +8,8 @@ ShallowWrapper {
     getUserAccount={[Function]}
     getUserPositions={[Function]}
     getUserTransactions={[Function]}
-    metamask={false}
-    network={0}
+    metamask={true}
+    network={4}
     store={
       Object {
         "dispatch": [Function],
@@ -56,9 +56,9 @@ ShallowWrapper {
         "unsubscribe": [Function],
       }
     }
-    userAccount=""
-    verified={false}
-    whiteListed={false}
+    userAccount="0xd8e09fbab17f30e1C2b2Ae85A26EA1F3F31267ef"
+    verified={true}
+    whiteListed={true}
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],

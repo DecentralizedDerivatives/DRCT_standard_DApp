@@ -1,14 +1,14 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import { initStore } from '../../Root';
 import RecentTrades from '../../components/RecentTrades';
 
 describe('<RecentTrades />', () => {
   describe('render()', () => {
     it('renders the component', () => {
+      const onRowClick = jest.fn();
+
       const wrapper = shallow(
-        <RecentTrades store={initStore()} />
+        <RecentTrades store={initFixtureStore()} onRowClick={onRowClick} />
       ).dive();
+
       expect(wrapper).toMatchSnapshot();
     });
   });

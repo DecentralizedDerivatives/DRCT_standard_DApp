@@ -1,6 +1,3 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import { initStore } from '../../Root';
 import ListFormComponent from '../../components/ListFormComponent';
 
 describe('<ListFormComponent />', () => {

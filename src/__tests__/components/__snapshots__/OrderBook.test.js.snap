@@ -9,7 +9,22 @@ ShallowWrapper {
     contractMultiplier={0}
     getOrderBook={[Function]}
     loading={false}
-    orderbook={Array []}
+    onRowClick={[MockFunction]}
+    orderbook={
+      Array [
+        Object {
+          "address": "0xaf0ff6be724648362c63921736505354af16ac3a",
+          "contractGain": 0,
+          "creatorAddress": "0xc69c64c226fea62234afe4f5832a051ebc860540",
+          "date": "11/09/2018",
+          "orderId": "25",
+          "price": "0.20000",
+          "quantity": "200",
+          "symbol": "ETH/USD",
+          "tokenType": "Long",
+        },
+      ]
+    }
     sendBuyOrder={[Function]}
     sendUnlistOrder={[Function]}
     store={
@@ -41,7 +56,7 @@ ShallowWrapper {
         "unsubscribe": [Function],
       }
     }
-    userAccount=""
+    userAccount="0xd8e09fbab17f30e1C2b2Ae85A26EA1F3F31267ef"
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -117,18 +132,45 @@ ShallowWrapper {
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr
+            className="clickable"
+            onClick={[Function]}
+          >
+            <td>
+              25
+            </td>
+            <td>
+              Long ETH/USD
+            </td>
+            <td>
+              0.20000
+            </td>
+            <td>
+              200
+            </td>
+            <td>
+              11/09/2018
+            </td>
+            <td>
+              <span>
+                 
+                 -- 
+                 
+              </span>
+            </td>
             <td
-              colSpan="12"
               style={
                 Object {
-                  "textAlign": "center",
+                  "padding": "0.4rem",
                 }
               }
             >
-              <h5>
-                No Recent Orders
-              </h5>
+              <button
+                className="btn btn-theme btn-thin"
+                onClick={[Function]}
+              >
+                Buy
+              </button>
             </td>
           </tr>
         </tbody>
@@ -200,18 +242,45 @@ ShallowWrapper {
             </tr>
           </thead>,
           <tbody>
-            <tr>
+            <tr
+              className="clickable"
+              onClick={[Function]}
+            >
+              <td>
+                25
+              </td>
+              <td>
+                Long ETH/USD
+              </td>
+              <td>
+                0.20000
+              </td>
+              <td>
+                200
+              </td>
+              <td>
+                11/09/2018
+              </td>
+              <td>
+                <span>
+                   
+                   -- 
+                   
+                </span>
+              </td>
               <td
-                colSpan="12"
                 style={
                   Object {
-                    "textAlign": "center",
+                    "padding": "0.4rem",
                   }
                 }
               >
-                <h5>
-                  No Recent Orders
-                </h5>
+                <button
+                  className="btn btn-theme btn-thin"
+                  onClick={[Function]}
+                >
+                  Buy
+                </button>
               </td>
             </tr>
           </tbody>,
@@ -484,70 +553,225 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": <tr>
-              <td
-                colSpan="12"
-                style={
-                  Object {
-                    "textAlign": "center",
-                  }
-                }
+            "children": Array [
+              <tr
+                className="clickable"
+                onClick={[Function]}
               >
-                <h5>
-                  No Recent Orders
-                </h5>
-              </td>
-            </tr>,
+                <td>
+                  25
+                </td>
+                <td>
+                  Long ETH/USD
+                </td>
+                <td>
+                  0.20000
+                </td>
+                <td>
+                  200
+                </td>
+                <td>
+                  11/09/2018
+                </td>
+                <td>
+                  <span>
+                     
+                     -- 
+                     
+                  </span>
+                </td>
+                <td
+                  style={
+                    Object {
+                      "padding": "0.4rem",
+                    }
+                  }
+                >
+                  <button
+                    className="btn btn-theme btn-thin"
+                    onClick={[Function]}
+                  >
+                    Buy
+                  </button>
+                </td>
+              </tr>,
+            ],
           },
           "ref": null,
-          "rendered": Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": <td
-                colSpan="12"
-                style={
-                  Object {
-                    "textAlign": "center",
-                  }
-                }
-              >
-                <h5>
-                  No Recent Orders
-                </h5>
-              </td>,
-            },
-            "ref": null,
-            "rendered": Object {
+          "rendered": Array [
+            Object {
               "instance": null,
-              "key": undefined,
+              "key": "25",
               "nodeType": "host",
               "props": Object {
-                "children": <h5>
-                  No Recent Orders
-                </h5>,
-                "colSpan": "12",
-                "style": Object {
-                  "textAlign": "center",
-                },
+                "children": Array [
+                  <td>
+                    25
+                  </td>,
+                  <td>
+                    Long ETH/USD
+                  </td>,
+                  <td>
+                    0.20000
+                  </td>,
+                  <td>
+                    200
+                  </td>,
+                  <td>
+                    11/09/2018
+                  </td>,
+                  <td>
+                    <span>
+                       
+                       -- 
+                       
+                    </span>
+                  </td>,
+                  <td
+                    style={
+                      Object {
+                        "padding": "0.4rem",
+                      }
+                    }
+                  >
+                    <button
+                      className="btn btn-theme btn-thin"
+                      onClick={[Function]}
+                    >
+                      Buy
+                    </button>
+                  </td>,
+                  undefined,
+                ],
+                "className": "clickable",
+                "onClick": [Function],
               },
               "ref": null,
-              "rendered": Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": "No Recent Orders",
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "25",
+                  },
+                  "ref": null,
+                  "rendered": "25",
+                  "type": "td",
                 },
-                "ref": null,
-                "rendered": "No Recent Orders",
-                "type": "h5",
-              },
-              "type": "td",
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Long ETH/USD",
+                  },
+                  "ref": null,
+                  "rendered": "Long ETH/USD",
+                  "type": "td",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "0.20000",
+                  },
+                  "ref": null,
+                  "rendered": "0.20000",
+                  "type": "td",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "200",
+                  },
+                  "ref": null,
+                  "rendered": "200",
+                  "type": "td",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "11/09/2018",
+                  },
+                  "ref": null,
+                  "rendered": "11/09/2018",
+                  "type": "td",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <span>
+                       
+                       -- 
+                       
+                    </span>,
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        " ",
+                        " -- ",
+                        " ",
+                      ],
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      " ",
+                      " -- ",
+                      " ",
+                    ],
+                    "type": "span",
+                  },
+                  "type": "td",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <button
+                      className="btn btn-theme btn-thin"
+                      onClick={[Function]}
+                    >
+                      Buy
+                    </button>,
+                    "style": Object {
+                      "padding": "0.4rem",
+                    },
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Buy",
+                      "className": "btn btn-theme btn-thin",
+                      "onClick": [Function],
+                    },
+                    "ref": null,
+                    "rendered": "Buy",
+                    "type": "button",
+                  },
+                  "type": "td",
+                },
+                undefined,
+              ],
+              "type": "tr",
             },
-            "type": "tr",
-          },
+          ],
           "type": "tbody",
         },
       ],
@@ -622,18 +846,45 @@ ShallowWrapper {
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr
+              className="clickable"
+              onClick={[Function]}
+            >
+              <td>
+                25
+              </td>
+              <td>
+                Long ETH/USD
+              </td>
+              <td>
+                0.20000
+              </td>
+              <td>
+                200
+              </td>
+              <td>
+                11/09/2018
+              </td>
+              <td>
+                <span>
+                   
+                   -- 
+                   
+                </span>
+              </td>
               <td
-                colSpan="12"
                 style={
                   Object {
-                    "textAlign": "center",
+                    "padding": "0.4rem",
                   }
                 }
               >
-                <h5>
-                  No Recent Orders
-                </h5>
+                <button
+                  className="btn btn-theme btn-thin"
+                  onClick={[Function]}
+                >
+                  Buy
+                </button>
               </td>
             </tr>
           </tbody>
@@ -705,18 +956,45 @@ ShallowWrapper {
               </tr>
             </thead>,
             <tbody>
-              <tr>
+              <tr
+                className="clickable"
+                onClick={[Function]}
+              >
+                <td>
+                  25
+                </td>
+                <td>
+                  Long ETH/USD
+                </td>
+                <td>
+                  0.20000
+                </td>
+                <td>
+                  200
+                </td>
+                <td>
+                  11/09/2018
+                </td>
+                <td>
+                  <span>
+                     
+                     -- 
+                     
+                  </span>
+                </td>
                 <td
-                  colSpan="12"
                   style={
                     Object {
-                      "textAlign": "center",
+                      "padding": "0.4rem",
                     }
                   }
                 >
-                  <h5>
-                    No Recent Orders
-                  </h5>
+                  <button
+                    className="btn btn-theme btn-thin"
+                    onClick={[Function]}
+                  >
+                    Buy
+                  </button>
                 </td>
               </tr>
             </tbody>,
@@ -989,70 +1267,225 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": <tr>
-                <td
-                  colSpan="12"
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
+              "children": Array [
+                <tr
+                  className="clickable"
+                  onClick={[Function]}
                 >
-                  <h5>
-                    No Recent Orders
-                  </h5>
-                </td>
-              </tr>,
+                  <td>
+                    25
+                  </td>
+                  <td>
+                    Long ETH/USD
+                  </td>
+                  <td>
+                    0.20000
+                  </td>
+                  <td>
+                    200
+                  </td>
+                  <td>
+                    11/09/2018
+                  </td>
+                  <td>
+                    <span>
+                       
+                       -- 
+                       
+                    </span>
+                  </td>
+                  <td
+                    style={
+                      Object {
+                        "padding": "0.4rem",
+                      }
+                    }
+                  >
+                    <button
+                      className="btn btn-theme btn-thin"
+                      onClick={[Function]}
+                    >
+                      Buy
+                    </button>
+                  </td>
+                </tr>,
+              ],
             },
             "ref": null,
-            "rendered": Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": <td
-                  colSpan="12"
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  <h5>
-                    No Recent Orders
-                  </h5>
-                </td>,
-              },
-              "ref": null,
-              "rendered": Object {
+            "rendered": Array [
+              Object {
                 "instance": null,
-                "key": undefined,
+                "key": "25",
                 "nodeType": "host",
                 "props": Object {
-                  "children": <h5>
-                    No Recent Orders
-                  </h5>,
-                  "colSpan": "12",
-                  "style": Object {
-                    "textAlign": "center",
-                  },
+                  "children": Array [
+                    <td>
+                      25
+                    </td>,
+                    <td>
+                      Long ETH/USD
+                    </td>,
+                    <td>
+                      0.20000
+                    </td>,
+                    <td>
+                      200
+                    </td>,
+                    <td>
+                      11/09/2018
+                    </td>,
+                    <td>
+                      <span>
+                         
+                         -- 
+                         
+                      </span>
+                    </td>,
+                    <td
+                      style={
+                        Object {
+                          "padding": "0.4rem",
+                        }
+                      }
+                    >
+                      <button
+                        className="btn btn-theme btn-thin"
+                        onClick={[Function]}
+                      >
+                        Buy
+                      </button>
+                    </td>,
+                    undefined,
+                  ],
+                  "className": "clickable",
+                  "onClick": [Function],
                 },
                 "ref": null,
-                "rendered": Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "children": "No Recent Orders",
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "25",
+                    },
+                    "ref": null,
+                    "rendered": "25",
+                    "type": "td",
                   },
-                  "ref": null,
-                  "rendered": "No Recent Orders",
-                  "type": "h5",
-                },
-                "type": "td",
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Long ETH/USD",
+                    },
+                    "ref": null,
+                    "rendered": "Long ETH/USD",
+                    "type": "td",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "0.20000",
+                    },
+                    "ref": null,
+                    "rendered": "0.20000",
+                    "type": "td",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "200",
+                    },
+                    "ref": null,
+                    "rendered": "200",
+                    "type": "td",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "11/09/2018",
+                    },
+                    "ref": null,
+                    "rendered": "11/09/2018",
+                    "type": "td",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": <span>
+                         
+                         -- 
+                         
+                      </span>,
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          " ",
+                          " -- ",
+                          " ",
+                        ],
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        " ",
+                        " -- ",
+                        " ",
+                      ],
+                      "type": "span",
+                    },
+                    "type": "td",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": <button
+                        className="btn btn-theme btn-thin"
+                        onClick={[Function]}
+                      >
+                        Buy
+                      </button>,
+                      "style": Object {
+                        "padding": "0.4rem",
+                      },
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Buy",
+                        "className": "btn btn-theme btn-thin",
+                        "onClick": [Function],
+                      },
+                      "ref": null,
+                      "rendered": "Buy",
+                      "type": "button",
+                    },
+                    "type": "td",
+                  },
+                  undefined,
+                ],
+                "type": "tr",
               },
-              "type": "tr",
-            },
+            ],
             "type": "tbody",
           },
         ],

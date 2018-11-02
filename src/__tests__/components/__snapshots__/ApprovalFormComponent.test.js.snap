@@ -19,8 +19,26 @@ ShallowWrapper {
         ],
       }
     }
-    selectOptions={Array []}
-    store={[Function]}
+    selectOptions={
+      Array [
+        Object {
+          "address": "0xd41070659dbcdf364914fdeaa55ebfa4ea9571d0",
+          "balance": 50,
+          "date": "10/26/2018",
+          "symbol": "ETH/USD",
+          "tokenType": "Long",
+        },
+      ]
+    }
+    store={
+      Object {
+        "dispatch": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+        Symbol(observable): [Function],
+      }
+    }
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -43,7 +61,11 @@ ShallowWrapper {
             component={[Function]}
             label="Select Token"
             name="token"
-            options={Object {}}
+            options={
+              Object {
+                "0xd41070659dbcdf364914fdeaa55ebfa4ea9571d0": "Long ETH/USD: 50 (10/26/2018)",
+              }
+            }
           />
         </InputGroup>
         <br />
@@ -82,7 +104,11 @@ ShallowWrapper {
               component={[Function]}
               label="Select Token"
               name="token"
-              options={Object {}}
+              options={
+                Object {
+                  "0xd41070659dbcdf364914fdeaa55ebfa4ea9571d0": "Long ETH/USD: 50 (10/26/2018)",
+                }
+              }
             />
           </InputGroup>,
           <br />,
@@ -119,7 +145,11 @@ ShallowWrapper {
               component={[Function]}
               label="Select Token"
               name="token"
-              options={Object {}}
+              options={
+                Object {
+                  "0xd41070659dbcdf364914fdeaa55ebfa4ea9571d0": "Long ETH/USD: 50 (10/26/2018)",
+                }
+              }
             />,
             "tag": "div",
           },
@@ -132,7 +162,9 @@ ShallowWrapper {
               "component": [Function],
               "label": "Select Token",
               "name": "token",
-              "options": Object {},
+              "options": Object {
+                "0xd41070659dbcdf364914fdeaa55ebfa4ea9571d0": "Long ETH/USD: 50 (10/26/2018)",
+              },
             },
             "ref": null,
             "rendered": null,
@@ -235,7 +267,11 @@ ShallowWrapper {
               component={[Function]}
               label="Select Token"
               name="token"
-              options={Object {}}
+              options={
+                Object {
+                  "0xd41070659dbcdf364914fdeaa55ebfa4ea9571d0": "Long ETH/USD: 50 (10/26/2018)",
+                }
+              }
             />
           </InputGroup>
           <br />
@@ -274,7 +310,11 @@ ShallowWrapper {
                 component={[Function]}
                 label="Select Token"
                 name="token"
-                options={Object {}}
+                options={
+                  Object {
+                    "0xd41070659dbcdf364914fdeaa55ebfa4ea9571d0": "Long ETH/USD: 50 (10/26/2018)",
+                  }
+                }
               />
             </InputGroup>,
             <br />,
@@ -311,7 +351,11 @@ ShallowWrapper {
                 component={[Function]}
                 label="Select Token"
                 name="token"
-                options={Object {}}
+                options={
+                  Object {
+                    "0xd41070659dbcdf364914fdeaa55ebfa4ea9571d0": "Long ETH/USD: 50 (10/26/2018)",
+                  }
+                }
               />,
               "tag": "div",
             },
@@ -324,7 +368,9 @@ ShallowWrapper {
                 "component": [Function],
                 "label": "Select Token",
                 "name": "token",
-                "options": Object {},
+                "options": Object {
+                  "0xd41070659dbcdf364914fdeaa55ebfa4ea9571d0": "Long ETH/USD: 50 (10/26/2018)",
+                },
               },
               "ref": null,
               "rendered": null,

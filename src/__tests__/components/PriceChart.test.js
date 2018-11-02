@@ -1,6 +1,3 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import { initStore } from '../../Root';
 import PriceChart from '../../components/PriceChart';
 
 describe('<PriceChart />', () => {
@@ -9,6 +6,7 @@ describe('<PriceChart />', () => {
       const wrapper = shallow(
         <PriceChart store={initStore()} />
       ).dive();
+
       expect(wrapper).toMatchSnapshot();
     });
   });

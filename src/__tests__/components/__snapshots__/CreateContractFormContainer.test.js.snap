@@ -3,7 +3,7 @@
 exports[`<CreateContractFormContainer /> render() renders the component 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Form(CreateContractFormContainer)
+  Symbol(enzyme.__unrendered__): <CreateContractFormContainer
     anyTouched={false}
     array={
       Object {
@@ -19,16 +19,7 @@ ShallowWrapper {
         "unshift": [Function],
       }
     }
-    arrayInsert={[Function]}
-    arrayMove={[Function]}
-    arrayPop={[Function]}
-    arrayPush={[Function]}
-    arrayRemove={[Function]}
-    arrayRemoveAll={[Function]}
-    arrayShift={[Function]}
-    arraySplice={[Function]}
-    arraySwap={[Function]}
-    arrayUnshift={[Function]}
+    asyncValidate={[Function]}
     asyncValidating={false}
     autofill={[Function]}
     blur={[Function]}
@@ -39,36 +30,19 @@ ShallowWrapper {
     clearSubmitErrors={[Function]}
     contractDates={Object {}}
     destroy={[Function]}
-    destroyOnUnmount={true}
     dirty={false}
     dispatch={[Function]}
-    enableReinitialize={false}
-    focus={[Function]}
-    forceUnregisterOnUnmount={false}
     form="create-contract"
     getContractOpenDates={[Function]}
-    getFormState={[Function]}
+    handleSubmit={[Function]}
     initialize={[Function]}
     initialized={false}
     invalid={false}
-    keepDirtyOnReinitialize={false}
-    persistentSubmitErrors={false}
     pristine={true}
     pure={true}
-    registerField={[Function]}
     reset={[Function]}
     resetSection={[Function]}
     sendCreateContractOrder={[Function]}
-    setSubmitFailed={[Function]}
-    setSubmitSucceeded={[Function]}
-    shouldAsyncValidate={[Function]}
-    shouldError={[Function]}
-    shouldValidate={[Function]}
-    shouldWarn={[Function]}
-    startAsyncValidation={[Function]}
-    startSubmit={[Function]}
-    stopAsyncValidation={[Function]}
-    stopSubmit={[Function]}
     store={
       Object {
         "dispatch": [Function],
@@ -119,21 +93,11 @@ ShallowWrapper {
     submitFailed={false}
     submitSucceeded={false}
     submitting={false}
-    syncErrors={Object {}}
-    syncWarnings={Object {}}
     touch={[Function]}
-    touchOnBlur={true}
-    touchOnChange={false}
-    unregisterField={[Function]}
     untouch={[Function]}
-    updateSyncErrors={[Function]}
-    updateSyncWarnings={[Function]}
-    updateUnregisteredFields={false}
     userAccount=""
     valid={true}
-    validExceptSubmit={true}
     validate={[Function]}
-    values={Object {}}
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -146,209 +110,131 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "function",
+    "nodeType": "host",
     "props": Object {
-      "anyTouched": false,
-      "array": Object {
-        "insert": [Function],
-        "move": [Function],
-        "pop": [Function],
-        "push": [Function],
-        "remove": [Function],
-        "removeAll": [Function],
-        "shift": [Function],
-        "splice": [Function],
-        "swap": [Function],
-        "unshift": [Function],
-      },
-      "asyncValidate": [Function],
-      "asyncValidating": false,
-      "autofill": [Function],
-      "blur": [Function],
-      "change": [Function],
-      "clearAsyncError": [Function],
-      "clearFields": [Function],
-      "clearSubmit": [Function],
-      "clearSubmitErrors": [Function],
-      "contractDates": Object {},
-      "destroy": [Function],
-      "dirty": false,
-      "dispatch": [Function],
-      "error": undefined,
-      "form": "create-contract",
-      "formValues": undefined,
-      "getContractOpenDates": [Function],
-      "handleSubmit": [Function],
-      "initialValues": undefined,
-      "initialize": [Function],
-      "initialized": false,
-      "invalid": false,
-      "pristine": true,
-      "pure": true,
-      "reset": [Function],
-      "resetSection": [Function],
-      "sendCreateContractOrder": [Function],
-      "store": Object {
-        "dispatch": [Function],
-        "getState": [Function],
-        "replaceReducer": [Function],
-        "subscribe": [Function],
-        Symbol(observable): [Function],
-      },
-      "storeSubscription": Subscription {
-        "listeners": Object {
-          "clear": [Function],
-          "get": [Function],
-          "notify": [Function],
-          "subscribe": [Function],
-        },
-        "onStateChange": [Function],
-        "parentSub": Subscription {
-          "listeners": Object {
-            "clear": [Function],
-            "get": [Function],
-            "notify": [Function],
-            "subscribe": [Function],
-          },
-          "onStateChange": [Function],
-          "parentSub": undefined,
-          "store": Object {
-            "dispatch": [Function],
-            "getState": [Function],
-            "replaceReducer": [Function],
-            "subscribe": [Function],
-            Symbol(observable): [Function],
-          },
-          "unsubscribe": [Function],
-        },
-        "store": Object {
-          "dispatch": [Function],
-          "getState": [Function],
-          "replaceReducer": [Function],
-          "subscribe": [Function],
-          Symbol(observable): [Function],
-        },
-        "unsubscribe": [Function],
-      },
-      "submit": [Function],
-      "submitFailed": false,
-      "submitSucceeded": false,
-      "submitting": false,
-      "touch": [Function],
-      "triggerSubmit": undefined,
-      "untouch": [Function],
-      "userAccount": "",
-      "valid": true,
-      "validate": [Function],
-      "warning": undefined,
+      "children": Array [
+        <CreateContractFormComponent
+          contractDates={Object {}}
+          handleSubmit={[Function]}
+          onCurrencyChange={[Function]}
+          onSubmit={[Function]}
+        />,
+        <div
+          className="clickable"
+          style={
+            Object {
+              "color": "blue",
+              "marginTop": "20px",
+              "textDecoration": "underline",
+            }
+          }
+        >
+          Already have a created contract?
+        </div>,
+      ],
     },
     "ref": null,
-    "rendered": null,
-    "type": [Function],
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "contractDates": Object {},
+          "formValues": undefined,
+          "handleSubmit": [Function],
+          "onCurrencyChange": [Function],
+          "onSubmit": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Already have a created contract?",
+          "className": "clickable",
+          "onClick": undefined,
+          "style": Object {
+            "color": "blue",
+            "marginTop": "20px",
+            "textDecoration": "underline",
+          },
+        },
+        "ref": null,
+        "rendered": "Already have a created contract?",
+        "type": "div",
+      },
+    ],
+    "type": "div",
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "function",
+      "nodeType": "host",
       "props": Object {
-        "anyTouched": false,
-        "array": Object {
-          "insert": [Function],
-          "move": [Function],
-          "pop": [Function],
-          "push": [Function],
-          "remove": [Function],
-          "removeAll": [Function],
-          "shift": [Function],
-          "splice": [Function],
-          "swap": [Function],
-          "unshift": [Function],
-        },
-        "asyncValidate": [Function],
-        "asyncValidating": false,
-        "autofill": [Function],
-        "blur": [Function],
-        "change": [Function],
-        "clearAsyncError": [Function],
-        "clearFields": [Function],
-        "clearSubmit": [Function],
-        "clearSubmitErrors": [Function],
-        "contractDates": Object {},
-        "destroy": [Function],
-        "dirty": false,
-        "dispatch": [Function],
-        "error": undefined,
-        "form": "create-contract",
-        "formValues": undefined,
-        "getContractOpenDates": [Function],
-        "handleSubmit": [Function],
-        "initialValues": undefined,
-        "initialize": [Function],
-        "initialized": false,
-        "invalid": false,
-        "pristine": true,
-        "pure": true,
-        "reset": [Function],
-        "resetSection": [Function],
-        "sendCreateContractOrder": [Function],
-        "store": Object {
-          "dispatch": [Function],
-          "getState": [Function],
-          "replaceReducer": [Function],
-          "subscribe": [Function],
-          Symbol(observable): [Function],
-        },
-        "storeSubscription": Subscription {
-          "listeners": Object {
-            "clear": [Function],
-            "get": [Function],
-            "notify": [Function],
-            "subscribe": [Function],
-          },
-          "onStateChange": [Function],
-          "parentSub": Subscription {
-            "listeners": Object {
-              "clear": [Function],
-              "get": [Function],
-              "notify": [Function],
-              "subscribe": [Function],
-            },
-            "onStateChange": [Function],
-            "parentSub": undefined,
-            "store": Object {
-              "dispatch": [Function],
-              "getState": [Function],
-              "replaceReducer": [Function],
-              "subscribe": [Function],
-              Symbol(observable): [Function],
-            },
-            "unsubscribe": [Function],
-          },
-          "store": Object {
-            "dispatch": [Function],
-            "getState": [Function],
-            "replaceReducer": [Function],
-            "subscribe": [Function],
-            Symbol(observable): [Function],
-          },
-          "unsubscribe": [Function],
-        },
-        "submit": [Function],
-        "submitFailed": false,
-        "submitSucceeded": false,
-        "submitting": false,
-        "touch": [Function],
-        "triggerSubmit": undefined,
-        "untouch": [Function],
-        "userAccount": "",
-        "valid": true,
-        "validate": [Function],
-        "warning": undefined,
+        "children": Array [
+          <CreateContractFormComponent
+            contractDates={Object {}}
+            handleSubmit={[Function]}
+            onCurrencyChange={[Function]}
+            onSubmit={[Function]}
+          />,
+          <div
+            className="clickable"
+            style={
+              Object {
+                "color": "blue",
+                "marginTop": "20px",
+                "textDecoration": "underline",
+              }
+            }
+          >
+            Already have a created contract?
+          </div>,
+        ],
       },
       "ref": null,
-      "rendered": null,
-      "type": [Function],
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "contractDates": Object {},
+            "formValues": undefined,
+            "handleSubmit": [Function],
+            "onCurrencyChange": [Function],
+            "onSubmit": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Already have a created contract?",
+            "className": "clickable",
+            "onClick": undefined,
+            "style": Object {
+              "color": "blue",
+              "marginTop": "20px",
+              "textDecoration": "underline",
+            },
+          },
+          "ref": null,
+          "rendered": "Already have a created contract?",
+          "type": "div",
+        },
+      ],
+      "type": "div",
     },
   ],
   Symbol(enzyme.__options__): Object {

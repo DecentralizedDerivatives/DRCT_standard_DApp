@@ -7,6 +7,7 @@ ShallowWrapper {
     listOrderApproved={false}
     listOrderError={null}
     listOrderId=""
+    refreshPage={[MockFunction]}
     store={
       Object {
         "dispatch": [Function],

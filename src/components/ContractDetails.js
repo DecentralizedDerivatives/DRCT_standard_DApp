@@ -6,11 +6,13 @@ import { formatter } from '../formatter';
 
 export class ContractDetails extends Component {
   formatMoney (val, empty) {
+    // TODO: val is never empty or less than zero
     if (!val) { return <span> {empty || '$0'} </span> }
     var cls = val < 0 ? 'warning' : ''
     return <span className={cls}>{formatter.toDollars(val)}</span>
   }
   formatPercent (val, empty) {
+    // TODO: this function is not used
     if (!val) { return <span> {empty || '$0'} </span> }
     var cls = val < 0 ? 'warning' : 'success'
     return <span className={cls}>{formatter.toPercent(val)}</span>
