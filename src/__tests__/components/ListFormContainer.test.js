@@ -1,4 +1,6 @@
-import ListFormContainer from '../../components/ListFormContainer';
+import ListFormContainer, {
+  validate,
+} from '../../components/ListFormContainer';
 
 describe('<ListFormContainer />', () => {
   it('renders the component', () => {
@@ -8,6 +10,16 @@ describe('<ListFormContainer />', () => {
       .dive()
       .dive();
 
+    wrapper.find('ListFormComponent').simulate('submit', {});
+
     expect(wrapper).toMatchSnapshot();
+  });
+
+  it('validates values', () => {
+    const incorrect = {};
+    const correct = { token: '0x000...', price: '1', tokenAmount: '1' };
+
+    expect(validate(incorrect)).toMatchSnapshot();
+    expect(validate(correct)).toMatchSnapshot();
   });
 });

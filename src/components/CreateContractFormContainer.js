@@ -6,7 +6,7 @@ import { sendCreateContractOrder } from '../actions/orderActions';
 import { getContractOpenDates } from '../actions/contractActions';
 import CreateContractFormComponent from './CreateContractFormComponent';
 
-const validate = values => {
+export const validate = values => {
   const errors = {};
   if (!values.duration) {
     errors.duration = 'Required';

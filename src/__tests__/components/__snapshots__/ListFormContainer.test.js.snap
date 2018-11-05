@@ -156,3 +156,13 @@ ShallowWrapper {
   },
 }
 `;
+
+exports[`<ListFormContainer /> validates values 1`] = `
+Object {
+  "price": "Required",
+  "token": "Required",
+  "tokenAmount": "Required",
+}
+`;
+
+exports[`<ListFormContainer /> validates values 2`] = `Object {}`;

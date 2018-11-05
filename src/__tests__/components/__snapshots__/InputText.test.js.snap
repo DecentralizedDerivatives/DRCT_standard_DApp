@@ -4,7 +4,12 @@ exports[`<InputText /> renders the component 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <InputText
-    meta={Object {}}
+    meta={
+      Object {
+        "error": "required",
+        "touched": true,
+      }
+    }
     store={
       Object {
         "dispatch": [Function],
@@ -35,7 +40,11 @@ ShallowWrapper {
         <input
           type="text"
         />,
-        undefined,
+        <span
+          className="input-error"
+        >
+          required
+        </span>,
       ],
       "className": "input-text",
     },
@@ -65,7 +74,18 @@ ShallowWrapper {
         "rendered": null,
         "type": "input",
       },
-      undefined,
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "required",
+          "className": "input-error",
+        },
+        "ref": null,
+        "rendered": "required",
+        "type": "span",
+      },
     ],
     "type": "div",
   },
@@ -82,7 +102,11 @@ ShallowWrapper {
           <input
             type="text"
           />,
-          undefined,
+          <span
+            className="input-error"
+          >
+            required
+          </span>,
         ],
         "className": "input-text",
       },
@@ -112,7 +136,18 @@ ShallowWrapper {
           "rendered": null,
           "type": "input",
         },
-        undefined,
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "required",
+            "className": "input-error",
+          },
+          "ref": null,
+          "rendered": "required",
+          "type": "span",
+        },
       ],
       "type": "div",
     },

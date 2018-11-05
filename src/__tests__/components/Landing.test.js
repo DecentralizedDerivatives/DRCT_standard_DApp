@@ -45,7 +45,8 @@ describe('<Landing />', () => {
       },
     });
 
-    wrapper.update();
+    wrapper.dive().setState({});
+  
     expect(wrapper.dive()).toMatchSnapshot();
   });
 });

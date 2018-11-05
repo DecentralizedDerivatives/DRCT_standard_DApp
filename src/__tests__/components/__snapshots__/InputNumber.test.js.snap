@@ -4,8 +4,14 @@ exports[`<InputNumber /> renders the component 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <InputNumber
+    addonLabel="label"
     input={Object {}}
-    meta={Object {}}
+    meta={
+      Object {
+        "error": "required",
+        "touched": true,
+      }
+    }
     store={
       Object {
         "dispatch": [Function],
@@ -38,8 +44,17 @@ ShallowWrapper {
           step=".00001"
           type="number"
         />,
-        undefined,
-        undefined,
+        <InputGroupAddon
+          addonType="append"
+          tag="div"
+        >
+          label
+        </InputGroupAddon>,
+        <span
+          className="input-error"
+        >
+          required
+        </span>,
       ],
       "className": "input-number",
     },
@@ -72,8 +87,31 @@ ShallowWrapper {
         "rendered": null,
         "type": "input",
       },
-      undefined,
-      undefined,
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "addonType": "append",
+          "children": "label",
+          "tag": "div",
+        },
+        "ref": null,
+        "rendered": "label",
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "required",
+          "className": "input-error",
+        },
+        "ref": null,
+        "rendered": "required",
+        "type": "span",
+      },
     ],
     "type": "div",
   },
@@ -92,8 +130,17 @@ ShallowWrapper {
             step=".00001"
             type="number"
           />,
-          undefined,
-          undefined,
+          <InputGroupAddon
+            addonType="append"
+            tag="div"
+          >
+            label
+          </InputGroupAddon>,
+          <span
+            className="input-error"
+          >
+            required
+          </span>,
         ],
         "className": "input-number",
       },
@@ -126,8 +173,31 @@ ShallowWrapper {
           "rendered": null,
           "type": "input",
         },
-        undefined,
-        undefined,
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "addonType": "append",
+            "children": "label",
+            "tag": "div",
+          },
+          "ref": null,
+          "rendered": "label",
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "required",
+            "className": "input-error",
+          },
+          "ref": null,
+          "rendered": "required",
+          "type": "span",
+        },
       ],
       "type": "div",
     },

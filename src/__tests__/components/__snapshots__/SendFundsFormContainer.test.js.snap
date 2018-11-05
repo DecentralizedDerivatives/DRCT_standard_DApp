@@ -3,7 +3,7 @@
 exports[`<SendFundsFormContainer /> renders the component 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Form(SendFundsFormContainer)
+  Symbol(enzyme.__unrendered__): <SendFundsFormContainer
     anyTouched={false}
     array={
       Object {
@@ -19,16 +19,7 @@ ShallowWrapper {
         "unshift": [Function],
       }
     }
-    arrayInsert={[Function]}
-    arrayMove={[Function]}
-    arrayPop={[Function]}
-    arrayPush={[Function]}
-    arrayRemove={[Function]}
-    arrayRemoveAll={[Function]}
-    arrayShift={[Function]}
-    arraySplice={[Function]}
-    arraySwap={[Function]}
-    arrayUnshift={[Function]}
+    asyncValidate={[Function]}
     asyncValidating={false}
     autofill={[Function]}
     blur={[Function]}
@@ -38,34 +29,33 @@ ShallowWrapper {
     clearSubmit={[Function]}
     clearSubmitErrors={[Function]}
     destroy={[Function]}
-    destroyOnUnmount={true}
     dirty={false}
     dispatch={[Function]}
-    enableReinitialize={false}
-    focus={[Function]}
-    forceUnregisterOnUnmount={false}
     form="create-contract"
-    getFormState={[Function]}
+    handleSubmit={[Function]}
     initialize={[Function]}
     initialized={false}
     invalid={false}
-    keepDirtyOnReinitialize={false}
-    persistentSubmitErrors={false}
     pristine={true}
     pure={true}
-    registerField={[Function]}
     reset={[Function]}
     resetSection={[Function]}
-    setSubmitFailed={[Function]}
-    setSubmitSucceeded={[Function]}
-    shouldAsyncValidate={[Function]}
-    shouldError={[Function]}
-    shouldValidate={[Function]}
-    shouldWarn={[Function]}
-    startAsyncValidation={[Function]}
-    startSubmit={[Function]}
-    stopAsyncValidation={[Function]}
-    stopSubmit={[Function]}
+    sendFunds={
+      [MockFunction] {
+        "calls": Array [
+          Array [
+            undefined,
+            "",
+          ],
+        ],
+        "results": Array [
+          Object {
+            "isThrow": false,
+            "value": undefined,
+          },
+        ],
+      }
+    }
     store={
       Object {
         "dispatch": [Function],
@@ -116,21 +106,11 @@ ShallowWrapper {
     submitFailed={false}
     submitSucceeded={false}
     submitting={false}
-    syncErrors={Object {}}
-    syncWarnings={Object {}}
     touch={[Function]}
-    touchOnBlur={true}
-    touchOnChange={false}
-    unregisterField={[Function]}
     untouch={[Function]}
-    updateSyncErrors={[Function]}
-    updateSyncWarnings={[Function]}
-    updateUnregisteredFields={false}
     userAccount=""
     valid={true}
-    validExceptSubmit={true}
     validate={[Function]}
-    values={Object {}}
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -145,95 +125,8 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "function",
     "props": Object {
-      "anyTouched": false,
-      "array": Object {
-        "insert": [Function],
-        "move": [Function],
-        "pop": [Function],
-        "push": [Function],
-        "remove": [Function],
-        "removeAll": [Function],
-        "shift": [Function],
-        "splice": [Function],
-        "swap": [Function],
-        "unshift": [Function],
-      },
-      "asyncValidate": [Function],
-      "asyncValidating": false,
-      "autofill": [Function],
-      "blur": [Function],
-      "change": [Function],
-      "clearAsyncError": [Function],
-      "clearFields": [Function],
-      "clearSubmit": [Function],
-      "clearSubmitErrors": [Function],
-      "destroy": [Function],
-      "dirty": false,
-      "dispatch": [Function],
-      "error": undefined,
-      "form": "create-contract",
       "handleSubmit": [Function],
-      "initialValues": undefined,
-      "initialize": [Function],
-      "initialized": false,
-      "invalid": false,
-      "pristine": true,
-      "pure": true,
-      "reset": [Function],
-      "resetSection": [Function],
-      "store": Object {
-        "dispatch": [Function],
-        "getState": [Function],
-        "replaceReducer": [Function],
-        "subscribe": [Function],
-        Symbol(observable): [Function],
-      },
-      "storeSubscription": Subscription {
-        "listeners": Object {
-          "clear": [Function],
-          "get": [Function],
-          "notify": [Function],
-          "subscribe": [Function],
-        },
-        "onStateChange": [Function],
-        "parentSub": Subscription {
-          "listeners": Object {
-            "clear": [Function],
-            "get": [Function],
-            "notify": [Function],
-            "subscribe": [Function],
-          },
-          "onStateChange": [Function],
-          "parentSub": undefined,
-          "store": Object {
-            "dispatch": [Function],
-            "getState": [Function],
-            "replaceReducer": [Function],
-            "subscribe": [Function],
-            Symbol(observable): [Function],
-          },
-          "unsubscribe": [Function],
-        },
-        "store": Object {
-          "dispatch": [Function],
-          "getState": [Function],
-          "replaceReducer": [Function],
-          "subscribe": [Function],
-          Symbol(observable): [Function],
-        },
-        "unsubscribe": [Function],
-      },
-      "submit": [Function],
-      "submitFailed": false,
-      "submitSucceeded": false,
-      "submitting": false,
-      "touch": [Function],
-      "triggerSubmit": undefined,
-      "untouch": [Function],
-      "userAccount": "",
-      "valid": true,
-      "validate": [Function],
-      "warning": undefined,
+      "onSubmit": [Function],
     },
     "ref": null,
     "rendered": null,
@@ -245,95 +138,8 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "function",
       "props": Object {
-        "anyTouched": false,
-        "array": Object {
-          "insert": [Function],
-          "move": [Function],
-          "pop": [Function],
-          "push": [Function],
-          "remove": [Function],
-          "removeAll": [Function],
-          "shift": [Function],
-          "splice": [Function],
-          "swap": [Function],
-          "unshift": [Function],
-        },
-        "asyncValidate": [Function],
-        "asyncValidating": false,
-        "autofill": [Function],
-        "blur": [Function],
-        "change": [Function],
-        "clearAsyncError": [Function],
-        "clearFields": [Function],
-        "clearSubmit": [Function],
-        "clearSubmitErrors": [Function],
-        "destroy": [Function],
-        "dirty": false,
-        "dispatch": [Function],
-        "error": undefined,
-        "form": "create-contract",
         "handleSubmit": [Function],
-        "initialValues": undefined,
-        "initialize": [Function],
-        "initialized": false,
-        "invalid": false,
-        "pristine": true,
-        "pure": true,
-        "reset": [Function],
-        "resetSection": [Function],
-        "store": Object {
-          "dispatch": [Function],
-          "getState": [Function],
-          "replaceReducer": [Function],
-          "subscribe": [Function],
-          Symbol(observable): [Function],
-        },
-        "storeSubscription": Subscription {
-          "listeners": Object {
-            "clear": [Function],
-            "get": [Function],
-            "notify": [Function],
-            "subscribe": [Function],
-          },
-          "onStateChange": [Function],
-          "parentSub": Subscription {
-            "listeners": Object {
-              "clear": [Function],
-              "get": [Function],
-              "notify": [Function],
-              "subscribe": [Function],
-            },
-            "onStateChange": [Function],
-            "parentSub": undefined,
-            "store": Object {
-              "dispatch": [Function],
-              "getState": [Function],
-              "replaceReducer": [Function],
-              "subscribe": [Function],
-              Symbol(observable): [Function],
-            },
-            "unsubscribe": [Function],
-          },
-          "store": Object {
-            "dispatch": [Function],
-            "getState": [Function],
-            "replaceReducer": [Function],
-            "subscribe": [Function],
-            Symbol(observable): [Function],
-          },
-          "unsubscribe": [Function],
-        },
-        "submit": [Function],
-        "submitFailed": false,
-        "submitSucceeded": false,
-        "submitting": false,
-        "touch": [Function],
-        "triggerSubmit": undefined,
-        "untouch": [Function],
-        "userAccount": "",
-        "valid": true,
-        "validate": [Function],
-        "warning": undefined,
+        "onSubmit": [Function],
       },
       "ref": null,
       "rendered": null,
@@ -359,3 +165,13 @@ ShallowWrapper {
   },
 }
 `;
+
+exports[`<SendFundsFormContainer /> validates values 1`] = `
+Object {
+  "address": "Required",
+  "amount": "Required",
+  "currency": "Required",
+}
+`;
+
+exports[`<SendFundsFormContainer /> validates values 2`] = `Object {}`;

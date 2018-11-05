@@ -153,3 +153,12 @@ ShallowWrapper {
   },
 }
 `;
+
+exports[`<ApprovalFormContainer /> validates values 1`] = `
+Object {
+  "token": "Required",
+  "tokenAmount": "Required",
+}
+`;
+
+exports[`<ApprovalFormContainer /> validates values 2`] = `Object {}`;

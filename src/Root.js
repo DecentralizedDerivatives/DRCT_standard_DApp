@@ -30,6 +30,10 @@ export function initFixtureStore() {
         {
           title: 'ContractCreation',
           hash: '0x7e1bf33a238354bebfd59f2bbd88a99e75c0b75d9aaa5a2e4b4225e1e51369fb'
+        },
+        {
+          title: 'ContractCreation',
+          hash: '0xd41070659dbcdf364914fdeaa55ebfa4ea9571d0'
         }
       ],
       userPositions: [{

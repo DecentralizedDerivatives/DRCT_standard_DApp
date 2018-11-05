@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<CreateContractFormContainer /> render() renders the component 1`] = `
+exports[`<CreateContractFormContainer /> renders the component 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <CreateContractFormContainer
@@ -256,3 +256,14 @@ ShallowWrapper {
   },
 }
 `;
+
+exports[`<CreateContractFormContainer /> validates values 1`] = `
+Object {
+  "amount": "Required",
+  "currency": "Required",
+  "duration": "Required",
+  "startDate": "Required",
+}
+`;
+
+exports[`<CreateContractFormContainer /> validates values 2`] = `Object {}`;
