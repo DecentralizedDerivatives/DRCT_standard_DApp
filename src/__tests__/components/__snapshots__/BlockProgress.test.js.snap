@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<BlockProgress /> render() renders the component 1`] = `
+exports[`<BlockProgress /> renders the component 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <BlockProgress
@@ -68,7 +68,7 @@ ShallowWrapper {
 }
 `;
 
-exports[`<BlockProgress /> render() renders the component 2`] = `
+exports[`<BlockProgress /> renders the component 2`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <BlockProgress

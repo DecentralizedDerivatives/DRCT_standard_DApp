@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<ContractDetails /> render() renders empty component 1`] = `
+exports[`<ContractDetails /> renders empty component 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <ContractDetails
@@ -1424,7 +1424,7 @@ ShallowWrapper {
 }
 `;
 
-exports[`<ContractDetails /> render() renders the component 1`] = `
+exports[`<ContractDetails /> renders the component 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <ContractDetails

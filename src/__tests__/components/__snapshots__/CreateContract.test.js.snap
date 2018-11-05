@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<CreateContract /> render() renders the component 1`] = `
+exports[`<CreateContract /> renders the component 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <CreateContract
@@ -206,7 +206,7 @@ ShallowWrapper {
 }
 `;
 
-exports[`<CreateContract /> render() renders the component 2`] = `
+exports[`<CreateContract /> renders the component 2`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <CreateContract
@@ -412,7 +412,7 @@ ShallowWrapper {
 }
 `;
 
-exports[`<CreateContract /> render() renders the component 3`] = `
+exports[`<CreateContract /> renders the component 3`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <CreateContract
@@ -744,7 +744,7 @@ ShallowWrapper {
 }
 `;
 
-exports[`<CreateContract /> render() renders the component 4`] = `
+exports[`<CreateContract /> renders the component 4`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <CreateContract
@@ -942,7 +942,7 @@ ShallowWrapper {
 }
 `;
 
-exports[`<CreateContract /> render() renders the component 5`] = `
+exports[`<CreateContract /> renders the component 5`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <CreateContract

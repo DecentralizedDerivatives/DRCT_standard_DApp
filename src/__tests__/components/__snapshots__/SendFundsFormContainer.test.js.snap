@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<SendFundsFormContainer /> render() renders the component 1`] = `
+exports[`<SendFundsFormContainer /> renders the component 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Form(SendFundsFormContainer)
