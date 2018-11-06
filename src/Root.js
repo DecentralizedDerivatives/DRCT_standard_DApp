@@ -93,6 +93,17 @@ export function initFixtureStore() {
       orderbook: [
         {
           orderId: '25',
+          creatorAddress: '0xd8e09fbab17f30e1C2b2Ae85A26EA1F3F31267ef',
+          address: '0xaf0ff6be724648362c63921736505354af16ac3a',
+          price: '0.20000',
+          quantity: '200',
+          date: '11/09/2018',
+          symbol: 'ETH/USD',
+          contractGain: 0,
+          tokenType: 'Long'
+        },
+        {
+          orderId: '25',
           creatorAddress: '0xc69c64c226fea62234afe4f5832a051ebc860540',
           address: '0xaf0ff6be724648362c63921736505354af16ac3a',
           price: '0.20000',

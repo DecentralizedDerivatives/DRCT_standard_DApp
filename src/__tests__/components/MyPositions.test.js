@@ -24,4 +24,13 @@ describe('<MyPositions />', () => {
     const wrapper = shallow(<MyPositions store={initStore()} />).dive();
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('formats percentage', () => {
+    const wrapper = shallow(<MyPositions store={initStore()} />).dive();
+
+    expect(wrapper.instance().formatPercent()).toMatchSnapshot();
+    expect(wrapper.instance().formatPercent(undefined, '--')).toMatchSnapshot();
+    expect(wrapper.instance().formatPercent(-1)).toMatchSnapshot();
+    expect(wrapper.instance().formatPercent(1)).toMatchSnapshot();
+  });
 });

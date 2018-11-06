@@ -1,5 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<MyPositions /> formats percentage 1`] = `
+<span>
+   
+  $0
+   
+</span>
+`;
+
+exports[`<MyPositions /> formats percentage 2`] = `
+<span>
+   
+  --
+   
+</span>
+`;
+
+exports[`<MyPositions /> formats percentage 3`] = `
+<span
+  className="warning"
+>
+  -1.00%
+</span>
+`;
+
+exports[`<MyPositions /> formats percentage 4`] = `
+<span
+  className="success"
+>
+  1.00%
+</span>
+`;
+
 exports[`<MyPositions /> renders empty component 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],

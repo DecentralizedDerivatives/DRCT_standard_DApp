@@ -1,5 +1,69 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<ContractDetails /> formats money 1`] = `
+<span>
+   
+  $0
+   
+</span>
+`;
+
+exports[`<ContractDetails /> formats money 2`] = `
+<span>
+   
+  --
+   
+</span>
+`;
+
+exports[`<ContractDetails /> formats money 3`] = `
+<span
+  className="warning"
+>
+  $-1.00
+</span>
+`;
+
+exports[`<ContractDetails /> formats money 4`] = `
+<span
+  className=""
+>
+  $1.00
+</span>
+`;
+
+exports[`<ContractDetails /> formats percentage 1`] = `
+<span>
+   
+  $0
+   
+</span>
+`;
+
+exports[`<ContractDetails /> formats percentage 2`] = `
+<span>
+   
+  --
+   
+</span>
+`;
+
+exports[`<ContractDetails /> formats percentage 3`] = `
+<span
+  className="warning"
+>
+  -1.00%
+</span>
+`;
+
+exports[`<ContractDetails /> formats percentage 4`] = `
+<span
+  className="success"
+>
+  1.00%
+</span>
+`;
+
 exports[`<ContractDetails /> renders empty component 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
@@ -1451,6 +1515,17 @@ ShallowWrapper {
         "newContractFundsError": null,
         "oracleAddress": "",
         "orderbook": Array [
+          Object {
+            "address": "0xaf0ff6be724648362c63921736505354af16ac3a",
+            "contractGain": 0,
+            "creatorAddress": "0xd8e09fbab17f30e1C2b2Ae85A26EA1F3F31267ef",
+            "date": "11/09/2018",
+            "orderId": "25",
+            "price": "0.20000",
+            "quantity": "200",
+            "symbol": "ETH/USD",
+            "tokenType": "Long",
+          },
           Object {
             "address": "0xaf0ff6be724648362c63921736505354af16ac3a",
             "contractGain": 0,

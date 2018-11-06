@@ -377,7 +377,9 @@ ShallowWrapper {
         <Connect(RecentTrades)
           onRowClick={[Function]}
         />,
-        null,
+        <Connect(ContractDetails)
+          close={[Function]}
+        />,
       ],
       "id": "bulletin",
     },
@@ -450,7 +452,17 @@ ShallowWrapper {
         "rendered": null,
         "type": [Function],
       },
-      null,
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "close": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
     ],
     "type": "div",
   },
@@ -480,7 +492,9 @@ ShallowWrapper {
           <Connect(RecentTrades)
             onRowClick={[Function]}
           />,
-          null,
+          <Connect(ContractDetails)
+            close={[Function]}
+          />,
         ],
         "id": "bulletin",
       },
@@ -553,7 +567,17 @@ ShallowWrapper {
           "rendered": null,
           "type": [Function],
         },
-        null,
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "close": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
       ],
       "type": "div",
     },
