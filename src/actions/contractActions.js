@@ -142,9 +142,9 @@ export const getRecentTrades = (isSilent) => async dispatch => {
             volume: events[i].args['_amount'].toString(),
             price: precisePrice,
             orderDate: orderDate,
-            contractDuration: provider && provider.duration ? provider.duration : 0,
-            contractMultiplier: provider && provider.multiplier ? provider.multiplier : 0,
-            symbol: provider && provider.symbol ? provider.symbol : '??',
+            contractDuration: provider && provider.duration ? provider.duration : 7,
+            contractMultiplier: provider && provider.multiplier ? provider.multiplier : 1,
+            symbol: provider && provider.symbol ? provider.symbol : '',
             tokenType: tokenType === 1 ? 'Short' : 'Long',
             date: date.toString()
           });
