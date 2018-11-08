@@ -210,53 +210,20 @@ export const sendCreateContractOrder = (
   account
 ) => async dispatch => {
   dispatch(setProcessing(true));
-
+  
   const { duration, currency, startDate } = formValues;
   var amount = formValues.amount / 2;
   try {
     const factory = await Factory.at(currency);
-    const response = await factory.deployContract(startDate, {
-      from: account,
-      gas: 250000
-    });
-
-    dispatch({
-      type: SET_CONTRACT_CREATED,
-      payload: {
-        id: response.tx,
-        address: response.logs[0].args._created,
-        duration,
-        currency,
-        startDate,
-        amount
-      }
-    });
-  } catch (err) {
-    dispatch({
-      type: SET_CONTRACT_ERROR,
-      payload: err.message.split('\n')[0]
-    });
-  }
-
-  dispatch(setProcessing(false));
-};
-
-export const sendSendFundsOrder = (
-  newContract,
-  account
-) => async dispatch => {
-  dispatch(setProcessing(true));
-  try {
-    const factory = await Factory.at(newContract.currency);
 
     let userAddress = await factory.user_contract.call();
     const userContract = await UserContract.at(userAddress);
 
-    let fundingAmount = 1e18 * newContract.amount;
-
-    const response = await userContract.Initiate(newContract.address, fundingAmount, {
+    let fundingAmount = 1e18 * amount;
+    console.log('Variables',startDate,fundingAmount)
+    const response = await userContract.Initiate(startDate, fundingAmount, {
       from: account,
-      gas: 1000000,
+      gas: 1100000,
       value: fundingAmount * 2
     });
 
