@@ -52,6 +52,11 @@ describe('<CreateContract />', () => {
     expect(close).toBeCalledTimes(1);
   });
 
+  it('handles empty setProps', () => {
+    const { wrapper } = setup();
+    wrapper.setProps({});
+  });
+
   it('handles events', () => {
     const { wrapper } = setup();
     wrapper.find(CreateContractFormContainer).prop('handleSkipCreate')(

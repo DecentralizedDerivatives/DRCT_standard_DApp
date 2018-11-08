@@ -50,4 +50,12 @@ describe('<Header />', () => {
 
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('handles empty showTerms', () => {
+    const { wrapper } = setup({ showTerms: undefined });
+
+    wrapper
+      .find('#mobile-nav p')
+      .simulate('click', { preventDefault: () => undefined });
+  });
 });

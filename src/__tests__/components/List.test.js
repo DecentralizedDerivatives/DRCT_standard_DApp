@@ -42,6 +42,12 @@ describe('<List />', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  it('handles empty setProps', () => {
+    const { wrapper } = setup();
+    wrapper.setProps({});
+    expect(wrapper).toMatchSnapshot();
+  });
+
   it('handles events', () => {
     const { wrapper } = setup();
 
