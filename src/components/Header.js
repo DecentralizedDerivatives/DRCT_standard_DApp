@@ -33,10 +33,9 @@ export class Header extends Component {
         <Link onClick={this.handleNavClick} to="/">
           <img
             className="nav-logo"
-            src="./dda-logo.png"
+            src={require("../imgs/logo.png")}
             alt="logo"
             height="30px"
-            width="30px"
           />
         </Link>
         <ul id='mobile-nav' className={this.state.showMobileNav ? 'show-nav' : 'hide-nav'}>
