@@ -40,7 +40,8 @@ ApprovalFormContainer.propTypes = {
 
 const mapStateToProps = state => ({
   userTokens: state.user.userTokens,
-  userAccount: state.user.userAccount
+  userAccount: state.user.userAccount,
+  selectedToken: state.selectedToken
 });
 
 const formConfiguration = {

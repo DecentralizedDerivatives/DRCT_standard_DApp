@@ -36,12 +36,20 @@ export class OrderBook extends Component {
   }
 
   renderUnlist(orderId, creatorAddress){
+    console.log(creatorAddress.toLowerCase())
+    console.log(this.props.userAccount.toLowerCase())
     if (creatorAddress.toLowerCase() == this.props.userAccount.toLowerCase()){
       return (
         <td style={{padding: '0.4rem'}}>
           <button className='btn btn-thin' onClick={this.handleUnlist.bind(this,orderId)}>Unlist</button>
         </td>
         )
+    } else {
+      return (        
+        <td style={{padding: '0.4rem'}}>
+          <button className='btn btn-thin'>FAKE Unlist</button>
+        </td>
+      )
     }
   }
   renderRows = () => {
@@ -86,6 +94,7 @@ export class OrderBook extends Component {
               <th style={{width: '15%'}}>Quantity</th>
               <th>Start Date</th>
               <th>Gain/Loss</th>
+              <th></th>
               <th></th>
             </tr>
           </thead>
