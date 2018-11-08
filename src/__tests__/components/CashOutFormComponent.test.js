@@ -1,11 +1,21 @@
 import CashOutFormComponent from '../../components/CashOutFormComponent';
 
+function setup(overrides) {
+  const store = initStore();
+  const handleSubmit = jest.fn();
+  const props = { store, handleSubmit, ...overrides };
+
+  const wrapper = shallow(<CashOutFormComponent {...props} />);
+
+  return {
+    wrapper,
+    close,
+  };
+}
+
 describe('<CashOutFormComponent />', () => {
   it('renders the component', () => {
-    const handleSubmit = jest.fn();
-    const wrapper = shallow(
-      <CashOutFormComponent store={initStore()} handleSubmit={handleSubmit} />
-    );
+    const { wrapper } = setup();
     expect(wrapper).toMatchSnapshot();
   });
 });

@@ -2,16 +2,25 @@ import SendFundsFormContainer, {
   validate,
 } from '../../components/SendFundsFormContainer';
 
+function setup(overrides) {
+  const store = initStore();
+  const sendFunds = jest.fn();
+  const props = { store, sendFunds, ...overrides };
+
+  const wrapper = shallow(<SendFundsFormContainer {...props} />)
+    .dive()
+    .dive()
+    .dive()
+    .dive();
+
+  return {
+    wrapper,
+  };
+}
+
 describe('<SendFundsFormContainer />', () => {
   it('renders the component', () => {
-    const sendFunds = jest.fn();
-    const wrapper = shallow(
-      <SendFundsFormContainer store={initStore()} sendFunds={sendFunds} />
-    )
-      .dive()
-      .dive()
-      .dive()
-      .dive();
+    const { wrapper } = setup();
 
     wrapper.find('SendFundsFormComponent').simulate('submit');
 

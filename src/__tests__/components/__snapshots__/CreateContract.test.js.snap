@@ -1,9 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<CreateContract /> renders the component 1`] = `
+exports[`<CreateContract /> renders contract create error 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <CreateContract
+    close={[MockFunction]}
     newContract={
       Object {
         "address": "",
@@ -14,6 +15,416 @@ ShallowWrapper {
         "fundedTx": "",
         "id": "",
         "startDate": "",
+      }
+    }
+    newContractCreateError="Error hapenned."
+    newContractFundsError={null}
+    sendSendFundsOrder={[Function]}
+    store={
+      Object {
+        "dispatch": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+        Symbol(observable): [Function],
+      }
+    }
+    storeSubscription={
+      Subscription {
+        "listeners": Object {
+          "clear": [Function],
+          "get": [Function],
+          "notify": [Function],
+          "subscribe": [Function],
+        },
+        "onStateChange": [Function],
+        "parentSub": undefined,
+        "store": Object {
+          "dispatch": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+          Symbol(observable): [Function],
+        },
+        "unsubscribe": [Function],
+      }
+    }
+    userAccount=""
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="modal-background"
+          onClick={[MockFunction]}
+        />,
+        <div
+          className="modal"
+        >
+          <Connect(ReduxForm)
+            handleSkipCreate={[Function]}
+            name="createContractForm"
+          />
+        </div>,
+      ],
+      "className": "create-contract",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "className": "modal-background",
+          "onClick": [MockFunction],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <Connect(ReduxForm)
+            handleSkipCreate={[Function]}
+            name="createContractForm"
+          />,
+          "className": "modal",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "handleSkipCreate": [Function],
+            "name": "createContractForm",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="modal-background"
+            onClick={[MockFunction]}
+          />,
+          <div
+            className="modal"
+          >
+            <Connect(ReduxForm)
+              handleSkipCreate={[Function]}
+              name="createContractForm"
+            />
+          </div>,
+        ],
+        "className": "create-contract",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "modal-background",
+            "onClick": [MockFunction],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <Connect(ReduxForm)
+              handleSkipCreate={[Function]}
+              name="createContractForm"
+            />,
+            "className": "modal",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "handleSkipCreate": [Function],
+              "name": "createContractForm",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`<CreateContract /> renders funding error 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <CreateContract
+    close={[MockFunction]}
+    newContract={
+      Object {
+        "address": "",
+        "amount": 0,
+        "currency": "",
+        "duration": "",
+        "funded": false,
+        "fundedTx": "",
+        "id": "",
+        "startDate": "",
+      }
+    }
+    newContractCreateError={null}
+    newContractFundsError="Error hapenned."
+    sendSendFundsOrder={[Function]}
+    store={
+      Object {
+        "dispatch": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+        Symbol(observable): [Function],
+      }
+    }
+    storeSubscription={
+      Subscription {
+        "listeners": Object {
+          "clear": [Function],
+          "get": [Function],
+          "notify": [Function],
+          "subscribe": [Function],
+        },
+        "onStateChange": [Function],
+        "parentSub": undefined,
+        "store": Object {
+          "dispatch": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+          Symbol(observable): [Function],
+        },
+        "unsubscribe": [Function],
+      }
+    }
+    userAccount=""
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="modal-background"
+          onClick={[MockFunction]}
+        />,
+        <div
+          className="modal"
+        >
+          <Connect(ReduxForm)
+            handleSkipCreate={[Function]}
+            name="createContractForm"
+          />
+        </div>,
+      ],
+      "className": "create-contract",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "className": "modal-background",
+          "onClick": [MockFunction],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <Connect(ReduxForm)
+            handleSkipCreate={[Function]}
+            name="createContractForm"
+          />,
+          "className": "modal",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "handleSkipCreate": [Function],
+            "name": "createContractForm",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="modal-background"
+            onClick={[MockFunction]}
+          />,
+          <div
+            className="modal"
+          >
+            <Connect(ReduxForm)
+              handleSkipCreate={[Function]}
+              name="createContractForm"
+            />
+          </div>,
+        ],
+        "className": "create-contract",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "modal-background",
+            "onClick": [MockFunction],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <Connect(ReduxForm)
+              handleSkipCreate={[Function]}
+              name="createContractForm"
+            />,
+            "className": "modal",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "handleSkipCreate": [Function],
+              "name": "createContractForm",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`<CreateContract /> renders funding without close 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <CreateContract
+    newContract={
+      Object {
+        "funded": true,
       }
     }
     newContractCreateError={null}
@@ -206,221 +617,17 @@ ShallowWrapper {
 }
 `;
 
-exports[`<CreateContract /> renders the component 2`] = `
+exports[`<CreateContract /> renders new contract 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <CreateContract
-    newContract={
-      Object {
-        "address": "",
-        "amount": 0,
-        "currency": "",
-        "duration": "",
-        "funded": false,
-        "fundedTx": "",
-        "id": "",
-        "startDate": "",
-      }
-    }
-    newContractCreateError="Error hapenned."
-    newContractFundsError={null}
-    sendSendFundsOrder={[Function]}
-    store={
-      Object {
-        "dispatch": [Function],
-        "getState": [Function],
-        "replaceReducer": [Function],
-        "subscribe": [Function],
-        Symbol(observable): [Function],
-      }
-    }
-    storeSubscription={
-      Subscription {
-        "listeners": Object {
-          "clear": [Function],
-          "get": [Function],
-          "notify": [Function],
-          "subscribe": [Function],
-        },
-        "onStateChange": [Function],
-        "parentSub": undefined,
-        "store": Object {
-          "dispatch": [Function],
-          "getState": [Function],
-          "replaceReducer": [Function],
-          "subscribe": [Function],
-          Symbol(observable): [Function],
-        },
-        "unsubscribe": [Function],
-      }
-    }
-    userAccount=""
-  />,
-  Symbol(enzyme.__renderer__): Object {
-    "batchedUpdates": [Function],
-    "getNode": [Function],
-    "render": [Function],
-    "simulateError": [Function],
-    "simulateEvent": [Function],
-    "unmount": [Function],
-  },
-  Symbol(enzyme.__node__): Object {
-    "instance": null,
-    "key": undefined,
-    "nodeType": "host",
-    "props": Object {
-      "children": Array [
-        <div
-          className="modal-background"
-        />,
-        <div
-          className="modal"
-        >
-          <Connect(ReduxForm)
-            handleSkipCreate={[Function]}
-            name="createContractForm"
-          />
-        </div>,
-      ],
-      "className": "create-contract",
-    },
-    "ref": null,
-    "rendered": Array [
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "className": "modal-background",
-          "onClick": undefined,
-        },
-        "ref": null,
-        "rendered": null,
-        "type": "div",
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": <Connect(ReduxForm)
-            handleSkipCreate={[Function]}
-            name="createContractForm"
-          />,
-          "className": "modal",
-        },
-        "ref": null,
-        "rendered": Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {
-            "handleSkipCreate": [Function],
-            "name": "createContractForm",
-          },
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-        "type": "div",
-      },
-    ],
-    "type": "div",
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "host",
-      "props": Object {
-        "children": Array [
-          <div
-            className="modal-background"
-          />,
-          <div
-            className="modal"
-          >
-            <Connect(ReduxForm)
-              handleSkipCreate={[Function]}
-              name="createContractForm"
-            />
-          </div>,
-        ],
-        "className": "create-contract",
-      },
-      "ref": null,
-      "rendered": Array [
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "className": "modal-background",
-            "onClick": undefined,
-          },
-          "ref": null,
-          "rendered": null,
-          "type": "div",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": <Connect(ReduxForm)
-              handleSkipCreate={[Function]}
-              name="createContractForm"
-            />,
-            "className": "modal",
-          },
-          "ref": null,
-          "rendered": Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "class",
-            "props": Object {
-              "handleSkipCreate": [Function],
-              "name": "createContractForm",
-            },
-            "ref": null,
-            "rendered": null,
-            "type": [Function],
-          },
-          "type": "div",
-        },
-      ],
-      "type": "div",
-    },
-  ],
-  Symbol(enzyme.__options__): Object {
-    "adapter": ReactSixteenAdapter {
-      "options": Object {
-        "enableComponentDidUpdateOnSetState": true,
-        "lifecycles": Object {
-          "componentDidUpdate": Object {
-            "onSetState": true,
-          },
-          "getDerivedStateFromProps": true,
-          "getSnapshotBeforeUpdate": true,
-          "setState": Object {
-            "skipsComponentDidUpdateOnNullish": true,
-          },
-        },
-      },
-    },
-  },
-}
-`;
-
-exports[`<CreateContract /> renders the component 3`] = `
-ShallowWrapper {
-  Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <CreateContract
+    close={[MockFunction]}
     newContract={
       Object {
         "address": "0x000...",
       }
     }
+    newContractCreateError={null}
     newContractFundsError={null}
     sendSendFundsOrder={[Function]}
     store={
@@ -470,6 +677,7 @@ ShallowWrapper {
       "children": Array [
         <div
           className="modal-background"
+          onClick={[MockFunction]}
         />,
         <div
           className="modal"
@@ -501,7 +709,7 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "className": "modal-background",
-          "onClick": undefined,
+          "onClick": [MockFunction],
         },
         "ref": null,
         "rendered": null,
@@ -601,6 +809,7 @@ ShallowWrapper {
         "children": Array [
           <div
             className="modal-background"
+            onClick={[MockFunction]}
           />,
           <div
             className="modal"
@@ -632,7 +841,7 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "className": "modal-background",
-            "onClick": undefined,
+            "onClick": [MockFunction],
           },
           "ref": null,
           "rendered": null,
@@ -744,16 +953,25 @@ ShallowWrapper {
 }
 `;
 
-exports[`<CreateContract /> renders the component 4`] = `
+exports[`<CreateContract /> renders the component 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <CreateContract
+    close={[MockFunction]}
     newContract={
       Object {
-        "address": undefined,
+        "address": "",
+        "amount": 0,
+        "currency": "",
+        "duration": "",
+        "funded": false,
+        "fundedTx": "",
+        "id": "",
+        "startDate": "",
       }
     }
-    newContractFundsError="Error hapenned."
+    newContractCreateError={null}
+    newContractFundsError={null}
     sendSendFundsOrder={[Function]}
     store={
       Object {
@@ -802,6 +1020,7 @@ ShallowWrapper {
       "children": Array [
         <div
           className="modal-background"
+          onClick={[MockFunction]}
         />,
         <div
           className="modal"
@@ -822,7 +1041,7 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "className": "modal-background",
-          "onClick": undefined,
+          "onClick": [MockFunction],
         },
         "ref": null,
         "rendered": null,
@@ -866,6 +1085,7 @@ ShallowWrapper {
         "children": Array [
           <div
             className="modal-background"
+            onClick={[MockFunction]}
           />,
           <div
             className="modal"
@@ -886,204 +1106,7 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "className": "modal-background",
-            "onClick": undefined,
-          },
-          "ref": null,
-          "rendered": null,
-          "type": "div",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": <Connect(ReduxForm)
-              handleSkipCreate={[Function]}
-              name="createContractForm"
-            />,
-            "className": "modal",
-          },
-          "ref": null,
-          "rendered": Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "class",
-            "props": Object {
-              "handleSkipCreate": [Function],
-              "name": "createContractForm",
-            },
-            "ref": null,
-            "rendered": null,
-            "type": [Function],
-          },
-          "type": "div",
-        },
-      ],
-      "type": "div",
-    },
-  ],
-  Symbol(enzyme.__options__): Object {
-    "adapter": ReactSixteenAdapter {
-      "options": Object {
-        "enableComponentDidUpdateOnSetState": true,
-        "lifecycles": Object {
-          "componentDidUpdate": Object {
-            "onSetState": true,
-          },
-          "getDerivedStateFromProps": true,
-          "getSnapshotBeforeUpdate": true,
-          "setState": Object {
-            "skipsComponentDidUpdateOnNullish": true,
-          },
-        },
-      },
-    },
-  },
-}
-`;
-
-exports[`<CreateContract /> renders the component 5`] = `
-ShallowWrapper {
-  Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <CreateContract
-    newContract={
-      Object {
-        "funded": true,
-      }
-    }
-    sendSendFundsOrder={[Function]}
-    store={
-      Object {
-        "dispatch": [Function],
-        "getState": [Function],
-        "replaceReducer": [Function],
-        "subscribe": [Function],
-        Symbol(observable): [Function],
-      }
-    }
-    storeSubscription={
-      Subscription {
-        "listeners": Object {
-          "clear": [Function],
-          "get": [Function],
-          "notify": [Function],
-          "subscribe": [Function],
-        },
-        "onStateChange": [Function],
-        "parentSub": undefined,
-        "store": Object {
-          "dispatch": [Function],
-          "getState": [Function],
-          "replaceReducer": [Function],
-          "subscribe": [Function],
-          Symbol(observable): [Function],
-        },
-        "unsubscribe": [Function],
-      }
-    }
-    userAccount=""
-  />,
-  Symbol(enzyme.__renderer__): Object {
-    "batchedUpdates": [Function],
-    "getNode": [Function],
-    "render": [Function],
-    "simulateError": [Function],
-    "simulateEvent": [Function],
-    "unmount": [Function],
-  },
-  Symbol(enzyme.__node__): Object {
-    "instance": null,
-    "key": undefined,
-    "nodeType": "host",
-    "props": Object {
-      "children": Array [
-        <div
-          className="modal-background"
-        />,
-        <div
-          className="modal"
-        >
-          <Connect(ReduxForm)
-            handleSkipCreate={[Function]}
-            name="createContractForm"
-          />
-        </div>,
-      ],
-      "className": "create-contract",
-    },
-    "ref": null,
-    "rendered": Array [
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "className": "modal-background",
-          "onClick": undefined,
-        },
-        "ref": null,
-        "rendered": null,
-        "type": "div",
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": <Connect(ReduxForm)
-            handleSkipCreate={[Function]}
-            name="createContractForm"
-          />,
-          "className": "modal",
-        },
-        "ref": null,
-        "rendered": Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {
-            "handleSkipCreate": [Function],
-            "name": "createContractForm",
-          },
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-        "type": "div",
-      },
-    ],
-    "type": "div",
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "host",
-      "props": Object {
-        "children": Array [
-          <div
-            className="modal-background"
-          />,
-          <div
-            className="modal"
-          >
-            <Connect(ReduxForm)
-              handleSkipCreate={[Function]}
-              name="createContractForm"
-            />
-          </div>,
-        ],
-        "className": "create-contract",
-      },
-      "ref": null,
-      "rendered": Array [
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "className": "modal-background",
-            "onClick": undefined,
+            "onClick": [MockFunction],
           },
           "ref": null,
           "rendered": null,

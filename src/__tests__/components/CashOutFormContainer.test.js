@@ -1,12 +1,23 @@
 import CashOutFormContainer from '../../components/CashOutFormContainer';
 
+function setup(overrides) {
+  const store = initStore();
+  const props = { store, ...overrides };
+
+  const wrapper = shallow(<CashOutFormContainer {...props} />)
+    .dive()
+    .dive()
+    .dive()
+    .dive();
+
+  return {
+    wrapper,
+  };
+}
+
 describe('<CashOutFormContainer />', () => {
   it('renders the component', () => {
-    const wrapper = shallow(<CashOutFormContainer store={initStore()} />)
-      .dive()
-      .dive()
-      .dive()
-      .dive();
+    const { wrapper } = setup();
 
     wrapper.find('CashOutFormComponent').simulate('submit');
 

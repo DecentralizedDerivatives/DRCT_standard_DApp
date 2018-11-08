@@ -1,8 +1,18 @@
 import HowTo from '../../components/HowTo';
 
+function setup(overrides) {
+  const props = { ...overrides };
+
+  const wrapper = shallow(<HowTo {...props} />);
+
+  return {
+    wrapper,
+  };
+}
+
 describe('<HowTo />', () => {
   it('renders the component', () => {
-    const wrapper = shallow(<HowTo />);
+    const { wrapper } = setup();
     expect(wrapper).toMatchSnapshot();
   });
 });

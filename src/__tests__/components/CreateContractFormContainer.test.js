@@ -2,13 +2,24 @@ import CreateContractFormContainer, {
   validate,
 } from '../../components/CreateContractFormContainer';
 
+function setup(overrides) {
+  const store = initStore();
+  const props = { store, ...overrides };
+
+  const wrapper = shallow(<CreateContractFormContainer {...props} />)
+    .dive()
+    .dive()
+    .dive()
+    .dive();
+
+  return {
+    wrapper,
+  };
+}
+
 describe('<CreateContractFormContainer />', () => {
   it('renders the component', async () => {
-    const wrapper = shallow(<CreateContractFormContainer store={initStore()} />)
-      .dive()
-      .dive()
-      .dive()
-      .dive();
+    const { wrapper } = setup();
 
     wrapper.find('CreateContractFormComponent').simulate('submit');
 

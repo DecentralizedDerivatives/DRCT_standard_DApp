@@ -1,28 +1,53 @@
 import List from '../../components/List';
 
+function setup(overrides) {
+  const store = initStore();
+  const refreshPage = jest.fn();
+  const props = { store, refreshPage, ...overrides };
+
+  const wrapper = shallow(<List {...props} />).dive();
+
+  return {
+    wrapper,
+  };
+}
+
 describe('<List />', () => {
   it('renders the component', () => {
-    const refreshPage = jest.fn();
-
-    const wrapper = shallow(
-      <List store={initStore()} refreshPage={refreshPage} />
-    ).dive();
-
+    const { wrapper } = setup();
     expect(wrapper).toMatchSnapshot();
+  });
 
+  it('renders list error', () => {
+    const { wrapper } = setup();
     wrapper.setProps({ listOrderError: 'Error happened.' });
-    wrapper.setProps({ listOrderError: null });
+    expect(wrapper).toMatchSnapshot();
+  });
 
-    wrapper.setProps({ listOrderId: 42 });
-    wrapper.setProps({ listOrderId: undefined });
+  it('renders list id', () => {
+    const { wrapper } = setup();
+    wrapper.setProps({ listOrderId: '42' });
+    expect(wrapper).toMatchSnapshot();
+  });
 
+  it('renders approved error', () => {
+    const { wrapper } = setup();
     wrapper.setProps({ listOrderApproveError: 'Error happened.' });
-    wrapper.setProps({ listOrderApproveError: undefined });
+    expect(wrapper).toMatchSnapshot();
+  });
 
+  it('renders approved', () => {
+    const { wrapper } = setup();
     wrapper.setProps({ listOrderApproved: true });
-    wrapper.setProps({ listOrderApproved: undefined });
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('handles events', () => {
+    const { wrapper } = setup();
 
     wrapper.find('.order-btn').simulate('click');
     wrapper.find('.order-modal-background').simulate('click');
+
+    expect(wrapper).toMatchSnapshot();
   });
 });

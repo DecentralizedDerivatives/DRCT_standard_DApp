@@ -24,6 +24,7 @@ jest.mock('../../ethereum', () => {
   };
 });
 
+// TODO: setup
 describe('<MyPortfolio />', () => {
   it('renders empty component', () => {
     const wrapper = shallow(<MyPortfolio store={initStore()} />)

@@ -1,8 +1,19 @@
 import ConnectionModal from '../../components/ConnectionModal';
 
+function setup(overrides) {
+  const store = initStore();
+  const props = { store, ...overrides };
+
+  const wrapper = shallow(<ConnectionModal {...props} />).dive();
+
+  return {
+    wrapper,
+  };
+}
+
 describe('<ConnectionModal />', () => {
   it('renders the component', () => {
-    const wrapper = shallow(<ConnectionModal store={initStore()} />).dive();
+    const { wrapper } = setup();
 
     expect(wrapper).toMatchSnapshot();
 

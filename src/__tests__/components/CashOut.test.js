@@ -1,24 +1,46 @@
 import CashOut from '../../components/CashOut';
 
+function setup(overrides) {
+  const store = initStore();
+  const close = jest.fn();
+  const props = { store, close, ...overrides };
+
+  const wrapper = shallow(<CashOut {...props} />).dive();
+
+  return {
+    wrapper,
+    close,
+  };
+}
+
 describe('<CashOut />', () => {
   it('renders the component', () => {
-    const close = jest.fn();
-
-    const wrapper = shallow(<CashOut store={initStore()} />).dive();
-
+    const { wrapper } = setup();
     expect(wrapper).toMatchSnapshot();
+  });
 
-    wrapper.setProps({ cashOutError: 'Error happened.', cashOutTx: undefined });
+  it('renders error', () => {
+    const { wrapper } = setup();
+    wrapper.setProps({ cashOutError: 'Error happened.' });
     expect(wrapper).toMatchSnapshot();
+  });
 
-    wrapper.setProps({ cashOutError: undefined, cashOutTx: '0x000...' });
-    expect(wrapper).toMatchSnapshot();
-
-    wrapper.setProps({ close: close });
-    wrapper.setProps({ cashOutError: undefined, cashOutTx: '0x000...' });
+  it('renders tx', () => {
+    const { wrapper, close } = setup();
+    wrapper.setProps({ cashOutTx: '0x000...' });
     expect(close).toBeCalledTimes(1);
+    expect(wrapper).toMatchSnapshot();
+  });
 
-    wrapper.setProps({ cashOutError: undefined, cashOutTx: undefined });
+  it('renders tx without close', () => {
+    const { wrapper } = setup({ close: undefined });
+    wrapper.setProps({ cashOutTx: '0x000...' });
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('handles setProps without values', () => {
+    const { wrapper } = setup();
+    wrapper.setProps({});
     expect(wrapper).toMatchSnapshot();
   });
 });

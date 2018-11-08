@@ -25,6 +25,7 @@ jest.mock('../../ethereum', () => {
   };
 });
 
+// TODO: setup
 describe('<Bulletin />', () => {
   it('renders empty component', () => {
     const wrapper = shallow(<Bulletin store={initStore()} />)
@@ -46,10 +47,10 @@ describe('<Bulletin />', () => {
     wrapper.find(List).prop('refreshPage')();
 
     wrapper
-        .find(OrderBook)
-        .simulate('rowClick', '0x000...', 'ETH/USD', '11/09/2018', {
-          preventDefault: jest.fn(),
-        });
+      .find(OrderBook)
+      .simulate('rowClick', '0x000...', 'ETH/USD', '11/09/2018', {
+        preventDefault: jest.fn(),
+      });
 
     setImmediate(() => {
       jest.runOnlyPendingTimers();

@@ -2,13 +2,24 @@ import ListFormContainer, {
   validate,
 } from '../../components/ListFormContainer';
 
+function setup(overrides) {
+  const store = initFixtureStore();
+  const props = { store, ...overrides };
+
+  const wrapper = shallow(<ListFormContainer {...props} />)
+    .dive()
+    .dive()
+    .dive()
+    .dive();
+
+  return {
+    wrapper,
+  };
+}
+
 describe('<ListFormContainer />', () => {
   it('renders the component', () => {
-    const wrapper = shallow(<ListFormContainer store={initFixtureStore()} />)
-      .dive()
-      .dive()
-      .dive()
-      .dive();
+    const { wrapper } = setup();
 
     wrapper.find('ListFormComponent').simulate('submit', {});
 

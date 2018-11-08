@@ -1,11 +1,20 @@
 import ListFormComponent from '../../components/ListFormComponent';
 
+function setup(overrides) {
+  const store = initStore();
+  const handleSubmit = jest.fn();
+  const props = { store, handleSubmit, ...overrides };
+
+  const wrapper = shallow(<ListFormComponent {...props} />);
+
+  return {
+    wrapper,
+  };
+}
+
 describe('<ListFormComponent />', () => {
   it('renders the component', () => {
-    const handleSubmit = jest.fn();
-    const wrapper = shallow(
-      <ListFormComponent store={initStore()} handleSubmit={handleSubmit} />
-    );
+    const { wrapper } = setup();
     expect(wrapper).toMatchSnapshot();
   });
 });

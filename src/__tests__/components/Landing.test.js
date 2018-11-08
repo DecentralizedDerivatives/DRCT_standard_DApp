@@ -1,6 +1,7 @@
 import Landing from '../../components/Landing';
 import { SET_CONNECTION_STATUS } from '../../actions/types';
 
+// TODO: setup
 describe('<Landing />', () => {
   it('renders the component', () => {
     const store = initFixtureStore();
@@ -46,7 +47,7 @@ describe('<Landing />', () => {
     });
 
     wrapper.dive().setState({});
-  
+
     expect(wrapper.dive()).toMatchSnapshot();
   });
 });
