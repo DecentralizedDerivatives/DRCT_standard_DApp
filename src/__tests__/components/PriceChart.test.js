@@ -5,22 +5,25 @@ import PriceChart from '../../components/PriceChart';
 
 mockAxios.get.mockImplementation(() => Promise.resolve());
 
-Highcharts.setOptions = jest.fn();
-Highcharts.stockChart = jest.fn();
+jest.mock('highcharts/highstock');
 
 // TODO: increase coverage, setup
 describe('<PriceChart />', () => {
-  it('renders the component', async () => {
+  it('renders the component', done => {
     const wrapper = shallow(<PriceChart store={initFixtureStore()} />).dive();
 
     wrapper
       .find('.pricechart__dropdown')
       .simulate('change', { target: { value: 'ETH' } });
 
-    expect(Highcharts.setOptions.calls).toMatchSnapshot();
-    expect(Highcharts.stockChart.calls).toMatchSnapshot();
+    setImmediate(() => {
+      expect(Highcharts.setOptions.mock.calls).toMatchSnapshot();
+      expect(Highcharts.stockChart.mock.calls).toMatchSnapshot();
 
-    expect(wrapper).toMatchSnapshot();
+      expect(wrapper).toMatchSnapshot();
+
+      done();
+    });
   });
 
   it('renders empty component', async () => {
