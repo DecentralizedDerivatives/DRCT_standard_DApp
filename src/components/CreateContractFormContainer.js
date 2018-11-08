@@ -46,11 +46,6 @@ export let CreateContractFormContainer = props => {
         onCurrencyChange={onCurrencyChange}
         onSubmit={submitForm}
         handleSubmit={props.handleSubmit} />
-      <div style={{marginTop: '20px', color: 'blue', textDecoration: 'underline'}}
-        className='clickable'
-        onClick={props.handleSkipCreate}>
-        Already have a created contract?
-      </div>
     </div>
   );
 };
