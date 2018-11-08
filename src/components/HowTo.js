@@ -3,7 +3,7 @@ import { Row, Col } from 'reactstrap';
 
 const HowTo = () => {
   const section1 = [
-    'The DDA dapp is powered by Ethereum smart contracts that create "Long" and "Short" tokens on the network',
+    'The Daxia dapp is powered by Ethereum smart contracts that create "Long" and "Short" tokens on the network',
     'Contracts are agreements to deliver the collateral in the Ethereum Smart Contract on the expiration date to the holder of a given token',
     'Contracts pay out based upon the movement of an underlying rate (e.g. BTC/USD) over a time frame (e.g. 7 days)',
     'Sometimes the contracts use multipliers too (e.g. 10x)',
@@ -67,7 +67,7 @@ const HowTo = () => {
   return (
     <div className="container mt-5">
       <div className="mx-auto">
-        <h3>Welcome to the DDA dApp!</h3>
+        <h3>Welcome to the Daxia dApp!</h3>
         <Row className="ml-3 mt-4 mb-3">
           <h5>
             <em>
@@ -159,8 +159,8 @@ const HowTo = () => {
               <span>
                 To become a member or read more about us, check out our website:
               </span>
-              <a href="https://www.ddacoop.org" className="pl-2">
-                www.ddacoop.org
+              <a href="https://www.daxia.us" className="pl-2">
+                www.daxia.us
               </a>
             </div>
           </Col>
@@ -187,10 +187,10 @@ const HowTo = () => {
             <div>
               <span>If you have more questions, shoot us an email at:</span>
               <a
-                href="mailto:info@ddacoop.org"
+                href="mailto:info@daxia.us"
                 className="pl-2"
               >
-                info@ddacoop.org
+                info@daxia.us
               </a>
             </div>
           </Col>
