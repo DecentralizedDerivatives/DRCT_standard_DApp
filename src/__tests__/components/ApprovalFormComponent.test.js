@@ -1,7 +1,9 @@
+// COMPLETE
 import ApprovalFormComponent from '../../components/ApprovalFormComponent';
 
 function setup(overrides) {
   const store = initFixtureStore();
+
   const handleSubmit = jest.fn();
   const selectOptions = store.getState().user.userTokens;
 

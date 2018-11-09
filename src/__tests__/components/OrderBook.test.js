@@ -1,7 +1,7 @@
+// TODO: setup
 import OrderBook from '../../components/OrderBook';
 import { SET_FETCH_IN_PROGRESS, SET_ORDERBOOK } from '../../actions/types';
 
-// TODO: setup
 describe('<OrderBook />', () => {
   it('renders the component', () => {
     const onRowClick = jest.fn();

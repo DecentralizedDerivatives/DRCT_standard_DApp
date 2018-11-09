@@ -40,22 +40,7 @@ ShallowWrapper {
     pure={true}
     reset={[Function]}
     resetSection={[Function]}
-    sendFunds={
-      [MockFunction] {
-        "calls": Array [
-          Array [
-            undefined,
-            "",
-          ],
-        ],
-        "results": Array [
-          Object {
-            "isThrow": false,
-            "value": undefined,
-          },
-        ],
-      }
-    }
+    sendFunds={[MockFunction]}
     store={
       Object {
         "dispatch": [Function],

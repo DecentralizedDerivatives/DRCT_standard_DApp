@@ -1,7 +1,7 @@
+// TODO: setup
 import Landing from '../../components/Landing';
 import { SET_CONNECTION_STATUS } from '../../actions/types';
 
-// TODO: setup
 describe('<Landing />', () => {
   it('renders the component', () => {
     const store = initFixtureStore();

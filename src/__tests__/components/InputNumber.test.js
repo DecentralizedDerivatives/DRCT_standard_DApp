@@ -1,7 +1,9 @@
+// COMPLETE
 import InputNumber from '../../components/InputNumber';
 
 function setup(overrides) {
   const store = initStore();
+
   const input = {};
   const addonLabel = 'label';
   const meta = { touched: true, error: 'required' };

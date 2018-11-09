@@ -1,7 +1,13 @@
+// COMPLETE
 import CashOutFormContainer from '../../components/CashOutFormContainer';
+import { sendCashOutRequest } from '../../actions/userActions';
+
+jest.mock('../../actions/userActions');
+sendCashOutRequest.mockImplementation(() => () => undefined);
 
 function setup(overrides) {
   const store = initStore();
+
   const props = { store, ...overrides };
 
   const wrapper = shallow(<CashOutFormContainer {...props} />)
@@ -18,9 +24,14 @@ function setup(overrides) {
 describe('<CashOutFormContainer />', () => {
   it('renders the component', () => {
     const { wrapper } = setup();
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('handles submit', () => {
+    const { wrapper } = setup();
 
     wrapper.find('CashOutFormComponent').simulate('submit');
 
-    expect(wrapper).toMatchSnapshot();
+    expect(sendCashOutRequest).toBeCalledTimes(1);
   });
 });

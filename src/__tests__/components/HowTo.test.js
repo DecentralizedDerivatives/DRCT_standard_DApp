@@ -1,3 +1,4 @@
+// COMPLETE
 import HowTo from '../../components/HowTo';
 
 function setup(overrides) {

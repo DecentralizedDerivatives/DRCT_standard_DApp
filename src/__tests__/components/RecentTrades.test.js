@@ -1,8 +1,10 @@
+// TODO: check
 import RecentTrades from '../../components/RecentTrades';
 import { SET_FETCH_IN_PROGRESS, SET_RECENT_TRADES } from '../../actions/types';
 
 function setup(overrides) {
   const store = initFixtureStore();
+
   const onRowClick = jest.fn();
   const props = { store, onRowClick, ...overrides };
 

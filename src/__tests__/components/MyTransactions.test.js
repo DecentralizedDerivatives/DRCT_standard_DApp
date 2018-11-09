@@ -1,3 +1,4 @@
+// TODO: check
 import MyTransactions from '../../components/MyTransactions';
 import {
   SET_FETCH_IN_PROGRESS,

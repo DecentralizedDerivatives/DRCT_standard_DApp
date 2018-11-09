@@ -1,9 +1,19 @@
+// COMPLETE
 import CreateContractFormContainer, {
   validate,
 } from '../../components/CreateContractFormContainer';
+import { getContractOpenDates } from '../../actions/contractActions';
+import { sendCreateContractOrder } from '../../actions/orderActions';
+
+jest.mock('../../actions/contractActions');
+getContractOpenDates.mockImplementation(() => () => undefined);
+
+jest.mock('../../actions/orderActions');
+sendCreateContractOrder.mockImplementation(() => () => undefined);
 
 function setup(overrides) {
   const store = initStore();
+
   const props = { store, ...overrides };
 
   const wrapper = shallow(<CreateContractFormContainer {...props} />)
@@ -20,14 +30,25 @@ function setup(overrides) {
 describe('<CreateContractFormContainer />', () => {
   it('renders the component', async () => {
     const { wrapper } = setup();
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('handles submit', async () => {
+    const { wrapper } = setup();
 
     wrapper.find('CreateContractFormComponent').simulate('submit');
+
+    expect(sendCreateContractOrder).toBeCalledTimes(1);
+  });
+
+  it('handles currency change', async () => {
+    const { wrapper } = setup();
 
     wrapper
       .find('CreateContractFormComponent')
       .simulate('currencyChange', { target: { value: '0x000...' } });
 
-    expect(wrapper).toMatchSnapshot();
+    expect(getContractOpenDates).toBeCalledTimes(1);
   });
 
   it('validates values', () => {

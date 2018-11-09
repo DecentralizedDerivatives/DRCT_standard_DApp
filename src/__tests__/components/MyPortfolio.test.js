@@ -1,3 +1,4 @@
+// TODO: setup
 import MyPortfolio from '../../components/MyPortfolio';
 import CashOut from '../../components/CashOut';
 import CreateContract from '../../components/CreateContract';
@@ -24,7 +25,6 @@ jest.mock('../../ethereum', () => {
   };
 });
 
-// TODO: setup
 describe('<MyPortfolio />', () => {
   it('renders empty component', () => {
     const wrapper = shallow(<MyPortfolio store={initStore()} />)

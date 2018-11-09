@@ -1,3 +1,4 @@
+// TODO: check
 import MyPositions from '../../components/MyPositions';
 import { SET_USER_POSITIONS, SET_FETCH_IN_PROGRESS } from '../../actions/types';
 

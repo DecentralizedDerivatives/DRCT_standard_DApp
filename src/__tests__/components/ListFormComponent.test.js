@@ -1,7 +1,9 @@
+// COMPLETE
 import ListFormComponent from '../../components/ListFormComponent';
 
 function setup(overrides) {
   const store = initStore();
+
   const handleSubmit = jest.fn();
   const props = { store, handleSubmit, ...overrides };
 

@@ -1,9 +1,11 @@
+// COMPLETE
 import SendFundsFormContainer, {
   validate,
 } from '../../components/SendFundsFormContainer';
 
 function setup(overrides) {
   const store = initStore();
+
   const sendFunds = jest.fn();
   const props = { store, sendFunds, ...overrides };
 
@@ -15,16 +17,22 @@ function setup(overrides) {
 
   return {
     wrapper,
+    sendFunds,
   };
 }
 
 describe('<SendFundsFormContainer />', () => {
   it('renders the component', () => {
     const { wrapper } = setup();
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('handles submit', () => {
+    const { wrapper, sendFunds } = setup();
 
     wrapper.find('SendFundsFormComponent').simulate('submit');
 
-    expect(wrapper).toMatchSnapshot();
+    expect(sendFunds).toBeCalledTimes(1);
   });
 
   it('validates values', () => {

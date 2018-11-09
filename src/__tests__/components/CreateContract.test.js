@@ -1,3 +1,4 @@
+// TODO: check
 import CreateContract from '../../components/CreateContract';
 import CreateContractFormContainer from '../../components/CreateContractFormContainer';
 import { SendFundsFormContainer } from '../../components/SendFundsFormContainer';

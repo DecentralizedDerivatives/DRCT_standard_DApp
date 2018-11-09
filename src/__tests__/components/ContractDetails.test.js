@@ -1,7 +1,9 @@
+// COMPLETE
 import ContractDetails from '../../components/ContractDetails';
 
 function setup(overrides) {
   const store = initStore();
+
   const props = { store, ...overrides };
 
   const wrapper = shallow(<ContractDetails {...props} />).dive();

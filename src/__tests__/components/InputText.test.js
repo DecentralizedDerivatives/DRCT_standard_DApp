@@ -1,7 +1,9 @@
+// COMPLETE
 import InputText from '../../components/InputText';
 
 function setup(overrides) {
   const store = initStore();
+
   const meta = { touched: true, error: 'required' };
   const props = { store, meta, ...overrides };
 

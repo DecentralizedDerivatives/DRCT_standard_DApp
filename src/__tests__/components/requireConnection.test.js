@@ -1,3 +1,4 @@
+// TODO: check
 import requireConnection from '../../components/requireConnection';
 import { SET_CONNECTION_STATUS } from '../../actions/types';
 

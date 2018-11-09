@@ -1,3 +1,4 @@
+// TODO: check
 import CashOut from '../../components/CashOut';
 
 function setup(overrides) {

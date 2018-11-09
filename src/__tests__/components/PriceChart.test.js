@@ -1,14 +1,15 @@
+// TODO: check
+import PriceChart from '../../components/PriceChart';
+
 import mockAxios from 'jest-mock-axios';
 import Highcharts from 'highcharts/highstock';
 
-import PriceChart from '../../components/PriceChart';
-
 mockAxios.get.mockImplementation(() => Promise.resolve());
-
 jest.mock('highcharts/highstock');
 
 function setup(overrides) {
   const store = initStore();
+
   const props = { store, ...overrides };
 
   const wrapper = shallow(<PriceChart {...props} />).dive();

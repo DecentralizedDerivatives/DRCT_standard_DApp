@@ -1,3 +1,4 @@
+// TODO: setup
 import Bulletin from '../../components/Bulletin';
 import OrderBook from '../../components/OrderBook';
 import List from '../../components/List';
@@ -5,27 +6,8 @@ import ContractDetails from '../../components/ContractDetails';
 
 jest.useFakeTimers();
 
-jest.unmock('../../ethereum');
-jest.mock('../../ethereum', () => {
-  const mockFactory = {
-    isWhitelisted: jest.fn().mockImplementation(() => false),
-  };
-  return {
-    web3: {
-      eth: {
-        getAccounts: jest.fn(),
-        net: {
-          getId: jest.fn().mockImplementation(() => 4),
-        },
-      },
-    },
-    Factory: {
-      at: jest.fn().mockImplementation(() => mockFactory),
-    },
-  };
-});
+jest.mock('../../ethereum');
 
-// TODO: setup
 describe('<Bulletin />', () => {
   it('renders empty component', () => {
     const wrapper = shallow(<Bulletin store={initStore()} />)
