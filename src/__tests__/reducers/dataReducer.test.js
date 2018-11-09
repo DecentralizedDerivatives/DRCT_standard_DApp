@@ -4,7 +4,7 @@ import { SET_PRICECHART_DATA } from '../../actions/types';
 
 describe('dataReducer', () => {
   const initialState = {
-    pricechart: undefined
+    pricechart: undefined,
   };
 
   describe('initialState', () => {
@@ -19,12 +19,12 @@ describe('dataReducer', () => {
     it('returns the correct state', () => {
       const action = {
         type: SET_PRICECHART_DATA,
-        payload: [[1524574800000, 9277.61], [1524, 6673.74]]
+        payload: [[1524574800000, 9277.61], [1524, 6673.74]],
       };
 
       const expectedState = {
         ...initialState,
-        pricechart: [[1524574800000, 9277.61], [1524, 6673.74]]
+        pricechart: [[1524574800000, 9277.61], [1524, 6673.74]],
       };
 
       const state = dataReducer(initialState, action);

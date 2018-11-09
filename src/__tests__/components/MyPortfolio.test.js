@@ -41,7 +41,7 @@ describe('<MyPortfolio />', () => {
   });
 
   it('renders the component', done => {
-    const { wrapper } = setup({ store: initFixtureStore() });
+    const { wrapper } = setup({ store: initStore(FIXTURE) });
 
     setImmediate(() => {
       jest.runOnlyPendingTimers();
@@ -57,7 +57,7 @@ describe('<MyPortfolio />', () => {
   });
 
   it('renders create contract', done => {
-    const { wrapper } = setup({ store: initFixtureStore() });
+    const { wrapper } = setup({ store: initStore(FIXTURE) });
 
     setImmediate(() => {
       wrapper.find('div[children="Create Contract"]').simulate('click');
@@ -71,7 +71,7 @@ describe('<MyPortfolio />', () => {
   });
 
   it('renders cashout', done => {
-    const { wrapper } = setup({ store: initFixtureStore() });
+    const { wrapper } = setup({ store: initStore(FIXTURE) });
 
     setImmediate(() => {
       wrapper.find('button[children="Cash Out"]').simulate('click');
@@ -85,7 +85,7 @@ describe('<MyPortfolio />', () => {
   });
 
   it('renders contract details', done => {
-    const { wrapper, instance } = setup({ store: initFixtureStore() });
+    const { wrapper, instance } = setup({ store: initStore(FIXTURE) });
 
     setImmediate(() => {
       instance.openContractDetails();
@@ -96,7 +96,7 @@ describe('<MyPortfolio />', () => {
   });
 
   it('handles row click', done => {
-    const { wrapper, instance } = setup({ store: initFixtureStore() });
+    const { wrapper, instance } = setup({ store: initStore(FIXTURE) });
 
     setImmediate(() => {
       instance.handleRowClick('0x000...', { preventDefault: jest.fn() });

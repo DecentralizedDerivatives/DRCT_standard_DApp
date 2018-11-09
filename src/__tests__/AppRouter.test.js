@@ -8,7 +8,7 @@ describe('<AppRouter />', () => {
   });
 
   it('renders the component with data', () => {
-    const wrapper = shallow(<AppRouter store={initFixtureStore()} />).dive();
+    const wrapper = shallow(<AppRouter store={initStore(FIXTURE)} />).dive();
 
     wrapper.setState({});
 

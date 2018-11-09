@@ -7,7 +7,7 @@ jest.mock('../../actions/orderActions');
 sendListOrder.mockImplementation(() => () => {});
 
 function setup(overrides) {
-  const store = initFixtureStore();
+  const store = initStore(FIXTURE);
 
   const props = { store, ...overrides };
 

@@ -26,12 +26,12 @@ function setup(overrides) {
 
 describe('<OrderBook />', () => {
   it('renders the component', () => {
-    const { wrapper } = setup({ store: initFixtureStore() });
+    const { wrapper } = setup({ store: initStore(FIXTURE) });
     expect(wrapper).toMatchSnapshot();
   });
 
   it('handle buy', () => {
-    const { wrapper } = setup({ store: initFixtureStore() });
+    const { wrapper } = setup({ store: initStore(FIXTURE) });
 
     wrapper
       .find('button[children="Buy"]')
@@ -45,7 +45,7 @@ describe('<OrderBook />', () => {
   });
 
   it('handle unlist', () => {
-    const { wrapper } = setup({ store: initFixtureStore() });
+    const { wrapper } = setup({ store: initStore(FIXTURE) });
 
     wrapper
       .find('button[children="Unlist"]')
@@ -77,7 +77,7 @@ describe('<OrderBook />', () => {
   });
 
   it('renders loading component', () => {
-    const store = initFixtureStore();
+    const store = initStore(FIXTURE);
 
     store.dispatch({ type: SET_FETCH_IN_PROGRESS, payload: SET_ORDERBOOK });
 

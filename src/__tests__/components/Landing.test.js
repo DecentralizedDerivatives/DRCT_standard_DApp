@@ -2,7 +2,7 @@ import Landing from '../../components/Landing';
 import { SET_CONNECTION_STATUS } from '../../actions/types';
 
 function setup(overrides) {
-  const store = initFixtureStore();
+  const store = initStore(FIXTURE);
 
   const props = { store, ...overrides };
 
@@ -20,7 +20,7 @@ describe('<Landing />', () => {
   });
 
   it('renders not whitelisted', () => {
-    const store = initFixtureStore();
+    const store = initStore(FIXTURE);
 
     store.dispatch({
       type: SET_CONNECTION_STATUS,
@@ -37,7 +37,7 @@ describe('<Landing />', () => {
   });
 
   it('renders with wrong network id', () => {
-    const store = initFixtureStore();
+    const store = initStore(FIXTURE);
 
     store.dispatch({
       type: SET_CONNECTION_STATUS,
@@ -54,7 +54,7 @@ describe('<Landing />', () => {
   });
 
   it('renders not connected', () => {
-    const store = initFixtureStore();
+    const store = initStore(FIXTURE);
 
     store.dispatch({
       type: SET_CONNECTION_STATUS,

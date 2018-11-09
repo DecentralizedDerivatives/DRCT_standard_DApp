@@ -6,7 +6,7 @@ import {
   SET_PROCESSING,
   SET_FETCH_IN_PROGRESS,
   REMOVE_FETCH_IN_PROGRESS,
-  SET_FETCHING_ERROR
+  SET_FETCHING_ERROR,
 } from '../../actions/types';
 
 describe('statusReducer', () => {
@@ -15,12 +15,12 @@ describe('statusReducer', () => {
       metamask: false,
       network: 0,
       verified: false,
-      whiteListed: false
+      whiteListed: false,
     },
     isConnectModalOpen: false,
     isProcessing: false,
     fetchInProgress: [],
-    fetchingError: []
+    fetchingError: [],
   };
 
   describe('initialState', () => {
@@ -39,8 +39,8 @@ describe('statusReducer', () => {
           metamask: true,
           network: 4,
           verified: true,
-          whiteListed: true
-        }
+          whiteListed: true,
+        },
       };
 
       const expectedStateChanges = {
@@ -48,12 +48,14 @@ describe('statusReducer', () => {
           metamask: true,
           network: 4,
           verified: true,
-          whiteListed: true
-        }
+          whiteListed: true,
+        },
       };
 
       const state = statusReducer(initialState, action);
-      expect(state).toEqual(Object.assign({}, initialState, expectedStateChanges));
+      expect(state).toEqual(
+        Object.assign({}, initialState, expectedStateChanges)
+      );
     });
   });
 
@@ -61,28 +63,32 @@ describe('statusReducer', () => {
     it('start processing', () => {
       const action = {
         type: SET_PROCESSING,
-        payload: true
+        payload: true,
       };
 
       const expectedStateChanges = {
-        isProcessing: true
+        isProcessing: true,
       };
 
       const state = statusReducer(initialState, action);
-      expect(state).toEqual(Object.assign({}, initialState, expectedStateChanges));
+      expect(state).toEqual(
+        Object.assign({}, initialState, expectedStateChanges)
+      );
     });
     it('stop processing', () => {
       const action = {
         type: SET_PROCESSING,
-        payload: false
+        payload: false,
       };
 
       const expectedStateChanges = {
-        isProcessing: false
+        isProcessing: false,
       };
 
       const state = statusReducer(initialState, action);
-      expect(state).toEqual(Object.assign({}, initialState, expectedStateChanges));
+      expect(state).toEqual(
+        Object.assign({}, initialState, expectedStateChanges)
+      );
     });
   });
 
@@ -90,37 +96,47 @@ describe('statusReducer', () => {
     it('Set Fetching components', () => {
       const action = {
         type: SET_FETCH_IN_PROGRESS,
-        payload: 'foo'
+        payload: 'foo',
       };
       const expectedStateChanges = { fetchInProgress: ['foo'] };
       const state = statusReducer(initialState, action);
-      expect(state).toEqual(Object.assign({}, initialState, expectedStateChanges));
+      expect(state).toEqual(
+        Object.assign({}, initialState, expectedStateChanges)
+      );
 
       const newAction = {
         type: SET_FETCH_IN_PROGRESS,
-        payload: 'bar'
-      }
+        payload: 'bar',
+      };
       const newExpectedStateChanges = { fetchInProgress: ['foo', 'bar'] };
       const newState = statusReducer(state, newAction);
-      expect(newState).toEqual(Object.assign({}, initialState, newExpectedStateChanges));
+      expect(newState).toEqual(
+        Object.assign({}, initialState, newExpectedStateChanges)
+      );
     });
     it('Remove Fetching components', () => {
-      const currentState = Object.assign({}, initialState, {fetchInProgress: ['foo', 'bar']})
+      const currentState = Object.assign({}, initialState, {
+        fetchInProgress: ['foo', 'bar'],
+      });
       const action = {
         type: REMOVE_FETCH_IN_PROGRESS,
-        payload: 'foo'
+        payload: 'foo',
       };
       const expectedStateChanges = { fetchInProgress: ['bar'] };
       const state = statusReducer(currentState, action);
-      expect(state).toEqual(Object.assign({}, initialState, expectedStateChanges));
+      expect(state).toEqual(
+        Object.assign({}, initialState, expectedStateChanges)
+      );
 
       const newAction = {
         type: REMOVE_FETCH_IN_PROGRESS,
-        payload: 'bar'
-      }
+        payload: 'bar',
+      };
       const newExpectedStateChanges = { fetchInProgress: [] };
       const newState = statusReducer(state, newAction);
-      expect(newState).toEqual(Object.assign({}, initialState, newExpectedStateChanges));
+      expect(newState).toEqual(
+        Object.assign({}, initialState, newExpectedStateChanges)
+      );
     });
   });
 
@@ -128,7 +144,7 @@ describe('statusReducer', () => {
     it('returns the correct state', () => {
       const action = {
         type: SET_FETCHING_ERROR,
-        payload: 'Error Message'
+        payload: 'Error Message',
       };
 
       const expectedState = {
@@ -136,12 +152,12 @@ describe('statusReducer', () => {
           metamask: false,
           network: 0,
           verified: false,
-          whiteListed: false
+          whiteListed: false,
         },
         fetchInProgress: [],
         isConnectModalOpen: false,
         isProcessing: false,
-        fetchingError: ['Error Message']
+        fetchingError: ['Error Message'],
       };
 
       const state = statusReducer(initialState, action);
@@ -153,7 +169,7 @@ describe('statusReducer', () => {
     it('returns the correct state', () => {
       const action = {
         type: SHOW_CONNECTION_MODAL,
-        payload: true
+        payload: true,
       };
 
       const expectedState = {
@@ -161,12 +177,12 @@ describe('statusReducer', () => {
           metamask: false,
           network: 0,
           verified: false,
-          whiteListed: false
+          whiteListed: false,
         },
         fetchInProgress: [],
         isConnectModalOpen: true,
         isProcessing: false,
-        fetchingError: []
+        fetchingError: [],
       };
 
       const state = statusReducer(initialState, action);

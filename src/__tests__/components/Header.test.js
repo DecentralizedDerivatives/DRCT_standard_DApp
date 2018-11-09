@@ -51,7 +51,7 @@ describe('<Header />', () => {
     wrapper
       .find('#mobile-nav p')
       .simulate('click', { preventDefault: () => undefined });
-    
+
     expect(wrapper).toMatchSnapshot();
     expect(showTerms).toBeCalledTimes(1);
   });

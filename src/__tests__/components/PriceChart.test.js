@@ -10,7 +10,7 @@ jest.mock('../../actions/dataActions');
 getPriceChartData.mockImplementation(() => () => undefined);
 
 function setup(overrides) {
-  const store = initFixtureStore();
+  const store = initStore(FIXTURE);
 
   const props = { store, ...overrides };
 

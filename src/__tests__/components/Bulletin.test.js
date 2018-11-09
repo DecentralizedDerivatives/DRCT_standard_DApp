@@ -54,7 +54,7 @@ describe('<Bulletin />', () => {
   });
 
   it('renders the component', done => {
-    const { wrapper } = setup({ store: initFixtureStore() });
+    const { wrapper } = setup({ store: initStore(FIXTURE) });
 
     setImmediate(() => {
       jest.runOnlyPendingTimers();
@@ -73,7 +73,7 @@ describe('<Bulletin />', () => {
   });
 
   it('handles details', done => {
-    const { wrapper } = setup({ store: initFixtureStore() });
+    const { wrapper } = setup({ store: initStore(FIXTURE) });
 
     wrapper
       .find(OrderBook)

@@ -21,7 +21,7 @@ describe('<ContractDetails />', () => {
   });
 
   it('renders the component', () => {
-    const { wrapper } = setup({ store: initFixtureStore() });
+    const { wrapper } = setup({ store: initStore(FIXTURE) });
     expect(wrapper).toMatchSnapshot();
   });
 

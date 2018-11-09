@@ -17,12 +17,12 @@ function setup(overrides) {
 
 describe('<MyPositions />', () => {
   it('renders the component', () => {
-    const { wrapper } = setup({ store: initFixtureStore() });
+    const { wrapper } = setup({ store: initStore(FIXTURE) });
     expect(wrapper).toMatchSnapshot();
   });
 
   it('renders loading component', () => {
-    const store = initFixtureStore();
+    const store = initStore(FIXTURE);
 
     store.dispatch({
       type: SET_FETCH_IN_PROGRESS,
