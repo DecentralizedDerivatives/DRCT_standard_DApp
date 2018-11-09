@@ -176,7 +176,477 @@ ShallowWrapper {
 }
 `;
 
-exports[`<List /> handles events 1`] = `
+exports[`<List /> handles modal 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <List
+    listOrderApproved={false}
+    listOrderError={null}
+    listOrderId=""
+    refreshPage={[MockFunction]}
+    store={
+      Object {
+        "dispatch": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+        Symbol(observable): [Function],
+      }
+    }
+    storeSubscription={
+      Subscription {
+        "listeners": Object {
+          "clear": [Function],
+          "get": [Function],
+          "notify": [Function],
+          "subscribe": [Function],
+        },
+        "onStateChange": [Function],
+        "parentSub": undefined,
+        "store": Object {
+          "dispatch": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+          Symbol(observable): [Function],
+        },
+        "unsubscribe": [Function],
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="order-btn"
+          onClick={[Function]}
+        >
+          <label
+            className="order-btn-label"
+          >
+            List Order
+          </label>
+        </div>,
+        <div>
+          <div
+            className="order-modal-background"
+            onClick={[Function]}
+          />
+          <div
+            className="order-modal"
+          >
+            <div
+              id="buy-form"
+            >
+              <h4
+                className="order-modal-head"
+              >
+                <span>
+                  Approve Order
+                </span>
+              </h4>
+              <Connect(ReduxForm) />
+              
+            </div>
+          </div>
+        </div>,
+      ],
+      "className": "order-btn-wrapper",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <label
+            className="order-btn-label"
+          >
+            List Order
+          </label>,
+          "className": "order-btn",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "List Order",
+            "className": "order-btn-label",
+          },
+          "ref": null,
+          "rendered": "List Order",
+          "type": "label",
+        },
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="order-modal-background"
+              onClick={[Function]}
+            />,
+            <div
+              className="order-modal"
+            >
+              <div
+                id="buy-form"
+              >
+                <h4
+                  className="order-modal-head"
+                >
+                  <span>
+                    Approve Order
+                  </span>
+                </h4>
+                <Connect(ReduxForm) />
+                
+              </div>
+            </div>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "className": "order-modal-background",
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <div
+                id="buy-form"
+              >
+                <h4
+                  className="order-modal-head"
+                >
+                  <span>
+                    Approve Order
+                  </span>
+                </h4>
+                <Connect(ReduxForm) />
+                
+              </div>,
+              "className": "order-modal",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <h4
+                    className="order-modal-head"
+                  >
+                    <span>
+                      Approve Order
+                    </span>
+                  </h4>,
+                  <Connect(ReduxForm) />,
+                  "",
+                ],
+                "id": "buy-form",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <span>
+                      Approve Order
+                    </span>,
+                    "className": "order-modal-head",
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Approve Order",
+                    },
+                    "ref": null,
+                    "rendered": "Approve Order",
+                    "type": "span",
+                  },
+                  "type": "h4",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {},
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                "",
+              ],
+              "type": "div",
+            },
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="order-btn"
+            onClick={[Function]}
+          >
+            <label
+              className="order-btn-label"
+            >
+              List Order
+            </label>
+          </div>,
+          <div>
+            <div
+              className="order-modal-background"
+              onClick={[Function]}
+            />
+            <div
+              className="order-modal"
+            >
+              <div
+                id="buy-form"
+              >
+                <h4
+                  className="order-modal-head"
+                >
+                  <span>
+                    Approve Order
+                  </span>
+                </h4>
+                <Connect(ReduxForm) />
+                
+              </div>
+            </div>
+          </div>,
+        ],
+        "className": "order-btn-wrapper",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <label
+              className="order-btn-label"
+            >
+              List Order
+            </label>,
+            "className": "order-btn",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "List Order",
+              "className": "order-btn-label",
+            },
+            "ref": null,
+            "rendered": "List Order",
+            "type": "label",
+          },
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="order-modal-background"
+                onClick={[Function]}
+              />,
+              <div
+                className="order-modal"
+              >
+                <div
+                  id="buy-form"
+                >
+                  <h4
+                    className="order-modal-head"
+                  >
+                    <span>
+                      Approve Order
+                    </span>
+                  </h4>
+                  <Connect(ReduxForm) />
+                  
+                </div>
+              </div>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "className": "order-modal-background",
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <div
+                  id="buy-form"
+                >
+                  <h4
+                    className="order-modal-head"
+                  >
+                    <span>
+                      Approve Order
+                    </span>
+                  </h4>
+                  <Connect(ReduxForm) />
+                  
+                </div>,
+                "className": "order-modal",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <h4
+                      className="order-modal-head"
+                    >
+                      <span>
+                        Approve Order
+                      </span>
+                    </h4>,
+                    <Connect(ReduxForm) />,
+                    "",
+                  ],
+                  "id": "buy-form",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": <span>
+                        Approve Order
+                      </span>,
+                      "className": "order-modal-head",
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Approve Order",
+                      },
+                      "ref": null,
+                      "rendered": "Approve Order",
+                      "type": "span",
+                    },
+                    "type": "h4",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {},
+                    "ref": null,
+                    "rendered": null,
+                    "type": [Function],
+                  },
+                  "",
+                ],
+                "type": "div",
+              },
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`<List /> handles modal 2`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <List

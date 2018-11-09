@@ -1,4 +1,3 @@
-// COMPLETE
 import ConnectionModal from '../../components/ConnectionModal';
 import { showConnectionModal } from '../../actions/statusActions';
 

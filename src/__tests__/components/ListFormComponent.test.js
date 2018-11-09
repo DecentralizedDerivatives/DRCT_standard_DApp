@@ -1,4 +1,3 @@
-// COMPLETE
 import ListFormComponent from '../../components/ListFormComponent';
 
 function setup(overrides) {

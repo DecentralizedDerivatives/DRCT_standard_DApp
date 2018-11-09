@@ -1,8 +1,8 @@
-// TODO: check
 import CashOut from '../../components/CashOut';
 
 function setup(overrides) {
   const store = initStore();
+
   const close = jest.fn();
   const props = { store, close, ...overrides };
 

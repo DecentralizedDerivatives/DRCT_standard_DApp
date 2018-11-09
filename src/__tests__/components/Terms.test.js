@@ -1,4 +1,3 @@
-// COMPLETE
 import Terms from '../../components/Terms';
 
 function setup(overrides) {

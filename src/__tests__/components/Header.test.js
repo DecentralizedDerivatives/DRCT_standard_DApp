@@ -1,11 +1,12 @@
-// TODO: check
 import Header from '../../components/Header';
 
 function setup(overrides) {
   const store = initStore();
+
   const isConnected = true;
   const whiteListed = true;
   const showTerms = jest.fn();
+
   const props = { store, isConnected, whiteListed, showTerms, ...overrides };
 
   const wrapper = shallow(<Header {...props} />);
@@ -32,27 +33,30 @@ describe('<Header />', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('handles events', () => {
-    const { wrapper, showTerms } = setup({
-      isConnected: true,
-      whiteListed: true,
-    });
+  it('handles hamburger click', () => {
+    const { wrapper } = setup();
 
+    // toggle to show
     wrapper.find('.hamburger-btn').simulate('click');
+    expect(wrapper).toMatchSnapshot();
 
-    wrapper
-      .find('#mobile-nav p')
-      .simulate('click', { preventDefault: () => undefined });
-    expect(showTerms).toBeCalledTimes(1);
-
-    wrapper
-      .find('#mobile-nav p')
-      .simulate('click', { preventDefault: () => undefined });
-
+    // toggle to hide
+    wrapper.find('.hamburger-btn').simulate('click');
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('handles empty showTerms', () => {
+  it('handles terms click', () => {
+    const { wrapper, showTerms } = setup();
+
+    wrapper
+      .find('#mobile-nav p')
+      .simulate('click', { preventDefault: () => undefined });
+    
+    expect(wrapper).toMatchSnapshot();
+    expect(showTerms).toBeCalledTimes(1);
+  });
+
+  it('handles terms click with undefined terms', () => {
     const { wrapper } = setup({ showTerms: undefined });
 
     wrapper

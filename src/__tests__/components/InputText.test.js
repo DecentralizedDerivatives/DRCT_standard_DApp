@@ -1,4 +1,3 @@
-// COMPLETE
 import InputText from '../../components/InputText';
 
 function setup(overrides) {

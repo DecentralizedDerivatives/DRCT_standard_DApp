@@ -1,4 +1,3 @@
-// COMPLETE
 import CashOutFormContainer from '../../components/CashOutFormContainer';
 import { sendCashOutRequest } from '../../actions/userActions';
 

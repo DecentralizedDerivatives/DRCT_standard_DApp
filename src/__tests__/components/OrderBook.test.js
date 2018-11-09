@@ -1,19 +1,37 @@
-// TODO: setup
 import OrderBook from '../../components/OrderBook';
 import { SET_FETCH_IN_PROGRESS, SET_ORDERBOOK } from '../../actions/types';
+import { sendBuyOrder, sendUnlistOrder } from '../../actions/orderActions';
+
+jest.mock('../../actions/orderActions');
+sendBuyOrder.mockImplementation(() => () => undefined);
+sendUnlistOrder.mockImplementation(() => () => undefined);
+
+function setup(overrides) {
+  const store = initStore();
+
+  const onRowClick = jest.fn();
+  const refreshPage = jest.fn();
+
+  const props = { store, onRowClick, refreshPage, ...overrides };
+
+  const wrapper = shallow(<OrderBook {...props} />).dive();
+  const instance = wrapper.instance();
+
+  return {
+    wrapper,
+    instance,
+    refreshPage,
+  };
+}
 
 describe('<OrderBook />', () => {
   it('renders the component', () => {
-    const onRowClick = jest.fn();
-    const refreshPage = jest.fn();
+    const { wrapper } = setup({ store: initFixtureStore() });
+    expect(wrapper).toMatchSnapshot();
+  });
 
-    const wrapper = shallow(
-      <OrderBook
-        store={initFixtureStore()}
-        onRowClick={onRowClick}
-        refreshPage={refreshPage}
-      />
-    ).dive();
+  it('handle buy', () => {
+    const { wrapper } = setup({ store: initFixtureStore() });
 
     wrapper
       .find('button[children="Buy"]')
@@ -23,6 +41,12 @@ describe('<OrderBook />', () => {
         stopPropagation: jest.fn(),
       });
 
+    expect(sendBuyOrder).toBeCalledTimes(1);
+  });
+
+  it('handle unlist', () => {
+    const { wrapper } = setup({ store: initFixtureStore() });
+
     wrapper
       .find('button[children="Unlist"]')
       .first()
@@ -31,58 +55,51 @@ describe('<OrderBook />', () => {
         stopPropagation: jest.fn(),
       });
 
+    expect(sendUnlistOrder).toBeCalledTimes(1);
+  });
+
+  it('handle empty props', () => {
+    const { wrapper } = setup();
     wrapper.setProps({ buyOrderTx: undefined });
+  });
+
+  it('handle buy order', () => {
+    const { wrapper, refreshPage } = setup();
+
     wrapper.setProps({ buyOrderTx: '0x000...' });
 
-    expect(wrapper).toMatchSnapshot();
+    expect(refreshPage).toBeCalledTimes(1);
   });
 
   it('renders empty component', () => {
-    const onRowClick = jest.fn();
-
-    const wrapper = shallow(
-      <OrderBook store={initStore()} onRowClick={onRowClick} />
-    ).dive();
-
+    const { wrapper } = setup();
     expect(wrapper).toMatchSnapshot();
   });
 
   it('renders loading component', () => {
-    const onRowClick = jest.fn();
     const store = initFixtureStore();
 
     store.dispatch({ type: SET_FETCH_IN_PROGRESS, payload: SET_ORDERBOOK });
 
-    const wrapper = shallow(
-      <OrderBook store={store} onRowClick={onRowClick} />
-    ).dive();
-
+    const wrapper = setup({ store });
     expect(wrapper).toMatchSnapshot();
   });
 
   it('formats money', () => {
-    const onRowClick = jest.fn();
+    const { instance } = setup();
 
-    const wrapper = shallow(
-      <OrderBook store={initStore()} onRowClick={onRowClick} />
-    ).dive();
-
-    expect(wrapper.instance().formatMoney()).toMatchSnapshot();
-    expect(wrapper.instance().formatMoney(undefined, '--')).toMatchSnapshot();
-    expect(wrapper.instance().formatMoney(-1)).toMatchSnapshot();
-    expect(wrapper.instance().formatMoney(1)).toMatchSnapshot();
+    expect(instance.formatMoney()).toMatchSnapshot();
+    expect(instance.formatMoney(undefined, '--')).toMatchSnapshot();
+    expect(instance.formatMoney(-1)).toMatchSnapshot();
+    expect(instance.formatMoney(1)).toMatchSnapshot();
   });
 
   it('formats percentage', () => {
-    const onRowClick = jest.fn();
+    const { instance } = setup();
 
-    const wrapper = shallow(
-      <OrderBook store={initStore()} onRowClick={onRowClick} />
-    ).dive();
-
-    expect(wrapper.instance().formatPercent()).toMatchSnapshot();
-    expect(wrapper.instance().formatPercent(undefined, '--')).toMatchSnapshot();
-    expect(wrapper.instance().formatPercent(-1)).toMatchSnapshot();
-    expect(wrapper.instance().formatPercent(1)).toMatchSnapshot();
+    expect(instance.formatPercent()).toMatchSnapshot();
+    expect(instance.formatPercent(undefined, '--')).toMatchSnapshot();
+    expect(instance.formatPercent(-1)).toMatchSnapshot();
+    expect(instance.formatPercent(1)).toMatchSnapshot();
   });
 });

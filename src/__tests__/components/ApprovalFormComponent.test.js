@@ -1,4 +1,3 @@
-// COMPLETE
 import ApprovalFormComponent from '../../components/ApprovalFormComponent';
 
 function setup(overrides) {

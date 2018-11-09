@@ -1,4 +1,3 @@
-// COMPLETE
 import CreateContractFormComponent from '../../components/CreateContractFormComponent';
 
 function setup(overrides) {

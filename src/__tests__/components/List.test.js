@@ -1,8 +1,8 @@
-// TODO: check
 import List from '../../components/List';
 
 function setup(overrides) {
   const store = initStore();
+
   const refreshPage = jest.fn();
   const props = { store, refreshPage, ...overrides };
 
@@ -49,12 +49,15 @@ describe('<List />', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('handles events', () => {
+  it('handles modal', () => {
     const { wrapper } = setup();
 
+    // open modal
     wrapper.find('.order-btn').simulate('click');
-    wrapper.find('.order-modal-background').simulate('click');
+    expect(wrapper).toMatchSnapshot();
 
+    // close modal
+    wrapper.find('.order-modal-background').simulate('click');
     expect(wrapper).toMatchSnapshot();
   });
 });

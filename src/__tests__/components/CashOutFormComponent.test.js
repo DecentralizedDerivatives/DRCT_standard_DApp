@@ -1,4 +1,3 @@
-// COMPLETE
 import CashOutFormComponent from '../../components/CashOutFormComponent';
 
 function setup(overrides) {

@@ -1,9 +1,9 @@
-// TODO: check
 import MyPositions from '../../components/MyPositions';
 import { SET_USER_POSITIONS, SET_FETCH_IN_PROGRESS } from '../../actions/types';
 
 function setup(overrides) {
   const store = initStore();
+
   const props = { store, ...overrides };
 
   const wrapper = shallow(<MyPositions {...props} />).dive();
@@ -29,7 +29,7 @@ describe('<MyPositions />', () => {
       payload: SET_USER_POSITIONS,
     });
 
-    const { wrapper } = setup({ store: store });
+    const { wrapper } = setup({ store });
     expect(wrapper).toMatchSnapshot();
   });
 

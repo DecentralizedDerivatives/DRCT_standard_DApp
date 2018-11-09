@@ -1,4 +1,3 @@
-// COMPLETE
 import ListFormContainer, {
   validate,
 } from '../../components/ListFormContainer';

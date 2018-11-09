@@ -1,4 +1,3 @@
-// COMPLETE
 import SendFundsFormComponent from '../../components/SendFundsFormComponent';
 
 function setup(overrides) {

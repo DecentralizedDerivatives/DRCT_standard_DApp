@@ -1,4 +1,3 @@
-// COMPLETE
 import CreateContractFormContainer, {
   validate,
 } from '../../components/CreateContractFormContainer';

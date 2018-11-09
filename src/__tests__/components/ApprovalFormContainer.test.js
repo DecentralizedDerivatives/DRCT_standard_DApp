@@ -1,4 +1,3 @@
-// COMPLETE
 import ApprovalFormContainer, {
   validate,
 } from '../../components/ApprovalFormContainer';

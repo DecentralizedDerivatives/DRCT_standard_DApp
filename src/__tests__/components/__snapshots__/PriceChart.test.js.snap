@@ -1,5 +1,100 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<PriceChart /> handles chart update 1`] = `
+Array [
+  Array [
+    Object {
+      "data": Array [
+        Array [
+          1533708000000,
+          6551.98,
+        ],
+      ],
+    },
+  ],
+]
+`;
+
+exports[`<PriceChart /> handles chart update 2`] = `
+Array [
+  Array [
+    Object {
+      "data": Array [
+        Array [
+          1533708000000,
+          6551.98,
+        ],
+      ],
+    },
+  ],
+]
+`;
+
+exports[`<PriceChart /> handles chart update 3`] = `
+Array [
+  Array [
+    Object {
+      "data": Array [
+        Array [
+          1533708000000,
+          6551.98,
+        ],
+      ],
+    },
+  ],
+]
+`;
+
+exports[`<PriceChart /> handles chart update 4`] = `
+Array [
+  Array [
+    Object {
+      "data": Array [
+        Array [
+          1533708000000,
+          6551.98,
+        ],
+      ],
+    },
+  ],
+]
+`;
+
+exports[`<PriceChart /> handles currency change 1`] = `
+Array [
+  Array [
+    "btcMinute",
+  ],
+  Array [
+    "btc",
+  ],
+  Array [
+    "btcMinute",
+  ],
+  Array [
+    "btc",
+  ],
+  Array [
+    "btcMinute",
+  ],
+  Array [
+    "btc",
+  ],
+  Array [
+    "btcMinute",
+  ],
+  Array [
+    "ethMinute",
+  ],
+  Array [
+    "btc",
+  ],
+  Array [
+    "eth",
+  ],
+]
+`;
+
 exports[`<PriceChart /> renders component with error 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
@@ -951,118 +1046,7 @@ Array [
             ],
           ],
           "enableMouseTracking": true,
-          "name": "ETH",
-          "tooltip": Object {
-            "valueDecimals": 2,
-          },
-        },
-      ],
-      "tooltip": Object {
-        "animation": true,
-        "backgroundColor": "#eceeef",
-        "shadow": true,
-      },
-    },
-  ],
-  Array [
-    "container",
-    Object {
-      "rangeSelector": Object {
-        "align": "right",
-        "allButtonsEnabled": true,
-        "buttons": Array [
-          Object {
-            "count": 60,
-            "dataGrouping": Object {
-              "forced": true,
-              "units": Array [
-                Array [
-                  "minute",
-                  Array [
-                    1,
-                  ],
-                ],
-              ],
-            },
-            "events": Object {
-              "click": [Function],
-            },
-            "text": "1m",
-            "type": "minute",
-          },
-          Object {
-            "count": 6,
-            "dataGrouping": Object {
-              "forced": true,
-              "units": Array [
-                Array [
-                  "minute",
-                  Array [
-                    30,
-                  ],
-                ],
-              ],
-            },
-            "events": Object {
-              "click": [Function],
-            },
-            "text": "6h",
-            "type": "hour",
-          },
-          Object {
-            "count": 1,
-            "dataGrouping": Object {
-              "enabled": true,
-              "forced": false,
-              "units": Array [
-                Array [
-                  "hour",
-                  Array [
-                    4,
-                  ],
-                ],
-              ],
-            },
-            "events": Object {
-              "click": [Function],
-            },
-            "text": "1M",
-            "type": "month",
-          },
-          Object {
-            "count": 3,
-            "dataGrouping": Object {
-              "enabled": true,
-              "forced": true,
-              "units": Array [
-                Array [
-                  "day",
-                  Array [
-                    1,
-                  ],
-                ],
-              ],
-            },
-            "events": Object {
-              "click": [Function],
-            },
-            "text": "3M",
-            "type": "month",
-          },
-        ],
-        "inputEnabled": false,
-        "selected": 3,
-      },
-      "series": Array [
-        Object {
-          "data": Array [
-            Array [
-              1533708000000,
-              6551.98,
-            ],
-          ],
-          "enableMouseTracking": true,
-          "name": "ETH",
+          "name": "BTC",
           "tooltip": Object {
             "valueDecimals": 2,
           },

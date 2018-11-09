@@ -1,4 +1,3 @@
-// TODO: check
 import MyTransactions from '../../components/MyTransactions';
 import {
   SET_FETCH_IN_PROGRESS,
@@ -7,6 +6,7 @@ import {
 
 function setup(overrides) {
   const store = initStore();
+
   const props = { store, ...overrides };
 
   const wrapper = shallow(<MyTransactions {...props} />).dive();
@@ -17,6 +17,11 @@ function setup(overrides) {
 }
 
 describe('<MyTransactions />', () => {
+  it('renders empty component', () => {
+    const { wrapper } = setup();
+    expect(wrapper).toMatchSnapshot();
+  });
+
   it('renders the component', () => {
     const { wrapper } = setup({ store: initFixtureStore() });
     expect(wrapper).toMatchSnapshot();
@@ -31,11 +36,6 @@ describe('<MyTransactions />', () => {
     });
 
     const { wrapper } = setup({ store });
-    expect(wrapper).toMatchSnapshot();
-  });
-
-  it('renders empty component', () => {
-    const { wrapper } = setup();
     expect(wrapper).toMatchSnapshot();
   });
 });

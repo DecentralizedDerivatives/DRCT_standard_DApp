@@ -1,10 +1,14 @@
-// TODO: check
 import CreateContract from '../../components/CreateContract';
 import CreateContractFormContainer from '../../components/CreateContractFormContainer';
 import { SendFundsFormContainer } from '../../components/SendFundsFormContainer';
+import { sendSendFundsOrder } from '../../actions/orderActions';
+
+jest.mock('../../actions/orderActions');
+sendSendFundsOrder.mockImplementation(() => () => undefined);
 
 function setup(overrides) {
   const store = initStore();
+
   const close = jest.fn();
   const props = { store, close, ...overrides };
 
@@ -17,6 +21,10 @@ function setup(overrides) {
 }
 
 describe('<CreateContract />', () => {
+  beforeEach(() => {
+    sendSendFundsOrder.mockClear();
+  });
+
   it('renders the component', () => {
     const { wrapper } = setup();
     expect(wrapper).toMatchSnapshot();
@@ -26,13 +34,6 @@ describe('<CreateContract />', () => {
     const { wrapper } = setup();
     wrapper.setProps({ newContractCreateError: 'Error hapenned.' });
     expect(wrapper).toMatchSnapshot();
-  });
-
-  it('renders new contract', () => {
-    const { wrapper } = setup();
-    wrapper.setProps({ newContract: { address: '0x000...' } });
-    expect(wrapper).toMatchSnapshot();
-    wrapper.find('#send-funds > button').simulate('click');
   });
 
   it('renders funding error', () => {
@@ -58,11 +59,30 @@ describe('<CreateContract />', () => {
     wrapper.setProps({});
   });
 
-  it('handles events', () => {
+  it('renders new contract', () => {
     const { wrapper } = setup();
-    wrapper.find(CreateContractFormContainer).prop('handleSkipCreate')(
-      new Event('click')
-    );
+    wrapper.setProps({ newContract: { address: '0x000...' } });
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('handles send funds', () => {
+    const { wrapper } = setup();
+    wrapper.setProps({ newContract: { address: '0x000...' } });
+    wrapper.find('#send-funds > button').simulate('click');
+    expect(sendSendFundsOrder).toBeCalledTimes(1);
+  });
+
+  it('handles send funds directly', () => {
+    const { wrapper } = setup();
+
+    // open send funds
+    wrapper.find(CreateContractFormContainer).prop('handleSkipCreate')({
+      preventDefault: jest.fn(),
+    });
+    expect(wrapper).toMatchSnapshot();
+
+    // send funds
     wrapper.find(SendFundsFormContainer).prop('sendFunds')();
+    expect(sendSendFundsOrder).toBeCalledTimes(1);
   });
 });

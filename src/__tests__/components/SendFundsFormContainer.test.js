@@ -1,4 +1,3 @@
-// COMPLETE
 import SendFundsFormContainer, {
   validate,
 } from '../../components/SendFundsFormContainer';

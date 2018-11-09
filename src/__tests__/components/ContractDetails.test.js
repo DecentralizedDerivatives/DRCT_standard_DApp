@@ -1,4 +1,3 @@
-// COMPLETE
 import ContractDetails from '../../components/ContractDetails';
 
 function setup(overrides) {

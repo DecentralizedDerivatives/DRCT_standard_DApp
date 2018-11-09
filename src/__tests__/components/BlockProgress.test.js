@@ -1,4 +1,3 @@
-// COMPLETE
 import BlockProgress from '../../components/BlockProgress';
 import { setProcessing } from '../../actions/orderActions';
 

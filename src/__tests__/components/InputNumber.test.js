@@ -1,4 +1,3 @@
-// COMPLETE
 import InputNumber from '../../components/InputNumber';
 
 function setup(overrides) {
