@@ -68,8 +68,8 @@ ShallowWrapper {
             name="currency"
             options={
               Object {
-                "0x92217550aba5912ba7eb70978871daf7d6bcc16d": "BTC/USD (1X multiplier)",
-                "0xf55e6ce774cec3817467aed5f5a5769f006658d0": "ETH/USD (5X multiplier)",
+                "0x0e38211666fa195888cd358f7aadcb10e2315b9b": "BTC/USD (1X multiplier)",
+                "0xc982c3cc2dd1b519dbc585014ef046e4c13957a9": "ETH/USD (5X multiplier)",
               }
             }
           />
@@ -166,8 +166,8 @@ ShallowWrapper {
             name="currency"
             options={
               Object {
-                "0x92217550aba5912ba7eb70978871daf7d6bcc16d": "BTC/USD (1X multiplier)",
-                "0xf55e6ce774cec3817467aed5f5a5769f006658d0": "ETH/USD (5X multiplier)",
+                "0x0e38211666fa195888cd358f7aadcb10e2315b9b": "BTC/USD (1X multiplier)",
+                "0xc982c3cc2dd1b519dbc585014ef046e4c13957a9": "ETH/USD (5X multiplier)",
               }
             }
           />,
@@ -185,8 +185,8 @@ ShallowWrapper {
             "name": "currency",
             "onChange": undefined,
             "options": Object {
-              "0x92217550aba5912ba7eb70978871daf7d6bcc16d": "BTC/USD (1X multiplier)",
-              "0xf55e6ce774cec3817467aed5f5a5769f006658d0": "ETH/USD (5X multiplier)",
+              "0x0e38211666fa195888cd358f7aadcb10e2315b9b": "BTC/USD (1X multiplier)",
+              "0xc982c3cc2dd1b519dbc585014ef046e4c13957a9": "ETH/USD (5X multiplier)",
             },
           },
           "ref": null,
@@ -332,8 +332,8 @@ ShallowWrapper {
               name="currency"
               options={
                 Object {
-                  "0x92217550aba5912ba7eb70978871daf7d6bcc16d": "BTC/USD (1X multiplier)",
-                  "0xf55e6ce774cec3817467aed5f5a5769f006658d0": "ETH/USD (5X multiplier)",
+                  "0x0e38211666fa195888cd358f7aadcb10e2315b9b": "BTC/USD (1X multiplier)",
+                  "0xc982c3cc2dd1b519dbc585014ef046e4c13957a9": "ETH/USD (5X multiplier)",
                 }
               }
             />
@@ -430,8 +430,8 @@ ShallowWrapper {
               name="currency"
               options={
                 Object {
-                  "0x92217550aba5912ba7eb70978871daf7d6bcc16d": "BTC/USD (1X multiplier)",
-                  "0xf55e6ce774cec3817467aed5f5a5769f006658d0": "ETH/USD (5X multiplier)",
+                  "0x0e38211666fa195888cd358f7aadcb10e2315b9b": "BTC/USD (1X multiplier)",
+                  "0xc982c3cc2dd1b519dbc585014ef046e4c13957a9": "ETH/USD (5X multiplier)",
                 }
               }
             />,
@@ -449,8 +449,8 @@ ShallowWrapper {
               "name": "currency",
               "onChange": undefined,
               "options": Object {
-                "0x92217550aba5912ba7eb70978871daf7d6bcc16d": "BTC/USD (1X multiplier)",
-                "0xf55e6ce774cec3817467aed5f5a5769f006658d0": "ETH/USD (5X multiplier)",
+                "0x0e38211666fa195888cd358f7aadcb10e2315b9b": "BTC/USD (1X multiplier)",
+                "0xc982c3cc2dd1b519dbc585014ef046e4c13957a9": "ETH/USD (5X multiplier)",
               },
             },
             "ref": null,

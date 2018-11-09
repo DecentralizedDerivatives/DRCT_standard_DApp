@@ -41,11 +41,10 @@ ShallowWrapper {
               >
                 <img
                   align="left"
-                  alt="Decentralized Derivatives"
+                  alt="Daxia"
                   height={77}
                   hspace={12}
-                  src="logo_small.png"
-                  width={82}
+                  src="logo.png"
                 />
               </div>
               <div
@@ -56,22 +55,22 @@ ShallowWrapper {
                 }
               >
                 <div>
-                  Decentralized Derivatives Association
+                  Daxia
                 </div>
                 <div>
                   <a
-                    href="mailto:info@ddacoop.org"
+                    href="mailto:info@daxia.us"
                   >
-                    info@ddacoop.org
+                    info@daxia.us
                   </a>
                 </div>
                 <div>
                   <a
-                    href="//www.ddacoop.org"
+                    href="//www.daxia.us"
                     rel="noopener noreferrer"
                     target="_blank"
                   >
-                    www.ddacoop.org
+                    www.daxia.us
                   </a>
                 </div>
               </div>
@@ -97,7 +96,7 @@ ShallowWrapper {
                     }
                   }
                 >
-                  DDA Cooperative – Terms and Privacy
+                  Daxia – Terms and Privacy
                 </span>
               </div>
             </div>
@@ -150,7 +149,7 @@ ShallowWrapper {
                     }
                   }
                 >
-                  Please read these Terms of Service (this “Agreement”) carefully. Your use or access of this or any DDA Service or application (as defined below) constitutes your consent to this Agreement.
+                  Please read these Terms of Service (this “Agreement”) carefully. Your use or access of this or any Daxia Service or application (as defined below) constitutes your consent to this Agreement.
                 </span>
               </p>
               <p
@@ -172,7 +171,7 @@ ShallowWrapper {
                     }
                   }
                 >
-                  This Agreement is between you and the Decentralized Derivatives Association (“DDA” or “we” or “us”) concerning your use of (including any access to) DDA’s website, mobile applications, and web applications, together with any materials and services available therein, and successor website(s) or application(s) thereto (collectively, the “Service”). This Agreement hereby incorporates by this reference any additional terms and conditions with respect to the Service posted by Company to the Service, or otherwise made available to you by Company, including the Privacy Policy and the FAQ (each as defined below).
+                  This Agreement is between you and Daxia (or “we” or “us”) concerning your use of (including any access to) Daxia’s website, mobile applications, and web applications, together with any materials and services available therein, and successor website(s) or application(s) thereto (collectively, the “Service”). This Agreement hereby incorporates by this reference any additional terms and conditions with respect to the Service posted by Company to the Service, or otherwise made available to you by Company, including the Privacy Policy and the FAQ (each as defined below).
                 </span>
               </p>
               <p
@@ -2040,7 +2039,7 @@ ShallowWrapper {
                     }
                   }
                 >
-                   You agree that you are fully able and competent to enter into the terms, conditions, obligations, affirmations, representations and warranties set forth in these Terms and to abide by and comply with these Terms and that we are not responsible for determining whether or which laws may apply to your Transactions, including tax laws. You are solely responsible for reporting of any transactions and paying any taxes arising from your use of the Service and participation in any Transaction. You further represent that you are otherwise legally permitted to use the service in your jurisdiction including owning cryptographic tokens of value and interacting with the Service or Content in any way. You further represent you are responsible for ensuring compliance with the laws of your jurisdiction and acknowledge that DDA is not liable for your compliance with such laws. Finally, you represent and warrant that you will not use the Service for any illegal activity.
+                   You agree that you are fully able and competent to enter into the terms, conditions, obligations, affirmations, representations and warranties set forth in these Terms and to abide by and comply with these Terms and that we are not responsible for determining whether or which laws may apply to your Transactions, including tax laws. You are solely responsible for reporting of any transactions and paying any taxes arising from your use of the Service and participation in any Transaction. You further represent that you are otherwise legally permitted to use the service in your jurisdiction including owning cryptographic tokens of value and interacting with the Service or Content in any way. You further represent you are responsible for ensuring compliance with the laws of your jurisdiction and acknowledge that Daxia is not liable for your compliance with such laws. Finally, you represent and warrant that you will not use the Service for any illegal activity.
                 </span>
               </p>
               <p
@@ -2104,7 +2103,7 @@ ShallowWrapper {
                       }
                     }
                   >
-                    DDA must comply with applicable law.
+                    Daxia must comply with applicable law.
                   </span>
                 </b>
                 <span
@@ -2234,7 +2233,7 @@ ShallowWrapper {
                     }
                   }
                 >
-                   DDA provides useful tools for interacting with smart contracts.  We offer no guarantee to continue this or any service, including, but not limited to: oracles, exchanges, websites, and contract lifecycle management.
+                   Daxia provides useful tools for interacting with smart contracts.  We offer no guarantee to continue this or any service, including, but not limited to: oracles, exchanges, websites, and contract lifecycle management.
                 </span>
               </p>
               <p
@@ -2889,7 +2888,7 @@ ShallowWrapper {
                     }
                   }
                 >
-                  “Personal Information” is information that identifies you as an individual or relates to an identifiable individual, such as name and email address. We may collect Personal Information from Users when they voluntarily provide it to us in a variety of ways, including, but not limited to, when Users visit our Service, subscribe to our newsletters, fill out a form, or in connection with other activities, services, features or resources we make available on our Service. Users may visit our Service without providing Personal Information. Users can always refuse to supply Personal Information; however, doing so may prevent them from membership to DDA or engaging in certain Service-related activities.
+                  “Personal Information” is information that identifies you as an individual or relates to an identifiable individual, such as name and email address. We may collect Personal Information from Users when they voluntarily provide it to us in a variety of ways, including, but not limited to, when Users visit our Service, subscribe to our newsletters, fill out a form, or in connection with other activities, services, features or resources we make available on our Service. Users may visit our Service without providing Personal Information. Users can always refuse to supply Personal Information; however, doing so may prevent them from membership to Daxia or engaging in certain Service-related activities.
                 </span>
               </p>
               <p
@@ -2935,7 +2934,7 @@ ShallowWrapper {
                     }
                   }
                 >
-                  DDA may use Personal Information for the following purposes:
+                  Daxia may use Personal Information for the following purposes:
                 </span>
               </p>
               <p
@@ -3965,7 +3964,7 @@ ShallowWrapper {
                     }
                   }
                 >
-                  DDA may update this Privacy Policy at any time. When we do, we will revise the updated date at the top of this document. You acknowledge and agree that it is your responsibility to review this Privacy Policy periodically and become aware of modifications. Your continued use of the Service following the posting of changes to this policy will be deemed your acceptance of those changes.
+                  Daxia may update this Privacy Policy at any time. When we do, we will revise the updated date at the top of this document. You acknowledge and agree that it is your responsibility to review this Privacy Policy periodically and become aware of modifications. Your continued use of the Service following the posting of changes to this policy will be deemed your acceptance of those changes.
                 </span>
               </p>
               <p
@@ -4071,9 +4070,9 @@ ShallowWrapper {
                     }
                   >
                     <a
-                      href="mailto:info@ddacoop.org"
+                      href="mailto:info@daxia.us"
                     >
-                      info@ddacoop.org
+                      info@daxia.us
                     </a>
                   </span>
                 </span>
@@ -4131,11 +4130,10 @@ ShallowWrapper {
               >
                 <img
                   align="left"
-                  alt="Decentralized Derivatives"
+                  alt="Daxia"
                   height={77}
                   hspace={12}
-                  src="logo_small.png"
-                  width={82}
+                  src="logo.png"
                 />
               </div>
               <div
@@ -4146,22 +4144,22 @@ ShallowWrapper {
                 }
               >
                 <div>
-                  Decentralized Derivatives Association
+                  Daxia
                 </div>
                 <div>
                   <a
-                    href="mailto:info@ddacoop.org"
+                    href="mailto:info@daxia.us"
                   >
-                    info@ddacoop.org
+                    info@daxia.us
                   </a>
                 </div>
                 <div>
                   <a
-                    href="//www.ddacoop.org"
+                    href="//www.daxia.us"
                     rel="noopener noreferrer"
                     target="_blank"
                   >
-                    www.ddacoop.org
+                    www.daxia.us
                   </a>
                 </div>
               </div>
@@ -4187,7 +4185,7 @@ ShallowWrapper {
                     }
                   }
                 >
-                  DDA Cooperative – Terms and Privacy
+                  Daxia – Terms and Privacy
                 </span>
               </div>
             </div>
@@ -4240,7 +4238,7 @@ ShallowWrapper {
                     }
                   }
                 >
-                  Please read these Terms of Service (this “Agreement”) carefully. Your use or access of this or any DDA Service or application (as defined below) constitutes your consent to this Agreement.
+                  Please read these Terms of Service (this “Agreement”) carefully. Your use or access of this or any Daxia Service or application (as defined below) constitutes your consent to this Agreement.
                 </span>
               </p>
               <p
@@ -4262,7 +4260,7 @@ ShallowWrapper {
                     }
                   }
                 >
-                  This Agreement is between you and the Decentralized Derivatives Association (“DDA” or “we” or “us”) concerning your use of (including any access to) DDA’s website, mobile applications, and web applications, together with any materials and services available therein, and successor website(s) or application(s) thereto (collectively, the “Service”). This Agreement hereby incorporates by this reference any additional terms and conditions with respect to the Service posted by Company to the Service, or otherwise made available to you by Company, including the Privacy Policy and the FAQ (each as defined below).
+                  This Agreement is between you and Daxia (or “we” or “us”) concerning your use of (including any access to) Daxia’s website, mobile applications, and web applications, together with any materials and services available therein, and successor website(s) or application(s) thereto (collectively, the “Service”). This Agreement hereby incorporates by this reference any additional terms and conditions with respect to the Service posted by Company to the Service, or otherwise made available to you by Company, including the Privacy Policy and the FAQ (each as defined below).
                 </span>
               </p>
               <p
@@ -6130,7 +6128,7 @@ ShallowWrapper {
                     }
                   }
                 >
-                   You agree that you are fully able and competent to enter into the terms, conditions, obligations, affirmations, representations and warranties set forth in these Terms and to abide by and comply with these Terms and that we are not responsible for determining whether or which laws may apply to your Transactions, including tax laws. You are solely responsible for reporting of any transactions and paying any taxes arising from your use of the Service and participation in any Transaction. You further represent that you are otherwise legally permitted to use the service in your jurisdiction including owning cryptographic tokens of value and interacting with the Service or Content in any way. You further represent you are responsible for ensuring compliance with the laws of your jurisdiction and acknowledge that DDA is not liable for your compliance with such laws. Finally, you represent and warrant that you will not use the Service for any illegal activity.
+                   You agree that you are fully able and competent to enter into the terms, conditions, obligations, affirmations, representations and warranties set forth in these Terms and to abide by and comply with these Terms and that we are not responsible for determining whether or which laws may apply to your Transactions, including tax laws. You are solely responsible for reporting of any transactions and paying any taxes arising from your use of the Service and participation in any Transaction. You further represent that you are otherwise legally permitted to use the service in your jurisdiction including owning cryptographic tokens of value and interacting with the Service or Content in any way. You further represent you are responsible for ensuring compliance with the laws of your jurisdiction and acknowledge that Daxia is not liable for your compliance with such laws. Finally, you represent and warrant that you will not use the Service for any illegal activity.
                 </span>
               </p>
               <p
@@ -6194,7 +6192,7 @@ ShallowWrapper {
                       }
                     }
                   >
-                    DDA must comply with applicable law.
+                    Daxia must comply with applicable law.
                   </span>
                 </b>
                 <span
@@ -6324,7 +6322,7 @@ ShallowWrapper {
                     }
                   }
                 >
-                   DDA provides useful tools for interacting with smart contracts.  We offer no guarantee to continue this or any service, including, but not limited to: oracles, exchanges, websites, and contract lifecycle management.
+                   Daxia provides useful tools for interacting with smart contracts.  We offer no guarantee to continue this or any service, including, but not limited to: oracles, exchanges, websites, and contract lifecycle management.
                 </span>
               </p>
               <p
@@ -6979,7 +6977,7 @@ ShallowWrapper {
                     }
                   }
                 >
-                  “Personal Information” is information that identifies you as an individual or relates to an identifiable individual, such as name and email address. We may collect Personal Information from Users when they voluntarily provide it to us in a variety of ways, including, but not limited to, when Users visit our Service, subscribe to our newsletters, fill out a form, or in connection with other activities, services, features or resources we make available on our Service. Users may visit our Service without providing Personal Information. Users can always refuse to supply Personal Information; however, doing so may prevent them from membership to DDA or engaging in certain Service-related activities.
+                  “Personal Information” is information that identifies you as an individual or relates to an identifiable individual, such as name and email address. We may collect Personal Information from Users when they voluntarily provide it to us in a variety of ways, including, but not limited to, when Users visit our Service, subscribe to our newsletters, fill out a form, or in connection with other activities, services, features or resources we make available on our Service. Users may visit our Service without providing Personal Information. Users can always refuse to supply Personal Information; however, doing so may prevent them from membership to Daxia or engaging in certain Service-related activities.
                 </span>
               </p>
               <p
@@ -7025,7 +7023,7 @@ ShallowWrapper {
                     }
                   }
                 >
-                  DDA may use Personal Information for the following purposes:
+                  Daxia may use Personal Information for the following purposes:
                 </span>
               </p>
               <p
@@ -8055,7 +8053,7 @@ ShallowWrapper {
                     }
                   }
                 >
-                  DDA may update this Privacy Policy at any time. When we do, we will revise the updated date at the top of this document. You acknowledge and agree that it is your responsibility to review this Privacy Policy periodically and become aware of modifications. Your continued use of the Service following the posting of changes to this policy will be deemed your acceptance of those changes.
+                  Daxia may update this Privacy Policy at any time. When we do, we will revise the updated date at the top of this document. You acknowledge and agree that it is your responsibility to review this Privacy Policy periodically and become aware of modifications. Your continued use of the Service following the posting of changes to this policy will be deemed your acceptance of those changes.
                 </span>
               </p>
               <p
@@ -8161,9 +8159,9 @@ ShallowWrapper {
                     }
                   >
                     <a
-                      href="mailto:info@ddacoop.org"
+                      href="mailto:info@daxia.us"
                     >
-                      info@ddacoop.org
+                      info@daxia.us
                     </a>
                   </span>
                 </span>
@@ -8200,11 +8198,10 @@ ShallowWrapper {
                 >
                   <img
                     align="left"
-                    alt="Decentralized Derivatives"
+                    alt="Daxia"
                     height={77}
                     hspace={12}
-                    src="logo_small.png"
-                    width={82}
+                    src="logo.png"
                   />
                 </div>
                 <div
@@ -8215,22 +8212,22 @@ ShallowWrapper {
                   }
                 >
                   <div>
-                    Decentralized Derivatives Association
+                    Daxia
                   </div>
                   <div>
                     <a
-                      href="mailto:info@ddacoop.org"
+                      href="mailto:info@daxia.us"
                     >
-                      info@ddacoop.org
+                      info@daxia.us
                     </a>
                   </div>
                   <div>
                     <a
-                      href="//www.ddacoop.org"
+                      href="//www.daxia.us"
                       rel="noopener noreferrer"
                       target="_blank"
                     >
-                      www.ddacoop.org
+                      www.daxia.us
                     </a>
                   </div>
                 </div>
@@ -8256,7 +8253,7 @@ ShallowWrapper {
                       }
                     }
                   >
-                    DDA Cooperative – Terms and Privacy
+                    Daxia – Terms and Privacy
                   </span>
                 </div>
               </div>,
@@ -8309,7 +8306,7 @@ ShallowWrapper {
                       }
                     }
                   >
-                    Please read these Terms of Service (this “Agreement”) carefully. Your use or access of this or any DDA Service or application (as defined below) constitutes your consent to this Agreement.
+                    Please read these Terms of Service (this “Agreement”) carefully. Your use or access of this or any Daxia Service or application (as defined below) constitutes your consent to this Agreement.
                   </span>
                 </p>
                 <p
@@ -8331,7 +8328,7 @@ ShallowWrapper {
                       }
                     }
                   >
-                    This Agreement is between you and the Decentralized Derivatives Association (“DDA” or “we” or “us”) concerning your use of (including any access to) DDA’s website, mobile applications, and web applications, together with any materials and services available therein, and successor website(s) or application(s) thereto (collectively, the “Service”). This Agreement hereby incorporates by this reference any additional terms and conditions with respect to the Service posted by Company to the Service, or otherwise made available to you by Company, including the Privacy Policy and the FAQ (each as defined below).
+                    This Agreement is between you and Daxia (or “we” or “us”) concerning your use of (including any access to) Daxia’s website, mobile applications, and web applications, together with any materials and services available therein, and successor website(s) or application(s) thereto (collectively, the “Service”). This Agreement hereby incorporates by this reference any additional terms and conditions with respect to the Service posted by Company to the Service, or otherwise made available to you by Company, including the Privacy Policy and the FAQ (each as defined below).
                   </span>
                 </p>
                 <p
@@ -10199,7 +10196,7 @@ ShallowWrapper {
                       }
                     }
                   >
-                     You agree that you are fully able and competent to enter into the terms, conditions, obligations, affirmations, representations and warranties set forth in these Terms and to abide by and comply with these Terms and that we are not responsible for determining whether or which laws may apply to your Transactions, including tax laws. You are solely responsible for reporting of any transactions and paying any taxes arising from your use of the Service and participation in any Transaction. You further represent that you are otherwise legally permitted to use the service in your jurisdiction including owning cryptographic tokens of value and interacting with the Service or Content in any way. You further represent you are responsible for ensuring compliance with the laws of your jurisdiction and acknowledge that DDA is not liable for your compliance with such laws. Finally, you represent and warrant that you will not use the Service for any illegal activity.
+                     You agree that you are fully able and competent to enter into the terms, conditions, obligations, affirmations, representations and warranties set forth in these Terms and to abide by and comply with these Terms and that we are not responsible for determining whether or which laws may apply to your Transactions, including tax laws. You are solely responsible for reporting of any transactions and paying any taxes arising from your use of the Service and participation in any Transaction. You further represent that you are otherwise legally permitted to use the service in your jurisdiction including owning cryptographic tokens of value and interacting with the Service or Content in any way. You further represent you are responsible for ensuring compliance with the laws of your jurisdiction and acknowledge that Daxia is not liable for your compliance with such laws. Finally, you represent and warrant that you will not use the Service for any illegal activity.
                   </span>
                 </p>
                 <p
@@ -10263,7 +10260,7 @@ ShallowWrapper {
                         }
                       }
                     >
-                      DDA must comply with applicable law.
+                      Daxia must comply with applicable law.
                     </span>
                   </b>
                   <span
@@ -10393,7 +10390,7 @@ ShallowWrapper {
                       }
                     }
                   >
-                     DDA provides useful tools for interacting with smart contracts.  We offer no guarantee to continue this or any service, including, but not limited to: oracles, exchanges, websites, and contract lifecycle management.
+                     Daxia provides useful tools for interacting with smart contracts.  We offer no guarantee to continue this or any service, including, but not limited to: oracles, exchanges, websites, and contract lifecycle management.
                   </span>
                 </p>
                 <p
@@ -11048,7 +11045,7 @@ ShallowWrapper {
                       }
                     }
                   >
-                    “Personal Information” is information that identifies you as an individual or relates to an identifiable individual, such as name and email address. We may collect Personal Information from Users when they voluntarily provide it to us in a variety of ways, including, but not limited to, when Users visit our Service, subscribe to our newsletters, fill out a form, or in connection with other activities, services, features or resources we make available on our Service. Users may visit our Service without providing Personal Information. Users can always refuse to supply Personal Information; however, doing so may prevent them from membership to DDA or engaging in certain Service-related activities.
+                    “Personal Information” is information that identifies you as an individual or relates to an identifiable individual, such as name and email address. We may collect Personal Information from Users when they voluntarily provide it to us in a variety of ways, including, but not limited to, when Users visit our Service, subscribe to our newsletters, fill out a form, or in connection with other activities, services, features or resources we make available on our Service. Users may visit our Service without providing Personal Information. Users can always refuse to supply Personal Information; however, doing so may prevent them from membership to Daxia or engaging in certain Service-related activities.
                   </span>
                 </p>
                 <p
@@ -11094,7 +11091,7 @@ ShallowWrapper {
                       }
                     }
                   >
-                    DDA may use Personal Information for the following purposes:
+                    Daxia may use Personal Information for the following purposes:
                   </span>
                 </p>
                 <p
@@ -12124,7 +12121,7 @@ ShallowWrapper {
                       }
                     }
                   >
-                    DDA may update this Privacy Policy at any time. When we do, we will revise the updated date at the top of this document. You acknowledge and agree that it is your responsibility to review this Privacy Policy periodically and become aware of modifications. Your continued use of the Service following the posting of changes to this policy will be deemed your acceptance of those changes.
+                    Daxia may update this Privacy Policy at any time. When we do, we will revise the updated date at the top of this document. You acknowledge and agree that it is your responsibility to review this Privacy Policy periodically and become aware of modifications. Your continued use of the Service following the posting of changes to this policy will be deemed your acceptance of those changes.
                   </span>
                 </p>
                 <p
@@ -12230,9 +12227,9 @@ ShallowWrapper {
                       }
                     >
                       <a
-                        href="mailto:info@ddacoop.org"
+                        href="mailto:info@daxia.us"
                       >
-                        info@ddacoop.org
+                        info@daxia.us
                       </a>
                     </span>
                   </span>
@@ -12271,11 +12268,10 @@ ShallowWrapper {
                   >
                     <img
                       align="left"
-                      alt="Decentralized Derivatives"
+                      alt="Daxia"
                       height={77}
                       hspace={12}
-                      src="logo_small.png"
-                      width={82}
+                      src="logo.png"
                     />
                   </div>,
                   <div
@@ -12286,22 +12282,22 @@ ShallowWrapper {
                     }
                   >
                     <div>
-                      Decentralized Derivatives Association
+                      Daxia
                     </div>
                     <div>
                       <a
-                        href="mailto:info@ddacoop.org"
+                        href="mailto:info@daxia.us"
                       >
-                        info@ddacoop.org
+                        info@daxia.us
                       </a>
                     </div>
                     <div>
                       <a
-                        href="//www.ddacoop.org"
+                        href="//www.daxia.us"
                         rel="noopener noreferrer"
                         target="_blank"
                       >
-                        www.ddacoop.org
+                        www.daxia.us
                       </a>
                     </div>
                   </div>,
@@ -12316,11 +12312,10 @@ ShallowWrapper {
                   "props": Object {
                     "children": <img
                       align="left"
-                      alt="Decentralized Derivatives"
+                      alt="Daxia"
                       height={77}
                       hspace={12}
-                      src="logo_small.png"
-                      width={82}
+                      src="logo.png"
                     />,
                     "style": Object {
                       "float": "left",
@@ -12333,11 +12328,10 @@ ShallowWrapper {
                     "nodeType": "host",
                     "props": Object {
                       "align": "left",
-                      "alt": "Decentralized Derivatives",
+                      "alt": "Daxia",
                       "height": 77,
                       "hspace": 12,
-                      "src": "logo_small.png",
-                      "width": 82,
+                      "src": "logo.png",
                     },
                     "ref": null,
                     "rendered": null,
@@ -12352,22 +12346,22 @@ ShallowWrapper {
                   "props": Object {
                     "children": Array [
                       <div>
-                        Decentralized Derivatives Association
+                        Daxia
                       </div>,
                       <div>
                         <a
-                          href="mailto:info@ddacoop.org"
+                          href="mailto:info@daxia.us"
                         >
-                          info@ddacoop.org
+                          info@daxia.us
                         </a>
                       </div>,
                       <div>
                         <a
-                          href="//www.ddacoop.org"
+                          href="//www.daxia.us"
                           rel="noopener noreferrer"
                           target="_blank"
                         >
-                          www.ddacoop.org
+                          www.daxia.us
                         </a>
                       </div>,
                     ],
@@ -12382,10 +12376,10 @@ ShallowWrapper {
                       "key": undefined,
                       "nodeType": "host",
                       "props": Object {
-                        "children": "Decentralized Derivatives Association",
+                        "children": "Daxia",
                       },
                       "ref": null,
-                      "rendered": "Decentralized Derivatives Association",
+                      "rendered": "Daxia",
                       "type": "div",
                     },
                     Object {
@@ -12394,9 +12388,9 @@ ShallowWrapper {
                       "nodeType": "host",
                       "props": Object {
                         "children": <a
-                          href="mailto:info@ddacoop.org"
+                          href="mailto:info@daxia.us"
                         >
-                          info@ddacoop.org
+                          info@daxia.us
                         </a>,
                       },
                       "ref": null,
@@ -12405,11 +12399,11 @@ ShallowWrapper {
                         "key": undefined,
                         "nodeType": "host",
                         "props": Object {
-                          "children": "info@ddacoop.org",
-                          "href": "mailto:info@ddacoop.org",
+                          "children": "info@daxia.us",
+                          "href": "mailto:info@daxia.us",
                         },
                         "ref": null,
-                        "rendered": "info@ddacoop.org",
+                        "rendered": "info@daxia.us",
                         "type": "a",
                       },
                       "type": "div",
@@ -12420,11 +12414,11 @@ ShallowWrapper {
                       "nodeType": "host",
                       "props": Object {
                         "children": <a
-                          href="//www.ddacoop.org"
+                          href="//www.daxia.us"
                           rel="noopener noreferrer"
                           target="_blank"
                         >
-                          www.ddacoop.org
+                          www.daxia.us
                         </a>,
                       },
                       "ref": null,
@@ -12433,13 +12427,13 @@ ShallowWrapper {
                         "key": undefined,
                         "nodeType": "host",
                         "props": Object {
-                          "children": "www.ddacoop.org",
-                          "href": "//www.ddacoop.org",
+                          "children": "www.daxia.us",
+                          "href": "//www.daxia.us",
                           "rel": "noopener noreferrer",
                           "target": "_blank",
                         },
                         "ref": null,
-                        "rendered": "www.ddacoop.org",
+                        "rendered": "www.daxia.us",
                         "type": "a",
                       },
                       "type": "div",
@@ -12466,7 +12460,7 @@ ShallowWrapper {
                       }
                     }
                   >
-                    DDA Cooperative – Terms and Privacy
+                    Daxia – Terms and Privacy
                   </span>
                 </div>,
                 "style": Object {
@@ -12492,7 +12486,7 @@ ShallowWrapper {
                       }
                     }
                   >
-                    DDA Cooperative – Terms and Privacy
+                    Daxia – Terms and Privacy
                   </span>,
                 },
                 "ref": null,
@@ -12501,7 +12495,7 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "host",
                   "props": Object {
-                    "children": "DDA Cooperative – Terms and Privacy",
+                    "children": "Daxia – Terms and Privacy",
                     "style": Object {
                       "fontFamily": "\\"Calibri Light\\",sans-serif",
                       "fontSize": "22.0pt",
@@ -12510,7 +12504,7 @@ ShallowWrapper {
                     },
                   },
                   "ref": null,
-                  "rendered": "DDA Cooperative – Terms and Privacy",
+                  "rendered": "Daxia – Terms and Privacy",
                   "type": "span",
                 },
                 "type": "div",
@@ -12597,7 +12591,7 @@ ShallowWrapper {
                         }
                       }
                     >
-                      Please read these Terms of Service (this “Agreement”) carefully. Your use or access of this or any DDA Service or application (as defined below) constitutes your consent to this Agreement.
+                      Please read these Terms of Service (this “Agreement”) carefully. Your use or access of this or any Daxia Service or application (as defined below) constitutes your consent to this Agreement.
                     </span>
                   </p>,
                   <p
@@ -12619,7 +12613,7 @@ ShallowWrapper {
                         }
                       }
                     >
-                      This Agreement is between you and the Decentralized Derivatives Association (“DDA” or “we” or “us”) concerning your use of (including any access to) DDA’s website, mobile applications, and web applications, together with any materials and services available therein, and successor website(s) or application(s) thereto (collectively, the “Service”). This Agreement hereby incorporates by this reference any additional terms and conditions with respect to the Service posted by Company to the Service, or otherwise made available to you by Company, including the Privacy Policy and the FAQ (each as defined below).
+                      This Agreement is between you and Daxia (or “we” or “us”) concerning your use of (including any access to) Daxia’s website, mobile applications, and web applications, together with any materials and services available therein, and successor website(s) or application(s) thereto (collectively, the “Service”). This Agreement hereby incorporates by this reference any additional terms and conditions with respect to the Service posted by Company to the Service, or otherwise made available to you by Company, including the Privacy Policy and the FAQ (each as defined below).
                     </span>
                   </p>,
                   <p
@@ -12706,7 +12700,7 @@ ShallowWrapper {
                         }
                       }
                     >
-                      Please read these Terms of Service (this “Agreement”) carefully. Your use or access of this or any DDA Service or application (as defined below) constitutes your consent to this Agreement.
+                      Please read these Terms of Service (this “Agreement”) carefully. Your use or access of this or any Daxia Service or application (as defined below) constitutes your consent to this Agreement.
                     </span>,
                     "className": "MsoNormal",
                     "style": Object {
@@ -12721,7 +12715,7 @@ ShallowWrapper {
                     "key": undefined,
                     "nodeType": "host",
                     "props": Object {
-                      "children": "Please read these Terms of Service (this “Agreement”) carefully. Your use or access of this or any DDA Service or application (as defined below) constitutes your consent to this Agreement.",
+                      "children": "Please read these Terms of Service (this “Agreement”) carefully. Your use or access of this or any Daxia Service or application (as defined below) constitutes your consent to this Agreement.",
                       "style": Object {
                         "color": "#4A4A4A",
                         "fontFamily": "\\"Arial\\",sans-serif",
@@ -12729,7 +12723,7 @@ ShallowWrapper {
                       },
                     },
                     "ref": null,
-                    "rendered": "Please read these Terms of Service (this “Agreement”) carefully. Your use or access of this or any DDA Service or application (as defined below) constitutes your consent to this Agreement.",
+                    "rendered": "Please read these Terms of Service (this “Agreement”) carefully. Your use or access of this or any Daxia Service or application (as defined below) constitutes your consent to this Agreement.",
                     "type": "span",
                   },
                   "type": "p",
@@ -12748,7 +12742,7 @@ ShallowWrapper {
                         }
                       }
                     >
-                      This Agreement is between you and the Decentralized Derivatives Association (“DDA” or “we” or “us”) concerning your use of (including any access to) DDA’s website, mobile applications, and web applications, together with any materials and services available therein, and successor website(s) or application(s) thereto (collectively, the “Service”). This Agreement hereby incorporates by this reference any additional terms and conditions with respect to the Service posted by Company to the Service, or otherwise made available to you by Company, including the Privacy Policy and the FAQ (each as defined below).
+                      This Agreement is between you and Daxia (or “we” or “us”) concerning your use of (including any access to) Daxia’s website, mobile applications, and web applications, together with any materials and services available therein, and successor website(s) or application(s) thereto (collectively, the “Service”). This Agreement hereby incorporates by this reference any additional terms and conditions with respect to the Service posted by Company to the Service, or otherwise made available to you by Company, including the Privacy Policy and the FAQ (each as defined below).
                     </span>,
                     "className": "MsoNormal",
                     "style": Object {
@@ -12763,7 +12757,7 @@ ShallowWrapper {
                     "key": undefined,
                     "nodeType": "host",
                     "props": Object {
-                      "children": "This Agreement is between you and the Decentralized Derivatives Association (“DDA” or “we” or “us”) concerning your use of (including any access to) DDA’s website, mobile applications, and web applications, together with any materials and services available therein, and successor website(s) or application(s) thereto (collectively, the “Service”). This Agreement hereby incorporates by this reference any additional terms and conditions with respect to the Service posted by Company to the Service, or otherwise made available to you by Company, including the Privacy Policy and the FAQ (each as defined below).",
+                      "children": "This Agreement is between you and Daxia (or “we” or “us”) concerning your use of (including any access to) Daxia’s website, mobile applications, and web applications, together with any materials and services available therein, and successor website(s) or application(s) thereto (collectively, the “Service”). This Agreement hereby incorporates by this reference any additional terms and conditions with respect to the Service posted by Company to the Service, or otherwise made available to you by Company, including the Privacy Policy and the FAQ (each as defined below).",
                       "style": Object {
                         "color": "#4A4A4A",
                         "fontFamily": "\\"Arial\\",sans-serif",
@@ -12771,7 +12765,7 @@ ShallowWrapper {
                       },
                     },
                     "ref": null,
-                    "rendered": "This Agreement is between you and the Decentralized Derivatives Association (“DDA” or “we” or “us”) concerning your use of (including any access to) DDA’s website, mobile applications, and web applications, together with any materials and services available therein, and successor website(s) or application(s) thereto (collectively, the “Service”). This Agreement hereby incorporates by this reference any additional terms and conditions with respect to the Service posted by Company to the Service, or otherwise made available to you by Company, including the Privacy Policy and the FAQ (each as defined below).",
+                    "rendered": "This Agreement is between you and Daxia (or “we” or “us”) concerning your use of (including any access to) Daxia’s website, mobile applications, and web applications, together with any materials and services available therein, and successor website(s) or application(s) thereto (collectively, the “Service”). This Agreement hereby incorporates by this reference any additional terms and conditions with respect to the Service posted by Company to the Service, or otherwise made available to you by Company, including the Privacy Policy and the FAQ (each as defined below).",
                     "type": "span",
                   },
                   "type": "p",
@@ -14708,7 +14702,7 @@ ShallowWrapper {
                         }
                       }
                     >
-                       You agree that you are fully able and competent to enter into the terms, conditions, obligations, affirmations, representations and warranties set forth in these Terms and to abide by and comply with these Terms and that we are not responsible for determining whether or which laws may apply to your Transactions, including tax laws. You are solely responsible for reporting of any transactions and paying any taxes arising from your use of the Service and participation in any Transaction. You further represent that you are otherwise legally permitted to use the service in your jurisdiction including owning cryptographic tokens of value and interacting with the Service or Content in any way. You further represent you are responsible for ensuring compliance with the laws of your jurisdiction and acknowledge that DDA is not liable for your compliance with such laws. Finally, you represent and warrant that you will not use the Service for any illegal activity.
+                       You agree that you are fully able and competent to enter into the terms, conditions, obligations, affirmations, representations and warranties set forth in these Terms and to abide by and comply with these Terms and that we are not responsible for determining whether or which laws may apply to your Transactions, including tax laws. You are solely responsible for reporting of any transactions and paying any taxes arising from your use of the Service and participation in any Transaction. You further represent that you are otherwise legally permitted to use the service in your jurisdiction including owning cryptographic tokens of value and interacting with the Service or Content in any way. You further represent you are responsible for ensuring compliance with the laws of your jurisdiction and acknowledge that Daxia is not liable for your compliance with such laws. Finally, you represent and warrant that you will not use the Service for any illegal activity.
                     </span>
                   </p>,
                   <p
@@ -14772,7 +14766,7 @@ ShallowWrapper {
                           }
                         }
                       >
-                        DDA must comply with applicable law.
+                        Daxia must comply with applicable law.
                       </span>
                     </b>
                     <span
@@ -14902,7 +14896,7 @@ ShallowWrapper {
                         }
                       }
                     >
-                       DDA provides useful tools for interacting with smart contracts.  We offer no guarantee to continue this or any service, including, but not limited to: oracles, exchanges, websites, and contract lifecycle management.
+                       Daxia provides useful tools for interacting with smart contracts.  We offer no guarantee to continue this or any service, including, but not limited to: oracles, exchanges, websites, and contract lifecycle management.
                     </span>
                   </p>,
                   <p
@@ -19490,7 +19484,7 @@ ShallowWrapper {
                           }
                         }
                       >
-                         You agree that you are fully able and competent to enter into the terms, conditions, obligations, affirmations, representations and warranties set forth in these Terms and to abide by and comply with these Terms and that we are not responsible for determining whether or which laws may apply to your Transactions, including tax laws. You are solely responsible for reporting of any transactions and paying any taxes arising from your use of the Service and participation in any Transaction. You further represent that you are otherwise legally permitted to use the service in your jurisdiction including owning cryptographic tokens of value and interacting with the Service or Content in any way. You further represent you are responsible for ensuring compliance with the laws of your jurisdiction and acknowledge that DDA is not liable for your compliance with such laws. Finally, you represent and warrant that you will not use the Service for any illegal activity.
+                         You agree that you are fully able and competent to enter into the terms, conditions, obligations, affirmations, representations and warranties set forth in these Terms and to abide by and comply with these Terms and that we are not responsible for determining whether or which laws may apply to your Transactions, including tax laws. You are solely responsible for reporting of any transactions and paying any taxes arising from your use of the Service and participation in any Transaction. You further represent that you are otherwise legally permitted to use the service in your jurisdiction including owning cryptographic tokens of value and interacting with the Service or Content in any way. You further represent you are responsible for ensuring compliance with the laws of your jurisdiction and acknowledge that Daxia is not liable for your compliance with such laws. Finally, you represent and warrant that you will not use the Service for any illegal activity.
                       </span>,
                     ],
                     "className": "MsoNormal",
@@ -19546,7 +19540,7 @@ ShallowWrapper {
                       "key": undefined,
                       "nodeType": "host",
                       "props": Object {
-                        "children": " You agree that you are fully able and competent to enter into the terms, conditions, obligations, affirmations, representations and warranties set forth in these Terms and to abide by and comply with these Terms and that we are not responsible for determining whether or which laws may apply to your Transactions, including tax laws. You are solely responsible for reporting of any transactions and paying any taxes arising from your use of the Service and participation in any Transaction. You further represent that you are otherwise legally permitted to use the service in your jurisdiction including owning cryptographic tokens of value and interacting with the Service or Content in any way. You further represent you are responsible for ensuring compliance with the laws of your jurisdiction and acknowledge that DDA is not liable for your compliance with such laws. Finally, you represent and warrant that you will not use the Service for any illegal activity.",
+                        "children": " You agree that you are fully able and competent to enter into the terms, conditions, obligations, affirmations, representations and warranties set forth in these Terms and to abide by and comply with these Terms and that we are not responsible for determining whether or which laws may apply to your Transactions, including tax laws. You are solely responsible for reporting of any transactions and paying any taxes arising from your use of the Service and participation in any Transaction. You further represent that you are otherwise legally permitted to use the service in your jurisdiction including owning cryptographic tokens of value and interacting with the Service or Content in any way. You further represent you are responsible for ensuring compliance with the laws of your jurisdiction and acknowledge that Daxia is not liable for your compliance with such laws. Finally, you represent and warrant that you will not use the Service for any illegal activity.",
                         "style": Object {
                           "color": "#4A4A4A",
                           "fontFamily": "\\"Arial\\",sans-serif",
@@ -19554,7 +19548,7 @@ ShallowWrapper {
                         },
                       },
                       "ref": null,
-                      "rendered": " You agree that you are fully able and competent to enter into the terms, conditions, obligations, affirmations, representations and warranties set forth in these Terms and to abide by and comply with these Terms and that we are not responsible for determining whether or which laws may apply to your Transactions, including tax laws. You are solely responsible for reporting of any transactions and paying any taxes arising from your use of the Service and participation in any Transaction. You further represent that you are otherwise legally permitted to use the service in your jurisdiction including owning cryptographic tokens of value and interacting with the Service or Content in any way. You further represent you are responsible for ensuring compliance with the laws of your jurisdiction and acknowledge that DDA is not liable for your compliance with such laws. Finally, you represent and warrant that you will not use the Service for any illegal activity.",
+                      "rendered": " You agree that you are fully able and competent to enter into the terms, conditions, obligations, affirmations, representations and warranties set forth in these Terms and to abide by and comply with these Terms and that we are not responsible for determining whether or which laws may apply to your Transactions, including tax laws. You are solely responsible for reporting of any transactions and paying any taxes arising from your use of the Service and participation in any Transaction. You further represent that you are otherwise legally permitted to use the service in your jurisdiction including owning cryptographic tokens of value and interacting with the Service or Content in any way. You further represent you are responsible for ensuring compliance with the laws of your jurisdiction and acknowledge that Daxia is not liable for your compliance with such laws. Finally, you represent and warrant that you will not use the Service for any illegal activity.",
                       "type": "span",
                     },
                   ],
@@ -19674,7 +19668,7 @@ ShallowWrapper {
                             }
                           }
                         >
-                          DDA must comply with applicable law.
+                          Daxia must comply with applicable law.
                         </span>
                       </b>,
                       <span
@@ -19715,7 +19709,7 @@ ShallowWrapper {
                             }
                           }
                         >
-                          DDA must comply with applicable law.
+                          Daxia must comply with applicable law.
                         </span>,
                       },
                       "ref": null,
@@ -19724,7 +19718,7 @@ ShallowWrapper {
                         "key": undefined,
                         "nodeType": "host",
                         "props": Object {
-                          "children": "DDA must comply with applicable law.",
+                          "children": "Daxia must comply with applicable law.",
                           "style": Object {
                             "color": "#303030",
                             "fontFamily": "\\"Arial\\",sans-serif",
@@ -19732,7 +19726,7 @@ ShallowWrapper {
                           },
                         },
                         "ref": null,
-                        "rendered": "DDA must comply with applicable law.",
+                        "rendered": "Daxia must comply with applicable law.",
                         "type": "span",
                       },
                       "type": "b",
@@ -19966,7 +19960,7 @@ ShallowWrapper {
                           }
                         }
                       >
-                         DDA provides useful tools for interacting with smart contracts.  We offer no guarantee to continue this or any service, including, but not limited to: oracles, exchanges, websites, and contract lifecycle management.
+                         Daxia provides useful tools for interacting with smart contracts.  We offer no guarantee to continue this or any service, including, but not limited to: oracles, exchanges, websites, and contract lifecycle management.
                       </span>,
                     ],
                     "className": "MsoNormal",
@@ -20066,7 +20060,7 @@ ShallowWrapper {
                       "key": undefined,
                       "nodeType": "host",
                       "props": Object {
-                        "children": " DDA provides useful tools for interacting with smart contracts.  We offer no guarantee to continue this or any service, including, but not limited to: oracles, exchanges, websites, and contract lifecycle management.",
+                        "children": " Daxia provides useful tools for interacting with smart contracts.  We offer no guarantee to continue this or any service, including, but not limited to: oracles, exchanges, websites, and contract lifecycle management.",
                         "style": Object {
                           "color": "#4A4A4A",
                           "fontFamily": "\\"Arial\\",sans-serif",
@@ -20074,7 +20068,7 @@ ShallowWrapper {
                         },
                       },
                       "ref": null,
-                      "rendered": " DDA provides useful tools for interacting with smart contracts.  We offer no guarantee to continue this or any service, including, but not limited to: oracles, exchanges, websites, and contract lifecycle management.",
+                      "rendered": " Daxia provides useful tools for interacting with smart contracts.  We offer no guarantee to continue this or any service, including, but not limited to: oracles, exchanges, websites, and contract lifecycle management.",
                       "type": "span",
                     },
                   ],
@@ -20882,7 +20876,7 @@ ShallowWrapper {
                         }
                       }
                     >
-                      “Personal Information” is information that identifies you as an individual or relates to an identifiable individual, such as name and email address. We may collect Personal Information from Users when they voluntarily provide it to us in a variety of ways, including, but not limited to, when Users visit our Service, subscribe to our newsletters, fill out a form, or in connection with other activities, services, features or resources we make available on our Service. Users may visit our Service without providing Personal Information. Users can always refuse to supply Personal Information; however, doing so may prevent them from membership to DDA or engaging in certain Service-related activities.
+                      “Personal Information” is information that identifies you as an individual or relates to an identifiable individual, such as name and email address. We may collect Personal Information from Users when they voluntarily provide it to us in a variety of ways, including, but not limited to, when Users visit our Service, subscribe to our newsletters, fill out a form, or in connection with other activities, services, features or resources we make available on our Service. Users may visit our Service without providing Personal Information. Users can always refuse to supply Personal Information; however, doing so may prevent them from membership to Daxia or engaging in certain Service-related activities.
                     </span>
                   </p>,
                   <p
@@ -20928,7 +20922,7 @@ ShallowWrapper {
                         }
                       }
                     >
-                      DDA may use Personal Information for the following purposes:
+                      Daxia may use Personal Information for the following purposes:
                     </span>
                   </p>,
                   <p
@@ -21958,7 +21952,7 @@ ShallowWrapper {
                         }
                       }
                     >
-                      DDA may update this Privacy Policy at any time. When we do, we will revise the updated date at the top of this document. You acknowledge and agree that it is your responsibility to review this Privacy Policy periodically and become aware of modifications. Your continued use of the Service following the posting of changes to this policy will be deemed your acceptance of those changes.
+                      Daxia may update this Privacy Policy at any time. When we do, we will revise the updated date at the top of this document. You acknowledge and agree that it is your responsibility to review this Privacy Policy periodically and become aware of modifications. Your continued use of the Service following the posting of changes to this policy will be deemed your acceptance of those changes.
                     </span>
                   </p>,
                   <p
@@ -22064,9 +22058,9 @@ ShallowWrapper {
                         }
                       >
                         <a
-                          href="mailto:info@ddacoop.org"
+                          href="mailto:info@daxia.us"
                         >
-                          info@ddacoop.org
+                          info@daxia.us
                         </a>
                       </span>
                     </span>
@@ -23476,7 +23470,7 @@ ShallowWrapper {
                         }
                       }
                     >
-                      “Personal Information” is information that identifies you as an individual or relates to an identifiable individual, such as name and email address. We may collect Personal Information from Users when they voluntarily provide it to us in a variety of ways, including, but not limited to, when Users visit our Service, subscribe to our newsletters, fill out a form, or in connection with other activities, services, features or resources we make available on our Service. Users may visit our Service without providing Personal Information. Users can always refuse to supply Personal Information; however, doing so may prevent them from membership to DDA or engaging in certain Service-related activities.
+                      “Personal Information” is information that identifies you as an individual or relates to an identifiable individual, such as name and email address. We may collect Personal Information from Users when they voluntarily provide it to us in a variety of ways, including, but not limited to, when Users visit our Service, subscribe to our newsletters, fill out a form, or in connection with other activities, services, features or resources we make available on our Service. Users may visit our Service without providing Personal Information. Users can always refuse to supply Personal Information; however, doing so may prevent them from membership to Daxia or engaging in certain Service-related activities.
                     </span>,
                     "className": "MsoNormal",
                     "style": Object {
@@ -23491,7 +23485,7 @@ ShallowWrapper {
                     "key": undefined,
                     "nodeType": "host",
                     "props": Object {
-                      "children": "“Personal Information” is information that identifies you as an individual or relates to an identifiable individual, such as name and email address. We may collect Personal Information from Users when they voluntarily provide it to us in a variety of ways, including, but not limited to, when Users visit our Service, subscribe to our newsletters, fill out a form, or in connection with other activities, services, features or resources we make available on our Service. Users may visit our Service without providing Personal Information. Users can always refuse to supply Personal Information; however, doing so may prevent them from membership to DDA or engaging in certain Service-related activities.",
+                      "children": "“Personal Information” is information that identifies you as an individual or relates to an identifiable individual, such as name and email address. We may collect Personal Information from Users when they voluntarily provide it to us in a variety of ways, including, but not limited to, when Users visit our Service, subscribe to our newsletters, fill out a form, or in connection with other activities, services, features or resources we make available on our Service. Users may visit our Service without providing Personal Information. Users can always refuse to supply Personal Information; however, doing so may prevent them from membership to Daxia or engaging in certain Service-related activities.",
                       "style": Object {
                         "color": "#4A4A4A",
                         "fontFamily": "\\"Arial\\",sans-serif",
@@ -23499,7 +23493,7 @@ ShallowWrapper {
                       },
                     },
                     "ref": null,
-                    "rendered": "“Personal Information” is information that identifies you as an individual or relates to an identifiable individual, such as name and email address. We may collect Personal Information from Users when they voluntarily provide it to us in a variety of ways, including, but not limited to, when Users visit our Service, subscribe to our newsletters, fill out a form, or in connection with other activities, services, features or resources we make available on our Service. Users may visit our Service without providing Personal Information. Users can always refuse to supply Personal Information; however, doing so may prevent them from membership to DDA or engaging in certain Service-related activities.",
+                    "rendered": "“Personal Information” is information that identifies you as an individual or relates to an identifiable individual, such as name and email address. We may collect Personal Information from Users when they voluntarily provide it to us in a variety of ways, including, but not limited to, when Users visit our Service, subscribe to our newsletters, fill out a form, or in connection with other activities, services, features or resources we make available on our Service. Users may visit our Service without providing Personal Information. Users can always refuse to supply Personal Information; however, doing so may prevent them from membership to Daxia or engaging in certain Service-related activities.",
                     "type": "span",
                   },
                   "type": "p",
@@ -23582,7 +23576,7 @@ ShallowWrapper {
                         }
                       }
                     >
-                      DDA may use Personal Information for the following purposes:
+                      Daxia may use Personal Information for the following purposes:
                     </span>,
                     "className": "MsoNormal",
                     "style": Object {
@@ -23597,7 +23591,7 @@ ShallowWrapper {
                     "key": undefined,
                     "nodeType": "host",
                     "props": Object {
-                      "children": "DDA may use Personal Information for the following purposes:",
+                      "children": "Daxia may use Personal Information for the following purposes:",
                       "style": Object {
                         "color": "#4A4A4A",
                         "fontFamily": "\\"Arial\\",sans-serif",
@@ -23605,7 +23599,7 @@ ShallowWrapper {
                       },
                     },
                     "ref": null,
-                    "rendered": "DDA may use Personal Information for the following purposes:",
+                    "rendered": "Daxia may use Personal Information for the following purposes:",
                     "type": "span",
                   },
                   "type": "p",
@@ -26010,7 +26004,7 @@ ShallowWrapper {
                         }
                       }
                     >
-                      DDA may update this Privacy Policy at any time. When we do, we will revise the updated date at the top of this document. You acknowledge and agree that it is your responsibility to review this Privacy Policy periodically and become aware of modifications. Your continued use of the Service following the posting of changes to this policy will be deemed your acceptance of those changes.
+                      Daxia may update this Privacy Policy at any time. When we do, we will revise the updated date at the top of this document. You acknowledge and agree that it is your responsibility to review this Privacy Policy periodically and become aware of modifications. Your continued use of the Service following the posting of changes to this policy will be deemed your acceptance of those changes.
                     </span>,
                     "className": "MsoNormal",
                     "style": Object {
@@ -26025,7 +26019,7 @@ ShallowWrapper {
                     "key": undefined,
                     "nodeType": "host",
                     "props": Object {
-                      "children": "DDA may update this Privacy Policy at any time. When we do, we will revise the updated date at the top of this document. You acknowledge and agree that it is your responsibility to review this Privacy Policy periodically and become aware of modifications. Your continued use of the Service following the posting of changes to this policy will be deemed your acceptance of those changes.",
+                      "children": "Daxia may update this Privacy Policy at any time. When we do, we will revise the updated date at the top of this document. You acknowledge and agree that it is your responsibility to review this Privacy Policy periodically and become aware of modifications. Your continued use of the Service following the posting of changes to this policy will be deemed your acceptance of those changes.",
                       "style": Object {
                         "color": "#4A4A4A",
                         "fontFamily": "\\"Arial\\",sans-serif",
@@ -26033,7 +26027,7 @@ ShallowWrapper {
                       },
                     },
                     "ref": null,
-                    "rendered": "DDA may update this Privacy Policy at any time. When we do, we will revise the updated date at the top of this document. You acknowledge and agree that it is your responsibility to review this Privacy Policy periodically and become aware of modifications. Your continued use of the Service following the posting of changes to this policy will be deemed your acceptance of those changes.",
+                    "rendered": "Daxia may update this Privacy Policy at any time. When we do, we will revise the updated date at the top of this document. You acknowledge and agree that it is your responsibility to review this Privacy Policy periodically and become aware of modifications. Your continued use of the Service following the posting of changes to this policy will be deemed your acceptance of those changes.",
                     "type": "span",
                   },
                   "type": "p",
@@ -26237,9 +26231,9 @@ ShallowWrapper {
                           }
                         >
                           <a
-                            href="mailto:info@ddacoop.org"
+                            href="mailto:info@daxia.us"
                           >
-                            info@ddacoop.org
+                            info@daxia.us
                           </a>
                         </span>
                       </span>,
@@ -26294,9 +26288,9 @@ ShallowWrapper {
                           }
                         >
                           <a
-                            href="mailto:info@ddacoop.org"
+                            href="mailto:info@daxia.us"
                           >
-                            info@ddacoop.org
+                            info@daxia.us
                           </a>
                         </span>,
                         "className": "MsoHyperlink",
@@ -26308,9 +26302,9 @@ ShallowWrapper {
                         "nodeType": "host",
                         "props": Object {
                           "children": <a
-                            href="mailto:info@ddacoop.org"
+                            href="mailto:info@daxia.us"
                           >
-                            info@ddacoop.org
+                            info@daxia.us
                           </a>,
                           "style": Object {
                             "fontFamily": "\\"Arial\\",sans-serif",
@@ -26323,11 +26317,11 @@ ShallowWrapper {
                           "key": undefined,
                           "nodeType": "host",
                           "props": Object {
-                            "children": "info@ddacoop.org",
-                            "href": "mailto:info@ddacoop.org",
+                            "children": "info@daxia.us",
+                            "href": "mailto:info@daxia.us",
                           },
                           "ref": null,
-                          "rendered": "info@ddacoop.org",
+                          "rendered": "info@daxia.us",
                           "type": "a",
                         },
                         "type": "span",
@@ -26394,11 +26388,10 @@ ShallowWrapper {
                 >
                   <img
                     align="left"
-                    alt="Decentralized Derivatives"
+                    alt="Daxia"
                     height={77}
                     hspace={12}
-                    src="logo_small.png"
-                    width={82}
+                    src="logo.png"
                   />
                 </div>
                 <div
@@ -26409,22 +26402,22 @@ ShallowWrapper {
                   }
                 >
                   <div>
-                    Decentralized Derivatives Association
+                    Daxia
                   </div>
                   <div>
                     <a
-                      href="mailto:info@ddacoop.org"
+                      href="mailto:info@daxia.us"
                     >
-                      info@ddacoop.org
+                      info@daxia.us
                     </a>
                   </div>
                   <div>
                     <a
-                      href="//www.ddacoop.org"
+                      href="//www.daxia.us"
                       rel="noopener noreferrer"
                       target="_blank"
                     >
-                      www.ddacoop.org
+                      www.daxia.us
                     </a>
                   </div>
                 </div>
@@ -26450,7 +26443,7 @@ ShallowWrapper {
                       }
                     }
                   >
-                    DDA Cooperative – Terms and Privacy
+                    Daxia – Terms and Privacy
                   </span>
                 </div>
               </div>
@@ -26503,7 +26496,7 @@ ShallowWrapper {
                       }
                     }
                   >
-                    Please read these Terms of Service (this “Agreement”) carefully. Your use or access of this or any DDA Service or application (as defined below) constitutes your consent to this Agreement.
+                    Please read these Terms of Service (this “Agreement”) carefully. Your use or access of this or any Daxia Service or application (as defined below) constitutes your consent to this Agreement.
                   </span>
                 </p>
                 <p
@@ -26525,7 +26518,7 @@ ShallowWrapper {
                       }
                     }
                   >
-                    This Agreement is between you and the Decentralized Derivatives Association (“DDA” or “we” or “us”) concerning your use of (including any access to) DDA’s website, mobile applications, and web applications, together with any materials and services available therein, and successor website(s) or application(s) thereto (collectively, the “Service”). This Agreement hereby incorporates by this reference any additional terms and conditions with respect to the Service posted by Company to the Service, or otherwise made available to you by Company, including the Privacy Policy and the FAQ (each as defined below).
+                    This Agreement is between you and Daxia (or “we” or “us”) concerning your use of (including any access to) Daxia’s website, mobile applications, and web applications, together with any materials and services available therein, and successor website(s) or application(s) thereto (collectively, the “Service”). This Agreement hereby incorporates by this reference any additional terms and conditions with respect to the Service posted by Company to the Service, or otherwise made available to you by Company, including the Privacy Policy and the FAQ (each as defined below).
                   </span>
                 </p>
                 <p
@@ -28393,7 +28386,7 @@ ShallowWrapper {
                       }
                     }
                   >
-                     You agree that you are fully able and competent to enter into the terms, conditions, obligations, affirmations, representations and warranties set forth in these Terms and to abide by and comply with these Terms and that we are not responsible for determining whether or which laws may apply to your Transactions, including tax laws. You are solely responsible for reporting of any transactions and paying any taxes arising from your use of the Service and participation in any Transaction. You further represent that you are otherwise legally permitted to use the service in your jurisdiction including owning cryptographic tokens of value and interacting with the Service or Content in any way. You further represent you are responsible for ensuring compliance with the laws of your jurisdiction and acknowledge that DDA is not liable for your compliance with such laws. Finally, you represent and warrant that you will not use the Service for any illegal activity.
+                     You agree that you are fully able and competent to enter into the terms, conditions, obligations, affirmations, representations and warranties set forth in these Terms and to abide by and comply with these Terms and that we are not responsible for determining whether or which laws may apply to your Transactions, including tax laws. You are solely responsible for reporting of any transactions and paying any taxes arising from your use of the Service and participation in any Transaction. You further represent that you are otherwise legally permitted to use the service in your jurisdiction including owning cryptographic tokens of value and interacting with the Service or Content in any way. You further represent you are responsible for ensuring compliance with the laws of your jurisdiction and acknowledge that Daxia is not liable for your compliance with such laws. Finally, you represent and warrant that you will not use the Service for any illegal activity.
                   </span>
                 </p>
                 <p
@@ -28457,7 +28450,7 @@ ShallowWrapper {
                         }
                       }
                     >
-                      DDA must comply with applicable law.
+                      Daxia must comply with applicable law.
                     </span>
                   </b>
                   <span
@@ -28587,7 +28580,7 @@ ShallowWrapper {
                       }
                     }
                   >
-                     DDA provides useful tools for interacting with smart contracts.  We offer no guarantee to continue this or any service, including, but not limited to: oracles, exchanges, websites, and contract lifecycle management.
+                     Daxia provides useful tools for interacting with smart contracts.  We offer no guarantee to continue this or any service, including, but not limited to: oracles, exchanges, websites, and contract lifecycle management.
                   </span>
                 </p>
                 <p
@@ -29242,7 +29235,7 @@ ShallowWrapper {
                       }
                     }
                   >
-                    “Personal Information” is information that identifies you as an individual or relates to an identifiable individual, such as name and email address. We may collect Personal Information from Users when they voluntarily provide it to us in a variety of ways, including, but not limited to, when Users visit our Service, subscribe to our newsletters, fill out a form, or in connection with other activities, services, features or resources we make available on our Service. Users may visit our Service without providing Personal Information. Users can always refuse to supply Personal Information; however, doing so may prevent them from membership to DDA or engaging in certain Service-related activities.
+                    “Personal Information” is information that identifies you as an individual or relates to an identifiable individual, such as name and email address. We may collect Personal Information from Users when they voluntarily provide it to us in a variety of ways, including, but not limited to, when Users visit our Service, subscribe to our newsletters, fill out a form, or in connection with other activities, services, features or resources we make available on our Service. Users may visit our Service without providing Personal Information. Users can always refuse to supply Personal Information; however, doing so may prevent them from membership to Daxia or engaging in certain Service-related activities.
                   </span>
                 </p>
                 <p
@@ -29288,7 +29281,7 @@ ShallowWrapper {
                       }
                     }
                   >
-                    DDA may use Personal Information for the following purposes:
+                    Daxia may use Personal Information for the following purposes:
                   </span>
                 </p>
                 <p
@@ -30318,7 +30311,7 @@ ShallowWrapper {
                       }
                     }
                   >
-                    DDA may update this Privacy Policy at any time. When we do, we will revise the updated date at the top of this document. You acknowledge and agree that it is your responsibility to review this Privacy Policy periodically and become aware of modifications. Your continued use of the Service following the posting of changes to this policy will be deemed your acceptance of those changes.
+                    Daxia may update this Privacy Policy at any time. When we do, we will revise the updated date at the top of this document. You acknowledge and agree that it is your responsibility to review this Privacy Policy periodically and become aware of modifications. Your continued use of the Service following the posting of changes to this policy will be deemed your acceptance of those changes.
                   </span>
                 </p>
                 <p
@@ -30424,9 +30417,9 @@ ShallowWrapper {
                       }
                     >
                       <a
-                        href="mailto:info@ddacoop.org"
+                        href="mailto:info@daxia.us"
                       >
-                        info@ddacoop.org
+                        info@daxia.us
                       </a>
                     </span>
                   </span>
@@ -30484,11 +30477,10 @@ ShallowWrapper {
                 >
                   <img
                     align="left"
-                    alt="Decentralized Derivatives"
+                    alt="Daxia"
                     height={77}
                     hspace={12}
-                    src="logo_small.png"
-                    width={82}
+                    src="logo.png"
                   />
                 </div>
                 <div
@@ -30499,22 +30491,22 @@ ShallowWrapper {
                   }
                 >
                   <div>
-                    Decentralized Derivatives Association
+                    Daxia
                   </div>
                   <div>
                     <a
-                      href="mailto:info@ddacoop.org"
+                      href="mailto:info@daxia.us"
                     >
-                      info@ddacoop.org
+                      info@daxia.us
                     </a>
                   </div>
                   <div>
                     <a
-                      href="//www.ddacoop.org"
+                      href="//www.daxia.us"
                       rel="noopener noreferrer"
                       target="_blank"
                     >
-                      www.ddacoop.org
+                      www.daxia.us
                     </a>
                   </div>
                 </div>
@@ -30540,7 +30532,7 @@ ShallowWrapper {
                       }
                     }
                   >
-                    DDA Cooperative – Terms and Privacy
+                    Daxia – Terms and Privacy
                   </span>
                 </div>
               </div>
@@ -30593,7 +30585,7 @@ ShallowWrapper {
                       }
                     }
                   >
-                    Please read these Terms of Service (this “Agreement”) carefully. Your use or access of this or any DDA Service or application (as defined below) constitutes your consent to this Agreement.
+                    Please read these Terms of Service (this “Agreement”) carefully. Your use or access of this or any Daxia Service or application (as defined below) constitutes your consent to this Agreement.
                   </span>
                 </p>
                 <p
@@ -30615,7 +30607,7 @@ ShallowWrapper {
                       }
                     }
                   >
-                    This Agreement is between you and the Decentralized Derivatives Association (“DDA” or “we” or “us”) concerning your use of (including any access to) DDA’s website, mobile applications, and web applications, together with any materials and services available therein, and successor website(s) or application(s) thereto (collectively, the “Service”). This Agreement hereby incorporates by this reference any additional terms and conditions with respect to the Service posted by Company to the Service, or otherwise made available to you by Company, including the Privacy Policy and the FAQ (each as defined below).
+                    This Agreement is between you and Daxia (or “we” or “us”) concerning your use of (including any access to) Daxia’s website, mobile applications, and web applications, together with any materials and services available therein, and successor website(s) or application(s) thereto (collectively, the “Service”). This Agreement hereby incorporates by this reference any additional terms and conditions with respect to the Service posted by Company to the Service, or otherwise made available to you by Company, including the Privacy Policy and the FAQ (each as defined below).
                   </span>
                 </p>
                 <p
@@ -32483,7 +32475,7 @@ ShallowWrapper {
                       }
                     }
                   >
-                     You agree that you are fully able and competent to enter into the terms, conditions, obligations, affirmations, representations and warranties set forth in these Terms and to abide by and comply with these Terms and that we are not responsible for determining whether or which laws may apply to your Transactions, including tax laws. You are solely responsible for reporting of any transactions and paying any taxes arising from your use of the Service and participation in any Transaction. You further represent that you are otherwise legally permitted to use the service in your jurisdiction including owning cryptographic tokens of value and interacting with the Service or Content in any way. You further represent you are responsible for ensuring compliance with the laws of your jurisdiction and acknowledge that DDA is not liable for your compliance with such laws. Finally, you represent and warrant that you will not use the Service for any illegal activity.
+                     You agree that you are fully able and competent to enter into the terms, conditions, obligations, affirmations, representations and warranties set forth in these Terms and to abide by and comply with these Terms and that we are not responsible for determining whether or which laws may apply to your Transactions, including tax laws. You are solely responsible for reporting of any transactions and paying any taxes arising from your use of the Service and participation in any Transaction. You further represent that you are otherwise legally permitted to use the service in your jurisdiction including owning cryptographic tokens of value and interacting with the Service or Content in any way. You further represent you are responsible for ensuring compliance with the laws of your jurisdiction and acknowledge that Daxia is not liable for your compliance with such laws. Finally, you represent and warrant that you will not use the Service for any illegal activity.
                   </span>
                 </p>
                 <p
@@ -32547,7 +32539,7 @@ ShallowWrapper {
                         }
                       }
                     >
-                      DDA must comply with applicable law.
+                      Daxia must comply with applicable law.
                     </span>
                   </b>
                   <span
@@ -32677,7 +32669,7 @@ ShallowWrapper {
                       }
                     }
                   >
-                     DDA provides useful tools for interacting with smart contracts.  We offer no guarantee to continue this or any service, including, but not limited to: oracles, exchanges, websites, and contract lifecycle management.
+                     Daxia provides useful tools for interacting with smart contracts.  We offer no guarantee to continue this or any service, including, but not limited to: oracles, exchanges, websites, and contract lifecycle management.
                   </span>
                 </p>
                 <p
@@ -33332,7 +33324,7 @@ ShallowWrapper {
                       }
                     }
                   >
-                    “Personal Information” is information that identifies you as an individual or relates to an identifiable individual, such as name and email address. We may collect Personal Information from Users when they voluntarily provide it to us in a variety of ways, including, but not limited to, when Users visit our Service, subscribe to our newsletters, fill out a form, or in connection with other activities, services, features or resources we make available on our Service. Users may visit our Service without providing Personal Information. Users can always refuse to supply Personal Information; however, doing so may prevent them from membership to DDA or engaging in certain Service-related activities.
+                    “Personal Information” is information that identifies you as an individual or relates to an identifiable individual, such as name and email address. We may collect Personal Information from Users when they voluntarily provide it to us in a variety of ways, including, but not limited to, when Users visit our Service, subscribe to our newsletters, fill out a form, or in connection with other activities, services, features or resources we make available on our Service. Users may visit our Service without providing Personal Information. Users can always refuse to supply Personal Information; however, doing so may prevent them from membership to Daxia or engaging in certain Service-related activities.
                   </span>
                 </p>
                 <p
@@ -33378,7 +33370,7 @@ ShallowWrapper {
                       }
                     }
                   >
-                    DDA may use Personal Information for the following purposes:
+                    Daxia may use Personal Information for the following purposes:
                   </span>
                 </p>
                 <p
@@ -34408,7 +34400,7 @@ ShallowWrapper {
                       }
                     }
                   >
-                    DDA may update this Privacy Policy at any time. When we do, we will revise the updated date at the top of this document. You acknowledge and agree that it is your responsibility to review this Privacy Policy periodically and become aware of modifications. Your continued use of the Service following the posting of changes to this policy will be deemed your acceptance of those changes.
+                    Daxia may update this Privacy Policy at any time. When we do, we will revise the updated date at the top of this document. You acknowledge and agree that it is your responsibility to review this Privacy Policy periodically and become aware of modifications. Your continued use of the Service following the posting of changes to this policy will be deemed your acceptance of those changes.
                   </span>
                 </p>
                 <p
@@ -34514,9 +34506,9 @@ ShallowWrapper {
                       }
                     >
                       <a
-                        href="mailto:info@ddacoop.org"
+                        href="mailto:info@daxia.us"
                       >
-                        info@ddacoop.org
+                        info@daxia.us
                       </a>
                     </span>
                   </span>
@@ -34553,11 +34545,10 @@ ShallowWrapper {
                   >
                     <img
                       align="left"
-                      alt="Decentralized Derivatives"
+                      alt="Daxia"
                       height={77}
                       hspace={12}
-                      src="logo_small.png"
-                      width={82}
+                      src="logo.png"
                     />
                   </div>
                   <div
@@ -34568,22 +34559,22 @@ ShallowWrapper {
                     }
                   >
                     <div>
-                      Decentralized Derivatives Association
+                      Daxia
                     </div>
                     <div>
                       <a
-                        href="mailto:info@ddacoop.org"
+                        href="mailto:info@daxia.us"
                       >
-                        info@ddacoop.org
+                        info@daxia.us
                       </a>
                     </div>
                     <div>
                       <a
-                        href="//www.ddacoop.org"
+                        href="//www.daxia.us"
                         rel="noopener noreferrer"
                         target="_blank"
                       >
-                        www.ddacoop.org
+                        www.daxia.us
                       </a>
                     </div>
                   </div>
@@ -34609,7 +34600,7 @@ ShallowWrapper {
                         }
                       }
                     >
-                      DDA Cooperative – Terms and Privacy
+                      Daxia – Terms and Privacy
                     </span>
                   </div>
                 </div>,
@@ -34662,7 +34653,7 @@ ShallowWrapper {
                         }
                       }
                     >
-                      Please read these Terms of Service (this “Agreement”) carefully. Your use or access of this or any DDA Service or application (as defined below) constitutes your consent to this Agreement.
+                      Please read these Terms of Service (this “Agreement”) carefully. Your use or access of this or any Daxia Service or application (as defined below) constitutes your consent to this Agreement.
                     </span>
                   </p>
                   <p
@@ -34684,7 +34675,7 @@ ShallowWrapper {
                         }
                       }
                     >
-                      This Agreement is between you and the Decentralized Derivatives Association (“DDA” or “we” or “us”) concerning your use of (including any access to) DDA’s website, mobile applications, and web applications, together with any materials and services available therein, and successor website(s) or application(s) thereto (collectively, the “Service”). This Agreement hereby incorporates by this reference any additional terms and conditions with respect to the Service posted by Company to the Service, or otherwise made available to you by Company, including the Privacy Policy and the FAQ (each as defined below).
+                      This Agreement is between you and Daxia (or “we” or “us”) concerning your use of (including any access to) Daxia’s website, mobile applications, and web applications, together with any materials and services available therein, and successor website(s) or application(s) thereto (collectively, the “Service”). This Agreement hereby incorporates by this reference any additional terms and conditions with respect to the Service posted by Company to the Service, or otherwise made available to you by Company, including the Privacy Policy and the FAQ (each as defined below).
                     </span>
                   </p>
                   <p
@@ -36552,7 +36543,7 @@ ShallowWrapper {
                         }
                       }
                     >
-                       You agree that you are fully able and competent to enter into the terms, conditions, obligations, affirmations, representations and warranties set forth in these Terms and to abide by and comply with these Terms and that we are not responsible for determining whether or which laws may apply to your Transactions, including tax laws. You are solely responsible for reporting of any transactions and paying any taxes arising from your use of the Service and participation in any Transaction. You further represent that you are otherwise legally permitted to use the service in your jurisdiction including owning cryptographic tokens of value and interacting with the Service or Content in any way. You further represent you are responsible for ensuring compliance with the laws of your jurisdiction and acknowledge that DDA is not liable for your compliance with such laws. Finally, you represent and warrant that you will not use the Service for any illegal activity.
+                       You agree that you are fully able and competent to enter into the terms, conditions, obligations, affirmations, representations and warranties set forth in these Terms and to abide by and comply with these Terms and that we are not responsible for determining whether or which laws may apply to your Transactions, including tax laws. You are solely responsible for reporting of any transactions and paying any taxes arising from your use of the Service and participation in any Transaction. You further represent that you are otherwise legally permitted to use the service in your jurisdiction including owning cryptographic tokens of value and interacting with the Service or Content in any way. You further represent you are responsible for ensuring compliance with the laws of your jurisdiction and acknowledge that Daxia is not liable for your compliance with such laws. Finally, you represent and warrant that you will not use the Service for any illegal activity.
                     </span>
                   </p>
                   <p
@@ -36616,7 +36607,7 @@ ShallowWrapper {
                           }
                         }
                       >
-                        DDA must comply with applicable law.
+                        Daxia must comply with applicable law.
                       </span>
                     </b>
                     <span
@@ -36746,7 +36737,7 @@ ShallowWrapper {
                         }
                       }
                     >
-                       DDA provides useful tools for interacting with smart contracts.  We offer no guarantee to continue this or any service, including, but not limited to: oracles, exchanges, websites, and contract lifecycle management.
+                       Daxia provides useful tools for interacting with smart contracts.  We offer no guarantee to continue this or any service, including, but not limited to: oracles, exchanges, websites, and contract lifecycle management.
                     </span>
                   </p>
                   <p
@@ -37401,7 +37392,7 @@ ShallowWrapper {
                         }
                       }
                     >
-                      “Personal Information” is information that identifies you as an individual or relates to an identifiable individual, such as name and email address. We may collect Personal Information from Users when they voluntarily provide it to us in a variety of ways, including, but not limited to, when Users visit our Service, subscribe to our newsletters, fill out a form, or in connection with other activities, services, features or resources we make available on our Service. Users may visit our Service without providing Personal Information. Users can always refuse to supply Personal Information; however, doing so may prevent them from membership to DDA or engaging in certain Service-related activities.
+                      “Personal Information” is information that identifies you as an individual or relates to an identifiable individual, such as name and email address. We may collect Personal Information from Users when they voluntarily provide it to us in a variety of ways, including, but not limited to, when Users visit our Service, subscribe to our newsletters, fill out a form, or in connection with other activities, services, features or resources we make available on our Service. Users may visit our Service without providing Personal Information. Users can always refuse to supply Personal Information; however, doing so may prevent them from membership to Daxia or engaging in certain Service-related activities.
                     </span>
                   </p>
                   <p
@@ -37447,7 +37438,7 @@ ShallowWrapper {
                         }
                       }
                     >
-                      DDA may use Personal Information for the following purposes:
+                      Daxia may use Personal Information for the following purposes:
                     </span>
                   </p>
                   <p
@@ -38477,7 +38468,7 @@ ShallowWrapper {
                         }
                       }
                     >
-                      DDA may update this Privacy Policy at any time. When we do, we will revise the updated date at the top of this document. You acknowledge and agree that it is your responsibility to review this Privacy Policy periodically and become aware of modifications. Your continued use of the Service following the posting of changes to this policy will be deemed your acceptance of those changes.
+                      Daxia may update this Privacy Policy at any time. When we do, we will revise the updated date at the top of this document. You acknowledge and agree that it is your responsibility to review this Privacy Policy periodically and become aware of modifications. Your continued use of the Service following the posting of changes to this policy will be deemed your acceptance of those changes.
                     </span>
                   </p>
                   <p
@@ -38583,9 +38574,9 @@ ShallowWrapper {
                         }
                       >
                         <a
-                          href="mailto:info@ddacoop.org"
+                          href="mailto:info@daxia.us"
                         >
-                          info@ddacoop.org
+                          info@daxia.us
                         </a>
                       </span>
                     </span>
@@ -38624,11 +38615,10 @@ ShallowWrapper {
                     >
                       <img
                         align="left"
-                        alt="Decentralized Derivatives"
+                        alt="Daxia"
                         height={77}
                         hspace={12}
-                        src="logo_small.png"
-                        width={82}
+                        src="logo.png"
                       />
                     </div>,
                     <div
@@ -38639,22 +38629,22 @@ ShallowWrapper {
                       }
                     >
                       <div>
-                        Decentralized Derivatives Association
+                        Daxia
                       </div>
                       <div>
                         <a
-                          href="mailto:info@ddacoop.org"
+                          href="mailto:info@daxia.us"
                         >
-                          info@ddacoop.org
+                          info@daxia.us
                         </a>
                       </div>
                       <div>
                         <a
-                          href="//www.ddacoop.org"
+                          href="//www.daxia.us"
                           rel="noopener noreferrer"
                           target="_blank"
                         >
-                          www.ddacoop.org
+                          www.daxia.us
                         </a>
                       </div>
                     </div>,
@@ -38669,11 +38659,10 @@ ShallowWrapper {
                     "props": Object {
                       "children": <img
                         align="left"
-                        alt="Decentralized Derivatives"
+                        alt="Daxia"
                         height={77}
                         hspace={12}
-                        src="logo_small.png"
-                        width={82}
+                        src="logo.png"
                       />,
                       "style": Object {
                         "float": "left",
@@ -38686,11 +38675,10 @@ ShallowWrapper {
                       "nodeType": "host",
                       "props": Object {
                         "align": "left",
-                        "alt": "Decentralized Derivatives",
+                        "alt": "Daxia",
                         "height": 77,
                         "hspace": 12,
-                        "src": "logo_small.png",
-                        "width": 82,
+                        "src": "logo.png",
                       },
                       "ref": null,
                       "rendered": null,
@@ -38705,22 +38693,22 @@ ShallowWrapper {
                     "props": Object {
                       "children": Array [
                         <div>
-                          Decentralized Derivatives Association
+                          Daxia
                         </div>,
                         <div>
                           <a
-                            href="mailto:info@ddacoop.org"
+                            href="mailto:info@daxia.us"
                           >
-                            info@ddacoop.org
+                            info@daxia.us
                           </a>
                         </div>,
                         <div>
                           <a
-                            href="//www.ddacoop.org"
+                            href="//www.daxia.us"
                             rel="noopener noreferrer"
                             target="_blank"
                           >
-                            www.ddacoop.org
+                            www.daxia.us
                           </a>
                         </div>,
                       ],
@@ -38735,10 +38723,10 @@ ShallowWrapper {
                         "key": undefined,
                         "nodeType": "host",
                         "props": Object {
-                          "children": "Decentralized Derivatives Association",
+                          "children": "Daxia",
                         },
                         "ref": null,
-                        "rendered": "Decentralized Derivatives Association",
+                        "rendered": "Daxia",
                         "type": "div",
                       },
                       Object {
@@ -38747,9 +38735,9 @@ ShallowWrapper {
                         "nodeType": "host",
                         "props": Object {
                           "children": <a
-                            href="mailto:info@ddacoop.org"
+                            href="mailto:info@daxia.us"
                           >
-                            info@ddacoop.org
+                            info@daxia.us
                           </a>,
                         },
                         "ref": null,
@@ -38758,11 +38746,11 @@ ShallowWrapper {
                           "key": undefined,
                           "nodeType": "host",
                           "props": Object {
-                            "children": "info@ddacoop.org",
-                            "href": "mailto:info@ddacoop.org",
+                            "children": "info@daxia.us",
+                            "href": "mailto:info@daxia.us",
                           },
                           "ref": null,
-                          "rendered": "info@ddacoop.org",
+                          "rendered": "info@daxia.us",
                           "type": "a",
                         },
                         "type": "div",
@@ -38773,11 +38761,11 @@ ShallowWrapper {
                         "nodeType": "host",
                         "props": Object {
                           "children": <a
-                            href="//www.ddacoop.org"
+                            href="//www.daxia.us"
                             rel="noopener noreferrer"
                             target="_blank"
                           >
-                            www.ddacoop.org
+                            www.daxia.us
                           </a>,
                         },
                         "ref": null,
@@ -38786,13 +38774,13 @@ ShallowWrapper {
                           "key": undefined,
                           "nodeType": "host",
                           "props": Object {
-                            "children": "www.ddacoop.org",
-                            "href": "//www.ddacoop.org",
+                            "children": "www.daxia.us",
+                            "href": "//www.daxia.us",
                             "rel": "noopener noreferrer",
                             "target": "_blank",
                           },
                           "ref": null,
-                          "rendered": "www.ddacoop.org",
+                          "rendered": "www.daxia.us",
                           "type": "a",
                         },
                         "type": "div",
@@ -38819,7 +38807,7 @@ ShallowWrapper {
                         }
                       }
                     >
-                      DDA Cooperative – Terms and Privacy
+                      Daxia – Terms and Privacy
                     </span>
                   </div>,
                   "style": Object {
@@ -38845,7 +38833,7 @@ ShallowWrapper {
                         }
                       }
                     >
-                      DDA Cooperative – Terms and Privacy
+                      Daxia – Terms and Privacy
                     </span>,
                   },
                   "ref": null,
@@ -38854,7 +38842,7 @@ ShallowWrapper {
                     "key": undefined,
                     "nodeType": "host",
                     "props": Object {
-                      "children": "DDA Cooperative – Terms and Privacy",
+                      "children": "Daxia – Terms and Privacy",
                       "style": Object {
                         "fontFamily": "\\"Calibri Light\\",sans-serif",
                         "fontSize": "22.0pt",
@@ -38863,7 +38851,7 @@ ShallowWrapper {
                       },
                     },
                     "ref": null,
-                    "rendered": "DDA Cooperative – Terms and Privacy",
+                    "rendered": "Daxia – Terms and Privacy",
                     "type": "span",
                   },
                   "type": "div",
@@ -38950,7 +38938,7 @@ ShallowWrapper {
                           }
                         }
                       >
-                        Please read these Terms of Service (this “Agreement”) carefully. Your use or access of this or any DDA Service or application (as defined below) constitutes your consent to this Agreement.
+                        Please read these Terms of Service (this “Agreement”) carefully. Your use or access of this or any Daxia Service or application (as defined below) constitutes your consent to this Agreement.
                       </span>
                     </p>,
                     <p
@@ -38972,7 +38960,7 @@ ShallowWrapper {
                           }
                         }
                       >
-                        This Agreement is between you and the Decentralized Derivatives Association (“DDA” or “we” or “us”) concerning your use of (including any access to) DDA’s website, mobile applications, and web applications, together with any materials and services available therein, and successor website(s) or application(s) thereto (collectively, the “Service”). This Agreement hereby incorporates by this reference any additional terms and conditions with respect to the Service posted by Company to the Service, or otherwise made available to you by Company, including the Privacy Policy and the FAQ (each as defined below).
+                        This Agreement is between you and Daxia (or “we” or “us”) concerning your use of (including any access to) Daxia’s website, mobile applications, and web applications, together with any materials and services available therein, and successor website(s) or application(s) thereto (collectively, the “Service”). This Agreement hereby incorporates by this reference any additional terms and conditions with respect to the Service posted by Company to the Service, or otherwise made available to you by Company, including the Privacy Policy and the FAQ (each as defined below).
                       </span>
                     </p>,
                     <p
@@ -39059,7 +39047,7 @@ ShallowWrapper {
                           }
                         }
                       >
-                        Please read these Terms of Service (this “Agreement”) carefully. Your use or access of this or any DDA Service or application (as defined below) constitutes your consent to this Agreement.
+                        Please read these Terms of Service (this “Agreement”) carefully. Your use or access of this or any Daxia Service or application (as defined below) constitutes your consent to this Agreement.
                       </span>,
                       "className": "MsoNormal",
                       "style": Object {
@@ -39074,7 +39062,7 @@ ShallowWrapper {
                       "key": undefined,
                       "nodeType": "host",
                       "props": Object {
-                        "children": "Please read these Terms of Service (this “Agreement”) carefully. Your use or access of this or any DDA Service or application (as defined below) constitutes your consent to this Agreement.",
+                        "children": "Please read these Terms of Service (this “Agreement”) carefully. Your use or access of this or any Daxia Service or application (as defined below) constitutes your consent to this Agreement.",
                         "style": Object {
                           "color": "#4A4A4A",
                           "fontFamily": "\\"Arial\\",sans-serif",
@@ -39082,7 +39070,7 @@ ShallowWrapper {
                         },
                       },
                       "ref": null,
-                      "rendered": "Please read these Terms of Service (this “Agreement”) carefully. Your use or access of this or any DDA Service or application (as defined below) constitutes your consent to this Agreement.",
+                      "rendered": "Please read these Terms of Service (this “Agreement”) carefully. Your use or access of this or any Daxia Service or application (as defined below) constitutes your consent to this Agreement.",
                       "type": "span",
                     },
                     "type": "p",
@@ -39101,7 +39089,7 @@ ShallowWrapper {
                           }
                         }
                       >
-                        This Agreement is between you and the Decentralized Derivatives Association (“DDA” or “we” or “us”) concerning your use of (including any access to) DDA’s website, mobile applications, and web applications, together with any materials and services available therein, and successor website(s) or application(s) thereto (collectively, the “Service”). This Agreement hereby incorporates by this reference any additional terms and conditions with respect to the Service posted by Company to the Service, or otherwise made available to you by Company, including the Privacy Policy and the FAQ (each as defined below).
+                        This Agreement is between you and Daxia (or “we” or “us”) concerning your use of (including any access to) Daxia’s website, mobile applications, and web applications, together with any materials and services available therein, and successor website(s) or application(s) thereto (collectively, the “Service”). This Agreement hereby incorporates by this reference any additional terms and conditions with respect to the Service posted by Company to the Service, or otherwise made available to you by Company, including the Privacy Policy and the FAQ (each as defined below).
                       </span>,
                       "className": "MsoNormal",
                       "style": Object {
@@ -39116,7 +39104,7 @@ ShallowWrapper {
                       "key": undefined,
                       "nodeType": "host",
                       "props": Object {
-                        "children": "This Agreement is between you and the Decentralized Derivatives Association (“DDA” or “we” or “us”) concerning your use of (including any access to) DDA’s website, mobile applications, and web applications, together with any materials and services available therein, and successor website(s) or application(s) thereto (collectively, the “Service”). This Agreement hereby incorporates by this reference any additional terms and conditions with respect to the Service posted by Company to the Service, or otherwise made available to you by Company, including the Privacy Policy and the FAQ (each as defined below).",
+                        "children": "This Agreement is between you and Daxia (or “we” or “us”) concerning your use of (including any access to) Daxia’s website, mobile applications, and web applications, together with any materials and services available therein, and successor website(s) or application(s) thereto (collectively, the “Service”). This Agreement hereby incorporates by this reference any additional terms and conditions with respect to the Service posted by Company to the Service, or otherwise made available to you by Company, including the Privacy Policy and the FAQ (each as defined below).",
                         "style": Object {
                           "color": "#4A4A4A",
                           "fontFamily": "\\"Arial\\",sans-serif",
@@ -39124,7 +39112,7 @@ ShallowWrapper {
                         },
                       },
                       "ref": null,
-                      "rendered": "This Agreement is between you and the Decentralized Derivatives Association (“DDA” or “we” or “us”) concerning your use of (including any access to) DDA’s website, mobile applications, and web applications, together with any materials and services available therein, and successor website(s) or application(s) thereto (collectively, the “Service”). This Agreement hereby incorporates by this reference any additional terms and conditions with respect to the Service posted by Company to the Service, or otherwise made available to you by Company, including the Privacy Policy and the FAQ (each as defined below).",
+                      "rendered": "This Agreement is between you and Daxia (or “we” or “us”) concerning your use of (including any access to) Daxia’s website, mobile applications, and web applications, together with any materials and services available therein, and successor website(s) or application(s) thereto (collectively, the “Service”). This Agreement hereby incorporates by this reference any additional terms and conditions with respect to the Service posted by Company to the Service, or otherwise made available to you by Company, including the Privacy Policy and the FAQ (each as defined below).",
                       "type": "span",
                     },
                     "type": "p",
@@ -41061,7 +41049,7 @@ ShallowWrapper {
                           }
                         }
                       >
-                         You agree that you are fully able and competent to enter into the terms, conditions, obligations, affirmations, representations and warranties set forth in these Terms and to abide by and comply with these Terms and that we are not responsible for determining whether or which laws may apply to your Transactions, including tax laws. You are solely responsible for reporting of any transactions and paying any taxes arising from your use of the Service and participation in any Transaction. You further represent that you are otherwise legally permitted to use the service in your jurisdiction including owning cryptographic tokens of value and interacting with the Service or Content in any way. You further represent you are responsible for ensuring compliance with the laws of your jurisdiction and acknowledge that DDA is not liable for your compliance with such laws. Finally, you represent and warrant that you will not use the Service for any illegal activity.
+                         You agree that you are fully able and competent to enter into the terms, conditions, obligations, affirmations, representations and warranties set forth in these Terms and to abide by and comply with these Terms and that we are not responsible for determining whether or which laws may apply to your Transactions, including tax laws. You are solely responsible for reporting of any transactions and paying any taxes arising from your use of the Service and participation in any Transaction. You further represent that you are otherwise legally permitted to use the service in your jurisdiction including owning cryptographic tokens of value and interacting with the Service or Content in any way. You further represent you are responsible for ensuring compliance with the laws of your jurisdiction and acknowledge that Daxia is not liable for your compliance with such laws. Finally, you represent and warrant that you will not use the Service for any illegal activity.
                       </span>
                     </p>,
                     <p
@@ -41125,7 +41113,7 @@ ShallowWrapper {
                             }
                           }
                         >
-                          DDA must comply with applicable law.
+                          Daxia must comply with applicable law.
                         </span>
                       </b>
                       <span
@@ -41255,7 +41243,7 @@ ShallowWrapper {
                           }
                         }
                       >
-                         DDA provides useful tools for interacting with smart contracts.  We offer no guarantee to continue this or any service, including, but not limited to: oracles, exchanges, websites, and contract lifecycle management.
+                         Daxia provides useful tools for interacting with smart contracts.  We offer no guarantee to continue this or any service, including, but not limited to: oracles, exchanges, websites, and contract lifecycle management.
                       </span>
                     </p>,
                     <p
@@ -45843,7 +45831,7 @@ ShallowWrapper {
                             }
                           }
                         >
-                           You agree that you are fully able and competent to enter into the terms, conditions, obligations, affirmations, representations and warranties set forth in these Terms and to abide by and comply with these Terms and that we are not responsible for determining whether or which laws may apply to your Transactions, including tax laws. You are solely responsible for reporting of any transactions and paying any taxes arising from your use of the Service and participation in any Transaction. You further represent that you are otherwise legally permitted to use the service in your jurisdiction including owning cryptographic tokens of value and interacting with the Service or Content in any way. You further represent you are responsible for ensuring compliance with the laws of your jurisdiction and acknowledge that DDA is not liable for your compliance with such laws. Finally, you represent and warrant that you will not use the Service for any illegal activity.
+                           You agree that you are fully able and competent to enter into the terms, conditions, obligations, affirmations, representations and warranties set forth in these Terms and to abide by and comply with these Terms and that we are not responsible for determining whether or which laws may apply to your Transactions, including tax laws. You are solely responsible for reporting of any transactions and paying any taxes arising from your use of the Service and participation in any Transaction. You further represent that you are otherwise legally permitted to use the service in your jurisdiction including owning cryptographic tokens of value and interacting with the Service or Content in any way. You further represent you are responsible for ensuring compliance with the laws of your jurisdiction and acknowledge that Daxia is not liable for your compliance with such laws. Finally, you represent and warrant that you will not use the Service for any illegal activity.
                         </span>,
                       ],
                       "className": "MsoNormal",
@@ -45899,7 +45887,7 @@ ShallowWrapper {
                         "key": undefined,
                         "nodeType": "host",
                         "props": Object {
-                          "children": " You agree that you are fully able and competent to enter into the terms, conditions, obligations, affirmations, representations and warranties set forth in these Terms and to abide by and comply with these Terms and that we are not responsible for determining whether or which laws may apply to your Transactions, including tax laws. You are solely responsible for reporting of any transactions and paying any taxes arising from your use of the Service and participation in any Transaction. You further represent that you are otherwise legally permitted to use the service in your jurisdiction including owning cryptographic tokens of value and interacting with the Service or Content in any way. You further represent you are responsible for ensuring compliance with the laws of your jurisdiction and acknowledge that DDA is not liable for your compliance with such laws. Finally, you represent and warrant that you will not use the Service for any illegal activity.",
+                          "children": " You agree that you are fully able and competent to enter into the terms, conditions, obligations, affirmations, representations and warranties set forth in these Terms and to abide by and comply with these Terms and that we are not responsible for determining whether or which laws may apply to your Transactions, including tax laws. You are solely responsible for reporting of any transactions and paying any taxes arising from your use of the Service and participation in any Transaction. You further represent that you are otherwise legally permitted to use the service in your jurisdiction including owning cryptographic tokens of value and interacting with the Service or Content in any way. You further represent you are responsible for ensuring compliance with the laws of your jurisdiction and acknowledge that Daxia is not liable for your compliance with such laws. Finally, you represent and warrant that you will not use the Service for any illegal activity.",
                           "style": Object {
                             "color": "#4A4A4A",
                             "fontFamily": "\\"Arial\\",sans-serif",
@@ -45907,7 +45895,7 @@ ShallowWrapper {
                           },
                         },
                         "ref": null,
-                        "rendered": " You agree that you are fully able and competent to enter into the terms, conditions, obligations, affirmations, representations and warranties set forth in these Terms and to abide by and comply with these Terms and that we are not responsible for determining whether or which laws may apply to your Transactions, including tax laws. You are solely responsible for reporting of any transactions and paying any taxes arising from your use of the Service and participation in any Transaction. You further represent that you are otherwise legally permitted to use the service in your jurisdiction including owning cryptographic tokens of value and interacting with the Service or Content in any way. You further represent you are responsible for ensuring compliance with the laws of your jurisdiction and acknowledge that DDA is not liable for your compliance with such laws. Finally, you represent and warrant that you will not use the Service for any illegal activity.",
+                        "rendered": " You agree that you are fully able and competent to enter into the terms, conditions, obligations, affirmations, representations and warranties set forth in these Terms and to abide by and comply with these Terms and that we are not responsible for determining whether or which laws may apply to your Transactions, including tax laws. You are solely responsible for reporting of any transactions and paying any taxes arising from your use of the Service and participation in any Transaction. You further represent that you are otherwise legally permitted to use the service in your jurisdiction including owning cryptographic tokens of value and interacting with the Service or Content in any way. You further represent you are responsible for ensuring compliance with the laws of your jurisdiction and acknowledge that Daxia is not liable for your compliance with such laws. Finally, you represent and warrant that you will not use the Service for any illegal activity.",
                         "type": "span",
                       },
                     ],
@@ -46027,7 +46015,7 @@ ShallowWrapper {
                               }
                             }
                           >
-                            DDA must comply with applicable law.
+                            Daxia must comply with applicable law.
                           </span>
                         </b>,
                         <span
@@ -46068,7 +46056,7 @@ ShallowWrapper {
                               }
                             }
                           >
-                            DDA must comply with applicable law.
+                            Daxia must comply with applicable law.
                           </span>,
                         },
                         "ref": null,
@@ -46077,7 +46065,7 @@ ShallowWrapper {
                           "key": undefined,
                           "nodeType": "host",
                           "props": Object {
-                            "children": "DDA must comply with applicable law.",
+                            "children": "Daxia must comply with applicable law.",
                             "style": Object {
                               "color": "#303030",
                               "fontFamily": "\\"Arial\\",sans-serif",
@@ -46085,7 +46073,7 @@ ShallowWrapper {
                             },
                           },
                           "ref": null,
-                          "rendered": "DDA must comply with applicable law.",
+                          "rendered": "Daxia must comply with applicable law.",
                           "type": "span",
                         },
                         "type": "b",
@@ -46319,7 +46307,7 @@ ShallowWrapper {
                             }
                           }
                         >
-                           DDA provides useful tools for interacting with smart contracts.  We offer no guarantee to continue this or any service, including, but not limited to: oracles, exchanges, websites, and contract lifecycle management.
+                           Daxia provides useful tools for interacting with smart contracts.  We offer no guarantee to continue this or any service, including, but not limited to: oracles, exchanges, websites, and contract lifecycle management.
                         </span>,
                       ],
                       "className": "MsoNormal",
@@ -46419,7 +46407,7 @@ ShallowWrapper {
                         "key": undefined,
                         "nodeType": "host",
                         "props": Object {
-                          "children": " DDA provides useful tools for interacting with smart contracts.  We offer no guarantee to continue this or any service, including, but not limited to: oracles, exchanges, websites, and contract lifecycle management.",
+                          "children": " Daxia provides useful tools for interacting with smart contracts.  We offer no guarantee to continue this or any service, including, but not limited to: oracles, exchanges, websites, and contract lifecycle management.",
                           "style": Object {
                             "color": "#4A4A4A",
                             "fontFamily": "\\"Arial\\",sans-serif",
@@ -46427,7 +46415,7 @@ ShallowWrapper {
                           },
                         },
                         "ref": null,
-                        "rendered": " DDA provides useful tools for interacting with smart contracts.  We offer no guarantee to continue this or any service, including, but not limited to: oracles, exchanges, websites, and contract lifecycle management.",
+                        "rendered": " Daxia provides useful tools for interacting with smart contracts.  We offer no guarantee to continue this or any service, including, but not limited to: oracles, exchanges, websites, and contract lifecycle management.",
                         "type": "span",
                       },
                     ],
@@ -47235,7 +47223,7 @@ ShallowWrapper {
                           }
                         }
                       >
-                        “Personal Information” is information that identifies you as an individual or relates to an identifiable individual, such as name and email address. We may collect Personal Information from Users when they voluntarily provide it to us in a variety of ways, including, but not limited to, when Users visit our Service, subscribe to our newsletters, fill out a form, or in connection with other activities, services, features or resources we make available on our Service. Users may visit our Service without providing Personal Information. Users can always refuse to supply Personal Information; however, doing so may prevent them from membership to DDA or engaging in certain Service-related activities.
+                        “Personal Information” is information that identifies you as an individual or relates to an identifiable individual, such as name and email address. We may collect Personal Information from Users when they voluntarily provide it to us in a variety of ways, including, but not limited to, when Users visit our Service, subscribe to our newsletters, fill out a form, or in connection with other activities, services, features or resources we make available on our Service. Users may visit our Service without providing Personal Information. Users can always refuse to supply Personal Information; however, doing so may prevent them from membership to Daxia or engaging in certain Service-related activities.
                       </span>
                     </p>,
                     <p
@@ -47281,7 +47269,7 @@ ShallowWrapper {
                           }
                         }
                       >
-                        DDA may use Personal Information for the following purposes:
+                        Daxia may use Personal Information for the following purposes:
                       </span>
                     </p>,
                     <p
@@ -48311,7 +48299,7 @@ ShallowWrapper {
                           }
                         }
                       >
-                        DDA may update this Privacy Policy at any time. When we do, we will revise the updated date at the top of this document. You acknowledge and agree that it is your responsibility to review this Privacy Policy periodically and become aware of modifications. Your continued use of the Service following the posting of changes to this policy will be deemed your acceptance of those changes.
+                        Daxia may update this Privacy Policy at any time. When we do, we will revise the updated date at the top of this document. You acknowledge and agree that it is your responsibility to review this Privacy Policy periodically and become aware of modifications. Your continued use of the Service following the posting of changes to this policy will be deemed your acceptance of those changes.
                       </span>
                     </p>,
                     <p
@@ -48417,9 +48405,9 @@ ShallowWrapper {
                           }
                         >
                           <a
-                            href="mailto:info@ddacoop.org"
+                            href="mailto:info@daxia.us"
                           >
-                            info@ddacoop.org
+                            info@daxia.us
                           </a>
                         </span>
                       </span>
@@ -49829,7 +49817,7 @@ ShallowWrapper {
                           }
                         }
                       >
-                        “Personal Information” is information that identifies you as an individual or relates to an identifiable individual, such as name and email address. We may collect Personal Information from Users when they voluntarily provide it to us in a variety of ways, including, but not limited to, when Users visit our Service, subscribe to our newsletters, fill out a form, or in connection with other activities, services, features or resources we make available on our Service. Users may visit our Service without providing Personal Information. Users can always refuse to supply Personal Information; however, doing so may prevent them from membership to DDA or engaging in certain Service-related activities.
+                        “Personal Information” is information that identifies you as an individual or relates to an identifiable individual, such as name and email address. We may collect Personal Information from Users when they voluntarily provide it to us in a variety of ways, including, but not limited to, when Users visit our Service, subscribe to our newsletters, fill out a form, or in connection with other activities, services, features or resources we make available on our Service. Users may visit our Service without providing Personal Information. Users can always refuse to supply Personal Information; however, doing so may prevent them from membership to Daxia or engaging in certain Service-related activities.
                       </span>,
                       "className": "MsoNormal",
                       "style": Object {
@@ -49844,7 +49832,7 @@ ShallowWrapper {
                       "key": undefined,
                       "nodeType": "host",
                       "props": Object {
-                        "children": "“Personal Information” is information that identifies you as an individual or relates to an identifiable individual, such as name and email address. We may collect Personal Information from Users when they voluntarily provide it to us in a variety of ways, including, but not limited to, when Users visit our Service, subscribe to our newsletters, fill out a form, or in connection with other activities, services, features or resources we make available on our Service. Users may visit our Service without providing Personal Information. Users can always refuse to supply Personal Information; however, doing so may prevent them from membership to DDA or engaging in certain Service-related activities.",
+                        "children": "“Personal Information” is information that identifies you as an individual or relates to an identifiable individual, such as name and email address. We may collect Personal Information from Users when they voluntarily provide it to us in a variety of ways, including, but not limited to, when Users visit our Service, subscribe to our newsletters, fill out a form, or in connection with other activities, services, features or resources we make available on our Service. Users may visit our Service without providing Personal Information. Users can always refuse to supply Personal Information; however, doing so may prevent them from membership to Daxia or engaging in certain Service-related activities.",
                         "style": Object {
                           "color": "#4A4A4A",
                           "fontFamily": "\\"Arial\\",sans-serif",
@@ -49852,7 +49840,7 @@ ShallowWrapper {
                         },
                       },
                       "ref": null,
-                      "rendered": "“Personal Information” is information that identifies you as an individual or relates to an identifiable individual, such as name and email address. We may collect Personal Information from Users when they voluntarily provide it to us in a variety of ways, including, but not limited to, when Users visit our Service, subscribe to our newsletters, fill out a form, or in connection with other activities, services, features or resources we make available on our Service. Users may visit our Service without providing Personal Information. Users can always refuse to supply Personal Information; however, doing so may prevent them from membership to DDA or engaging in certain Service-related activities.",
+                      "rendered": "“Personal Information” is information that identifies you as an individual or relates to an identifiable individual, such as name and email address. We may collect Personal Information from Users when they voluntarily provide it to us in a variety of ways, including, but not limited to, when Users visit our Service, subscribe to our newsletters, fill out a form, or in connection with other activities, services, features or resources we make available on our Service. Users may visit our Service without providing Personal Information. Users can always refuse to supply Personal Information; however, doing so may prevent them from membership to Daxia or engaging in certain Service-related activities.",
                       "type": "span",
                     },
                     "type": "p",
@@ -49935,7 +49923,7 @@ ShallowWrapper {
                           }
                         }
                       >
-                        DDA may use Personal Information for the following purposes:
+                        Daxia may use Personal Information for the following purposes:
                       </span>,
                       "className": "MsoNormal",
                       "style": Object {
@@ -49950,7 +49938,7 @@ ShallowWrapper {
                       "key": undefined,
                       "nodeType": "host",
                       "props": Object {
-                        "children": "DDA may use Personal Information for the following purposes:",
+                        "children": "Daxia may use Personal Information for the following purposes:",
                         "style": Object {
                           "color": "#4A4A4A",
                           "fontFamily": "\\"Arial\\",sans-serif",
@@ -49958,7 +49946,7 @@ ShallowWrapper {
                         },
                       },
                       "ref": null,
-                      "rendered": "DDA may use Personal Information for the following purposes:",
+                      "rendered": "Daxia may use Personal Information for the following purposes:",
                       "type": "span",
                     },
                     "type": "p",
@@ -52363,7 +52351,7 @@ ShallowWrapper {
                           }
                         }
                       >
-                        DDA may update this Privacy Policy at any time. When we do, we will revise the updated date at the top of this document. You acknowledge and agree that it is your responsibility to review this Privacy Policy periodically and become aware of modifications. Your continued use of the Service following the posting of changes to this policy will be deemed your acceptance of those changes.
+                        Daxia may update this Privacy Policy at any time. When we do, we will revise the updated date at the top of this document. You acknowledge and agree that it is your responsibility to review this Privacy Policy periodically and become aware of modifications. Your continued use of the Service following the posting of changes to this policy will be deemed your acceptance of those changes.
                       </span>,
                       "className": "MsoNormal",
                       "style": Object {
@@ -52378,7 +52366,7 @@ ShallowWrapper {
                       "key": undefined,
                       "nodeType": "host",
                       "props": Object {
-                        "children": "DDA may update this Privacy Policy at any time. When we do, we will revise the updated date at the top of this document. You acknowledge and agree that it is your responsibility to review this Privacy Policy periodically and become aware of modifications. Your continued use of the Service following the posting of changes to this policy will be deemed your acceptance of those changes.",
+                        "children": "Daxia may update this Privacy Policy at any time. When we do, we will revise the updated date at the top of this document. You acknowledge and agree that it is your responsibility to review this Privacy Policy periodically and become aware of modifications. Your continued use of the Service following the posting of changes to this policy will be deemed your acceptance of those changes.",
                         "style": Object {
                           "color": "#4A4A4A",
                           "fontFamily": "\\"Arial\\",sans-serif",
@@ -52386,7 +52374,7 @@ ShallowWrapper {
                         },
                       },
                       "ref": null,
-                      "rendered": "DDA may update this Privacy Policy at any time. When we do, we will revise the updated date at the top of this document. You acknowledge and agree that it is your responsibility to review this Privacy Policy periodically and become aware of modifications. Your continued use of the Service following the posting of changes to this policy will be deemed your acceptance of those changes.",
+                      "rendered": "Daxia may update this Privacy Policy at any time. When we do, we will revise the updated date at the top of this document. You acknowledge and agree that it is your responsibility to review this Privacy Policy periodically and become aware of modifications. Your continued use of the Service following the posting of changes to this policy will be deemed your acceptance of those changes.",
                       "type": "span",
                     },
                     "type": "p",
@@ -52590,9 +52578,9 @@ ShallowWrapper {
                             }
                           >
                             <a
-                              href="mailto:info@ddacoop.org"
+                              href="mailto:info@daxia.us"
                             >
-                              info@ddacoop.org
+                              info@daxia.us
                             </a>
                           </span>
                         </span>,
@@ -52647,9 +52635,9 @@ ShallowWrapper {
                             }
                           >
                             <a
-                              href="mailto:info@ddacoop.org"
+                              href="mailto:info@daxia.us"
                             >
-                              info@ddacoop.org
+                              info@daxia.us
                             </a>
                           </span>,
                           "className": "MsoHyperlink",
@@ -52661,9 +52649,9 @@ ShallowWrapper {
                           "nodeType": "host",
                           "props": Object {
                             "children": <a
-                              href="mailto:info@ddacoop.org"
+                              href="mailto:info@daxia.us"
                             >
-                              info@ddacoop.org
+                              info@daxia.us
                             </a>,
                             "style": Object {
                               "fontFamily": "\\"Arial\\",sans-serif",
@@ -52676,11 +52664,11 @@ ShallowWrapper {
                             "key": undefined,
                             "nodeType": "host",
                             "props": Object {
-                              "children": "info@ddacoop.org",
-                              "href": "mailto:info@ddacoop.org",
+                              "children": "info@daxia.us",
+                              "href": "mailto:info@daxia.us",
                             },
                             "ref": null,
-                            "rendered": "info@ddacoop.org",
+                            "rendered": "info@daxia.us",
                             "type": "a",
                           },
                           "type": "span",
