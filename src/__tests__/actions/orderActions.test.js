@@ -68,20 +68,4 @@ describe('orderActions', () => {
     };
     expect(actions).toEqual([expectedActions]);
   });
-
-  it('sendSendFundsOrder Fails', () => {
-    const store = mockStore({});
-    const processingStartStatus = { type: SET_PROCESSING, payload: true };
-    const processingStopStatus = { type: SET_PROCESSING, payload: false };
-    const newContractMock = { currency: 'BTC', amount: 99.99 };
-    const accountMock = {};
-    return store
-      .dispatch(orderActions.sendSendFundsOrder(newContractMock, accountMock))
-      .then(() => {
-        const actions = store.getActions();
-        expect(actions[0]).toEqual(processingStartStatus);
-        expect(actions[1].type).toEqual(SET_SEND_FUNDS_ERROR);
-        expect(actions[2]).toEqual(processingStopStatus);
-      });
-  });
 });
