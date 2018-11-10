@@ -25,7 +25,7 @@ Array [
     "type": "SET_FETCH_IN_PROGRESS",
   },
   Object {
-    "payload": "Order Book: _factoryProvider.default.getStaticAddresses is not a function",
+    "payload": "Order Book: exchange.getBookCount is not a function",
     "type": "SET_FETCHING_ERROR",
   },
 ]
@@ -38,7 +38,7 @@ Array [
     "type": "SET_FETCH_IN_PROGRESS",
   },
   Object {
-    "payload": "Recent Trades: _factoryProvider.default.getStaticAddresses is not a function",
+    "payload": "Recent Trades: exchange.Sale is not a function",
     "type": "SET_FETCHING_ERROR",
   },
 ]

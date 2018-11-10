@@ -12,7 +12,7 @@ Array [
 exports[`userActions getUserBalance 1`] = `
 Array [
   Object {
-    "payload": "_factoryProvider.default.getStaticAddresses is not a function",
+    "payload": "Cannot read property '0' of undefined",
     "type": "SET_FETCHING_ERROR",
   },
 ]
@@ -21,8 +21,40 @@ Array [
 exports[`userActions getUserOrders 1`] = `
 Array [
   Object {
-    "payload": "User Orders: _factoryProvider.default.getStaticAddresses is not a function",
-    "type": "SET_FETCHING_ERROR",
+    "payload": Array [
+      Object {
+        "address": "0x000...",
+        "date": "NaN/NaN/NaN",
+        "id": 0,
+        "info": Array [
+          Object {
+            "c": Array [
+              10,
+            ],
+          },
+          Object {
+            "c": Array [
+              20,
+            ],
+          },
+          Object {
+            "c": Array [
+              30,
+            ],
+          },
+          "0x000...",
+        ],
+        "owned": 30,
+        "owner": Object {
+          "c": Array [
+            10,
+          ],
+        },
+        "price": 0.002,
+        "row": "0x000...(30/NaN/NaN/NaN)",
+      },
+    ],
+    "type": "SET_USER_ORDERS",
   },
 ]
 `;
@@ -69,7 +101,7 @@ Array [
     "type": "SET_PROCESSING",
   },
   Object {
-    "payload": "_factoryProvider.default.getStaticAddresses is not a function",
+    "payload": "Cannot read property '0' of undefined",
     "type": "SET_CASHOUT_ERROR",
   },
   Object {
