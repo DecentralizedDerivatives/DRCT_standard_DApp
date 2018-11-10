@@ -139,7 +139,7 @@ describe('factoryProvider testing', () => {
         oracle: '0x98cb5fc6ce37b4c4dceab510a56af254c551b705',
       };
       var result = factoryProvider.getFromAddress(
-        '0x92217550aba5912ba7eb70978871daf7d6bcc16d'
+        '0x0e38211666fa195888cd358f7aadcb10e2315b9b'
       );
       expect(result).toEqual(expectedResult);
     });
