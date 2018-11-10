@@ -1,16 +1,9 @@
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
-
-import {
-  SET_FETCHING_ERROR,
-  SET_CONNECTION_STATUS,
-  SHOW_CONNECTION_MODAL,
-} from '../../actions/types';
-
+import * as actionTypes from '../../actions/types';
 import * as statusActions from '../../actions/statusActions';
 
-const middlewares = [thunk];
-const mockStore = configureStore(middlewares);
+jest.mock('../../ethereum');
+jest.mock('../../factoryProvider');
+
 const store = mockStore({});
 
 import { web3, Factory } from '../../ethereum';
@@ -25,33 +18,6 @@ const defaultStatusState = {
   },
 };
 
-jest.unmock('../../ethereum');
-jest.mock('../../ethereum', () => {
-  const mockFactory = {
-    isWhitelisted: jest.fn().mockImplementation(() => false),
-  };
-  return {
-    web3: {
-      eth: {
-        getAccounts: jest.fn(),
-        net: {
-          getId: jest.fn().mockImplementation(() => 4),
-        },
-      },
-    },
-    Factory: {
-      at: jest.fn().mockImplementation(() => mockFactory),
-    },
-  };
-});
-
-jest.unmock('../../factoryProvider');
-jest.mock('../../factoryProvider', () => {
-  return {
-    factories: jest.fn().mockImplementation(() => [{ address: '0x000' }]),
-  };
-});
-
 describe('statusActions', () => {
   afterEach(() => {
     store.clearActions();
@@ -63,7 +29,7 @@ describe('statusActions', () => {
 
     const actions = store.getActions();
     const expectedActions = {
-      type: SHOW_CONNECTION_MODAL,
+      type: actionTypes.SHOW_CONNECTION_MODAL,
       payload: true,
     };
     expect(actions).toEqual([expectedActions]);
@@ -71,11 +37,11 @@ describe('statusActions', () => {
 
   it('connection fails', () => {
     const store = mockStore(defaultStatusState);
-    web3.eth.getAccounts = jest.fn().mockImplementation(() => {
+    web3.eth.getAccounts.mockImplementationOnce(() => {
       throw new Error('Intentional Error');
     });
     const expectedStatus = {
-      type: SET_CONNECTION_STATUS,
+      type: actionTypes.SET_CONNECTION_STATUS,
       payload: {
         metamask: false,
         network: 0,
@@ -86,15 +52,15 @@ describe('statusActions', () => {
     return store.dispatch(statusActions.checkUserConnection()).then(() => {
       const actions = store.getActions();
       expect(actions[0]).toEqual(expectedStatus);
-      expect(actions[1].type).toEqual(SET_FETCHING_ERROR);
+      expect(actions[1].type).toEqual(actionTypes.SET_FETCHING_ERROR);
     });
   });
 
   it('connection succeeds no accounts', () => {
     const store = mockStore(defaultStatusState);
-    web3.eth.getAccounts = jest.fn().mockImplementation(() => []);
+    web3.eth.getAccounts.mockImplementationOnce(() => []);
     const expectedStatus = {
-      type: SET_CONNECTION_STATUS,
+      type: actionTypes.SET_CONNECTION_STATUS,
       payload: {
         metamask: false,
         network: 4,
@@ -111,9 +77,9 @@ describe('statusActions', () => {
 
   it('connection succeeds whitelist fails', () => {
     const store = mockStore(defaultStatusState);
-    web3.eth.getAccounts = jest.fn().mockImplementation(() => ['0x000']);
+    web3.eth.getAccounts.mockImplementationOnce(() => ['0x000']);
     const expectedStatus = {
-      type: SET_CONNECTION_STATUS,
+      type: actionTypes.SET_CONNECTION_STATUS,
       payload: {
         metamask: true,
         network: 4,
@@ -132,13 +98,13 @@ describe('statusActions', () => {
 
   it('connection succeeds whitelisted', () => {
     const store = mockStore(defaultStatusState);
-    web3.eth.getAccounts = jest.fn().mockImplementation(() => ['0x000']);
+    web3.eth.getAccounts.mockImplementationOnce(() => ['0x000']);
     const whitelisted = {
-      isWhitelisted: jest.fn().mockImplementation(() => true),
+      isWhitelisted: jest.fn(() => true),
     };
-    Factory.at = jest.fn().mockImplementation(() => whitelisted);
+    Factory.at.mockImplementationOnce(() => whitelisted);
     const expectedStatus = {
-      type: SET_CONNECTION_STATUS,
+      type: actionTypes.SET_CONNECTION_STATUS,
       payload: {
         metamask: true,
         network: 4,

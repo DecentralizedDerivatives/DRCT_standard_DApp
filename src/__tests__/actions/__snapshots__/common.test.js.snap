@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`common gets start date price 1`] = `100000000000000000`;
+
+exports[`common handles incorrect data received 1`] = `0`;
+
+exports[`common throws error when date is not passed 1`] = `[TypeError: Cannot read property 'format' of null]`;
