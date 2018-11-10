@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`userActions getUserAccount 1`] = `
+Array [
+  Object {
+    "payload": "Cannot read property '0' of undefined",
+    "type": "SET_FETCHING_ERROR",
+  },
+]
+`;
+
+exports[`userActions getUserBalance 1`] = `
+Array [
+  Object {
+    "payload": "_factoryProvider.default.getStaticAddresses is not a function",
+    "type": "SET_FETCHING_ERROR",
+  },
+]
+`;
+
+exports[`userActions getUserOrders 1`] = `
+Array [
+  Object {
+    "payload": "User Orders: _factoryProvider.default.getStaticAddresses is not a function",
+    "type": "SET_FETCHING_ERROR",
+  },
+]
+`;
+
+exports[`userActions getUserPositions 1`] = `
+Array [
+  Object {
+    "payload": "SET_USER_POSITIONS",
+    "type": "SET_FETCH_IN_PROGRESS",
+  },
+  Object {
+    "payload": "User Positions: factory.getDateCount is not a function",
+    "type": "SET_FETCHING_ERROR",
+  },
+]
+`;
+
+exports[`userActions getUserTokenPositions 1`] = `
+Array [
+  Object {
+    "payload": "User Token Positions: factory.getDateCount is not a function",
+    "type": "SET_FETCHING_ERROR",
+  },
+]
+`;
+
+exports[`userActions getUserTransactions 1`] = `
+Array [
+  Object {
+    "payload": "SET_USER_TRANSACTIONS",
+    "type": "SET_FETCH_IN_PROGRESS",
+  },
+  Object {
+    "payload": "User Transactions: factory.ContractCreation is not a function",
+    "type": "SET_FETCHING_ERROR",
+  },
+]
+`;
+
+exports[`userActions sendCashOutRequest 1`] = `
+Array [
+  Object {
+    "payload": true,
+    "type": "SET_PROCESSING",
+  },
+  Object {
+    "payload": "_factoryProvider.default.getStaticAddresses is not a function",
+    "type": "SET_CASHOUT_ERROR",
+  },
+  Object {
+    "payload": false,
+    "type": "SET_PROCESSING",
+  },
+]
+`;
+
+exports[`userActions setProcessing 1`] = `
+Array [
+  Object {
+    "payload": undefined,
+    "type": "SET_PROCESSING",
+  },
+]
+`;

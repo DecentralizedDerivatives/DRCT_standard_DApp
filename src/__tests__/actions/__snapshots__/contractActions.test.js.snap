@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`contractActions getContractDetails 1`] = `
+Array [
+  Object {
+    "payload": "_factoryProvider.default.getFromSymbol is not a function",
+    "type": "SET_FETCHING_ERROR",
+  },
+]
+`;
+
+exports[`contractActions getContractOpenDates 1`] = `
+Array [
+  Object {
+    "payload": "Contract Open Dates: factory.getDateCount is not a function",
+    "type": "SET_FETCHING_ERROR",
+  },
+]
+`;
+
+exports[`contractActions getOrderBook 1`] = `
+Array [
+  Object {
+    "payload": "SET_ORDERBOOK",
+    "type": "SET_FETCH_IN_PROGRESS",
+  },
+  Object {
+    "payload": "Order Book: _factoryProvider.default.getStaticAddresses is not a function",
+    "type": "SET_FETCHING_ERROR",
+  },
+]
+`;
+
+exports[`contractActions getRecentTrades 1`] = `
+Array [
+  Object {
+    "payload": "SET_RECENT_TRADES",
+    "type": "SET_FETCH_IN_PROGRESS",
+  },
+  Object {
+    "payload": "Recent Trades: _factoryProvider.default.getStaticAddresses is not a function",
+    "type": "SET_FETCHING_ERROR",
+  },
+]
+`;

@@ -1,0 +1,108 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`orderActions getOrderDetails 1`] = `
+Array [
+  Object {
+    "payload": "",
+    "type": "SET_ORDER_DETAILS",
+  },
+]
+`;
+
+exports[`orderActions sendApproveOrder 1`] = `
+Array [
+  Object {
+    "payload": true,
+    "type": "SET_PROCESSING",
+  },
+  Object {
+    "payload": "_factoryProvider.default.getStaticAddresses is not a function",
+    "type": "SET_LIST_ORDER_APPROVE_ERROR",
+  },
+  Object {
+    "payload": false,
+    "type": "SET_PROCESSING",
+  },
+]
+`;
+
+exports[`orderActions sendBuyOrder 1`] = `
+Array [
+  Object {
+    "payload": true,
+    "type": "SET_PROCESSING",
+  },
+  Object {
+    "payload": null,
+    "type": "SET_BUY_ORDER_ERROR",
+  },
+  Object {
+    "payload": "_factoryProvider.default.getStaticAddresses is not a function",
+    "type": "SET_BUY_ORDER_ERROR",
+  },
+  Object {
+    "payload": false,
+    "type": "SET_PROCESSING",
+  },
+]
+`;
+
+exports[`orderActions sendCreateContractOrder 1`] = `
+Array [
+  Object {
+    "payload": true,
+    "type": "SET_PROCESSING",
+  },
+  Object {
+    "payload": "Cannot read property 'call' of undefined",
+    "type": "SET_SEND_FUNDS_ERROR",
+  },
+  Object {
+    "payload": false,
+    "type": "SET_PROCESSING",
+  },
+]
+`;
+
+exports[`orderActions sendListOrder 1`] = `
+Array [
+  Object {
+    "payload": true,
+    "type": "SET_PROCESSING",
+  },
+  Object {
+    "payload": "_factoryProvider.default.getStaticAddresses is not a function",
+    "type": "SET_LIST_ORDER_ERROR",
+  },
+  Object {
+    "payload": false,
+    "type": "SET_PROCESSING",
+  },
+]
+`;
+
+exports[`orderActions sendUnlistOrder 1`] = `
+Array [
+  Object {
+    "payload": true,
+    "type": "SET_PROCESSING",
+  },
+  Object {
+    "payload": "_factoryProvider.default.getStaticAddresses is not a function",
+    "type": "SET_UNLIST_ORDER_ERROR",
+  },
+  Object {
+    "payload": false,
+    "type": "SET_PROCESSING",
+  },
+]
+`;
+
+exports[`orderActions setProcessing 1`] = `
+Array [
+  Object {
+    "payload": undefined,
+    "type": "SET_PROCESSING",
+  },
+]
+`;
