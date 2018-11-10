@@ -8,7 +8,7 @@ import {
   SET_LIST_ORDER,
   SET_LIST_ORDER_ERROR,
   SET_LIST_ORDER_APPROVED,
-  SET_LIST_ORDER_APPROVE_ERROR
+  SET_LIST_ORDER_APPROVE_ERROR,
 } from '../../actions/types';
 
 describe('orderReducer', () => {
@@ -16,7 +16,7 @@ describe('orderReducer', () => {
     orderDetails: '',
     buy: {
       id: '',
-      orderId: 0
+      orderId: 0,
     },
     buyOrderError: null,
     list: {
@@ -24,15 +24,15 @@ describe('orderReducer', () => {
       token: '',
       price: 0,
       tokenAmount: '',
-      approved: false
+      approved: false,
     },
     listOrderError: null,
     listOrderApproveError: null,
     unlist: {
       id: '',
-      orderId: ''
+      orderId: '',
     },
-    unlistOrderError: null
+    unlistOrderError: null,
   };
 
   describe('initialState', () => {
@@ -47,12 +47,12 @@ describe('orderReducer', () => {
     it('returns the correct state', () => {
       const action = {
         type: SET_ORDER_DETAILS,
-        payload: ['0x0xxxxxx0(10/01-01-18)']
+        payload: ['0x0xxxxxx0(10/01-01-18)'],
       };
 
       const expectedState = {
         ...initialState,
-        orderDetails: ['0x0xxxxxx0(10/01-01-18)']
+        orderDetails: ['0x0xxxxxx0(10/01-01-18)'],
       };
 
       const state = orderReducer(initialState, action);
@@ -66,16 +66,16 @@ describe('orderReducer', () => {
         type: SET_BUY_ORDER_RECEIPT,
         payload: {
           id: '0x00x0xxxxxx0',
-          orderId: '0x0xxx'
-        }
+          orderId: '0x0xxx',
+        },
       };
 
       const expectedState = {
         ...initialState,
         buy: {
           id: '0x00x0xxxxxx0',
-          orderId: '0x0xxx'
-        }
+          orderId: '0x0xxx',
+        },
       };
 
       const state = orderReducer(initialState, action);
@@ -87,12 +87,12 @@ describe('orderReducer', () => {
     it('returns the correct state', () => {
       const action = {
         type: SET_BUY_ORDER_ERROR,
-        payload: 'Buy Order Error Message'
+        payload: 'Buy Order Error Message',
       };
 
       const expectedState = {
         ...initialState,
-        buyOrderError: 'Buy Order Error Message'
+        buyOrderError: 'Buy Order Error Message',
       };
 
       const state = orderReducer(initialState, action);
@@ -106,16 +106,16 @@ describe('orderReducer', () => {
         type: SET_UNLIST_ORDER_RECEIPT,
         payload: {
           id: '0x00x0xxxxxx0',
-          orderId: '0x0xxx'
-        }
+          orderId: '0x0xxx',
+        },
       };
 
       const expectedState = {
         ...initialState,
         unlist: {
           id: '0x00x0xxxxxx0',
-          orderId: '0x0xxx'
-        }
+          orderId: '0x0xxx',
+        },
       };
 
       const state = orderReducer(initialState, action);
@@ -127,12 +127,12 @@ describe('orderReducer', () => {
     it('returns the correct state', () => {
       const action = {
         type: SET_UNLIST_ORDER_ERROR,
-        payload: 'Unlist Order Error Message'
+        payload: 'Unlist Order Error Message',
       };
 
       const expectedState = {
         ...initialState,
-        unlistOrderError: 'Unlist Order Error Message'
+        unlistOrderError: 'Unlist Order Error Message',
       };
 
       const state = orderReducer(initialState, action);
@@ -148,8 +148,8 @@ describe('orderReducer', () => {
           id: '0x00x0xxxxxx0',
           token: '0x0xxx',
           price: 10,
-          amount: 0.5
-        }
+          amount: 0.5,
+        },
       };
 
       const expectedState = {
@@ -159,8 +159,8 @@ describe('orderReducer', () => {
           id: '0x00x0xxxxxx0',
           token: '0x0xxx',
           price: 10,
-          amount: 0.5
-        }
+          amount: 0.5,
+        },
       };
 
       const state = orderReducer(initialState, action);
@@ -172,12 +172,12 @@ describe('orderReducer', () => {
     it('returns the correct state', () => {
       const action = {
         type: SET_LIST_ORDER_ERROR,
-        payload: 'List Order Error Message'
+        payload: 'List Order Error Message',
       };
 
       const expectedState = {
         ...initialState,
-        listOrderError: 'List Order Error Message'
+        listOrderError: 'List Order Error Message',
       };
 
       const state = orderReducer(initialState, action);
@@ -194,8 +194,8 @@ describe('orderReducer', () => {
         token: '0x0xxx',
         price: 10,
 
-        approved: false
-      }
+        approved: false,
+      },
     };
 
     it('returns the correct state', () => {
@@ -205,7 +205,7 @@ describe('orderReducer', () => {
           token: '0x0xxx',
           tokenAmount: 0.1,
           approved: true,
-        }
+        },
       };
 
       const expectedState = {
@@ -215,8 +215,8 @@ describe('orderReducer', () => {
           id: '0x00x0xxxxxx0',
           price: 10,
           token: '0x0xxx',
-          tokenAmount: 0.1
-        }
+          tokenAmount: 0.1,
+        },
       };
 
       const state = orderReducer(_initialState, action);
@@ -228,12 +228,12 @@ describe('orderReducer', () => {
     it('returns the correct state', () => {
       const action = {
         type: SET_LIST_ORDER_APPROVE_ERROR,
-        payload: 'List Order Approve Error'
+        payload: 'List Order Approve Error',
       };
 
       const expectedState = {
         ...initialState,
-        listOrderApproveError: 'List Order Approve Error'
+        listOrderApproveError: 'List Order Approve Error',
       };
 
       const state = orderReducer(initialState, action);

@@ -15,7 +15,7 @@ import {
   SET_LIST_ORDER_APPROVED,
   SET_LIST_ORDER_APPROVE_ERROR,
   SET_PROCESSING,
-  SET_FETCHING_ERROR
+  SET_FETCHING_ERROR,
 } from '../../actions/types';
 
 import * as orderActions from '../../actions/orderActions';
@@ -26,30 +26,32 @@ const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
 const store = mockStore({});
 
-jest.unmock('../../ethereum')
+jest.unmock('../../ethereum');
 jest.mock('../../ethereum', () => {
-  const mockFactory = { isWhitelisted: jest.fn().mockImplementation(() => false) }
+  const mockFactory = {
+    isWhitelisted: jest.fn().mockImplementation(() => false),
+  };
   return {
     web3: {
       eth: {
         getAccounts: jest.fn(),
         net: {
           getId: jest.fn().mockImplementation(() => 4),
-        }
-      }
+        },
+      },
     },
     Factory: {
-      at: jest.fn().mockImplementation(() => mockFactory )
-    }
-  }
-})
+      at: jest.fn().mockImplementation(() => mockFactory),
+    },
+  };
+});
 
-jest.unmock('../../factoryProvider')
+jest.unmock('../../factoryProvider');
 jest.mock('../../factoryProvider', () => {
   return {
-    factories: jest.fn().mockImplementation(() => [ {address: '0x000'} ])
-  }
-})
+    factories: jest.fn().mockImplementation(() => [{ address: '0x000' }]),
+  };
+});
 
 describe('orderActions', () => {
   afterEach(() => {
@@ -62,24 +64,24 @@ describe('orderActions', () => {
     const actions = store.getActions();
     const expectedActions = {
       type: SET_ORDER_DETAILS,
-      payload: ''
+      payload: '',
     };
     expect(actions).toEqual([expectedActions]);
   });
 
   it('sendSendFundsOrder Fails', () => {
     const store = mockStore({});
-    const processingStartStatus = { type: SET_PROCESSING, payload: true }
-    const processingStopStatus = { type: SET_PROCESSING, payload: false }
-    const newContractMock = { currency: 'BTC', amount: 99.99 }
-    const accountMock = {}
-    return store.dispatch(orderActions.sendSendFundsOrder(newContractMock, accountMock))
+    const processingStartStatus = { type: SET_PROCESSING, payload: true };
+    const processingStopStatus = { type: SET_PROCESSING, payload: false };
+    const newContractMock = { currency: 'BTC', amount: 99.99 };
+    const accountMock = {};
+    return store
+      .dispatch(orderActions.sendSendFundsOrder(newContractMock, accountMock))
       .then(() => {
-        const actions = store.getActions()
+        const actions = store.getActions();
         expect(actions[0]).toEqual(processingStartStatus);
         expect(actions[1].type).toEqual(SET_SEND_FUNDS_ERROR);
         expect(actions[2]).toEqual(processingStopStatus);
-    });
+      });
   });
-
 });

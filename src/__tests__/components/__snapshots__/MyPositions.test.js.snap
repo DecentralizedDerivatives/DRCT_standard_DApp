@@ -1,6 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<MyPositions /> render() renders the component 1`] = `
+exports[`<MyPositions /> formats percentage 1`] = `
+<span>
+   
+  $0
+   
+</span>
+`;
+
+exports[`<MyPositions /> formats percentage 2`] = `
+<span>
+   
+  --
+   
+</span>
+`;
+
+exports[`<MyPositions /> formats percentage 3`] = `
+<span
+  className="warning"
+>
+  -1.00%
+</span>
+`;
+
+exports[`<MyPositions /> formats percentage 4`] = `
+<span
+  className="success"
+>
+  1.00%
+</span>
+`;
+
+exports[`<MyPositions /> renders empty component 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <MyPositions
@@ -697,6 +729,2470 @@ ShallowWrapper {
                 },
                 "type": "tr",
               },
+              "type": "tbody",
+            },
+          ],
+          "type": "table",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`<MyPositions /> renders loading component 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <MyPositions
+    loading={true}
+    store={
+      Object {
+        "dispatch": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+        Symbol(observable): [Function],
+      }
+    }
+    storeSubscription={
+      Subscription {
+        "listeners": Object {
+          "clear": [Function],
+          "get": [Function],
+          "notify": [Function],
+          "subscribe": [Function],
+        },
+        "onStateChange": [Function],
+        "parentSub": undefined,
+        "store": Object {
+          "dispatch": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+          Symbol(observable): [Function],
+        },
+        "unsubscribe": [Function],
+      }
+    }
+    userPositions={
+      Array [
+        Object {
+          "address": "0xd41070659dbcdf364914fdeaa55ebfa4ea9571d0",
+          "balance": 50,
+          "contractDuration": 42,
+          "contractGain": 3.5,
+          "contractMultiplier": 2.5,
+          "date": "10/26/2018",
+          "symbol": "ETH/USD",
+          "tokenType": "Long",
+        },
+        Object {
+          "address": "0xd41070659dbcdf364914fdeaa55ebfa4ea9571d0",
+          "balance": 50,
+          "contractDuration": 42,
+          "contractGain": 0,
+          "contractMultiplier": 2.5,
+          "date": "10/26/2018",
+          "symbol": "ETH/USD",
+          "tokenType": "Long",
+        },
+        Object {
+          "address": "0xd41070659dbcdf364914fdeaa55ebfa4ea9571d0",
+          "balance": 50,
+          "contractDuration": 42,
+          "contractGain": -1,
+          "contractMultiplier": 2.5,
+          "date": "10/26/2018",
+          "symbol": "ETH/USD",
+          "tokenType": "Long",
+        },
+      ]
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="table-title"
+        >
+          My Tokens
+        </div>,
+        <table
+          className="table table-hover table-striped"
+        >
+          <thead>
+            <tr>
+              <th
+                style={
+                  Object {
+                    "width": "30%",
+                  }
+                }
+              >
+                Asset
+              </th>
+              <th
+                style={
+                  Object {
+                    "width": "20%",
+                  }
+                }
+              >
+                Balance
+              </th>
+              <th>
+                Start Date
+              </th>
+              <th>
+                Gain/Loss
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td
+                colSpan="12"
+                style={
+                  Object {
+                    "textAlign": "center",
+                  }
+                }
+              >
+                <Loading />
+              </td>
+            </tr>
+          </tbody>
+        </table>,
+      ],
+      "className": "wide-table-container",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "My Tokens",
+          "className": "table-title",
+        },
+        "ref": null,
+        "rendered": "My Tokens",
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <thead>
+              <tr>
+                <th
+                  style={
+                    Object {
+                      "width": "30%",
+                    }
+                  }
+                >
+                  Asset
+                </th>
+                <th
+                  style={
+                    Object {
+                      "width": "20%",
+                    }
+                  }
+                >
+                  Balance
+                </th>
+                <th>
+                  Start Date
+                </th>
+                <th>
+                  Gain/Loss
+                </th>
+              </tr>
+            </thead>,
+            <tbody>
+              <tr>
+                <td
+                  colSpan="12"
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  <Loading />
+                </td>
+              </tr>
+            </tbody>,
+          ],
+          "className": "table table-hover table-striped",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <tr>
+                <th
+                  style={
+                    Object {
+                      "width": "30%",
+                    }
+                  }
+                >
+                  Asset
+                </th>
+                <th
+                  style={
+                    Object {
+                      "width": "20%",
+                    }
+                  }
+                >
+                  Balance
+                </th>
+                <th>
+                  Start Date
+                </th>
+                <th>
+                  Gain/Loss
+                </th>
+              </tr>,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <th
+                    style={
+                      Object {
+                        "width": "30%",
+                      }
+                    }
+                  >
+                    Asset
+                  </th>,
+                  <th
+                    style={
+                      Object {
+                        "width": "20%",
+                      }
+                    }
+                  >
+                    Balance
+                  </th>,
+                  <th>
+                    Start Date
+                  </th>,
+                  <th>
+                    Gain/Loss
+                  </th>,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Asset",
+                    "style": Object {
+                      "width": "30%",
+                    },
+                  },
+                  "ref": null,
+                  "rendered": "Asset",
+                  "type": "th",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Balance",
+                    "style": Object {
+                      "width": "20%",
+                    },
+                  },
+                  "ref": null,
+                  "rendered": "Balance",
+                  "type": "th",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Start Date",
+                  },
+                  "ref": null,
+                  "rendered": "Start Date",
+                  "type": "th",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Gain/Loss",
+                  },
+                  "ref": null,
+                  "rendered": "Gain/Loss",
+                  "type": "th",
+                },
+              ],
+              "type": "tr",
+            },
+            "type": "thead",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <tr>
+                <td
+                  colSpan="12"
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  <Loading />
+                </td>
+              </tr>,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <td
+                  colSpan="12"
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  <Loading />
+                </td>,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <Loading />,
+                  "colSpan": "12",
+                  "style": Object {
+                    "textAlign": "center",
+                  },
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {},
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                "type": "td",
+              },
+              "type": "tr",
+            },
+            "type": "tbody",
+          },
+        ],
+        "type": "table",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="table-title"
+          >
+            My Tokens
+          </div>,
+          <table
+            className="table table-hover table-striped"
+          >
+            <thead>
+              <tr>
+                <th
+                  style={
+                    Object {
+                      "width": "30%",
+                    }
+                  }
+                >
+                  Asset
+                </th>
+                <th
+                  style={
+                    Object {
+                      "width": "20%",
+                    }
+                  }
+                >
+                  Balance
+                </th>
+                <th>
+                  Start Date
+                </th>
+                <th>
+                  Gain/Loss
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td
+                  colSpan="12"
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  <Loading />
+                </td>
+              </tr>
+            </tbody>
+          </table>,
+        ],
+        "className": "wide-table-container",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "My Tokens",
+            "className": "table-title",
+          },
+          "ref": null,
+          "rendered": "My Tokens",
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <thead>
+                <tr>
+                  <th
+                    style={
+                      Object {
+                        "width": "30%",
+                      }
+                    }
+                  >
+                    Asset
+                  </th>
+                  <th
+                    style={
+                      Object {
+                        "width": "20%",
+                      }
+                    }
+                  >
+                    Balance
+                  </th>
+                  <th>
+                    Start Date
+                  </th>
+                  <th>
+                    Gain/Loss
+                  </th>
+                </tr>
+              </thead>,
+              <tbody>
+                <tr>
+                  <td
+                    colSpan="12"
+                    style={
+                      Object {
+                        "textAlign": "center",
+                      }
+                    }
+                  >
+                    <Loading />
+                  </td>
+                </tr>
+              </tbody>,
+            ],
+            "className": "table table-hover table-striped",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <tr>
+                  <th
+                    style={
+                      Object {
+                        "width": "30%",
+                      }
+                    }
+                  >
+                    Asset
+                  </th>
+                  <th
+                    style={
+                      Object {
+                        "width": "20%",
+                      }
+                    }
+                  >
+                    Balance
+                  </th>
+                  <th>
+                    Start Date
+                  </th>
+                  <th>
+                    Gain/Loss
+                  </th>
+                </tr>,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <th
+                      style={
+                        Object {
+                          "width": "30%",
+                        }
+                      }
+                    >
+                      Asset
+                    </th>,
+                    <th
+                      style={
+                        Object {
+                          "width": "20%",
+                        }
+                      }
+                    >
+                      Balance
+                    </th>,
+                    <th>
+                      Start Date
+                    </th>,
+                    <th>
+                      Gain/Loss
+                    </th>,
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Asset",
+                      "style": Object {
+                        "width": "30%",
+                      },
+                    },
+                    "ref": null,
+                    "rendered": "Asset",
+                    "type": "th",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Balance",
+                      "style": Object {
+                        "width": "20%",
+                      },
+                    },
+                    "ref": null,
+                    "rendered": "Balance",
+                    "type": "th",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Start Date",
+                    },
+                    "ref": null,
+                    "rendered": "Start Date",
+                    "type": "th",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Gain/Loss",
+                    },
+                    "ref": null,
+                    "rendered": "Gain/Loss",
+                    "type": "th",
+                  },
+                ],
+                "type": "tr",
+              },
+              "type": "thead",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <tr>
+                  <td
+                    colSpan="12"
+                    style={
+                      Object {
+                        "textAlign": "center",
+                      }
+                    }
+                  >
+                    <Loading />
+                  </td>
+                </tr>,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <td
+                    colSpan="12"
+                    style={
+                      Object {
+                        "textAlign": "center",
+                      }
+                    }
+                  >
+                    <Loading />
+                  </td>,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <Loading />,
+                    "colSpan": "12",
+                    "style": Object {
+                      "textAlign": "center",
+                    },
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "function",
+                    "props": Object {},
+                    "ref": null,
+                    "rendered": null,
+                    "type": [Function],
+                  },
+                  "type": "td",
+                },
+                "type": "tr",
+              },
+              "type": "tbody",
+            },
+          ],
+          "type": "table",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`<MyPositions /> renders the component 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <MyPositions
+    loading={false}
+    store={
+      Object {
+        "dispatch": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+        Symbol(observable): [Function],
+      }
+    }
+    storeSubscription={
+      Subscription {
+        "listeners": Object {
+          "clear": [Function],
+          "get": [Function],
+          "notify": [Function],
+          "subscribe": [Function],
+        },
+        "onStateChange": [Function],
+        "parentSub": undefined,
+        "store": Object {
+          "dispatch": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+          Symbol(observable): [Function],
+        },
+        "unsubscribe": [Function],
+      }
+    }
+    userPositions={
+      Array [
+        Object {
+          "address": "0xd41070659dbcdf364914fdeaa55ebfa4ea9571d0",
+          "balance": 50,
+          "contractDuration": 42,
+          "contractGain": 3.5,
+          "contractMultiplier": 2.5,
+          "date": "10/26/2018",
+          "symbol": "ETH/USD",
+          "tokenType": "Long",
+        },
+        Object {
+          "address": "0xd41070659dbcdf364914fdeaa55ebfa4ea9571d0",
+          "balance": 50,
+          "contractDuration": 42,
+          "contractGain": 0,
+          "contractMultiplier": 2.5,
+          "date": "10/26/2018",
+          "symbol": "ETH/USD",
+          "tokenType": "Long",
+        },
+        Object {
+          "address": "0xd41070659dbcdf364914fdeaa55ebfa4ea9571d0",
+          "balance": 50,
+          "contractDuration": 42,
+          "contractGain": -1,
+          "contractMultiplier": 2.5,
+          "date": "10/26/2018",
+          "symbol": "ETH/USD",
+          "tokenType": "Long",
+        },
+      ]
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="table-title"
+        >
+          My Tokens
+        </div>,
+        <table
+          className="table table-hover table-striped"
+        >
+          <thead>
+            <tr>
+              <th
+                style={
+                  Object {
+                    "width": "30%",
+                  }
+                }
+              >
+                Asset
+              </th>
+              <th
+                style={
+                  Object {
+                    "width": "20%",
+                  }
+                }
+              >
+                Balance
+              </th>
+              <th>
+                Start Date
+              </th>
+              <th>
+                Gain/Loss
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                Long
+                 
+                ETH/USD
+                 - 
+                42
+                 Days - 
+                2.5
+                X
+              </td>
+              <td>
+                50
+              </td>
+              <td>
+                10/26/2018
+              </td>
+              <td>
+                <span
+                  className="success"
+                >
+                  3.50%
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Long
+                 
+                ETH/USD
+                 - 
+                42
+                 Days - 
+                2.5
+                X
+              </td>
+              <td>
+                50
+              </td>
+              <td>
+                10/26/2018
+              </td>
+              <td>
+                <span>
+                   
+                   -- 
+                   
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Long
+                 
+                ETH/USD
+                 - 
+                42
+                 Days - 
+                2.5
+                X
+              </td>
+              <td>
+                50
+              </td>
+              <td>
+                10/26/2018
+              </td>
+              <td>
+                <span
+                  className="warning"
+                >
+                  -1.00%
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>,
+      ],
+      "className": "wide-table-container",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "My Tokens",
+          "className": "table-title",
+        },
+        "ref": null,
+        "rendered": "My Tokens",
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <thead>
+              <tr>
+                <th
+                  style={
+                    Object {
+                      "width": "30%",
+                    }
+                  }
+                >
+                  Asset
+                </th>
+                <th
+                  style={
+                    Object {
+                      "width": "20%",
+                    }
+                  }
+                >
+                  Balance
+                </th>
+                <th>
+                  Start Date
+                </th>
+                <th>
+                  Gain/Loss
+                </th>
+              </tr>
+            </thead>,
+            <tbody>
+              <tr>
+                <td>
+                  Long
+                   
+                  ETH/USD
+                   - 
+                  42
+                   Days - 
+                  2.5
+                  X
+                </td>
+                <td>
+                  50
+                </td>
+                <td>
+                  10/26/2018
+                </td>
+                <td>
+                  <span
+                    className="success"
+                  >
+                    3.50%
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Long
+                   
+                  ETH/USD
+                   - 
+                  42
+                   Days - 
+                  2.5
+                  X
+                </td>
+                <td>
+                  50
+                </td>
+                <td>
+                  10/26/2018
+                </td>
+                <td>
+                  <span>
+                     
+                     -- 
+                     
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Long
+                   
+                  ETH/USD
+                   - 
+                  42
+                   Days - 
+                  2.5
+                  X
+                </td>
+                <td>
+                  50
+                </td>
+                <td>
+                  10/26/2018
+                </td>
+                <td>
+                  <span
+                    className="warning"
+                  >
+                    -1.00%
+                  </span>
+                </td>
+              </tr>
+            </tbody>,
+          ],
+          "className": "table table-hover table-striped",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <tr>
+                <th
+                  style={
+                    Object {
+                      "width": "30%",
+                    }
+                  }
+                >
+                  Asset
+                </th>
+                <th
+                  style={
+                    Object {
+                      "width": "20%",
+                    }
+                  }
+                >
+                  Balance
+                </th>
+                <th>
+                  Start Date
+                </th>
+                <th>
+                  Gain/Loss
+                </th>
+              </tr>,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <th
+                    style={
+                      Object {
+                        "width": "30%",
+                      }
+                    }
+                  >
+                    Asset
+                  </th>,
+                  <th
+                    style={
+                      Object {
+                        "width": "20%",
+                      }
+                    }
+                  >
+                    Balance
+                  </th>,
+                  <th>
+                    Start Date
+                  </th>,
+                  <th>
+                    Gain/Loss
+                  </th>,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Asset",
+                    "style": Object {
+                      "width": "30%",
+                    },
+                  },
+                  "ref": null,
+                  "rendered": "Asset",
+                  "type": "th",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Balance",
+                    "style": Object {
+                      "width": "20%",
+                    },
+                  },
+                  "ref": null,
+                  "rendered": "Balance",
+                  "type": "th",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Start Date",
+                  },
+                  "ref": null,
+                  "rendered": "Start Date",
+                  "type": "th",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Gain/Loss",
+                  },
+                  "ref": null,
+                  "rendered": "Gain/Loss",
+                  "type": "th",
+                },
+              ],
+              "type": "tr",
+            },
+            "type": "thead",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <tr>
+                  <td>
+                    Long
+                     
+                    ETH/USD
+                     - 
+                    42
+                     Days - 
+                    2.5
+                    X
+                  </td>
+                  <td>
+                    50
+                  </td>
+                  <td>
+                    10/26/2018
+                  </td>
+                  <td>
+                    <span
+                      className="success"
+                    >
+                      3.50%
+                    </span>
+                  </td>
+                </tr>,
+                <tr>
+                  <td>
+                    Long
+                     
+                    ETH/USD
+                     - 
+                    42
+                     Days - 
+                    2.5
+                    X
+                  </td>
+                  <td>
+                    50
+                  </td>
+                  <td>
+                    10/26/2018
+                  </td>
+                  <td>
+                    <span>
+                       
+                       -- 
+                       
+                    </span>
+                  </td>
+                </tr>,
+                <tr>
+                  <td>
+                    Long
+                     
+                    ETH/USD
+                     - 
+                    42
+                     Days - 
+                    2.5
+                    X
+                  </td>
+                  <td>
+                    50
+                  </td>
+                  <td>
+                    10/26/2018
+                  </td>
+                  <td>
+                    <span
+                      className="warning"
+                    >
+                      -1.00%
+                    </span>
+                  </td>
+                </tr>,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": "0",
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <td>
+                      Long
+                       
+                      ETH/USD
+                       - 
+                      42
+                       Days - 
+                      2.5
+                      X
+                    </td>,
+                    <td>
+                      50
+                    </td>,
+                    <td>
+                      10/26/2018
+                    </td>,
+                    <td>
+                      <span
+                        className="success"
+                      >
+                        3.50%
+                      </span>
+                    </td>,
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        "Long",
+                        " ",
+                        "ETH/USD",
+                        " - ",
+                        42,
+                        " Days - ",
+                        2.5,
+                        "X",
+                      ],
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      "Long",
+                      " ",
+                      "ETH/USD",
+                      " - ",
+                      42,
+                      " Days - ",
+                      2.5,
+                      "X",
+                    ],
+                    "type": "td",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": 50,
+                    },
+                    "ref": null,
+                    "rendered": 50,
+                    "type": "td",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "10/26/2018",
+                    },
+                    "ref": null,
+                    "rendered": "10/26/2018",
+                    "type": "td",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": <span
+                        className="success"
+                      >
+                        3.50%
+                      </span>,
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "3.50%",
+                        "className": "success",
+                      },
+                      "ref": null,
+                      "rendered": "3.50%",
+                      "type": "span",
+                    },
+                    "type": "td",
+                  },
+                ],
+                "type": "tr",
+              },
+              Object {
+                "instance": null,
+                "key": "1",
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <td>
+                      Long
+                       
+                      ETH/USD
+                       - 
+                      42
+                       Days - 
+                      2.5
+                      X
+                    </td>,
+                    <td>
+                      50
+                    </td>,
+                    <td>
+                      10/26/2018
+                    </td>,
+                    <td>
+                      <span>
+                         
+                         -- 
+                         
+                      </span>
+                    </td>,
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        "Long",
+                        " ",
+                        "ETH/USD",
+                        " - ",
+                        42,
+                        " Days - ",
+                        2.5,
+                        "X",
+                      ],
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      "Long",
+                      " ",
+                      "ETH/USD",
+                      " - ",
+                      42,
+                      " Days - ",
+                      2.5,
+                      "X",
+                    ],
+                    "type": "td",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": 50,
+                    },
+                    "ref": null,
+                    "rendered": 50,
+                    "type": "td",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "10/26/2018",
+                    },
+                    "ref": null,
+                    "rendered": "10/26/2018",
+                    "type": "td",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": <span>
+                         
+                         -- 
+                         
+                      </span>,
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          " ",
+                          " -- ",
+                          " ",
+                        ],
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        " ",
+                        " -- ",
+                        " ",
+                      ],
+                      "type": "span",
+                    },
+                    "type": "td",
+                  },
+                ],
+                "type": "tr",
+              },
+              Object {
+                "instance": null,
+                "key": "2",
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <td>
+                      Long
+                       
+                      ETH/USD
+                       - 
+                      42
+                       Days - 
+                      2.5
+                      X
+                    </td>,
+                    <td>
+                      50
+                    </td>,
+                    <td>
+                      10/26/2018
+                    </td>,
+                    <td>
+                      <span
+                        className="warning"
+                      >
+                        -1.00%
+                      </span>
+                    </td>,
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        "Long",
+                        " ",
+                        "ETH/USD",
+                        " - ",
+                        42,
+                        " Days - ",
+                        2.5,
+                        "X",
+                      ],
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      "Long",
+                      " ",
+                      "ETH/USD",
+                      " - ",
+                      42,
+                      " Days - ",
+                      2.5,
+                      "X",
+                    ],
+                    "type": "td",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": 50,
+                    },
+                    "ref": null,
+                    "rendered": 50,
+                    "type": "td",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "10/26/2018",
+                    },
+                    "ref": null,
+                    "rendered": "10/26/2018",
+                    "type": "td",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": <span
+                        className="warning"
+                      >
+                        -1.00%
+                      </span>,
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "-1.00%",
+                        "className": "warning",
+                      },
+                      "ref": null,
+                      "rendered": "-1.00%",
+                      "type": "span",
+                    },
+                    "type": "td",
+                  },
+                ],
+                "type": "tr",
+              },
+            ],
+            "type": "tbody",
+          },
+        ],
+        "type": "table",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="table-title"
+          >
+            My Tokens
+          </div>,
+          <table
+            className="table table-hover table-striped"
+          >
+            <thead>
+              <tr>
+                <th
+                  style={
+                    Object {
+                      "width": "30%",
+                    }
+                  }
+                >
+                  Asset
+                </th>
+                <th
+                  style={
+                    Object {
+                      "width": "20%",
+                    }
+                  }
+                >
+                  Balance
+                </th>
+                <th>
+                  Start Date
+                </th>
+                <th>
+                  Gain/Loss
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  Long
+                   
+                  ETH/USD
+                   - 
+                  42
+                   Days - 
+                  2.5
+                  X
+                </td>
+                <td>
+                  50
+                </td>
+                <td>
+                  10/26/2018
+                </td>
+                <td>
+                  <span
+                    className="success"
+                  >
+                    3.50%
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Long
+                   
+                  ETH/USD
+                   - 
+                  42
+                   Days - 
+                  2.5
+                  X
+                </td>
+                <td>
+                  50
+                </td>
+                <td>
+                  10/26/2018
+                </td>
+                <td>
+                  <span>
+                     
+                     -- 
+                     
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Long
+                   
+                  ETH/USD
+                   - 
+                  42
+                   Days - 
+                  2.5
+                  X
+                </td>
+                <td>
+                  50
+                </td>
+                <td>
+                  10/26/2018
+                </td>
+                <td>
+                  <span
+                    className="warning"
+                  >
+                    -1.00%
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>,
+        ],
+        "className": "wide-table-container",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "My Tokens",
+            "className": "table-title",
+          },
+          "ref": null,
+          "rendered": "My Tokens",
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <thead>
+                <tr>
+                  <th
+                    style={
+                      Object {
+                        "width": "30%",
+                      }
+                    }
+                  >
+                    Asset
+                  </th>
+                  <th
+                    style={
+                      Object {
+                        "width": "20%",
+                      }
+                    }
+                  >
+                    Balance
+                  </th>
+                  <th>
+                    Start Date
+                  </th>
+                  <th>
+                    Gain/Loss
+                  </th>
+                </tr>
+              </thead>,
+              <tbody>
+                <tr>
+                  <td>
+                    Long
+                     
+                    ETH/USD
+                     - 
+                    42
+                     Days - 
+                    2.5
+                    X
+                  </td>
+                  <td>
+                    50
+                  </td>
+                  <td>
+                    10/26/2018
+                  </td>
+                  <td>
+                    <span
+                      className="success"
+                    >
+                      3.50%
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Long
+                     
+                    ETH/USD
+                     - 
+                    42
+                     Days - 
+                    2.5
+                    X
+                  </td>
+                  <td>
+                    50
+                  </td>
+                  <td>
+                    10/26/2018
+                  </td>
+                  <td>
+                    <span>
+                       
+                       -- 
+                       
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Long
+                     
+                    ETH/USD
+                     - 
+                    42
+                     Days - 
+                    2.5
+                    X
+                  </td>
+                  <td>
+                    50
+                  </td>
+                  <td>
+                    10/26/2018
+                  </td>
+                  <td>
+                    <span
+                      className="warning"
+                    >
+                      -1.00%
+                    </span>
+                  </td>
+                </tr>
+              </tbody>,
+            ],
+            "className": "table table-hover table-striped",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <tr>
+                  <th
+                    style={
+                      Object {
+                        "width": "30%",
+                      }
+                    }
+                  >
+                    Asset
+                  </th>
+                  <th
+                    style={
+                      Object {
+                        "width": "20%",
+                      }
+                    }
+                  >
+                    Balance
+                  </th>
+                  <th>
+                    Start Date
+                  </th>
+                  <th>
+                    Gain/Loss
+                  </th>
+                </tr>,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <th
+                      style={
+                        Object {
+                          "width": "30%",
+                        }
+                      }
+                    >
+                      Asset
+                    </th>,
+                    <th
+                      style={
+                        Object {
+                          "width": "20%",
+                        }
+                      }
+                    >
+                      Balance
+                    </th>,
+                    <th>
+                      Start Date
+                    </th>,
+                    <th>
+                      Gain/Loss
+                    </th>,
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Asset",
+                      "style": Object {
+                        "width": "30%",
+                      },
+                    },
+                    "ref": null,
+                    "rendered": "Asset",
+                    "type": "th",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Balance",
+                      "style": Object {
+                        "width": "20%",
+                      },
+                    },
+                    "ref": null,
+                    "rendered": "Balance",
+                    "type": "th",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Start Date",
+                    },
+                    "ref": null,
+                    "rendered": "Start Date",
+                    "type": "th",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Gain/Loss",
+                    },
+                    "ref": null,
+                    "rendered": "Gain/Loss",
+                    "type": "th",
+                  },
+                ],
+                "type": "tr",
+              },
+              "type": "thead",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <tr>
+                    <td>
+                      Long
+                       
+                      ETH/USD
+                       - 
+                      42
+                       Days - 
+                      2.5
+                      X
+                    </td>
+                    <td>
+                      50
+                    </td>
+                    <td>
+                      10/26/2018
+                    </td>
+                    <td>
+                      <span
+                        className="success"
+                      >
+                        3.50%
+                      </span>
+                    </td>
+                  </tr>,
+                  <tr>
+                    <td>
+                      Long
+                       
+                      ETH/USD
+                       - 
+                      42
+                       Days - 
+                      2.5
+                      X
+                    </td>
+                    <td>
+                      50
+                    </td>
+                    <td>
+                      10/26/2018
+                    </td>
+                    <td>
+                      <span>
+                         
+                         -- 
+                         
+                      </span>
+                    </td>
+                  </tr>,
+                  <tr>
+                    <td>
+                      Long
+                       
+                      ETH/USD
+                       - 
+                      42
+                       Days - 
+                      2.5
+                      X
+                    </td>
+                    <td>
+                      50
+                    </td>
+                    <td>
+                      10/26/2018
+                    </td>
+                    <td>
+                      <span
+                        className="warning"
+                      >
+                        -1.00%
+                      </span>
+                    </td>
+                  </tr>,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": "0",
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <td>
+                        Long
+                         
+                        ETH/USD
+                         - 
+                        42
+                         Days - 
+                        2.5
+                        X
+                      </td>,
+                      <td>
+                        50
+                      </td>,
+                      <td>
+                        10/26/2018
+                      </td>,
+                      <td>
+                        <span
+                          className="success"
+                        >
+                          3.50%
+                        </span>
+                      </td>,
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          "Long",
+                          " ",
+                          "ETH/USD",
+                          " - ",
+                          42,
+                          " Days - ",
+                          2.5,
+                          "X",
+                        ],
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        "Long",
+                        " ",
+                        "ETH/USD",
+                        " - ",
+                        42,
+                        " Days - ",
+                        2.5,
+                        "X",
+                      ],
+                      "type": "td",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": 50,
+                      },
+                      "ref": null,
+                      "rendered": 50,
+                      "type": "td",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "10/26/2018",
+                      },
+                      "ref": null,
+                      "rendered": "10/26/2018",
+                      "type": "td",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": <span
+                          className="success"
+                        >
+                          3.50%
+                        </span>,
+                      },
+                      "ref": null,
+                      "rendered": Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "3.50%",
+                          "className": "success",
+                        },
+                        "ref": null,
+                        "rendered": "3.50%",
+                        "type": "span",
+                      },
+                      "type": "td",
+                    },
+                  ],
+                  "type": "tr",
+                },
+                Object {
+                  "instance": null,
+                  "key": "1",
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <td>
+                        Long
+                         
+                        ETH/USD
+                         - 
+                        42
+                         Days - 
+                        2.5
+                        X
+                      </td>,
+                      <td>
+                        50
+                      </td>,
+                      <td>
+                        10/26/2018
+                      </td>,
+                      <td>
+                        <span>
+                           
+                           -- 
+                           
+                        </span>
+                      </td>,
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          "Long",
+                          " ",
+                          "ETH/USD",
+                          " - ",
+                          42,
+                          " Days - ",
+                          2.5,
+                          "X",
+                        ],
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        "Long",
+                        " ",
+                        "ETH/USD",
+                        " - ",
+                        42,
+                        " Days - ",
+                        2.5,
+                        "X",
+                      ],
+                      "type": "td",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": 50,
+                      },
+                      "ref": null,
+                      "rendered": 50,
+                      "type": "td",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "10/26/2018",
+                      },
+                      "ref": null,
+                      "rendered": "10/26/2018",
+                      "type": "td",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": <span>
+                           
+                           -- 
+                           
+                        </span>,
+                      },
+                      "ref": null,
+                      "rendered": Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": Array [
+                            " ",
+                            " -- ",
+                            " ",
+                          ],
+                        },
+                        "ref": null,
+                        "rendered": Array [
+                          " ",
+                          " -- ",
+                          " ",
+                        ],
+                        "type": "span",
+                      },
+                      "type": "td",
+                    },
+                  ],
+                  "type": "tr",
+                },
+                Object {
+                  "instance": null,
+                  "key": "2",
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <td>
+                        Long
+                         
+                        ETH/USD
+                         - 
+                        42
+                         Days - 
+                        2.5
+                        X
+                      </td>,
+                      <td>
+                        50
+                      </td>,
+                      <td>
+                        10/26/2018
+                      </td>,
+                      <td>
+                        <span
+                          className="warning"
+                        >
+                          -1.00%
+                        </span>
+                      </td>,
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          "Long",
+                          " ",
+                          "ETH/USD",
+                          " - ",
+                          42,
+                          " Days - ",
+                          2.5,
+                          "X",
+                        ],
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        "Long",
+                        " ",
+                        "ETH/USD",
+                        " - ",
+                        42,
+                        " Days - ",
+                        2.5,
+                        "X",
+                      ],
+                      "type": "td",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": 50,
+                      },
+                      "ref": null,
+                      "rendered": 50,
+                      "type": "td",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "10/26/2018",
+                      },
+                      "ref": null,
+                      "rendered": "10/26/2018",
+                      "type": "td",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": <span
+                          className="warning"
+                        >
+                          -1.00%
+                        </span>,
+                      },
+                      "ref": null,
+                      "rendered": Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "-1.00%",
+                          "className": "warning",
+                        },
+                        "ref": null,
+                        "rendered": "-1.00%",
+                        "type": "span",
+                      },
+                      "type": "td",
+                    },
+                  ],
+                  "type": "tr",
+                },
+              ],
               "type": "tbody",
             },
           ],

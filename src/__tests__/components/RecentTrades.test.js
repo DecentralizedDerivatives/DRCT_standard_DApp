@@ -1,15 +1,31 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import { initStore } from '../../Root';
 import RecentTrades from '../../components/RecentTrades';
+import { SET_FETCH_IN_PROGRESS, SET_RECENT_TRADES } from '../../actions/types';
+
+function setup(overrides) {
+  const store = initStore(FIXTURE);
+
+  const onRowClick = jest.fn();
+  const props = { store, onRowClick, ...overrides };
+
+  const wrapper = shallow(<RecentTrades {...props} />).dive();
+
+  return {
+    wrapper,
+  };
+}
 
 describe('<RecentTrades />', () => {
-  describe('render()', () => {
-    it('renders the component', () => {
-      const wrapper = shallow(
-        <RecentTrades store={initStore()} />
-      ).dive();
-      expect(wrapper).toMatchSnapshot();
-    });
+  it('renders the component', () => {
+    const { wrapper } = setup();
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('renders loading component', () => {
+    const store = initStore(FIXTURE);
+
+    store.dispatch({ type: SET_FETCH_IN_PROGRESS, payload: SET_RECENT_TRADES });
+
+    const { wrapper } = setup({ store });
+    expect(wrapper).toMatchSnapshot();
   });
 });

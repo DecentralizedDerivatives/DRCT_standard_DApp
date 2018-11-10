@@ -4,7 +4,7 @@ import thunk from 'redux-thunk';
 import {
   SET_FETCHING_ERROR,
   SET_CONNECTION_STATUS,
-  SHOW_CONNECTION_MODAL
+  SHOW_CONNECTION_MODAL,
 } from '../../actions/types';
 
 import * as statusActions from '../../actions/statusActions';
@@ -21,34 +21,36 @@ const defaultStatusState = {
     metamask: false,
     network: 0,
     verified: false,
-    whiteListed: false
-  }
+    whiteListed: false,
+  },
 };
 
-jest.unmock('../../ethereum')
+jest.unmock('../../ethereum');
 jest.mock('../../ethereum', () => {
-  const mockFactory = { isWhitelisted: jest.fn().mockImplementation(() => false) }
+  const mockFactory = {
+    isWhitelisted: jest.fn().mockImplementation(() => false),
+  };
   return {
     web3: {
       eth: {
         getAccounts: jest.fn(),
         net: {
           getId: jest.fn().mockImplementation(() => 4),
-        }
-      }
+        },
+      },
     },
     Factory: {
-      at: jest.fn().mockImplementation(() => mockFactory )
-    }
-  }
-})
+      at: jest.fn().mockImplementation(() => mockFactory),
+    },
+  };
+});
 
-jest.unmock('../../factoryProvider')
+jest.unmock('../../factoryProvider');
 jest.mock('../../factoryProvider', () => {
   return {
-    factories: jest.fn().mockImplementation(() => [ {address: '0x000'} ])
-  }
-})
+    factories: jest.fn().mockImplementation(() => [{ address: '0x000' }]),
+  };
+});
 
 describe('statusActions', () => {
   afterEach(() => {
@@ -62,93 +64,97 @@ describe('statusActions', () => {
     const actions = store.getActions();
     const expectedActions = {
       type: SHOW_CONNECTION_MODAL,
-      payload: true
+      payload: true,
     };
     expect(actions).toEqual([expectedActions]);
   });
 
   it('connection fails', () => {
     const store = mockStore(defaultStatusState);
-    web3.eth.getAccounts = jest.fn().mockImplementation(() => { throw new Error('Intentional Error') })
+    web3.eth.getAccounts = jest.fn().mockImplementation(() => {
+      throw new Error('Intentional Error');
+    });
     const expectedStatus = {
       type: SET_CONNECTION_STATUS,
       payload: {
         metamask: false,
         network: 0,
         verified: true,
-        whiteListed: false
-      }
+        whiteListed: false,
+      },
     };
     return store.dispatch(statusActions.checkUserConnection()).then(() => {
-      const actions = store.getActions()
+      const actions = store.getActions();
       expect(actions[0]).toEqual(expectedStatus);
-      expect(actions[1].type).toEqual(SET_FETCHING_ERROR)
+      expect(actions[1].type).toEqual(SET_FETCHING_ERROR);
     });
   });
 
   it('connection succeeds no accounts', () => {
     const store = mockStore(defaultStatusState);
-    web3.eth.getAccounts = jest.fn().mockImplementation(() => [])
+    web3.eth.getAccounts = jest.fn().mockImplementation(() => []);
     const expectedStatus = {
       type: SET_CONNECTION_STATUS,
       payload: {
         metamask: false,
         network: 4,
         verified: true,
-        whiteListed: false
-      }
+        whiteListed: false,
+      },
     };
     return store.dispatch(statusActions.checkUserConnection()).then(() => {
-      expect(web3.eth.getAccounts).toHaveBeenCalled()
-      const actions = store.getActions()
+      expect(web3.eth.getAccounts).toHaveBeenCalled();
+      const actions = store.getActions();
       expect(actions).toEqual([expectedStatus]);
     });
   });
 
   it('connection succeeds whitelist fails', () => {
     const store = mockStore(defaultStatusState);
-    web3.eth.getAccounts = jest.fn().mockImplementation(() => ['0x000'])
+    web3.eth.getAccounts = jest.fn().mockImplementation(() => ['0x000']);
     const expectedStatus = {
       type: SET_CONNECTION_STATUS,
       payload: {
         metamask: true,
         network: 4,
         verified: true,
-        whiteListed: false
-      }
+        whiteListed: false,
+      },
     };
     return store.dispatch(statusActions.checkUserConnection()).then(() => {
-      expect(web3.eth.getAccounts).toHaveBeenCalled()
-      expect(FactoryProvider.factories).toHaveBeenCalled()
-      expect(Factory.at).toHaveBeenCalled()
-      const actions = store.getActions()
+      expect(web3.eth.getAccounts).toHaveBeenCalled();
+      expect(FactoryProvider.factories).toHaveBeenCalled();
+      expect(Factory.at).toHaveBeenCalled();
+      const actions = store.getActions();
       expect(actions).toEqual([expectedStatus]);
     });
   });
 
   it('connection succeeds whitelisted', () => {
     const store = mockStore(defaultStatusState);
-    web3.eth.getAccounts = jest.fn().mockImplementation(() => ['0x000'])
-    const whitelisted = { isWhitelisted: jest.fn().mockImplementation(() => true) }
-    Factory.at = jest.fn().mockImplementation(() => whitelisted )
+    web3.eth.getAccounts = jest.fn().mockImplementation(() => ['0x000']);
+    const whitelisted = {
+      isWhitelisted: jest.fn().mockImplementation(() => true),
+    };
+    Factory.at = jest.fn().mockImplementation(() => whitelisted);
     const expectedStatus = {
       type: SET_CONNECTION_STATUS,
       payload: {
         metamask: true,
         network: 4,
         verified: true,
-        whiteListed: true
-      }
+        whiteListed: true,
+      },
     };
     return store.dispatch(statusActions.checkUserConnection()).then(() => {
-      expect(web3.eth.getAccounts).toHaveBeenCalled()
-      expect(FactoryProvider.factories).toHaveBeenCalled()
-      expect(Factory.at).toHaveBeenCalled()
-      const actions = store.getActions()
+      expect(web3.eth.getAccounts).toHaveBeenCalled();
+      expect(FactoryProvider.factories).toHaveBeenCalled();
+      expect(Factory.at).toHaveBeenCalled();
+      const actions = store.getActions();
       expect(actions).toEqual([expectedStatus]);
     });
   });
-})
+});
 
 // jest.mock('../../ethereum', () => {
 //   return { web3: { eth: {
@@ -170,23 +176,23 @@ describe('statusActions', () => {
 //   });
 //
 //   describe('checkUserConnection', () => {
-    // it('connection fails', () => {
-    //   const store = mockStore(defaultStatusState);
-    //   const expectedStatus = {
-    //     type: SET_CONNECTION_STATUS,
-    //     payload: {
-    //       metamask: false,
-    //       network: 0,
-    //       verified: true,
-    //       whiteListed: false
-    //     }
-    //   };
-    //   return store.dispatch(statusActions.checkUserConnection()).then(() => {
-    //     const actions = store.getActions()
-    //     expect(actions[0]).toEqual(expectedStatus);
-    //     expect(actions[1].type).toEqual(SET_FETCHING_ERROR)
-    //   });
-    // });
+// it('connection fails', () => {
+//   const store = mockStore(defaultStatusState);
+//   const expectedStatus = {
+//     type: SET_CONNECTION_STATUS,
+//     payload: {
+//       metamask: false,
+//       network: 0,
+//       verified: true,
+//       whiteListed: false
+//     }
+//   };
+//   return store.dispatch(statusActions.checkUserConnection()).then(() => {
+//     const actions = store.getActions()
+//     expect(actions[0]).toEqual(expectedStatus);
+//     expect(actions[1].type).toEqual(SET_FETCHING_ERROR)
+//   });
+// });
 
 //   });
 // });

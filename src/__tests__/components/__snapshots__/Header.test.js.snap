@@ -1,10 +1,942 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Header /> render connected and whitelisted renders the component 1`] = `
+exports[`<Header /> handles hamburger click 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Header
     isConnected={true}
+    showTerms={[MockFunction]}
+    store={
+      Object {
+        "dispatch": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+        Symbol(observable): [Function],
+      }
+    }
+    whiteListed={true}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="hamburger-btn hamburger-btn-x"
+          onClick={[Function]}
+        >
+          <div />
+          <div />
+          <div />
+        </div>,
+        <Link
+          onClick={[Function]}
+          replace={false}
+          to="/"
+        >
+          <img
+            alt="logo"
+            className="nav-logo"
+            height="30px"
+            src="logo.png"
+          />
+        </Link>,
+        <ul
+          className="show-nav"
+          id="mobile-nav"
+        >
+          <li>
+            <Link
+              className="nav-link"
+              onClick={[Function]}
+              replace={false}
+              to="/portfolio"
+            >
+              Portfolio
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="nav-link"
+              onClick={[Function]}
+              replace={false}
+              to="/bulletin"
+            >
+              Bulletin
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="nav-link"
+              onClick={[Function]}
+              replace={false}
+              to="/how-to"
+            >
+              How To
+            </Link>
+          </li>
+          <li>
+            <p
+              className="nav-link"
+              onClick={[Function]}
+            >
+              Terms
+            </p>
+          </li>
+        </ul>,
+        <div
+          className="connection-status"
+        >
+          <div
+            className="connected"
+          >
+            Connected
+            <span
+              style={
+                Object {
+                  "color": "green",
+                  "paddingLeft": "5px",
+                }
+              }
+            >
+              <i
+                className="fas fa-circle"
+              />
+            </span>
+          </div>
+        </div>,
+      ],
+      "id": "header-nav",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div />,
+            <div />,
+            <div />,
+          ],
+          "className": "hamburger-btn hamburger-btn-x",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": <img
+            alt="logo"
+            className="nav-logo"
+            height="30px"
+            src="logo.png"
+          />,
+          "onClick": [Function],
+          "replace": false,
+          "to": "/",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "alt": "logo",
+            "className": "nav-logo",
+            "height": "30px",
+            "src": "logo.png",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "img",
+        },
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <li>
+              <Link
+                className="nav-link"
+                onClick={[Function]}
+                replace={false}
+                to="/portfolio"
+              >
+                Portfolio
+              </Link>
+            </li>,
+            <li>
+              <Link
+                className="nav-link"
+                onClick={[Function]}
+                replace={false}
+                to="/bulletin"
+              >
+                Bulletin
+              </Link>
+            </li>,
+            <li>
+              <Link
+                className="nav-link"
+                onClick={[Function]}
+                replace={false}
+                to="/how-to"
+              >
+                How To
+              </Link>
+            </li>,
+            <li>
+              <p
+                className="nav-link"
+                onClick={[Function]}
+              >
+                Terms
+              </p>
+            </li>,
+          ],
+          "className": "show-nav",
+          "id": "mobile-nav",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <Link
+                className="nav-link"
+                onClick={[Function]}
+                replace={false}
+                to="/portfolio"
+              >
+                Portfolio
+              </Link>,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "Portfolio",
+                "className": "nav-link",
+                "onClick": [Function],
+                "replace": false,
+                "to": "/portfolio",
+              },
+              "ref": null,
+              "rendered": "Portfolio",
+              "type": [Function],
+            },
+            "type": "li",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <Link
+                className="nav-link"
+                onClick={[Function]}
+                replace={false}
+                to="/bulletin"
+              >
+                Bulletin
+              </Link>,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "Bulletin",
+                "className": "nav-link",
+                "onClick": [Function],
+                "replace": false,
+                "to": "/bulletin",
+              },
+              "ref": null,
+              "rendered": "Bulletin",
+              "type": [Function],
+            },
+            "type": "li",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <Link
+                className="nav-link"
+                onClick={[Function]}
+                replace={false}
+                to="/how-to"
+              >
+                How To
+              </Link>,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "How To",
+                "className": "nav-link",
+                "onClick": [Function],
+                "replace": false,
+                "to": "/how-to",
+              },
+              "ref": null,
+              "rendered": "How To",
+              "type": [Function],
+            },
+            "type": "li",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <p
+                className="nav-link"
+                onClick={[Function]}
+              >
+                Terms
+              </p>,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Terms",
+                "className": "nav-link",
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": "Terms",
+              "type": "p",
+            },
+            "type": "li",
+          },
+        ],
+        "type": "ul",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="connected"
+            >
+              Connected
+              <span
+                style={
+                  Object {
+                    "color": "green",
+                    "paddingLeft": "5px",
+                  }
+                }
+              >
+                <i
+                  className="fas fa-circle"
+                />
+              </span>
+            </div>,
+            false,
+            false,
+          ],
+          "className": "connection-status",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "Connected",
+                <span
+                  style={
+                    Object {
+                      "color": "green",
+                      "paddingLeft": "5px",
+                    }
+                  }
+                >
+                  <i
+                    className="fas fa-circle"
+                  />
+                </span>,
+              ],
+              "className": "connected",
+            },
+            "ref": null,
+            "rendered": Array [
+              "Connected",
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <i
+                    className="fas fa-circle"
+                  />,
+                  "style": Object {
+                    "color": "green",
+                    "paddingLeft": "5px",
+                  },
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": "fas fa-circle",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "i",
+                },
+                "type": "span",
+              },
+            ],
+            "type": "div",
+          },
+          false,
+          false,
+        ],
+        "type": "div",
+      },
+    ],
+    "type": "nav",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="hamburger-btn hamburger-btn-x"
+            onClick={[Function]}
+          >
+            <div />
+            <div />
+            <div />
+          </div>,
+          <Link
+            onClick={[Function]}
+            replace={false}
+            to="/"
+          >
+            <img
+              alt="logo"
+              className="nav-logo"
+              height="30px"
+              src="logo.png"
+            />
+          </Link>,
+          <ul
+            className="show-nav"
+            id="mobile-nav"
+          >
+            <li>
+              <Link
+                className="nav-link"
+                onClick={[Function]}
+                replace={false}
+                to="/portfolio"
+              >
+                Portfolio
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="nav-link"
+                onClick={[Function]}
+                replace={false}
+                to="/bulletin"
+              >
+                Bulletin
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="nav-link"
+                onClick={[Function]}
+                replace={false}
+                to="/how-to"
+              >
+                How To
+              </Link>
+            </li>
+            <li>
+              <p
+                className="nav-link"
+                onClick={[Function]}
+              >
+                Terms
+              </p>
+            </li>
+          </ul>,
+          <div
+            className="connection-status"
+          >
+            <div
+              className="connected"
+            >
+              Connected
+              <span
+                style={
+                  Object {
+                    "color": "green",
+                    "paddingLeft": "5px",
+                  }
+                }
+              >
+                <i
+                  className="fas fa-circle"
+                />
+              </span>
+            </div>
+          </div>,
+        ],
+        "id": "header-nav",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div />,
+              <div />,
+              <div />,
+            ],
+            "className": "hamburger-btn hamburger-btn-x",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": <img
+              alt="logo"
+              className="nav-logo"
+              height="30px"
+              src="logo.png"
+            />,
+            "onClick": [Function],
+            "replace": false,
+            "to": "/",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "alt": "logo",
+              "className": "nav-logo",
+              "height": "30px",
+              "src": "logo.png",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "img",
+          },
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <li>
+                <Link
+                  className="nav-link"
+                  onClick={[Function]}
+                  replace={false}
+                  to="/portfolio"
+                >
+                  Portfolio
+                </Link>
+              </li>,
+              <li>
+                <Link
+                  className="nav-link"
+                  onClick={[Function]}
+                  replace={false}
+                  to="/bulletin"
+                >
+                  Bulletin
+                </Link>
+              </li>,
+              <li>
+                <Link
+                  className="nav-link"
+                  onClick={[Function]}
+                  replace={false}
+                  to="/how-to"
+                >
+                  How To
+                </Link>
+              </li>,
+              <li>
+                <p
+                  className="nav-link"
+                  onClick={[Function]}
+                >
+                  Terms
+                </p>
+              </li>,
+            ],
+            "className": "show-nav",
+            "id": "mobile-nav",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <Link
+                  className="nav-link"
+                  onClick={[Function]}
+                  replace={false}
+                  to="/portfolio"
+                >
+                  Portfolio
+                </Link>,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "Portfolio",
+                  "className": "nav-link",
+                  "onClick": [Function],
+                  "replace": false,
+                  "to": "/portfolio",
+                },
+                "ref": null,
+                "rendered": "Portfolio",
+                "type": [Function],
+              },
+              "type": "li",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <Link
+                  className="nav-link"
+                  onClick={[Function]}
+                  replace={false}
+                  to="/bulletin"
+                >
+                  Bulletin
+                </Link>,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "Bulletin",
+                  "className": "nav-link",
+                  "onClick": [Function],
+                  "replace": false,
+                  "to": "/bulletin",
+                },
+                "ref": null,
+                "rendered": "Bulletin",
+                "type": [Function],
+              },
+              "type": "li",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <Link
+                  className="nav-link"
+                  onClick={[Function]}
+                  replace={false}
+                  to="/how-to"
+                >
+                  How To
+                </Link>,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "How To",
+                  "className": "nav-link",
+                  "onClick": [Function],
+                  "replace": false,
+                  "to": "/how-to",
+                },
+                "ref": null,
+                "rendered": "How To",
+                "type": [Function],
+              },
+              "type": "li",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <p
+                  className="nav-link"
+                  onClick={[Function]}
+                >
+                  Terms
+                </p>,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Terms",
+                  "className": "nav-link",
+                  "onClick": [Function],
+                },
+                "ref": null,
+                "rendered": "Terms",
+                "type": "p",
+              },
+              "type": "li",
+            },
+          ],
+          "type": "ul",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="connected"
+              >
+                Connected
+                <span
+                  style={
+                    Object {
+                      "color": "green",
+                      "paddingLeft": "5px",
+                    }
+                  }
+                >
+                  <i
+                    className="fas fa-circle"
+                  />
+                </span>
+              </div>,
+              false,
+              false,
+            ],
+            "className": "connection-status",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "Connected",
+                  <span
+                    style={
+                      Object {
+                        "color": "green",
+                        "paddingLeft": "5px",
+                      }
+                    }
+                  >
+                    <i
+                      className="fas fa-circle"
+                    />
+                  </span>,
+                ],
+                "className": "connected",
+              },
+              "ref": null,
+              "rendered": Array [
+                "Connected",
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <i
+                      className="fas fa-circle"
+                    />,
+                    "style": Object {
+                      "color": "green",
+                      "paddingLeft": "5px",
+                    },
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "className": "fas fa-circle",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "i",
+                  },
+                  "type": "span",
+                },
+              ],
+              "type": "div",
+            },
+            false,
+            false,
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "nav",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`<Header /> handles hamburger click 2`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Header
+    isConnected={true}
+    showTerms={[MockFunction]}
     store={
       Object {
         "dispatch": [Function],
@@ -47,8 +979,7 @@ ShallowWrapper {
             alt="logo"
             className="nav-logo"
             height="30px"
-            src="./dda-logo.png"
-            width="30px"
+            src="logo.png"
           />
         </Link>,
         <ul
@@ -174,8 +1105,7 @@ ShallowWrapper {
             alt="logo"
             className="nav-logo"
             height="30px"
-            src="./dda-logo.png"
-            width="30px"
+            src="logo.png"
           />,
           "onClick": [Function],
           "replace": false,
@@ -190,8 +1120,7 @@ ShallowWrapper {
             "alt": "logo",
             "className": "nav-logo",
             "height": "30px",
-            "src": "./dda-logo.png",
-            "width": "30px",
+            "src": "logo.png",
           },
           "ref": null,
           "rendered": null,
@@ -493,8 +1422,7 @@ ShallowWrapper {
               alt="logo"
               className="nav-logo"
               height="30px"
-              src="./dda-logo.png"
-              width="30px"
+              src="logo.png"
             />
           </Link>,
           <ul
@@ -620,8 +1548,7 @@ ShallowWrapper {
               alt="logo"
               className="nav-logo"
               height="30px"
-              src="./dda-logo.png"
-              width="30px"
+              src="logo.png"
             />,
             "onClick": [Function],
             "replace": false,
@@ -636,8 +1563,7 @@ ShallowWrapper {
               "alt": "logo",
               "className": "nav-logo",
               "height": "30px",
-              "src": "./dda-logo.png",
-              "width": "30px",
+              "src": "logo.png",
             },
             "ref": null,
             "rendered": null,
@@ -936,11 +1862,955 @@ ShallowWrapper {
 }
 `;
 
-exports[`<Header /> render connected not whitelisted renders the component 1`] = `
+exports[`<Header /> handles terms click 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Header
     isConnected={true}
+    showTerms={
+      [MockFunction] {
+        "calls": Array [
+          Array [],
+        ],
+        "results": Array [
+          Object {
+            "isThrow": false,
+            "value": undefined,
+          },
+        ],
+      }
+    }
+    store={
+      Object {
+        "dispatch": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+        Symbol(observable): [Function],
+      }
+    }
+    whiteListed={true}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="hamburger-btn "
+          onClick={[Function]}
+        >
+          <div />
+          <div />
+          <div />
+        </div>,
+        <Link
+          onClick={[Function]}
+          replace={false}
+          to="/"
+        >
+          <img
+            alt="logo"
+            className="nav-logo"
+            height="30px"
+            src="logo.png"
+          />
+        </Link>,
+        <ul
+          className="hide-nav"
+          id="mobile-nav"
+        >
+          <li>
+            <Link
+              className="nav-link"
+              onClick={[Function]}
+              replace={false}
+              to="/portfolio"
+            >
+              Portfolio
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="nav-link"
+              onClick={[Function]}
+              replace={false}
+              to="/bulletin"
+            >
+              Bulletin
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="nav-link"
+              onClick={[Function]}
+              replace={false}
+              to="/how-to"
+            >
+              How To
+            </Link>
+          </li>
+          <li>
+            <p
+              className="nav-link"
+              onClick={[Function]}
+            >
+              Terms
+            </p>
+          </li>
+        </ul>,
+        <div
+          className="connection-status"
+        >
+          <div
+            className="connected"
+          >
+            Connected
+            <span
+              style={
+                Object {
+                  "color": "green",
+                  "paddingLeft": "5px",
+                }
+              }
+            >
+              <i
+                className="fas fa-circle"
+              />
+            </span>
+          </div>
+        </div>,
+      ],
+      "id": "header-nav",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div />,
+            <div />,
+            <div />,
+          ],
+          "className": "hamburger-btn ",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": <img
+            alt="logo"
+            className="nav-logo"
+            height="30px"
+            src="logo.png"
+          />,
+          "onClick": [Function],
+          "replace": false,
+          "to": "/",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "alt": "logo",
+            "className": "nav-logo",
+            "height": "30px",
+            "src": "logo.png",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "img",
+        },
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <li>
+              <Link
+                className="nav-link"
+                onClick={[Function]}
+                replace={false}
+                to="/portfolio"
+              >
+                Portfolio
+              </Link>
+            </li>,
+            <li>
+              <Link
+                className="nav-link"
+                onClick={[Function]}
+                replace={false}
+                to="/bulletin"
+              >
+                Bulletin
+              </Link>
+            </li>,
+            <li>
+              <Link
+                className="nav-link"
+                onClick={[Function]}
+                replace={false}
+                to="/how-to"
+              >
+                How To
+              </Link>
+            </li>,
+            <li>
+              <p
+                className="nav-link"
+                onClick={[Function]}
+              >
+                Terms
+              </p>
+            </li>,
+          ],
+          "className": "hide-nav",
+          "id": "mobile-nav",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <Link
+                className="nav-link"
+                onClick={[Function]}
+                replace={false}
+                to="/portfolio"
+              >
+                Portfolio
+              </Link>,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "Portfolio",
+                "className": "nav-link",
+                "onClick": [Function],
+                "replace": false,
+                "to": "/portfolio",
+              },
+              "ref": null,
+              "rendered": "Portfolio",
+              "type": [Function],
+            },
+            "type": "li",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <Link
+                className="nav-link"
+                onClick={[Function]}
+                replace={false}
+                to="/bulletin"
+              >
+                Bulletin
+              </Link>,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "Bulletin",
+                "className": "nav-link",
+                "onClick": [Function],
+                "replace": false,
+                "to": "/bulletin",
+              },
+              "ref": null,
+              "rendered": "Bulletin",
+              "type": [Function],
+            },
+            "type": "li",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <Link
+                className="nav-link"
+                onClick={[Function]}
+                replace={false}
+                to="/how-to"
+              >
+                How To
+              </Link>,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "How To",
+                "className": "nav-link",
+                "onClick": [Function],
+                "replace": false,
+                "to": "/how-to",
+              },
+              "ref": null,
+              "rendered": "How To",
+              "type": [Function],
+            },
+            "type": "li",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <p
+                className="nav-link"
+                onClick={[Function]}
+              >
+                Terms
+              </p>,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Terms",
+                "className": "nav-link",
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": "Terms",
+              "type": "p",
+            },
+            "type": "li",
+          },
+        ],
+        "type": "ul",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="connected"
+            >
+              Connected
+              <span
+                style={
+                  Object {
+                    "color": "green",
+                    "paddingLeft": "5px",
+                  }
+                }
+              >
+                <i
+                  className="fas fa-circle"
+                />
+              </span>
+            </div>,
+            false,
+            false,
+          ],
+          "className": "connection-status",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "Connected",
+                <span
+                  style={
+                    Object {
+                      "color": "green",
+                      "paddingLeft": "5px",
+                    }
+                  }
+                >
+                  <i
+                    className="fas fa-circle"
+                  />
+                </span>,
+              ],
+              "className": "connected",
+            },
+            "ref": null,
+            "rendered": Array [
+              "Connected",
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <i
+                    className="fas fa-circle"
+                  />,
+                  "style": Object {
+                    "color": "green",
+                    "paddingLeft": "5px",
+                  },
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": "fas fa-circle",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "i",
+                },
+                "type": "span",
+              },
+            ],
+            "type": "div",
+          },
+          false,
+          false,
+        ],
+        "type": "div",
+      },
+    ],
+    "type": "nav",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="hamburger-btn "
+            onClick={[Function]}
+          >
+            <div />
+            <div />
+            <div />
+          </div>,
+          <Link
+            onClick={[Function]}
+            replace={false}
+            to="/"
+          >
+            <img
+              alt="logo"
+              className="nav-logo"
+              height="30px"
+              src="logo.png"
+            />
+          </Link>,
+          <ul
+            className="hide-nav"
+            id="mobile-nav"
+          >
+            <li>
+              <Link
+                className="nav-link"
+                onClick={[Function]}
+                replace={false}
+                to="/portfolio"
+              >
+                Portfolio
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="nav-link"
+                onClick={[Function]}
+                replace={false}
+                to="/bulletin"
+              >
+                Bulletin
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="nav-link"
+                onClick={[Function]}
+                replace={false}
+                to="/how-to"
+              >
+                How To
+              </Link>
+            </li>
+            <li>
+              <p
+                className="nav-link"
+                onClick={[Function]}
+              >
+                Terms
+              </p>
+            </li>
+          </ul>,
+          <div
+            className="connection-status"
+          >
+            <div
+              className="connected"
+            >
+              Connected
+              <span
+                style={
+                  Object {
+                    "color": "green",
+                    "paddingLeft": "5px",
+                  }
+                }
+              >
+                <i
+                  className="fas fa-circle"
+                />
+              </span>
+            </div>
+          </div>,
+        ],
+        "id": "header-nav",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div />,
+              <div />,
+              <div />,
+            ],
+            "className": "hamburger-btn ",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": <img
+              alt="logo"
+              className="nav-logo"
+              height="30px"
+              src="logo.png"
+            />,
+            "onClick": [Function],
+            "replace": false,
+            "to": "/",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "alt": "logo",
+              "className": "nav-logo",
+              "height": "30px",
+              "src": "logo.png",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "img",
+          },
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <li>
+                <Link
+                  className="nav-link"
+                  onClick={[Function]}
+                  replace={false}
+                  to="/portfolio"
+                >
+                  Portfolio
+                </Link>
+              </li>,
+              <li>
+                <Link
+                  className="nav-link"
+                  onClick={[Function]}
+                  replace={false}
+                  to="/bulletin"
+                >
+                  Bulletin
+                </Link>
+              </li>,
+              <li>
+                <Link
+                  className="nav-link"
+                  onClick={[Function]}
+                  replace={false}
+                  to="/how-to"
+                >
+                  How To
+                </Link>
+              </li>,
+              <li>
+                <p
+                  className="nav-link"
+                  onClick={[Function]}
+                >
+                  Terms
+                </p>
+              </li>,
+            ],
+            "className": "hide-nav",
+            "id": "mobile-nav",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <Link
+                  className="nav-link"
+                  onClick={[Function]}
+                  replace={false}
+                  to="/portfolio"
+                >
+                  Portfolio
+                </Link>,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "Portfolio",
+                  "className": "nav-link",
+                  "onClick": [Function],
+                  "replace": false,
+                  "to": "/portfolio",
+                },
+                "ref": null,
+                "rendered": "Portfolio",
+                "type": [Function],
+              },
+              "type": "li",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <Link
+                  className="nav-link"
+                  onClick={[Function]}
+                  replace={false}
+                  to="/bulletin"
+                >
+                  Bulletin
+                </Link>,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "Bulletin",
+                  "className": "nav-link",
+                  "onClick": [Function],
+                  "replace": false,
+                  "to": "/bulletin",
+                },
+                "ref": null,
+                "rendered": "Bulletin",
+                "type": [Function],
+              },
+              "type": "li",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <Link
+                  className="nav-link"
+                  onClick={[Function]}
+                  replace={false}
+                  to="/how-to"
+                >
+                  How To
+                </Link>,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "How To",
+                  "className": "nav-link",
+                  "onClick": [Function],
+                  "replace": false,
+                  "to": "/how-to",
+                },
+                "ref": null,
+                "rendered": "How To",
+                "type": [Function],
+              },
+              "type": "li",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <p
+                  className="nav-link"
+                  onClick={[Function]}
+                >
+                  Terms
+                </p>,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Terms",
+                  "className": "nav-link",
+                  "onClick": [Function],
+                },
+                "ref": null,
+                "rendered": "Terms",
+                "type": "p",
+              },
+              "type": "li",
+            },
+          ],
+          "type": "ul",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="connected"
+              >
+                Connected
+                <span
+                  style={
+                    Object {
+                      "color": "green",
+                      "paddingLeft": "5px",
+                    }
+                  }
+                >
+                  <i
+                    className="fas fa-circle"
+                  />
+                </span>
+              </div>,
+              false,
+              false,
+            ],
+            "className": "connection-status",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "Connected",
+                  <span
+                    style={
+                      Object {
+                        "color": "green",
+                        "paddingLeft": "5px",
+                      }
+                    }
+                  >
+                    <i
+                      className="fas fa-circle"
+                    />
+                  </span>,
+                ],
+                "className": "connected",
+              },
+              "ref": null,
+              "rendered": Array [
+                "Connected",
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <i
+                      className="fas fa-circle"
+                    />,
+                    "style": Object {
+                      "color": "green",
+                      "paddingLeft": "5px",
+                    },
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "className": "fas fa-circle",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "i",
+                  },
+                  "type": "span",
+                },
+              ],
+              "type": "div",
+            },
+            false,
+            false,
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "nav",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`<Header /> renders connected not whitelisted 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Header
+    isConnected={true}
+    showTerms={[MockFunction]}
     store={
       Object {
         "dispatch": [Function],
@@ -983,8 +2853,7 @@ ShallowWrapper {
             alt="logo"
             className="nav-logo"
             height="30px"
-            src="./dda-logo.png"
-            width="30px"
+            src="logo.png"
           />
         </Link>,
         <ul
@@ -1110,8 +2979,7 @@ ShallowWrapper {
             alt="logo"
             className="nav-logo"
             height="30px"
-            src="./dda-logo.png"
-            width="30px"
+            src="logo.png"
           />,
           "onClick": [Function],
           "replace": false,
@@ -1126,8 +2994,7 @@ ShallowWrapper {
             "alt": "logo",
             "className": "nav-logo",
             "height": "30px",
-            "src": "./dda-logo.png",
-            "width": "30px",
+            "src": "logo.png",
           },
           "ref": null,
           "rendered": null,
@@ -1429,8 +3296,7 @@ ShallowWrapper {
               alt="logo"
               className="nav-logo"
               height="30px"
-              src="./dda-logo.png"
-              width="30px"
+              src="logo.png"
             />
           </Link>,
           <ul
@@ -1556,8 +3422,7 @@ ShallowWrapper {
               alt="logo"
               className="nav-logo"
               height="30px"
-              src="./dda-logo.png"
-              width="30px"
+              src="logo.png"
             />,
             "onClick": [Function],
             "replace": false,
@@ -1572,8 +3437,7 @@ ShallowWrapper {
               "alt": "logo",
               "className": "nav-logo",
               "height": "30px",
-              "src": "./dda-logo.png",
-              "width": "30px",
+              "src": "logo.png",
             },
             "ref": null,
             "rendered": null,
@@ -1872,11 +3736,12 @@ ShallowWrapper {
 }
 `;
 
-exports[`<Header /> render not connected renders the component 1`] = `
+exports[`<Header /> renders not connected and not whitelisted 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Header
     isConnected={false}
+    showTerms={[MockFunction]}
     store={
       Object {
         "dispatch": [Function],
@@ -1919,8 +3784,7 @@ ShallowWrapper {
             alt="logo"
             className="nav-logo"
             height="30px"
-            src="./dda-logo.png"
-            width="30px"
+            src="logo.png"
           />
         </Link>,
         <ul
@@ -2046,8 +3910,7 @@ ShallowWrapper {
             alt="logo"
             className="nav-logo"
             height="30px"
-            src="./dda-logo.png"
-            width="30px"
+            src="logo.png"
           />,
           "onClick": [Function],
           "replace": false,
@@ -2062,8 +3925,7 @@ ShallowWrapper {
             "alt": "logo",
             "className": "nav-logo",
             "height": "30px",
-            "src": "./dda-logo.png",
-            "width": "30px",
+            "src": "logo.png",
           },
           "ref": null,
           "rendered": null,
@@ -2365,8 +4227,7 @@ ShallowWrapper {
               alt="logo"
               className="nav-logo"
               height="30px"
-              src="./dda-logo.png"
-              width="30px"
+              src="logo.png"
             />
           </Link>,
           <ul
@@ -2492,8 +4353,7 @@ ShallowWrapper {
               alt="logo"
               className="nav-logo"
               height="30px"
-              src="./dda-logo.png"
-              width="30px"
+              src="logo.png"
             />,
             "onClick": [Function],
             "replace": false,
@@ -2508,8 +4368,7 @@ ShallowWrapper {
               "alt": "logo",
               "className": "nav-logo",
               "height": "30px",
-              "src": "./dda-logo.png",
-              "width": "30px",
+              "src": "logo.png",
             },
             "ref": null,
             "rendered": null,
@@ -2781,6 +4640,937 @@ ShallowWrapper {
               ],
               "type": "div",
             },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "nav",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`<Header /> renders the component 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Header
+    isConnected={true}
+    showTerms={[MockFunction]}
+    store={
+      Object {
+        "dispatch": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+        Symbol(observable): [Function],
+      }
+    }
+    whiteListed={true}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="hamburger-btn "
+          onClick={[Function]}
+        >
+          <div />
+          <div />
+          <div />
+        </div>,
+        <Link
+          onClick={[Function]}
+          replace={false}
+          to="/"
+        >
+          <img
+            alt="logo"
+            className="nav-logo"
+            height="30px"
+            src="logo.png"
+          />
+        </Link>,
+        <ul
+          className="hide-nav"
+          id="mobile-nav"
+        >
+          <li>
+            <Link
+              className="nav-link"
+              onClick={[Function]}
+              replace={false}
+              to="/portfolio"
+            >
+              Portfolio
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="nav-link"
+              onClick={[Function]}
+              replace={false}
+              to="/bulletin"
+            >
+              Bulletin
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="nav-link"
+              onClick={[Function]}
+              replace={false}
+              to="/how-to"
+            >
+              How To
+            </Link>
+          </li>
+          <li>
+            <p
+              className="nav-link"
+              onClick={[Function]}
+            >
+              Terms
+            </p>
+          </li>
+        </ul>,
+        <div
+          className="connection-status"
+        >
+          <div
+            className="connected"
+          >
+            Connected
+            <span
+              style={
+                Object {
+                  "color": "green",
+                  "paddingLeft": "5px",
+                }
+              }
+            >
+              <i
+                className="fas fa-circle"
+              />
+            </span>
+          </div>
+        </div>,
+      ],
+      "id": "header-nav",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div />,
+            <div />,
+            <div />,
+          ],
+          "className": "hamburger-btn ",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": <img
+            alt="logo"
+            className="nav-logo"
+            height="30px"
+            src="logo.png"
+          />,
+          "onClick": [Function],
+          "replace": false,
+          "to": "/",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "alt": "logo",
+            "className": "nav-logo",
+            "height": "30px",
+            "src": "logo.png",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "img",
+        },
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <li>
+              <Link
+                className="nav-link"
+                onClick={[Function]}
+                replace={false}
+                to="/portfolio"
+              >
+                Portfolio
+              </Link>
+            </li>,
+            <li>
+              <Link
+                className="nav-link"
+                onClick={[Function]}
+                replace={false}
+                to="/bulletin"
+              >
+                Bulletin
+              </Link>
+            </li>,
+            <li>
+              <Link
+                className="nav-link"
+                onClick={[Function]}
+                replace={false}
+                to="/how-to"
+              >
+                How To
+              </Link>
+            </li>,
+            <li>
+              <p
+                className="nav-link"
+                onClick={[Function]}
+              >
+                Terms
+              </p>
+            </li>,
+          ],
+          "className": "hide-nav",
+          "id": "mobile-nav",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <Link
+                className="nav-link"
+                onClick={[Function]}
+                replace={false}
+                to="/portfolio"
+              >
+                Portfolio
+              </Link>,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "Portfolio",
+                "className": "nav-link",
+                "onClick": [Function],
+                "replace": false,
+                "to": "/portfolio",
+              },
+              "ref": null,
+              "rendered": "Portfolio",
+              "type": [Function],
+            },
+            "type": "li",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <Link
+                className="nav-link"
+                onClick={[Function]}
+                replace={false}
+                to="/bulletin"
+              >
+                Bulletin
+              </Link>,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "Bulletin",
+                "className": "nav-link",
+                "onClick": [Function],
+                "replace": false,
+                "to": "/bulletin",
+              },
+              "ref": null,
+              "rendered": "Bulletin",
+              "type": [Function],
+            },
+            "type": "li",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <Link
+                className="nav-link"
+                onClick={[Function]}
+                replace={false}
+                to="/how-to"
+              >
+                How To
+              </Link>,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "How To",
+                "className": "nav-link",
+                "onClick": [Function],
+                "replace": false,
+                "to": "/how-to",
+              },
+              "ref": null,
+              "rendered": "How To",
+              "type": [Function],
+            },
+            "type": "li",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <p
+                className="nav-link"
+                onClick={[Function]}
+              >
+                Terms
+              </p>,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Terms",
+                "className": "nav-link",
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": "Terms",
+              "type": "p",
+            },
+            "type": "li",
+          },
+        ],
+        "type": "ul",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="connected"
+            >
+              Connected
+              <span
+                style={
+                  Object {
+                    "color": "green",
+                    "paddingLeft": "5px",
+                  }
+                }
+              >
+                <i
+                  className="fas fa-circle"
+                />
+              </span>
+            </div>,
+            false,
+            false,
+          ],
+          "className": "connection-status",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "Connected",
+                <span
+                  style={
+                    Object {
+                      "color": "green",
+                      "paddingLeft": "5px",
+                    }
+                  }
+                >
+                  <i
+                    className="fas fa-circle"
+                  />
+                </span>,
+              ],
+              "className": "connected",
+            },
+            "ref": null,
+            "rendered": Array [
+              "Connected",
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <i
+                    className="fas fa-circle"
+                  />,
+                  "style": Object {
+                    "color": "green",
+                    "paddingLeft": "5px",
+                  },
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": "fas fa-circle",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "i",
+                },
+                "type": "span",
+              },
+            ],
+            "type": "div",
+          },
+          false,
+          false,
+        ],
+        "type": "div",
+      },
+    ],
+    "type": "nav",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="hamburger-btn "
+            onClick={[Function]}
+          >
+            <div />
+            <div />
+            <div />
+          </div>,
+          <Link
+            onClick={[Function]}
+            replace={false}
+            to="/"
+          >
+            <img
+              alt="logo"
+              className="nav-logo"
+              height="30px"
+              src="logo.png"
+            />
+          </Link>,
+          <ul
+            className="hide-nav"
+            id="mobile-nav"
+          >
+            <li>
+              <Link
+                className="nav-link"
+                onClick={[Function]}
+                replace={false}
+                to="/portfolio"
+              >
+                Portfolio
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="nav-link"
+                onClick={[Function]}
+                replace={false}
+                to="/bulletin"
+              >
+                Bulletin
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="nav-link"
+                onClick={[Function]}
+                replace={false}
+                to="/how-to"
+              >
+                How To
+              </Link>
+            </li>
+            <li>
+              <p
+                className="nav-link"
+                onClick={[Function]}
+              >
+                Terms
+              </p>
+            </li>
+          </ul>,
+          <div
+            className="connection-status"
+          >
+            <div
+              className="connected"
+            >
+              Connected
+              <span
+                style={
+                  Object {
+                    "color": "green",
+                    "paddingLeft": "5px",
+                  }
+                }
+              >
+                <i
+                  className="fas fa-circle"
+                />
+              </span>
+            </div>
+          </div>,
+        ],
+        "id": "header-nav",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div />,
+              <div />,
+              <div />,
+            ],
+            "className": "hamburger-btn ",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": <img
+              alt="logo"
+              className="nav-logo"
+              height="30px"
+              src="logo.png"
+            />,
+            "onClick": [Function],
+            "replace": false,
+            "to": "/",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "alt": "logo",
+              "className": "nav-logo",
+              "height": "30px",
+              "src": "logo.png",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "img",
+          },
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <li>
+                <Link
+                  className="nav-link"
+                  onClick={[Function]}
+                  replace={false}
+                  to="/portfolio"
+                >
+                  Portfolio
+                </Link>
+              </li>,
+              <li>
+                <Link
+                  className="nav-link"
+                  onClick={[Function]}
+                  replace={false}
+                  to="/bulletin"
+                >
+                  Bulletin
+                </Link>
+              </li>,
+              <li>
+                <Link
+                  className="nav-link"
+                  onClick={[Function]}
+                  replace={false}
+                  to="/how-to"
+                >
+                  How To
+                </Link>
+              </li>,
+              <li>
+                <p
+                  className="nav-link"
+                  onClick={[Function]}
+                >
+                  Terms
+                </p>
+              </li>,
+            ],
+            "className": "hide-nav",
+            "id": "mobile-nav",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <Link
+                  className="nav-link"
+                  onClick={[Function]}
+                  replace={false}
+                  to="/portfolio"
+                >
+                  Portfolio
+                </Link>,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "Portfolio",
+                  "className": "nav-link",
+                  "onClick": [Function],
+                  "replace": false,
+                  "to": "/portfolio",
+                },
+                "ref": null,
+                "rendered": "Portfolio",
+                "type": [Function],
+              },
+              "type": "li",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <Link
+                  className="nav-link"
+                  onClick={[Function]}
+                  replace={false}
+                  to="/bulletin"
+                >
+                  Bulletin
+                </Link>,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "Bulletin",
+                  "className": "nav-link",
+                  "onClick": [Function],
+                  "replace": false,
+                  "to": "/bulletin",
+                },
+                "ref": null,
+                "rendered": "Bulletin",
+                "type": [Function],
+              },
+              "type": "li",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <Link
+                  className="nav-link"
+                  onClick={[Function]}
+                  replace={false}
+                  to="/how-to"
+                >
+                  How To
+                </Link>,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "How To",
+                  "className": "nav-link",
+                  "onClick": [Function],
+                  "replace": false,
+                  "to": "/how-to",
+                },
+                "ref": null,
+                "rendered": "How To",
+                "type": [Function],
+              },
+              "type": "li",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <p
+                  className="nav-link"
+                  onClick={[Function]}
+                >
+                  Terms
+                </p>,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Terms",
+                  "className": "nav-link",
+                  "onClick": [Function],
+                },
+                "ref": null,
+                "rendered": "Terms",
+                "type": "p",
+              },
+              "type": "li",
+            },
+          ],
+          "type": "ul",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="connected"
+              >
+                Connected
+                <span
+                  style={
+                    Object {
+                      "color": "green",
+                      "paddingLeft": "5px",
+                    }
+                  }
+                >
+                  <i
+                    className="fas fa-circle"
+                  />
+                </span>
+              </div>,
+              false,
+              false,
+            ],
+            "className": "connection-status",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "Connected",
+                  <span
+                    style={
+                      Object {
+                        "color": "green",
+                        "paddingLeft": "5px",
+                      }
+                    }
+                  >
+                    <i
+                      className="fas fa-circle"
+                    />
+                  </span>,
+                ],
+                "className": "connected",
+              },
+              "ref": null,
+              "rendered": Array [
+                "Connected",
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <i
+                      className="fas fa-circle"
+                    />,
+                    "style": Object {
+                      "color": "green",
+                      "paddingLeft": "5px",
+                    },
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "className": "fas fa-circle",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "i",
+                  },
+                  "type": "span",
+                },
+              ],
+              "type": "div",
+            },
+            false,
+            false,
           ],
           "type": "div",
         },

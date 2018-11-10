@@ -1,12 +1,1906 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Landing /> render() renders the component 1`] = `
+exports[`<Landing /> handles state update 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Landing
+    dispatch={[Function]}
+    metamask={true}
+    network={4}
+    store={
+      Object {
+        "dispatch": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+        Symbol(observable): [Function],
+      }
+    }
+    storeSubscription={
+      Subscription {
+        "listeners": Object {
+          "clear": [Function],
+          "get": [Function],
+          "notify": [Function],
+          "subscribe": [Function],
+        },
+        "onStateChange": [Function],
+        "parentSub": undefined,
+        "store": Object {
+          "dispatch": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+          Symbol(observable): [Function],
+        },
+        "unsubscribe": [Function],
+      }
+    }
+    whiteListed={true}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <div
+        id="landing_container"
+      >
+        <div
+          id="landing"
+        >
+          <div
+            id="landing_text"
+          >
+            <p>
+              <b>
+                Let's get started:
+              </b>
+            </p>
+            <p>
+              <div>
+                <p>
+                  You are Connected To:
+                </p>
+                <p
+                  className="landing-network-status rinkeby-network-label"
+                >
+                  rinkeby test network
+                </p>
+                
+              </div>
+            </p>
+            <p>
+              To use the secure Trust Wallet browser,
+              <br />
+              <a
+                href="https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/"
+              >
+                click here
+              </a>
+            </p>
+            <img
+              alt="logo"
+              height="80px"
+              id="landing-logo"
+              src="logo.png"
+            />
+          </div>
+        </div>
+      </div>,
+      "id": "back",
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <div
+          id="landing"
+        >
+          <div
+            id="landing_text"
+          >
+            <p>
+              <b>
+                Let's get started:
+              </b>
+            </p>
+            <p>
+              <div>
+                <p>
+                  You are Connected To:
+                </p>
+                <p
+                  className="landing-network-status rinkeby-network-label"
+                >
+                  rinkeby test network
+                </p>
+                
+              </div>
+            </p>
+            <p>
+              To use the secure Trust Wallet browser,
+              <br />
+              <a
+                href="https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/"
+              >
+                click here
+              </a>
+            </p>
+            <img
+              alt="logo"
+              height="80px"
+              id="landing-logo"
+              src="logo.png"
+            />
+          </div>
+        </div>,
+        "id": "landing_container",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <div
+            id="landing_text"
+          >
+            <p>
+              <b>
+                Let's get started:
+              </b>
+            </p>
+            <p>
+              <div>
+                <p>
+                  You are Connected To:
+                </p>
+                <p
+                  className="landing-network-status rinkeby-network-label"
+                >
+                  rinkeby test network
+                </p>
+                
+              </div>
+            </p>
+            <p>
+              To use the secure Trust Wallet browser,
+              <br />
+              <a
+                href="https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/"
+              >
+                click here
+              </a>
+            </p>
+            <img
+              alt="logo"
+              height="80px"
+              id="landing-logo"
+              src="logo.png"
+            />
+          </div>,
+          "id": "landing",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <p>
+                <b>
+                  Let's get started:
+                </b>
+              </p>,
+              <p>
+                <div>
+                  <p>
+                    You are Connected To:
+                  </p>
+                  <p
+                    className="landing-network-status rinkeby-network-label"
+                  >
+                    rinkeby test network
+                  </p>
+                  
+                </div>
+              </p>,
+              <p>
+                To use the secure Trust Wallet browser,
+                <br />
+                <a
+                  href="https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/"
+                >
+                  click here
+                </a>
+              </p>,
+              <img
+                alt="logo"
+                height="80px"
+                id="landing-logo"
+                src="logo.png"
+              />,
+            ],
+            "id": "landing_text",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <b>
+                  Let's get started:
+                </b>,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Let's get started:",
+                },
+                "ref": null,
+                "rendered": "Let's get started:",
+                "type": "b",
+              },
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <div>
+                  <p>
+                    You are Connected To:
+                  </p>
+                  <p
+                    className="landing-network-status rinkeby-network-label"
+                  >
+                    rinkeby test network
+                  </p>
+                  
+                </div>,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <p>
+                      You are Connected To:
+                    </p>,
+                    <p
+                      className="landing-network-status rinkeby-network-label"
+                    >
+                      rinkeby test network
+                    </p>,
+                    "",
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "You are Connected To:",
+                    },
+                    "ref": null,
+                    "rendered": "You are Connected To:",
+                    "type": "p",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "rinkeby test network",
+                      "className": "landing-network-status rinkeby-network-label",
+                    },
+                    "ref": null,
+                    "rendered": "rinkeby test network",
+                    "type": "p",
+                  },
+                  "",
+                ],
+                "type": "div",
+              },
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "To use the secure Trust Wallet browser,",
+                  <br />,
+                  <a
+                    href="https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/"
+                  >
+                    click here
+                  </a>,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                "To use the secure Trust Wallet browser,",
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {},
+                  "ref": null,
+                  "rendered": null,
+                  "type": "br",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "click here",
+                    "href": "https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/",
+                  },
+                  "ref": null,
+                  "rendered": "click here",
+                  "type": "a",
+                },
+              ],
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "alt": "logo",
+                "height": "80px",
+                "id": "landing-logo",
+                "src": "logo.png",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "img",
+            },
+          ],
+          "type": "div",
+        },
+        "type": "div",
+      },
+      "type": "div",
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <div
+          id="landing_container"
+        >
+          <div
+            id="landing"
+          >
+            <div
+              id="landing_text"
+            >
+              <p>
+                <b>
+                  Let's get started:
+                </b>
+              </p>
+              <p>
+                <div>
+                  <p>
+                    You are Connected To:
+                  </p>
+                  <p
+                    className="landing-network-status rinkeby-network-label"
+                  >
+                    rinkeby test network
+                  </p>
+                  
+                </div>
+              </p>
+              <p>
+                To use the secure Trust Wallet browser,
+                <br />
+                <a
+                  href="https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/"
+                >
+                  click here
+                </a>
+              </p>
+              <img
+                alt="logo"
+                height="80px"
+                id="landing-logo"
+                src="logo.png"
+              />
+            </div>
+          </div>
+        </div>,
+        "id": "back",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <div
+            id="landing"
+          >
+            <div
+              id="landing_text"
+            >
+              <p>
+                <b>
+                  Let's get started:
+                </b>
+              </p>
+              <p>
+                <div>
+                  <p>
+                    You are Connected To:
+                  </p>
+                  <p
+                    className="landing-network-status rinkeby-network-label"
+                  >
+                    rinkeby test network
+                  </p>
+                  
+                </div>
+              </p>
+              <p>
+                To use the secure Trust Wallet browser,
+                <br />
+                <a
+                  href="https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/"
+                >
+                  click here
+                </a>
+              </p>
+              <img
+                alt="logo"
+                height="80px"
+                id="landing-logo"
+                src="logo.png"
+              />
+            </div>
+          </div>,
+          "id": "landing_container",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <div
+              id="landing_text"
+            >
+              <p>
+                <b>
+                  Let's get started:
+                </b>
+              </p>
+              <p>
+                <div>
+                  <p>
+                    You are Connected To:
+                  </p>
+                  <p
+                    className="landing-network-status rinkeby-network-label"
+                  >
+                    rinkeby test network
+                  </p>
+                  
+                </div>
+              </p>
+              <p>
+                To use the secure Trust Wallet browser,
+                <br />
+                <a
+                  href="https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/"
+                >
+                  click here
+                </a>
+              </p>
+              <img
+                alt="logo"
+                height="80px"
+                id="landing-logo"
+                src="logo.png"
+              />
+            </div>,
+            "id": "landing",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <p>
+                  <b>
+                    Let's get started:
+                  </b>
+                </p>,
+                <p>
+                  <div>
+                    <p>
+                      You are Connected To:
+                    </p>
+                    <p
+                      className="landing-network-status rinkeby-network-label"
+                    >
+                      rinkeby test network
+                    </p>
+                    
+                  </div>
+                </p>,
+                <p>
+                  To use the secure Trust Wallet browser,
+                  <br />
+                  <a
+                    href="https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/"
+                  >
+                    click here
+                  </a>
+                </p>,
+                <img
+                  alt="logo"
+                  height="80px"
+                  id="landing-logo"
+                  src="logo.png"
+                />,
+              ],
+              "id": "landing_text",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <b>
+                    Let's get started:
+                  </b>,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Let's get started:",
+                  },
+                  "ref": null,
+                  "rendered": "Let's get started:",
+                  "type": "b",
+                },
+                "type": "p",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <div>
+                    <p>
+                      You are Connected To:
+                    </p>
+                    <p
+                      className="landing-network-status rinkeby-network-label"
+                    >
+                      rinkeby test network
+                    </p>
+                    
+                  </div>,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <p>
+                        You are Connected To:
+                      </p>,
+                      <p
+                        className="landing-network-status rinkeby-network-label"
+                      >
+                        rinkeby test network
+                      </p>,
+                      "",
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "You are Connected To:",
+                      },
+                      "ref": null,
+                      "rendered": "You are Connected To:",
+                      "type": "p",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "rinkeby test network",
+                        "className": "landing-network-status rinkeby-network-label",
+                      },
+                      "ref": null,
+                      "rendered": "rinkeby test network",
+                      "type": "p",
+                    },
+                    "",
+                  ],
+                  "type": "div",
+                },
+                "type": "p",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "To use the secure Trust Wallet browser,",
+                    <br />,
+                    <a
+                      href="https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/"
+                    >
+                      click here
+                    </a>,
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  "To use the secure Trust Wallet browser,",
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {},
+                    "ref": null,
+                    "rendered": null,
+                    "type": "br",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "click here",
+                      "href": "https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/",
+                    },
+                    "ref": null,
+                    "rendered": "click here",
+                    "type": "a",
+                  },
+                ],
+                "type": "p",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "alt": "logo",
+                  "height": "80px",
+                  "id": "landing-logo",
+                  "src": "logo.png",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "img",
+              },
+            ],
+            "type": "div",
+          },
+          "type": "div",
+        },
+        "type": "div",
+      },
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`<Landing /> renders not connected 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Landing
     dispatch={[Function]}
     metamask={false}
-    network={0}
+    network={4}
+    store={
+      Object {
+        "dispatch": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+        Symbol(observable): [Function],
+      }
+    }
+    storeSubscription={
+      Subscription {
+        "listeners": Object {
+          "clear": [Function],
+          "get": [Function],
+          "notify": [Function],
+          "subscribe": [Function],
+        },
+        "onStateChange": [Function],
+        "parentSub": undefined,
+        "store": Object {
+          "dispatch": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+          Symbol(observable): [Function],
+        },
+        "unsubscribe": [Function],
+      }
+    }
+    whiteListed={true}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <div
+        id="landing_container"
+      >
+        <div
+          id="landing"
+        >
+          <div
+            id="landing_text"
+          >
+            <p>
+              <b>
+                Let's get started:
+              </b>
+            </p>
+            <p>
+              <div>
+                <div
+                  id="landing_login"
+                >
+                  <p
+                    id="landing_login_p"
+                  >
+                    Log in using Metamask
+                  </p>
+                </div>
+                <div
+                  className="landing-network-status"
+                >
+                  Select :
+                  <p
+                    className="rinkeby-network-label"
+                  >
+                    rinkeby test network
+                  </p>
+                </div>
+                <p
+                  className="landing_p"
+                >
+                  New to Metamask? 
+                  <a
+                    href="https://www.cryptocompare.com/wallets/guides/how-to-use-metamask/"
+                  >
+                      Learn More
+                  </a>
+                </p>
+              </div>
+            </p>
+            <p>
+              To use the secure Trust Wallet browser,
+              <br />
+              <a
+                href="https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/"
+              >
+                click here
+              </a>
+            </p>
+            <img
+              alt="logo"
+              height="80px"
+              id="landing-logo"
+              src="logo.png"
+            />
+          </div>
+        </div>
+      </div>,
+      "id": "back",
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <div
+          id="landing"
+        >
+          <div
+            id="landing_text"
+          >
+            <p>
+              <b>
+                Let's get started:
+              </b>
+            </p>
+            <p>
+              <div>
+                <div
+                  id="landing_login"
+                >
+                  <p
+                    id="landing_login_p"
+                  >
+                    Log in using Metamask
+                  </p>
+                </div>
+                <div
+                  className="landing-network-status"
+                >
+                  Select :
+                  <p
+                    className="rinkeby-network-label"
+                  >
+                    rinkeby test network
+                  </p>
+                </div>
+                <p
+                  className="landing_p"
+                >
+                  New to Metamask? 
+                  <a
+                    href="https://www.cryptocompare.com/wallets/guides/how-to-use-metamask/"
+                  >
+                      Learn More
+                  </a>
+                </p>
+              </div>
+            </p>
+            <p>
+              To use the secure Trust Wallet browser,
+              <br />
+              <a
+                href="https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/"
+              >
+                click here
+              </a>
+            </p>
+            <img
+              alt="logo"
+              height="80px"
+              id="landing-logo"
+              src="logo.png"
+            />
+          </div>
+        </div>,
+        "id": "landing_container",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <div
+            id="landing_text"
+          >
+            <p>
+              <b>
+                Let's get started:
+              </b>
+            </p>
+            <p>
+              <div>
+                <div
+                  id="landing_login"
+                >
+                  <p
+                    id="landing_login_p"
+                  >
+                    Log in using Metamask
+                  </p>
+                </div>
+                <div
+                  className="landing-network-status"
+                >
+                  Select :
+                  <p
+                    className="rinkeby-network-label"
+                  >
+                    rinkeby test network
+                  </p>
+                </div>
+                <p
+                  className="landing_p"
+                >
+                  New to Metamask? 
+                  <a
+                    href="https://www.cryptocompare.com/wallets/guides/how-to-use-metamask/"
+                  >
+                      Learn More
+                  </a>
+                </p>
+              </div>
+            </p>
+            <p>
+              To use the secure Trust Wallet browser,
+              <br />
+              <a
+                href="https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/"
+              >
+                click here
+              </a>
+            </p>
+            <img
+              alt="logo"
+              height="80px"
+              id="landing-logo"
+              src="logo.png"
+            />
+          </div>,
+          "id": "landing",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <p>
+                <b>
+                  Let's get started:
+                </b>
+              </p>,
+              <p>
+                <div>
+                  <div
+                    id="landing_login"
+                  >
+                    <p
+                      id="landing_login_p"
+                    >
+                      Log in using Metamask
+                    </p>
+                  </div>
+                  <div
+                    className="landing-network-status"
+                  >
+                    Select :
+                    <p
+                      className="rinkeby-network-label"
+                    >
+                      rinkeby test network
+                    </p>
+                  </div>
+                  <p
+                    className="landing_p"
+                  >
+                    New to Metamask? 
+                    <a
+                      href="https://www.cryptocompare.com/wallets/guides/how-to-use-metamask/"
+                    >
+                        Learn More
+                    </a>
+                  </p>
+                </div>
+              </p>,
+              <p>
+                To use the secure Trust Wallet browser,
+                <br />
+                <a
+                  href="https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/"
+                >
+                  click here
+                </a>
+              </p>,
+              <img
+                alt="logo"
+                height="80px"
+                id="landing-logo"
+                src="logo.png"
+              />,
+            ],
+            "id": "landing_text",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <b>
+                  Let's get started:
+                </b>,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Let's get started:",
+                },
+                "ref": null,
+                "rendered": "Let's get started:",
+                "type": "b",
+              },
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <div>
+                  <div
+                    id="landing_login"
+                  >
+                    <p
+                      id="landing_login_p"
+                    >
+                      Log in using Metamask
+                    </p>
+                  </div>
+                  <div
+                    className="landing-network-status"
+                  >
+                    Select :
+                    <p
+                      className="rinkeby-network-label"
+                    >
+                      rinkeby test network
+                    </p>
+                  </div>
+                  <p
+                    className="landing_p"
+                  >
+                    New to Metamask? 
+                    <a
+                      href="https://www.cryptocompare.com/wallets/guides/how-to-use-metamask/"
+                    >
+                        Learn More
+                    </a>
+                  </p>
+                </div>,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <div
+                      id="landing_login"
+                    >
+                      <p
+                        id="landing_login_p"
+                      >
+                        Log in using Metamask
+                      </p>
+                    </div>,
+                    <div
+                      className="landing-network-status"
+                    >
+                      Select :
+                      <p
+                        className="rinkeby-network-label"
+                      >
+                        rinkeby test network
+                      </p>
+                    </div>,
+                    <p
+                      className="landing_p"
+                    >
+                      New to Metamask? 
+                      <a
+                        href="https://www.cryptocompare.com/wallets/guides/how-to-use-metamask/"
+                      >
+                          Learn More
+                      </a>
+                    </p>,
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": <p
+                        id="landing_login_p"
+                      >
+                        Log in using Metamask
+                      </p>,
+                      "id": "landing_login",
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Log in using Metamask",
+                        "id": "landing_login_p",
+                      },
+                      "ref": null,
+                      "rendered": "Log in using Metamask",
+                      "type": "p",
+                    },
+                    "type": "div",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        "Select :",
+                        <p
+                          className="rinkeby-network-label"
+                        >
+                          rinkeby test network
+                        </p>,
+                      ],
+                      "className": "landing-network-status",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      "Select :",
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "rinkeby test network",
+                          "className": "rinkeby-network-label",
+                        },
+                        "ref": null,
+                        "rendered": "rinkeby test network",
+                        "type": "p",
+                      },
+                    ],
+                    "type": "div",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        "New to Metamask? ",
+                        <a
+                          href="https://www.cryptocompare.com/wallets/guides/how-to-use-metamask/"
+                        >
+                            Learn More
+                        </a>,
+                      ],
+                      "className": "landing_p",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      "New to Metamask? ",
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "  Learn More",
+                          "href": "https://www.cryptocompare.com/wallets/guides/how-to-use-metamask/",
+                        },
+                        "ref": null,
+                        "rendered": "  Learn More",
+                        "type": "a",
+                      },
+                    ],
+                    "type": "p",
+                  },
+                ],
+                "type": "div",
+              },
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "To use the secure Trust Wallet browser,",
+                  <br />,
+                  <a
+                    href="https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/"
+                  >
+                    click here
+                  </a>,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                "To use the secure Trust Wallet browser,",
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {},
+                  "ref": null,
+                  "rendered": null,
+                  "type": "br",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "click here",
+                    "href": "https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/",
+                  },
+                  "ref": null,
+                  "rendered": "click here",
+                  "type": "a",
+                },
+              ],
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "alt": "logo",
+                "height": "80px",
+                "id": "landing-logo",
+                "src": "logo.png",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "img",
+            },
+          ],
+          "type": "div",
+        },
+        "type": "div",
+      },
+      "type": "div",
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <div
+          id="landing_container"
+        >
+          <div
+            id="landing"
+          >
+            <div
+              id="landing_text"
+            >
+              <p>
+                <b>
+                  Let's get started:
+                </b>
+              </p>
+              <p>
+                <div>
+                  <div
+                    id="landing_login"
+                  >
+                    <p
+                      id="landing_login_p"
+                    >
+                      Log in using Metamask
+                    </p>
+                  </div>
+                  <div
+                    className="landing-network-status"
+                  >
+                    Select :
+                    <p
+                      className="rinkeby-network-label"
+                    >
+                      rinkeby test network
+                    </p>
+                  </div>
+                  <p
+                    className="landing_p"
+                  >
+                    New to Metamask? 
+                    <a
+                      href="https://www.cryptocompare.com/wallets/guides/how-to-use-metamask/"
+                    >
+                        Learn More
+                    </a>
+                  </p>
+                </div>
+              </p>
+              <p>
+                To use the secure Trust Wallet browser,
+                <br />
+                <a
+                  href="https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/"
+                >
+                  click here
+                </a>
+              </p>
+              <img
+                alt="logo"
+                height="80px"
+                id="landing-logo"
+                src="logo.png"
+              />
+            </div>
+          </div>
+        </div>,
+        "id": "back",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <div
+            id="landing"
+          >
+            <div
+              id="landing_text"
+            >
+              <p>
+                <b>
+                  Let's get started:
+                </b>
+              </p>
+              <p>
+                <div>
+                  <div
+                    id="landing_login"
+                  >
+                    <p
+                      id="landing_login_p"
+                    >
+                      Log in using Metamask
+                    </p>
+                  </div>
+                  <div
+                    className="landing-network-status"
+                  >
+                    Select :
+                    <p
+                      className="rinkeby-network-label"
+                    >
+                      rinkeby test network
+                    </p>
+                  </div>
+                  <p
+                    className="landing_p"
+                  >
+                    New to Metamask? 
+                    <a
+                      href="https://www.cryptocompare.com/wallets/guides/how-to-use-metamask/"
+                    >
+                        Learn More
+                    </a>
+                  </p>
+                </div>
+              </p>
+              <p>
+                To use the secure Trust Wallet browser,
+                <br />
+                <a
+                  href="https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/"
+                >
+                  click here
+                </a>
+              </p>
+              <img
+                alt="logo"
+                height="80px"
+                id="landing-logo"
+                src="logo.png"
+              />
+            </div>
+          </div>,
+          "id": "landing_container",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <div
+              id="landing_text"
+            >
+              <p>
+                <b>
+                  Let's get started:
+                </b>
+              </p>
+              <p>
+                <div>
+                  <div
+                    id="landing_login"
+                  >
+                    <p
+                      id="landing_login_p"
+                    >
+                      Log in using Metamask
+                    </p>
+                  </div>
+                  <div
+                    className="landing-network-status"
+                  >
+                    Select :
+                    <p
+                      className="rinkeby-network-label"
+                    >
+                      rinkeby test network
+                    </p>
+                  </div>
+                  <p
+                    className="landing_p"
+                  >
+                    New to Metamask? 
+                    <a
+                      href="https://www.cryptocompare.com/wallets/guides/how-to-use-metamask/"
+                    >
+                        Learn More
+                    </a>
+                  </p>
+                </div>
+              </p>
+              <p>
+                To use the secure Trust Wallet browser,
+                <br />
+                <a
+                  href="https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/"
+                >
+                  click here
+                </a>
+              </p>
+              <img
+                alt="logo"
+                height="80px"
+                id="landing-logo"
+                src="logo.png"
+              />
+            </div>,
+            "id": "landing",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <p>
+                  <b>
+                    Let's get started:
+                  </b>
+                </p>,
+                <p>
+                  <div>
+                    <div
+                      id="landing_login"
+                    >
+                      <p
+                        id="landing_login_p"
+                      >
+                        Log in using Metamask
+                      </p>
+                    </div>
+                    <div
+                      className="landing-network-status"
+                    >
+                      Select :
+                      <p
+                        className="rinkeby-network-label"
+                      >
+                        rinkeby test network
+                      </p>
+                    </div>
+                    <p
+                      className="landing_p"
+                    >
+                      New to Metamask? 
+                      <a
+                        href="https://www.cryptocompare.com/wallets/guides/how-to-use-metamask/"
+                      >
+                          Learn More
+                      </a>
+                    </p>
+                  </div>
+                </p>,
+                <p>
+                  To use the secure Trust Wallet browser,
+                  <br />
+                  <a
+                    href="https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/"
+                  >
+                    click here
+                  </a>
+                </p>,
+                <img
+                  alt="logo"
+                  height="80px"
+                  id="landing-logo"
+                  src="logo.png"
+                />,
+              ],
+              "id": "landing_text",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <b>
+                    Let's get started:
+                  </b>,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Let's get started:",
+                  },
+                  "ref": null,
+                  "rendered": "Let's get started:",
+                  "type": "b",
+                },
+                "type": "p",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <div>
+                    <div
+                      id="landing_login"
+                    >
+                      <p
+                        id="landing_login_p"
+                      >
+                        Log in using Metamask
+                      </p>
+                    </div>
+                    <div
+                      className="landing-network-status"
+                    >
+                      Select :
+                      <p
+                        className="rinkeby-network-label"
+                      >
+                        rinkeby test network
+                      </p>
+                    </div>
+                    <p
+                      className="landing_p"
+                    >
+                      New to Metamask? 
+                      <a
+                        href="https://www.cryptocompare.com/wallets/guides/how-to-use-metamask/"
+                      >
+                          Learn More
+                      </a>
+                    </p>
+                  </div>,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <div
+                        id="landing_login"
+                      >
+                        <p
+                          id="landing_login_p"
+                        >
+                          Log in using Metamask
+                        </p>
+                      </div>,
+                      <div
+                        className="landing-network-status"
+                      >
+                        Select :
+                        <p
+                          className="rinkeby-network-label"
+                        >
+                          rinkeby test network
+                        </p>
+                      </div>,
+                      <p
+                        className="landing_p"
+                      >
+                        New to Metamask? 
+                        <a
+                          href="https://www.cryptocompare.com/wallets/guides/how-to-use-metamask/"
+                        >
+                            Learn More
+                        </a>
+                      </p>,
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": <p
+                          id="landing_login_p"
+                        >
+                          Log in using Metamask
+                        </p>,
+                        "id": "landing_login",
+                      },
+                      "ref": null,
+                      "rendered": Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Log in using Metamask",
+                          "id": "landing_login_p",
+                        },
+                        "ref": null,
+                        "rendered": "Log in using Metamask",
+                        "type": "p",
+                      },
+                      "type": "div",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          "Select :",
+                          <p
+                            className="rinkeby-network-label"
+                          >
+                            rinkeby test network
+                          </p>,
+                        ],
+                        "className": "landing-network-status",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        "Select :",
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "rinkeby test network",
+                            "className": "rinkeby-network-label",
+                          },
+                          "ref": null,
+                          "rendered": "rinkeby test network",
+                          "type": "p",
+                        },
+                      ],
+                      "type": "div",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          "New to Metamask? ",
+                          <a
+                            href="https://www.cryptocompare.com/wallets/guides/how-to-use-metamask/"
+                          >
+                              Learn More
+                          </a>,
+                        ],
+                        "className": "landing_p",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        "New to Metamask? ",
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "  Learn More",
+                            "href": "https://www.cryptocompare.com/wallets/guides/how-to-use-metamask/",
+                          },
+                          "ref": null,
+                          "rendered": "  Learn More",
+                          "type": "a",
+                        },
+                      ],
+                      "type": "p",
+                    },
+                  ],
+                  "type": "div",
+                },
+                "type": "p",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "To use the secure Trust Wallet browser,",
+                    <br />,
+                    <a
+                      href="https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/"
+                    >
+                      click here
+                    </a>,
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  "To use the secure Trust Wallet browser,",
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {},
+                    "ref": null,
+                    "rendered": null,
+                    "type": "br",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "click here",
+                      "href": "https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/",
+                    },
+                    "ref": null,
+                    "rendered": "click here",
+                    "type": "a",
+                  },
+                ],
+                "type": "p",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "alt": "logo",
+                  "height": "80px",
+                  "id": "landing-logo",
+                  "src": "logo.png",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "img",
+              },
+            ],
+            "type": "div",
+          },
+          "type": "div",
+        },
+        "type": "div",
+      },
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`<Landing /> renders not whitelisted 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Landing
+    dispatch={[Function]}
+    metamask={true}
+    network={4}
     store={
       Object {
         "dispatch": [Function],
@@ -51,102 +1945,212 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "children": Array [
-        <h1
-          className="landing-head"
+      "children": <div
+        id="landing_container"
+      >
+        <div
+          id="landing"
         >
-          Decentralized Derivatives Association  DRCT
-        </h1>,
-        <h3
-          className="landing-subhead"
-        >
-          <div>
+          <div
+            id="landing_text"
+          >
             <p>
-              Please Login to 
+              <b>
+                Let's get started:
+              </b>
+            </p>
+            <p>
+              <div>
+                <p>
+                  You are Connected To:
+                </p>
+                <p
+                  className="landing-network-status rinkeby-network-label"
+                >
+                  rinkeby test network
+                </p>
+                <div>
+                  <p>
+                    The DDA dapp is currently for members only.
+                  </p>
+                  <p>
+                    To learn more about membership, visit: 
+                    <br />
+                    <a
+                      href="http://www.ddacoop.org/membership"
+                    >
+                      http://www.ddacoop.org/membership
+                    </a>
+                  </p>
+                  <p>
+                    To become a member, please visit
+                    <br />
+                    <a
+                      href="https://membership.ddacoop.org"
+                    >
+                      https://membership.ddacoop.org
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </p>
+            <p>
+              To use the secure Trust Wallet browser,
+              <br />
               <a
-                href="https://metamask.io/"
+                href="https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/"
               >
-                MetaMask
+                click here
               </a>
             </p>
-            <p
-              className="landing_p"
-            >
-              <a
-                href="https://www.cryptocompare.com/wallets/guides/how-to-use-metamask/"
-              >
-                What is MetaMask?
-              </a>
-            </p>
-            <div
-              className="landing-network-status"
-            >
-              Select :
-              <p
-                className="rinkeby-network-label"
-              >
-                rinkeby test network
-              </p>
-            </div>
+            <img
+              alt="logo"
+              height="80px"
+              id="landing-logo"
+              src="logo.png"
+            />
           </div>
-        </h3>,
-        <img
-          alt=""
-          className="landing-logo"
-          src="logo-large.png"
-        />,
-      ],
-      "id": "landing",
+        </div>
+      </div>,
+      "id": "back",
     },
     "ref": null,
-    "rendered": Array [
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": "Decentralized Derivatives Association  DRCT",
-          "className": "landing-head",
-        },
-        "ref": null,
-        "rendered": "Decentralized Derivatives Association  DRCT",
-        "type": "h1",
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": <div>
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <div
+          id="landing"
+        >
+          <div
+            id="landing_text"
+          >
             <p>
-              Please Login to 
+              <b>
+                Let's get started:
+              </b>
+            </p>
+            <p>
+              <div>
+                <p>
+                  You are Connected To:
+                </p>
+                <p
+                  className="landing-network-status rinkeby-network-label"
+                >
+                  rinkeby test network
+                </p>
+                <div>
+                  <p>
+                    The DDA dapp is currently for members only.
+                  </p>
+                  <p>
+                    To learn more about membership, visit: 
+                    <br />
+                    <a
+                      href="http://www.ddacoop.org/membership"
+                    >
+                      http://www.ddacoop.org/membership
+                    </a>
+                  </p>
+                  <p>
+                    To become a member, please visit
+                    <br />
+                    <a
+                      href="https://membership.ddacoop.org"
+                    >
+                      https://membership.ddacoop.org
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </p>
+            <p>
+              To use the secure Trust Wallet browser,
+              <br />
               <a
-                href="https://metamask.io/"
+                href="https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/"
               >
-                MetaMask
+                click here
               </a>
             </p>
-            <p
-              className="landing_p"
-            >
+            <img
+              alt="logo"
+              height="80px"
+              id="landing-logo"
+              src="logo.png"
+            />
+          </div>
+        </div>,
+        "id": "landing_container",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <div
+            id="landing_text"
+          >
+            <p>
+              <b>
+                Let's get started:
+              </b>
+            </p>
+            <p>
+              <div>
+                <p>
+                  You are Connected To:
+                </p>
+                <p
+                  className="landing-network-status rinkeby-network-label"
+                >
+                  rinkeby test network
+                </p>
+                <div>
+                  <p>
+                    The DDA dapp is currently for members only.
+                  </p>
+                  <p>
+                    To learn more about membership, visit: 
+                    <br />
+                    <a
+                      href="http://www.ddacoop.org/membership"
+                    >
+                      http://www.ddacoop.org/membership
+                    </a>
+                  </p>
+                  <p>
+                    To become a member, please visit
+                    <br />
+                    <a
+                      href="https://membership.ddacoop.org"
+                    >
+                      https://membership.ddacoop.org
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </p>
+            <p>
+              To use the secure Trust Wallet browser,
+              <br />
               <a
-                href="https://www.cryptocompare.com/wallets/guides/how-to-use-metamask/"
+                href="https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/"
               >
-                What is MetaMask?
+                click here
               </a>
             </p>
-            <div
-              className="landing-network-status"
-            >
-              Select :
-              <p
-                className="rinkeby-network-label"
-              >
-                rinkeby test network
-              </p>
-            </div>
+            <img
+              alt="logo"
+              height="80px"
+              id="landing-logo"
+              src="logo.png"
+            />
           </div>,
-          "className": "landing-subhead",
+          "id": "landing",
         },
         "ref": null,
         "rendered": Object {
@@ -156,33 +2160,62 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               <p>
-                Please Login to 
+                <b>
+                  Let's get started:
+                </b>
+              </p>,
+              <p>
+                <div>
+                  <p>
+                    You are Connected To:
+                  </p>
+                  <p
+                    className="landing-network-status rinkeby-network-label"
+                  >
+                    rinkeby test network
+                  </p>
+                  <div>
+                    <p>
+                      The DDA dapp is currently for members only.
+                    </p>
+                    <p>
+                      To learn more about membership, visit: 
+                      <br />
+                      <a
+                        href="http://www.ddacoop.org/membership"
+                      >
+                        http://www.ddacoop.org/membership
+                      </a>
+                    </p>
+                    <p>
+                      To become a member, please visit
+                      <br />
+                      <a
+                        href="https://membership.ddacoop.org"
+                      >
+                        https://membership.ddacoop.org
+                      </a>
+                    </p>
+                  </div>
+                </div>
+              </p>,
+              <p>
+                To use the secure Trust Wallet browser,
+                <br />
                 <a
-                  href="https://metamask.io/"
+                  href="https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/"
                 >
-                  MetaMask
+                  click here
                 </a>
               </p>,
-              <p
-                className="landing_p"
-              >
-                <a
-                  href="https://www.cryptocompare.com/wallets/guides/how-to-use-metamask/"
-                >
-                  What is MetaMask?
-                </a>
-              </p>,
-              <div
-                className="landing-network-status"
-              >
-                Select :
-                <p
-                  className="rinkeby-network-label"
-                >
-                  rinkeby test network
-                </p>
-              </div>,
+              <img
+                alt="logo"
+                height="80px"
+                id="landing-logo"
+                src="logo.png"
+              />,
             ],
+            "id": "landing_text",
           },
           "ref": null,
           "rendered": Array [
@@ -191,28 +2224,299 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": Array [
-                  "Please Login to ",
-                  <a
-                    href="https://metamask.io/"
+                "children": <b>
+                  Let's get started:
+                </b>,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Let's get started:",
+                },
+                "ref": null,
+                "rendered": "Let's get started:",
+                "type": "b",
+              },
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <div>
+                  <p>
+                    You are Connected To:
+                  </p>
+                  <p
+                    className="landing-network-status rinkeby-network-label"
                   >
-                    MetaMask
+                    rinkeby test network
+                  </p>
+                  <div>
+                    <p>
+                      The DDA dapp is currently for members only.
+                    </p>
+                    <p>
+                      To learn more about membership, visit: 
+                      <br />
+                      <a
+                        href="http://www.ddacoop.org/membership"
+                      >
+                        http://www.ddacoop.org/membership
+                      </a>
+                    </p>
+                    <p>
+                      To become a member, please visit
+                      <br />
+                      <a
+                        href="https://membership.ddacoop.org"
+                      >
+                        https://membership.ddacoop.org
+                      </a>
+                    </p>
+                  </div>
+                </div>,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <p>
+                      You are Connected To:
+                    </p>,
+                    <p
+                      className="landing-network-status rinkeby-network-label"
+                    >
+                      rinkeby test network
+                    </p>,
+                    <div>
+                      <p>
+                        The DDA dapp is currently for members only.
+                      </p>
+                      <p>
+                        To learn more about membership, visit: 
+                        <br />
+                        <a
+                          href="http://www.ddacoop.org/membership"
+                        >
+                          http://www.ddacoop.org/membership
+                        </a>
+                      </p>
+                      <p>
+                        To become a member, please visit
+                        <br />
+                        <a
+                          href="https://membership.ddacoop.org"
+                        >
+                          https://membership.ddacoop.org
+                        </a>
+                      </p>
+                    </div>,
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "You are Connected To:",
+                    },
+                    "ref": null,
+                    "rendered": "You are Connected To:",
+                    "type": "p",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "rinkeby test network",
+                      "className": "landing-network-status rinkeby-network-label",
+                    },
+                    "ref": null,
+                    "rendered": "rinkeby test network",
+                    "type": "p",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <p>
+                          The DDA dapp is currently for members only.
+                        </p>,
+                        <p>
+                          To learn more about membership, visit: 
+                          <br />
+                          <a
+                            href="http://www.ddacoop.org/membership"
+                          >
+                            http://www.ddacoop.org/membership
+                          </a>
+                        </p>,
+                        <p>
+                          To become a member, please visit
+                          <br />
+                          <a
+                            href="https://membership.ddacoop.org"
+                          >
+                            https://membership.ddacoop.org
+                          </a>
+                        </p>,
+                      ],
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "The DDA dapp is currently for members only.",
+                        },
+                        "ref": null,
+                        "rendered": "The DDA dapp is currently for members only.",
+                        "type": "p",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": Array [
+                            "To learn more about membership, visit: ",
+                            <br />,
+                            <a
+                              href="http://www.ddacoop.org/membership"
+                            >
+                              http://www.ddacoop.org/membership
+                            </a>,
+                          ],
+                        },
+                        "ref": null,
+                        "rendered": Array [
+                          "To learn more about membership, visit: ",
+                          Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {},
+                            "ref": null,
+                            "rendered": null,
+                            "type": "br",
+                          },
+                          Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "children": "http://www.ddacoop.org/membership",
+                              "href": "http://www.ddacoop.org/membership",
+                            },
+                            "ref": null,
+                            "rendered": "http://www.ddacoop.org/membership",
+                            "type": "a",
+                          },
+                        ],
+                        "type": "p",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": Array [
+                            "To become a member, please visit",
+                            <br />,
+                            <a
+                              href="https://membership.ddacoop.org"
+                            >
+                              https://membership.ddacoop.org
+                            </a>,
+                          ],
+                        },
+                        "ref": null,
+                        "rendered": Array [
+                          "To become a member, please visit",
+                          Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {},
+                            "ref": null,
+                            "rendered": null,
+                            "type": "br",
+                          },
+                          Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "children": "https://membership.ddacoop.org",
+                              "href": "https://membership.ddacoop.org",
+                            },
+                            "ref": null,
+                            "rendered": "https://membership.ddacoop.org",
+                            "type": "a",
+                          },
+                        ],
+                        "type": "p",
+                      },
+                    ],
+                    "type": "div",
+                  },
+                ],
+                "type": "div",
+              },
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "To use the secure Trust Wallet browser,",
+                  <br />,
+                  <a
+                    href="https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/"
+                  >
+                    click here
                   </a>,
                 ],
               },
               "ref": null,
               "rendered": Array [
-                "Please Login to ",
+                "To use the secure Trust Wallet browser,",
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {},
+                  "ref": null,
+                  "rendered": null,
+                  "type": "br",
+                },
                 Object {
                   "instance": null,
                   "key": undefined,
                   "nodeType": "host",
                   "props": Object {
-                    "children": "MetaMask",
-                    "href": "https://metamask.io/",
+                    "children": "click here",
+                    "href": "https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/",
                   },
                   "ref": null,
-                  "rendered": "MetaMask",
+                  "rendered": "click here",
                   "type": "a",
                 },
               ],
@@ -223,80 +2527,22 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": <a
-                  href="https://www.cryptocompare.com/wallets/guides/how-to-use-metamask/"
-                >
-                  What is MetaMask?
-                </a>,
-                "className": "landing_p",
+                "alt": "logo",
+                "height": "80px",
+                "id": "landing-logo",
+                "src": "logo.png",
               },
               "ref": null,
-              "rendered": Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": "What is MetaMask?",
-                  "href": "https://www.cryptocompare.com/wallets/guides/how-to-use-metamask/",
-                },
-                "ref": null,
-                "rendered": "What is MetaMask?",
-                "type": "a",
-              },
-              "type": "p",
-            },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": Array [
-                  "Select :",
-                  <p
-                    className="rinkeby-network-label"
-                  >
-                    rinkeby test network
-                  </p>,
-                ],
-                "className": "landing-network-status",
-              },
-              "ref": null,
-              "rendered": Array [
-                "Select :",
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "children": "rinkeby test network",
-                    "className": "rinkeby-network-label",
-                  },
-                  "ref": null,
-                  "rendered": "rinkeby test network",
-                  "type": "p",
-                },
-              ],
-              "type": "div",
+              "rendered": null,
+              "type": "img",
             },
           ],
           "type": "div",
         },
-        "type": "h3",
+        "type": "div",
       },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "alt": "",
-          "className": "landing-logo",
-          "src": "logo-large.png",
-        },
-        "ref": null,
-        "rendered": null,
-        "type": "img",
-      },
-    ],
+      "type": "div",
+    },
     "type": "div",
   },
   Symbol(enzyme.__nodes__): Array [
@@ -305,102 +2551,212 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "children": Array [
-          <h1
-            className="landing-head"
+        "children": <div
+          id="landing_container"
+        >
+          <div
+            id="landing"
           >
-            Decentralized Derivatives Association  DRCT
-          </h1>,
-          <h3
-            className="landing-subhead"
-          >
-            <div>
+            <div
+              id="landing_text"
+            >
               <p>
-                Please Login to 
+                <b>
+                  Let's get started:
+                </b>
+              </p>
+              <p>
+                <div>
+                  <p>
+                    You are Connected To:
+                  </p>
+                  <p
+                    className="landing-network-status rinkeby-network-label"
+                  >
+                    rinkeby test network
+                  </p>
+                  <div>
+                    <p>
+                      The DDA dapp is currently for members only.
+                    </p>
+                    <p>
+                      To learn more about membership, visit: 
+                      <br />
+                      <a
+                        href="http://www.ddacoop.org/membership"
+                      >
+                        http://www.ddacoop.org/membership
+                      </a>
+                    </p>
+                    <p>
+                      To become a member, please visit
+                      <br />
+                      <a
+                        href="https://membership.ddacoop.org"
+                      >
+                        https://membership.ddacoop.org
+                      </a>
+                    </p>
+                  </div>
+                </div>
+              </p>
+              <p>
+                To use the secure Trust Wallet browser,
+                <br />
                 <a
-                  href="https://metamask.io/"
+                  href="https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/"
                 >
-                  MetaMask
+                  click here
                 </a>
               </p>
-              <p
-                className="landing_p"
-              >
-                <a
-                  href="https://www.cryptocompare.com/wallets/guides/how-to-use-metamask/"
-                >
-                  What is MetaMask?
-                </a>
-              </p>
-              <div
-                className="landing-network-status"
-              >
-                Select :
-                <p
-                  className="rinkeby-network-label"
-                >
-                  rinkeby test network
-                </p>
-              </div>
+              <img
+                alt="logo"
+                height="80px"
+                id="landing-logo"
+                src="logo.png"
+              />
             </div>
-          </h3>,
-          <img
-            alt=""
-            className="landing-logo"
-            src="logo-large.png"
-          />,
-        ],
-        "id": "landing",
+          </div>
+        </div>,
+        "id": "back",
       },
       "ref": null,
-      "rendered": Array [
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": "Decentralized Derivatives Association  DRCT",
-            "className": "landing-head",
-          },
-          "ref": null,
-          "rendered": "Decentralized Derivatives Association  DRCT",
-          "type": "h1",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": <div>
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <div
+            id="landing"
+          >
+            <div
+              id="landing_text"
+            >
               <p>
-                Please Login to 
+                <b>
+                  Let's get started:
+                </b>
+              </p>
+              <p>
+                <div>
+                  <p>
+                    You are Connected To:
+                  </p>
+                  <p
+                    className="landing-network-status rinkeby-network-label"
+                  >
+                    rinkeby test network
+                  </p>
+                  <div>
+                    <p>
+                      The DDA dapp is currently for members only.
+                    </p>
+                    <p>
+                      To learn more about membership, visit: 
+                      <br />
+                      <a
+                        href="http://www.ddacoop.org/membership"
+                      >
+                        http://www.ddacoop.org/membership
+                      </a>
+                    </p>
+                    <p>
+                      To become a member, please visit
+                      <br />
+                      <a
+                        href="https://membership.ddacoop.org"
+                      >
+                        https://membership.ddacoop.org
+                      </a>
+                    </p>
+                  </div>
+                </div>
+              </p>
+              <p>
+                To use the secure Trust Wallet browser,
+                <br />
                 <a
-                  href="https://metamask.io/"
+                  href="https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/"
                 >
-                  MetaMask
+                  click here
                 </a>
               </p>
-              <p
-                className="landing_p"
-              >
+              <img
+                alt="logo"
+                height="80px"
+                id="landing-logo"
+                src="logo.png"
+              />
+            </div>
+          </div>,
+          "id": "landing_container",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <div
+              id="landing_text"
+            >
+              <p>
+                <b>
+                  Let's get started:
+                </b>
+              </p>
+              <p>
+                <div>
+                  <p>
+                    You are Connected To:
+                  </p>
+                  <p
+                    className="landing-network-status rinkeby-network-label"
+                  >
+                    rinkeby test network
+                  </p>
+                  <div>
+                    <p>
+                      The DDA dapp is currently for members only.
+                    </p>
+                    <p>
+                      To learn more about membership, visit: 
+                      <br />
+                      <a
+                        href="http://www.ddacoop.org/membership"
+                      >
+                        http://www.ddacoop.org/membership
+                      </a>
+                    </p>
+                    <p>
+                      To become a member, please visit
+                      <br />
+                      <a
+                        href="https://membership.ddacoop.org"
+                      >
+                        https://membership.ddacoop.org
+                      </a>
+                    </p>
+                  </div>
+                </div>
+              </p>
+              <p>
+                To use the secure Trust Wallet browser,
+                <br />
                 <a
-                  href="https://www.cryptocompare.com/wallets/guides/how-to-use-metamask/"
+                  href="https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/"
                 >
-                  What is MetaMask?
+                  click here
                 </a>
               </p>
-              <div
-                className="landing-network-status"
-              >
-                Select :
-                <p
-                  className="rinkeby-network-label"
-                >
-                  rinkeby test network
-                </p>
-              </div>
+              <img
+                alt="logo"
+                height="80px"
+                id="landing-logo"
+                src="logo.png"
+              />
             </div>,
-            "className": "landing-subhead",
+            "id": "landing",
           },
           "ref": null,
           "rendered": Object {
@@ -410,33 +2766,62 @@ ShallowWrapper {
             "props": Object {
               "children": Array [
                 <p>
-                  Please Login to 
+                  <b>
+                    Let's get started:
+                  </b>
+                </p>,
+                <p>
+                  <div>
+                    <p>
+                      You are Connected To:
+                    </p>
+                    <p
+                      className="landing-network-status rinkeby-network-label"
+                    >
+                      rinkeby test network
+                    </p>
+                    <div>
+                      <p>
+                        The DDA dapp is currently for members only.
+                      </p>
+                      <p>
+                        To learn more about membership, visit: 
+                        <br />
+                        <a
+                          href="http://www.ddacoop.org/membership"
+                        >
+                          http://www.ddacoop.org/membership
+                        </a>
+                      </p>
+                      <p>
+                        To become a member, please visit
+                        <br />
+                        <a
+                          href="https://membership.ddacoop.org"
+                        >
+                          https://membership.ddacoop.org
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </p>,
+                <p>
+                  To use the secure Trust Wallet browser,
+                  <br />
                   <a
-                    href="https://metamask.io/"
+                    href="https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/"
                   >
-                    MetaMask
+                    click here
                   </a>
                 </p>,
-                <p
-                  className="landing_p"
-                >
-                  <a
-                    href="https://www.cryptocompare.com/wallets/guides/how-to-use-metamask/"
-                  >
-                    What is MetaMask?
-                  </a>
-                </p>,
-                <div
-                  className="landing-network-status"
-                >
-                  Select :
-                  <p
-                    className="rinkeby-network-label"
-                  >
-                    rinkeby test network
-                  </p>
-                </div>,
+                <img
+                  alt="logo"
+                  height="80px"
+                  id="landing-logo"
+                  src="logo.png"
+                />,
               ],
+              "id": "landing_text",
             },
             "ref": null,
             "rendered": Array [
@@ -445,28 +2830,299 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
-                  "children": Array [
-                    "Please Login to ",
-                    <a
-                      href="https://metamask.io/"
+                  "children": <b>
+                    Let's get started:
+                  </b>,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Let's get started:",
+                  },
+                  "ref": null,
+                  "rendered": "Let's get started:",
+                  "type": "b",
+                },
+                "type": "p",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <div>
+                    <p>
+                      You are Connected To:
+                    </p>
+                    <p
+                      className="landing-network-status rinkeby-network-label"
                     >
-                      MetaMask
+                      rinkeby test network
+                    </p>
+                    <div>
+                      <p>
+                        The DDA dapp is currently for members only.
+                      </p>
+                      <p>
+                        To learn more about membership, visit: 
+                        <br />
+                        <a
+                          href="http://www.ddacoop.org/membership"
+                        >
+                          http://www.ddacoop.org/membership
+                        </a>
+                      </p>
+                      <p>
+                        To become a member, please visit
+                        <br />
+                        <a
+                          href="https://membership.ddacoop.org"
+                        >
+                          https://membership.ddacoop.org
+                        </a>
+                      </p>
+                    </div>
+                  </div>,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <p>
+                        You are Connected To:
+                      </p>,
+                      <p
+                        className="landing-network-status rinkeby-network-label"
+                      >
+                        rinkeby test network
+                      </p>,
+                      <div>
+                        <p>
+                          The DDA dapp is currently for members only.
+                        </p>
+                        <p>
+                          To learn more about membership, visit: 
+                          <br />
+                          <a
+                            href="http://www.ddacoop.org/membership"
+                          >
+                            http://www.ddacoop.org/membership
+                          </a>
+                        </p>
+                        <p>
+                          To become a member, please visit
+                          <br />
+                          <a
+                            href="https://membership.ddacoop.org"
+                          >
+                            https://membership.ddacoop.org
+                          </a>
+                        </p>
+                      </div>,
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "You are Connected To:",
+                      },
+                      "ref": null,
+                      "rendered": "You are Connected To:",
+                      "type": "p",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "rinkeby test network",
+                        "className": "landing-network-status rinkeby-network-label",
+                      },
+                      "ref": null,
+                      "rendered": "rinkeby test network",
+                      "type": "p",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          <p>
+                            The DDA dapp is currently for members only.
+                          </p>,
+                          <p>
+                            To learn more about membership, visit: 
+                            <br />
+                            <a
+                              href="http://www.ddacoop.org/membership"
+                            >
+                              http://www.ddacoop.org/membership
+                            </a>
+                          </p>,
+                          <p>
+                            To become a member, please visit
+                            <br />
+                            <a
+                              href="https://membership.ddacoop.org"
+                            >
+                              https://membership.ddacoop.org
+                            </a>
+                          </p>,
+                        ],
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "The DDA dapp is currently for members only.",
+                          },
+                          "ref": null,
+                          "rendered": "The DDA dapp is currently for members only.",
+                          "type": "p",
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": Array [
+                              "To learn more about membership, visit: ",
+                              <br />,
+                              <a
+                                href="http://www.ddacoop.org/membership"
+                              >
+                                http://www.ddacoop.org/membership
+                              </a>,
+                            ],
+                          },
+                          "ref": null,
+                          "rendered": Array [
+                            "To learn more about membership, visit: ",
+                            Object {
+                              "instance": null,
+                              "key": undefined,
+                              "nodeType": "host",
+                              "props": Object {},
+                              "ref": null,
+                              "rendered": null,
+                              "type": "br",
+                            },
+                            Object {
+                              "instance": null,
+                              "key": undefined,
+                              "nodeType": "host",
+                              "props": Object {
+                                "children": "http://www.ddacoop.org/membership",
+                                "href": "http://www.ddacoop.org/membership",
+                              },
+                              "ref": null,
+                              "rendered": "http://www.ddacoop.org/membership",
+                              "type": "a",
+                            },
+                          ],
+                          "type": "p",
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": Array [
+                              "To become a member, please visit",
+                              <br />,
+                              <a
+                                href="https://membership.ddacoop.org"
+                              >
+                                https://membership.ddacoop.org
+                              </a>,
+                            ],
+                          },
+                          "ref": null,
+                          "rendered": Array [
+                            "To become a member, please visit",
+                            Object {
+                              "instance": null,
+                              "key": undefined,
+                              "nodeType": "host",
+                              "props": Object {},
+                              "ref": null,
+                              "rendered": null,
+                              "type": "br",
+                            },
+                            Object {
+                              "instance": null,
+                              "key": undefined,
+                              "nodeType": "host",
+                              "props": Object {
+                                "children": "https://membership.ddacoop.org",
+                                "href": "https://membership.ddacoop.org",
+                              },
+                              "ref": null,
+                              "rendered": "https://membership.ddacoop.org",
+                              "type": "a",
+                            },
+                          ],
+                          "type": "p",
+                        },
+                      ],
+                      "type": "div",
+                    },
+                  ],
+                  "type": "div",
+                },
+                "type": "p",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "To use the secure Trust Wallet browser,",
+                    <br />,
+                    <a
+                      href="https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/"
+                    >
+                      click here
                     </a>,
                   ],
                 },
                 "ref": null,
                 "rendered": Array [
-                  "Please Login to ",
+                  "To use the secure Trust Wallet browser,",
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {},
+                    "ref": null,
+                    "rendered": null,
+                    "type": "br",
+                  },
                   Object {
                     "instance": null,
                     "key": undefined,
                     "nodeType": "host",
                     "props": Object {
-                      "children": "MetaMask",
-                      "href": "https://metamask.io/",
+                      "children": "click here",
+                      "href": "https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/",
                     },
                     "ref": null,
-                    "rendered": "MetaMask",
+                    "rendered": "click here",
                     "type": "a",
                   },
                 ],
@@ -477,12 +3133,636 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
-                  "children": <a
-                    href="https://www.cryptocompare.com/wallets/guides/how-to-use-metamask/"
+                  "alt": "logo",
+                  "height": "80px",
+                  "id": "landing-logo",
+                  "src": "logo.png",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "img",
+              },
+            ],
+            "type": "div",
+          },
+          "type": "div",
+        },
+        "type": "div",
+      },
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`<Landing /> renders the component 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Landing
+    dispatch={[Function]}
+    metamask={true}
+    network={4}
+    store={
+      Object {
+        "dispatch": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+        Symbol(observable): [Function],
+      }
+    }
+    storeSubscription={
+      Subscription {
+        "listeners": Object {
+          "clear": [Function],
+          "get": [Function],
+          "notify": [Function],
+          "subscribe": [Function],
+        },
+        "onStateChange": [Function],
+        "parentSub": undefined,
+        "store": Object {
+          "dispatch": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+          Symbol(observable): [Function],
+        },
+        "unsubscribe": [Function],
+      }
+    }
+    whiteListed={true}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <div
+        id="landing_container"
+      >
+        <div
+          id="landing"
+        >
+          <div
+            id="landing_text"
+          >
+            <p>
+              <b>
+                Let's get started:
+              </b>
+            </p>
+            <p>
+              <div>
+                <p>
+                  You are Connected To:
+                </p>
+                <p
+                  className="landing-network-status rinkeby-network-label"
+                >
+                  rinkeby test network
+                </p>
+                
+              </div>
+            </p>
+            <p>
+              To use the secure Trust Wallet browser,
+              <br />
+              <a
+                href="https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/"
+              >
+                click here
+              </a>
+            </p>
+            <img
+              alt="logo"
+              height="80px"
+              id="landing-logo"
+              src="logo.png"
+            />
+          </div>
+        </div>
+      </div>,
+      "id": "back",
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <div
+          id="landing"
+        >
+          <div
+            id="landing_text"
+          >
+            <p>
+              <b>
+                Let's get started:
+              </b>
+            </p>
+            <p>
+              <div>
+                <p>
+                  You are Connected To:
+                </p>
+                <p
+                  className="landing-network-status rinkeby-network-label"
+                >
+                  rinkeby test network
+                </p>
+                
+              </div>
+            </p>
+            <p>
+              To use the secure Trust Wallet browser,
+              <br />
+              <a
+                href="https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/"
+              >
+                click here
+              </a>
+            </p>
+            <img
+              alt="logo"
+              height="80px"
+              id="landing-logo"
+              src="logo.png"
+            />
+          </div>
+        </div>,
+        "id": "landing_container",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <div
+            id="landing_text"
+          >
+            <p>
+              <b>
+                Let's get started:
+              </b>
+            </p>
+            <p>
+              <div>
+                <p>
+                  You are Connected To:
+                </p>
+                <p
+                  className="landing-network-status rinkeby-network-label"
+                >
+                  rinkeby test network
+                </p>
+                
+              </div>
+            </p>
+            <p>
+              To use the secure Trust Wallet browser,
+              <br />
+              <a
+                href="https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/"
+              >
+                click here
+              </a>
+            </p>
+            <img
+              alt="logo"
+              height="80px"
+              id="landing-logo"
+              src="logo.png"
+            />
+          </div>,
+          "id": "landing",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <p>
+                <b>
+                  Let's get started:
+                </b>
+              </p>,
+              <p>
+                <div>
+                  <p>
+                    You are Connected To:
+                  </p>
+                  <p
+                    className="landing-network-status rinkeby-network-label"
                   >
-                    What is MetaMask?
+                    rinkeby test network
+                  </p>
+                  
+                </div>
+              </p>,
+              <p>
+                To use the secure Trust Wallet browser,
+                <br />
+                <a
+                  href="https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/"
+                >
+                  click here
+                </a>
+              </p>,
+              <img
+                alt="logo"
+                height="80px"
+                id="landing-logo"
+                src="logo.png"
+              />,
+            ],
+            "id": "landing_text",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <b>
+                  Let's get started:
+                </b>,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Let's get started:",
+                },
+                "ref": null,
+                "rendered": "Let's get started:",
+                "type": "b",
+              },
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <div>
+                  <p>
+                    You are Connected To:
+                  </p>
+                  <p
+                    className="landing-network-status rinkeby-network-label"
+                  >
+                    rinkeby test network
+                  </p>
+                  
+                </div>,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <p>
+                      You are Connected To:
+                    </p>,
+                    <p
+                      className="landing-network-status rinkeby-network-label"
+                    >
+                      rinkeby test network
+                    </p>,
+                    "",
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "You are Connected To:",
+                    },
+                    "ref": null,
+                    "rendered": "You are Connected To:",
+                    "type": "p",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "rinkeby test network",
+                      "className": "landing-network-status rinkeby-network-label",
+                    },
+                    "ref": null,
+                    "rendered": "rinkeby test network",
+                    "type": "p",
+                  },
+                  "",
+                ],
+                "type": "div",
+              },
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "To use the secure Trust Wallet browser,",
+                  <br />,
+                  <a
+                    href="https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/"
+                  >
+                    click here
                   </a>,
-                  "className": "landing_p",
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                "To use the secure Trust Wallet browser,",
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {},
+                  "ref": null,
+                  "rendered": null,
+                  "type": "br",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "click here",
+                    "href": "https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/",
+                  },
+                  "ref": null,
+                  "rendered": "click here",
+                  "type": "a",
+                },
+              ],
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "alt": "logo",
+                "height": "80px",
+                "id": "landing-logo",
+                "src": "logo.png",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "img",
+            },
+          ],
+          "type": "div",
+        },
+        "type": "div",
+      },
+      "type": "div",
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <div
+          id="landing_container"
+        >
+          <div
+            id="landing"
+          >
+            <div
+              id="landing_text"
+            >
+              <p>
+                <b>
+                  Let's get started:
+                </b>
+              </p>
+              <p>
+                <div>
+                  <p>
+                    You are Connected To:
+                  </p>
+                  <p
+                    className="landing-network-status rinkeby-network-label"
+                  >
+                    rinkeby test network
+                  </p>
+                  
+                </div>
+              </p>
+              <p>
+                To use the secure Trust Wallet browser,
+                <br />
+                <a
+                  href="https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/"
+                >
+                  click here
+                </a>
+              </p>
+              <img
+                alt="logo"
+                height="80px"
+                id="landing-logo"
+                src="logo.png"
+              />
+            </div>
+          </div>
+        </div>,
+        "id": "back",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <div
+            id="landing"
+          >
+            <div
+              id="landing_text"
+            >
+              <p>
+                <b>
+                  Let's get started:
+                </b>
+              </p>
+              <p>
+                <div>
+                  <p>
+                    You are Connected To:
+                  </p>
+                  <p
+                    className="landing-network-status rinkeby-network-label"
+                  >
+                    rinkeby test network
+                  </p>
+                  
+                </div>
+              </p>
+              <p>
+                To use the secure Trust Wallet browser,
+                <br />
+                <a
+                  href="https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/"
+                >
+                  click here
+                </a>
+              </p>
+              <img
+                alt="logo"
+                height="80px"
+                id="landing-logo"
+                src="logo.png"
+              />
+            </div>
+          </div>,
+          "id": "landing_container",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <div
+              id="landing_text"
+            >
+              <p>
+                <b>
+                  Let's get started:
+                </b>
+              </p>
+              <p>
+                <div>
+                  <p>
+                    You are Connected To:
+                  </p>
+                  <p
+                    className="landing-network-status rinkeby-network-label"
+                  >
+                    rinkeby test network
+                  </p>
+                  
+                </div>
+              </p>
+              <p>
+                To use the secure Trust Wallet browser,
+                <br />
+                <a
+                  href="https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/"
+                >
+                  click here
+                </a>
+              </p>
+              <img
+                alt="logo"
+                height="80px"
+                id="landing-logo"
+                src="logo.png"
+              />
+            </div>,
+            "id": "landing",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <p>
+                  <b>
+                    Let's get started:
+                  </b>
+                </p>,
+                <p>
+                  <div>
+                    <p>
+                      You are Connected To:
+                    </p>
+                    <p
+                      className="landing-network-status rinkeby-network-label"
+                    >
+                      rinkeby test network
+                    </p>
+                    
+                  </div>
+                </p>,
+                <p>
+                  To use the secure Trust Wallet browser,
+                  <br />
+                  <a
+                    href="https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/"
+                  >
+                    click here
+                  </a>
+                </p>,
+                <img
+                  alt="logo"
+                  height="80px"
+                  id="landing-logo"
+                  src="logo.png"
+                />,
+              ],
+              "id": "landing_text",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <b>
+                    Let's get started:
+                  </b>,
                 },
                 "ref": null,
                 "rendered": Object {
@@ -490,12 +3770,77 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "host",
                   "props": Object {
-                    "children": "What is MetaMask?",
-                    "href": "https://www.cryptocompare.com/wallets/guides/how-to-use-metamask/",
+                    "children": "Let's get started:",
                   },
                   "ref": null,
-                  "rendered": "What is MetaMask?",
-                  "type": "a",
+                  "rendered": "Let's get started:",
+                  "type": "b",
+                },
+                "type": "p",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <div>
+                    <p>
+                      You are Connected To:
+                    </p>
+                    <p
+                      className="landing-network-status rinkeby-network-label"
+                    >
+                      rinkeby test network
+                    </p>
+                    
+                  </div>,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <p>
+                        You are Connected To:
+                      </p>,
+                      <p
+                        className="landing-network-status rinkeby-network-label"
+                      >
+                        rinkeby test network
+                      </p>,
+                      "",
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "You are Connected To:",
+                      },
+                      "ref": null,
+                      "rendered": "You are Connected To:",
+                      "type": "p",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "rinkeby test network",
+                        "className": "landing-network-status rinkeby-network-label",
+                      },
+                      "ref": null,
+                      "rendered": "rinkeby test network",
+                      "type": "p",
+                    },
+                    "",
+                  ],
+                  "type": "div",
                 },
                 "type": "p",
               },
@@ -505,25 +3850,466 @@ ShallowWrapper {
                 "nodeType": "host",
                 "props": Object {
                   "children": Array [
-                    "Select :",
+                    "To use the secure Trust Wallet browser,",
+                    <br />,
+                    <a
+                      href="https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/"
+                    >
+                      click here
+                    </a>,
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  "To use the secure Trust Wallet browser,",
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {},
+                    "ref": null,
+                    "rendered": null,
+                    "type": "br",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "click here",
+                      "href": "https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/",
+                    },
+                    "ref": null,
+                    "rendered": "click here",
+                    "type": "a",
+                  },
+                ],
+                "type": "p",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "alt": "logo",
+                  "height": "80px",
+                  "id": "landing-logo",
+                  "src": "logo.png",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "img",
+              },
+            ],
+            "type": "div",
+          },
+          "type": "div",
+        },
+        "type": "div",
+      },
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`<Landing /> renders with wrong network id 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Landing
+    dispatch={[Function]}
+    metamask={true}
+    network={3}
+    store={
+      Object {
+        "dispatch": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+        Symbol(observable): [Function],
+      }
+    }
+    storeSubscription={
+      Subscription {
+        "listeners": Object {
+          "clear": [Function],
+          "get": [Function],
+          "notify": [Function],
+          "subscribe": [Function],
+        },
+        "onStateChange": [Function],
+        "parentSub": undefined,
+        "store": Object {
+          "dispatch": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+          Symbol(observable): [Function],
+        },
+        "unsubscribe": [Function],
+      }
+    }
+    whiteListed={true}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <div
+        id="landing_container"
+      >
+        <div
+          id="landing"
+        >
+          <div
+            id="landing_text"
+          >
+            <p>
+              <b>
+                Let's get started:
+              </b>
+            </p>
+            <p>
+              <div>
+                <p>
+                  You are Currently Connected To:
+                </p>
+                <p
+                  className="landing-network-status ropsten-network-label"
+                >
+                  ropsten test network
+                </p>
+                <p>
+                  Please Set MetaMask To:
+                </p>
+                <p
+                  className="landing-network-status rinkeby-network-label"
+                >
+                  rinkeby test network
+                </p>
+              </div>
+            </p>
+            <p>
+              To use the secure Trust Wallet browser,
+              <br />
+              <a
+                href="https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/"
+              >
+                click here
+              </a>
+            </p>
+            <img
+              alt="logo"
+              height="80px"
+              id="landing-logo"
+              src="logo.png"
+            />
+          </div>
+        </div>
+      </div>,
+      "id": "back",
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <div
+          id="landing"
+        >
+          <div
+            id="landing_text"
+          >
+            <p>
+              <b>
+                Let's get started:
+              </b>
+            </p>
+            <p>
+              <div>
+                <p>
+                  You are Currently Connected To:
+                </p>
+                <p
+                  className="landing-network-status ropsten-network-label"
+                >
+                  ropsten test network
+                </p>
+                <p>
+                  Please Set MetaMask To:
+                </p>
+                <p
+                  className="landing-network-status rinkeby-network-label"
+                >
+                  rinkeby test network
+                </p>
+              </div>
+            </p>
+            <p>
+              To use the secure Trust Wallet browser,
+              <br />
+              <a
+                href="https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/"
+              >
+                click here
+              </a>
+            </p>
+            <img
+              alt="logo"
+              height="80px"
+              id="landing-logo"
+              src="logo.png"
+            />
+          </div>
+        </div>,
+        "id": "landing_container",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <div
+            id="landing_text"
+          >
+            <p>
+              <b>
+                Let's get started:
+              </b>
+            </p>
+            <p>
+              <div>
+                <p>
+                  You are Currently Connected To:
+                </p>
+                <p
+                  className="landing-network-status ropsten-network-label"
+                >
+                  ropsten test network
+                </p>
+                <p>
+                  Please Set MetaMask To:
+                </p>
+                <p
+                  className="landing-network-status rinkeby-network-label"
+                >
+                  rinkeby test network
+                </p>
+              </div>
+            </p>
+            <p>
+              To use the secure Trust Wallet browser,
+              <br />
+              <a
+                href="https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/"
+              >
+                click here
+              </a>
+            </p>
+            <img
+              alt="logo"
+              height="80px"
+              id="landing-logo"
+              src="logo.png"
+            />
+          </div>,
+          "id": "landing",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <p>
+                <b>
+                  Let's get started:
+                </b>
+              </p>,
+              <p>
+                <div>
+                  <p>
+                    You are Currently Connected To:
+                  </p>
+                  <p
+                    className="landing-network-status ropsten-network-label"
+                  >
+                    ropsten test network
+                  </p>
+                  <p>
+                    Please Set MetaMask To:
+                  </p>
+                  <p
+                    className="landing-network-status rinkeby-network-label"
+                  >
+                    rinkeby test network
+                  </p>
+                </div>
+              </p>,
+              <p>
+                To use the secure Trust Wallet browser,
+                <br />
+                <a
+                  href="https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/"
+                >
+                  click here
+                </a>
+              </p>,
+              <img
+                alt="logo"
+                height="80px"
+                id="landing-logo"
+                src="logo.png"
+              />,
+            ],
+            "id": "landing_text",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <b>
+                  Let's get started:
+                </b>,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Let's get started:",
+                },
+                "ref": null,
+                "rendered": "Let's get started:",
+                "type": "b",
+              },
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <div>
+                  <p>
+                    You are Currently Connected To:
+                  </p>
+                  <p
+                    className="landing-network-status ropsten-network-label"
+                  >
+                    ropsten test network
+                  </p>
+                  <p>
+                    Please Set MetaMask To:
+                  </p>
+                  <p
+                    className="landing-network-status rinkeby-network-label"
+                  >
+                    rinkeby test network
+                  </p>
+                </div>,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <p>
+                      You are Currently Connected To:
+                    </p>,
                     <p
-                      className="rinkeby-network-label"
+                      className="landing-network-status ropsten-network-label"
+                    >
+                      ropsten test network
+                    </p>,
+                    <p>
+                      Please Set MetaMask To:
+                    </p>,
+                    <p
+                      className="landing-network-status rinkeby-network-label"
                     >
                       rinkeby test network
                     </p>,
                   ],
-                  "className": "landing-network-status",
                 },
                 "ref": null,
                 "rendered": Array [
-                  "Select :",
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "You are Currently Connected To:",
+                    },
+                    "ref": null,
+                    "rendered": "You are Currently Connected To:",
+                    "type": "p",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "ropsten test network",
+                      "className": "landing-network-status ropsten-network-label",
+                    },
+                    "ref": null,
+                    "rendered": "ropsten test network",
+                    "type": "p",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Please Set MetaMask To:",
+                    },
+                    "ref": null,
+                    "rendered": "Please Set MetaMask To:",
+                    "type": "p",
+                  },
                   Object {
                     "instance": null,
                     "key": undefined,
                     "nodeType": "host",
                     "props": Object {
                       "children": "rinkeby test network",
-                      "className": "rinkeby-network-label",
+                      "className": "landing-network-status rinkeby-network-label",
                     },
                     "ref": null,
                     "rendered": "rinkeby test network",
@@ -532,25 +4318,481 @@ ShallowWrapper {
                 ],
                 "type": "div",
               },
-            ],
-            "type": "div",
-          },
-          "type": "h3",
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "To use the secure Trust Wallet browser,",
+                  <br />,
+                  <a
+                    href="https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/"
+                  >
+                    click here
+                  </a>,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                "To use the secure Trust Wallet browser,",
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {},
+                  "ref": null,
+                  "rendered": null,
+                  "type": "br",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "click here",
+                    "href": "https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/",
+                  },
+                  "ref": null,
+                  "rendered": "click here",
+                  "type": "a",
+                },
+              ],
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "alt": "logo",
+                "height": "80px",
+                "id": "landing-logo",
+                "src": "logo.png",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "img",
+            },
+          ],
+          "type": "div",
         },
-        Object {
+        "type": "div",
+      },
+      "type": "div",
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <div
+          id="landing_container"
+        >
+          <div
+            id="landing"
+          >
+            <div
+              id="landing_text"
+            >
+              <p>
+                <b>
+                  Let's get started:
+                </b>
+              </p>
+              <p>
+                <div>
+                  <p>
+                    You are Currently Connected To:
+                  </p>
+                  <p
+                    className="landing-network-status ropsten-network-label"
+                  >
+                    ropsten test network
+                  </p>
+                  <p>
+                    Please Set MetaMask To:
+                  </p>
+                  <p
+                    className="landing-network-status rinkeby-network-label"
+                  >
+                    rinkeby test network
+                  </p>
+                </div>
+              </p>
+              <p>
+                To use the secure Trust Wallet browser,
+                <br />
+                <a
+                  href="https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/"
+                >
+                  click here
+                </a>
+              </p>
+              <img
+                alt="logo"
+                height="80px"
+                id="landing-logo"
+                src="logo.png"
+              />
+            </div>
+          </div>
+        </div>,
+        "id": "back",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <div
+            id="landing"
+          >
+            <div
+              id="landing_text"
+            >
+              <p>
+                <b>
+                  Let's get started:
+                </b>
+              </p>
+              <p>
+                <div>
+                  <p>
+                    You are Currently Connected To:
+                  </p>
+                  <p
+                    className="landing-network-status ropsten-network-label"
+                  >
+                    ropsten test network
+                  </p>
+                  <p>
+                    Please Set MetaMask To:
+                  </p>
+                  <p
+                    className="landing-network-status rinkeby-network-label"
+                  >
+                    rinkeby test network
+                  </p>
+                </div>
+              </p>
+              <p>
+                To use the secure Trust Wallet browser,
+                <br />
+                <a
+                  href="https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/"
+                >
+                  click here
+                </a>
+              </p>
+              <img
+                alt="logo"
+                height="80px"
+                id="landing-logo"
+                src="logo.png"
+              />
+            </div>
+          </div>,
+          "id": "landing_container",
+        },
+        "ref": null,
+        "rendered": Object {
           "instance": null,
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "alt": "",
-            "className": "landing-logo",
-            "src": "logo-large.png",
+            "children": <div
+              id="landing_text"
+            >
+              <p>
+                <b>
+                  Let's get started:
+                </b>
+              </p>
+              <p>
+                <div>
+                  <p>
+                    You are Currently Connected To:
+                  </p>
+                  <p
+                    className="landing-network-status ropsten-network-label"
+                  >
+                    ropsten test network
+                  </p>
+                  <p>
+                    Please Set MetaMask To:
+                  </p>
+                  <p
+                    className="landing-network-status rinkeby-network-label"
+                  >
+                    rinkeby test network
+                  </p>
+                </div>
+              </p>
+              <p>
+                To use the secure Trust Wallet browser,
+                <br />
+                <a
+                  href="https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/"
+                >
+                  click here
+                </a>
+              </p>
+              <img
+                alt="logo"
+                height="80px"
+                id="landing-logo"
+                src="logo.png"
+              />
+            </div>,
+            "id": "landing",
           },
           "ref": null,
-          "rendered": null,
-          "type": "img",
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <p>
+                  <b>
+                    Let's get started:
+                  </b>
+                </p>,
+                <p>
+                  <div>
+                    <p>
+                      You are Currently Connected To:
+                    </p>
+                    <p
+                      className="landing-network-status ropsten-network-label"
+                    >
+                      ropsten test network
+                    </p>
+                    <p>
+                      Please Set MetaMask To:
+                    </p>
+                    <p
+                      className="landing-network-status rinkeby-network-label"
+                    >
+                      rinkeby test network
+                    </p>
+                  </div>
+                </p>,
+                <p>
+                  To use the secure Trust Wallet browser,
+                  <br />
+                  <a
+                    href="https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/"
+                  >
+                    click here
+                  </a>
+                </p>,
+                <img
+                  alt="logo"
+                  height="80px"
+                  id="landing-logo"
+                  src="logo.png"
+                />,
+              ],
+              "id": "landing_text",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <b>
+                    Let's get started:
+                  </b>,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Let's get started:",
+                  },
+                  "ref": null,
+                  "rendered": "Let's get started:",
+                  "type": "b",
+                },
+                "type": "p",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <div>
+                    <p>
+                      You are Currently Connected To:
+                    </p>
+                    <p
+                      className="landing-network-status ropsten-network-label"
+                    >
+                      ropsten test network
+                    </p>
+                    <p>
+                      Please Set MetaMask To:
+                    </p>
+                    <p
+                      className="landing-network-status rinkeby-network-label"
+                    >
+                      rinkeby test network
+                    </p>
+                  </div>,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <p>
+                        You are Currently Connected To:
+                      </p>,
+                      <p
+                        className="landing-network-status ropsten-network-label"
+                      >
+                        ropsten test network
+                      </p>,
+                      <p>
+                        Please Set MetaMask To:
+                      </p>,
+                      <p
+                        className="landing-network-status rinkeby-network-label"
+                      >
+                        rinkeby test network
+                      </p>,
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "You are Currently Connected To:",
+                      },
+                      "ref": null,
+                      "rendered": "You are Currently Connected To:",
+                      "type": "p",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "ropsten test network",
+                        "className": "landing-network-status ropsten-network-label",
+                      },
+                      "ref": null,
+                      "rendered": "ropsten test network",
+                      "type": "p",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Please Set MetaMask To:",
+                      },
+                      "ref": null,
+                      "rendered": "Please Set MetaMask To:",
+                      "type": "p",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "rinkeby test network",
+                        "className": "landing-network-status rinkeby-network-label",
+                      },
+                      "ref": null,
+                      "rendered": "rinkeby test network",
+                      "type": "p",
+                    },
+                  ],
+                  "type": "div",
+                },
+                "type": "p",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "To use the secure Trust Wallet browser,",
+                    <br />,
+                    <a
+                      href="https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/"
+                    >
+                      click here
+                    </a>,
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  "To use the secure Trust Wallet browser,",
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {},
+                    "ref": null,
+                    "rendered": null,
+                    "type": "br",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "click here",
+                      "href": "https://links.trustwalletapp.com/a/key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D?&event=openURL&url=http://localhost/",
+                    },
+                    "ref": null,
+                    "rendered": "click here",
+                    "type": "a",
+                  },
+                ],
+                "type": "p",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "alt": "logo",
+                  "height": "80px",
+                  "id": "landing-logo",
+                  "src": "logo.png",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "img",
+              },
+            ],
+            "type": "div",
+          },
+          "type": "div",
         },
-      ],
+        "type": "div",
+      },
       "type": "div",
     },
   ],
