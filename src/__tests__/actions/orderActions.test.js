@@ -87,6 +87,17 @@ describe('orderActions', () => {
     expect(store.getActions()).toMatchSnapshot();
   });
 
+  it('sendApproveOrder no allowance received', async () => {
+    DRCTInstance.allowance.mockImplementationOnce(() => undefined);
+    await store.dispatch(
+      orderActions.sendApproveOrder({
+        token: '0x000...',
+        tokenAmount: 1,
+      })
+    );
+    expect(store.getActions()).toMatchSnapshot();
+  });
+
   it('sendApproveOrder, token amount is more than approved', async () => {
     await store.dispatch(
       orderActions.sendApproveOrder({

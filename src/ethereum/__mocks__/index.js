@@ -1,3 +1,13 @@
+import BigNumber from 'bignumber.js';
+
+export function bn(number) {
+  return new BigNumber(number);
+}
+
+const mockTransaction = { tx: '0x000...' };
+
+const mockDate = Math.round(new Date('01/01/2018').getTime() / 1000);
+
 const mockContract = mockContractInstance => ({
   at: jest.fn(() => mockContractInstance),
 });
@@ -20,15 +30,15 @@ export const FactoryInstance = {
       ])
     ),
   })),
-  getTokenType: jest.fn(() => ({ c: [0] })),
+  getTokenType: jest.fn(() => bn('0')),
   isWhitelisted: jest.fn(() => false),
   getDateCount: jest.fn(() => 1),
   getTokens: jest.fn(() => ['0x000...']),
   startDates: {
-    call: jest.fn(() => ({ c: [0] })),
+    call: jest.fn(() => bn(mockDate)),
   },
   token_dates: {
-    call: jest.fn(() => ({ c: [1] })),
+    call: jest.fn(() => bn(mockDate)),
   },
   user_contract: {
     call: jest.fn(),
@@ -36,17 +46,17 @@ export const FactoryInstance = {
 };
 export const DRCTInstance = {
   approve: jest.fn(),
-  balanceOf: jest.fn(() => ({ c: [1], e: 10 })),
-  allowance: jest.fn(() => ({ c: [10, 20] })),
+  balanceOf: jest.fn(() => bn('1e10')),
+  allowance: jest.fn(() => bn('10')),
   getFactoryAddress: jest.fn(() => '0x000...'),
 };
 export const ExchangeInstance = {
-  getOrder: jest.fn(() => [{ c: [10] }, { c: [20] }, { c: [30] }, '0x000...']),
-  getOrders: jest.fn(() => [{ c: [1] }]),
-  buy: jest.fn(() => ({ tx: '0x000...' })),
-  list: jest.fn(() => ({ tx: '0x000...' })),
-  unlist: jest.fn(() => ({ tx: '0x000...' })),
-  getUserOrders: jest.fn(() => [{ c: [0] }]),
+  getOrder: jest.fn(() => [bn('10'), bn('20'), bn('30'), '0x000...']),
+  getOrders: jest.fn(() => [bn('1')]),
+  buy: jest.fn(() => mockTransaction),
+  list: jest.fn(() => mockTransaction),
+  unlist: jest.fn(() => mockTransaction),
+  getUserOrders: jest.fn(() => [bn('0')]),
   openBooks: jest.fn(() => '0x000...'),
   getBookCount: jest.fn(() => 1),
   Sale: jest.fn(() => ({
@@ -58,11 +68,11 @@ export const ExchangeInstance = {
   })),
 };
 export const UserContractInstance = {
-  Initiate: jest.fn(() => ({ tx: '0x000...' })),
+  Initiate: jest.fn(() => mockTransaction),
 };
 export const WrappedInstance = {
-  balanceOf: jest.fn(() => ({ c: [1], e: 10 })),
-  withdraw: jest.fn(() => ({ tx: '0x000...' })),
+  balanceOf: jest.fn(() => bn('1e10')),
+  withdraw: jest.fn(() => mockTransaction),
 };
 
 export const Factory = mockContract(FactoryInstance);

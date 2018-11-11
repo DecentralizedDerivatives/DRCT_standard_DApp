@@ -1,5 +1,7 @@
 import * as userActions from '../../actions/userActions';
 
+import MockDate from 'mockdate';
+
 jest.mock('../../ethereum');
 jest.mock('../../factoryProvider');
 jest.mock('../../actions/common', () => ({
@@ -17,6 +19,7 @@ import {
   ExchangeInstance,
   FactoryInstance,
   DRCTInstance,
+  bn,
 } from '../../ethereum';
 import { getStartDatePrice } from '../../actions/common';
 
@@ -27,6 +30,7 @@ const store = mockStore({});
 describe('userActions', () => {
   afterEach(() => {
     store.clearActions();
+    MockDate.reset();
   });
 
   it('getUserAccount', async () => {
@@ -91,13 +95,13 @@ describe('userActions', () => {
   });
 
   it('getUserPositions short token', async () => {
-    FactoryInstance.getTokenType.mockImplementationOnce(() => ({ c: [1] }));
+    FactoryInstance.getTokenType.mockImplementationOnce(() => bn('1'));
     await store.dispatch(userActions.getUserPositions());
     expect(store.getActions()).toMatchSnapshot();
   });
 
   it('getUserPositions no balance', async () => {
-    DRCTInstance.balanceOf.mockImplementationOnce(() => ({ c: [0] }));
+    DRCTInstance.balanceOf.mockImplementationOnce(() => bn('0'));
     await store.dispatch(userActions.getUserPositions());
     expect(store.getActions()).toMatchSnapshot();
   });
@@ -113,8 +117,28 @@ describe('userActions', () => {
     expect(store.getActions()).toMatchSnapshot();
   });
 
+  it('getUserTokenPositions filters by date', async () => {
+    MockDate.set('01/01/2018');
+    await store.dispatch(userActions.getUserTokenPositions());
+    expect(store.getActions()).toMatchSnapshot();
+  });
+
+  it('getUserTokenPositions zero balance', async () => {
+    MockDate.set('01/01/2018');
+    DRCTInstance.balanceOf.mockImplementationOnce(() => bn('0'));
+    await store.dispatch(userActions.getUserTokenPositions());
+    expect(store.getActions()).toMatchSnapshot();
+  });
+
+  it('getUserTokenPositions short token', async () => {
+    MockDate.set('01/01/2018');
+    FactoryInstance.getTokenType.mockImplementationOnce(() => bn('1'));
+    await store.dispatch(userActions.getUserTokenPositions());
+    expect(store.getActions()).toMatchSnapshot();
+  });
+
   it('getUserTokenPositions error', async () => {
-    FactoryInstance.getTokens.mockImplementationOnce(() => undefined);
+    FactoryInstance.startDates.call.mockImplementationOnce(() => undefined);
     await store.dispatch(userActions.getUserTokenPositions());
     expect(store.getActions()).toMatchSnapshot();
   });

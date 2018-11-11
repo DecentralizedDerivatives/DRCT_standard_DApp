@@ -2,13 +2,10 @@ import * as common from '../../actions/common';
 
 jest.mock('../../ethereum');
 
-import { Oracle } from '../../ethereum';
+import { Oracle, bn } from '../../ethereum';
 
 Oracle.at.mockImplementation(() => ({
-  retrieveData: jest.fn(() => ({
-    c: [10],
-    e: 20,
-  })),
+  retrieveData: jest.fn(() => bn('10e20')),
 }));
 
 describe('common', () => {

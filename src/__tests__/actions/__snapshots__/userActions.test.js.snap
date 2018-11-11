@@ -42,34 +42,18 @@ Array [
     "payload": Array [
       Object {
         "address": "0x000...",
-        "date": "NaN/NaN/NaN",
+        "date": "1/1/2018",
         "id": 0,
         "info": Array [
-          Object {
-            "c": Array [
-              10,
-            ],
-          },
-          Object {
-            "c": Array [
-              20,
-            ],
-          },
-          Object {
-            "c": Array [
-              30,
-            ],
-          },
+          "10",
+          "20",
+          "30",
           "0x000...",
         ],
         "owned": 30,
-        "owner": Object {
-          "c": Array [
-            10,
-          ],
-        },
+        "owner": "10",
         "price": 0.002,
-        "row": "0x000...(30/NaN/NaN/NaN)",
+        "row": "0x000...(30/1/1/2018)",
       },
     ],
     "type": "SET_USER_ORDERS",
@@ -96,11 +80,11 @@ Array [
     "payload": Array [
       Object {
         "address": "0x000...",
-        "balance": "1",
+        "balance": "10000000000",
         "contractDuration": undefined,
         "contractGain": NaN,
         "contractMultiplier": 1,
-        "date": "1/1/1970",
+        "date": "12/31/2017",
         "symbol": undefined,
         "tokenType": "Long",
       },
@@ -154,11 +138,11 @@ Array [
     "payload": Array [
       Object {
         "address": "0x000...",
-        "balance": "1",
+        "balance": "10000000000",
         "contractDuration": undefined,
         "contractGain": 0,
         "contractMultiplier": 1,
-        "date": "1/1/1970",
+        "date": "12/31/2017",
         "symbol": undefined,
         "tokenType": "Long",
       },
@@ -182,11 +166,11 @@ Array [
     "payload": Array [
       Object {
         "address": "0x000...",
-        "balance": "1",
+        "balance": "10000000000",
         "contractDuration": undefined,
         "contractGain": NaN,
         "contractMultiplier": 1,
-        "date": "1/1/1970",
+        "date": "12/31/2017",
         "symbol": undefined,
         "tokenType": "Short",
       },
@@ -206,11 +190,11 @@ Array [
     "payload": Array [
       Object {
         "address": "0x000...",
-        "balance": "1",
+        "balance": "10000000000",
         "contractDuration": undefined,
         "contractGain": NaN,
         "contractMultiplier": 1,
-        "date": "1/1/1970",
+        "date": "12/31/2017",
         "symbol": undefined,
         "tokenType": "Long",
       },
@@ -234,6 +218,49 @@ Array [
 `;
 
 exports[`userActions getUserTokenPositions error 1`] = `
+Array [
+  Object {
+    "payload": "User Token Positions: Cannot read property 'c' of undefined",
+    "type": "SET_FETCHING_ERROR",
+  },
+]
+`;
+
+exports[`userActions getUserTokenPositions filters by date 1`] = `
+Array [
+  Object {
+    "payload": Array [
+      Object {
+        "address": "0x000...",
+        "balance": 10000000000,
+        "date": "1/31/2017",
+        "symbol": undefined,
+        "tokenType": "Long",
+      },
+    ],
+    "type": "SET_USER_TOKENS",
+  },
+]
+`;
+
+exports[`userActions getUserTokenPositions short token 1`] = `
+Array [
+  Object {
+    "payload": Array [
+      Object {
+        "address": "0x000...",
+        "balance": 10000000000,
+        "date": "1/31/2017",
+        "symbol": undefined,
+        "tokenType": "Short",
+      },
+    ],
+    "type": "SET_USER_TOKENS",
+  },
+]
+`;
+
+exports[`userActions getUserTokenPositions zero balance 1`] = `
 Array [
   Object {
     "payload": Array [],
@@ -320,12 +347,7 @@ Array [
   },
   Object {
     "payload": Object {
-      "amount": Object {
-        "c": Array [
-          1,
-        ],
-        "e": 10,
-      },
+      "amount": "10000000000",
       "id": "0x000...",
     },
     "type": "SET_CASHOUT_RECEIPT",
