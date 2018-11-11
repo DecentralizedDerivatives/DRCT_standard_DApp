@@ -1,4 +1,10 @@
-const mockProvider = { address: '0x000...', type: 'eth', multiplier: 1 };
+const mockProvider = {
+  address: '0x000...',
+  type: 'eth',
+  multiplier: 1,
+  duration: 7,
+  symbol: 'ETH/USD',
+};
 
 export default {
   factories: jest.fn(() => [mockProvider]),

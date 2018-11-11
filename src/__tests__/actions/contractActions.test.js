@@ -11,7 +11,10 @@ jest.mock('../../api', () => ({
   },
 }));
 
-import { ExchangeInstance, FactoryInstance } from '../../ethereum';
+import MockDate from 'mockdate';
+
+import { ExchangeInstance, FactoryInstance, bn } from '../../ethereum';
+import FactoryProvider from '../../factoryProvider';
 import { getStartDatePrice } from '../../actions/common';
 
 const store = mockStore({});
@@ -19,6 +22,7 @@ const store = mockStore({});
 describe('contractActions', () => {
   afterEach(() => {
     store.clearActions();
+    MockDate.reset();
   });
 
   it('getContractDetails', async () => {
@@ -45,6 +49,45 @@ describe('contractActions', () => {
     expect(store.getActions()).toMatchSnapshot();
   });
 
+  it('getOrderBook filters by date', async () => {
+    MockDate.set('01/01/2018');
+    await store.dispatch(contractActions.getOrderBook());
+    expect(store.getActions()).toMatchSnapshot();
+  });
+
+  it('getOrderBook sorts orders', async () => {
+    MockDate.set('01/01/2018');
+    ExchangeInstance.getOrders.mockImplementationOnce(() => [bn('1'), bn('2')]);
+    await store.dispatch(contractActions.getOrderBook());
+    expect(store.getActions()).toMatchSnapshot();
+  });
+
+  it('getOrderBook no start price', async () => {
+    MockDate.set('01/01/2018');
+    getStartDatePrice.mockImplementationOnce(() => undefined);
+    await store.dispatch(contractActions.getOrderBook());
+    expect(store.getActions()).toMatchSnapshot();
+  });
+
+  it('getOrderBook short token type', async () => {
+    MockDate.set('01/01/2018');
+    FactoryInstance.getTokenType.mockImplementationOnce(() => bn('1'));
+    await store.dispatch(contractActions.getOrderBook());
+    expect(store.getActions()).toMatchSnapshot();
+  });
+
+  it('getOrderBook no token date', async () => {
+    FactoryInstance.token_dates.call.mockImplementationOnce(() => bn('0'));
+    await store.dispatch(contractActions.getOrderBook());
+    expect(store.getActions()).toMatchSnapshot();
+  });
+
+  it('getOrderBook no orders', async () => {
+    ExchangeInstance.getOrders.mockImplementationOnce(() => [bn('0')]);
+    await store.dispatch(contractActions.getOrderBook());
+    expect(store.getActions()).toMatchSnapshot();
+  });
+
   it('getOrderBook silent', async () => {
     await store.dispatch(contractActions.getOrderBook(true));
     expect(store.getActions()).toMatchSnapshot();
@@ -63,6 +106,28 @@ describe('contractActions', () => {
     expect(store.getActions()).toMatchSnapshot();
   });
 
+  it('getRecentTrades with default provider data', async () => {
+    FactoryProvider.getFromAddress.mockImplementationOnce(() => ({}));
+    await store.dispatch(contractActions.getRecentTrades());
+    expect(store.getActions()).toMatchSnapshot();
+  });
+
+  it('getRecentTrades with short token', async () => {
+    FactoryInstance.getTokenType.mockImplementationOnce(() => bn('1'));
+    await store.dispatch(contractActions.getRecentTrades());
+    expect(store.getActions()).toMatchSnapshot();
+  });
+
+  it('getRecentTrades no events', async () => {
+    ExchangeInstance.Sale.mockImplementationOnce(
+      jest.fn(() => ({
+        get: jest.fn(callback => callback(undefined, [])),
+      }))
+    );
+    await store.dispatch(contractActions.getRecentTrades());
+    expect(store.getActions()).toMatchSnapshot();
+  });
+
   it('getRecentTrades silent', async () => {
     await store.dispatch(contractActions.getRecentTrades(true));
     expect(store.getActions()).toMatchSnapshot();
@@ -75,6 +140,12 @@ describe('contractActions', () => {
   });
 
   it('getContractOpenDates', async () => {
+    await store.dispatch(contractActions.getContractOpenDates());
+    expect(store.getActions()).toMatchSnapshot();
+  });
+
+  it('getContractOpenDates filters by date', async () => {
+    MockDate.set('01/01/2018');
     await store.dispatch(contractActions.getContractOpenDates());
     expect(store.getActions()).toMatchSnapshot();
   });
