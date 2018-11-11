@@ -45,8 +45,26 @@ describe('contractActions', () => {
     expect(store.getActions()).toMatchSnapshot();
   });
 
+  it('getOrderBook silent', async () => {
+    await store.dispatch(contractActions.getOrderBook(true));
+    expect(store.getActions()).toMatchSnapshot();
+  });
+
+  it('getOrderBook error', async () => {
+    ExchangeInstance.getBookCount.mockImplementationOnce(() => {
+      throw new Error('error');
+    });
+    await store.dispatch(contractActions.getOrderBook());
+    expect(store.getActions()).toMatchSnapshot();
+  });
+
   it('getRecentTrades', async () => {
     await store.dispatch(contractActions.getRecentTrades());
+    expect(store.getActions()).toMatchSnapshot();
+  });
+
+  it('getRecentTrades silent', async () => {
+    await store.dispatch(contractActions.getRecentTrades(true));
     expect(store.getActions()).toMatchSnapshot();
   });
 

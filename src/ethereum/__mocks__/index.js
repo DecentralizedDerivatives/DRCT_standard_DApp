@@ -28,7 +28,7 @@ export const FactoryInstance = {
     call: jest.fn(() => ({ c: [0] })),
   },
   token_dates: {
-    call: jest.fn(() => ({ c: [0] })),
+    call: jest.fn(() => ({ c: [1] })),
   },
   user_contract: {
     call: jest.fn(),
@@ -42,10 +42,12 @@ export const DRCTInstance = {
 };
 export const ExchangeInstance = {
   getOrder: jest.fn(() => [{ c: [10] }, { c: [20] }, { c: [30] }, '0x000...']),
+  getOrders: jest.fn(() => [{ c: [1] }]),
   buy: jest.fn(() => ({ tx: '0x000...' })),
   list: jest.fn(() => ({ tx: '0x000...' })),
   unlist: jest.fn(() => ({ tx: '0x000...' })),
   getUserOrders: jest.fn(() => [{ c: [0] }]),
+  openBooks: jest.fn(() => '0x000...'),
   getBookCount: jest.fn(() => 1),
   Sale: jest.fn(() => ({
     get: jest.fn(callback =>

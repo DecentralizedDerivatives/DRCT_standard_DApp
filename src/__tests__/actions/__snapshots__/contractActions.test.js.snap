@@ -68,8 +68,38 @@ Array [
     "type": "SET_FETCH_IN_PROGRESS",
   },
   Object {
-    "payload": "Order Book: exchange.openBooks is not a function",
+    "payload": Array [],
+    "type": "SET_ORDERBOOK",
+  },
+  Object {
+    "payload": "SET_ORDERBOOK",
+    "type": "REMOVE_FETCH_IN_PROGRESS",
+  },
+]
+`;
+
+exports[`contractActions getOrderBook error 1`] = `
+Array [
+  Object {
+    "payload": "SET_ORDERBOOK",
+    "type": "SET_FETCH_IN_PROGRESS",
+  },
+  Object {
+    "payload": "Order Book: error",
     "type": "SET_FETCHING_ERROR",
+  },
+]
+`;
+
+exports[`contractActions getOrderBook silent 1`] = `
+Array [
+  Object {
+    "payload": Array [],
+    "type": "SET_ORDERBOOK",
+  },
+  Object {
+    "payload": "SET_ORDERBOOK",
+    "type": "REMOVE_FETCH_IN_PROGRESS",
   },
 ]
 `;
@@ -95,3 +125,5 @@ Array [
   },
 ]
 `;
+
+exports[`contractActions getRecentTrades silent 1`] = `Array []`;
