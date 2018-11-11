@@ -3,6 +3,15 @@
 exports[`userActions getUserAccount 1`] = `
 Array [
   Object {
+    "payload": "0x000...",
+    "type": "SET_USER_ACCOUNT",
+  },
+]
+`;
+
+exports[`userActions getUserAccount error 1`] = `
+Array [
+  Object {
     "payload": "Cannot read property '0' of undefined",
     "type": "SET_FETCHING_ERROR",
   },
@@ -12,7 +21,16 @@ Array [
 exports[`userActions getUserBalance 1`] = `
 Array [
   Object {
-    "payload": "Cannot read property '0' of undefined",
+    "payload": 0,
+    "type": "SET_USER_BALANCE",
+  },
+]
+`;
+
+exports[`userActions getUserBalance error 1`] = `
+Array [
+  Object {
+    "payload": "Cannot read property 'c' of undefined",
     "type": "SET_FETCHING_ERROR",
   },
 ]
@@ -59,6 +77,15 @@ Array [
 ]
 `;
 
+exports[`userActions getUserOrders error 1`] = `
+Array [
+  Object {
+    "payload": "User Orders: Cannot read property 'length' of undefined",
+    "type": "SET_FETCHING_ERROR",
+  },
+]
+`;
+
 exports[`userActions getUserPositions 1`] = `
 Array [
   Object {
@@ -66,8 +93,133 @@ Array [
     "type": "SET_FETCH_IN_PROGRESS",
   },
   Object {
-    "payload": "User Positions: factory.getDateCount is not a function",
+    "payload": Array [
+      Object {
+        "address": "0x000...",
+        "balance": "1",
+        "contractDuration": undefined,
+        "contractGain": NaN,
+        "contractMultiplier": 1,
+        "date": "1/1/1970",
+        "symbol": undefined,
+        "tokenType": "Long",
+      },
+    ],
+    "type": "SET_USER_POSITIONS",
+  },
+  Object {
+    "payload": "SET_USER_POSITIONS",
+    "type": "REMOVE_FETCH_IN_PROGRESS",
+  },
+]
+`;
+
+exports[`userActions getUserPositions error 1`] = `
+Array [
+  Object {
+    "payload": "SET_USER_POSITIONS",
+    "type": "SET_FETCH_IN_PROGRESS",
+  },
+  Object {
+    "payload": "User Positions: Cannot read property 'length' of undefined",
     "type": "SET_FETCHING_ERROR",
+  },
+]
+`;
+
+exports[`userActions getUserPositions no balance 1`] = `
+Array [
+  Object {
+    "payload": "SET_USER_POSITIONS",
+    "type": "SET_FETCH_IN_PROGRESS",
+  },
+  Object {
+    "payload": Array [],
+    "type": "SET_USER_POSITIONS",
+  },
+  Object {
+    "payload": "SET_USER_POSITIONS",
+    "type": "REMOVE_FETCH_IN_PROGRESS",
+  },
+]
+`;
+
+exports[`userActions getUserPositions no start price 1`] = `
+Array [
+  Object {
+    "payload": "SET_USER_POSITIONS",
+    "type": "SET_FETCH_IN_PROGRESS",
+  },
+  Object {
+    "payload": Array [
+      Object {
+        "address": "0x000...",
+        "balance": "1",
+        "contractDuration": undefined,
+        "contractGain": 0,
+        "contractMultiplier": 1,
+        "date": "1/1/1970",
+        "symbol": undefined,
+        "tokenType": "Long",
+      },
+    ],
+    "type": "SET_USER_POSITIONS",
+  },
+  Object {
+    "payload": "SET_USER_POSITIONS",
+    "type": "REMOVE_FETCH_IN_PROGRESS",
+  },
+]
+`;
+
+exports[`userActions getUserPositions short token 1`] = `
+Array [
+  Object {
+    "payload": "SET_USER_POSITIONS",
+    "type": "SET_FETCH_IN_PROGRESS",
+  },
+  Object {
+    "payload": Array [
+      Object {
+        "address": "0x000...",
+        "balance": "1",
+        "contractDuration": undefined,
+        "contractGain": NaN,
+        "contractMultiplier": 1,
+        "date": "1/1/1970",
+        "symbol": undefined,
+        "tokenType": "Short",
+      },
+    ],
+    "type": "SET_USER_POSITIONS",
+  },
+  Object {
+    "payload": "SET_USER_POSITIONS",
+    "type": "REMOVE_FETCH_IN_PROGRESS",
+  },
+]
+`;
+
+exports[`userActions getUserPositions silent 1`] = `
+Array [
+  Object {
+    "payload": Array [
+      Object {
+        "address": "0x000...",
+        "balance": "1",
+        "contractDuration": undefined,
+        "contractGain": NaN,
+        "contractMultiplier": 1,
+        "date": "1/1/1970",
+        "symbol": undefined,
+        "tokenType": "Long",
+      },
+    ],
+    "type": "SET_USER_POSITIONS",
+  },
+  Object {
+    "payload": "SET_USER_POSITIONS",
+    "type": "REMOVE_FETCH_IN_PROGRESS",
   },
 ]
 `;
@@ -75,8 +227,17 @@ Array [
 exports[`userActions getUserTokenPositions 1`] = `
 Array [
   Object {
-    "payload": "User Token Positions: factory.getDateCount is not a function",
-    "type": "SET_FETCHING_ERROR",
+    "payload": Array [],
+    "type": "SET_USER_TOKENS",
+  },
+]
+`;
+
+exports[`userActions getUserTokenPositions error 1`] = `
+Array [
+  Object {
+    "payload": Array [],
+    "type": "SET_USER_TOKENS",
   },
 ]
 `;
@@ -88,8 +249,65 @@ Array [
     "type": "SET_FETCH_IN_PROGRESS",
   },
   Object {
-    "payload": "User Transactions: factory.ContractCreation is not a function",
+    "payload": Array [
+      Object {
+        "hash": "0x000...",
+        "title": "ContractCreation",
+      },
+    ],
+    "type": "SET_USER_TRANSACTIONS",
+  },
+  Object {
+    "payload": "SET_USER_TRANSACTIONS",
+    "type": "REMOVE_FETCH_IN_PROGRESS",
+  },
+]
+`;
+
+exports[`userActions getUserTransactions error 1`] = `
+Array [
+  Object {
+    "payload": "SET_USER_TRANSACTIONS",
+    "type": "SET_FETCH_IN_PROGRESS",
+  },
+  Object {
+    "payload": "User Transactions: Cannot read property 'length' of undefined",
     "type": "SET_FETCHING_ERROR",
+  },
+]
+`;
+
+exports[`userActions getUserTransactions filters by account 1`] = `
+Array [
+  Object {
+    "payload": "SET_USER_TRANSACTIONS",
+    "type": "SET_FETCH_IN_PROGRESS",
+  },
+  Object {
+    "payload": Array [],
+    "type": "SET_USER_TRANSACTIONS",
+  },
+  Object {
+    "payload": "SET_USER_TRANSACTIONS",
+    "type": "REMOVE_FETCH_IN_PROGRESS",
+  },
+]
+`;
+
+exports[`userActions getUserTransactions silent 1`] = `
+Array [
+  Object {
+    "payload": Array [
+      Object {
+        "hash": "0x000...",
+        "title": "ContractCreation",
+      },
+    ],
+    "type": "SET_USER_TRANSACTIONS",
+  },
+  Object {
+    "payload": "SET_USER_TRANSACTIONS",
+    "type": "REMOVE_FETCH_IN_PROGRESS",
   },
 ]
 `;
@@ -101,7 +319,32 @@ Array [
     "type": "SET_PROCESSING",
   },
   Object {
-    "payload": "Cannot read property '0' of undefined",
+    "payload": Object {
+      "amount": Object {
+        "c": Array [
+          1,
+        ],
+        "e": 10,
+      },
+      "id": "0x000...",
+    },
+    "type": "SET_CASHOUT_RECEIPT",
+  },
+  Object {
+    "payload": false,
+    "type": "SET_PROCESSING",
+  },
+]
+`;
+
+exports[`userActions sendCashOutRequest error 1`] = `
+Array [
+  Object {
+    "payload": true,
+    "type": "SET_PROCESSING",
+  },
+  Object {
+    "payload": "Cannot read property 'tx' of undefined",
     "type": "SET_CASHOUT_ERROR",
   },
   Object {

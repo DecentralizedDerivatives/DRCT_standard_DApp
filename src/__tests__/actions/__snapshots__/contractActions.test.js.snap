@@ -3,8 +3,42 @@
 exports[`contractActions getContractDetails 1`] = `
 Array [
   Object {
-    "payload": "_factoryProvider.default.getFromSymbol is not a function",
+    "payload": Object {
+      "contractAddress": "0x000...",
+      "contractCurrentPrice": undefined,
+      "contractDuration": undefined,
+      "contractGain": NaN,
+      "contractMultiplier": 1,
+      "contractStartPrice": 1,
+      "oracleAddress": undefined,
+    },
+    "type": "SET_CONTRACT_DETAILS",
+  },
+]
+`;
+
+exports[`contractActions getContractDetails error 1`] = `
+Array [
+  Object {
+    "payload": "error",
     "type": "SET_FETCHING_ERROR",
+  },
+]
+`;
+
+exports[`contractActions getContractDetails with no start price 1`] = `
+Array [
+  Object {
+    "payload": Object {
+      "contractAddress": "0x000...",
+      "contractCurrentPrice": 0,
+      "contractDuration": undefined,
+      "contractGain": 0,
+      "contractMultiplier": 1,
+      "contractStartPrice": 0,
+      "oracleAddress": undefined,
+    },
+    "type": "SET_CONTRACT_DETAILS",
   },
 ]
 `;
@@ -12,7 +46,16 @@ Array [
 exports[`contractActions getContractOpenDates 1`] = `
 Array [
   Object {
-    "payload": "Contract Open Dates: factory.getDateCount is not a function",
+    "payload": Object {},
+    "type": "SET_CONTRACT_OPEN_DATES",
+  },
+]
+`;
+
+exports[`contractActions getContractOpenDates error 1`] = `
+Array [
+  Object {
+    "payload": "Contract Open Dates: error",
     "type": "SET_FETCHING_ERROR",
   },
 ]
@@ -25,7 +68,7 @@ Array [
     "type": "SET_FETCH_IN_PROGRESS",
   },
   Object {
-    "payload": "Order Book: exchange.getBookCount is not a function",
+    "payload": "Order Book: exchange.openBooks is not a function",
     "type": "SET_FETCHING_ERROR",
   },
 ]
@@ -37,8 +80,17 @@ Array [
     "payload": "SET_RECENT_TRADES",
     "type": "SET_FETCH_IN_PROGRESS",
   },
+]
+`;
+
+exports[`contractActions getRecentTrades error 1`] = `
+Array [
   Object {
-    "payload": "Recent Trades: exchange.Sale is not a function",
+    "payload": "SET_RECENT_TRADES",
+    "type": "SET_FETCH_IN_PROGRESS",
+  },
+  Object {
+    "payload": "Recent Trades: Cannot read property 'get' of undefined",
     "type": "SET_FETCHING_ERROR",
   },
 ]
