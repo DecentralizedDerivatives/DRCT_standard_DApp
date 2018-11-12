@@ -34,12 +34,6 @@ describe('<CreateContract />', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('renders funding without close', () => {
-    const { wrapper } = setup({ close: undefined });
-    wrapper.setProps({ newContract: { funded: true } });
-    expect(wrapper).toMatchSnapshot();
-  });
-
   it('renders funding', () => {
     const { wrapper, close } = setup();
     wrapper.setProps({ newContract: { funded: true } });

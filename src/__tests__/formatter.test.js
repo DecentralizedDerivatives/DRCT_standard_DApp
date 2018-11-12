@@ -132,6 +132,10 @@ describe('formatter testing', () => {
       var result = formatter.toDollars(345.34999);
       expect(result).toEqual('$345.35');
     });
+    it('decimal with precision', () => {
+      var result = formatter.toDollars(345.34567, 3);
+      expect(result).toEqual('$345.346');
+    });
     it('leading zero', () => {
       var result = formatter.toDollars('00345');
       expect(result).toEqual('$345.00');

@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should call url 1`] = `
+Array [
+  Array [
+    0,
+    10,
+  ],
+  Array [
+    1000,
+    20,
+  ],
+  Array [
+    2000,
+    30,
+  ],
+]
+`;
+
+exports[`should raise error 1`] = `[Error: error]`;

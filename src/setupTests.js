@@ -1,16 +1,22 @@
 import React from 'react';
+import thunk from 'redux-thunk';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import configureStore from 'redux-mock-store';
 
 Enzyme.configure({ adapter: new Adapter() });
 
 import { initStore } from './Root';
+
+const middlewares = [thunk];
+const mockStore = configureStore(middlewares);
 
 global.React = React;
 
 global.shallow = shallow;
 
 global.initStore = initStore;
+global.mockStore = mockStore;
 
 global.FIXTURE = {
   user: {

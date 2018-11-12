@@ -1,0 +1,293 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`orderActions getOrderDetails error 1`] = `
+Array [
+  Object {
+    "payload": "Get Order Details: Cannot read property '3' of undefined",
+    "type": "SET_FETCHING_ERROR",
+  },
+]
+`;
+
+exports[`orderActions getOrderDetails with id 1`] = `
+Array [
+  Object {
+    "payload": Array [
+      "0x000...(0x000...20/30/1/1/2018)",
+    ],
+    "type": "SET_ORDER_DETAILS",
+  },
+]
+`;
+
+exports[`orderActions getOrderDetails without id 1`] = `
+Array [
+  Object {
+    "payload": "",
+    "type": "SET_ORDER_DETAILS",
+  },
+]
+`;
+
+exports[`orderActions sendApproveOrder 1`] = `
+Array [
+  Object {
+    "payload": true,
+    "type": "SET_PROCESSING",
+  },
+  Object {
+    "payload": Object {
+      "approved": true,
+      "token": "0x000...",
+      "tokenAmount": 1,
+    },
+    "type": "SET_LIST_ORDER_APPROVED",
+  },
+  Object {
+    "payload": false,
+    "type": "SET_PROCESSING",
+  },
+]
+`;
+
+exports[`orderActions sendApproveOrder error 1`] = `
+Array [
+  Object {
+    "payload": true,
+    "type": "SET_PROCESSING",
+  },
+  Object {
+    "payload": "error",
+    "type": "SET_LIST_ORDER_APPROVE_ERROR",
+  },
+  Object {
+    "payload": false,
+    "type": "SET_PROCESSING",
+  },
+]
+`;
+
+exports[`orderActions sendApproveOrder no allowance received 1`] = `
+Array [
+  Object {
+    "payload": true,
+    "type": "SET_PROCESSING",
+  },
+  Object {
+    "payload": Object {
+      "approved": true,
+      "token": "0x000...",
+      "tokenAmount": 1,
+    },
+    "type": "SET_LIST_ORDER_APPROVED",
+  },
+  Object {
+    "payload": false,
+    "type": "SET_PROCESSING",
+  },
+]
+`;
+
+exports[`orderActions sendApproveOrder, no token in orders 1`] = `
+Array [
+  Object {
+    "payload": true,
+    "type": "SET_PROCESSING",
+  },
+  Object {
+    "payload": Object {
+      "approved": true,
+      "token": "0x111...",
+      "tokenAmount": 1,
+    },
+    "type": "SET_LIST_ORDER_APPROVED",
+  },
+  Object {
+    "payload": false,
+    "type": "SET_PROCESSING",
+  },
+]
+`;
+
+exports[`orderActions sendApproveOrder, token amount is more than approved 1`] = `
+Array [
+  Object {
+    "payload": true,
+    "type": "SET_PROCESSING",
+  },
+  Object {
+    "payload": Object {
+      "approved": true,
+      "token": "0x000...",
+      "tokenAmount": 100,
+    },
+    "type": "SET_LIST_ORDER_APPROVED",
+  },
+  Object {
+    "payload": false,
+    "type": "SET_PROCESSING",
+  },
+]
+`;
+
+exports[`orderActions sendBuyOrder 1`] = `
+Array [
+  Object {
+    "payload": true,
+    "type": "SET_PROCESSING",
+  },
+  Object {
+    "payload": null,
+    "type": "SET_BUY_ORDER_ERROR",
+  },
+  Object {
+    "payload": Object {
+      "id": "0x000...",
+      "orderId": NaN,
+    },
+    "type": "SET_BUY_ORDER_RECEIPT",
+  },
+  Object {
+    "payload": false,
+    "type": "SET_PROCESSING",
+  },
+]
+`;
+
+exports[`orderActions sendBuyOrder error 1`] = `
+Array [
+  Object {
+    "payload": true,
+    "type": "SET_PROCESSING",
+  },
+  Object {
+    "payload": null,
+    "type": "SET_BUY_ORDER_ERROR",
+  },
+  Object {
+    "payload": "Cannot read property 'tx' of undefined",
+    "type": "SET_BUY_ORDER_ERROR",
+  },
+  Object {
+    "payload": false,
+    "type": "SET_PROCESSING",
+  },
+]
+`;
+
+exports[`orderActions sendCreateContractOrder 1`] = `
+Array [
+  Object {
+    "payload": true,
+    "type": "SET_PROCESSING",
+  },
+  Object {
+    "payload": "0x000...",
+    "type": "SET_CONTRACT_FUNDED",
+  },
+  Object {
+    "payload": false,
+    "type": "SET_PROCESSING",
+  },
+]
+`;
+
+exports[`orderActions sendCreateContractOrder error 1`] = `
+Array [
+  Object {
+    "payload": true,
+    "type": "SET_PROCESSING",
+  },
+  Object {
+    "payload": "Cannot read property 'tx' of undefined",
+    "type": "SET_SEND_FUNDS_ERROR",
+  },
+  Object {
+    "payload": false,
+    "type": "SET_PROCESSING",
+  },
+]
+`;
+
+exports[`orderActions sendListOrder 1`] = `
+Array [
+  Object {
+    "payload": true,
+    "type": "SET_PROCESSING",
+  },
+  Object {
+    "payload": Object {
+      "id": "0x000...",
+      "price": 1,
+    },
+    "type": "SET_LIST_ORDER",
+  },
+  Object {
+    "payload": false,
+    "type": "SET_PROCESSING",
+  },
+]
+`;
+
+exports[`orderActions sendListOrder error 1`] = `
+Array [
+  Object {
+    "payload": true,
+    "type": "SET_PROCESSING",
+  },
+  Object {
+    "payload": "Cannot read property 'tx' of undefined",
+    "type": "SET_LIST_ORDER_ERROR",
+  },
+  Object {
+    "payload": false,
+    "type": "SET_PROCESSING",
+  },
+]
+`;
+
+exports[`orderActions sendUnlistOrder 1`] = `
+Array [
+  Object {
+    "payload": true,
+    "type": "SET_PROCESSING",
+  },
+  Object {
+    "payload": Object {
+      "id": "0x000...",
+      "orderId": undefined,
+    },
+    "type": "SET_UNLIST_ORDER_RECEIPT",
+  },
+  Object {
+    "payload": false,
+    "type": "SET_PROCESSING",
+  },
+]
+`;
+
+exports[`orderActions sendUnlistOrder error 1`] = `
+Array [
+  Object {
+    "payload": true,
+    "type": "SET_PROCESSING",
+  },
+  Object {
+    "payload": "Cannot read property 'tx' of undefined",
+    "type": "SET_UNLIST_ORDER_ERROR",
+  },
+  Object {
+    "payload": false,
+    "type": "SET_PROCESSING",
+  },
+]
+`;
+
+exports[`orderActions setProcessing 1`] = `
+Array [
+  Object {
+    "payload": undefined,
+    "type": "SET_PROCESSING",
+  },
+]
+`;

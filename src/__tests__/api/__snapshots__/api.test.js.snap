@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should call BTC url 1`] = `
+Array [
+  Array [
+    "https://min-api.cryptocompare.com/data/histohour?fsym=BTC&tsym=USD&limit=2000",
+  ],
+]
+`;
+
+exports[`should call ETH url 1`] = `
+Array [
+  Array [
+    "https://min-api.cryptocompare.com/data/histohour?fsym=ETH&tsym=USD&limit=2000",
+  ],
+]
+`;
+
+exports[`should call minute BTC url 1`] = `
+Array [
+  Array [
+    "https://min-api.cryptocompare.com/data/histominute?fsym=BTC&tsym=USD&limit=2000",
+  ],
+]
+`;
+
+exports[`should call minute ETH url 1`] = `
+Array [
+  Array [
+    "https://min-api.cryptocompare.com/data/histominute?fsym=ETH&tsym=USD&limit=2000",
+  ],
+]
+`;

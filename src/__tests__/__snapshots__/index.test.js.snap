@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`application initialization renders application to DOM 1`] = `
+Array [
+  Array [
+    <Root>
+      <Connect(AppRouter) />
+    </Root>,
+    null,
+  ],
+]
+`;
