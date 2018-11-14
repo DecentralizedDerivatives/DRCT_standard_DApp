@@ -3,6 +3,7 @@ import {
   SET_CONTRACT_DETAILS,
   SET_CONTRACT_OPEN_DATES,
   SET_ORDERBOOK,
+  SET_ORDERBOOK_VARS,
   SET_FETCH_IN_PROGRESS,
   REMOVE_FETCH_IN_PROGRESS,
   SET_FETCHING_ERROR,
@@ -45,28 +46,68 @@ export const getContractDetails = (symbol, startDate) => async dispatch => {
     });
   }
 };
+/*
+export const getThisOpenBook = (bookIndex) => async dispatch => {
+  try{
+
+  }
+}
+*/
+export const setOrderBookVars = () => dispatch => {
+    try{
+    var staticAddresses = FactoryProvider.getStaticAddresses();
+    
+    const exchange = Exchange.at(staticAddresses.exchange);
+
+    let numBooks = exchange.getBookCount();
+
+    var factories = FactoryProvider.factories();
+    dispatch({
+      type: SET_ORDERBOOK_VARS,
+      payload: {
+        staticAddresses: staticAddresses,
+        exchange: exchange,
+        numBooks: numBooks,
+        factories: factories
+      }
+    });
+    dispatch({ type: REMOVE_FETCH_IN_PROGRESS, payload: SET_ORDERBOOK_VARS });
+  } catch (err) {
+    dispatch({
+      type: SET_FETCHING_ERROR,
+      payload: 'Order Book: ' + err.message.split('\n')[0]
+    });
+  }
+};
+
 export const getOrderBook = (isSilent) => async dispatch => {
   try {
     if (!isSilent) { dispatch({ type: SET_FETCH_IN_PROGRESS, payload: SET_ORDERBOOK }); };
+
     var staticAddresses = FactoryProvider.getStaticAddresses();
+    
     const exchange = await Exchange.at(staticAddresses.exchange);
+
     let numBooks = await exchange.getBookCount();
+
     var factories = FactoryProvider.factories();
+
     let _allrows = [];
-    for (let i = 0; i < numBooks; i++) {
+    for (let i = 0; i < numBooks; i++) {                            //  1
       let book = await exchange.openBooks(i);
-      for (var p = 0; p < factories.length; p++) {
+      for (var p = 0; p < factories.length; p++) {                  // 2
         const factory = await Factory.at(factories[p].address);
         let tokenDate = await factory.token_dates.call(book);
         if (tokenDate.c[0] === 0) { continue }
         let orders = await exchange.getOrders(book);
-        for (let j = 0; j < orders.length; j++) {
+        for (let j = 0; j < orders.length; j++) {                  //3
           if (orders[j].c[0] > 0) {
             let order = await exchange.getOrder(orders[j].c[0]);
             let tokenType = (await factory.getTokenType(order[3])).c[0];
             let date = new Date(tokenDate.c[0] * 1000);
             let endDate = moment(date).utc().add(6, 'days')
             if (moment().utc().isSameOrBefore(endDate)) {
+              console.log('bookNum: ' + i)
               let orderDate = moment(date).utc().format('MM/DD/YYYY')
               var precisePrice = parseFloat(order[1].c[0]/10000).toFixed(5);
               let symbol = factories[p].symbol

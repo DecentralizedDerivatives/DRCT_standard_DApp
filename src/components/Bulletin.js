@@ -13,6 +13,7 @@ import {
 } from '../actions/userActions';
 import {
   getOrderBook,
+  setOrderBookVars,
   getRecentTrades,
   getContractDetails
 } from '../actions/contractActions';
@@ -33,6 +34,7 @@ export class Bulletin extends Component {
     await this.props.getUserAccount();
     if (!this.props.userAccount) { return };
     this.props.getOrderBook();
+    this.props.setOrderBookVars();
     this.props.getRecentTrades();
     this.props.getUserTokenPositions(this.props.userAccount);
     this.props.getUserOrders(this.props.userAccount);
@@ -71,6 +73,7 @@ export class Bulletin extends Component {
   render() {
     return (
       <div id="bulletin">
+        <p>{this.props.numBooks}</p>
         <OrderBook onRowClick={this.handleRowClick} refreshPage={this.refreshPage} />
 
         <div className="order-buttons">
@@ -90,16 +93,20 @@ export class Bulletin extends Component {
 Bulletin.propTypes = {
   getUserAccount: PropTypes.func.isRequired,
   getOrderBook: PropTypes.func.isRequired,
+  setOrderBookVars: PropTypes.func.isRequired,
   getRecentTrades: PropTypes.func.isRequired,
   getContractDetails: PropTypes.func.isRequired,
   getUserTokenPositions: PropTypes.func.isRequired,
   getUserOrders: PropTypes.func.isRequired,
   orderId: PropTypes.string,
-  userAccount: PropTypes.string
+  userAccount: PropTypes.string,
+  numBooks: PropTypes.number
 };
 
 const mapStateToProps = state => ({
-  userAccount: state.user.userAccount
+  userAccount: state.user.userAccount,
+  numBooks: state.numBooks
+
 });
 
 export default connect(
@@ -107,6 +114,7 @@ export default connect(
   {
     getUserAccount,
     getOrderBook,
+    setOrderBookVars,
     getRecentTrades,
     getContractDetails,
     getUserTokenPositions,

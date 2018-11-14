@@ -1,6 +1,7 @@
 import {
   SET_CONTRACT_DETAILS,
   SET_ORDERBOOK,
+  SET_ORDERBOOK_VARS,
   SET_RECENT_TRADES,
   SET_CONTRACT_OPEN_DATES,
   SET_CONTRACT_CREATED,
@@ -16,7 +17,13 @@ const initialState = {
   contractGain: 0,
   contractMultiplier: 0,
   oracleAddress: '',
+
   orderbook: [],
+  staticAddresses: [],
+  exchange: null,
+  numBooks: 0,
+  factories: [],
+
   recentTrades: [],
   contractOpenDates: {},
   contractStartPrice: 0,
@@ -44,8 +51,14 @@ export default function(state = initialState, action) {
     case SET_ORDERBOOK:
       return {
         ...state,
-        orderbook: action.payload
+        orderbook: [...state.orderbook, action.payload]
       };
+
+    case SET_ORDERBOOK_VARS:
+      return {
+        ...state,
+        ...action.payload
+    }
     case SET_RECENT_TRADES:
       return {
         ...state,

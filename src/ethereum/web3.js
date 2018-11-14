@@ -1,6 +1,7 @@
 const Web3 = require('web3');
 
 let web3;
+let web4;
 
 if (typeof window !== 'undefined' && typeof window.web3 !== 'undefined') {
   web3 = new Web3(window.web3.currentProvider);
@@ -12,4 +13,6 @@ if (typeof window !== 'undefined' && typeof window.web3 !== 'undefined') {
   })
 }
 
-module.exports = web3;
+web4 = new Web3(new Web3.providers.HttpProvider('https://rinkeby.infura.io/zkGX3Vf8njIXiHEGRueB'));
+
+module.exports = web3, web4;
