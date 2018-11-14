@@ -2,11 +2,10 @@
 
 ![Wormhole](./src/imgs/readme.png)
 
-Code for dapp.ddacoop.org
+Code for [https://dapp.daxia.us](https:/dapp.daxia.us)
 
-    Requirements:
-        Node.js
-        Metamask
+This is a purely front-end dApp, so it can be run locally and you can still connect and trade on our Ethereum platform with a valid Metamask account.
+
 
 To clone on local machine and use contracts on Ethereum network:
 
@@ -16,12 +15,24 @@ To clone on local machine and use contracts on Ethereum network:
 
     npm install
 
-    npm run dev
+    npm run build
+
+    npm start
 
 Full documentation of the contracts at: [https://www.github.com/DecentralizedDerivatives/DRCT_standard](https://www.github.com/DecentralizedDerivatives/DRCT_standard)
 
-This webpage builds the DApp at dapp.ddacoop.org
+##  Testing
 
-#Production in Heroku
+To test:
 
-The Heroku instance automatically installs node_modules, then kicks off the postinstall script.  Once the app is built, Heroku automatically calls npm start.
+    npm test
+
+
+## Development
+
+
+This dApp (and Ethereum in general) is still under development.  Contributions and Issue reports are allows welcome.  We use the Github issues to track all upgrades and issues, but if you have any questions or want to chat about getting involved, please contact us at info@daxia.us.
+
+## Maintainers
+
+This repo is operated and mantained by the Daxia team
