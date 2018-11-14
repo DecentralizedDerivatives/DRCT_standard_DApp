@@ -5,7 +5,7 @@ import { reduxForm } from 'redux-form';
 import { sendApproveOrder } from '../actions/orderActions';
 import ApprovalFormComponent from './ApprovalFormComponent';
 
-const validate = values => {
+export const validate = values => {
   const errors = {};
   if (!values.token) {
     errors.token = 'Required';

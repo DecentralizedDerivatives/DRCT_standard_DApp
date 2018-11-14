@@ -1,14 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<RecentTrades /> render() renders the component 1`] = `
+exports[`<RecentTrades /> renders loading component 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <RecentTrades
     contractDuration={0}
     contractMultiplier={0}
     getRecentTrades={[Function]}
-    loading={false}
-    recentTrades={Array []}
+    loading={true}
+    onRowClick={[MockFunction]}
+    recentTrades={
+      Array [
+        Object {
+          "address": "0x65696fae9ee29c84c9e8a5a33cdf6e4a81458d64",
+          "contractDuration": 7,
+          "contractMultiplier": 5,
+          "date": "Fri Oct 12 2018 03:00:00 GMT+0300 (Eastern European Summer Time)",
+          "orderDate": "10/12/2018",
+          "price": "0.11000",
+          "symbol": "ETH/USD",
+          "tokenType": "Short",
+          "volume": "1000",
+        },
+      ]
+    }
     store={
       Object {
         "dispatch": [Function],
@@ -80,7 +95,20 @@ ShallowWrapper {
             </th>
           </tr>
         </thead>
-        <tbody />
+        <tbody>
+          <tr>
+            <td
+              colSpan="12"
+              style={
+                Object {
+                  "textAlign": "center",
+                }
+              }
+            >
+              <Loading />
+            </td>
+          </tr>
+        </tbody>
       </Table>,
       "className": "table-container recent-trades",
     },
@@ -114,7 +142,20 @@ ShallowWrapper {
               </th>
             </tr>
           </thead>,
-          <tbody />,
+          <tbody>
+            <tr>
+              <td
+                colSpan="12"
+                style={
+                  Object {
+                    "textAlign": "center",
+                  }
+                }
+              >
+                <Loading />
+              </td>
+            </tr>
+          </tbody>,
         ],
         "className": "table table-hover table-striped table-responsive",
         "responsiveTag": "div",
@@ -256,10 +297,62 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": Array [],
+            "children": <tr>
+              <td
+                colSpan="12"
+                style={
+                  Object {
+                    "textAlign": "center",
+                  }
+                }
+              >
+                <Loading />
+              </td>
+            </tr>,
           },
           "ref": null,
-          "rendered": Array [],
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <td
+                colSpan="12"
+                style={
+                  Object {
+                    "textAlign": "center",
+                  }
+                }
+              >
+                <Loading />
+              </td>,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <Loading />,
+                "colSpan": "12",
+                "style": Object {
+                  "textAlign": "center",
+                },
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {},
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              "type": "td",
+            },
+            "type": "tr",
+          },
           "type": "tbody",
         },
       ],
@@ -301,7 +394,20 @@ ShallowWrapper {
               </th>
             </tr>
           </thead>
-          <tbody />
+          <tbody>
+            <tr>
+              <td
+                colSpan="12"
+                style={
+                  Object {
+                    "textAlign": "center",
+                  }
+                }
+              >
+                <Loading />
+              </td>
+            </tr>
+          </tbody>
         </Table>,
         "className": "table-container recent-trades",
       },
@@ -335,7 +441,20 @@ ShallowWrapper {
                 </th>
               </tr>
             </thead>,
-            <tbody />,
+            <tbody>
+              <tr>
+                <td
+                  colSpan="12"
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  <Loading />
+                </td>
+              </tr>
+            </tbody>,
           ],
           "className": "table table-hover table-striped table-responsive",
           "responsiveTag": "div",
@@ -477,10 +596,930 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": Array [],
+              "children": <tr>
+                <td
+                  colSpan="12"
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  <Loading />
+                </td>
+              </tr>,
             },
             "ref": null,
-            "rendered": Array [],
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <td
+                  colSpan="12"
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  <Loading />
+                </td>,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <Loading />,
+                  "colSpan": "12",
+                  "style": Object {
+                    "textAlign": "center",
+                  },
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {},
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                "type": "td",
+              },
+              "type": "tr",
+            },
+            "type": "tbody",
+          },
+        ],
+        "type": [Function],
+      },
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`<RecentTrades /> renders the component 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <RecentTrades
+    contractDuration={0}
+    contractMultiplier={0}
+    getRecentTrades={[Function]}
+    loading={false}
+    onRowClick={[MockFunction]}
+    recentTrades={
+      Array [
+        Object {
+          "address": "0x65696fae9ee29c84c9e8a5a33cdf6e4a81458d64",
+          "contractDuration": 7,
+          "contractMultiplier": 5,
+          "date": "Fri Oct 12 2018 03:00:00 GMT+0300 (Eastern European Summer Time)",
+          "orderDate": "10/12/2018",
+          "price": "0.11000",
+          "symbol": "ETH/USD",
+          "tokenType": "Short",
+          "volume": "1000",
+        },
+      ]
+    }
+    store={
+      Object {
+        "dispatch": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+        Symbol(observable): [Function],
+      }
+    }
+    storeSubscription={
+      Subscription {
+        "listeners": Object {
+          "clear": [Function],
+          "get": [Function],
+          "notify": [Function],
+          "subscribe": [Function],
+        },
+        "onStateChange": [Function],
+        "parentSub": undefined,
+        "store": Object {
+          "dispatch": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+          Symbol(observable): [Function],
+        },
+        "unsubscribe": [Function],
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <Table
+        className="table table-hover table-striped table-responsive"
+        responsiveTag="div"
+        tag="table"
+      >
+        <thead>
+          <tr>
+            <th
+              colSpan="3"
+            >
+              Recent Trades
+            </th>
+          </tr>
+          <tr>
+            <th>
+              Address
+            </th>
+            <th>
+              Start Date
+            </th>
+            <th>
+              Volume
+            </th>
+            <th>
+              Price (ETH)
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            className="clickable"
+            onClick={[Function]}
+          >
+            <td>
+              Short
+               
+              ETH/USD
+               - 
+              7
+               Days - 
+               5
+              X
+            </td>
+            <td>
+              10/12/2018
+            </td>
+            <td>
+              1000
+            </td>
+            <td>
+              0.11000
+            </td>
+          </tr>
+        </tbody>
+      </Table>,
+      "className": "table-container recent-trades",
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": Array [
+          <thead>
+            <tr>
+              <th
+                colSpan="3"
+              >
+                Recent Trades
+              </th>
+            </tr>
+            <tr>
+              <th>
+                Address
+              </th>
+              <th>
+                Start Date
+              </th>
+              <th>
+                Volume
+              </th>
+              <th>
+                Price (ETH)
+              </th>
+            </tr>
+          </thead>,
+          <tbody>
+            <tr
+              className="clickable"
+              onClick={[Function]}
+            >
+              <td>
+                Short
+                 
+                ETH/USD
+                 - 
+                7
+                 Days - 
+                 5
+                X
+              </td>
+              <td>
+                10/12/2018
+              </td>
+              <td>
+                1000
+              </td>
+              <td>
+                0.11000
+              </td>
+            </tr>
+          </tbody>,
+        ],
+        "className": "table table-hover table-striped table-responsive",
+        "responsiveTag": "div",
+        "tag": "table",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <tr>
+                <th
+                  colSpan="3"
+                >
+                  Recent Trades
+                </th>
+              </tr>,
+              <tr>
+                <th>
+                  Address
+                </th>
+                <th>
+                  Start Date
+                </th>
+                <th>
+                  Volume
+                </th>
+                <th>
+                  Price (ETH)
+                </th>
+              </tr>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <th
+                  colSpan="3"
+                >
+                  Recent Trades
+                </th>,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Recent Trades",
+                  "colSpan": "3",
+                },
+                "ref": null,
+                "rendered": "Recent Trades",
+                "type": "th",
+              },
+              "type": "tr",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <th>
+                    Address
+                  </th>,
+                  <th>
+                    Start Date
+                  </th>,
+                  <th>
+                    Volume
+                  </th>,
+                  <th>
+                    Price (ETH)
+                  </th>,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Address",
+                  },
+                  "ref": null,
+                  "rendered": "Address",
+                  "type": "th",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Start Date",
+                  },
+                  "ref": null,
+                  "rendered": "Start Date",
+                  "type": "th",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Volume",
+                  },
+                  "ref": null,
+                  "rendered": "Volume",
+                  "type": "th",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Price (ETH)",
+                  },
+                  "ref": null,
+                  "rendered": "Price (ETH)",
+                  "type": "th",
+                },
+              ],
+              "type": "tr",
+            },
+          ],
+          "type": "thead",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <tr
+                className="clickable"
+                onClick={[Function]}
+              >
+                <td>
+                  Short
+                   
+                  ETH/USD
+                   - 
+                  7
+                   Days - 
+                   5
+                  X
+                </td>
+                <td>
+                  10/12/2018
+                </td>
+                <td>
+                  1000
+                </td>
+                <td>
+                  0.11000
+                </td>
+              </tr>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": "0",
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <td>
+                    Short
+                     
+                    ETH/USD
+                     - 
+                    7
+                     Days - 
+                     5
+                    X
+                  </td>,
+                  <td>
+                    10/12/2018
+                  </td>,
+                  <td>
+                    1000
+                  </td>,
+                  <td>
+                    0.11000
+                  </td>,
+                ],
+                "className": "clickable",
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      "Short",
+                      " ",
+                      "ETH/USD",
+                      " - ",
+                      7,
+                      " Days - ",
+                      " 5",
+                      "X",
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "Short",
+                    " ",
+                    "ETH/USD",
+                    " - ",
+                    7,
+                    " Days - ",
+                    " 5",
+                    "X",
+                  ],
+                  "type": "td",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "10/12/2018",
+                  },
+                  "ref": null,
+                  "rendered": "10/12/2018",
+                  "type": "td",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "1000",
+                  },
+                  "ref": null,
+                  "rendered": "1000",
+                  "type": "td",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "0.11000",
+                  },
+                  "ref": null,
+                  "rendered": "0.11000",
+                  "type": "td",
+                },
+              ],
+              "type": "tr",
+            },
+          ],
+          "type": "tbody",
+        },
+      ],
+      "type": [Function],
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <Table
+          className="table table-hover table-striped table-responsive"
+          responsiveTag="div"
+          tag="table"
+        >
+          <thead>
+            <tr>
+              <th
+                colSpan="3"
+              >
+                Recent Trades
+              </th>
+            </tr>
+            <tr>
+              <th>
+                Address
+              </th>
+              <th>
+                Start Date
+              </th>
+              <th>
+                Volume
+              </th>
+              <th>
+                Price (ETH)
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              className="clickable"
+              onClick={[Function]}
+            >
+              <td>
+                Short
+                 
+                ETH/USD
+                 - 
+                7
+                 Days - 
+                 5
+                X
+              </td>
+              <td>
+                10/12/2018
+              </td>
+              <td>
+                1000
+              </td>
+              <td>
+                0.11000
+              </td>
+            </tr>
+          </tbody>
+        </Table>,
+        "className": "table-container recent-trades",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": Array [
+            <thead>
+              <tr>
+                <th
+                  colSpan="3"
+                >
+                  Recent Trades
+                </th>
+              </tr>
+              <tr>
+                <th>
+                  Address
+                </th>
+                <th>
+                  Start Date
+                </th>
+                <th>
+                  Volume
+                </th>
+                <th>
+                  Price (ETH)
+                </th>
+              </tr>
+            </thead>,
+            <tbody>
+              <tr
+                className="clickable"
+                onClick={[Function]}
+              >
+                <td>
+                  Short
+                   
+                  ETH/USD
+                   - 
+                  7
+                   Days - 
+                   5
+                  X
+                </td>
+                <td>
+                  10/12/2018
+                </td>
+                <td>
+                  1000
+                </td>
+                <td>
+                  0.11000
+                </td>
+              </tr>
+            </tbody>,
+          ],
+          "className": "table table-hover table-striped table-responsive",
+          "responsiveTag": "div",
+          "tag": "table",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <tr>
+                  <th
+                    colSpan="3"
+                  >
+                    Recent Trades
+                  </th>
+                </tr>,
+                <tr>
+                  <th>
+                    Address
+                  </th>
+                  <th>
+                    Start Date
+                  </th>
+                  <th>
+                    Volume
+                  </th>
+                  <th>
+                    Price (ETH)
+                  </th>
+                </tr>,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <th
+                    colSpan="3"
+                  >
+                    Recent Trades
+                  </th>,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Recent Trades",
+                    "colSpan": "3",
+                  },
+                  "ref": null,
+                  "rendered": "Recent Trades",
+                  "type": "th",
+                },
+                "type": "tr",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <th>
+                      Address
+                    </th>,
+                    <th>
+                      Start Date
+                    </th>,
+                    <th>
+                      Volume
+                    </th>,
+                    <th>
+                      Price (ETH)
+                    </th>,
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Address",
+                    },
+                    "ref": null,
+                    "rendered": "Address",
+                    "type": "th",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Start Date",
+                    },
+                    "ref": null,
+                    "rendered": "Start Date",
+                    "type": "th",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Volume",
+                    },
+                    "ref": null,
+                    "rendered": "Volume",
+                    "type": "th",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Price (ETH)",
+                    },
+                    "ref": null,
+                    "rendered": "Price (ETH)",
+                    "type": "th",
+                  },
+                ],
+                "type": "tr",
+              },
+            ],
+            "type": "thead",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <tr
+                  className="clickable"
+                  onClick={[Function]}
+                >
+                  <td>
+                    Short
+                     
+                    ETH/USD
+                     - 
+                    7
+                     Days - 
+                     5
+                    X
+                  </td>
+                  <td>
+                    10/12/2018
+                  </td>
+                  <td>
+                    1000
+                  </td>
+                  <td>
+                    0.11000
+                  </td>
+                </tr>,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": "0",
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <td>
+                      Short
+                       
+                      ETH/USD
+                       - 
+                      7
+                       Days - 
+                       5
+                      X
+                    </td>,
+                    <td>
+                      10/12/2018
+                    </td>,
+                    <td>
+                      1000
+                    </td>,
+                    <td>
+                      0.11000
+                    </td>,
+                  ],
+                  "className": "clickable",
+                  "onClick": [Function],
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        "Short",
+                        " ",
+                        "ETH/USD",
+                        " - ",
+                        7,
+                        " Days - ",
+                        " 5",
+                        "X",
+                      ],
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      "Short",
+                      " ",
+                      "ETH/USD",
+                      " - ",
+                      7,
+                      " Days - ",
+                      " 5",
+                      "X",
+                    ],
+                    "type": "td",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "10/12/2018",
+                    },
+                    "ref": null,
+                    "rendered": "10/12/2018",
+                    "type": "td",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "1000",
+                    },
+                    "ref": null,
+                    "rendered": "1000",
+                    "type": "td",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "0.11000",
+                    },
+                    "ref": null,
+                    "rendered": "0.11000",
+                    "type": "td",
+                  },
+                ],
+                "type": "tr",
+              },
+            ],
             "type": "tbody",
           },
         ],

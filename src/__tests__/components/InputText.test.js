@@ -1,16 +1,21 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import { initStore } from '../../Root';
-
 import InputText from '../../components/InputText';
 
+function setup(overrides) {
+  const store = initStore();
+
+  const meta = { touched: true, error: 'required' };
+  const props = { store, meta, ...overrides };
+
+  const wrapper = shallow(<InputText {...props} />);
+
+  return {
+    wrapper,
+  };
+}
+
 describe('<InputText />', () => {
-  describe('render()', () => {
-    it('renders the component', () => {
-      const wrapper = shallow(
-        <InputText store={initStore()} meta={{}} />
-      );
-      expect(wrapper).toMatchSnapshot();
-    });
+  it('renders the component', () => {
+    const { wrapper } = setup();
+    expect(wrapper).toMatchSnapshot();
   });
 });

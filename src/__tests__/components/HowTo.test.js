@@ -1,13 +1,18 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-
 import HowTo from '../../components/HowTo';
 
+function setup(overrides) {
+  const props = { ...overrides };
+
+  const wrapper = shallow(<HowTo {...props} />);
+
+  return {
+    wrapper,
+  };
+}
+
 describe('<HowTo />', () => {
-  describe('render()', () => {
-    it('renders the component', () => {
-      const wrapper = shallow(<HowTo />);
-      expect(wrapper).toMatchSnapshot();
-    });
+  it('renders the component', () => {
+    const { wrapper } = setup();
+    expect(wrapper).toMatchSnapshot();
   });
 });

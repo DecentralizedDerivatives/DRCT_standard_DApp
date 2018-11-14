@@ -11,9 +11,7 @@ if (process.env.NODE_ENV === 'development') {
   composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 }
 
-// TODO: move into Root when tests are improved
-// temporary to avoid changing core before that
-export function initStore( initialState = {} ) {
+export function initStore(initialState = {}) {
   return createStore(
     rootReducer,
     initialState,
@@ -21,12 +19,8 @@ export function initStore( initialState = {} ) {
   );
 }
 
-const Root = ({ children, initialState = {} }) => {
-  const store = createStore(
-    rootReducer,
-    initialState,
-    composeEnhancer(applyMiddleware(...middlewares))
-  );
+const Root = ({ children, initialState }) => {
+  const store = initStore(initialState);
 
   return <Provider store={store}>{children}</Provider>;
 };

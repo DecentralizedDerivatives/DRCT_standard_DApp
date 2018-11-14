@@ -1,15 +1,46 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import { initStore } from '../../Root';
-import ApprovalFormContainer from '../../components/ApprovalFormContainer';
+import ApprovalFormContainer, {
+  validate,
+} from '../../components/ApprovalFormContainer';
+import { sendApproveOrder } from '../../actions/orderActions';
+
+jest.mock('../../actions/orderActions');
+sendApproveOrder.mockImplementation(() => () => undefined);
+
+function setup(overrides) {
+  const store = initStore();
+
+  const props = { store, ...overrides };
+
+  const wrapper = shallow(<ApprovalFormContainer {...props} />)
+    .dive()
+    .dive()
+    .dive()
+    .dive();
+
+  return {
+    wrapper,
+  };
+}
 
 describe('<ApprovalFormContainer />', () => {
-  describe('render()', () => {
-    it('renders the component', () => {
-      const wrapper = shallow(
-        <ApprovalFormContainer store={initStore()} />
-      ).dive().dive().dive();
-      expect(wrapper).toMatchSnapshot();
-    });
+  it('renders the component', () => {
+    const { wrapper } = setup();
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('handles submit', () => {
+    const { wrapper } = setup();
+
+    wrapper.find('ApprovalFormComponent').simulate('submit');
+
+    expect(sendApproveOrder).toBeCalledTimes(1);
+  });
+
+  it('validates values', () => {
+    const incorrect = {};
+    const correct = { token: '0x000...', tokenAmount: '1' };
+
+    expect(validate(incorrect)).toMatchSnapshot();
+    expect(validate(correct)).toMatchSnapshot();
   });
 });

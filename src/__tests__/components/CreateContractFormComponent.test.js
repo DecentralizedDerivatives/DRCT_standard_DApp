@@ -1,16 +1,21 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import { initStore } from '../../Root';
 import CreateContractFormComponent from '../../components/CreateContractFormComponent';
 
+function setup(overrides) {
+  const store = initStore();
+
+  const handleSubmit = jest.fn();
+  const props = { store, handleSubmit, ...overrides };
+
+  const wrapper = shallow(<CreateContractFormComponent {...props} />);
+
+  return {
+    wrapper,
+  };
+}
+
 describe('<CreateContractFormComponent />', () => {
-  describe('render()', () => {
-    it('renders the component', () => {
-      const handleSubmit = jest.fn();
-      const wrapper = shallow(
-        <CreateContractFormComponent store={initStore()} handleSubmit={handleSubmit} />
-      );
-      expect(wrapper).toMatchSnapshot();
-    });
+  it('renders the component', () => {
+    const { wrapper } = setup();
+    expect(wrapper).toMatchSnapshot();
   });
 });

@@ -5,7 +5,7 @@ import { reduxForm } from 'redux-form';
 import { sendListOrder } from '../actions/orderActions';
 import ListFormComponent from './ListFormComponent';
 
-const validate = values => {
+export const validate = values => {
   const errors = {};
   if (!values.token) {
     errors.token = 'Required';

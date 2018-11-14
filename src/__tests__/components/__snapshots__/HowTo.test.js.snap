@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<HowTo /> render() renders the component 1`] = `
+exports[`<HowTo /> renders the component 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <HowTo />,
@@ -22,7 +22,7 @@ ShallowWrapper {
           className="mx-auto"
         >
           <h3>
-            Welcome to the DDA dApp!
+            Welcome to the Daxia dApp!
           </h3>
           <Row
             className="ml-3 mt-4 mb-3"
@@ -88,7 +88,7 @@ ShallowWrapper {
               }
             >
               <div>
-                The DDA dapp is powered by Ethereum smart contracts that create "Long" and "Short" tokens on the network
+                The Daxia dapp is powered by Ethereum smart contracts that create "Long" and "Short" tokens on the network
               </div>
             </Col>
           </Row>
@@ -1476,9 +1476,9 @@ ShallowWrapper {
                 </span>
                 <a
                   className="pl-2"
-                  href="https://www.ddacoop.org"
+                  href="https://www.daxia.us"
                 >
-                  www.ddacoop.org
+                  www.daxia.us
                 </a>
               </div>
             </Col>
@@ -1540,9 +1540,9 @@ ShallowWrapper {
                 </span>
                 <a
                   className="pl-2"
-                  href="mailto:info@ddacoop.org"
+                  href="mailto:info@daxia.us"
                 >
-                  info@ddacoop.org
+                  info@daxia.us
                 </a>
               </div>
             </Col>
@@ -1560,7 +1560,7 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             <h3>
-              Welcome to the DDA dApp!
+              Welcome to the Daxia dApp!
             </h3>,
             <Row
               className="ml-3 mt-4 mb-3"
@@ -1627,7 +1627,7 @@ ShallowWrapper {
                   }
                 >
                   <div>
-                    The DDA dapp is powered by Ethereum smart contracts that create "Long" and "Short" tokens on the network
+                    The Daxia dapp is powered by Ethereum smart contracts that create "Long" and "Short" tokens on the network
                   </div>
                 </Col>
               </Row>,
@@ -1986,10 +1986,10 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": "Welcome to the DDA dApp!",
+              "children": "Welcome to the Daxia dApp!",
             },
             "ref": null,
-            "rendered": "Welcome to the DDA dApp!",
+            "rendered": "Welcome to the Daxia dApp!",
             "type": "h3",
           },
           Object {
@@ -2103,7 +2103,7 @@ ShallowWrapper {
           },
           Object {
             "instance": null,
-            "key": "The DDA dapp is powered by Ethereum smart contracts that create \\"Long\\" and \\"Short\\" tokens on the network",
+            "key": "The Daxia dapp is powered by Ethereum smart contracts that create \\"Long\\" and \\"Short\\" tokens on the network",
             "nodeType": "function",
             "props": Object {
               "children": Array [
@@ -2142,7 +2142,7 @@ ShallowWrapper {
                   }
                 >
                   <div>
-                    The DDA dapp is powered by Ethereum smart contracts that create "Long" and "Short" tokens on the network
+                    The Daxia dapp is powered by Ethereum smart contracts that create "Long" and "Short" tokens on the network
                   </div>
                 </Col>,
               ],
@@ -2197,7 +2197,7 @@ ShallowWrapper {
                 "nodeType": "function",
                 "props": Object {
                   "children": <div>
-                    The DDA dapp is powered by Ethereum smart contracts that create "Long" and "Short" tokens on the network
+                    The Daxia dapp is powered by Ethereum smart contracts that create "Long" and "Short" tokens on the network
                   </div>,
                   "md": "11",
                   "tag": "div",
@@ -2215,10 +2215,10 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "host",
                   "props": Object {
-                    "children": "The DDA dapp is powered by Ethereum smart contracts that create \\"Long\\" and \\"Short\\" tokens on the network",
+                    "children": "The Daxia dapp is powered by Ethereum smart contracts that create \\"Long\\" and \\"Short\\" tokens on the network",
                   },
                   "ref": null,
-                  "rendered": "The DDA dapp is powered by Ethereum smart contracts that create \\"Long\\" and \\"Short\\" tokens on the network",
+                  "rendered": "The Daxia dapp is powered by Ethereum smart contracts that create \\"Long\\" and \\"Short\\" tokens on the network",
                   "type": "div",
                 },
                 "type": [Function],
@@ -7179,9 +7179,9 @@ ShallowWrapper {
                   </span>
                   <a
                     className="pl-2"
-                    href="https://www.ddacoop.org"
+                    href="https://www.daxia.us"
                   >
-                    www.ddacoop.org
+                    www.daxia.us
                   </a>
                 </div>
               </Col>
@@ -7276,9 +7276,9 @@ ShallowWrapper {
                     </span>
                     <a
                       className="pl-2"
-                      href="https://www.ddacoop.org"
+                      href="https://www.daxia.us"
                     >
-                      www.ddacoop.org
+                      www.daxia.us
                     </a>
                   </div>
                 </Col>,
@@ -7338,9 +7338,9 @@ ShallowWrapper {
                     </span>
                     <a
                       className="pl-2"
-                      href="https://www.ddacoop.org"
+                      href="https://www.daxia.us"
                     >
-                      www.ddacoop.org
+                      www.daxia.us
                     </a>
                   </div>,
                   "md": "11",
@@ -7365,9 +7365,9 @@ ShallowWrapper {
                       </span>,
                       <a
                         className="pl-2"
-                        href="https://www.ddacoop.org"
+                        href="https://www.daxia.us"
                       >
-                        www.ddacoop.org
+                        www.daxia.us
                       </a>,
                     ],
                   },
@@ -7389,12 +7389,12 @@ ShallowWrapper {
                       "key": undefined,
                       "nodeType": "host",
                       "props": Object {
-                        "children": "www.ddacoop.org",
+                        "children": "www.daxia.us",
                         "className": "pl-2",
-                        "href": "https://www.ddacoop.org",
+                        "href": "https://www.daxia.us",
                       },
                       "ref": null,
-                      "rendered": "www.ddacoop.org",
+                      "rendered": "www.daxia.us",
                       "type": "a",
                     },
                   ],
@@ -7467,9 +7467,9 @@ ShallowWrapper {
                   </span>
                   <a
                     className="pl-2"
-                    href="mailto:info@ddacoop.org"
+                    href="mailto:info@daxia.us"
                   >
-                    info@ddacoop.org
+                    info@daxia.us
                   </a>
                 </div>
               </Col>
@@ -7564,9 +7564,9 @@ ShallowWrapper {
                     </span>
                     <a
                       className="pl-2"
-                      href="mailto:info@ddacoop.org"
+                      href="mailto:info@daxia.us"
                     >
-                      info@ddacoop.org
+                      info@daxia.us
                     </a>
                   </div>
                 </Col>,
@@ -7626,9 +7626,9 @@ ShallowWrapper {
                     </span>
                     <a
                       className="pl-2"
-                      href="mailto:info@ddacoop.org"
+                      href="mailto:info@daxia.us"
                     >
-                      info@ddacoop.org
+                      info@daxia.us
                     </a>
                   </div>,
                   "md": "11",
@@ -7653,9 +7653,9 @@ ShallowWrapper {
                       </span>,
                       <a
                         className="pl-2"
-                        href="mailto:info@ddacoop.org"
+                        href="mailto:info@daxia.us"
                       >
-                        info@ddacoop.org
+                        info@daxia.us
                       </a>,
                     ],
                   },
@@ -7677,12 +7677,12 @@ ShallowWrapper {
                       "key": undefined,
                       "nodeType": "host",
                       "props": Object {
-                        "children": "info@ddacoop.org",
+                        "children": "info@daxia.us",
                         "className": "pl-2",
-                        "href": "mailto:info@ddacoop.org",
+                        "href": "mailto:info@daxia.us",
                       },
                       "ref": null,
-                      "rendered": "info@ddacoop.org",
+                      "rendered": "info@daxia.us",
                       "type": "a",
                     },
                   ],
@@ -7710,7 +7710,7 @@ ShallowWrapper {
             className="mx-auto"
           >
             <h3>
-              Welcome to the DDA dApp!
+              Welcome to the Daxia dApp!
             </h3>
             <Row
               className="ml-3 mt-4 mb-3"
@@ -7776,7 +7776,7 @@ ShallowWrapper {
                 }
               >
                 <div>
-                  The DDA dapp is powered by Ethereum smart contracts that create "Long" and "Short" tokens on the network
+                  The Daxia dapp is powered by Ethereum smart contracts that create "Long" and "Short" tokens on the network
                 </div>
               </Col>
             </Row>
@@ -9164,9 +9164,9 @@ ShallowWrapper {
                   </span>
                   <a
                     className="pl-2"
-                    href="https://www.ddacoop.org"
+                    href="https://www.daxia.us"
                   >
-                    www.ddacoop.org
+                    www.daxia.us
                   </a>
                 </div>
               </Col>
@@ -9228,9 +9228,9 @@ ShallowWrapper {
                   </span>
                   <a
                     className="pl-2"
-                    href="mailto:info@ddacoop.org"
+                    href="mailto:info@daxia.us"
                   >
-                    info@ddacoop.org
+                    info@daxia.us
                   </a>
                 </div>
               </Col>
@@ -9248,7 +9248,7 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               <h3>
-                Welcome to the DDA dApp!
+                Welcome to the Daxia dApp!
               </h3>,
               <Row
                 className="ml-3 mt-4 mb-3"
@@ -9315,7 +9315,7 @@ ShallowWrapper {
                     }
                   >
                     <div>
-                      The DDA dapp is powered by Ethereum smart contracts that create "Long" and "Short" tokens on the network
+                      The Daxia dapp is powered by Ethereum smart contracts that create "Long" and "Short" tokens on the network
                     </div>
                   </Col>
                 </Row>,
@@ -9674,10 +9674,10 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": "Welcome to the DDA dApp!",
+                "children": "Welcome to the Daxia dApp!",
               },
               "ref": null,
-              "rendered": "Welcome to the DDA dApp!",
+              "rendered": "Welcome to the Daxia dApp!",
               "type": "h3",
             },
             Object {
@@ -9791,7 +9791,7 @@ ShallowWrapper {
             },
             Object {
               "instance": null,
-              "key": "The DDA dapp is powered by Ethereum smart contracts that create \\"Long\\" and \\"Short\\" tokens on the network",
+              "key": "The Daxia dapp is powered by Ethereum smart contracts that create \\"Long\\" and \\"Short\\" tokens on the network",
               "nodeType": "function",
               "props": Object {
                 "children": Array [
@@ -9830,7 +9830,7 @@ ShallowWrapper {
                     }
                   >
                     <div>
-                      The DDA dapp is powered by Ethereum smart contracts that create "Long" and "Short" tokens on the network
+                      The Daxia dapp is powered by Ethereum smart contracts that create "Long" and "Short" tokens on the network
                     </div>
                   </Col>,
                 ],
@@ -9885,7 +9885,7 @@ ShallowWrapper {
                   "nodeType": "function",
                   "props": Object {
                     "children": <div>
-                      The DDA dapp is powered by Ethereum smart contracts that create "Long" and "Short" tokens on the network
+                      The Daxia dapp is powered by Ethereum smart contracts that create "Long" and "Short" tokens on the network
                     </div>,
                     "md": "11",
                     "tag": "div",
@@ -9903,10 +9903,10 @@ ShallowWrapper {
                     "key": undefined,
                     "nodeType": "host",
                     "props": Object {
-                      "children": "The DDA dapp is powered by Ethereum smart contracts that create \\"Long\\" and \\"Short\\" tokens on the network",
+                      "children": "The Daxia dapp is powered by Ethereum smart contracts that create \\"Long\\" and \\"Short\\" tokens on the network",
                     },
                     "ref": null,
-                    "rendered": "The DDA dapp is powered by Ethereum smart contracts that create \\"Long\\" and \\"Short\\" tokens on the network",
+                    "rendered": "The Daxia dapp is powered by Ethereum smart contracts that create \\"Long\\" and \\"Short\\" tokens on the network",
                     "type": "div",
                   },
                   "type": [Function],
@@ -14867,9 +14867,9 @@ ShallowWrapper {
                     </span>
                     <a
                       className="pl-2"
-                      href="https://www.ddacoop.org"
+                      href="https://www.daxia.us"
                     >
-                      www.ddacoop.org
+                      www.daxia.us
                     </a>
                   </div>
                 </Col>
@@ -14964,9 +14964,9 @@ ShallowWrapper {
                       </span>
                       <a
                         className="pl-2"
-                        href="https://www.ddacoop.org"
+                        href="https://www.daxia.us"
                       >
-                        www.ddacoop.org
+                        www.daxia.us
                       </a>
                     </div>
                   </Col>,
@@ -15026,9 +15026,9 @@ ShallowWrapper {
                       </span>
                       <a
                         className="pl-2"
-                        href="https://www.ddacoop.org"
+                        href="https://www.daxia.us"
                       >
-                        www.ddacoop.org
+                        www.daxia.us
                       </a>
                     </div>,
                     "md": "11",
@@ -15053,9 +15053,9 @@ ShallowWrapper {
                         </span>,
                         <a
                           className="pl-2"
-                          href="https://www.ddacoop.org"
+                          href="https://www.daxia.us"
                         >
-                          www.ddacoop.org
+                          www.daxia.us
                         </a>,
                       ],
                     },
@@ -15077,12 +15077,12 @@ ShallowWrapper {
                         "key": undefined,
                         "nodeType": "host",
                         "props": Object {
-                          "children": "www.ddacoop.org",
+                          "children": "www.daxia.us",
                           "className": "pl-2",
-                          "href": "https://www.ddacoop.org",
+                          "href": "https://www.daxia.us",
                         },
                         "ref": null,
-                        "rendered": "www.ddacoop.org",
+                        "rendered": "www.daxia.us",
                         "type": "a",
                       },
                     ],
@@ -15155,9 +15155,9 @@ ShallowWrapper {
                     </span>
                     <a
                       className="pl-2"
-                      href="mailto:info@ddacoop.org"
+                      href="mailto:info@daxia.us"
                     >
-                      info@ddacoop.org
+                      info@daxia.us
                     </a>
                   </div>
                 </Col>
@@ -15252,9 +15252,9 @@ ShallowWrapper {
                       </span>
                       <a
                         className="pl-2"
-                        href="mailto:info@ddacoop.org"
+                        href="mailto:info@daxia.us"
                       >
-                        info@ddacoop.org
+                        info@daxia.us
                       </a>
                     </div>
                   </Col>,
@@ -15314,9 +15314,9 @@ ShallowWrapper {
                       </span>
                       <a
                         className="pl-2"
-                        href="mailto:info@ddacoop.org"
+                        href="mailto:info@daxia.us"
                       >
-                        info@ddacoop.org
+                        info@daxia.us
                       </a>
                     </div>,
                     "md": "11",
@@ -15341,9 +15341,9 @@ ShallowWrapper {
                         </span>,
                         <a
                           className="pl-2"
-                          href="mailto:info@ddacoop.org"
+                          href="mailto:info@daxia.us"
                         >
-                          info@ddacoop.org
+                          info@daxia.us
                         </a>,
                       ],
                     },
@@ -15365,12 +15365,12 @@ ShallowWrapper {
                         "key": undefined,
                         "nodeType": "host",
                         "props": Object {
-                          "children": "info@ddacoop.org",
+                          "children": "info@daxia.us",
                           "className": "pl-2",
-                          "href": "mailto:info@ddacoop.org",
+                          "href": "mailto:info@daxia.us",
                         },
                         "ref": null,
-                        "rendered": "info@ddacoop.org",
+                        "rendered": "info@daxia.us",
                         "type": "a",
                       },
                     ],

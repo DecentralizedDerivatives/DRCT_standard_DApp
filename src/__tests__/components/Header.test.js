@@ -1,31 +1,66 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import { initStore } from '../../Root';
 import Header from '../../components/Header';
 
+function setup(overrides) {
+  const store = initStore();
+
+  const isConnected = true;
+  const whiteListed = true;
+  const showTerms = jest.fn();
+
+  const props = { store, isConnected, whiteListed, showTerms, ...overrides };
+
+  const wrapper = shallow(<Header {...props} />);
+
+  return {
+    wrapper,
+    showTerms,
+  };
+}
+
 describe('<Header />', () => {
-  describe('render not connected', () => {
-    it('renders the component', () => {
-      const wrapper = shallow(
-        <Header isConnected={false} whiteListed={false} store={initStore()} />
-      );
-      expect(wrapper).toMatchSnapshot();
-    });
+  it('renders not connected and not whitelisted', () => {
+    const { wrapper } = setup({ isConnected: false, whiteListed: false });
+    expect(wrapper).toMatchSnapshot();
   });
-  describe('render connected not whitelisted', () => {
-    it('renders the component', () => {
-      const wrapper = shallow(
-        <Header isConnected={true} whiteListed={false} store={initStore()} />
-      );
-      expect(wrapper).toMatchSnapshot();
-    });
+
+  it('renders connected not whitelisted', () => {
+    const { wrapper } = setup({ whiteListed: false });
+    expect(wrapper).toMatchSnapshot();
   });
-  describe('render connected and whitelisted', () => {
-    it('renders the component', () => {
-      const wrapper = shallow(
-        <Header isConnected={true} whiteListed={true} store={initStore()} />
-      );
-      expect(wrapper).toMatchSnapshot();
-    });
+
+  it('renders the component', () => {
+    const { wrapper } = setup();
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('handles hamburger click', () => {
+    const { wrapper } = setup();
+
+    // toggle to show
+    wrapper.find('.hamburger-btn').simulate('click');
+    expect(wrapper).toMatchSnapshot();
+
+    // toggle to hide
+    wrapper.find('.hamburger-btn').simulate('click');
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('handles terms click', () => {
+    const { wrapper, showTerms } = setup();
+
+    wrapper
+      .find('#mobile-nav p')
+      .simulate('click', { preventDefault: () => undefined });
+
+    expect(wrapper).toMatchSnapshot();
+    expect(showTerms).toBeCalledTimes(1);
+  });
+
+  it('handles terms click with undefined terms', () => {
+    const { wrapper } = setup({ showTerms: undefined });
+
+    wrapper
+      .find('#mobile-nav p')
+      .simulate('click', { preventDefault: () => undefined });
   });
 });

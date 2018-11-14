@@ -1,17 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Select /> render() renders the component 1`] = `
+exports[`<Select /> renders empty component 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Select
-    meta={Object {}}
-    store={
+    meta={
       Object {
-        "dispatch": [Function],
-        "getState": [Function],
-        "replaceReducer": [Function],
-        "subscribe": [Function],
-        Symbol(observable): [Function],
+        "error": "required",
+        "touched": true,
       }
     }
   />,
@@ -40,6 +36,266 @@ ShallowWrapper {
       "props": Object {},
       "ref": null,
       "rendered": null,
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`<Select /> renders the component 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Select
+    meta={
+      Object {
+        "error": "required",
+        "touched": true,
+      }
+    }
+    options={
+      Object {
+        "option1": "Option 1",
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="b sans-serif pv2 w-100"
+        />,
+        <select
+          className="order-form-dropdown"
+        >
+          <option
+            value=""
+          >
+            Select
+          </option>
+          <option
+            value="option1"
+          >
+            Option 1
+          </option>
+        </select>,
+        <span>
+          required
+        </span>,
+      ],
+      "className": "mv3 w-100",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": undefined,
+          "className": "b sans-serif pv2 w-100",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <option
+              value=""
+            >
+              Select
+            </option>,
+            Array [
+              <option
+                value="option1"
+              >
+                Option 1
+              </option>,
+            ],
+          ],
+          "className": "order-form-dropdown",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Select",
+              "value": "",
+            },
+            "ref": null,
+            "rendered": "Select",
+            "type": "option",
+          },
+          Object {
+            "instance": null,
+            "key": "0-option1",
+            "nodeType": "host",
+            "props": Object {
+              "children": "Option 1",
+              "value": "option1",
+            },
+            "ref": null,
+            "rendered": "Option 1",
+            "type": "option",
+          },
+        ],
+        "type": "select",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "required",
+        },
+        "ref": null,
+        "rendered": "required",
+        "type": "span",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="b sans-serif pv2 w-100"
+          />,
+          <select
+            className="order-form-dropdown"
+          >
+            <option
+              value=""
+            >
+              Select
+            </option>
+            <option
+              value="option1"
+            >
+              Option 1
+            </option>
+          </select>,
+          <span>
+            required
+          </span>,
+        ],
+        "className": "mv3 w-100",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": undefined,
+            "className": "b sans-serif pv2 w-100",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <option
+                value=""
+              >
+                Select
+              </option>,
+              Array [
+                <option
+                  value="option1"
+                >
+                  Option 1
+                </option>,
+              ],
+            ],
+            "className": "order-form-dropdown",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Select",
+                "value": "",
+              },
+              "ref": null,
+              "rendered": "Select",
+              "type": "option",
+            },
+            Object {
+              "instance": null,
+              "key": "0-option1",
+              "nodeType": "host",
+              "props": Object {
+                "children": "Option 1",
+                "value": "option1",
+              },
+              "ref": null,
+              "rendered": "Option 1",
+              "type": "option",
+            },
+          ],
+          "type": "select",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "required",
+          },
+          "ref": null,
+          "rendered": "required",
+          "type": "span",
+        },
+      ],
       "type": "div",
     },
   ],

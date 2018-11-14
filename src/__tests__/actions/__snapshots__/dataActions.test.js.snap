@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dataActions gets data 1`] = `
+Array [
+  Object {
+    "payload": undefined,
+    "type": "SET_PRICECHART_DATA",
+  },
+]
+`;
+
+exports[`dataActions handles error 1`] = `
+Array [
+  Object {
+    "payload": "PriceChart: error",
+    "type": "SET_FETCHING_ERROR",
+  },
+]
+`;

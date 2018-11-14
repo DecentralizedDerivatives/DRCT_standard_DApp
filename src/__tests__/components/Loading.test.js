@@ -1,15 +1,20 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import { initStore } from '../../Root';
 import Loading from '../../components/Loading';
 
+function setup(overrides) {
+  const store = initStore();
+
+  const props = { store, ...overrides };
+
+  const wrapper = shallow(<Loading {...props} />);
+
+  return {
+    wrapper,
+  };
+}
+
 describe('<Loading />', () => {
-  describe('render()', () => {
-    it('renders the component', () => {
-      const wrapper = shallow(
-        <Loading store={initStore()} />
-      );
-      expect(wrapper).toMatchSnapshot();
-    });
+  it('renders the component', () => {
+    const { wrapper } = setup();
+    expect(wrapper).toMatchSnapshot();
   });
 });

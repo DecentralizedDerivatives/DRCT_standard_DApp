@@ -1,16 +1,32 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import { initStore } from '../../Root';
-
 import ConnectionModal from '../../components/ConnectionModal';
+import { showConnectionModal } from '../../actions/statusActions';
+
+jest.mock('../../actions/statusActions');
+showConnectionModal.mockImplementation(() => () => undefined);
+
+function setup(overrides) {
+  const store = initStore();
+
+  const props = { store, ...overrides };
+
+  const wrapper = shallow(<ConnectionModal {...props} />).dive();
+
+  return {
+    wrapper,
+  };
+}
 
 describe('<ConnectionModal />', () => {
-  describe('render()', () => {
-    it('renders the component', () => {
-      const wrapper = shallow(
-        <ConnectionModal store={initStore()} />
-      ).dive();
-      expect(wrapper).toMatchSnapshot();
-    });
+  it('renders the component', () => {
+    const { wrapper } = setup();
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('handles footer click', () => {
+    const { wrapper } = setup();
+
+    wrapper.find('ModalFooter > button').simulate('click');
+
+    expect(showConnectionModal).toBeCalledTimes(1);
   });
 });

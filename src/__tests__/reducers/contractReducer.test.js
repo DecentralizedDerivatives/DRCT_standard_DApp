@@ -8,7 +8,7 @@ import {
   SET_CONTRACT_CREATED,
   SET_CONTRACT_ERROR,
   SET_CONTRACT_FUNDED,
-  SET_SEND_FUNDS_ERROR
+  SET_SEND_FUNDS_ERROR,
 } from '../../actions/types';
 
 const initialState = {
@@ -30,10 +30,10 @@ const initialState = {
     startDate: '',
     amount: 0,
     funded: false,
-    fundedTx: ''
+    fundedTx: '',
   },
   newContractCreateError: null,
-  newContractFundsError: null
+  newContractFundsError: null,
 };
 
 describe('contractReducer', () => {
@@ -53,8 +53,8 @@ describe('contractReducer', () => {
           contractAddress: '0x0xxxxxx2',
           contractDuration: 1,
           contractMultiplier: 10,
-          oracleAddress: '0x0xxxxxx3'
-        }
+          oracleAddress: '0x0xxxxxx3',
+        },
       };
 
       const expectedState = {
@@ -62,7 +62,7 @@ describe('contractReducer', () => {
         contractAddress: '0x0xxxxxx2',
         contractDuration: 1,
         contractMultiplier: 10,
-        oracleAddress: '0x0xxxxxx3'
+        oracleAddress: '0x0xxxxxx3',
       };
 
       const state = contractReducer(initialState, action);
@@ -81,9 +81,9 @@ describe('contractReducer', () => {
             price: '10',
             quantity: '2',
             date: '01-01-18',
-            symbol: 'BTC'
-          }
-        ]
+            symbol: 'BTC',
+          },
+        ],
       };
 
       const expectedState = {
@@ -95,9 +95,9 @@ describe('contractReducer', () => {
             price: '10',
             quantity: '2',
             date: '01-01-18',
-            symbol: 'BTC'
-          }
-        ]
+            symbol: 'BTC',
+          },
+        ],
       };
 
       const state = contractReducer(initialState, action);
@@ -115,9 +115,9 @@ describe('contractReducer', () => {
             volume: '10',
             price: '10',
             quantity: '2',
-            symbol: '????'
-          }
-        ]
+            symbol: '????',
+          },
+        ],
       };
 
       const expectedState = {
@@ -128,9 +128,9 @@ describe('contractReducer', () => {
             volume: '10',
             price: '10',
             quantity: '2',
-            symbol: '????'
-          }
-        ]
+            symbol: '????',
+          },
+        ],
       };
 
       const state = contractReducer(initialState, action);
@@ -143,15 +143,15 @@ describe('contractReducer', () => {
       const action = {
         type: SET_CONTRACT_OPEN_DATES,
         payload: {
-          1000001: '01/01/2018'
-        }
+          1000001: '01/01/2018',
+        },
       };
 
       const expectedState = {
         ...initialState,
         contractOpenDates: {
-          1000001: '01/01/2018'
-        }
+          1000001: '01/01/2018',
+        },
       };
 
       const state = contractReducer(initialState, action);
@@ -169,8 +169,8 @@ describe('contractReducer', () => {
           duration: 'One Week',
           currency: 'BTC/USD',
           startDate: '01/01/2018',
-          amount: 1
-        }
+          amount: 1,
+        },
       };
 
       const expectedState = {
@@ -181,8 +181,8 @@ describe('contractReducer', () => {
           duration: 'One Week',
           currency: 'BTC/USD',
           startDate: '01/01/2018',
-          amount: 1
-        }
+          amount: 1,
+        },
       };
 
       const state = contractReducer(initialState, action);
@@ -194,12 +194,12 @@ describe('contractReducer', () => {
     it('returns the correct state', () => {
       const action = {
         type: SET_CONTRACT_ERROR,
-        payload: 'Contract Creation Error'
+        payload: 'Contract Creation Error',
       };
 
       const expectedState = {
         ...initialState,
-        newContractCreateError: 'Contract Creation Error'
+        newContractCreateError: 'Contract Creation Error',
       };
 
       const state = contractReducer(initialState, action);
@@ -211,7 +211,7 @@ describe('contractReducer', () => {
     it('returns the correct state', () => {
       const action = {
         type: SET_CONTRACT_FUNDED,
-        payload: '0x0xxxxxx4'
+        payload: '0x0xxxxxx4',
       };
 
       const expectedState = {
@@ -224,8 +224,8 @@ describe('contractReducer', () => {
           startDate: '',
           amount: 0,
           funded: true,
-          fundedTx: '0x0xxxxxx4'
-        }
+          fundedTx: '0x0xxxxxx4',
+        },
       };
 
       const state = contractReducer(initialState, action);
@@ -237,12 +237,12 @@ describe('contractReducer', () => {
     it('returns the correct state', () => {
       const action = {
         type: SET_SEND_FUNDS_ERROR,
-        payload: 'Send Funds Error'
+        payload: 'Send Funds Error',
       };
 
       const expectedState = {
         ...initialState,
-        newContractFundsError: 'Send Funds Error'
+        newContractFundsError: 'Send Funds Error',
       };
 
       const state = contractReducer(initialState, action);
