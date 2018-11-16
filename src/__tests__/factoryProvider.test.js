@@ -19,14 +19,14 @@ describe('factoryProvider testing', () => {
     it('Returns RINKEBY default', () => {
       var result = factoryProvider.getStaticAddresses();
       expect(result.exchange).toEqual(
-        '0x6db2f17f0ff3892c8bbfbd0e1b7a9b4391d66a2e'
+        '0x54ec1a27913a74fd53224fdd1d6d94765f240a0b'
       );
     });
     it('Returns Main', () => {
       global.env = { NETWORK_ID: 1 };
       var result = factoryProvider.getStaticAddresses();
       expect(result.exchange).toEqual(
-        '0xea8261249bb7b99f6754410b059db561ac427692'
+        '0xb5c4c9bcf2e98507c45a7419f9b272ded88b5da3'
       );
     });
     it('Returns empty', () => {

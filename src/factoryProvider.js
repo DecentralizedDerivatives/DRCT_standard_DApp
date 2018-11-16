@@ -23,13 +23,13 @@ const staticAddresses = () => {
   switch (networkId) {
     case 1: // MAIN NETWORK
       return {
-        exchange: '0xea8261249bb7b99f6754410b059db561ac427692',
+        exchange: '0xb5c4c9bcf2e98507c45a7419f9b272ded88b5da3',
         wrapped_ether: '0xf2740c75f221788cf78c716b953a7f1c769d49b9',
         membership: '0xd33615c5ea5d703f06d237f6c56ff2400b564c77'
       }
     case 4: // RINKEBY
       return  {
-        exchange: '0x6db2f17f0ff3892c8bbfbd0e1b7a9b4391d66a2e',
+        exchange: '0x54ec1a27913a74fd53224fdd1d6d94765f240a0b',
         wrapped_ether: '0x6248cb8a316fc8f1488ce56f6ea517151923531a',
         membership: '0x620b6b6ac75ad9234eb6c533688ddd8a5948650e'
       }
