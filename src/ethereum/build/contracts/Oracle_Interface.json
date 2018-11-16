@@ -59,14 +59,14 @@
     "absolutePath": "/C/company/code/drct_standard/contracts/interfaces/Oracle_Interface.sol",
     "exportedSymbols": {
       "Oracle_Interface": [
-        4470
+        4571
       ]
     },
-    "id": 4471,
+    "id": 4572,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 4452,
+        "id": 4553,
         "literals": [
           "solidity",
           "^",
@@ -82,9 +82,9 @@
         "contractKind": "interface",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 4470,
+        "id": 4571,
         "linearizedBaseContracts": [
-          4470
+          4571
         ],
         "name": "Oracle_Interface",
         "nodeType": "ContractDefinition",
@@ -92,7 +92,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 4459,
+            "id": 4560,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -100,15 +100,15 @@
             "name": "getQuery",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 4455,
+              "id": 4556,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 4454,
+                  "id": 4555,
                   "name": "_date",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4459,
+                  "scope": 4560,
                   "src": "144:10:19",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -117,7 +117,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 4453,
+                    "id": 4554,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "144:4:19",
@@ -134,15 +134,15 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 4458,
+              "id": 4559,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 4457,
+                  "id": 4558,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4459,
+                  "scope": 4560,
                   "src": "178:4:19",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -151,7 +151,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 4456,
+                    "id": 4557,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "178:4:19",
@@ -166,7 +166,7 @@
               ],
               "src": "177:6:19"
             },
-            "scope": 4470,
+            "scope": 4571,
             "src": "126:58:19",
             "stateMutability": "view",
             "superFunction": null,
@@ -175,7 +175,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 4466,
+            "id": 4567,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -183,15 +183,15 @@
             "name": "retrieveData",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 4462,
+              "id": 4563,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 4461,
+                  "id": 4562,
                   "name": "_date",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4466,
+                  "scope": 4567,
                   "src": "210:10:19",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -200,7 +200,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 4460,
+                    "id": 4561,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "210:4:19",
@@ -217,15 +217,15 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 4465,
+              "id": 4566,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 4464,
+                  "id": 4565,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4466,
+                  "scope": 4567,
                   "src": "245:4:19",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -234,7 +234,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 4463,
+                    "id": 4564,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "245:4:19",
@@ -249,7 +249,7 @@
               ],
               "src": "244:6:19"
             },
-            "scope": 4470,
+            "scope": 4571,
             "src": "188:63:19",
             "stateMutability": "view",
             "superFunction": null,
@@ -258,7 +258,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 4469,
+            "id": 4570,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -266,26 +266,26 @@
             "name": "pushData",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 4467,
+              "id": 4568,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "272:2:19"
             },
             "payable": true,
             "returnParameters": {
-              "id": 4468,
+              "id": 4569,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "291:0:19"
             },
-            "scope": 4470,
+            "scope": 4571,
             "src": "255:37:19",
             "stateMutability": "payable",
             "superFunction": null,
             "visibility": "external"
           }
         ],
-        "scope": 4471,
+        "scope": 4572,
         "src": "95:200:19"
       }
     ],
@@ -295,14 +295,14 @@
     "absolutePath": "/C/company/code/drct_standard/contracts/interfaces/Oracle_Interface.sol",
     "exportedSymbols": {
       "Oracle_Interface": [
-        4470
+        4571
       ]
     },
-    "id": 4471,
+    "id": 4572,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 4452,
+        "id": 4553,
         "literals": [
           "solidity",
           "^",
@@ -318,9 +318,9 @@
         "contractKind": "interface",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 4470,
+        "id": 4571,
         "linearizedBaseContracts": [
-          4470
+          4571
         ],
         "name": "Oracle_Interface",
         "nodeType": "ContractDefinition",
@@ -328,7 +328,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 4459,
+            "id": 4560,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -336,15 +336,15 @@
             "name": "getQuery",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 4455,
+              "id": 4556,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 4454,
+                  "id": 4555,
                   "name": "_date",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4459,
+                  "scope": 4560,
                   "src": "144:10:19",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -353,7 +353,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 4453,
+                    "id": 4554,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "144:4:19",
@@ -370,15 +370,15 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 4458,
+              "id": 4559,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 4457,
+                  "id": 4558,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4459,
+                  "scope": 4560,
                   "src": "178:4:19",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -387,7 +387,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 4456,
+                    "id": 4557,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "178:4:19",
@@ -402,7 +402,7 @@
               ],
               "src": "177:6:19"
             },
-            "scope": 4470,
+            "scope": 4571,
             "src": "126:58:19",
             "stateMutability": "view",
             "superFunction": null,
@@ -411,7 +411,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 4466,
+            "id": 4567,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -419,15 +419,15 @@
             "name": "retrieveData",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 4462,
+              "id": 4563,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 4461,
+                  "id": 4562,
                   "name": "_date",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4466,
+                  "scope": 4567,
                   "src": "210:10:19",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -436,7 +436,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 4460,
+                    "id": 4561,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "210:4:19",
@@ -453,15 +453,15 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 4465,
+              "id": 4566,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 4464,
+                  "id": 4565,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4466,
+                  "scope": 4567,
                   "src": "245:4:19",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -470,7 +470,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 4463,
+                    "id": 4564,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "245:4:19",
@@ -485,7 +485,7 @@
               ],
               "src": "244:6:19"
             },
-            "scope": 4470,
+            "scope": 4571,
             "src": "188:63:19",
             "stateMutability": "view",
             "superFunction": null,
@@ -494,7 +494,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 4469,
+            "id": 4570,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -502,26 +502,26 @@
             "name": "pushData",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 4467,
+              "id": 4568,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "272:2:19"
             },
             "payable": true,
             "returnParameters": {
-              "id": 4468,
+              "id": 4569,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "291:0:19"
             },
-            "scope": 4470,
+            "scope": 4571,
             "src": "255:37:19",
             "stateMutability": "payable",
             "superFunction": null,
             "visibility": "external"
           }
         ],
-        "scope": 4471,
+        "scope": 4572,
         "src": "95:200:19"
       }
     ],
@@ -533,5 +533,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-07T01:51:07.594Z"
+  "updatedAt": "2018-11-16T01:55:21.353Z"
 }
