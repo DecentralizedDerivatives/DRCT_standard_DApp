@@ -167,7 +167,7 @@
         "id": 292,
         "nodeType": "ImportDirective",
         "scope": 402,
-        "sourceUnit": 3780,
+        "sourceUnit": 3881,
         "src": "28:32:2",
         "symbolAliases": [],
         "unitAlias": ""
@@ -206,7 +206,7 @@
         ],
         "contractDependencies": [
           83,
-          3779
+          3880
         ],
         "contractKind": "contract",
         "documentation": "wap Deployer Contract - purpose is to save gas for deployment of Factory contract.\r\nt ensures only the factory can create new contracts and uses CloneFactory to clone \r\nhe swap specified.\r",
@@ -427,7 +427,7 @@
                               "name": "this",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 12857,
+                              "referencedDeclaration": 12958,
                               "src": "780:4:2",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_contract$_Deployer_$401",
@@ -477,7 +477,7 @@
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 12824,
+                            "referencedDeclaration": 12925,
                             "src": "786:3:2",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -507,7 +507,7 @@
                               "name": "this",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 12857,
+                              "referencedDeclaration": 12958,
                               "src": "805:4:2",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_contract$_Deployer_$401",
@@ -555,7 +555,7 @@
                           "name": "now",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 12826,
+                          "referencedDeclaration": 12927,
                           "src": "811:3:2",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -590,7 +590,7 @@
                         "nodeType": "NewExpression",
                         "src": "751:20:2",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_function_creation_nonpayable$_t_address_$_t_address_$_t_address_$_t_uint256_$returns$_t_contract$_TokenToTokenSwap_$3779_$",
+                          "typeIdentifier": "t_function_creation_nonpayable$_t_address_$_t_address_$_t_address_$_t_uint256_$returns$_t_contract$_TokenToTokenSwap_$3880_$",
                           "typeString": "function (address,address,address,uint256) returns (contract TokenToTokenSwap)"
                         },
                         "typeName": {
@@ -598,10 +598,10 @@
                           "id": 315,
                           "name": "TokenToTokenSwap",
                           "nodeType": "UserDefinedTypeName",
-                          "referencedDeclaration": 3779,
+                          "referencedDeclaration": 3880,
                           "src": "755:16:2",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_contract$_TokenToTokenSwap_$3779",
+                            "typeIdentifier": "t_contract$_TokenToTokenSwap_$3880",
                             "typeString": "contract TokenToTokenSwap"
                           }
                         }
@@ -616,7 +616,7 @@
                       "nodeType": "FunctionCall",
                       "src": "751:64:2",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_TokenToTokenSwap_$3779",
+                        "typeIdentifier": "t_contract$_TokenToTokenSwap_$3880",
                         "typeString": "contract TokenToTokenSwap"
                       }
                     },
@@ -1009,10 +1009,10 @@
                           "name": "TokenToTokenSwap",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 3779,
+                          "referencedDeclaration": 3880,
                           "src": "1530:16:2",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_type$_t_contract$_TokenToTokenSwap_$3779_$",
+                            "typeIdentifier": "t_type$_t_contract$_TokenToTokenSwap_$3880_$",
                             "typeString": "type(contract TokenToTokenSwap)"
                           }
                         },
@@ -1026,7 +1026,7 @@
                         "nodeType": "FunctionCall",
                         "src": "1530:26:2",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_TokenToTokenSwap_$3779",
+                          "typeIdentifier": "t_contract$_TokenToTokenSwap_$3880",
                           "typeString": "contract TokenToTokenSwap"
                         }
                       },
@@ -1037,7 +1037,7 @@
                       "lValueRequested": false,
                       "memberName": "init",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 3717,
+                      "referencedDeclaration": 3818,
                       "src": "1530:31:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_address_$_t_address_$_t_uint256_$returns$__$",
@@ -1316,7 +1316,7 @@
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 12824,
+                            "referencedDeclaration": 12925,
                             "src": "1890:3:2",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -1370,10 +1370,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        12827,
-                        12828
+                        12928,
+                        12929
                       ],
-                      "referencedDeclaration": 12827,
+                      "referencedDeclaration": 12928,
                       "src": "1881:7:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -1606,7 +1606,7 @@
         "id": 292,
         "nodeType": "ImportDirective",
         "scope": 402,
-        "sourceUnit": 3780,
+        "sourceUnit": 3881,
         "src": "28:32:2",
         "symbolAliases": [],
         "unitAlias": ""
@@ -1645,7 +1645,7 @@
         ],
         "contractDependencies": [
           83,
-          3779
+          3880
         ],
         "contractKind": "contract",
         "documentation": "wap Deployer Contract - purpose is to save gas for deployment of Factory contract.\r\nt ensures only the factory can create new contracts and uses CloneFactory to clone \r\nhe swap specified.\r",
@@ -1866,7 +1866,7 @@
                               "name": "this",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 12857,
+                              "referencedDeclaration": 12958,
                               "src": "780:4:2",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_contract$_Deployer_$401",
@@ -1916,7 +1916,7 @@
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 12824,
+                            "referencedDeclaration": 12925,
                             "src": "786:3:2",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -1946,7 +1946,7 @@
                               "name": "this",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 12857,
+                              "referencedDeclaration": 12958,
                               "src": "805:4:2",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_contract$_Deployer_$401",
@@ -1994,7 +1994,7 @@
                           "name": "now",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 12826,
+                          "referencedDeclaration": 12927,
                           "src": "811:3:2",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -2029,7 +2029,7 @@
                         "nodeType": "NewExpression",
                         "src": "751:20:2",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_function_creation_nonpayable$_t_address_$_t_address_$_t_address_$_t_uint256_$returns$_t_contract$_TokenToTokenSwap_$3779_$",
+                          "typeIdentifier": "t_function_creation_nonpayable$_t_address_$_t_address_$_t_address_$_t_uint256_$returns$_t_contract$_TokenToTokenSwap_$3880_$",
                           "typeString": "function (address,address,address,uint256) returns (contract TokenToTokenSwap)"
                         },
                         "typeName": {
@@ -2037,10 +2037,10 @@
                           "id": 315,
                           "name": "TokenToTokenSwap",
                           "nodeType": "UserDefinedTypeName",
-                          "referencedDeclaration": 3779,
+                          "referencedDeclaration": 3880,
                           "src": "755:16:2",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_contract$_TokenToTokenSwap_$3779",
+                            "typeIdentifier": "t_contract$_TokenToTokenSwap_$3880",
                             "typeString": "contract TokenToTokenSwap"
                           }
                         }
@@ -2055,7 +2055,7 @@
                       "nodeType": "FunctionCall",
                       "src": "751:64:2",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_TokenToTokenSwap_$3779",
+                        "typeIdentifier": "t_contract$_TokenToTokenSwap_$3880",
                         "typeString": "contract TokenToTokenSwap"
                       }
                     },
@@ -2448,10 +2448,10 @@
                           "name": "TokenToTokenSwap",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 3779,
+                          "referencedDeclaration": 3880,
                           "src": "1530:16:2",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_type$_t_contract$_TokenToTokenSwap_$3779_$",
+                            "typeIdentifier": "t_type$_t_contract$_TokenToTokenSwap_$3880_$",
                             "typeString": "type(contract TokenToTokenSwap)"
                           }
                         },
@@ -2465,7 +2465,7 @@
                         "nodeType": "FunctionCall",
                         "src": "1530:26:2",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_TokenToTokenSwap_$3779",
+                          "typeIdentifier": "t_contract$_TokenToTokenSwap_$3880",
                           "typeString": "contract TokenToTokenSwap"
                         }
                       },
@@ -2476,7 +2476,7 @@
                       "lValueRequested": false,
                       "memberName": "init",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 3717,
+                      "referencedDeclaration": 3818,
                       "src": "1530:31:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_address_$_t_address_$_t_uint256_$returns$__$",
@@ -2755,7 +2755,7 @@
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 12824,
+                            "referencedDeclaration": 12925,
                             "src": "1890:3:2",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -2809,10 +2809,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        12827,
-                        12828
+                        12928,
+                        12929
                       ],
-                      "referencedDeclaration": 12827,
+                      "referencedDeclaration": 12928,
                       "src": "1881:7:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -3024,5 +3024,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-07T01:51:07.576Z"
+  "updatedAt": "2018-11-16T01:55:21.332Z"
 }

@@ -339,7 +339,7 @@
         "id": 86,
         "nodeType": "ImportDirective",
         "scope": 290,
-        "sourceUnit": 5726,
+        "sourceUnit": 5827,
         "src": "28:37:1",
         "symbolAliases": [],
         "unitAlias": ""
@@ -364,10 +364,10 @@
               "id": 87,
               "name": "DRCTLibrary",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 5725,
+              "referencedDeclaration": 5826,
               "src": "482:11:1",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_DRCTLibrary_$5725",
+                "typeIdentifier": "t_contract$_DRCTLibrary_$5826",
                 "typeString": "library DRCTLibrary"
               }
             },
@@ -378,10 +378,10 @@
               "id": 88,
               "name": "DRCTLibrary.TokenStorage",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 4590,
+              "referencedDeclaration": 4691,
               "src": "498:24:1",
               "typeDescriptions": {
-                "typeIdentifier": "t_struct$_TokenStorage_$4590_storage_ptr",
+                "typeIdentifier": "t_struct$_TokenStorage_$4691_storage_ptr",
                 "typeString": "struct DRCTLibrary.TokenStorage"
               }
             }
@@ -396,7 +396,7 @@
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_struct$_TokenStorage_$4590_storage",
+              "typeIdentifier": "t_struct$_TokenStorage_$4691_storage",
               "typeString": "struct DRCTLibrary.TokenStorage"
             },
             "typeName": {
@@ -404,10 +404,10 @@
               "id": 90,
               "name": "DRCTLibrary.TokenStorage",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 4590,
+              "referencedDeclaration": 4691,
               "src": "550:24:1",
               "typeDescriptions": {
-                "typeIdentifier": "t_struct$_TokenStorage_$4590_storage_ptr",
+                "typeIdentifier": "t_struct$_TokenStorage_$4691_storage_ptr",
                 "typeString": "struct DRCTLibrary.TokenStorage"
               }
             },
@@ -518,7 +518,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 12824,
+                          "referencedDeclaration": 12925,
                           "src": "916:3:1",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -556,7 +556,7 @@
                         "referencedDeclaration": 91,
                         "src": "900:4:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_TokenStorage_$4590_storage",
+                          "typeIdentifier": "t_struct$_TokenStorage_$4691_storage",
                           "typeString": "struct DRCTLibrary.TokenStorage storage ref"
                         }
                       },
@@ -567,10 +567,10 @@
                       "lValueRequested": false,
                       "memberName": "startToken",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 4626,
+                      "referencedDeclaration": 4727,
                       "src": "900:15:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_delegatecall_nonpayable$_t_struct$_TokenStorage_$4590_storage_ptr_$_t_address_$returns$__$bound_to$_t_struct$_TokenStorage_$4590_storage_ptr_$",
+                        "typeIdentifier": "t_function_delegatecall_nonpayable$_t_struct$_TokenStorage_$4691_storage_ptr_$_t_address_$returns$__$bound_to$_t_struct$_TokenStorage_$4691_storage_ptr_$",
                         "typeString": "function (struct DRCTLibrary.TokenStorage storage pointer,address)"
                       }
                     },
@@ -695,7 +695,7 @@
                         "referencedDeclaration": 91,
                         "src": "1304:4:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_TokenStorage_$4590_storage",
+                          "typeIdentifier": "t_struct$_TokenStorage_$4691_storage",
                           "typeString": "struct DRCTLibrary.TokenStorage storage ref"
                         }
                       },
@@ -706,10 +706,10 @@
                       "lValueRequested": false,
                       "memberName": "createToken",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 4784,
+                      "referencedDeclaration": 4885,
                       "src": "1304:16:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_delegatecall_nonpayable$_t_struct$_TokenStorage_$4590_storage_ptr_$_t_uint256_$_t_address_$_t_address_$returns$__$bound_to$_t_struct$_TokenStorage_$4590_storage_ptr_$",
+                        "typeIdentifier": "t_function_delegatecall_nonpayable$_t_struct$_TokenStorage_$4691_storage_ptr_$_t_uint256_$_t_address_$_t_address_$returns$__$bound_to$_t_struct$_TokenStorage_$4691_storage_ptr_$",
                         "typeString": "function (struct DRCTLibrary.TokenStorage storage pointer,uint256,address,address)"
                       }
                     },
@@ -860,7 +860,7 @@
                         "referencedDeclaration": 91,
                         "src": "1488:4:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_TokenStorage_$4590_storage",
+                          "typeIdentifier": "t_struct$_TokenStorage_$4691_storage",
                           "typeString": "struct DRCTLibrary.TokenStorage storage ref"
                         }
                       },
@@ -871,10 +871,10 @@
                       "lValueRequested": false,
                       "memberName": "getFactoryAddress",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 4659,
+                      "referencedDeclaration": 4760,
                       "src": "1488:22:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_delegatecall_view$_t_struct$_TokenStorage_$4590_storage_ptr_$returns$_t_address_$bound_to$_t_struct$_TokenStorage_$4590_storage_ptr_$",
+                        "typeIdentifier": "t_function_delegatecall_view$_t_struct$_TokenStorage_$4691_storage_ptr_$returns$_t_address_$bound_to$_t_struct$_TokenStorage_$4691_storage_ptr_$",
                         "typeString": "function (struct DRCTLibrary.TokenStorage storage pointer) view returns (address)"
                       }
                     },
@@ -1010,7 +1010,7 @@
                         "referencedDeclaration": 91,
                         "src": "1732:4:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_TokenStorage_$4590_storage",
+                          "typeIdentifier": "t_struct$_TokenStorage_$4691_storage",
                           "typeString": "struct DRCTLibrary.TokenStorage storage ref"
                         }
                       },
@@ -1021,10 +1021,10 @@
                       "lValueRequested": false,
                       "memberName": "pay",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 4862,
+                      "referencedDeclaration": 4963,
                       "src": "1732:8:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_delegatecall_nonpayable$_t_struct$_TokenStorage_$4590_storage_ptr_$_t_address_$_t_address_$returns$__$bound_to$_t_struct$_TokenStorage_$4590_storage_ptr_$",
+                        "typeIdentifier": "t_function_delegatecall_nonpayable$_t_struct$_TokenStorage_$4691_storage_ptr_$_t_address_$_t_address_$returns$__$bound_to$_t_struct$_TokenStorage_$4691_storage_ptr_$",
                         "typeString": "function (struct DRCTLibrary.TokenStorage storage pointer,address,address)"
                       }
                     },
@@ -1168,7 +1168,7 @@
                         "referencedDeclaration": 91,
                         "src": "2039:4:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_TokenStorage_$4590_storage",
+                          "typeIdentifier": "t_struct$_TokenStorage_$4691_storage",
                           "typeString": "struct DRCTLibrary.TokenStorage storage ref"
                         }
                       },
@@ -1179,10 +1179,10 @@
                       "lValueRequested": false,
                       "memberName": "balanceOf",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 4877,
+                      "referencedDeclaration": 4978,
                       "src": "2039:14:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_delegatecall_view$_t_struct$_TokenStorage_$4590_storage_ptr_$_t_address_$returns$_t_uint256_$bound_to$_t_struct$_TokenStorage_$4590_storage_ptr_$",
+                        "typeIdentifier": "t_function_delegatecall_view$_t_struct$_TokenStorage_$4691_storage_ptr_$_t_address_$returns$_t_uint256_$bound_to$_t_struct$_TokenStorage_$4691_storage_ptr_$",
                         "typeString": "function (struct DRCTLibrary.TokenStorage storage pointer,address) view returns (uint256)"
                       }
                     },
@@ -1309,7 +1309,7 @@
                         "referencedDeclaration": 91,
                         "src": "2272:4:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_TokenStorage_$4590_storage",
+                          "typeIdentifier": "t_struct$_TokenStorage_$4691_storage",
                           "typeString": "struct DRCTLibrary.TokenStorage storage ref"
                         }
                       },
@@ -1320,10 +1320,10 @@
                       "lValueRequested": false,
                       "memberName": "totalSupply",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 4888,
+                      "referencedDeclaration": 4989,
                       "src": "2272:16:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_delegatecall_view$_t_struct$_TokenStorage_$4590_storage_ptr_$returns$_t_uint256_$bound_to$_t_struct$_TokenStorage_$4590_storage_ptr_$",
+                        "typeIdentifier": "t_function_delegatecall_view$_t_struct$_TokenStorage_$4691_storage_ptr_$returns$_t_uint256_$bound_to$_t_struct$_TokenStorage_$4691_storage_ptr_$",
                         "typeString": "function (struct DRCTLibrary.TokenStorage storage pointer) view returns (uint256)"
                       }
                     },
@@ -1459,7 +1459,7 @@
                         "referencedDeclaration": 91,
                         "src": "2569:4:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_TokenStorage_$4590_storage",
+                          "typeIdentifier": "t_struct$_TokenStorage_$4691_storage",
                           "typeString": "struct DRCTLibrary.TokenStorage storage ref"
                         }
                       },
@@ -1470,10 +1470,10 @@
                       "lValueRequested": false,
                       "memberName": "transfer",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 5483,
+                      "referencedDeclaration": 5584,
                       "src": "2569:13:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_delegatecall_nonpayable$_t_struct$_TokenStorage_$4590_storage_ptr_$_t_address_$_t_uint256_$returns$_t_bool_$bound_to$_t_struct$_TokenStorage_$4590_storage_ptr_$",
+                        "typeIdentifier": "t_function_delegatecall_nonpayable$_t_struct$_TokenStorage_$4691_storage_ptr_$_t_address_$_t_uint256_$returns$_t_bool_$bound_to$_t_struct$_TokenStorage_$4691_storage_ptr_$",
                         "typeString": "function (struct DRCTLibrary.TokenStorage storage pointer,address,uint256) returns (bool)"
                       }
                     },
@@ -1679,7 +1679,7 @@
                         "referencedDeclaration": 91,
                         "src": "2997:4:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_TokenStorage_$4590_storage",
+                          "typeIdentifier": "t_struct$_TokenStorage_$4691_storage",
                           "typeString": "struct DRCTLibrary.TokenStorage storage ref"
                         }
                       },
@@ -1690,10 +1690,10 @@
                       "lValueRequested": false,
                       "memberName": "transferFrom",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 5608,
+                      "referencedDeclaration": 5709,
                       "src": "2997:17:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_delegatecall_nonpayable$_t_struct$_TokenStorage_$4590_storage_ptr_$_t_address_$_t_address_$_t_uint256_$returns$_t_bool_$bound_to$_t_struct$_TokenStorage_$4590_storage_ptr_$",
+                        "typeIdentifier": "t_function_delegatecall_nonpayable$_t_struct$_TokenStorage_$4691_storage_ptr_$_t_address_$_t_address_$_t_uint256_$returns$_t_bool_$bound_to$_t_struct$_TokenStorage_$4691_storage_ptr_$",
                         "typeString": "function (struct DRCTLibrary.TokenStorage storage pointer,address,address,uint256) returns (bool)"
                       }
                     },
@@ -1908,7 +1908,7 @@
                         "referencedDeclaration": 91,
                         "src": "3369:4:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_TokenStorage_$4590_storage",
+                          "typeIdentifier": "t_struct$_TokenStorage_$4691_storage",
                           "typeString": "struct DRCTLibrary.TokenStorage storage ref"
                         }
                       },
@@ -1919,10 +1919,10 @@
                       "lValueRequested": false,
                       "memberName": "approve",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 5640,
+                      "referencedDeclaration": 5741,
                       "src": "3369:12:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_delegatecall_nonpayable$_t_struct$_TokenStorage_$4590_storage_ptr_$_t_address_$_t_uint256_$returns$_t_bool_$bound_to$_t_struct$_TokenStorage_$4590_storage_ptr_$",
+                        "typeIdentifier": "t_function_delegatecall_nonpayable$_t_struct$_TokenStorage_$4691_storage_ptr_$_t_address_$_t_uint256_$returns$_t_bool_$bound_to$_t_struct$_TokenStorage_$4691_storage_ptr_$",
                         "typeString": "function (struct DRCTLibrary.TokenStorage storage pointer,address,uint256) returns (bool)"
                       }
                     },
@@ -2094,7 +2094,7 @@
                         "referencedDeclaration": 91,
                         "src": "3703:4:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_TokenStorage_$4590_storage",
+                          "typeIdentifier": "t_struct$_TokenStorage_$4691_storage",
                           "typeString": "struct DRCTLibrary.TokenStorage storage ref"
                         }
                       },
@@ -2105,10 +2105,10 @@
                       "lValueRequested": false,
                       "memberName": "addressCount",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 5656,
+                      "referencedDeclaration": 5757,
                       "src": "3703:17:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_delegatecall_view$_t_struct$_TokenStorage_$4590_storage_ptr_$_t_address_$returns$_t_uint256_$bound_to$_t_struct$_TokenStorage_$4590_storage_ptr_$",
+                        "typeIdentifier": "t_function_delegatecall_view$_t_struct$_TokenStorage_$4691_storage_ptr_$_t_address_$returns$_t_uint256_$bound_to$_t_struct$_TokenStorage_$4691_storage_ptr_$",
                         "typeString": "function (struct DRCTLibrary.TokenStorage storage pointer,address) view returns (uint256)"
                       }
                     },
@@ -2271,7 +2271,7 @@
                         "referencedDeclaration": 91,
                         "src": "4236:4:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_TokenStorage_$4590_storage",
+                          "typeIdentifier": "t_struct$_TokenStorage_$4691_storage",
                           "typeString": "struct DRCTLibrary.TokenStorage storage ref"
                         }
                       },
@@ -2282,10 +2282,10 @@
                       "lValueRequested": false,
                       "memberName": "getBalanceAndHolderByIndex",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 5686,
+                      "referencedDeclaration": 5787,
                       "src": "4236:31:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_delegatecall_view$_t_struct$_TokenStorage_$4590_storage_ptr_$_t_uint256_$_t_address_$returns$_t_uint256_$_t_address_$bound_to$_t_struct$_TokenStorage_$4590_storage_ptr_$",
+                        "typeIdentifier": "t_function_delegatecall_view$_t_struct$_TokenStorage_$4691_storage_ptr_$_t_uint256_$_t_address_$returns$_t_uint256_$_t_address_$bound_to$_t_struct$_TokenStorage_$4691_storage_ptr_$",
                         "typeString": "function (struct DRCTLibrary.TokenStorage storage pointer,uint256,address) view returns (uint256,address)"
                       }
                     },
@@ -2500,7 +2500,7 @@
                         "referencedDeclaration": 91,
                         "src": "4648:4:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_TokenStorage_$4590_storage",
+                          "typeIdentifier": "t_struct$_TokenStorage_$4691_storage",
                           "typeString": "struct DRCTLibrary.TokenStorage storage ref"
                         }
                       },
@@ -2511,10 +2511,10 @@
                       "lValueRequested": false,
                       "memberName": "getIndexByAddress",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 5705,
+                      "referencedDeclaration": 5806,
                       "src": "4648:22:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_delegatecall_view$_t_struct$_TokenStorage_$4590_storage_ptr_$_t_address_$_t_address_$returns$_t_uint256_$bound_to$_t_struct$_TokenStorage_$4590_storage_ptr_$",
+                        "typeIdentifier": "t_function_delegatecall_view$_t_struct$_TokenStorage_$4691_storage_ptr_$_t_address_$_t_address_$returns$_t_uint256_$bound_to$_t_struct$_TokenStorage_$4691_storage_ptr_$",
                         "typeString": "function (struct DRCTLibrary.TokenStorage storage pointer,address,address) view returns (uint256)"
                       }
                     },
@@ -2703,7 +2703,7 @@
                         "referencedDeclaration": 91,
                         "src": "5053:4:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_TokenStorage_$4590_storage",
+                          "typeIdentifier": "t_struct$_TokenStorage_$4691_storage",
                           "typeString": "struct DRCTLibrary.TokenStorage storage ref"
                         }
                       },
@@ -2714,10 +2714,10 @@
                       "lValueRequested": false,
                       "memberName": "allowance",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 5724,
+                      "referencedDeclaration": 5825,
                       "src": "5053:14:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_delegatecall_view$_t_struct$_TokenStorage_$4590_storage_ptr_$_t_address_$_t_address_$returns$_t_uint256_$bound_to$_t_struct$_TokenStorage_$4590_storage_ptr_$",
+                        "typeIdentifier": "t_function_delegatecall_view$_t_struct$_TokenStorage_$4691_storage_ptr_$_t_address_$_t_address_$returns$_t_uint256_$bound_to$_t_struct$_TokenStorage_$4691_storage_ptr_$",
                         "typeString": "function (struct DRCTLibrary.TokenStorage storage pointer,address,address) view returns (uint256)"
                       }
                     },
@@ -2883,7 +2883,7 @@
         "id": 86,
         "nodeType": "ImportDirective",
         "scope": 290,
-        "sourceUnit": 5726,
+        "sourceUnit": 5827,
         "src": "28:37:1",
         "symbolAliases": [],
         "unitAlias": ""
@@ -2908,10 +2908,10 @@
               "id": 87,
               "name": "DRCTLibrary",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 5725,
+              "referencedDeclaration": 5826,
               "src": "482:11:1",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_DRCTLibrary_$5725",
+                "typeIdentifier": "t_contract$_DRCTLibrary_$5826",
                 "typeString": "library DRCTLibrary"
               }
             },
@@ -2922,10 +2922,10 @@
               "id": 88,
               "name": "DRCTLibrary.TokenStorage",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 4590,
+              "referencedDeclaration": 4691,
               "src": "498:24:1",
               "typeDescriptions": {
-                "typeIdentifier": "t_struct$_TokenStorage_$4590_storage_ptr",
+                "typeIdentifier": "t_struct$_TokenStorage_$4691_storage_ptr",
                 "typeString": "struct DRCTLibrary.TokenStorage"
               }
             }
@@ -2940,7 +2940,7 @@
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_struct$_TokenStorage_$4590_storage",
+              "typeIdentifier": "t_struct$_TokenStorage_$4691_storage",
               "typeString": "struct DRCTLibrary.TokenStorage"
             },
             "typeName": {
@@ -2948,10 +2948,10 @@
               "id": 90,
               "name": "DRCTLibrary.TokenStorage",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 4590,
+              "referencedDeclaration": 4691,
               "src": "550:24:1",
               "typeDescriptions": {
-                "typeIdentifier": "t_struct$_TokenStorage_$4590_storage_ptr",
+                "typeIdentifier": "t_struct$_TokenStorage_$4691_storage_ptr",
                 "typeString": "struct DRCTLibrary.TokenStorage"
               }
             },
@@ -3062,7 +3062,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 12824,
+                          "referencedDeclaration": 12925,
                           "src": "916:3:1",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -3100,7 +3100,7 @@
                         "referencedDeclaration": 91,
                         "src": "900:4:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_TokenStorage_$4590_storage",
+                          "typeIdentifier": "t_struct$_TokenStorage_$4691_storage",
                           "typeString": "struct DRCTLibrary.TokenStorage storage ref"
                         }
                       },
@@ -3111,10 +3111,10 @@
                       "lValueRequested": false,
                       "memberName": "startToken",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 4626,
+                      "referencedDeclaration": 4727,
                       "src": "900:15:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_delegatecall_nonpayable$_t_struct$_TokenStorage_$4590_storage_ptr_$_t_address_$returns$__$bound_to$_t_struct$_TokenStorage_$4590_storage_ptr_$",
+                        "typeIdentifier": "t_function_delegatecall_nonpayable$_t_struct$_TokenStorage_$4691_storage_ptr_$_t_address_$returns$__$bound_to$_t_struct$_TokenStorage_$4691_storage_ptr_$",
                         "typeString": "function (struct DRCTLibrary.TokenStorage storage pointer,address)"
                       }
                     },
@@ -3239,7 +3239,7 @@
                         "referencedDeclaration": 91,
                         "src": "1304:4:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_TokenStorage_$4590_storage",
+                          "typeIdentifier": "t_struct$_TokenStorage_$4691_storage",
                           "typeString": "struct DRCTLibrary.TokenStorage storage ref"
                         }
                       },
@@ -3250,10 +3250,10 @@
                       "lValueRequested": false,
                       "memberName": "createToken",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 4784,
+                      "referencedDeclaration": 4885,
                       "src": "1304:16:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_delegatecall_nonpayable$_t_struct$_TokenStorage_$4590_storage_ptr_$_t_uint256_$_t_address_$_t_address_$returns$__$bound_to$_t_struct$_TokenStorage_$4590_storage_ptr_$",
+                        "typeIdentifier": "t_function_delegatecall_nonpayable$_t_struct$_TokenStorage_$4691_storage_ptr_$_t_uint256_$_t_address_$_t_address_$returns$__$bound_to$_t_struct$_TokenStorage_$4691_storage_ptr_$",
                         "typeString": "function (struct DRCTLibrary.TokenStorage storage pointer,uint256,address,address)"
                       }
                     },
@@ -3404,7 +3404,7 @@
                         "referencedDeclaration": 91,
                         "src": "1488:4:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_TokenStorage_$4590_storage",
+                          "typeIdentifier": "t_struct$_TokenStorage_$4691_storage",
                           "typeString": "struct DRCTLibrary.TokenStorage storage ref"
                         }
                       },
@@ -3415,10 +3415,10 @@
                       "lValueRequested": false,
                       "memberName": "getFactoryAddress",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 4659,
+                      "referencedDeclaration": 4760,
                       "src": "1488:22:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_delegatecall_view$_t_struct$_TokenStorage_$4590_storage_ptr_$returns$_t_address_$bound_to$_t_struct$_TokenStorage_$4590_storage_ptr_$",
+                        "typeIdentifier": "t_function_delegatecall_view$_t_struct$_TokenStorage_$4691_storage_ptr_$returns$_t_address_$bound_to$_t_struct$_TokenStorage_$4691_storage_ptr_$",
                         "typeString": "function (struct DRCTLibrary.TokenStorage storage pointer) view returns (address)"
                       }
                     },
@@ -3554,7 +3554,7 @@
                         "referencedDeclaration": 91,
                         "src": "1732:4:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_TokenStorage_$4590_storage",
+                          "typeIdentifier": "t_struct$_TokenStorage_$4691_storage",
                           "typeString": "struct DRCTLibrary.TokenStorage storage ref"
                         }
                       },
@@ -3565,10 +3565,10 @@
                       "lValueRequested": false,
                       "memberName": "pay",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 4862,
+                      "referencedDeclaration": 4963,
                       "src": "1732:8:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_delegatecall_nonpayable$_t_struct$_TokenStorage_$4590_storage_ptr_$_t_address_$_t_address_$returns$__$bound_to$_t_struct$_TokenStorage_$4590_storage_ptr_$",
+                        "typeIdentifier": "t_function_delegatecall_nonpayable$_t_struct$_TokenStorage_$4691_storage_ptr_$_t_address_$_t_address_$returns$__$bound_to$_t_struct$_TokenStorage_$4691_storage_ptr_$",
                         "typeString": "function (struct DRCTLibrary.TokenStorage storage pointer,address,address)"
                       }
                     },
@@ -3712,7 +3712,7 @@
                         "referencedDeclaration": 91,
                         "src": "2039:4:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_TokenStorage_$4590_storage",
+                          "typeIdentifier": "t_struct$_TokenStorage_$4691_storage",
                           "typeString": "struct DRCTLibrary.TokenStorage storage ref"
                         }
                       },
@@ -3723,10 +3723,10 @@
                       "lValueRequested": false,
                       "memberName": "balanceOf",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 4877,
+                      "referencedDeclaration": 4978,
                       "src": "2039:14:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_delegatecall_view$_t_struct$_TokenStorage_$4590_storage_ptr_$_t_address_$returns$_t_uint256_$bound_to$_t_struct$_TokenStorage_$4590_storage_ptr_$",
+                        "typeIdentifier": "t_function_delegatecall_view$_t_struct$_TokenStorage_$4691_storage_ptr_$_t_address_$returns$_t_uint256_$bound_to$_t_struct$_TokenStorage_$4691_storage_ptr_$",
                         "typeString": "function (struct DRCTLibrary.TokenStorage storage pointer,address) view returns (uint256)"
                       }
                     },
@@ -3853,7 +3853,7 @@
                         "referencedDeclaration": 91,
                         "src": "2272:4:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_TokenStorage_$4590_storage",
+                          "typeIdentifier": "t_struct$_TokenStorage_$4691_storage",
                           "typeString": "struct DRCTLibrary.TokenStorage storage ref"
                         }
                       },
@@ -3864,10 +3864,10 @@
                       "lValueRequested": false,
                       "memberName": "totalSupply",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 4888,
+                      "referencedDeclaration": 4989,
                       "src": "2272:16:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_delegatecall_view$_t_struct$_TokenStorage_$4590_storage_ptr_$returns$_t_uint256_$bound_to$_t_struct$_TokenStorage_$4590_storage_ptr_$",
+                        "typeIdentifier": "t_function_delegatecall_view$_t_struct$_TokenStorage_$4691_storage_ptr_$returns$_t_uint256_$bound_to$_t_struct$_TokenStorage_$4691_storage_ptr_$",
                         "typeString": "function (struct DRCTLibrary.TokenStorage storage pointer) view returns (uint256)"
                       }
                     },
@@ -4003,7 +4003,7 @@
                         "referencedDeclaration": 91,
                         "src": "2569:4:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_TokenStorage_$4590_storage",
+                          "typeIdentifier": "t_struct$_TokenStorage_$4691_storage",
                           "typeString": "struct DRCTLibrary.TokenStorage storage ref"
                         }
                       },
@@ -4014,10 +4014,10 @@
                       "lValueRequested": false,
                       "memberName": "transfer",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 5483,
+                      "referencedDeclaration": 5584,
                       "src": "2569:13:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_delegatecall_nonpayable$_t_struct$_TokenStorage_$4590_storage_ptr_$_t_address_$_t_uint256_$returns$_t_bool_$bound_to$_t_struct$_TokenStorage_$4590_storage_ptr_$",
+                        "typeIdentifier": "t_function_delegatecall_nonpayable$_t_struct$_TokenStorage_$4691_storage_ptr_$_t_address_$_t_uint256_$returns$_t_bool_$bound_to$_t_struct$_TokenStorage_$4691_storage_ptr_$",
                         "typeString": "function (struct DRCTLibrary.TokenStorage storage pointer,address,uint256) returns (bool)"
                       }
                     },
@@ -4223,7 +4223,7 @@
                         "referencedDeclaration": 91,
                         "src": "2997:4:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_TokenStorage_$4590_storage",
+                          "typeIdentifier": "t_struct$_TokenStorage_$4691_storage",
                           "typeString": "struct DRCTLibrary.TokenStorage storage ref"
                         }
                       },
@@ -4234,10 +4234,10 @@
                       "lValueRequested": false,
                       "memberName": "transferFrom",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 5608,
+                      "referencedDeclaration": 5709,
                       "src": "2997:17:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_delegatecall_nonpayable$_t_struct$_TokenStorage_$4590_storage_ptr_$_t_address_$_t_address_$_t_uint256_$returns$_t_bool_$bound_to$_t_struct$_TokenStorage_$4590_storage_ptr_$",
+                        "typeIdentifier": "t_function_delegatecall_nonpayable$_t_struct$_TokenStorage_$4691_storage_ptr_$_t_address_$_t_address_$_t_uint256_$returns$_t_bool_$bound_to$_t_struct$_TokenStorage_$4691_storage_ptr_$",
                         "typeString": "function (struct DRCTLibrary.TokenStorage storage pointer,address,address,uint256) returns (bool)"
                       }
                     },
@@ -4452,7 +4452,7 @@
                         "referencedDeclaration": 91,
                         "src": "3369:4:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_TokenStorage_$4590_storage",
+                          "typeIdentifier": "t_struct$_TokenStorage_$4691_storage",
                           "typeString": "struct DRCTLibrary.TokenStorage storage ref"
                         }
                       },
@@ -4463,10 +4463,10 @@
                       "lValueRequested": false,
                       "memberName": "approve",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 5640,
+                      "referencedDeclaration": 5741,
                       "src": "3369:12:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_delegatecall_nonpayable$_t_struct$_TokenStorage_$4590_storage_ptr_$_t_address_$_t_uint256_$returns$_t_bool_$bound_to$_t_struct$_TokenStorage_$4590_storage_ptr_$",
+                        "typeIdentifier": "t_function_delegatecall_nonpayable$_t_struct$_TokenStorage_$4691_storage_ptr_$_t_address_$_t_uint256_$returns$_t_bool_$bound_to$_t_struct$_TokenStorage_$4691_storage_ptr_$",
                         "typeString": "function (struct DRCTLibrary.TokenStorage storage pointer,address,uint256) returns (bool)"
                       }
                     },
@@ -4638,7 +4638,7 @@
                         "referencedDeclaration": 91,
                         "src": "3703:4:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_TokenStorage_$4590_storage",
+                          "typeIdentifier": "t_struct$_TokenStorage_$4691_storage",
                           "typeString": "struct DRCTLibrary.TokenStorage storage ref"
                         }
                       },
@@ -4649,10 +4649,10 @@
                       "lValueRequested": false,
                       "memberName": "addressCount",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 5656,
+                      "referencedDeclaration": 5757,
                       "src": "3703:17:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_delegatecall_view$_t_struct$_TokenStorage_$4590_storage_ptr_$_t_address_$returns$_t_uint256_$bound_to$_t_struct$_TokenStorage_$4590_storage_ptr_$",
+                        "typeIdentifier": "t_function_delegatecall_view$_t_struct$_TokenStorage_$4691_storage_ptr_$_t_address_$returns$_t_uint256_$bound_to$_t_struct$_TokenStorage_$4691_storage_ptr_$",
                         "typeString": "function (struct DRCTLibrary.TokenStorage storage pointer,address) view returns (uint256)"
                       }
                     },
@@ -4815,7 +4815,7 @@
                         "referencedDeclaration": 91,
                         "src": "4236:4:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_TokenStorage_$4590_storage",
+                          "typeIdentifier": "t_struct$_TokenStorage_$4691_storage",
                           "typeString": "struct DRCTLibrary.TokenStorage storage ref"
                         }
                       },
@@ -4826,10 +4826,10 @@
                       "lValueRequested": false,
                       "memberName": "getBalanceAndHolderByIndex",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 5686,
+                      "referencedDeclaration": 5787,
                       "src": "4236:31:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_delegatecall_view$_t_struct$_TokenStorage_$4590_storage_ptr_$_t_uint256_$_t_address_$returns$_t_uint256_$_t_address_$bound_to$_t_struct$_TokenStorage_$4590_storage_ptr_$",
+                        "typeIdentifier": "t_function_delegatecall_view$_t_struct$_TokenStorage_$4691_storage_ptr_$_t_uint256_$_t_address_$returns$_t_uint256_$_t_address_$bound_to$_t_struct$_TokenStorage_$4691_storage_ptr_$",
                         "typeString": "function (struct DRCTLibrary.TokenStorage storage pointer,uint256,address) view returns (uint256,address)"
                       }
                     },
@@ -5044,7 +5044,7 @@
                         "referencedDeclaration": 91,
                         "src": "4648:4:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_TokenStorage_$4590_storage",
+                          "typeIdentifier": "t_struct$_TokenStorage_$4691_storage",
                           "typeString": "struct DRCTLibrary.TokenStorage storage ref"
                         }
                       },
@@ -5055,10 +5055,10 @@
                       "lValueRequested": false,
                       "memberName": "getIndexByAddress",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 5705,
+                      "referencedDeclaration": 5806,
                       "src": "4648:22:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_delegatecall_view$_t_struct$_TokenStorage_$4590_storage_ptr_$_t_address_$_t_address_$returns$_t_uint256_$bound_to$_t_struct$_TokenStorage_$4590_storage_ptr_$",
+                        "typeIdentifier": "t_function_delegatecall_view$_t_struct$_TokenStorage_$4691_storage_ptr_$_t_address_$_t_address_$returns$_t_uint256_$bound_to$_t_struct$_TokenStorage_$4691_storage_ptr_$",
                         "typeString": "function (struct DRCTLibrary.TokenStorage storage pointer,address,address) view returns (uint256)"
                       }
                     },
@@ -5247,7 +5247,7 @@
                         "referencedDeclaration": 91,
                         "src": "5053:4:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_TokenStorage_$4590_storage",
+                          "typeIdentifier": "t_struct$_TokenStorage_$4691_storage",
                           "typeString": "struct DRCTLibrary.TokenStorage storage ref"
                         }
                       },
@@ -5258,10 +5258,10 @@
                       "lValueRequested": false,
                       "memberName": "allowance",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 5724,
+                      "referencedDeclaration": 5825,
                       "src": "5053:14:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_delegatecall_view$_t_struct$_TokenStorage_$4590_storage_ptr_$_t_address_$_t_address_$returns$_t_uint256_$bound_to$_t_struct$_TokenStorage_$4590_storage_ptr_$",
+                        "typeIdentifier": "t_function_delegatecall_view$_t_struct$_TokenStorage_$4691_storage_ptr_$_t_address_$_t_address_$returns$_t_uint256_$bound_to$_t_struct$_TokenStorage_$4691_storage_ptr_$",
                         "typeString": "function (struct DRCTLibrary.TokenStorage storage pointer,address,address) view returns (uint256)"
                       }
                     },
@@ -5406,5 +5406,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-07T01:51:07.568Z"
+  "updatedAt": "2018-11-16T01:55:21.331Z"
 }
