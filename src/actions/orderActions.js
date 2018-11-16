@@ -138,7 +138,7 @@ export const sendListOrder = (formValues, account) => async dispatch => {
 
     const response = await exchange.list(token, tokenAmount, price * 1e18, {
       from: account,
-      gas: 300000
+      gas: 400000
     });
 
     dispatch({
@@ -182,7 +182,7 @@ export const sendApproveOrder = (approveDetails, account) => async dispatch => {
     if (Number(listedAmount) > Number(approvedAmount)) {
       await drct.approve(exchange.address, tokenAmount, {
         from: account,
-        gas: 70000
+        gas: 100000
       });
     }
     dispatch({
