@@ -79,3 +79,11 @@ module.exports.getFromSymbol = (symbol) => {
   if (provider && provider.length > 0) { return provider[0]; }
   return null;
 }
+
+
+module.exports.getSymbolFromAddress= (address) => {
+  for(var i = items().length; i>0;i--){
+    if(items()[i].address === address) { return items()[i].symbol; }
+  }
+  return null;
+}
