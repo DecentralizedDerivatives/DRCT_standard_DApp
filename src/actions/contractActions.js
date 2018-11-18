@@ -61,6 +61,7 @@ export const getOrderBook = (isSilent) => async dispatch => {
           let _allrows = [];
   try {
     try{
+       if (!isSilent) { dispatch({ type: SET_FETCH_IN_PROGRESS, payload: SET_ORDERBOOK }); };
        let order = qb.query("OrderBook");
         order.logEvent("OrderPlaced").groupByAttribute(1);
         order.logEvent("Sale").withIndex(1).groupByAttribute(1);
@@ -83,7 +84,9 @@ export const getOrderBook = (isSilent) => async dispatch => {
             let endDate = moment(date).utc().add(6, 'days')
             if (moment().utc().isSameOrBefore(endDate)) {
                 let tokenType = (await factory.getTokenType(res2._token)).c[0];
-                let symbol = FactoryProvider.getSymbolFromAddress(factoryAddress);
+                console.log('factoryAddress',factoryAddress);
+                let symbol = 'BTC/USD';
+                //let symbol = FactoryProvider.getSymbolFromAddress(factoryAddress);
                 const provider = FactoryProvider.getFromSymbol(symbol);
                 let startPrice = await getStartDatePrice(provider.oracle, orderDate)
                 let contractGain = 0
