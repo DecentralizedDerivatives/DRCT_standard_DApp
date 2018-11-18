@@ -73,16 +73,16 @@ export const getOrderBook = (isSilent) => async dispatch => {
         for(var i = res.length-1;i>=0;i--){
           let res2 = res[i].event.params;
           console.log(res2);
-            /*var drct = await DRCT.at(res2[i]._token);
+            var drct = await DRCT.at(res2._token);
             var factoryAddress = await drct.getFactoryAddress();
             const factory = await Factory.at(factoryAddress);
-            let tokenDate = await factory.token_dates.call(res2[i]._token);
+            let tokenDate = await factory.token_dates.call(res2._token);
             let date = new Date(tokenDate.c[0] * 1000);
             let orderDate = date.getUTCMonth() + 1 + '/' +
             date.getUTCDate() + '/' + date.getUTCFullYear();
             let endDate = moment(date).utc().add(6, 'days')
             if (moment().utc().isSameOrBefore(endDate)) {
-                let tokenType = (await factory.getTokenType(res2[i]._token)).c[0];
+                let tokenType = (await factory.getTokenType(res2._token)).c[0];
                 let symbol = FactoryProvider.getSymbolFromAddress(factoryAddress);
                 const provider = FactoryProvider.getFromSymbol(symbol);
                 let startPrice = await getStartDatePrice(provider.oracle, orderDate)
@@ -93,18 +93,18 @@ export const getOrderBook = (isSilent) => async dispatch => {
                   contractGain = ((currentPrice - startPrice) / startPrice) * 100 * Number(provider.multiplier) * (tokenType === 1 ? -1 : 1)
                 }
               _allrows.push({
-                orderId: res2[i]._orderId,
-                creatorAddress: res2[i]._sender,
-                address: res2[i]._token,
-                price: res2[i]._price,
-                quantity: res2[i]._amount,
+                orderId: res2._orderId,
+                creatorAddress: res2._sender,
+                address: res2._token,
+                price: res2._price,
+                quantity: res2._amount,
                 date: orderDate.toString(),
                 symbol: symbol,
                 contractGain: contractGain,
                 tokenType: (tokenType === 1 ? 'Short' : 'Long')
                });
             }
-          */}
+          }
             console.log('allrows',_allrows);
             dispatch({
               type: SET_ORDERBOOK,

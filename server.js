@@ -5,7 +5,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 const env = {
-  'NETWORK_ID': process.env.NETWORK_ID || 4
+  'NETWORK_ID': process.env.NETWORK_ID || 1
 }
 // console.log('ENV',env.NETWORK_ID)
 
