@@ -71,8 +71,9 @@ export const getOrderBook = (isSilent) => async dispatch => {
         let res = r.data.OrderBook.hits;
         console.log('res',res)
         for(var i = res.length-1;i>=0;i--){
-          let res2 = res.event.params;
-            var drct = await DRCT.at(res2[i]._token);
+          let res2 = res[i].event.params;
+          console.log(res2);
+            /*var drct = await DRCT.at(res2[i]._token);
             var factoryAddress = await drct.getFactoryAddress();
             const factory = await Factory.at(factoryAddress);
             let tokenDate = await factory.token_dates.call(res2[i]._token);
@@ -103,10 +104,16 @@ export const getOrderBook = (isSilent) => async dispatch => {
                 tokenType: (tokenType === 1 ? 'Short' : 'Long')
                });
             }
-          }
-          console.log("Results", r.data);
+          */}
+            console.log('allrows',_allrows);
+            dispatch({
+              type: SET_ORDERBOOK,
+              payload: _allrows
+            });
+            dispatch({ type: REMOVE_FETCH_IN_PROGRESS, payload: SET_ORDERBOOK });
     }
     catch{
+      console.log('Database didnt work');
         if (!isSilent) { dispatch({ type: SET_FETCH_IN_PROGRESS, payload: SET_ORDERBOOK }); };
         var staticAddresses = FactoryProvider.getStaticAddresses();
         const exchange = await Exchange.at(staticAddresses.exchange);
@@ -156,12 +163,13 @@ export const getOrderBook = (isSilent) => async dispatch => {
             return a.orderId - b.orderId;
           });
         }
+      console.log('allrows',_allrows);
+      dispatch({
+        type: SET_ORDERBOOK,
+        payload: _allrows
+      });
+      dispatch({ type: REMOVE_FETCH_IN_PROGRESS, payload: SET_ORDERBOOK });
     }
-    dispatch({
-      type: SET_ORDERBOOK,
-      payload: _allrows
-    });
-    dispatch({ type: REMOVE_FETCH_IN_PROGRESS, payload: SET_ORDERBOOK });
   } catch (err) {
     dispatch({
       type: SET_FETCHING_ERROR,
