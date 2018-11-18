@@ -15,7 +15,7 @@ import { getStartDatePrice } from './common';
 import FactoryProvider from '../factoryProvider';
 const moment = require('moment');
 
-let apiKey = window.env.NETWORK_ID || 0;// process.env["apiKey"];
+let apiKey = window.env.API_KEY || 0;// process.env["apiKey"];
 
 if(!apiKey) {
   throw new Error("Missing API key in environment");
