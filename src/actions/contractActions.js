@@ -15,16 +15,11 @@ import { getStartDatePrice } from './common';
 import FactoryProvider from '../factoryProvider';
 const moment = require('moment');
 
-let apiKey = '32b30a51240144118d5ce7a999d25ce2';// process.env["apiKey"];
+let apiKey = window.env.NETWORK_ID || 0;// process.env["apiKey"];
+
 if(!apiKey) {
   throw new Error("Missing API key in environment");
 }
-
-let client = new QClient({
-  apiKey
-
-});
-let qb = client.queryBuilder().offset(0).pageSize(5);
 
 export const getContractDetails = (symbol, startDate) => async dispatch => {
   try {
@@ -58,6 +53,11 @@ export const getContractDetails = (symbol, startDate) => async dispatch => {
   }
 };
 export const getOrderBook = (isSilent) => async dispatch => {
+  let client = new QClient({
+    apiKey
+
+  });
+  let qb = client.queryBuilder().offset(0).pageSize(5);
           let _allrows = [];
   try {
     try{
@@ -69,7 +69,6 @@ export const getOrderBook = (isSilent) => async dispatch => {
         order.groupLimit(1);
         let r = await qb.execute();
         let res = r.data.OrderBook.hits;
-        console.log('res',res)
         for(var i = res.length-1;i>=0;i--){
           let res2 = res[i].event.params;
           console.log(res2);
@@ -85,8 +84,7 @@ export const getOrderBook = (isSilent) => async dispatch => {
                 let tokenType = (await factory.getTokenType(res2._token)).c[0];
                 console.log('factoryAddress',factoryAddress);
                 //let symbol = 'BTC/USD';
-                let symbol = FactoryProvider.getSymbolFromAddress(factoryAddress);
-                const provider = FactoryProvider.getFromSymbol(symbol);
+                var provider = FactoryProvider.getFromAddress(factoryAddress);
                 let startPrice = await getStartDatePrice(provider.oracle, orderDate)
                 let contractGain = 0
                 if (startPrice > 0) {
@@ -98,24 +96,23 @@ export const getOrderBook = (isSilent) => async dispatch => {
                 orderId: res2._orderID,
                 creatorAddress: res2._sender,
                 address: res2._token,
-                price: res2._price,
+                price: res2._price/1e18,
                 quantity: res2._amount,
                 date: orderDate.toString(),
-                symbol: symbol,
+                symbol: provider && provider.symbol ? provider.symbol : '',
                 contractGain: contractGain,
                 tokenType: (tokenType === 1 ? 'Short' : 'Long')
                });
             }
           }
-            console.log('allrows',_allrows);
             dispatch({
               type: SET_ORDERBOOK,
               payload: _allrows
             });
             dispatch({ type: REMOVE_FETCH_IN_PROGRESS, payload: SET_ORDERBOOK });
     }
-    catch{
-      console.log('Database didnt work');
+    catch(e){
+      console.log('Database didnt work',e);
         if (!isSilent) { dispatch({ type: SET_FETCH_IN_PROGRESS, payload: SET_ORDERBOOK }); };
         var staticAddresses = FactoryProvider.getStaticAddresses();
         const exchange = await Exchange.at(staticAddresses.exchange);
@@ -165,7 +162,6 @@ export const getOrderBook = (isSilent) => async dispatch => {
             return a.orderId - b.orderId;
           });
         }
-      console.log('allrows',_allrows);
       dispatch({
         type: SET_ORDERBOOK,
         payload: _allrows
@@ -184,13 +180,16 @@ export const getRecentTrades = (isSilent) => async dispatch => {
   try {
     if (!isSilent) { dispatch({ type: SET_FETCH_IN_PROGRESS, payload: SET_RECENT_TRADES }); };
     let trades = [];
+    let client = new QClient({
+      apiKey
+
+    });
+    let qb = client.queryBuilder().offset(0).pageSize(5);
     try{
         let order = qb.query("OrderBook");
-        order.logEvent("Sale").withIndex(1).groupByAttribute(0);
+        order.logEvent("Sale").withIndex(1);
         let r = await qb.execute();
-        console.log('Sale R',r);
         let res = r.data.OrderBook.hits;
-        console.log('res',res)
         for(var i = res.length-1;i>=0;i--){
           let res2 = res[i].event.params;
           var drct = await DRCT.at(res2._token);
@@ -202,9 +201,7 @@ export const getRecentTrades = (isSilent) => async dispatch => {
             date.getUTCDate() + '/' + date.getUTCFullYear();
             let endDate = moment(date).utc().add(6, 'days')
             let tokenType = (await factory.getTokenType(res2._token)).c[0];
-            let symbol = FactoryProvider.getSymbolFromAddress(factoryAddress);
-            console.log('Symbol',symbol);
-            const provider = FactoryProvider.getFromSymbol(symbol);
+            var provider = FactoryProvider.getFromAddress(factoryAddress);
             trades.push({
               address: res2._token,
               volume: res2._amount,
@@ -232,7 +229,6 @@ export const getRecentTrades = (isSilent) => async dispatch => {
         {},
         { fromBlock: 0, toBlock: 'latest' }
       );
-
       transferEvent.get(async function (err, events) {
         if (events.length > 0) {
           for (let i = events.length - 1; i >= Math.max(events.length - 10, 0); i--) {
