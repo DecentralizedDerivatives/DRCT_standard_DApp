@@ -67,8 +67,9 @@ export const getOrderBook = (isSilent) => async dispatch => {
         order.logEvent("OrderRemoved").groupByAttribute(1);
         order.groupLimit(1);
         let r = await qb.execute();
-        let res = r.data.Orderbook.hits;
-        console.log(res)
+        console.log('r',r);
+        let res = r.data.OrderBook.hits;
+        console.log('res',res)
         for(var i = res.length-1;i>=0;i--){
           let res2 = res.event.params;
             var drct = await DRCT.at(res2[i]._token);
