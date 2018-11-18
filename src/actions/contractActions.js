@@ -1,4 +1,5 @@
 import { Factory, Exchange, DRCT } from '../ethereum';
+import QClient from "../buidlHub/QueryClient.js"
 import {
   SET_CONTRACT_DETAILS,
   SET_CONTRACT_OPEN_DATES,
@@ -13,6 +14,17 @@ import api from '../api';
 import { getStartDatePrice } from './common';
 import FactoryProvider from '../factoryProvider';
 const moment = require('moment');
+
+let apiKey = '32b30a51240144118d5ce7a999d25ce2';// process.env["apiKey"];
+if(!apiKey) {
+  throw new Error("Missing API key in environment");
+}
+
+let client = new QClient({
+  apiKey
+
+});
+let qb = client.queryBuilder().offset(0).pageSize(5);
 
 export const getContractDetails = (symbol, startDate) => async dispatch => {
   try {
@@ -46,56 +58,107 @@ export const getContractDetails = (symbol, startDate) => async dispatch => {
   }
 };
 export const getOrderBook = (isSilent) => async dispatch => {
+          let _allrows = [];
   try {
-    if (!isSilent) { dispatch({ type: SET_FETCH_IN_PROGRESS, payload: SET_ORDERBOOK }); };
-    var staticAddresses = FactoryProvider.getStaticAddresses();
-    const exchange = await Exchange.at(staticAddresses.exchange);
-    let numBooks = await exchange.getBookCount();
-    var factories = FactoryProvider.factories();
-    let _allrows = [];
-    for (let i = 0; i < numBooks; i++) {
-      let book = await exchange.openBooks(i);
-      for (var p = 0; p < factories.length; p++) {
-        const factory = await Factory.at(factories[p].address);
-        let tokenDate = await factory.token_dates.call(book);
-        if (tokenDate.c[0] === 0) { continue }
-        let orders = await exchange.getOrders(book);
-        for (let j = 0; j < orders.length; j++) {
-          if (orders[j].c[0] > 0) {
-            let order = await exchange.getOrder(orders[j].c[0]);
-            let tokenType = (await factory.getTokenType(order[3])).c[0];
-            let date = new Date(tokenDate.c[0] * 1000);
-            let endDate = moment(date).utc().add(6, 'days')
-            if (moment().utc().isSameOrBefore(endDate)) {
-              let orderDate = moment(date).utc().format('MM/DD/YYYY')
-              var precisePrice = parseFloat(order[1].c[0]/10000).toFixed(5);
-              let symbol = factories[p].symbol
-              const provider = FactoryProvider.getFromSymbol(symbol);
-              let startPrice = await getStartDatePrice(provider.oracle, orderDate)
-              let contractGain = 0
-              if (startPrice > 0) {
-                const priceData = await api[provider.type].get();
-                let currentPrice = priceData[priceData.length - 1][1]
-                contractGain = ((currentPrice - startPrice) / startPrice) * 100 * Number(provider.multiplier) * (tokenType === 1 ? -1 : 1)
+    try{
+       let order = qb.query("OrderBook");
+        order.logEvent("OrderPlaced").groupByAttribute(1);
+        order.logEvent("Sale").withIndex(1).groupByAttribute(1);
+        order.logEvent("OrderRemoved").groupByAttribute(1);
+        order.groupLimit(1);
+        qb.execute()
+        .then(r=>{
+          res = r.data.Orderbook.hits;
+          console.log(res)
+          for(i = res.length-1;i>=0;i--){
+              var drct = DRCT.at(res[i]._token);
+              var factoryAddress = await drct.getFactoryAddress();
+              const factory = await Factory.at(factoryAddress);
+              let tokenDate = await factory.token_dates.call(token);
+              let date = new Date(tokenDate.c[0] * 1000);
+              let orderDate = date.getUTCMonth() + 1 + '/' +
+              date.getUTCDate() + '/' + date.getUTCFullYear();
+              let endDate = moment(date).utc().add(6, 'days')
+              if (moment().utc().isSameOrBefore(endDate)) {
+                  let tokenType = (await factory.getTokenType(res[i]._token)).c[0];
+                  let symbol = FactoryProvider.getSymbolFromAddress(address);
+                  const provider = FactoryProvider.getFromSymbol(symbol);
+                  let startPrice = await getStartDatePrice(provider.oracle, orderDate)
+                  let contractGain = 0
+                  if (startPrice > 0) {
+                    const priceData = await api[provider.type].get();
+                    let currentPrice = priceData[priceData.length - 1][1]
+                    contractGain = ((currentPrice - startPrice) / startPrice) * 100 * Number(provider.multiplier) * (tokenType === 1 ? -1 : 1)
+                  }
+                _allrows.push({
+                  orderId: res[i]._orderId,
+                  creatorAddress: res[i]._sender,
+                  address: res[i]._token,
+                  price: res[i]._price,
+                  quantity: res[i]._amount,
+                  date: orderDate.toString(),
+                  symbol: symbol,
+                  contractGain: contractGain,
+                  tokenType: (tokenType === 1 ? 'Short' : 'Long')
+                 });
               }
-              _allrows.push({
-                orderId: orders[j].c[0].toString(),
-                creatorAddress: order[0],
-                address: order[3],
-                price: precisePrice,
-                quantity: order[2].c[0].toString(),
-                date: orderDate.toString(),
-                symbol: factories[p].symbol,
-                contractGain: contractGain,
-                tokenType: (tokenType === 1 ? 'Short' : 'Long')
-               });
+          }
+          console.log("Results", r.data);
+        })
+        .catch(e=>{
+          console.log('error in call',e);
+        });
+    }
+    catch{
+        if (!isSilent) { dispatch({ type: SET_FETCH_IN_PROGRESS, payload: SET_ORDERBOOK }); };
+        var staticAddresses = FactoryProvider.getStaticAddresses();
+        const exchange = await Exchange.at(staticAddresses.exchange);
+        let numBooks = await exchange.getBookCount();
+        var factories = FactoryProvider.factories();
+        for (let i = 0; i < numBooks; i++) {
+          let book = await exchange.openBooks(i);
+          for (var p = 0; p < factories.length; p++) {
+            const factory = await Factory.at(factories[p].address);
+            let tokenDate = await factory.token_dates.call(book);
+            if (tokenDate.c[0] === 0) { continue }
+            let orders = await exchange.getOrders(book);
+            for (let j = 0; j < orders.length; j++) {
+              if (orders[j].c[0] > 0) {
+                let order = await exchange.getOrder(orders[j].c[0]);
+                let tokenType = (await factory.getTokenType(order[3])).c[0];
+                let date = new Date(tokenDate.c[0] * 1000);
+                let endDate = moment(date).utc().add(6, 'days')
+                if (moment().utc().isSameOrBefore(endDate)) {
+                  let orderDate = moment(date).utc().format('MM/DD/YYYY')
+                  var precisePrice = parseFloat(order[1].c[0]/10000).toFixed(5);
+                  let symbol = factories[p].symbol
+                  const provider = FactoryProvider.getFromSymbol(symbol);
+                  let startPrice = await getStartDatePrice(provider.oracle, orderDate)
+                  let contractGain = 0
+                  if (startPrice > 0) {
+                    const priceData = await api[provider.type].get();
+                    let currentPrice = priceData[priceData.length - 1][1]
+                    contractGain = ((currentPrice - startPrice) / startPrice) * 100 * Number(provider.multiplier) * (tokenType === 1 ? -1 : 1)
+                  }
+                  _allrows.push({
+                    orderId: orders[j].c[0].toString(),
+                    creatorAddress: order[0],
+                    address: order[3],
+                    price: precisePrice,
+                    quantity: order[2].c[0].toString(),
+                    date: orderDate.toString(),
+                    symbol: factories[p].symbol,
+                    contractGain: contractGain,
+                    tokenType: (tokenType === 1 ? 'Short' : 'Long')
+                   });
+                }
+              }
             }
           }
+          _allrows.sort(function (a, b) {
+            return a.orderId - b.orderId;
+          });
         }
-      }
-      _allrows.sort(function (a, b) {
-        return a.orderId - b.orderId;
-      });
     }
     dispatch({
       type: SET_ORDERBOOK,
