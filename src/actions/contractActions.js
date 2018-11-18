@@ -66,48 +66,44 @@ export const getOrderBook = (isSilent) => async dispatch => {
         order.logEvent("Sale").withIndex(1).groupByAttribute(1);
         order.logEvent("OrderRemoved").groupByAttribute(1);
         order.groupLimit(1);
-        qb.execute()
-        .then(r=>{
-          res = r.data.Orderbook.hits;
-          console.log(res)
-          for(i = res.length-1;i>=0;i--){
-              var drct = DRCT.at(res[i]._token);
-              var factoryAddress = await drct.getFactoryAddress();
-              const factory = await Factory.at(factoryAddress);
-              let tokenDate = await factory.token_dates.call(token);
-              let date = new Date(tokenDate.c[0] * 1000);
-              let orderDate = date.getUTCMonth() + 1 + '/' +
-              date.getUTCDate() + '/' + date.getUTCFullYear();
-              let endDate = moment(date).utc().add(6, 'days')
-              if (moment().utc().isSameOrBefore(endDate)) {
-                  let tokenType = (await factory.getTokenType(res[i]._token)).c[0];
-                  let symbol = FactoryProvider.getSymbolFromAddress(address);
-                  const provider = FactoryProvider.getFromSymbol(symbol);
-                  let startPrice = await getStartDatePrice(provider.oracle, orderDate)
-                  let contractGain = 0
-                  if (startPrice > 0) {
-                    const priceData = await api[provider.type].get();
-                    let currentPrice = priceData[priceData.length - 1][1]
-                    contractGain = ((currentPrice - startPrice) / startPrice) * 100 * Number(provider.multiplier) * (tokenType === 1 ? -1 : 1)
-                  }
-                _allrows.push({
-                  orderId: res[i]._orderId,
-                  creatorAddress: res[i]._sender,
-                  address: res[i]._token,
-                  price: res[i]._price,
-                  quantity: res[i]._amount,
-                  date: orderDate.toString(),
-                  symbol: symbol,
-                  contractGain: contractGain,
-                  tokenType: (tokenType === 1 ? 'Short' : 'Long')
-                 });
-              }
+        let r = await qb.execute();
+        let res = r.data.Orderbook.hits;
+        console.log(res)
+        for(var i = res.length-1;i>=0;i--){
+          let res2 = res.event.params;
+            var drct = await DRCT.at(res2[i]._token);
+            var factoryAddress = await drct.getFactoryAddress();
+            const factory = await Factory.at(factoryAddress);
+            let tokenDate = await factory.token_dates.call(res2[i]._token);
+            let date = new Date(tokenDate.c[0] * 1000);
+            let orderDate = date.getUTCMonth() + 1 + '/' +
+            date.getUTCDate() + '/' + date.getUTCFullYear();
+            let endDate = moment(date).utc().add(6, 'days')
+            if (moment().utc().isSameOrBefore(endDate)) {
+                let tokenType = (await factory.getTokenType(res2[i]._token)).c[0];
+                let symbol = FactoryProvider.getSymbolFromAddress(factoryAddress);
+                const provider = FactoryProvider.getFromSymbol(symbol);
+                let startPrice = await getStartDatePrice(provider.oracle, orderDate)
+                let contractGain = 0
+                if (startPrice > 0) {
+                  const priceData = await api[provider.type].get();
+                  let currentPrice = priceData[priceData.length - 1][1]
+                  contractGain = ((currentPrice - startPrice) / startPrice) * 100 * Number(provider.multiplier) * (tokenType === 1 ? -1 : 1)
+                }
+              _allrows.push({
+                orderId: res2[i]._orderId,
+                creatorAddress: res2[i]._sender,
+                address: res2[i]._token,
+                price: res2[i]._price,
+                quantity: res2[i]._amount,
+                date: orderDate.toString(),
+                symbol: symbol,
+                contractGain: contractGain,
+                tokenType: (tokenType === 1 ? 'Short' : 'Long')
+               });
+            }
           }
           console.log("Results", r.data);
-        })
-        .catch(e=>{
-          console.log('error in call',e);
-        });
     }
     catch{
         if (!isSilent) { dispatch({ type: SET_FETCH_IN_PROGRESS, payload: SET_ORDERBOOK }); };

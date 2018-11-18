@@ -82,8 +82,8 @@ module.exports.getFromSymbol = (symbol) => {
 
 
 module.exports.getSymbolFromAddress= (address) => {
-  for(i = items().length; i>0;i--){
-    if(item.address === address) { return item.symbol; }
+  for(var i = items().length; i>0;i--){
+    if(items().address === address) { return items().symbol; }
   }
   return null;
 }
