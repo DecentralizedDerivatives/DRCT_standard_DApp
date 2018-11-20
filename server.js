@@ -1,12 +1,9 @@
 const express = require('express');
 const path = require('path');
-
+require('dotenv').config()
 const app = express();
 const port = process.env.PORT || 3000;
 
-
-
-// process.env["apiKey"];
 const env = {
   'NETWORK_ID': process.env.NETWORK_ID || 4,
   'API_KEY': process.env.API_KEY || 0

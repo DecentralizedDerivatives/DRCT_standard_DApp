@@ -18,7 +18,7 @@ const moment = require('moment');
 const apiKey = window.env.API_KEY;
 
 if(!apiKey) {
-  throw new Error("Missing API key in environment");
+  console.log("No API Key found")
 }
 
 export const getContractDetails = (symbol, startDate) => async dispatch => {
@@ -58,9 +58,10 @@ export const getOrderBook = (isSilent) => async dispatch => {
 
   });
   let qb = client.queryBuilder().offset(0).pageSize(5);
-          let _allrows = [];
+  let errors = 0;
   try {
     try{
+       let _allrows = [];
        if (!isSilent) { dispatch({ type: SET_FETCH_IN_PROGRESS, payload: SET_ORDERBOOK }); };
        let order = qb.query("OrderBook");
         order.logEvent("OrderPlaced").groupByAttribute(0);
@@ -71,19 +72,19 @@ export const getOrderBook = (isSilent) => async dispatch => {
         let res = r.data.OrderBook.hits;
         for(var i = res.length-1;i>=0;i--){
           let res2 = res[i].event.params;
-          console.log(res2);
-            var drct = await DRCT.at(res2._token);
-            var factoryAddress = await drct.getFactoryAddress();
-            const factory = await Factory.at(factoryAddress);
-            let tokenDate = await factory.token_dates.call(res2._token);
-            let date = new Date(tokenDate.c[0] * 1000);
-            let orderDate = date.getUTCMonth() + 1 + '/' +
-            date.getUTCDate() + '/' + date.getUTCFullYear();
-            let endDate = moment(date).utc().add(6, 'days')
+          while(errors <5){
+          try{
+              let drct = await DRCT.at(res2._token);
+              let factoryAddress  = await drct.getFactoryAddress();
+              let factory = await Factory.at(factoryAddress);
+              let tokenDate = await factory.token_dates.call(res2._token);
+              let date = new Date(tokenDate.c[0] * 1000);
+              let orderDate = date.getUTCMonth() + 1 + '/' +
+              date.getUTCDate() + '/' + date.getUTCFullYear();
+              let endDate = moment(date).utc().add(6, 'days');
+              errors = 5;
             if (moment().utc().isSameOrBefore(endDate)) {
                 let tokenType = (await factory.getTokenType(res2._token)).c[0];
-                console.log('factoryAddress',factoryAddress);
-                //let symbol = 'BTC/USD';
                 var provider = FactoryProvider.getFromAddress(factoryAddress);
                 let startPrice = await getStartDatePrice(provider.oracle, orderDate)
                 let contractGain = 0
@@ -103,16 +104,22 @@ export const getOrderBook = (isSilent) => async dispatch => {
                 contractGain: contractGain,
                 tokenType: (tokenType === 1 ? 'Short' : 'Long')
                });
-            }
-          }
-            dispatch({
+             dispatch({
               type: SET_ORDERBOOK,
               payload: _allrows
             });
-            dispatch({ type: REMOVE_FETCH_IN_PROGRESS, payload: SET_ORDERBOOK });
+            }
+            }catch(e){
+              console.log('error int',errors,e);
+              errors += 1;
+            }
+          }
+          }
+          dispatch({ type: REMOVE_FETCH_IN_PROGRESS, payload: SET_ORDERBOOK });
     }
     catch(e){
       console.log('Database didnt work',e);
+                let _allrows = [];
         if (!isSilent) { dispatch({ type: SET_FETCH_IN_PROGRESS, payload: SET_ORDERBOOK }); };
         var staticAddresses = FactoryProvider.getStaticAddresses();
         const exchange = await Exchange.at(staticAddresses.exchange);
@@ -121,7 +128,7 @@ export const getOrderBook = (isSilent) => async dispatch => {
         for (let i = 0; i < numBooks; i++) {
           let book = await exchange.openBooks(i);
           for (var p = 0; p < factories.length; p++) {
-            const factory = await Factory.at(factories[p].address);
+            let factory = await Factory.at(factories[p].address);
             let tokenDate = await factory.token_dates.call(book);
             if (tokenDate.c[0] === 0) { continue }
             let orders = await exchange.getOrders(book);
@@ -193,8 +200,8 @@ export const getRecentTrades = (isSilent) => async dispatch => {
         for(var i = res.length-1;i>=0;i--){
           let res2 = res[i].event.params;
           var drct = await DRCT.at(res2._token);
-            var factoryAddress = await drct.getFactoryAddress();
-            const factory = await Factory.at(factoryAddress);
+            let factoryAddress = await drct.getFactoryAddress();
+            let factory = await Factory.at(factoryAddress);
             let tokenDate = await factory.token_dates.call(res2._token);
             let date = new Date(tokenDate.c[0] * 1000);
             let orderDate = date.getUTCMonth() + 1 + '/' +
