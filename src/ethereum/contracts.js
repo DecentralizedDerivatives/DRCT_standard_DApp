@@ -1,11 +1,14 @@
 const web3 = require('./web3');
+const web4 = require('./web4');
 const contract = require('truffle-contract');
 
 const factoryArtifact = require('./build/contracts/Factory.json');
 const Factory = contract(factoryArtifact);
+const FactoryRead = contract(factoryArtifact);
 
 const exchangeArtifact = require('./build/contracts/Exchange.json');
 const Exchange = contract(exchangeArtifact);
+const ExchangeRead = contract(exchangeArtifact);
 
 const oracleArtifact = require('./build/contracts/Oracle.json');
 const Oracle = contract(oracleArtifact);
@@ -23,15 +26,24 @@ const Wrapped = contract(wrappedArtifact);
 const drctArtifact = require('./build/contracts/DRCT_Token.json');
 const DRCT = contract(drctArtifact);
 
+
+console.log(web3);
+console.log('web4',web4);
+
 if (typeof window !== 'undefined' && typeof window.web3 !== 'undefined') {
-  [Factory, Exchange, Swap, Wrapped, DRCT, UserContract, Oracle].forEach(Contract =>
-    Contract.setProvider(web3.currentProvider)
+  [Factory, Exchange, Wrapped, UserContract].forEach(contract =>
+    contract.setProvider(web3.currentProvider)
+  );
+  [FactoryRead, ExchangeRead, Swap, Oracle, DRCT].forEach(contract =>
+    contract.setProvider(web4.currentProvider)
   );
 }
 
 module.exports = {
   Factory,
+  FactoryRead,
   Exchange,
+  ExchangeRead,
   Oracle,
   Swap,
   Wrapped,
