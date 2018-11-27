@@ -1,4 +1,4 @@
-import { Factory, Exchange, DRCT } from '../ethereum';
+import { Factory, Exchange, DRCT,FactoryRead,ExchangeRead } from '../ethereum';
 import QClient from "../buidlhub/QueryClient.js"
 import {
   SET_CONTRACT_DETAILS,
@@ -76,7 +76,7 @@ export const getOrderBook = (isSilent) => async dispatch => {
           try{
               let drct = await DRCT.at(res2._token);
               let factoryAddress  = await drct.getFactoryAddress();
-              let factory = await Factory.at(factoryAddress);
+              let factory = await FactoryRead.at(factoryAddress);
               let tokenDate = await factory.token_dates.call(res2._token);
               let date = new Date(tokenDate.c[0] * 1000);
               let orderDate = date.getUTCMonth() + 1 + '/' +
@@ -122,13 +122,13 @@ export const getOrderBook = (isSilent) => async dispatch => {
                 let _allrows = [];
         if (!isSilent) { dispatch({ type: SET_FETCH_IN_PROGRESS, payload: SET_ORDERBOOK }); };
         var staticAddresses = FactoryProvider.getStaticAddresses();
-        const exchange = await Exchange.at(staticAddresses.exchange);
+        const exchange = await ExchangeRead.at(staticAddresses.exchange);
         let numBooks = await exchange.getBookCount();
         var factories = FactoryProvider.factories();
         for (let i = 0; i < numBooks; i++) {
           let book = await exchange.openBooks(i);
           for (var p = 0; p < factories.length; p++) {
-            let factory = await Factory.at(factories[p].address);
+            let factory = await FactoryRead.at(factories[p].address);
             let tokenDate = await factory.token_dates.call(book);
             if (tokenDate.c[0] === 0) { continue }
             let orders = await exchange.getOrders(book);
