@@ -1,4 +1,4 @@
-import { Factory, Exchange, DRCT,FactoryRead,ExchangeRead } from '../ethereum';
+import { Factory, Exchange, DRCT,DRCTRead,FactoryRead,ExchangeRead } from '../ethereum';
 import QClient from "../buidlhub/QueryClient.js"
 import {
   SET_CONTRACT_DETAILS,
@@ -74,7 +74,7 @@ export const getOrderBook = (isSilent) => async dispatch => {
           let res2 = res[i].event.params;
           while(errors <5){
           try{
-              let drct = await DRCT.at(res2._token);
+              let drct = await DRCTRead.at(res2._token);
               let factoryAddress  = await drct.getFactoryAddress();
               let factory = await FactoryRead.at(factoryAddress);
               let tokenDate = await factory.token_dates.call(res2._token);
@@ -199,7 +199,7 @@ export const getRecentTrades = (isSilent) => async dispatch => {
         let res = r.data.OrderBook.hits;
         for(var i = res.length-1;i>=0;i--){
           let res2 = res[i].event.params;
-          var drct = await DRCT.at(res2._token);
+          var drct = await DRCTRead.at(res2._token);
             let factoryAddress = await drct.getFactoryAddress();
             let factory = await Factory.at(factoryAddress);
             let tokenDate = await factory.token_dates.call(res2._token);
