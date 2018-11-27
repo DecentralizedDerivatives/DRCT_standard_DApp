@@ -4,7 +4,9 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "bignumber.js": "^8.0.1",
     "classnames": "^2.2.6",
+    "crypto-js": "^3.1.9-1",
     "express": "^4.16.3",
     "highcharts": "^6.1.0",
     "moment": "^2.22.2",
@@ -20,8 +22,8 @@
     "redux-form": "^7.4.2",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
-    "truffle-contract": "file:bin",
-    "web3": "^1.0.0-beta.34"
+    "truffle-contract": "git+https://github.com/DecentralizedDerivatives/truffle-contract.git",
+    "web3": "^1.0.0-beta.36"
   },
   "scripts": {
     "start": "node server.js",
