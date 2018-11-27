@@ -7,7 +7,8 @@ const port = process.env.PORT || 3000;
 
 const env = {
   'NETWORK_ID': process.env.NETWORK_ID || 4,
-  'API_KEY': process.env.API_KEY || 0
+  'API_KEY': process.env.API_KEY || 0,
+  'ALCHEMY': process.env.ALCHEMY || 0,
 }
 // console.log('ENV',env.NETWORK_ID)
 
