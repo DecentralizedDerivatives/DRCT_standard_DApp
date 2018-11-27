@@ -11,6 +11,7 @@ export class CreateContract extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    console.log('inner function called')
     if (nextProps.newContractCreateError) {
       this.setState({
         resultsMessage: `Error: ${this.props.newContractError}`,
@@ -18,8 +19,7 @@ export class CreateContract extends Component {
       });
     } else {
       this.props.close() 
-    }
-    
+    }    
   }
 
   render() {
@@ -27,7 +27,7 @@ export class CreateContract extends Component {
         <div className="create-contract">
         <div className="modal-background" onClick={this.props.close}></div>
         <div className="modal">
-          <CreateContractFormContainer
+          <CreateContractFormContainer close={this.props.close}
             name="createContractForm" />
         </div>
       </div>
