@@ -21,7 +21,7 @@ export class MyPortfolio extends Component {
     this.state = {
       cashoutOpen: false,
       detailsOpen: false,
-      formOpen: false
+      formOpen: false,
     };
   }
 
@@ -37,6 +37,7 @@ export class MyPortfolio extends Component {
     clearInterval(this.positionsInterval);
     clearInterval(this.transactionsInterval);
   }
+
   handleRowClick = async (transactionAddress, e) => {
     e.preventDefault();
     // console.log('ROW CLICK', transactionAddress);

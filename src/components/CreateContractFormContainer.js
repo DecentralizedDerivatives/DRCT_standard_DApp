@@ -29,8 +29,9 @@ export const validate = values => {
 
 export let CreateContractFormContainer = props => {
   const submitForm = formValues => {
-    // console.log('submitting Form: ', formValues);
+    console.log('submitting Form: ', formValues);
     props.sendCreateContractOrder(formValues, props.userAccount);
+    props.close();
   };
 
   const onCurrencyChange = async evt => {
