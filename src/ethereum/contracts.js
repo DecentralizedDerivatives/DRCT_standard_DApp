@@ -25,16 +25,16 @@ const Wrapped = contract(wrappedArtifact);
 
 const drctArtifact = require('./build/contracts/DRCT_Token.json');
 const DRCT = contract(drctArtifact);
-
+const DRCTRead = contract(drctArtifact);
 
 console.log(web3);
 console.log('web4',web4);
 
 if (typeof window !== 'undefined' && typeof window.web3 !== 'undefined') {
-  [Factory, Exchange, Wrapped, UserContract].forEach(contract =>
+  [Factory, Exchange, Wrapped, UserContract,DRCT].forEach(contract =>
     contract.setProvider(web3.currentProvider)
   );
-  [FactoryRead, ExchangeRead, Swap, Oracle, DRCT].forEach(contract =>
+  [FactoryRead, ExchangeRead, Swap, Oracle,DRCTRead].forEach(contract =>
     contract.setProvider(web4.currentProvider)
   );
 }
@@ -48,5 +48,6 @@ module.exports = {
   Swap,
   Wrapped,
   DRCT,
+  DRCTRead,
   UserContract,
 };
