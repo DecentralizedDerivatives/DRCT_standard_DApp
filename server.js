@@ -12,11 +12,13 @@ const env = {
 // console.log('ENV',env.NETWORK_ID)
 
 app.use(function(req,res,next){
+  /*
   if (req.secure){
     next();
   } else{
     res.redirect('https://' + req.host);
-  }
+  }*/
+  next();
 });
 app.use(express.static(path.resolve(__dirname, 'build')));
 

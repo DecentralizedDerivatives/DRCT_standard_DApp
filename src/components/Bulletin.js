@@ -4,12 +4,16 @@ import PropTypes from 'prop-types';
 import OrderBook from './OrderBook';
 import RecentTrades from './RecentTrades';
 import ContractDetails from './ContractDetails';
+import MyPositionsBulletin from './MyPositionsBulletin';
 import PriceChart from './PriceChart';
-import List from './List';
+import ListFormContainer from './ListFormContainer';
+import ApprovalFormContainer from './ApprovalFormContainer';
+
 import {
   getUserAccount,
   getUserTokenPositions,
-  getUserOrders
+  getUserOrders,
+  getUserPositions,
 } from '../actions/userActions';
 import {
   getOrderBook,
@@ -24,9 +28,14 @@ export class Bulletin extends Component {
     super(props);
 
     this.state = {
-      detailsOpen: false
+      detailsOpen: false,
+      listOrderOpen: false,
+      resultsMessage: '',
+      token: '',
+      balance: 0,
     };
     this.handleRowClick = this.handleRowClick.bind(this)
+    this.handleList = this.handleList.bind(this)
   }
 
   async componentDidMount() {
@@ -34,13 +43,16 @@ export class Bulletin extends Component {
     if (!this.props.userAccount) { return };
     this.props.getOrderBook();
     this.props.getRecentTrades();
+    this.props.getUserPositions(this.props.userAccount);
     this.props.getUserTokenPositions(this.props.userAccount);
     this.props.getUserOrders(this.props.userAccount);
     this.orderBookInterval = setInterval(() => this.props.getOrderBook(this.props.userAccount, true), 30000);
+    this.positionsInterval = setInterval(() => this.props.getUserPositions(this.props.userAccount, true), 30000);
     this.recentTradesInterval = setInterval(() => this.props.getRecentTrades(this.props.userAccount, true), 30000);
   }
   componentWillUnmount() {
     clearInterval(this.orderBookInterval);
+    clearInterval(this.positionsInterval);
     clearInterval(this.recentTradesInterval);
   }
 
@@ -68,13 +80,71 @@ export class Bulletin extends Component {
     });
   };
 
+  handleList = (token,balance) => {
+    alert('yo')
+    this.setState({
+      listOrderOpen: true,
+      token: token,
+      balance: balance,
+    });
+  }
+/*
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.listOrderError !== null) {
+      this.setState({
+        resultsMessage: `Error: ${nextProps.listOrderError}`,
+        listOrderOpen: false
+      });
+    } else if (nextProps.listOrderId) {
+      this.setState({ resultsMessage: '', listOrderOpen: false });
+      this.refreshPage(true);
+    } else if (nextProps.listOrderApproveError) {
+      this.setState({
+        resultsMessage: `Error: ${nextProps.listOrderApproveError}`,
+        listOrderOpen: true
+      });
+    } else if (nextProps.listOrderApproved) {
+      this.setState({
+        resultsMessage: `Order approval confirmed`,
+        listOrderOpen: true
+      });
+    }
+  }
+  */
+
+  renderOrderModal = () => (
+    this.state.listOrderOpen || this.state.resultsMessage ? (
+      <div>
+        <div className="order-modal-background" onClick={this.closeOrderModal} />
+        <div className="order-modal">
+          <div id="buy-form">
+            <h4 className="order-modal-head">
+              { this.props.listOrderApproved ? <span>List Order</span> : <span>Approve Order</span> }
+            </h4>
+            { this.props.listOrderApproved ? <ListFormContainer token={this.state.token} /> : <ApprovalFormContainer token={this.state.token}/> }
+            {this.state.resultsMessage && (
+              <div id="results-message" className="text-center">
+                {this.state.resultsMessage}
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    ) : (
+        null
+      )
+  );
+  closeOrderModal = () => this.setState({ listOrderOpen: false, resultsMessage: "" });
+
   render() {
+    alert(this.state.listOrderOpen)
+    alert(this.state.resultsMessage)
     return (
       <div id="bulletin">
         <OrderBook onRowClick={this.handleRowClick} refreshPage={this.refreshPage} />
-
+        <MyPositionsBulletin handleList={this.handleList}/>
         <div className="order-buttons">
-          <List refreshPage={this.refreshPage}/>
+          {this.renderOrderModal()}
         </div>
 
         <div className="price-chart">
@@ -89,6 +159,7 @@ export class Bulletin extends Component {
 }
 Bulletin.propTypes = {
   getUserAccount: PropTypes.func.isRequired,
+  getUserPositions: PropTypes.func.isRequired,
   getOrderBook: PropTypes.func.isRequired,
   getRecentTrades: PropTypes.func.isRequired,
   getContractDetails: PropTypes.func.isRequired,
@@ -110,6 +181,7 @@ export default connect(
     getRecentTrades,
     getContractDetails,
     getUserTokenPositions,
-    getUserOrders
+    getUserOrders,
+    getUserPositions,
   }
 )(requireConnection(Bulletin));

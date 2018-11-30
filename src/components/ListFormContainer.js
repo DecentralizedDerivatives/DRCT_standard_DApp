@@ -49,7 +49,7 @@ ListFormContainer.propTypes = {
 
 const mapStateToProps = state => ({
   userAccount: state.user.userAccount,
-  token: state.order.list.token,
+  //token: state.order.list.token,
   tokenAmount: state.order.list.tokenAmount
 });
 
