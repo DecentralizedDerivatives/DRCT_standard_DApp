@@ -24,7 +24,7 @@ export const validate = values => {
 
 export let ListFormContainer = props => {
   const submitForm = formValues => {
-    formValues.token = props.token
+    formValues.token = props.positionInfo.address
     formValues.tokenAmount = props.tokenAmount
     // console.log('submitting Form: ', formValues);
     props.sendListOrder(formValues, props.userAccount);
@@ -34,7 +34,7 @@ export let ListFormContainer = props => {
     <ListFormComponent
       handleSubmit={props.handleSubmit}
       onSubmit={submitForm}
-      token={props.token}
+      token={props.positionInfo.address}
       tokenAmount={props.tokenAmount}
     />
   );
@@ -43,13 +43,12 @@ export let ListFormContainer = props => {
 ListFormContainer.propTypes = {
   sendListOrder: PropTypes.func.isRequired,
   userAccount: PropTypes.string,
-  token: PropTypes.string.isRequired,
+  positionInfo: PropTypes.object.isRequired,
   tokenAmount: PropTypes.string.isRequired
 };
 
 const mapStateToProps = state => ({
   userAccount: state.user.userAccount,
-  //token: state.order.list.token,
   tokenAmount: state.order.list.tokenAmount
 });
 

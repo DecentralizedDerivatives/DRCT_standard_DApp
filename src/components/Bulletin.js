@@ -29,7 +29,6 @@ export class Bulletin extends Component {
 
     this.state = {
       detailsOpen: false,
-      listOrderOpen: false,
       resultsMessage: '',
       token: '',
       balance: 0,
@@ -88,65 +87,13 @@ export class Bulletin extends Component {
       balance: balance,
     });
   }
-/*
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.listOrderError !== null) {
-      this.setState({
-        resultsMessage: `Error: ${nextProps.listOrderError}`,
-        listOrderOpen: false
-      });
-    } else if (nextProps.listOrderId) {
-      this.setState({ resultsMessage: '', listOrderOpen: false });
-      this.refreshPage(true);
-    } else if (nextProps.listOrderApproveError) {
-      this.setState({
-        resultsMessage: `Error: ${nextProps.listOrderApproveError}`,
-        listOrderOpen: true
-      });
-    } else if (nextProps.listOrderApproved) {
-      this.setState({
-        resultsMessage: `Order approval confirmed`,
-        listOrderOpen: true
-      });
-    }
-  }
-  */
-
-  renderOrderModal = () => (
-    this.state.listOrderOpen || this.state.resultsMessage ? (
-      <div>
-        <div className="order-modal-background" onClick={this.closeOrderModal} />
-        <div className="order-modal">
-          <div id="buy-form">
-            <h4 className="order-modal-head">
-              { this.props.listOrderApproved ? <span>List Order</span> : <span>Approve Order</span> }
-            </h4>
-            { this.props.listOrderApproved ? <ListFormContainer token={this.state.token} /> : <ApprovalFormContainer token={this.state.token}/> }
-            {this.state.resultsMessage && (
-              <div id="results-message" className="text-center">
-                {this.state.resultsMessage}
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-    ) : (
-        null
-      )
-  );
-  closeOrderModal = () => this.setState({ listOrderOpen: false, resultsMessage: "" });
 
   render() {
-    alert(this.state.listOrderOpen)
-    alert(this.state.resultsMessage)
     return (
       <div id="bulletin">
         <OrderBook onRowClick={this.handleRowClick} refreshPage={this.refreshPage} />
-        <MyPositionsBulletin handleList={this.handleList}/>
-        <div className="order-buttons">
-          {this.renderOrderModal()}
-        </div>
-
+        <MyPositionsBulletin handleList={this.handleList} refreshPage={this.refreshPage}/>
+        
         <div className="price-chart">
           {this.props.userAccount ? <PriceChart /> : ''}
         </div>

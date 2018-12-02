@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Loading from './Loading';
 import { SET_USER_POSITIONS } from '../actions/types';
 import { formatter } from '../formatter'
+import List from './List'
 
 export class MyPositionsBulletin extends Component {
   formatPercent (val, empty) {
@@ -20,7 +21,7 @@ export class MyPositionsBulletin extends Component {
     }
     var rows = this.props.userPositions.map((position, index) => {
       const {
-        // address,
+        address,
         balance,
         date,
         symbol,
@@ -37,8 +38,7 @@ export class MyPositionsBulletin extends Component {
           <td>{balance}</td>
           <td>{date}</td>
           <td>
-            {/*<button className='btn btn-theme btn-thin' onClick={this.props.handleList.bind(this, tokenType, balance)}>List</button>*/}
-            <List />
+            <List positionInfo={position} refreshPage={this.props.refreshPage}/>
           </td>
         </tr>
       );
