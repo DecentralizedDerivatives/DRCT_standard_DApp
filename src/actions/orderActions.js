@@ -131,7 +131,8 @@ export const sendListOrder = (formValues, account) => async dispatch => {
   dispatch(setProcessing(true));
 
   let { token, tokenAmount, price } = formValues;
-
+  console.log('token')
+  console.log(token)
   try {
     var staticAddresses = FactoryProvider.getStaticAddresses();
     const exchange = await Exchange.at(staticAddresses.exchange);

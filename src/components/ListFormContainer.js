@@ -26,7 +26,6 @@ export let ListFormContainer = props => {
   const submitForm = formValues => {
     formValues.token = props.positionInfo.address
     formValues.tokenAmount = props.tokenAmount
-    // console.log('submitting Form: ', formValues);
     props.sendListOrder(formValues, props.userAccount);
   };
 
