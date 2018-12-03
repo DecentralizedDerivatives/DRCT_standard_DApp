@@ -1,4 +1,4 @@
-import { Factory, Exchange, DRCT, UserContract } from '../ethereum';
+import { Factory, Exchange, DRCT, UserContract,DRCTRead,FactoryRead,ExchangeRead} from '../ethereum';
 import {
   SET_ORDER_DETAILS,
   SET_BUY_ORDER_RECEIPT,
@@ -28,11 +28,11 @@ export const getOrderDetails = orderId => async dispatch => {
     }
     var factories = FactoryProvider.factories();
     var staticAddresses = FactoryProvider.getStaticAddresses();
-    const exchange = await Exchange.at(staticAddresses.exchange);
+    const exchange = await ExchangeRead.at(staticAddresses.exchange);
     let order = await exchange.getOrder(orderId);
     let _allrows = [];
     for (var i = 0; i < factories.length; i++) {
-      const factory = await Factory.at(factories[i].address);
+      const factory = await FactoryRead.at(factories[i].address);
       var orderDetail = await getOrderDetailForFactory(factory, order, orderId);
       _allrows.push(orderDetail);
     }

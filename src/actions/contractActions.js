@@ -58,7 +58,6 @@ export const getOrderBook = (isSilent) => async dispatch => {
 
   });
   let qb = client.queryBuilder().offset(0).pageSize(5);
-  let errors = 0;
   try {
     try{
        let _allrows = [];
@@ -70,8 +69,10 @@ export const getOrderBook = (isSilent) => async dispatch => {
         order.groupLimit(1);
         let r = await qb.execute();
         let res = r.data.OrderBook.hits;
+        console.log('res',res);
         for(var i = res.length-1;i>=0;i--){
           let res2 = res[i].event.params;
+          let errors = 0;
           while(errors <5){
           try{
               let drct = await DRCTRead.at(res2._token);
@@ -93,6 +94,7 @@ export const getOrderBook = (isSilent) => async dispatch => {
                   let currentPrice = priceData[priceData.length - 1][1]
                   contractGain = ((currentPrice - startPrice) / startPrice) * 100 * Number(provider.multiplier) * (tokenType === 1 ? -1 : 1)
                 }
+                          console.log('arlent1!!',_allrows.length)
               _allrows.push({
                 orderId: res2._orderID,
                 creatorAddress: res2._sender,
@@ -104,17 +106,18 @@ export const getOrderBook = (isSilent) => async dispatch => {
                 contractGain: contractGain,
                 tokenType: (tokenType === 1 ? 'Short' : 'Long')
                });
-             dispatch({
-              type: SET_ORDERBOOK,
-              payload: _allrows
-            });
             }
             }catch(e){
               console.log('error int',errors,e);
               errors += 1;
             }
           }
+          console.log('arlent',_allrows.length)
           }
+          dispatch({
+              type: SET_ORDERBOOK,
+              payload: _allrows
+          });
           dispatch({ type: REMOVE_FETCH_IN_PROGRESS, payload: SET_ORDERBOOK });
     }
     catch(e){
@@ -234,7 +237,7 @@ export const getRecentTrades = (isSilent) => async dispatch => {
 
       let transferEvent = await exchange.Sale(
         {},
-        { fromBlock: 0, toBlock: 'latest' }
+        { fromBlock: 6662000, toBlock: 'latest' }
       );
       transferEvent.get(async function (err, events) {
         if (events.length > 0) {
@@ -280,7 +283,7 @@ export const getRecentTrades = (isSilent) => async dispatch => {
 
 export const getContractOpenDates = (currencyAddress) => async dispatch => {
   try {
-    const factory = await Factory.at(currencyAddress);
+    const factory = await FactoryRead.at(currencyAddress);
     // console.log(factory);
     let openDates = {};
     const numDates = await factory.getDateCount();
