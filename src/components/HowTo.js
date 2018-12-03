@@ -23,7 +23,7 @@ const HowTo = () => {
   const section3 = [
     'Creating a contract is a two step process',
     'First you have to deploy a contract, then you have to wrap your Ether and send it to the contract to fund it',
-    'So after clicking "Create Contrat", select a duration, underlying and start date, enter the amount of Ether per side and then click: Create Contract',
+    'So after clicking "Create Contract", select a duration, underlying and start date, enter the amount of Ether per side and then click: Create Contract',
     'After that, you can wait for the address result (your new contract)',
     'Once the contract mines you will see it in your positions'
   ];

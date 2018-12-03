@@ -1,4 +1,4 @@
-import { web3, Factory } from '../ethereum';
+import { web3, FactoryRead } from '../ethereum';
 
 import FactoryProvider from '../factoryProvider';
 import {
@@ -14,7 +14,7 @@ export const checkUserConnection = () => async dispatch => {
     const network = await web3.eth.net.getId();
     var whiteListed = false;
     if (accounts.length > 0) {
-      const factory = await Factory.at(FactoryProvider.factories()[0].address);
+      const factory = await FactoryRead.at(FactoryProvider.factories()[0].address);
       whiteListed = await factory.isWhitelisted(accounts[0]);
     }
     dispatch({
