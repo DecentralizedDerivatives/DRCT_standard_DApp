@@ -15,7 +15,10 @@ app.use(function(req,res,next){
   if (req.secure){
     next();
   } else{
+    console.log('req.host')
+    alert(req.host)
     res.redirect('https://' + req.host);
+
   }
 });
 app.use(express.static(path.resolve(__dirname, 'build')));
