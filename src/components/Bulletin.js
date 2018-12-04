@@ -4,12 +4,16 @@ import PropTypes from 'prop-types';
 import OrderBook from './OrderBook';
 import RecentTrades from './RecentTrades';
 import ContractDetails from './ContractDetails';
+import MyPositionsBulletin from './MyPositionsBulletin';
 import PriceChart from './PriceChart';
-import List from './List';
+import ListFormContainer from './ListFormContainer';
+import ApprovalFormContainer from './ApprovalFormContainer';
+
 import {
   getUserAccount,
   getUserTokenPositions,
-  getUserOrders
+  getUserOrders,
+  getUserPositions,
 } from '../actions/userActions';
 import {
   getOrderBook,
@@ -24,9 +28,13 @@ export class Bulletin extends Component {
     super(props);
 
     this.state = {
-      detailsOpen: false
+      detailsOpen: false,
+      resultsMessage: '',
+      token: '',
+      balance: 0,
     };
     this.handleRowClick = this.handleRowClick.bind(this)
+    this.handleList = this.handleList.bind(this)
   }
 
   async componentDidMount() {
@@ -34,13 +42,16 @@ export class Bulletin extends Component {
     if (!this.props.userAccount) { return };
     this.props.getOrderBook();
     this.props.getRecentTrades();
+    this.props.getUserPositions(this.props.userAccount);
     this.props.getUserTokenPositions(this.props.userAccount);
     this.props.getUserOrders(this.props.userAccount);
     this.orderBookInterval = setInterval(() => this.props.getOrderBook(this.props.userAccount, true), 30000);
+    this.positionsInterval = setInterval(() => this.props.getUserPositions(this.props.userAccount, true), 30000);
     this.recentTradesInterval = setInterval(() => this.props.getRecentTrades(this.props.userAccount, true), 30000);
   }
   componentWillUnmount() {
     clearInterval(this.orderBookInterval);
+    clearInterval(this.positionsInterval);
     clearInterval(this.recentTradesInterval);
   }
 
@@ -68,15 +79,21 @@ export class Bulletin extends Component {
     });
   };
 
+  handleList = (token,balance) => {
+    alert('yo')
+    this.setState({
+      listOrderOpen: true,
+      token: token,
+      balance: balance,
+    });
+  }
+
   render() {
     return (
       <div id="bulletin">
         <OrderBook onRowClick={this.handleRowClick} refreshPage={this.refreshPage} />
-
-        <div className="order-buttons">
-          <List refreshPage={this.refreshPage}/>
-        </div>
-
+        <MyPositionsBulletin handleList={this.handleList} refreshPage={this.refreshPage}/>
+        
         <div className="price-chart">
           {this.props.userAccount ? <PriceChart /> : ''}
         </div>
@@ -89,6 +106,7 @@ export class Bulletin extends Component {
 }
 Bulletin.propTypes = {
   getUserAccount: PropTypes.func.isRequired,
+  getUserPositions: PropTypes.func.isRequired,
   getOrderBook: PropTypes.func.isRequired,
   getRecentTrades: PropTypes.func.isRequired,
   getContractDetails: PropTypes.func.isRequired,
@@ -110,6 +128,7 @@ export default connect(
     getRecentTrades,
     getContractDetails,
     getUserTokenPositions,
-    getUserOrders
+    getUserOrders,
+    getUserPositions,
   }
 )(requireConnection(Bulletin));

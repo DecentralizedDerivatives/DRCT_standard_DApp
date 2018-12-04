@@ -131,7 +131,8 @@ export const sendListOrder = (formValues, account) => async dispatch => {
   dispatch(setProcessing(true));
 
   let { token, tokenAmount, price } = formValues;
-
+  console.log('token')
+  console.log(token)
   try {
     var staticAddresses = FactoryProvider.getStaticAddresses();
     const exchange = await Exchange.at(staticAddresses.exchange);
@@ -158,10 +159,10 @@ export const sendListOrder = (formValues, account) => async dispatch => {
   dispatch(setProcessing(false));
 };
 
-export const sendApproveOrder = (approveDetails, account) => async dispatch => {
+export const sendApproveOrder = (approveDetails, token, account) => async dispatch => {
   dispatch(setProcessing(true));
 
-  let { token, tokenAmount } = approveDetails;
+  let { tokenAmount } = approveDetails;
 
   try {
     var staticAddresses = FactoryProvider.getStaticAddresses();

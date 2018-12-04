@@ -51,7 +51,7 @@ export class List extends Component {
             <h4 className="order-modal-head">
               { this.props.listOrderApproved ? <span>List Order</span> : <span>Approve Order</span> }
             </h4>
-            { this.props.listOrderApproved ? <ListFormContainer /> : <ApprovalFormContainer /> }
+            { this.props.listOrderApproved ? <ListFormContainer positionInfo={this.props.positionInfo}/> : <ApprovalFormContainer positionInfo={this.props.positionInfo}/> }
             {this.state.resultsMessage && (
               <div id="results-message" className="text-center">
                 {this.state.resultsMessage}
@@ -67,13 +67,11 @@ export class List extends Component {
   closeOrderModal = () => this.setState({ formOpen: false, resultsMessage: "" });
   render() {
     return (
-      <div className="order-btn-wrapper">
-        <div className="order-btn" onClick={this.toggleFormVisibility}>
-          <label className="order-btn-label">
-            List Order
-            </label>
+      <div>
+        <button className='btn btn-theme btn-thin' onClick={this.toggleFormVisibility}>List</button>
+        <div className="order-buttons">
+          {this.renderOrderModal()}
         </div>
-        {this.renderOrderModal()}
       </div>
     );
   }
@@ -82,7 +80,9 @@ List.propTypes = {
   listOrderId: PropTypes.string,
   listOrderError: PropTypes.string,
   listOrderApproved: PropTypes.bool,
-  listOrderApproveError: PropTypes.string
+  listOrderApproveError: PropTypes.string,
+  refreshPage: PropTypes.func,
+  positionInfo: PropTypes.object,
 };
 
 const mapStateToProps = state => ({

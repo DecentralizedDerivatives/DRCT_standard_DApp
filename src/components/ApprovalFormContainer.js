@@ -7,9 +7,6 @@ import ApprovalFormComponent from './ApprovalFormComponent';
 
 export const validate = values => {
   const errors = {};
-  if (!values.token) {
-    errors.token = 'Required';
-  }
   if (!values.tokenAmount) {
     errors.tokenAmount = 'Required';
   }
@@ -18,9 +15,7 @@ export const validate = values => {
 
 export let ApprovalFormContainer = props => {
   const submitForm = formValues => {
-    // console.log('submitting Form: ', formValues);
-
-    props.sendApproveOrder(formValues, props.userAccount);
+    props.sendApproveOrder(formValues, props.positionInfo.address, props.userAccount);
   };
 
   return (
@@ -28,6 +23,7 @@ export let ApprovalFormContainer = props => {
       handleSubmit={props.handleSubmit}
       onSubmit={submitForm}
       selectOptions={props.userTokens}
+      positionInfo={props.positionInfo}
     />
   );
 };
@@ -36,6 +32,7 @@ ApprovalFormContainer.propTypes = {
   sendApproveOrder: PropTypes.func.isRequired,
   userAccount: PropTypes.string,
   userTokens: PropTypes.array,
+  positionInfo: PropTypes.object,
 };
 
 const mapStateToProps = state => ({
