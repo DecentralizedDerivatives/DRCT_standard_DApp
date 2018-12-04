@@ -15,8 +15,7 @@ app.use(function(req,res,next){
   if (req.secure){
     next();
   } else{
-    console.log(req.host)
-    res.redirect('https://test.decentralizedderivatives.com');
+    res.redirect('https://' + req.headers.host);
   }
 });
 app.use(express.static(path.resolve(__dirname, 'build')));
