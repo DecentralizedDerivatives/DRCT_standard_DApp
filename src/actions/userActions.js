@@ -1,4 +1,4 @@
-import { Factory, Exchange, web3, DRCT, Wrapped } from '../ethereum';
+import { Factory, Exchange, web3, DRCT, Wrapped,DRCTRead,FactoryRead,ExchangeRead } from '../ethereum';
 import {
   SET_USER_ACCOUNT,
   SET_USER_BALANCE,
@@ -87,7 +87,7 @@ export const getUserTransactions = (userAccount, isSilent) => async dispatch => 
 const getContractCreationEvents = async (factory, userAccount) => {
   let transferEvent = await factory.ContractCreation(
     {},
-    { fromBlock: 0, toBlock: 'latest' }
+    { fromBlock: 6662000, toBlock: 'latest' }
   );
   return new Promise((resolve, reject) => {
     transferEvent.get(function (err, logs) { // .get() does not support async/await
@@ -129,7 +129,7 @@ export const getUserPositions = (userAccount, isSilent) => async dispatch => {
 };
 
 const getPositionsForFactory = async (provider, userAccount) => {
-  const factory = await Factory.at(provider.address);
+  const factory = await FactoryRead.at(provider.address);
   let positions = [];
   const numDates = await factory.getDateCount();
   // const response = await factory.getVariables();
@@ -144,7 +144,7 @@ const getPositionsForFactory = async (provider, userAccount) => {
     const tokenAddresses = await factory.getTokens(startDate);
     for (let p = 0; p < tokenAddresses.length; p++) {
       let tokenAddress = tokenAddresses[p];
-      let drct = await DRCT.at(tokenAddress);
+      let drct = await DRCTRead.at(tokenAddress);
       let tokenType = (await factory.getTokenType(tokenAddress)).c[0];
       // console.log('TOKEN TYPE', tokenType)
       let balance = await drct.balanceOf(userAccount);
@@ -197,7 +197,7 @@ export const getUserTokenPositions = userAccount => async dispatch => {
 };
 
 const getTokenPositionsForFactory = async (provider, userAccount) => {
-  const factory = await Factory.at(provider.address);
+  const factory = await FactoryRead.at(provider.address);
   const numDates = await factory.getDateCount();
   let tokens = [];
   for (let i = 0; i < numDates; i++) {
@@ -212,7 +212,7 @@ const getTokenPositionsForFactory = async (provider, userAccount) => {
         date.getUTCFullYear();
 
       for (let p = 0; p < tokenAddresses.length; p++) {
-        const drct = await DRCT.at(tokenAddresses[p]); //Getting contract
+        const drct = await DRCTRead.at(tokenAddresses[p]); //Getting contract
         const balance = (await drct.balanceOf(userAccount)).c[0]; //Getting balance of token
         if (balance > 0) {
           let tokenType = (await factory.getTokenType(tokenAddresses[p])).c[0];
@@ -235,7 +235,7 @@ export const getUserOrders = userAccount => async dispatch => {
     // console.log('FACTORIES', providers)
     var orders = []
     for (var i = 0; i < providers.length; i++) {
-      const factory = await Factory.at(providers[i].address);
+      const factory = await FactoryRead.at(providers[i].address);
       var data = await getOrdersForFactory(factory, userAccount);
       orders = orders.concat(data);
     }
@@ -252,7 +252,7 @@ export const getUserOrders = userAccount => async dispatch => {
 };
 const getOrdersForFactory = async (factory, userAccount) => {
   var staticAddresses = FactoryProvider.getStaticAddresses();
-  const exchange = await Exchange.at(staticAddresses.exchange);
+  const exchange = await ExchangeRead.at(staticAddresses.exchange);
   // console.log('exchagn', exchange)
   const books = await exchange.getUserOrders(userAccount); //Gets all listed order ids
   const allOrders = []; //Contains all information for each order
