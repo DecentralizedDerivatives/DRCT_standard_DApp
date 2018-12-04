@@ -12,7 +12,7 @@ const env = {
 // console.log('ENV',env.NETWORK_ID)
 
 app.use(function(req,res,next){
-  if (req.secure){
+  if (req.protocol == 'https' || req.secure){
     next();
   } else{
     res.redirect('https://' + req.headers.host);
