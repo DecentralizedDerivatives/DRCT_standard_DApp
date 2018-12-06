@@ -11,19 +11,9 @@ const env = {
   'ALCHEMY': process.env.ALCHEMY || 0,
   }
 // console.log('ENV',env.NETWORK_ID)
-/*
-app.enable("trust proxy")
-app.use(function(req,res,next){
-  if (req.protocol == 'https' || req.secure){
-    next();
-  } else{
-    res.redirect('https://' + req.headers.host + req.url);
-  }
-  next();
-});
-*/
 app.enable('trust proxy');
 app.use(function(req, res, next) {
+  return next();
     if (req.secure){
         return next();
     }
