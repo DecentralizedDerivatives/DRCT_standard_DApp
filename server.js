@@ -10,7 +10,7 @@ const env = {
   'API_KEY': 0,
   'ALCHEMY': process.env.ALCHEMY || 0,
   }
-// console.log('ENV',env.NETWORK_ID)
+console.log('ENV',env.NETWORK_ID)
 app.enable('trust proxy');
 app.use(function(req, res, next) {
     if (req.secure){
