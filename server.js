@@ -13,7 +13,6 @@ const env = {
 // console.log('ENV',env.NETWORK_ID)
 app.enable('trust proxy');
 app.use(function(req, res, next) {
-  return next();
     if (req.secure){
         return next();
     }
