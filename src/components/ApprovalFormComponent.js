@@ -7,13 +7,8 @@ import Select from './Select.js';
 export const ApprovalFormComponent = ({
   handleSubmit,
   onSubmit,
-  selectOptions,
   positionInfo
 }) => {
-  selectOptions = selectOptions.reduce((obj, item) => {
-    obj[item.address] = item.tokenType + ' ' + item.symbol + ': ' + item.balance + ' (' + item.date + ')';
-    return obj
-  }, {})
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -24,7 +19,7 @@ export const ApprovalFormComponent = ({
             name="tokenAmount"
             label="Token Amount"
             component={InputNumber}
-            step={"0.00001"}
+            step="1"
           />
         </InputGroup>
         <br />
