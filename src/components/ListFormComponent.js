@@ -9,6 +9,11 @@ export const ListFormComponent = ({
   token,
   tokenAmount
 }) => {
+  console.log('rendering list')
+  console.log('token')
+  console.log(token)
+  console.log('tokenAmount')
+  console.log(tokenAmount)
   return (
       <form autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
         <label style={{margin: '6px 0'}}><strong>Token:</strong></label>

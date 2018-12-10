@@ -2,18 +2,12 @@ import React from 'react';
 import { Field } from 'redux-form';
 import { InputGroup } from 'reactstrap';
 import InputNumber from './InputNumber';
-import Select from './Select.js';
 
 export const ApprovalFormComponent = ({
   handleSubmit,
   onSubmit,
-  selectOptions,
   positionInfo
 }) => {
-  selectOptions = selectOptions.reduce((obj, item) => {
-    obj[item.address] = item.tokenType + ' ' + item.symbol + ': ' + item.balance + ' (' + item.date + ')';
-    return obj
-  }, {})
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>

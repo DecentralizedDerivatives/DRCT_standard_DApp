@@ -25,11 +25,13 @@ export class List extends Component {
       this.setState({ resultsMessage: '', formOpen: false });
       this.props.refreshPage(true);
     } else if (nextProps.listOrderApproveError) {
+      console.log('hey')
       this.setState({
         resultsMessage: `Error: ${nextProps.listOrderApproveError}`,
         formOpen: true
       });
     } else if (nextProps.listOrderApproved) {
+      console.log('hey')
       this.setState({
         resultsMessage: `Order approval confirmed`,
         formOpen: true
