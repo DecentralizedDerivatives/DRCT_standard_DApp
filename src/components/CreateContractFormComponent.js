@@ -47,7 +47,7 @@ export const CreateContractFormComponent = ({
       </InputGroup>
           <p style={{margin:'5px'}}>Enter the amount of Ether for the total purchase of the contract below.</p>
       <InputGroup className="form-eth-input">
-        <Field name="amount" addonLabel="ETH" component={InputNumber} />
+        <Field name="amount" addonLabel="ETH" step="0.01" component={InputNumber} />
       </InputGroup>
 
       <div className="form-submit-wrapper">

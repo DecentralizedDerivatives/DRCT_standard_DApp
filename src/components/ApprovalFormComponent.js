@@ -30,7 +30,7 @@ export const ApprovalFormComponent = ({
             name="tokenAmount"
             label="Token Amount"
             component={InputNumber}
-            step={"0.00001"}
+            step={"1"}
           />
         </InputGroup>
         <br />
