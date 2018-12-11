@@ -196,6 +196,8 @@ export const getUserTokenPositions = userAccount => async dispatch => {
   }
 };
 
+
+
 const getTokenPositionsForFactory = async (provider, userAccount) => {
   const factory = await FactoryRead.at(provider.address);
   const numDates = await factory.getDateCount();
@@ -203,13 +205,15 @@ const getTokenPositionsForFactory = async (provider, userAccount) => {
   for (let i = 0; i < numDates; i++) {
     const startDates = (await factory.startDates.call(i)).c[0];
     const tokenAddresses = await factory.getTokens(startDates);
-    let date = new Date(startDates * 1000);
+    let startDate = new Date(startDates * 1000);
     var todayMinusSixDays = new Date();
     todayMinusSixDays.setDate(todayMinusSixDays.getDate() - 6);
-    if (date > todayMinusSixDays) {
-      date = date.getMonth() + 1 + '/' +
-        date.getUTCDate() + '/' +
-        date.getUTCFullYear();
+    var utcTodayMinusSixDays = new Date(todayMinusSixDays.getTime() + todayMinusSixDays.getTimezoneOffset() * 60000);
+
+    if (startDate > utcTodayMinusSixDays) {
+      startDate = startDate.getMonth() + 1 + '/' +
+        startDate.getUTCDate() + '/' +
+        startDate.getUTCFullYear();
 
       for (let p = 0; p < tokenAddresses.length; p++) {
         const drct = await DRCTRead.at(tokenAddresses[p]); //Getting contract
@@ -219,7 +223,7 @@ const getTokenPositionsForFactory = async (provider, userAccount) => {
           tokens.push({
             address: tokenAddresses[p],
             balance,
-            date,
+            date: startDate,
             tokenType: tokenType === 1 ? 'Short' : 'Long',
             symbol: provider.symbol
           })
