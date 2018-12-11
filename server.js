@@ -1,3 +1,4 @@
+
 const express = require('express');
 const path = require('path');
 require('dotenv').config()
@@ -10,6 +11,14 @@ const env = {
   'ALCHEMY': process.env.ALCHEMY || 0,
 }
 // console.log('ENV',env.NETWORK_ID)
+
+app.enable('trust proxy');
+app.use(function(req, res, next) {
+    if (req.secure){
+        return next();
+    }
+    res.redirect("https://" + req.headers.host + req.url);
+});
 
 app.use(express.static(path.resolve(__dirname, 'build')));
 
