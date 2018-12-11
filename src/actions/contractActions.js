@@ -234,10 +234,10 @@ export const getRecentTrades = (isSilent) => async dispatch => {
       console.log('Trade didnt work');
       var staticAddresses = FactoryProvider.getStaticAddresses();
       const exchange = await Exchange.at(staticAddresses.exchange);
-
+      var blockNumber = FactoryProvider.getBlocks();
       let transferEvent = await exchange.Sale(
         {},
-        { fromBlock: 6662000, toBlock: 'latest' }
+        { fromBlock: blockNumber, toBlock: 'latest' }
       );
       transferEvent.get(async function (err, events) {
         if (events.length > 0) {
