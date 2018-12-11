@@ -59,7 +59,7 @@ module.exports.getStaticAddresses = () => {
   return staticAddresses();
 }
 
-modlue.exports.getBlocks = () => {
+module.exports.getBlocks = () => {
   return block();
 }
 
