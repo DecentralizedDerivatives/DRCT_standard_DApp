@@ -17,6 +17,19 @@ const items = () => {
   }
 }
 
+const block = () => {
+  const fp = require('./factoryProvider.js')
+  const networkId = fp.getNetworkId();
+  switch (networkId) {
+    case 1: // MAIN NETWORK
+      return 6660000
+    case 4: // RINKEBY
+      return  3000000
+    default:
+      return 0;
+  }
+}
+
 const staticAddresses = () => {
   const fp = require('./factoryProvider.js')
   const networkId = fp.getNetworkId();
@@ -45,6 +58,11 @@ module.exports.getNetworkId = () => {
 module.exports.getStaticAddresses = () => {
   return staticAddresses();
 }
+
+module.exports.getBlocks = () => {
+  return block();
+}
+
 module.exports.symbols = () => {
   let list = []
   items().forEach(function (e) {

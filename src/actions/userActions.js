@@ -85,9 +85,10 @@ export const getUserTransactions = (userAccount, isSilent) => async dispatch => 
 };
 
 const getContractCreationEvents = async (factory, userAccount) => {
+  var blockNumber = FactoryProvider.getBlocks();
   let transferEvent = await factory.ContractCreation(
     {},
-    { fromBlock: 6662000, toBlock: 'latest' }
+    { fromBlock: blockNumber, toBlock: 'latest' }
   );
   return new Promise((resolve, reject) => {
     transferEvent.get(function (err, logs) { // .get() does not support async/await
