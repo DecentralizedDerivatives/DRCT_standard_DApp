@@ -69,7 +69,6 @@ export const getOrderBook = (isSilent) => async dispatch => {
         order.groupLimit(1);
         let r = await qb.execute();
         let res = r.data.OrderBook.hits;
-        console.log('res',res);
         for(var i = res.length-1;i>=0;i--){
           let res2 = res[i].event.params;
           let errors = 0;
@@ -94,7 +93,6 @@ export const getOrderBook = (isSilent) => async dispatch => {
                   let currentPrice = priceData[priceData.length - 1][1]
                   contractGain = ((currentPrice - startPrice) / startPrice) * 100 * Number(provider.multiplier) * (tokenType === 1 ? -1 : 1)
                 }
-                          console.log('arlent1!!',_allrows.length)
               _allrows.push({
                 orderId: res2._orderID,
                 creatorAddress: res2._sender,
@@ -112,7 +110,6 @@ export const getOrderBook = (isSilent) => async dispatch => {
               errors += 1;
             }
           }
-          console.log('arlent',_allrows.length)
           }
           dispatch({
               type: SET_ORDERBOOK,
@@ -194,12 +191,13 @@ export const getRecentTrades = (isSilent) => async dispatch => {
       apiKey
 
     });
-    let qb = client.queryBuilder().offset(0).pageSize(5);
+    let qb = client.queryBuilder().offset(0).pageSize(10);
     try{
         let order = qb.query("OrderBook");
         order.logEvent("Sale").withIndex(1);
         let r = await qb.execute();
         let res = r.data.OrderBook.hits;
+        console.log('res',res);
         for(var i = res.length-1;i>=0;i--){
           let res2 = res[i].event.params;
           var drct = await DRCTRead.at(res2._token);
@@ -212,10 +210,10 @@ export const getRecentTrades = (isSilent) => async dispatch => {
             let endDate = moment(date).utc().add(6, 'days')
             let tokenType = (await factory.getTokenType(res2._token)).c[0];
             var provider = FactoryProvider.getFromAddress(factoryAddress);
-            trades.push({
+            trades.unshift({
               address: res2._token,
               volume: res2._amount,
-              price: res2._amount,
+              price: res2._price/1e18,
               orderDate: orderDate.toString(),
               contractDuration: provider && provider.duration ? provider.duration : 7,
               contractMultiplier: provider && provider.multiplier ? provider.multiplier : 1,
@@ -253,7 +251,7 @@ export const getRecentTrades = (isSilent) => async dispatch => {
             let tokenType = (await factory.getTokenType(token)).c[0];
             var provider = FactoryProvider.getFromAddress(factoryAddress);
             var precisePrice = parseFloat(events[i].args['_price']/1e18).toFixed(5);
-            trades.push({
+            trades.unshift({
               address: token,
               volume: events[i].args['_amount'].toString(),
               price: precisePrice,
