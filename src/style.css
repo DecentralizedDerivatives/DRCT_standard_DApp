@@ -484,7 +484,6 @@ color:white;
 .wide-table-container {
   text-align: left;
   padding: 0.5rem 1em 0;
-  height: 400px;
   overflow-y: scroll;
 }
 .wide-table-container .table-title {
