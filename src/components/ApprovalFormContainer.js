@@ -22,7 +22,6 @@ export let ApprovalFormContainer = props => {
     <ApprovalFormComponent
       handleSubmit={props.handleSubmit}
       onSubmit={submitForm}
-      selectOptions={props.userTokens}
       positionInfo={props.positionInfo}
     />
   );
@@ -31,12 +30,10 @@ export let ApprovalFormContainer = props => {
 ApprovalFormContainer.propTypes = {
   sendApproveOrder: PropTypes.func.isRequired,
   userAccount: PropTypes.string,
-  userTokens: PropTypes.array,
   positionInfo: PropTypes.object,
 };
 
 const mapStateToProps = state => ({
-  userTokens: state.user.userTokens,
   userAccount: state.user.userAccount
 });
 

@@ -11,6 +11,7 @@ const env = {
   'ALCHEMY': process.env.ALCHEMY || 0,
   }
 // console.log('ENV',env.NETWORK_ID)
+/*
 app.enable('trust proxy');
 app.use(function(req, res, next) {
     if (req.secure){
@@ -18,7 +19,7 @@ app.use(function(req, res, next) {
     }
     res.redirect("https://" + req.headers.host + req.url);
 });
-
+*/
 app.use(express.static(path.resolve(__dirname, 'build')));
 
 app.get('/env.js', function (req, res) {

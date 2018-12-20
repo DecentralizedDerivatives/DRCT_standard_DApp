@@ -31,7 +31,11 @@ export class List extends Component {
         formOpen: true
       });
     } else if (nextProps.listOrderApproved) {
-      console.log('hey')
+      console.log('list Order is Approved')
+      console.log('this.props.listOrderId')
+      console.log(this.props.listOrderId)
+      console.log('this.props.positionInfo')
+      console.log(this.props.positionInfo)
       this.setState({
         resultsMessage: `Order approval confirmed`,
         formOpen: true

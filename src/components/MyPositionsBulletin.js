@@ -7,6 +7,16 @@ import { formatter } from '../formatter'
 import List from './List'
 
 export class MyPositionsBulletin extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      cashoutOpen: false,
+      detailsOpen: false,
+      formOpen: false,
+      positionInfo: null,
+    };
+  }
   formatPercent (val, empty) {
     if (!val) { return <span> {empty || '$0'} </span> }
     var cls = val < 0 ? 'warning' : 'success'
