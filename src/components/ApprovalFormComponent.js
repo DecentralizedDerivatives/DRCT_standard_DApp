@@ -2,7 +2,6 @@ import React from 'react';
 import { Field } from 'redux-form';
 import { InputGroup } from 'reactstrap';
 import InputNumber from './InputNumber';
-import Select from './Select.js';
 
 export const ApprovalFormComponent = ({
   handleSubmit,
