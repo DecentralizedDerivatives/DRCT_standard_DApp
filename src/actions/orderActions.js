@@ -131,12 +131,9 @@ export const sendListOrder = (formValues, account) => async dispatch => {
   dispatch(setProcessing(true));
 
   let { token, tokenAmount, price } = formValues;
-  console.log('token')
-  console.log(token)
   try {
     var staticAddresses = FactoryProvider.getStaticAddresses();
     const exchange = await Exchange.at(staticAddresses.exchange);
-
     const response = await exchange.list(token, tokenAmount, price * 1e18, {
       from: account,
       gas: 400000

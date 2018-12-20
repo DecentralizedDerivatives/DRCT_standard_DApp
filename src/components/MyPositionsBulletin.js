@@ -5,6 +5,8 @@ import Loading from './Loading';
 import { SET_USER_POSITIONS } from '../actions/types';
 import { formatter } from '../formatter'
 import List from './List'
+import ListFormContainer from './ListFormContainer';
+import ApprovalFormContainer from './ApprovalFormContainer';
 
 export class MyPositionsBulletin extends Component {
   constructor() {
@@ -14,8 +16,12 @@ export class MyPositionsBulletin extends Component {
       cashoutOpen: false,
       detailsOpen: false,
       formOpen: false,
-      positionInfo: null,
+      resultsMessage: false,
+      approvedPosition: null,
+      chosenPositionInfo: null,
     };
+
+    this.toggleFormVisibility = this.toggleFormVisibility.bind(this);
   }
   formatPercent (val, empty) {
     if (!val) { return <span> {empty || '$0'} </span> }
@@ -48,7 +54,7 @@ export class MyPositionsBulletin extends Component {
           <td>{balance}</td>
           <td>{date}</td>
           <td>
-            <List positionInfo={position} refreshPage={this.props.refreshPage}/>
+            <List positionInfo={position} toggleFormVisibility={this.toggleFormVisibility}/>
           </td>
         </tr>
       );
@@ -56,6 +62,35 @@ export class MyPositionsBulletin extends Component {
     return rows;
   };
 
+  toggleFormVisibility(chosenPositionInfo) {
+    this.setState({
+      formOpen: !this.state.formOpen,
+      chosenPositionInfo: chosenPositionInfo,
+    });
+  }
+  renderOrderModal = () => (
+    this.state.formOpen || this.state.resultsMessage ? (
+      <div>
+        <div className="order-modal-background" onClick={this.closeOrderModal} />
+        <div className="order-modal">
+          <div id="buy-form">
+            <h4 className="order-modal-head">
+              { this.props.listOrderApproved ? <span>List Order</span> : <span>Approve Order</span> }
+            </h4>
+            { this.props.listOrderApproved ? <ListFormContainer positionInfo={this.state.chosenPositionInfo}/> : <ApprovalFormContainer positionInfo={this.state.chosenPositionInfo}/> }
+            {this.state.resultsMessage && (
+              <div id="results-message" className="text-center">
+                {this.state.resultsMessage}
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    ) : (
+        null
+      )
+  );
+  closeOrderModal = () => this.setState({ formOpen: false, resultsMessage: "" });
   render() {
     return (
       <div className="wide-table-container">
@@ -71,6 +106,9 @@ export class MyPositionsBulletin extends Component {
           </thead>
           <tbody>{this.renderRows()}</tbody>
         </table>
+        <div className="order-buttons">
+          {this.renderOrderModal()}
+        </div>
       </div>
     );
   }
@@ -79,12 +117,20 @@ export class MyPositionsBulletin extends Component {
 MyPositionsBulletin.propTypes = {
   handleList: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
-  userPositions: PropTypes.array
+  userPositions: PropTypes.array,
+  listOrderId: PropTypes.string,
+  listOrderError: PropTypes.string,
+  listOrderApproved: PropTypes.bool,
+  listOrderApproveError: PropTypes.string,
 };
 
 const mapStateToProps = state => ({
   loading: state.status.fetchInProgress.includes(SET_USER_POSITIONS),
-  userPositions: state.user.userPositions
+  userPositions: state.user.userPositions,
+  listOrderId: state.order.list.id,
+  listOrderError: state.order.listOrderError,
+  listOrderApproved: state.order.list.approved,
+  listOrderApproveError: state.order.listOrderFundsError
 });
 
 export default connect(mapStateToProps,{ })(MyPositionsBulletin);
